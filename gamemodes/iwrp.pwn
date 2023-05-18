@@ -91084,3 +91084,35 @@ CMD:checaratirador(playerid, params[]){
 	SendClientMessage(playerid, COLOR_LIGHTRED, string);
 	return 1;
 }
+CMD:drone(playerid, params[])
+{
+    new Modelo, Color3[2], Float:Pos[4];
+
+    if(sscanf(params, "ddd", Modelo, Color3[0], Color3[1]))
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "USE: /drone [modelo] [color1] [color2]");
+
+    if(Modelo < 464 || Modelo > 465)
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: ID inválido.");
+
+ 	GetPlayerPos(playerid, Pos[0], Pos[1], Pos[2]);
+    GetPlayerFacingAngle(playerid, Pos[3]);
+
+	format(string,sizeof(string),"* %s posiciona seu drone, liga o controle remoto e começa a manusear o drone.", PlayerName(playerid,1));
+	ProxDetector(15.0, playerid, string,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
+
+    pVeh[playerid] = CreateVehicle(Modelo, Pos[0], Pos[1], Pos[2], Pos[3], Color3[0], Color3[1], -1);
+    PutPlayerInVehicle(playerid, pVeh[playerid], 0);
+    StartEngine(GetPlayerVehicleID(playerid));
+    return 1;
+}
+CMD:destruirdrone(playerid, params[])
+{
+    if(!PlayerInfo[playerid][pLogado]) return SCM(playerid, COLOR_LIGHTRED, "Você precisa está logado para usar este comando.");
+
+	DestroyVehicle(pVeh[playerid]);
+
+	format(string,sizeof(string),"* %s controla o drone até o ponto de pouso, desliga-o em seguida.", PlayerName(playerid,1));
+	ProxDetector(10.0, playerid, string,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
+	StopEngine(GetPlayerVehicleID(playerid));
+    return 1;
+}

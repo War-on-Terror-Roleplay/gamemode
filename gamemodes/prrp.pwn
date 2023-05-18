@@ -76533,7 +76533,7 @@ stock ViewFactions(playerid)
 		}
 	}
 	if(PlayerInfo[playerid][pAdmin] < 5) Dialog_Show(playerid, FactionsList, DIALOG_STYLE_TABLIST_HEADERS, "Facções [IW:RP]", stringa, "Fechar", "");
-	else Dialog_Show(playerid, FactionsList, DIALOG_STYLE_TABLIST_HEADERS, "Facções [IW:RP]]", stringa, "Editar", "Fechar");
+	else Dialog_Show(playerid, FactionsList, DIALOG_STYLE_TABLIST_HEADERS, "Facções [IW:RP]", stringa, "Editar", "Fechar");
 	return 1;
 }
 

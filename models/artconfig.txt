@@ -1,0 +1,482 @@
+//Skins
+AddCharModel(299, 20001, "skin.dff", "skin.txd");
+AddCharModel(299, 20002, "skin2.dff", "skin2.txd");
+AddCharModel(299, 20003, "skin3.dff", "skin3.txd");
+AddCharModel(299, 20004, "skin4.dff", "skin4.txd");
+AddCharModel(299, 20005, "skin5.dff", "skin5.txd");
+AddCharModel(299, 20006, "skin6.dff", "skin6.txd");
+AddCharModel(299, 20007, "skin7.dff", "skin7.txd");
+AddCharModel(299, 20008, "skin8.dff", "skin8.txd");
+AddCharModel(299, 20009, "skin9.dff", "skin9.txd");
+AddCharModel(299, 20010, "skin10.dff", "skin10.txd");
+AddCharModel(299, 20011, "skin11.dff", "skin11.txd");
+AddCharModel(299, 20012, "skin12.dff", "skin12.txd");
+AddCharModel(299, 20013, "skin13.dff", "skin13.txd");
+AddCharModel(299, 20014, "skin14.dff", "skin14.txd");
+AddCharModel(299, 20015, "skin15.dff", "skin15.txd");
+AddCharModel(299, 20016, "skin16.dff", "skin16.txd");
+AddCharModel(299, 20017, "skin17.dff", "skin17.txd");
+AddCharModel(299, 20018, "skin18.dff", "skin18.txd");
+AddCharModel(299, 20019, "skin19.dff", "skin19.txd");
+AddCharModel(299, 20020, "skin20.dff", "skin20.txd");
+AddCharModel(299, 20021, "skin21.dff", "skin21.txd");
+AddCharModel(299, 20022, "skin22.dff", "skin22.txd");
+AddCharModel(299, 20023, "skin23.dff", "skin23.txd");
+AddCharModel(299, 20024, "skin24.dff", "skin24.txd");
+AddCharModel(299, 20025, "skin25.dff", "skin25.txd");
+AddCharModel(299, 20026, "skin26.dff", "skin26.txd");
+AddCharModel(299, 20027, "skin27.dff", "skin27.txd");
+AddCharModel(299, 20028, "skin28.dff", "skin28.txd");
+AddCharModel(299, 20029, "skin29.dff", "skin29.txd");
+AddCharModel(299, 20030, "skin30.dff", "skin30.txd");
+AddCharModel(299, 20031, "skin31.dff", "skin31.txd");
+AddCharModel(299, 20032, "skin32.dff", "skin32.txd");
+AddCharModel(299, 20033, "skin33.dff", "skin33.txd");
+AddCharModel(299, 20034, "skin34.dff", "skin34.txd");
+AddCharModel(299, 20035, "skin35.dff", "skin35.txd");
+AddCharModel(299, 20036, "skin36.dff", "skin36.txd");
+AddCharModel(299, 20037, "skin37.dff", "skin37.txd");
+AddCharModel(299, 20038, "skin38.dff", "skin38.txd");
+AddCharModel(299, 20039, "skin39.dff", "skin39.txd");
+AddCharModel(299, 20040, "skin40.dff", "skin40.txd");
+AddCharModel(299, 20041, "nescau.dff", "nescau.txd");
+AddCharModel(299, 20042, "pigeon.dff", "pigeon.txd");
+AddCharModel(299, 20043, "stoorm.dff", "stoorm.txd");
+AddCharModel(299, 20044, "antunes.dff", "antunes.txd");
+AddCharModel(211, 20045, "fem.dff", "fem.txd");
+AddCharModel(211, 20046, "fem1.dff", "fem1.txd");
+AddCharModel(211, 20047, "fem2.dff", "fem2.txd");
+AddCharModel(211, 20048, "fem3.dff", "fem3.txd");
+AddCharModel(211, 20049, "fem4.dff", "fem4.txd");
+AddCharModel(211, 20050, "fem5.dff", "fem5.txd");
+AddCharModel(211, 20051, "fem6.dff", "fem6.txd");
+AddCharModel(211, 20052, "fem7.dff", "fem7.txd");
+AddCharModel(211, 20053, "fem8.dff", "fem8.txd");
+AddCharModel(211, 20054, "fem9.dff", "fem9.txd");
+AddCharModel(211, 20055, "fem10.dff", "fem10.txd");
+AddCharModel(211, 20056, "fem11.dff", "fem11.txd");
+AddCharModel(211, 20057, "fem12.dff", "fem12.txd");
+AddCharModel(211, 20058, "fem13.dff", "fem13.txd");
+AddCharModel(211, 20059, "fem14.dff", "fem14.txd");
+AddCharModel(211, 20060, "fem15.dff", "fem15.txd");
+AddCharModel(211, 20061, "fem16.dff", "fem16.txd");
+AddCharModel(211, 20062, "fem17.dff", "fem17.txd");
+AddCharModel(211, 20063, "fem18.dff", "fem18.txd");
+AddCharModel(211, 20064, "fem19.dff", "fem19.txd");
+AddCharModel(211, 20065, "fem20.dff", "fem20.txd");
+AddCharModel(211, 20066, "fem21.dff", "fem21.txd");
+AddCharModel(211, 20067, "fem22.dff", "fem22.txd");
+AddCharModel(211, 20068, "fem23.dff", "fem23.txd");
+AddCharModel(13, 20069, "pet7.dff", "pet7.txd"); 
+AddCharModel(252, 20070, "pet6.dff", "pet6.txd");
+AddCharModel(252, 20071, "pet1.dff", "pet1.txd");
+AddCharModel(252, 20072, "pet2.dff", "pet2.txd");
+AddCharModel(252, 20073, "pet3.dff", "pet3.txd");
+AddCharModel(252, 20074, "pet3.dff", "pet3.txd");
+AddCharModel(252, 20075, "pet4.dff", "pet4.txd");
+AddCharModel(252, 20076, "pet5.dff", "pet5.txd");
+
+//SLOTS PERSONALIZADO PRIVADO AMIGOS
+AddCharModel(211, 20100, "luizh.dff", "luizh.txd");
+AddCharModel(91, 20101, "prixy.dff", "prixy.txd");
+AddCharModel(299, 20102, "vitor.dff", "vitor.txd");
+AddCharModel(299, 20103, "vitor2.dff", "vitor2.txd");
+AddCharModel(299, 20104, "vitor3.dff", "vitor3.txd");
+AddCharModel(299, 20105, "vitor4.dff", "vitor4.txd");
+AddCharModel(299, 20106, "vitor5.dff", "vitor5.txd");
+AddCharModel(299, 20107, "vitor6.dff", "vitor6.txd");
+
+//skins PCERJ
+AddCharModel(305, 20200, "delegadocivil.dff", "delegadocivil.txd");
+AddCharModel(305, 20201, "delegadocivil2.dff", "delegadocivil2.txd");
+AddCharModel(305, 20202, "investigadorcivil.dff", "investigadorcivil.txd");
+AddCharModel(305, 20203, "investigadorcivil2.dff", "investigadorcivil2.txd");
+AddCharModel(280, 20204, "skinpcerj1.dff", "skinpcerj1.txd");
+AddCharModel(280, 20205, "skinpcerj2.dff", "skinpcerj2.txd");
+AddCharModel(280, 20206, "skinpcerj3.dff", "skinpcerj3.txd");
+AddCharModel(280, 20207, "skinpcerj4.dff", "skinpcerj4.txd");
+AddCharModel(280, 20208, "skinpcerj5.dff", "skinpcerj5.txd");
+AddCharModel(280, 20209, "skinpcerj6.dff", "skinpcerj6.txd");
+AddCharModel(280, 20210, "skinpcerj7.dff", "skinpcerj7.txd");
+AddCharModel(211, 20211, "skinfpcerj1.dff", "skinfpcerj1.txd");
+AddCharModel(211, 20212, "skinfpcerj2.dff", "skinfpcerj2.txd");
+AddCharModel(211, 20213, "skinfpcerj3.dff", "skinfpcerj3.txd");
+AddCharModel(211, 20214, "skinfpcerj4.dff", "skinfpcerj4.txd");
+AddCharModel(280, 20215, "skinpcerj8.dff", "skinpcerj8.txd");
+AddCharModel(280, 20216, "skinpcerj9.dff", "skinpcerj9.txd");
+AddCharModel(280, 20217, "skinpcerj10.dff", "skinpcerj10.txd");
+AddCharModel(280, 20218, "skinpcerj11.dff", "skinpcerj11.txd");
+AddCharModel(280, 20219, "skinpcerj12.dff", "skinpcerj12.txd");
+AddCharModel(280, 20220, "skinpcerj13.dff", "skinpcerj13.txd");
+AddCharModel(280, 20221, "skinpcerj14.dff", "skinpcerj14.txd");
+AddCharModel(280, 20222, "skinpcerj15.dff", "skinpcerj15.txd");
+AddCharModel(280, 20223, "skinpcerj16.dff", "skinpcerj16.txd");
+AddCharModel(280, 20224, "skinpcerj17.dff", "skinpcerj17.txd");
+AddCharModel(280, 20225, "skinpcerj18.dff", "skinpcerj18.txd");
+AddCharModel(280, 20226, "skinpcerj19.dff", "skinpcerj19.txd");
+AddCharModel(280, 20227, "skinpcerj20.dff", "skinpcerj20.txd");
+AddCharModel(280, 20228, "skinpcerj21.dff", "skinpcerj21.txd");
+
+//skins CBMERJ
+AddCharModel(211, 20301, "cbmerj.dff", "cbmerj.txd");
+AddCharModel(211, 20302, "cbmerj2.dff", "cbmerj2.txd");
+AddCharModel(211, 20303, "cbmerj3.dff", "cbmerj3.txd");
+AddCharModel(211, 20304, "cbmerj4.dff", "cbmerj4.txd");
+AddCharModel(211, 20305, "cbmerj5.dff", "cbmerj5.txd");
+AddCharModel(211, 20306, "cbmerj6.dff", "cbmerj6.txd");
+AddCharModel(211, 20307, "cbmerj7.dff", "cbmerj7.txd");
+AddCharModel(211, 20308, "cbmerj8.dff", "cbmerj8.txd");
+AddCharModel(211, 20309, "cbmerj9.dff", "cbmerj9.txd");
+AddCharModel(211, 20310, "cbmerj10.dff", "cbmerj10.txd");
+AddCharModel(211, 20311, "cbmerj11.dff", "cbmerj11.txd");
+AddCharModel(211, 20312, "cbmerj12.dff", "cbmerj12.txd");
+AddCharModel(211, 20313, "cbmerj13.dff", "cbmerj13.txd");
+AddCharModel(211, 20314, "cbmerj14.dff", "cbmerj14.txd");
+AddCharModel(211, 20315, "cbmerj15.dff", "cbmerj15.txd");
+AddCharModel(211, 20316, "cbmerj16.dff", "cbmerj16.txd");
+AddCharModel(211, 20317, "cbmerj17.dff", "cbmerj17.txd");
+AddCharModel(211, 20318, "cbmerj18.dff", "cbmerj18.txd");
+AddCharModel(211, 20319, "cbmerj19.dff", "cbmerj19.txd");
+AddCharModel(211, 20320, "cbmerj20.dff", "cbmerj20.txd");
+AddCharModel(211, 20321, "cbmerj21.dff", "cbmerj21.txd");
+AddCharModel(277, 20322, "cbmerj22.dff", "cbmerj22.txd");
+//AddCharModel(277, 20323, "cbmerj23.dff", "cbmerj23.txd");
+AddCharModel(277, 20324, "cbmerj24.dff", "cbmerj24.txd");
+AddCharModel(277, 20325, "cbmerj25.dff", "cbmerj25.txd");
+AddCharModel(277, 20326, "cbmerj26.dff", "cbmerj26.txd");
+//AddCharModel(277, 20327, "cbmerj27.dff", "cbmerj27.txd");
+//AddCharModel(277, 20328, "cbmerj28.dff", "cbmerj28.txd");
+AddCharModel(277, 20329, "cbmerj29.dff", "cbmerj29.txd");
+AddCharModel(277, 20330, "cbmerj30.dff", "cbmerj30.txd");
+//AddCharModel(277, 20331, "cbmerj31.dff", "cbmerj31.txd");
+AddCharModel(277, 20332, "cbmerj32.dff", "cbmerj32.txd");
+AddCharModel(277, 20333, "cbmerj33.dff", "cbmerj33.txd");
+AddCharModel(277, 20334, "cbmerj34.dff", "cbmerj34.txd");
+//AddCharModel(277, 20335, "cbmerj35.dff", "cbmerj35.txd");
+AddCharModel(277, 20336, "cbmerj36.dff", "cbmerj36.txd");
+AddCharModel(277, 20337, "cbmerj37.dff", "cbmerj37.txd");
+AddCharModel(277, 20338, "cbmerj38.dff", "cbmerj38.txd");
+AddCharModel(277, 20339, "cbmerj39.dff", "cbmerj39.txd");
+AddCharModel(277, 20340, "cbmerj40.dff", "cbmerj40.txd");
+//AddCharModel(277, 20341, "cbmerj41.dff", "cbmerj41.txd");
+AddCharModel(277, 20342, "cbmerj42.dff", "cbmerj42.txd");
+
+//skins PMERJ
+AddCharModel(280, 20400, "pmerj.dff", "pmerj.txd);
+AddCharModel(280, 20401, "pmerj2.dff", "pmerj2.txd);
+AddCharModel(280, 20402, "pmerj3.dff", "pmerj3.txd);
+AddCharModel(280, 20403, "pmerj4.dff", "pmerj4.txd);
+AddCharModel(280, 20404, "pmerj5.dff", "pmerj5.txd);
+AddCharModel(280, 20405, "pmerj6.dff", "pmerj6.txd);
+AddCharModel(280, 20406, "pmerj7.dff", "pmerj7.txd);
+AddCharModel(98, 20407, "pmerjf1.dff", "pmerjf1.txd);
+AddCharModel(98, 20408, "pmerjtf.dff", "pmerjtf.txd);
+AddCharModel(98, 20409, "pmerjf3.dff", "pmerjf3.txd);
+AddCharModel(280, 20410, "skindetreinamento.dff", "skindetreinamento.txd");
+AddCharModel(280, 20411, "skindetreinamento2.dff", "skindetreinamento2.txd");
+AddCharModel(280, 20412, "pmerjt.dff", "pmerjt.txd);
+AddCharModel(280, 20413, "pmerjt2.dff", "pmerjt2.txd);
+AddCharModel(280, 20414, "pmerjt3.dff", "pmerjt3.txd);
+AddCharModel(280, 20415, "pmerjt4.dff", "pmerjt4.txd);
+AddCharModel(280, 20416, "pmerjt5.dff", "pmerjt5.txd);
+AddCharModel(280, 20417, "pmerjt6.dff", "pmerjt6.txd);
+AddCharModel(280, 20418, "pmerjt7.dff", "pmerjt7.txd);
+AddCharModel(280, 20419, "pmerjt8.dff", "pmerjt8.txd);
+AddCharModel(280, 20420, "pmerjgam1.dff", "pmerjgam1.txd);
+AddCharModel(280, 20421, "pmerjgam2.dff", "pmerjgam2.txd);
+AddCharModel(98, 20422, "pmerjf2.dff", "pmerjf2.txd);
+AddCharModel(280, 20423, "pmerjbope1.dff", "pmerjbope1.txd);
+AddCharModel(280, 20424, "pmerjbope2.dff", "pmerjbope2.txd);
+AddCharModel(280, 20425, "pmerjbope3.dff", "pmerjbope3.txd);
+AddCharModel(280, 20426, "pmerjbope4.dff", "pmerjbope4.txd);
+AddCharModel(280, 20427, "pmerjbope5.dff", "pmerjbope5.txd);
+AddCharModel(280, 20428, "pmerjbope6.dff", "pmerjbope6.txd);
+AddCharModel(280, 20429, "pmerjbope7.dff", "pmerjbope7.txd);
+AddCharModel(280, 20430, "pmerjbope8.dff", "pmerjbope8.txd);
+AddCharModel(280, 20431, "pmerjbope9.dff", "pmerjbope9.txd);
+AddCharModel(280, 20432, "pmerjbope10.dff", "pmerjbope10.txd);
+
+//skins PROSEGUR
+AddCharModel(280, 20501, "prosegur1.dff", "prosegur1.txd);
+AddCharModel(280, 20502, "prosegur2.dff", "prosegur2.txd);
+AddCharModel(280, 20503, "prosegur3.dff", "prosegur3.txd);
+AddCharModel(280, 20504, "prosegur4.dff", "prosegur4.txd);
+AddCharModel(280, 20505, "prosegur5.dff", "prosegur5.txd);
+
+//objetos policia
+AddSimpleModel(-1,19515, -2100, "coletepmt.dff", "coletepmt.txd");
+AddSimpleModel(-1,19515, -2101, "coletepmerj.dff", "coletepmerj.txd");
+AddSimpleModel(-1,19515, -2102, "coletepcerj.dff", "coletepcerj.txd");
+AddSimpleModel(-1,18933, -2103, "bonecore.dff", "bonecore.txd");
+AddSimpleModel(-1,18933, -2104, "bonepmerj.dff", "bonepmerj.txd");
+AddSimpleModel(-1,18933, -2105, "bodycam.dff", "bodycam.txd");
+AddSimpleModel(-1,19142, -2106, "band.dff", "band.txd");
+AddSimpleModel(-1,18637, -2108, "escudo.dff", "escudo.txd");
+AddSimpleModel(-1,19141, -2117, "cone.dff", "cone.txd");
+AddSimpleModel(-1,19141, -2118, "cavalete.dff", "cavalete.txd");
+AddSimpleModel(-1,19141, -2119, "faixa.dff", "faixa.txd");
+AddSimpleModel(-1,19781, -2120, "PatenteSD1.dff", "PatenteSD1.txd");
+AddSimpleModel(-1,19781, -2121, "PatenteCB2.dff", "PatenteCB2.txd");
+AddSimpleModel(-1,19781, -2122, "PatenteSGT3.dff", "PatenteSGT3.txd");
+AddSimpleModel(-1,19781, -2123, "PatenteSGT2.dff", "PatenteSGT2.txd");
+AddSimpleModel(-1,19781, -2124, "PatenteSGT1.dff", "PatenteSGT1.txd");
+AddSimpleModel(-1,19942, -2125, "RadioMotorola.dff", "RadioMotorola.txd");
+AddSimpleModel(-1,19515, -2126, "coletepmerj2.dff", "coletepmerj2.txd");
+AddSimpleModel(-1,19515, -2127, "coletebope.dff", "coletebope.txd");
+AddSimpleModel(-1,19515, -2128, "coletebope.dff", "coletebope2.txd");
+AddSimpleModel(-1,18933, -2129, "chapeubope.dff", "chapeubope.txd");
+AddSimpleModel(-1,18933, -2130, "cappmerj.dff", "cappmerj.txd");
+//objetos binco
+AddSimpleModel(-1,19315, -2080, "CachorroUm.dff", "CachorroUm.txd");
+AddSimpleModel(-1,19315, -2086, "CachorroDois.dff", "CachorroDois.txd");
+AddSimpleModel(-1,19315, -2082, "CachorroTres.dff", "CachorroTres.txd");
+AddSimpleModel(-1,19315, -2083, "CachorroQuatro.dff", "CachorroQuatro.txd");
+AddSimpleModel(-1,18636, -2051, "boneobjeto1.dff", "boneobjeto1.txd");
+AddSimpleModel(-1,18636, -2052, "boneobjeto2.dff", "boneobjeto2.txd");
+AddSimpleModel(-1,18636, -2053, "boneobjeto3.dff", "boneobjeto3.txd");
+AddSimpleModel(-1,18636, -2054, "boneobjeto4.dff", "boneobjeto4.txd");
+AddSimpleModel(-1,19142, -2055, "coletebandido.dff", "coletebandido.txd");
+AddSimpleModel(-1,3026, -2057, "mochila1.dff", "mochila1.txd");
+AddSimpleModel(-1,3026, -2058, "mochila2.dff", "mochila2.txd");
+AddSimpleModel(-1,3026, -2059, "mochila3.dff", "mochila3.txd");
+AddSimpleModel(-1,3026, -2060, "mochila4.dff", "mochila4.txd");
+AddSimpleModel(-1,18645, -2600, "helmet.dff", "helmet6.txd");
+AddSimpleModel(-1,18645, -2601, "helmet.dff", "helmet7.txd");
+AddSimpleModel(-1,18645, -2602, "helmet.dff", "helmet11.txd");
+AddSimpleModel(-1,18645, -2603, "helmet.dff", "helmet12.txd");
+AddSimpleModel(-1,18645, -2604, "helmet.dff", "helmet15.txd");
+AddSimpleModel(-1,18645, -2605, "helmet.dff", "helmet16.txd");
+AddSimpleModel(-1,18645, -2606, "helmet.dff", "helmet19.txd");
+AddSimpleModel(-1,18645, -2607, "helmet.dff", "helmet21.txd");
+AddSimpleModel(-1,18645, -2608, "helmet.dff", "helmet24.txd");
+AddSimpleModel(-1,18645, -2609, "helmet.dff", "helmet1.txd");
+AddSimpleModel(-1,3634, -2700, "ifood.dff", "ifood.txd");
+AddSimpleModel(-1,3634, -2701, "ubereats.dff", "ubereats.txd");
+AddSimpleModel(-1,3634, -2702, "bsimples.dff", "bsimples.txd");
+AddSimpleModel(-1,3634, -2703, "bolsanikelateral.dff", "bolsanikelateral.txd");
+AddSimpleModel(-1,3634, -2041, "PacoteMcDonalds.dff", "PacoteMcDonalds.txd");
+AddSimpleModel(-1,19142, -2610, "coletemoto.dff", "coletemoto.txd");
+
+
+
+//Drogas
+AddSimpleModel(-1,19141, -2300, "maconhab.dff", "maconhab.txd");
+AddSimpleModel(-1,19141, -2301, "maconhar.dff", "maconhar.txd");
+AddSimpleModel(-1,19141, -2302, "cocaina.dff", "cocaina.txd");
+AddSimpleModel(-1,19141, -2303, "crackr.dff", "crackr.txd");
+AddSimpleModel(-1,19141, -2304, "crackb.dff", "crackb.txd");
+AddSimpleModel(-1,19141, -2305, "lsd.dff", "lsd.txd");
+AddSimpleModel(-1,19141, -2306, "lancaperfume.dff", "lancaperfume.txd");
+AddSimpleModel(-1,19141, -2307, "MesaDeDrogas.dff", "MesaDeDrogas.txd");
+
+//objetos servidor
+AddSimpleModel(-1,19324, -2900, "atmbb.dff", "atmbb.txd");
+AddSimpleModel(-1,1676, -2901, "petrolpumpnew.dff", "petrolpumpnew.txd");
+//AddSimpleModel(-1,19141, -2919, "telpub.dff", "telpub.txd");
+AddSimpleModel(-1, 19324, -1000, "dp29.dff", "dp29.txd");
+AddSimpleModel(-1, 19324, -1600, "16bpm.dff", "16bpm.txd");
+AddSimpleModel(-1,19480,-2038,"PontoMototaxi.dff","PontoMototaxi.txd");
+AddSimpleModel(-1,19480,-1502,"bar_01.dff","bar_01.txd");
+AddSimpleModel(-1,3980, -1037, "prefeitura.dff", "prefeitura.txd");
+AddSimpleModel(-1,19379, -1038, "prefeiturabase.dff", "prefeiturabase.txd");
+AddSimpleModel(-1,19379, -2008, "prisao.dff", "prisao.txd");
+AddSimpleModel(-1,19379, -2042, "bope.dff", "bope.txd");
+AddSimpleModel(-1,19369, -1016, "craco2.dff", "craco.txd");
+AddSimpleModel(-1,19369, -1017, "craco.dff", "craco.txd");
+AddSimpleModel(-1,19379, -2004, "upa.dff", "upa.txd");
+AddSimpleModel(-1,19425, -2035, "santa.dff", "santa.txd");
+
+//mobilia prixy e objetos mecanica
+AddSimpleModel(-1,19787, -2043, "TV1BRANCA-BYPRIXY.dff", "TV1BRANCA-BYPRIXY.txd");
+AddSimpleModel(-1,19787, -2044, "TV1PRETA-BYPRIXY.dff", "TV1PRETA-BYPRIXY.txd");
+AddSimpleModel(-1,19787, -2045, "TV2BRANCA-BYPRIXY.dff", "TV2BRANCA-BYPRIXY.txd");
+AddSimpleModel(-1,19787, -2046, "TV2PRETA-BYPRIXY.dff", "TV2PRETA-BYPRIXY.txd");
+AddSimpleModel(-1,19817, -2047, "plataforma.dff", "plataforma.txd");
+AddSimpleModel(-1,19787, -2048, "elevador.dff", "elevador.txd");
+AddSimpleModel(-1,19787, -2049, "macaco.dff", "macaco.txd");
+AddSimpleModel(-1,19787, -2050, "guincho.dff", "guincho.txd");
+
+
+//objetos favela
+AddSimpleModel(-1, 19379, -2800, "fav_h1.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -2802, "fav_h2.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -2803, "fav_h3.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -2804, "fav_h4.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -2805, "fav_h5.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -2806, "fav_h6.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -2807, "fav_h7.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -2808, "fav_h8.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -2809, "fav_h9.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -2810, "fav_h10.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -2811, "fav_h11.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -2812, "fav_h12.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -2813, "fav_h13.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -2814, "fav_h14.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -2815, "fav_h15.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -2816, "fav_h16.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -2817, "fav_h17.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -2818, "fav_h18.dff", "fav_h.txd");
+AddSimpleModel(-1,19379, -1030, "lawrence1.dff", "lawrence.txd");
+AddSimpleModel(-1,19379, -1031, "lawrence2.dff", "lawrence.txd");
+AddSimpleModel(-1,19379, -1032, "lawrence3.dff", "lawrence.txd");
+AddSimpleModel(-1,19379, -1033, "lawrence4.dff", "lawrence.txd");
+AddSimpleModel(-1,19379, -1034, "lawrence5.dff", "lawrence.txd");
+AddSimpleModel(-1,19379, -1036, "comunidade.dff", "comunidade.txd");
+AddSimpleModel(-1,19379, -1039, "CBM.dff", "CBM.txd");
+AddSimpleModel(-1,19379, -1042, "CBMfloor.dff", "CBM.txd");
+AddSimpleModel(-1,19379, -1043, "CBMgate.dff", "CBM.txd");
+AddSimpleModel(-1,19379, -1070, "cachaca.dff", "cachaca.txd");
+AddSimpleModel(-1,19379, -1080, "mesacachaca.dff", "cachaca.txd");
+AddSimpleModel(-1,19379, -1060, "patio.dff", "patio.txd");
+AddSimpleModel(-1,19379, -1061, "patiogate.dff", "patio.txd");
+AddSimpleModel(-1,19379, -2063, "rojao.dff", "rojao.txd");
+AddSimpleModel(-1,19379, -1064, "docas.dff", "docas.txd");
+AddSimpleModel(-1,19379, -1066, "mcdonalds.dff", "mcdonalds.txd");
+AddSimpleModel(-1,19379, -1067, "forum.dff", "forum.txd");
+AddSimpleModel(-1,19379, -1068, "lojao.dff", "lojao.txd");
+AddSimpleModel(-1,19379, -1069, "idlewood.dff", "idlewood.txd");
+AddSimpleModel(-1, 19379, -2071, "casa.dff", "casa.txd");
+AddSimpleModel(-1, 19379, -2072, "casa2.dff", "casa2.txd");
+AddSimpleModel(-1, 19379, -2073, "casa3.dff", "casa3.txd");
+AddSimpleModel(-1, 19379, -2074, "docas.dff", "docas.txd");
+AddSimpleModel(-1, 19379, -2075, "escola.dff", "escola.txd");
+AddSimpleModel(-1, 19379, -2079, "miniextra.dff", "miniextra.txd");
+AddSimpleModel(-1, 19379, -2081, "prosegur.dff", "prosegur.txd");
+AddSimpleModel(-1, 19379, -7102, "campo1.dff", "campo1.txd");
+
+//favela carecas
+AddSimpleModel(-1,19480,-2010,"barraco.dff","barraco.txd");
+AddSimpleModel(-1,19480,-2011,"barraco2.dff","barraco2.txd");
+AddSimpleModel(-1,19480,-2012,"barracon1.dff","barracon1.txd");
+AddSimpleModel(-1,19480,-2013,"fav_1fj.dff","fav_1fj.txd");
+AddSimpleModel(-1,19480,-2014,"fav_bask.dff","fav_bask.txd");
+AddSimpleModel(-1,19480,-2015,"fav_football.dff","fav_football.txd");
+AddSimpleModel(-1,19480,-2016,"fav_h1.dff","fav_h1.txd");
+AddSimpleModel(-1,19480,-2017,"fav_h2.dff","fav_h2.txd");
+AddSimpleModel(-1,19480,-2018,"fav_h3.dff","fav_h3.txd");
+AddSimpleModel(-1,19480,-2019,"fav_h5.dff","fav_h5.txd");
+AddSimpleModel(-1,19480,-2020,"fav_h6.dff","fav_h6.txd");
+AddSimpleModel(-1,19480,-2021,"fav_h7.dff","fav_h7.txd");
+AddSimpleModel(-1,19480,-2022,"fav_h8.dff","fav_h8.txd");
+AddSimpleModel(-1,19480,-2023,"fav_h9.dff","fav_h9.txd");
+AddSimpleModel(-1,19480,-2024,"fav_h10.dff","fav_h10.txd");
+AddSimpleModel(-1,19480,-2025,"fav_h11.dff","fav_h11.txd");
+AddSimpleModel(-1,19480,-2026,"fav_h12.dff","fav_h12.txd");
+AddSimpleModel(-1,19480,-2027,"fav_h14.dff","fav_h14.txd");
+AddSimpleModel(-1,19480,-2028,"fav_h16.dff","fav_h16.txd");
+AddSimpleModel(-1,19480,-2029,"fav_h17.dff","fav_h17.txd");
+AddSimpleModel(-1,19480,-2030,"fav_h18.dff","fav_h18.txd");
+AddSimpleModel(-1,19480,-2031,"fav_paint.dff","fav_paint.txd");
+AddSimpleModel(-1,19480,-2032,"fav_shp.dff","fav_shp.txd");
+AddSimpleModel(-1,19480,-2033,"fav_stroika.dff","fav_stroika.txd");
+AddSimpleModel(-1,19480,-2034,"fav_vil.dff","fav_vil.txd");
+AddSimpleModel(-1,19480,-2040, "upp.dff", "upp.txd");
+
+//textdraw
+AddSimpleModel(-1,19379, -2007, "hud.dff", "hud.txd");
+AddSimpleModel(-1,19379, -2200, "login.dff", "tela.txd");
+AddSimpleModel(-1, 19379, -2201, "login.dff", "logo.txd");
+AddSimpleModel(-1, 19379, -7800, "login.dff", "logo32.txd"); //N?o remover
+
+//mapas civis
+AddSimpleModel(-1,12843, -1001, "caixa.dff", "caixa.txd");
+AddSimpleModel(-1,12843, -1002, "caixa1.dff", "caixa.txd");
+AddSimpleModel(-1,19369, -1003, "posto.dff", "posto.txd");
+AddSimpleModel(-1,19369, -1004, "posto1.dff", "posto.txd");
+AddSimpleModel(-1,19369, -1005, "craco.dff", "craco.txd");
+AddSimpleModel(-1,19369, -1006, "craco2.dff", "craco.txd"); 
+AddSimpleModel(-1,19369, -1025, "postoip.dff", "postoip.txd");
+AddSimpleModel(-1,19425, -1018, "rm.dff", "rm.txd");
+AddSimpleModel(-1,19425, -1027, "mecanica.dff", "mecanica.txd");
+AddSimpleModel(-1,19425, -1029, "ruapraia.dff", "ruapraia.txd");
+AddSimpleModel(-1,19425, -1028, "ApPraia.dff", "ApPraia.txd");
+
+//lombadas
+AddSimpleModel(-1,1375, -1007, "lomb_sign.dff", "lomb.txd"); 
+AddSimpleModel(-1,19425, -1008, "lomb-a.dff", "lomb.txd"); 
+AddSimpleModel(-1,19425, -1009, "lomb-ad.dff", "lomb.txd"); 
+AddSimpleModel(-1,19425, -1010, "lomb-b.dff", "lomb.txd"); 
+AddSimpleModel(-1,19425, -1011, "lomb-bd.dff", "lomb.txd"); 
+AddSimpleModel(-1,19425, -1012, "lomb-c.dff", "lomb.txd"); 
+AddSimpleModel(-1,19425, -1013, "lomb-cd.dff", "lomb.txd"); 
+AddSimpleModel(-1,19425, -1014, "lomb-d.dff", "lomb.txd"); 
+AddSimpleModel(-1,19425, -1015, "lomb-dd.dff", "lomb.txd");
+
+//unity
+AddSimpleModel(-1,5033,-1032,"unity_open.dff","union_las.txd");//unity art object
+AddSimpleModel(-1,5055,-1033,"unity_open_land.dff","union_las.txd");//unity land art object
+
+//favelas
+AddSimpleModel(-1, 19379, -1077, "fav_h1.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -1078, "fav_h2.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -1079, "fav_h3.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -1080, "fav_h4.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -1081, "fav_h5.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -1082, "fav_h6.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -1083, "fav_h7.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -1084, "fav_h8.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -1085, "fav_h9.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -1086, "fav_h10.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -1087, "fav_h11.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -1088, "fav_h12.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -1089, "fav_h13.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -1090, "fav_h14.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -1091, "fav_h15.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -1092, "fav_h16.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -1093, "fav_h17.dff", "fav_h.txd");
+AddSimpleModel(-1, 19379, -1094, "fav_h18.dff", "fav_h.txd");
+
+//textdraw
+AddSimpleModel(-1, 19315, -1095, "textdraw_object.dff", "textdraw_ui.txd");
+
+//palco
+AddSimpleModel(-1,19141, -1096,"palco.dff", "palco.txd");
+
+//outdoor
+AddSimpleModel(-1,19141, -1097,"outdoor.dff", "out_barbeiro.txd");
+AddSimpleModel(-1,19141, -1098,"outdoor.dff", "out_bope.txd");
+AddSimpleModel(-1,19141, -1099,"outdoor.dff", "out_claro.txd");
+AddSimpleModel(-1,19141, -1100,"outdoor.dff", "out_gas.txd");
+AddSimpleModel(-1,19141, -1101,"outdoor.dff", "out_ifood.txd");
+AddSimpleModel(-1,19141, -1102,"outdoor.dff", "out_pneu.txd");
+
+//cristo
+AddSimpleModel(-1,19141, -1103,"cristo.dff", "cristo.txd");
+AddSimpleModel(-1,19141, -1104,"cristo_2.dff", "cristo.txd");
+AddSimpleModel(-1,19141, -1105,"cristo_3.dff", "cristo_3.txd");
+AddSimpleModel(-1,19141, -1106,"cristo.dff", "cristo.txd");
+AddSimpleModel(-1,19141, -1107,"b_cristo.dff", "b_cristo.txd");
+
+//gas
+AddSimpleModel(-1,19141, -1200,"gaseiro.dff", "gaseiro.txd");
+
+//bebidas
+AddSimpleModel(-1,19141, -1201,"c_bad.dff", "cervejas.txd");
+AddSimpleModel(-1,19141, -1202,"c_bra.dff", "cervejas.txd");
+AddSimpleModel(-1,19141, -1203,"c_ell.dff", "cervejas.txd");
+AddSimpleModel(-1,19141, -1204,"c_est.dff", "cervejas.txd");
+AddSimpleModel(-1,19141, -1205,"c_hai.dff", "cervejas.txd");
+AddSimpleModel(-1,19141, -1206,"c_sko.dff", "cervejas.txd");
+
+//favela_casa
+AddSimpleModel(-1,19141, -1300,"m_fav01.dff", "m_fav01.txd");
+AddSimpleModel(-1,19141, -1301,"m_fav02.dff", "m_fav02.txd");
+AddSimpleModel(-1,19141, -1302,"garagem01.dff", "garagem.txd");
+AddSimpleModel(-1,19141, -1304,"house01.dff", "house01.txd");
+AddSimpleModel(-1,19141, -1305,"apartamento.dff", "apartamento.txd");
+AddSimpleModel(-1,19141, -1306,"casa01.dff", "casa01.txd");
+AddSimpleModel(-1,19141, -1309,"complexo.dff", "complexo.txd");
+AddSimpleModel(-1,19141, -1310,"casenha.dff", "casenha.txd");
+AddSimpleModel(-1,19141, -1311,"oficina.dff", "oficina.txd");
+AddSimpleModel(-1,19141, -1026,"loterica.dff", "loterica.txd");
+
+
+//muros
+AddSimpleModel(-1,19141, -1400,"muro_grande.dff", "muros.txd");
+AddSimpleModel(-1,19141, -1401,"muro_portao.dff", "muros.txd");
+
+//campo
+AddSimpleModel(-1,19141, -1500,"campo.dff", "campo.txd");
+AddSimpleModel(-1,19141, -1501,"bar1.dff", "bar1.txd");
+AddSimpleModel(-1,19141, -1503,"churras.dff", "churras.txd");
+AddSimpleModel(-1,19141, -1504,"honda.dff", "honda.txd");

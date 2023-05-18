@@ -47,12 +47,10 @@ native WP_Hash(_buffer[], len, const str[]);
 
 new PayDayDuplo = 0;
 
-//#define HOLDOBJECT_UMBRELLA (0)
-
 // Vehicle Rental
 new CarRent[10];
 new RentCarKey[MAX_PLAYERS];
-//new gLastCar[MAX_PLAYERS];
+
 
 //Sistema de ROJÃO
 new Foguete[MAX_PLAYERS];
@@ -7968,13 +7966,6 @@ public Timer_Minutos()
 					}
 				}
 
-				/*new bool:done;
-				for(new c=0;c<sizeof(CarRent);c++) 
-				{
-					done = false;
-					foreach (new i : Player) if(gLastCar[i] == CarRent[c] || RentCarKey[i] == CarRent[c]) done = true;
-					if(!done) SetVehicleToRespawn(CarRent[c]);
-				}*/
 
 				if(PlayerInfo[i][pTomouAlgumTiro] > 0)
 				{
@@ -26216,32 +26207,6 @@ CMD:licenca(playerid, params[])
 	}
 	return 1;
 }
-
-/*CMD:guardachuva(playerid, params[])
-{
-
-	if(!PlayerInfo[playerid][pUmbrella])
-	{
-	    PlayerInfo[playerid][pUmbrella] = 1;
-
-		SendClientMessage(playerid, COLOR_LIGHTGREEN, "Você pegou seu guarda-chuva.");
-
-		SetPlayerAttachedObject(playerid,HOLDOBJECT_UMBRELLA,-2001,6,0.050000,0.049999,0.067999,16.699996,-20.099998,21.099996,1.000000,1.000000,1.000000);
-
-		ApplyAnimation(playerid, "CARRY", "crry_prtial", 2.0, 0, 0, 0, 0, 0, 1);
-		ApplyAnimation(playerid,"ROCKET","idle_rocket",4.1,0,1,1,1,1,1);
-	}
-	else
-	{
-		PlayerInfo[playerid][pUmbrella] = 0;
-
-		ApplyAnimation(playerid, "CARRY", "crry_prtial", 2.0, 0, 0, 0, 0, 0, 1);
-		RemovePlayerAttachedObject(playerid, HOLDOBJECT_UMBRELLA);
-
-		SendClientMessage(playerid, COLOR_LIGHTGREEN, "Você guardou seu guarda-chuva.");
-	}
-	return 1;
-}*/
 
 ALTCOMMAND:an->anuncio;
 CMD:anuncio(playerid, params[])

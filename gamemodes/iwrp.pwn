@@ -15135,8 +15135,8 @@ stock GetVehicleRentalPrice(model)
 {
 	switch(model)
 	{
-	    case 492: return 100;
-	    case 422: return 300;
+	    case 492: return 150;
+	    case 422: return 150;
 	}
 	return 0;
 }

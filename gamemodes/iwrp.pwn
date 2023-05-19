@@ -6521,29 +6521,40 @@ static GetHealthDots(playerid)
         dots[64], Float: HP;
  
     GetPlayerHealth(playerid, HP);
- 
-    if(HP >= 100)
-        dots = "••••••••••";
+    if(HP >= 160)
+    	dots = "••••••••••••••••";
+    else if(HP >= 150)
+        dots = "•••••••••••••••{660000}•";
+    else if(HP >= 140)
+        dots = "••••••••••••••{660000}••";
+    else if(HP >= 130)
+        dots = "•••••••••••••{660000}•••";
+    else if(HP >= 120)
+        dots = "••••••••••••{660000}••••";
+    else if(HP >= 110)
+        dots = "•••••••••••{660000}•••••";
+    else if(HP >= 100)
+        dots = "••••••••••{660000}••••••";
     else if(HP >= 90)
-        dots = "•••••••••{660000}•";
+        dots = "•••••••••{660000}•••••••";
     else if(HP >= 80)
-        dots = "••••••••{660000}••";
+        dots = "••••••••{660000}••••••••";
     else if(HP >= 70)
-        dots = "•••••••{660000}•••";
+        dots = "•••••••{660000}•••••••••";
     else if(HP >= 60)
-        dots = "••••••{660000}••••";
+        dots = "••••••{660000}••••••••••";
     else if(HP >= 50)
-        dots = "•••••{660000}•••••";
+        dots = "•••••{660000}•••••••••••";
     else if(HP >= 40)
-        dots = "••••{660000}••••••";
+        dots = "••••{660000}••••••••••••";
     else if(HP >= 30)
-        dots = "•••{660000}•••••••";
+        dots = "•••{660000}•••••••••••••";
     else if(HP >= 20)
-        dots = "••{660000}••••••••";
+        dots = "••{660000}••••••••••••••";
     else if(HP >= 10)
-        dots = "•{660000}•••••••••";
+        dots = "•{660000}•••••••••••••••";
     else if(HP >= 0)
-        dots = "{660000}••••••••••";
+        dots = "{660000}••••••••••••••••";
  
     return dots;
 }
@@ -6555,28 +6566,40 @@ static GetArmorDots(playerid)
  
     GetPlayerArmour(playerid, AR);
  
-    if(AR >= 100)
-        dots = "••••••••••";
+    if(AR >= 160)
+    	dots = "••••••••••••••••";
+    else if(AR >= 150)
+        dots = "•••••••••••••••{666666}•";
+    else if(AR >= 140)
+        dots = "••••••••••••••{666666}••";
+    else if(AR >= 130)
+        dots = "•••••••••••••{666666}•••";
+    else if(AR >= 120)
+        dots = "••••••••••••{666666}••••";
+    else if(AR >= 110)
+        dots = "•••••••••••{666666}•••••";
+    else if(AR >= 100)
+        dots = "••••••••••{666666}••••••";
     else if(AR >= 90)
-        dots = "•••••••••{666666}•";
+        dots = "•••••••••{666666}•••••••";
     else if(AR >= 80)
-        dots = "••••••••{666666}••";
+        dots = "••••••••{666666}••••••••";
     else if(AR >= 70)
-        dots = "•••••••{666666}•••";
+        dots = "•••••••{666666}•••••••••";
     else if(AR >= 60)
-        dots = "••••••{666666}••••";
+        dots = "••••••{666666}••••••••••";
     else if(AR >= 50)
-        dots = "•••••{666666}•••••";
+        dots = "•••••{666666}•••••••••••";
     else if(AR >= 40)
-        dots = "••••{666666}••••••";
+        dots = "••••{666666}••••••••••••";
     else if(AR >= 30)
-        dots = "•••{666666}•••••••";
+        dots = "•••{666666}•••••••••••••";
     else if(AR >= 20)
-        dots = "••{666666}••••••••";
+        dots = "••{666666}••••••••••••••";
     else if(AR >= 10)
-        dots = "•{666666}•••••••••";
+        dots = "•{666666}•••••••••••••••";
     else if(AR >= 0)
-        dots = "{666666}••••••••••";
+        dots = "{666666}••••••••••••••••";
  
     return dots;
 }
@@ -11160,7 +11183,7 @@ public OnPlayerConnect(playerid)
 {
     if(IsPlayerNPC(playerid)) return 1;
 
-	 cNametag[playerid] = CreateDynamic3DTextLabel("Loading nametag...", 0xFFFFFFFF, 0.0, 0.0, 0.1, NT_DISTANCE, .attachedplayer = playerid, .testlos = 1);
+	cNametag[playerid] = CreateDynamic3DTextLabel("Loading nametag...", 0xFFFFFFFF, 0.0, 0.0, 0.1, NT_DISTANCE, .attachedplayer = playerid, .testlos = 1);
 
     PlayersOnline++;
 

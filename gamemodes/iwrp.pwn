@@ -28,6 +28,7 @@
 
 // --------- [ INCLUDES ] ---------
 
+
 //Streamer
 #define VISIBLE_ITEMS 3000
 
@@ -27122,11 +27123,9 @@ public PegouMetaB(playerid)
 	format(stringvendeu,sizeof(stringvendeu),"** %s retira o pano da prensa junto da droga. Começa a esfarelar a droga e embalar em ziplocks.", PlayerName(playerid, 1));
 	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
 
-
 	PlayerDroga[playerid][MetB]+= 45;
 	PlayerInfo[playerid][pFabricouD]++;
 	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu 45 gramas de metanfetamina boa.");
-
 
     TogglePlayerControllable(playerid, 1);
     ClearAnimations(playerid, 1);

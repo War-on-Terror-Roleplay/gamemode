@@ -28479,9 +28479,7 @@ public PegouGranaBanco(playerid)
     return 1;
 }
 
-ALTCOMMAND:ce->caixa;
-ALTCOMMAND:atm->caixa;
-COMMAND:caixa(playerid, params[])
+COMMAND:atm(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você precisa estar logado.");
 	for(new i = 0; i < MAX_ATM; i++)

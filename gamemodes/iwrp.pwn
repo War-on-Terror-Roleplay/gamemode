@@ -177,9 +177,9 @@ new ambiente = 1; // 0  - Localhost 1 - Produção
 //====== [DEFINIÇÕES DO SERVIDOR] =======================================================
 #define ULTIMO_GMX      "15/04/2023"
 #define CA_VERSAO       "WT:RP v2.09"
-#define CA_LINK         "weburl iw-roleplay.com.br"
+#define CA_LINK         "weburl wt-rp.com.br"
 //#define CA_NOME         "hostname War on Terror Roleplay | BETA TEST CLOSED"
-#define CA_NOME         "hostname War on Terror Roleplay | iw-roleplay.com.br"
+#define CA_NOME         "hostname War on Terror Roleplay | wt-rp.com.br"
 #define CA_NOME2        "hostname War on Terror Roleplay [2x Paycheck]"
 #define CA_NOME3        "hostname War on Terror Roleplay [Manutenção rápida]"
 #define CA_LANGUAGE     "language Português Brasileiro"
@@ -7319,7 +7319,7 @@ public ResultadoBicho(playerid)
 			//GivePlayerMoney(i, (Apostadores[i][Aposta] * 14));
 			PlayerInfo[playerid][pApostouBicho] = 0;
 			PlayerInfo[playerid][pGrana] += (Apostadores[i][Aposta] * 14);
-			format(stringB, sizeof(stringB), "[Jogo Do Bicho] {ffffff}Parabens! Você apostou no animal %s e ganhou 14x sua aposta de R$%d!", TabelaBichos[animal][Bicho], Apostadores[i][Aposta]);
+			format(stringB, sizeof(stringB), "[Jogo Do Bicho] {ffffff}Parabens! Você apostou no animal %s e ganhou 14x sua aposta de US$%d!", TabelaBichos[animal][Bicho], Apostadores[i][Aposta]);
 			SendClientMessage(playerid, COLOR_LIGHTRED, stringB);
 		}
 		Apostadores[i][Animal] = 0;
@@ -8087,7 +8087,7 @@ public Timer_Minutos()
 
 							if(IsValidDynamicObject(EmpInfo[i][eObjPlaca]))
 			    				DestroyDynamicObject(EmpInfo[i][eObjPlaca]);
-							format(string, sizeof(string), "%s\nVende-se\nR$%d!",EmpInfo[i][eNome],EmpInfo[i][ePreco]);
+							format(string, sizeof(string), "%s\nVende-se\nUS$%d!",EmpInfo[i][eNome],EmpInfo[i][ePreco]);
 			    			EmpInfo[i][EmpText] = CreateDynamic3DTextLabel(string, 0xFFFFFFFF, EmpInfo[i][eExX], EmpInfo[i][eExY], EmpInfo[i][eExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, EmpInfo[i][eExWorld], EmpInfo[i][eExInt]);
 						    if(EmpInfo[i][ePlacaX] != 0 && EmpInfo[i][ePlacaY] != 0 && EmpInfo[i][ePlacaZ] != 0)
 								EmpInfo[i][eObjPlaca] = CreateDynamicObject(19471, EmpInfo[i][ePlacaX], EmpInfo[i][ePlacaY], EmpInfo[i][ePlacaZ], 0.0, 0.0, EmpInfo[i][ePlacaR], EmpInfo[i][eExWorld], EmpInfo[i][eExInt]);
@@ -8470,37 +8470,37 @@ public PayDay(playerid) {
 			new stringpd[1024];
 
    			SendClientMessage(playerid,COLOR_WHITE,"|__ Extrato de Conta __|");
-   			format(stringpd, sizeof(stringpd), "Balanço: R$%d", SaldoAnt); 					SendClientMessage(playerid, COLOR_PD1, stringpd);
-   			format(stringpd, sizeof(stringpd), "Salário Base: +R$%d", GovInfo[gSalarioMin]); 	SendClientMessage(playerid, COLOR_PD1, stringpd);
-   			format(stringpd, sizeof(stringpd), "Salário emprego: +R$%d", SalarioJob); 		SendClientMessage(playerid, COLOR_PD1, stringpd);
+   			format(stringpd, sizeof(stringpd), "Balanço: US$%d", SaldoAnt); 					SendClientMessage(playerid, COLOR_PD1, stringpd);
+   			format(stringpd, sizeof(stringpd), "Salário Base: +US$%d", GovInfo[gSalarioMin]); 	SendClientMessage(playerid, COLOR_PD1, stringpd);
+   			format(stringpd, sizeof(stringpd), "Salário emprego: +US$%d", SalarioJob); 		SendClientMessage(playerid, COLOR_PD1, stringpd);
    			if(salarfac > 0){
-			    format(stringpd, sizeof(stringpd), "Salário da Facção: +R$%d", salarfac);	SendClientMessage(playerid,COLOR_CINZA,stringpd);
+			    format(stringpd, sizeof(stringpd), "Salário da Facção: +US$%d", salarfac);	SendClientMessage(playerid,COLOR_CINZA,stringpd);
 			}
 			if(Casas > 0){
-				format(stringpd, sizeof(stringpd), "Eletricidade: -R$%d", TaxaEnergia);
+				format(stringpd, sizeof(stringpd), "Eletricidade: -US$%d", TaxaEnergia);
 				SendClientMessage(playerid,COLOR_CINZA,stringpd);
 				if(TaxaAlarme > 0){
-					format(stringpd, sizeof(stringpd), "Alarmes em Residências: -R$%d", TaxaAlarme); SendClientMessage(playerid,COLOR_CINZA,stringpd);
+					format(stringpd, sizeof(stringpd), "Alarmes em Residências: -US$%d", TaxaAlarme); SendClientMessage(playerid,COLOR_CINZA,stringpd);
 				}
 			}
 			if(gastocomcel > 0) {
-			    format(stringpd, sizeof(stringpd), "Celular: -R$%d", gastocomcel); SendClientMessage(playerid,COLOR_CINZA,stringpd);
+			    format(stringpd, sizeof(stringpd), "Celular: -US$%d", gastocomcel); SendClientMessage(playerid,COLOR_CINZA,stringpd);
 			}
 			if(insuranceValue > 0) {
-			    format(stringpd, sizeof(stringpd), "Seguro Veicular: -R$%d", insuranceValue); SendClientMessage(playerid,COLOR_CINZA,stringpd);
+			    format(stringpd, sizeof(stringpd), "Seguro Veicular: -US$%d", insuranceValue); SendClientMessage(playerid,COLOR_CINZA,stringpd);
 			}
 			if(TaxaCarros > 0) {
-			    format(stringpd, sizeof(stringpd), "IPVA Veículos: -R$%d", TaxaCarros); SendClientMessage(playerid,COLOR_CINZA,stringpd);
+			    format(stringpd, sizeof(stringpd), "IPVA Veículos: -US$%d", TaxaCarros); SendClientMessage(playerid,COLOR_CINZA,stringpd);
 			}
-			format(stringpd, sizeof(stringpd), "Imposto do Governo: -R$%d", GovInfo[gTaxa]); 	SendClientMessage(playerid,COLOR_CINZA,stringpd);
+			format(stringpd, sizeof(stringpd), "Imposto do Governo: -US$%d", GovInfo[gTaxa]); 	SendClientMessage(playerid,COLOR_CINZA,stringpd);
    			if(PlayerInfo[playerid][pSavings] > 0) {
-				format(stringpd, sizeof(stringpd), " Rendimento dos Savings: R$%d", Invest); 	SendClientMessage(playerid,COLOR_PD2,stringpd);
-				format(stringpd, sizeof(stringpd), " Novo balanço dos Savings: R$%d", PlayerInfo[playerid][pSavings]); 	SendClientMessage(playerid,COLOR_PD2,stringpd);
+				format(stringpd, sizeof(stringpd), " Rendimento dos Savings: US$%d", Invest); 	SendClientMessage(playerid,COLOR_PD2,stringpd);
+				format(stringpd, sizeof(stringpd), " Novo balanço dos Savings: US$%d", PlayerInfo[playerid][pSavings]); 	SendClientMessage(playerid,COLOR_PD2,stringpd);
 			}
-            format(stringpd, sizeof(stringpd), " Total recebido: R$%d", total); 	SendClientMessage(playerid, COLOR_LIGHTWHITE, stringpd);
+            format(stringpd, sizeof(stringpd), " Total recebido: US$%d", total); 	SendClientMessage(playerid, COLOR_LIGHTWHITE, stringpd);
    			SendClientMessage(playerid,COLOR_PD2, "|______________________|");
-            format(stringpd, sizeof(stringpd), " Novo balanço: R$%d", PlayerInfo[playerid][pBanco]); 	SendClientMessage(playerid, COLOR_LIGHTWHITE, stringpd);
-   			format(stringpd, sizeof(stringpd),"~y~PayDay~n~ ~w~Salario ~n~~g~R$%d",total);
+            format(stringpd, sizeof(stringpd), " Novo balanço: US$%d", PlayerInfo[playerid][pBanco]); 	SendClientMessage(playerid, COLOR_LIGHTWHITE, stringpd);
+   			format(stringpd, sizeof(stringpd),"~y~PayDay~n~ ~w~Salario ~n~~g~US$%d",total);
 			GameTextForPlayer(playerid,stringpd,10000,1);
 			if(PlayerInfo[playerid][pApostouBicho] == 1)
 			{
@@ -8515,7 +8515,7 @@ public PayDay(playerid) {
 
 			if(PlayerInfo[playerid][pLevel] >= 4 && PlayerInfo[playerid][pAjudaInicialDim] != 1) {
 			    PlayerInfo[playerid][pAjudaInicialDim] = 1;
-			    SendClientMessage(playerid,COLOR_LIGHTGREEN,"- Foi depositado em seu banco R$5.000 referente a ajuda do TC 4.");
+			    SendClientMessage(playerid,COLOR_LIGHTGREEN,"- Foi depositado em seu banco US$5.000 referente a ajuda do TC 4.");
 			    PlayerInfo[playerid][pBanco]+= 5000;
 			}
 
@@ -9182,7 +9182,7 @@ public Timer_Segundos()
 			 									SendClientMessage(i, COLOR_LIGHTGREEN, string);
 			 									format(string, sizeof(string), "Endereço: %s.", HouseInfo[h][hEndereco]);
 			 									SendClientMessage(i, COLOR_LIGHTGREEN, string);
-			 									format(string, sizeof(string), "Casa a venda por: R$%d", HouseInfo[h][hPreco]);
+			 									format(string, sizeof(string), "Casa a venda por: US$%d", HouseInfo[h][hPreco]);
 			 									SendClientMessage(i, COLOR_LIGHTGREEN, string);
 					 							format(string, sizeof(string), "Comandos disponíveis: /comprar");
 					 							SendClientMessage(i, COLOR_WHITE, string);
@@ -9205,7 +9205,7 @@ public Timer_Segundos()
 			 									SendClientMessage(i, COLOR_LIGHTGREEN, string);
 			 									format(string, sizeof(string), "Endereço: %s.", HouseInfo[h][hEndereco]);
 			 									SendClientMessage(i, COLOR_LIGHTGREEN, string);
-			 									format(string, sizeof(string), "Casa a venda por: R$%d", HouseInfo[h][hPreco]);
+			 									format(string, sizeof(string), "Casa a venda por: US$%d", HouseInfo[h][hPreco]);
 			 									SendClientMessage(i, COLOR_LIGHTGREEN, string);
 					 							format(string, sizeof(string), "Comandos disponíveis: /comprar");
 					 							SendClientMessage(i, COLOR_WHITE, string);
@@ -9242,7 +9242,7 @@ public Timer_Segundos()
 			 									SendClientMessage(i, COLOR_LIGHTGREEN, string);
 			 									format(string, sizeof(string), "Endereço: %s.", HouseInfo[h][hEndereco]);
 			 									SendClientMessage(i, COLOR_LIGHTGREEN, string);
-			 									format(string, sizeof(string), "Casa a venda por: R$%d", HouseInfo[h][hPreco]);
+			 									format(string, sizeof(string), "Casa a venda por: US$%d", HouseInfo[h][hPreco]);
 			 									SendClientMessage(i, COLOR_LIGHTGREEN, string);
 					 							format(string, sizeof(string), "Comandos disponíveis: /comprar");
 					 							SendClientMessage(i, COLOR_WHITE, string);
@@ -9265,7 +9265,7 @@ public Timer_Segundos()
 			 									SendClientMessage(i, COLOR_LIGHTGREEN, string);
 			 									format(string, sizeof(string), "Endereço: %s.", HouseInfo[h][hEndereco]);
 			 									SendClientMessage(i, COLOR_LIGHTGREEN, string);
-			 									format(string, sizeof(string), "Casa a venda por: R$%d", HouseInfo[h][hPreco]);
+			 									format(string, sizeof(string), "Casa a venda por: US$%d", HouseInfo[h][hPreco]);
 			 									SendClientMessage(i, COLOR_LIGHTGREEN, string);
 					 							format(string, sizeof(string), "Comandos disponíveis: /comprar");
 					 							SendClientMessage(i, COLOR_WHITE, string);
@@ -9345,7 +9345,7 @@ public Timer_Segundos()
 											{
 											    format(string, sizeof(string), "Você esta em frente a garagem de numero %d.", h);
 			 									SendClientMessage(i, COLOR_LIGHTGREEN, string);
-			 									format(string, sizeof(string), "Garagem a venda por: R$%d", GaragemInfo[h][hPreco]);
+			 									format(string, sizeof(string), "Garagem a venda por: US$%d", GaragemInfo[h][hPreco]);
 			 									SendClientMessage(i, COLOR_LIGHTGREEN, string);
 					 							format(string, sizeof(string), "Comandos disponíveis: /comprar");
 					 							SendClientMessage(i, COLOR_WHITE, string);
@@ -9396,7 +9396,7 @@ public Timer_Segundos()
 										    {
 											    format(string, sizeof(string), "Você esta em frente a um complexo.");
 			 									SendClientMessage(i, COLOR_LIGHTGREEN, string);
-			 									format(string, sizeof(string), "Complexo a venda por: R$%d", ComplexoInfo[c][cPreco]);
+			 									format(string, sizeof(string), "Complexo a venda por: US$%d", ComplexoInfo[c][cPreco]);
 			 									SendClientMessage(i, COLOR_LIGHTGREEN, string);
 					 							format(string, sizeof(string), "Comandos disponíveis: /comprar");
 					 							SendClientMessage(i, COLOR_WHITE, string);
@@ -9432,7 +9432,7 @@ public Timer_Segundos()
 											    {
 												    format(string, sizeof(string), "Você esta em frente o complexo de Governo de SA.");
 				 									SendClientMessage(i, COLOR_LIGHTGREEN, string);
-				 									format(string, sizeof(string), "Complexo a venda por: R$%d", ComplexoInfo[c][cPreco]);
+				 									format(string, sizeof(string), "Complexo a venda por: US$%d", ComplexoInfo[c][cPreco]);
 				 									SendClientMessage(i, COLOR_LIGHTGREEN, string);
 						 							format(string, sizeof(string), "Comandos disponíveis: /comprar");
 						 							SendClientMessage(i, COLOR_WHITE, string);
@@ -9469,7 +9469,7 @@ public Timer_Segundos()
 											    {
 												    format(string, sizeof(string), "Você esta em frente o complexo de Governo de SA.");
 				 									SendClientMessage(i, COLOR_LIGHTGREEN, string);
-				 									format(string, sizeof(string), "Complexo a venda por: R$%d", ComplexoInfo[c][cPreco]);
+				 									format(string, sizeof(string), "Complexo a venda por: US$%d", ComplexoInfo[c][cPreco]);
 				 									SendClientMessage(i, COLOR_LIGHTGREEN, string);
 						 							format(string, sizeof(string), "Comandos disponíveis: /comprar");
 						 							SendClientMessage(i, COLOR_WHITE, string);
@@ -9508,7 +9508,7 @@ public Timer_Segundos()
 										{
 										    format(string, sizeof(string), "Você esta em frente a uma empresa a venda.");
 		 									SendClientMessage(i, COLOR_LIGHTGREEN, string);
-		 									format(string, sizeof(string), "Valor: R$%d", EmpInfo[e][ePreco]);
+		 									format(string, sizeof(string), "Valor: US$%d", EmpInfo[e][ePreco]);
 		 									SendClientMessage(i, COLOR_LIGHTGREEN, string);
 				 							format(string, sizeof(string), "Comandos disponíveis: /comprar");
 				 							SendClientMessage(i, COLOR_WHITE, string);
@@ -9535,9 +9535,9 @@ public Timer_Segundos()
 				    		    {
 				    		        format(string, sizeof(string), "Você está em frente à %s.", PontoEntrega[pe][emNome]); SendClientMessage(i, COLOR_LIGHTGREEN, string);
     		        				if(PontoEntrega[pe][emFabrica] > 0 && PontoEntrega[pe][emFabrica] < 9999) {
-										format(string, sizeof(string), "Aqui você pode comprar: %s à R$%d.", GetProdutoNome(PontoEntrega[pe][emFabrica]), PontoEntrega[pe][emCobraProd]); SendClientMessage(i, COLOR_CINZA, string); }
+										format(string, sizeof(string), "Aqui você pode comprar: %s à US$%d.", GetProdutoNome(PontoEntrega[pe][emFabrica]), PontoEntrega[pe][emCobraProd]); SendClientMessage(i, COLOR_CINZA, string); }
 									if(PontoEntrega[pe][emCompra] > 0 && PontoEntrega[pe][emCompra] < 9999) {
-					    				format(string, sizeof(string), "Aqui você pode vender: %s por R$%d.", GetProdutoNome(PontoEntrega[pe][emCompra]), PontoEntrega[pe][emPagProd]); SendClientMessage(i, COLOR_CINZA, string); }
+					    				format(string, sizeof(string), "Aqui você pode vender: %s por US$%d.", GetProdutoNome(PontoEntrega[pe][emCompra]), PontoEntrega[pe][emPagProd]); SendClientMessage(i, COLOR_CINZA, string); }
 									SendClientMessage(i, COLOR_CINZA, "(( Pode ser que nas proximidades existam outros pontos da industria, para comprar/vender outros tipos de carga. ))");
 	 								VendoIndustria[i] = pe;
 								}
@@ -9579,7 +9579,7 @@ public Timer_Segundos()
 							}
 						}
 					    TransportTime[i] += 1;
-					    format(string, sizeof(string), "~r~%d ~w~: ~g~R$%d",TransportTime[i],TransportCost[i]);
+					    format(string, sizeof(string), "~r~%d ~w~: ~g~US$%d",TransportTime[i],TransportCost[i]);
 					    GameTextForPlayer(i, string, 15000, 6);
 					}
 					if(TaxiCallTime[i] > 0)
@@ -9824,7 +9824,7 @@ public Timer_Segundos()
 	    				{
 						    if(HouseInfo[perto_alarme][hAlarmeDisparado] > 0)
 						    {
-		        				PlayAudioStreamForPlayer(i, "https://progressive-roleplay.com/midia/alarme_casa.mp3", HouseInfo[perto_alarme][hExX],HouseInfo[perto_alarme][hExY],HouseInfo[perto_alarme][hExZ], 50.0, 1);
+		        				PlayAudioStreamForPlayer(i, "http://localhost/midia/alarme_casa.mp3", HouseInfo[perto_alarme][hExX],HouseInfo[perto_alarme][hExY],HouseInfo[perto_alarme][hExZ], 50.0, 1);
 		        				ouvindoxmradio[i] = 5;
 						    }
 						}
@@ -9842,7 +9842,7 @@ public Timer_Segundos()
 	    				{
 						    if(GaragemInfo[perto_alarmeg][hAlarmeDisparado] > 0)
 						    {
-		        				PlayAudioStreamForPlayer(i, "https://progressive-roleplay.com/midia/alarme_casa.mp3", GaragemInfo[perto_alarmeg][hExX],GaragemInfo[perto_alarmeg][hExY],GaragemInfo[perto_alarmeg][hExZ], 50.0, 1);
+		        				PlayAudioStreamForPlayer(i, "http://localhost/midia/alarme_casa.mp3", GaragemInfo[perto_alarmeg][hExX],GaragemInfo[perto_alarmeg][hExY],GaragemInfo[perto_alarmeg][hExZ], 50.0, 1);
 		        				ouvindoxmradio[i] = 5;
 						    }
 						}
@@ -10333,40 +10333,40 @@ stock CriarTraficantes(playerid, tipo)
 			    if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == 11)
 			    {
 				    Dialog_Show(playerid, DIALOG_TRAFICANTEDROGA, DIALOG_STYLE_TABLIST_HEADERS, string, "Produto\tPreço\n \
-					Maconha\t R$2 grama\n \
-			  		Cocaina\tR$3 grama\n \
-			  		LSD\tR$5 unidade\n \
-     				Crack\tR$4 grama\n \
-					Metanfetamina\tR$8 grama\n \
-					Pasta base de Cocaina\tR$8 grama\n \
-					Lança Perfume\tR$5 tubo\n \
+					Maconha\t US$2 grama\n \
+			  		Cocaina\tUS$3 grama\n \
+			  		LSD\tUS$5 unidade\n \
+     				Crack\tUS$4 grama\n \
+					Metanfetamina\tUS$8 grama\n \
+					Pasta base de Cocaina\tUS$8 grama\n \
+					Lança Perfume\tUS$5 tubo\n \
 					", "Pedir", "Cancelar");
 				}
 				else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == 12)
 			    {
 				    Dialog_Show(playerid, DIALOG_TRAFICANTEDROGA, DIALOG_STYLE_TABLIST_HEADERS, string, "Produto\tPreço\n \
-					Maconha\t R$2 grama\n \
-			  		Cocaina\tR$3 grama\n \
-     				LSD\tR$5 unidade\n \
+					Maconha\t US$2 grama\n \
+			  		Cocaina\tUS$3 grama\n \
+     				LSD\tUS$5 unidade\n \
 					", "Pedir", "Cancelar");
 				}
 				else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == 13)
 			    {
 				    Dialog_Show(playerid, DIALOG_TRAFICANTEDROGA, DIALOG_STYLE_TABLIST_HEADERS, string, "Produto\tPreço\n \
-					Maconha\t R$2 grama\n \
-			  		Cocaina\tR$3 grama\n \
-     				LSD\tR$5 unidade\n \
-					Crack\tR$4 grama\n \
+					Maconha\t US$2 grama\n \
+			  		Cocaina\tUS$3 grama\n \
+     				LSD\tUS$5 unidade\n \
+					Crack\tUS$4 grama\n \
 					", "Pedir", "Cancelar");
 				}
 				else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == 14)
 			    {
 				    Dialog_Show(playerid, DIALOG_TRAFICANTEDROGA, DIALOG_STYLE_TABLIST_HEADERS, string, "Produto\tPreço\n \
-					Maconha\t R$2 grama\n \
-			  		Cocaina\tR$3 grama\n \
-			  		LSD\tR$5 unidade\n \
-     				Crack\tR$4 grama\n \
-					Metanfetamina\tR$8 grama\n \
+					Maconha\t US$2 grama\n \
+			  		Cocaina\tUS$3 grama\n \
+			  		LSD\tUS$5 unidade\n \
+     				Crack\tUS$4 grama\n \
+					Metanfetamina\tUS$8 grama\n \
 					", "Pedir", "Cancelar");
 				}
 			}
@@ -10522,7 +10522,7 @@ Dialog:DIALOG_TRAFICANTEDROGA2(playerid, response, listitem, inputtext[])
 
 		    new location[MAX_ZONE_NAME];
 			Get2DZone(location, TOTAL_ZONE_NAME, TraficanteCarpos[rand][0], TraficanteCarpos[rand][1], TraficanteCarpos[rand][2]);
-	 		format(string, sizeof(string), "Traficante diz (celular): Seu pedido foi anotado. Vai estar tudo em um porta-malas de um carro em %s, leve R$%d.. Não demore.", location, valorfinal);
+	 		format(string, sizeof(string), "Traficante diz (celular): Seu pedido foi anotado. Vai estar tudo em um porta-malas de um carro em %s, leve US$%d.. Não demore.", location, valorfinal);
 			SCM(playerid, COLOR_YELLOW, string);
 			SCM(playerid, COLOR_WHITE, "(Use /encomenda para pegar seu pedido | /encomendac para reviver o checkpoint)");
 
@@ -11133,7 +11133,7 @@ public OnPlayerConnect(playerid)
     //if(LoginTimer[playerid]) KillTimer(LoginTimer[playerid]);
 	TelaDeLogin[playerid] = 0;
 
-    PlayAudioStreamForPlayer(playerid, "https://progressive-roleplay.com/midia/intro.mp3");
+    PlayAudioStreamForPlayer(playerid, "http://localhost/midia/intro.mp3");
 	
 	//PlayerTextDrawHide(playerid, pTextdraws);
 
@@ -11165,7 +11165,7 @@ public OnPlayerConnect(playerid)
 	    SetPlayerVirtualWorld(playerid, 9999);
 	    SendClientMessage(playerid, COLOR_YELLOW, "SERVER: Você precisa de um nome real para jogar no servidor.");
 		SendClientMessage(playerid, COLOR_YELLOW, "EXEMPLO: Nome_Sobrenome (Dica: não use numeros e muitas letras maiusculas em CAPSLOCK).");
-		SendClientMessage(playerid, COLOR_YELLOW, "PARA MAIS INFORMAÇÕES: https://forum.iw-roleplay.com.br");
+		SendClientMessage(playerid, COLOR_YELLOW, "PARA MAIS INFORMAÇÕES: https://forum.wt-rp.com.br");
 
 
 		SetTimerEx("KickInTime", 1000, 0, "i", playerid);
@@ -11746,7 +11746,7 @@ public CheckingAccount(playerid)
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][5]);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][6]);
 			new str[1024];
-			format(str, sizeof(str), "SERVER: Você só pode errar sua senha três (3) vezes.\n INFO: Nosso FÓRUM é o http://forum.progressive-roleplay\n acesse-o para mais informações sobre sua conta.\n\n        Digite sua senha:");
+			format(str, sizeof(str), "SERVER: Você só pode errar sua senha três (3) vezes.\n INFO: Nosso FÓRUM é o http://forum.wt-rp.com.br\n acesse-o para mais informações sobre sua conta.\n\n        Digite sua senha:");
 			ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "War on Terror Roleplay", str, "Autenticar", "Cancelar");
 		}
 		else
@@ -12551,7 +12551,7 @@ public OnPlayerDisconnect(playerid, reason)
 			    TransportMoney[TransportDriver[playerid]] += TransportCost[playerid];
 			    TransportTime[TransportDriver[playerid]] = 0;
 			    TransportCost[TransportDriver[playerid]] = 0;
-			    format(string5, sizeof(string5), "Passageiro saiu, você ganhou R$%d",TransportCost[playerid]);
+			    format(string5, sizeof(string5), "Passageiro saiu, você ganhou US$%d",TransportCost[playerid]);
 			    SendClientMessage(TransportDriver[playerid], COLOR_YELLOW, string5);
 			}
 		}
@@ -13063,7 +13063,7 @@ public OnPlayerSpawn(playerid){
                     PlayerInfo[playerid][pRegistrado] = 1;
 
                     SetPlayerColor(playerid,COLOR_WHITE);
-                    SendClientMessage(playerid, COLOR_LIGHTRED,"INFO: Não deixe de visitar nosso fórum: forum.iw-roleplay.com.br.");
+                    SendClientMessage(playerid, COLOR_LIGHTRED,"INFO: Não deixe de visitar nosso fórum: forum.wt-rp.com.br.");
                     SendClientMessage(playerid, COLOR_LIGHTRED,"INFO: Utilize /gps para encontrar os principais pontos da cidade.");
                 }
 	
@@ -13404,7 +13404,7 @@ public OnVehicleDeath(vehicleid, killerid)
 
 			        format(str,sizeof(str)," Você jogou o seu %s na agua, portanto, a seguradora resolveu não cobrir o prejuizo e cancelar o seu seguro.",vname);
 					SendClientMessage(vehowner,COLOR_LIGHTGREEN,str);
-					format(str,sizeof(str)," Você tem 72 horas para pagar R$%d caso deseje recuperar seu veiculo. (( /aceitarcobranca ))",price_to_keep_car);
+					format(str,sizeof(str)," Você tem 72 horas para pagar US$%d caso deseje recuperar seu veiculo. (( /aceitarcobranca ))",price_to_keep_car);
 					SendClientMessage(vehowner,COLOR_LIGHTGREEN,str);
 
 					OnVehicleDeathP2(slot);
@@ -14252,8 +14252,8 @@ public OnPlayerText(playerid, text[])
 					        SendClientMessage(playerid,COLOR_WHITE,"|-----[Anúncio - Rio de Janeiro]-----|");
 					   		format(string,sizeof(string),"Número de Caracteres: %d.",strlen(text));
 					   		SendClientMessage(playerid,COLOR_WHITE,string);
-					   		SendClientMessage(playerid,COLOR_WHITE,"Taxa: R$1 por caractere.");
-							format(string,sizeof(string),"Total: R$%d.",price);
+					   		SendClientMessage(playerid,COLOR_WHITE,"Taxa: US$1 por caractere.");
+							format(string,sizeof(string),"Total: US$%d.",price);
 							SendClientMessage(playerid,COLOR_WHITE,string);
 							format(string,sizeof(string),"Existem %d anuncios na frente do seu. Ele será enviado em breve.",fila);
 							SendClientMessage(playerid,COLOR_WHITE,string);
@@ -14317,8 +14317,8 @@ public OnPlayerText(playerid, text[])
 					        SendClientMessage(playerid,COLOR_WHITE,"|-----[Anúncio — Rio de Janeiro]-----|");
 					   		format(string,sizeof(string),"Número de Caracteres: %d.",strlen(text));
 					   		SendClientMessage(playerid,COLOR_WHITE,string);
-					   		SendClientMessage(playerid,COLOR_WHITE,"Taxa: R$1 por caractere.");
-							format(string,sizeof(string),"Total: R$%d.",price);
+					   		SendClientMessage(playerid,COLOR_WHITE,"Taxa: US$1 por caractere.");
+							format(string,sizeof(string),"Total: US$%d.",price);
 							SendClientMessage(playerid,COLOR_WHITE,string);
 							format(string,sizeof(string),"Existem %d anuncios na frente do seu. Ele será enviado em breve.",fila);
 							SendClientMessage(playerid,COLOR_WHITE,string);
@@ -14877,7 +14877,7 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 		        TaxiDrivers -= 1;
 			}
 			TransportDuty[playerid] = 0;
-			format(string, sizeof(string), "Você está fora de serviço e ganhou R$%d.", TransportMoney[playerid]);
+			format(string, sizeof(string), "Você está fora de serviço e ganhou US$%d.", TransportMoney[playerid]);
 			SendClientMessage(playerid, COLOR_GREEN, string);
 			PlayerInfo[playerid][pGrana] += TransportMoney[playerid];
 			TransportValue[playerid] = 0;
@@ -14891,9 +14891,9 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 				    TransportMoney[TransportDriver[playerid]] += TransportCost[playerid];
 				    TransportTime[TransportDriver[playerid]] = 0;
 				    TransportCost[TransportDriver[playerid]] = 0;
-				    format(string, sizeof(string), "~w~A corrida custou~n~~r~R$%d",TransportCost[playerid]);
+				    format(string, sizeof(string), "~w~A corrida custou~n~~r~US$%d",TransportCost[playerid]);
 				    GameTextForPlayer(playerid, string, 5000, 1);
-				    format(string, sizeof(string), "~w~Passageiro saiu do taxi~n~~g~Ganhou R$%d",TransportCost[playerid]);
+				    format(string, sizeof(string), "~w~Passageiro saiu do taxi~n~~g~Ganhou US$%d",TransportCost[playerid]);
 				    GameTextForPlayer(TransportDriver[playerid], string, 5000, 1);
 					PlayerInfo[playerid][pGrana] -= TransportCost[playerid];
 					TransportCost[playerid] = 0;
@@ -14904,15 +14904,15 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 				    TransportMoney[TransportDriver[playerid]] += PlayerInfo[playerid][pGrana];
 				    TransportTime[TransportDriver[playerid]] = 0;
 				    TransportCost[TransportDriver[playerid]] = 0;
-				    format(string, sizeof(string), "~w~A corrida custou~n~~r~R$%d", TransportCost[playerid]);
+				    format(string, sizeof(string), "~w~A corrida custou~n~~r~US$%d", TransportCost[playerid]);
 				    GameTextForPlayer(playerid, string, 5000, 1);
-				    format(string, sizeof(string), "~w~Passageiro saiu do taxi~n~~g~Ganhou R$%d", PlayerInfo[playerid][pGrana]);
+				    format(string, sizeof(string), "~w~Passageiro saiu do taxi~n~~g~Ganhou US$%d", PlayerInfo[playerid][pGrana]);
 				    GameTextForPlayer(TransportDriver[playerid], string, 5000, 1);
 					PlayerInfo[playerid][pGrana] = 0;
 
-					format(string, sizeof string, "O passageiro não tem R$%d para paga-lo, e pagou-lhe apenas R$%d.", TransportCost[playerid], PlayerInfo[playerid][pGrana]);
+					format(string, sizeof string, "O passageiro não tem US$%d para paga-lo, e pagou-lhe apenas US$%d.", TransportCost[playerid], PlayerInfo[playerid][pGrana]);
 					SCM(TransportDriver[playerid], COLOR_LIGHTRED, string);
-					format(string, sizeof string, "A corrida custou R$%d, mas você só tinha R$%d para pagar ao taxista.", TransportCost[playerid], PlayerInfo[playerid][pGrana]);
+					format(string, sizeof string, "A corrida custou US$%d, mas você só tinha US$%d para pagar ao taxista.", TransportCost[playerid], PlayerInfo[playerid][pGrana]);
 					SCM(playerid, COLOR_LIGHTRED, string);
 
 					TransportCost[playerid] = 0;
@@ -14933,7 +14933,7 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 	            {
 	                if(GetPlayerMoney(playerid) < TransportValue[i])
 	                {
-	                    format(string, sizeof(string), " Você precisa de R$%d para entrar.", TransportValue[i]);
+	                    format(string, sizeof(string), " Você precisa de US$%d para entrar.", TransportValue[i]);
 						SendClientMessage(playerid, COLOR_WHITE, string);
 						RemovePlayerFromVehicle(playerid);
 	                }
@@ -14943,7 +14943,7 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 	                    {
 	                        if(PlayerInfo[playerid][pGrana] >= TransportValue[i])
 	                        {
-		                        format(string, sizeof(string), " Você pagou R$%d para o Taxista.", TransportValue[i]);
+		                        format(string, sizeof(string), " Você pagou US$%d para o Taxista.", TransportValue[i]);
 								SendClientMessage(playerid, COLOR_YELLOW, string);
 								format(string, sizeof(string), " Passageiro %s entrou o seu Taxi.", PlayerName(playerid,1));
 								SendClientMessage(i, COLOR_YELLOW, string);
@@ -15117,7 +15117,7 @@ public MsgBus(playerid)
 {
     new quantia = 80;
     new msg[256];
-    format(msg, sizeof(msg),"INFO: Você recebeu R$%d! Siga o checkpoint no mapa para chegar ao próximo ponto de ônibus [ %d / 23]", quantia, BusJob[playerid]);
+    format(msg, sizeof(msg),"INFO: Você recebeu US$%d! Siga o checkpoint no mapa para chegar ao próximo ponto de ônibus [ %d / 23]", quantia, BusJob[playerid]);
     SendClientMessage(playerid, COLOR_WHITE, msg);
 	PlayerInfo[playerid][pGrana] += 80;
     return 1;
@@ -15195,7 +15195,7 @@ public FinalizandoEntrega(playerid)
     SendClientMessage(playerid, COLOR_YELLOW, "[IFOOD]{ffffff} Entrega realizada com sucesso.");
 	PlayerInfo[playerid][pGrana] += randomEspecial(GANHO_MIN, GANHO_MAX);
 	//new pagou = RandomEspecial(GANHO_MIN, GANHO_MAX);
-	//SendClientMessage(playerid,COLOR_LIGHTRED, "[IFOOD]{ffffff} Você recebeu R$%d pela entrega.", pagou);
+	//SendClientMessage(playerid,COLOR_LIGHTRED, "[IFOOD]{ffffff} Você recebeu US$%d pela entrega.", pagou);
 
     Entregando[playerid] = 0;
     Retiroupedido[playerid] = 0;
@@ -15210,7 +15210,7 @@ public ChamarEntrega(playerid)
 {
     TempoDeResposta[playerid] = SetTimerEx("PerdeuEntrega", 15000,false,"i",playerid);
     TemCorrida[playerid] = 1;
-    PlayAudioStreamForPlayer(playerid, "https://progressive-roleplay.com/midia/ifood.mp3");
+    PlayAudioStreamForPlayer(playerid, "http://localhost/midia/ifood.mp3");
  
     SendClientMessage(playerid,COLOR_YELLOW, "[IFOOD]{ffffff} Nova entrega recebida, você possui 15 segundos para aceitar.");
     SendClientMessage(playerid,COLOR_YELLOW, "[IFOOD]{ffffff} Digite /aceitarentrega.");
@@ -15648,7 +15648,7 @@ public OnPlayerEnterCheckpoint(playerid)
         {
             BusJob[playerid] = 0;
             DisablePlayerCheckpoint(playerid);
-            SendClientMessage(playerid, COLOR_WHITE,"Serviço finalizado! Você recebeu R$300 por ter completado todo o percurso!");
+            SendClientMessage(playerid, COLOR_WHITE,"Serviço finalizado! Você recebeu US$300 por ter completado todo o percurso!");
             SendClientMessage(playerid, COLOR_WHITE,"Volte ao spawn da profissão e inicie o serviço para fazer o percurso novamente!");
 			PlayerInfo[playerid][pGrana] += 300;
         }
@@ -15691,7 +15691,7 @@ public OnPlayerEnterCheckpoint(playerid)
 		{
   			GameTextForPlayer(playerid,"~g~Você completou o trabalho",5000,5);
      		OnPlayerEndGarbage(playerid);
-       		SendClientMessage(playerid,COLOR_LIGHTGREEN,"Você concluiu a coleta e recebeu R$135.");
+       		SendClientMessage(playerid,COLOR_LIGHTGREEN,"Você concluiu a coleta e recebeu US$135.");
           	GivePlayerMoneyCA(playerid, 135);
 		}
 		else
@@ -17135,7 +17135,7 @@ public OnPlayerUpdate_Timer()
 											format(StringBarco,sizeof(StringBarco), "%d/1000 litros.", VehicleInfo[Trailer][vCargaGas]);
 									   		UpdateDynamic3DTextLabelText(VehicleInfo[Trailer][vTrailerInfo], 0xFFFFFF80, StringBarco);
 
-									   		format(StringBarco,sizeof(StringBarco), "%s\n%d/%d litros.\n{00D67B}R$%d por litro{FFFFFF}\n'/carga comprar'", PontoEntrega[PlayerInfo[playerid][pComprandoGas]][emNome], PontoEntrega[PlayerInfo[playerid][pComprandoGas]][emStock],PontoEntrega[PlayerInfo[playerid][pComprandoGas]][emStockMax],PontoEntrega[PlayerInfo[playerid][pComprandoGas]][emCobraProd]);
+									   		format(StringBarco,sizeof(StringBarco), "%s\n%d/%d litros.\n{00D67B}US$%d por litro{FFFFFF}\n'/carga comprar'", PontoEntrega[PlayerInfo[playerid][pComprandoGas]][emNome], PontoEntrega[PlayerInfo[playerid][pComprandoGas]][emStock],PontoEntrega[PlayerInfo[playerid][pComprandoGas]][emStockMax],PontoEntrega[PlayerInfo[playerid][pComprandoGas]][emCobraProd]);
 									   		UpdateDynamic3DTextLabelText(PontoEntrega[PlayerInfo[playerid][pComprandoGas]][emLabel], 0xFFFFDECF, StringBarco);
 										}
 										else
@@ -17359,7 +17359,7 @@ public OnPlayerUpdate_Timer()
 								}
 								new newamount = (VehicleInfo[slot][vFuel] + filling_amount[playerid]);
 								new newprice = (EmpInfo[biz][eFuelPrice] * filling_amount[playerid]);
-								format(str,sizeof(str),"~g~Abastecendo~n~Quantia atual: ~w~%d/100~n~~g~Preco atual: ~w~R$%d~n~Aperte ~g~~k~~VEHICLE_HANDBRAKE~~w~ para parar",newamount,newprice);
+								format(str,sizeof(str),"~g~Abastecendo~n~Quantia atual: ~w~%d/100~n~~g~Preco atual: ~w~US$%d~n~Aperte ~g~~k~~VEHICLE_HANDBRAKE~~w~ para parar",newamount,newprice);
 								GameTextForPlayer(playerid,str,5000,5);
 								PlayerPlaySound(playerid,1150,0.0,0.0,0.0);
 				    		}
@@ -17367,7 +17367,7 @@ public OnPlayerUpdate_Timer()
 				      		{
 				        		new newprice = (EmpInfo[biz][eFuelPrice] * filling_amount[playerid]);
 				          		new str[256];
-				          		format(str,sizeof(str),"~g~Veiculo abastecido~n~~w~Valor: ~r~R$%d",newprice);
+				          		format(str,sizeof(str),"~g~Veiculo abastecido~n~~w~Valor: ~r~US$%d",newprice);
 				            	GameTextForPlayer(playerid,str,5000,5);
 				            	format(string, sizeof(string), "[POSTO] Veículo abastecido. Valor: %d.", newprice);
 								SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
@@ -17869,7 +17869,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 					if((PlayerInfo[playerid][pGrana] -= valor) > 0) 
 					//if(PlayerInfo[playerid][pGrana] <= 100)
 					{
-						SendClientMessage(playerid, -1, "{FCB876}[Jogo Do Bicho] {a9c4e4}Você precisa apostar no mínimo R$100.");
+						SendClientMessage(playerid, -1, "{FCB876}[Jogo Do Bicho] {a9c4e4}Você precisa apostar no mínimo US$100.");
 					} 
 					else 
 					{
@@ -17888,7 +17888,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 				PlayerInfo[playerid][pGrana] -= valor;
 				PlayerInfo[playerid][pApostouBicho] = 1;
 				Apostadores[playerid][Apostando] = true;
-				format(stringB2, sizeof(stringB2), "{FCB876}[Jogo Do Bicho] {a9c4e4}Você apostou R$%d no animal %s(Grupo %d)", valor, TabelaBichos[animal][Bicho], animal);
+				format(stringB2, sizeof(stringB2), "{FCB876}[Jogo Do Bicho] {a9c4e4}Você apostou US$%d no animal %s(Grupo %d)", valor, TabelaBichos[animal][Bicho], animal);
 				return SendClientMessage(playerid, -1, stringB2);
 			}
 		}
@@ -18097,7 +18097,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 	  			else
 	  			{
 	  			    new str[250];
-					format(str, sizeof(str), "SERVER: Você só pode errar sua senha três vezes.\n INFO: Nosso FÓRUM é o https://forum.iw-roleplay.com.br\n acesse-o para mais informações sobre sua conta.\n\n        Digite sua senha novamente:");
+					format(str, sizeof(str), "SERVER: Você só pode errar sua senha três vezes.\n INFO: Nosso FÓRUM é o https://forum.wt-rp.com.br\n acesse-o para mais informações sobre sua conta.\n\n        Digite sua senha novamente:");
 					ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "War on Terror Roleplay", str, "Autenticar", "Cancelar");
 
 				}
@@ -18184,13 +18184,13 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		        PlayerInfo[playerid][pGrana] += valor;
 
 		        SendClientMessage(playerid,COLOR_WHITE,"|-----Extrato Bancário-----|");
-				format(string,sizeof(string),"Quantia sacada: R$%d.",valor);
+				format(string,sizeof(string),"Quantia sacada: US$%d.",valor);
 				SendClientMessage(playerid,COLOR_WHITE,string);
 				//format(string,sizeof(string),"Taxa: %d% | Taxa liquida: %d",taxa, total);
 			    //SendClientMessage(playerid, COLOR_WHITE, string);
-				//format(string,sizeof(string),"Taxas: R$%d",total);
+				//format(string,sizeof(string),"Taxas: US$%d",total);
 				//SendClientMessage(playerid,COLOR_WHITE,string);
-				format(string,sizeof(string),"Novo saldo: R$%d.",PlayerInfo[playerid][pBanco]);
+				format(string,sizeof(string),"Novo saldo: US$%d.",PlayerInfo[playerid][pBanco]);
 				SendClientMessage(playerid,COLOR_WHITE,string);
 				SendClientMessage(playerid,COLOR_WHITE,"|-----Extrato Bancário-----|");
                 return 1;
@@ -19165,7 +19165,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
                       	TuningTDControl( playerid, true );
                        	format( globalstring, sizeof( globalstring ), "%s", cInfo[ cid ][ cName ] );
                         PlayerTextDrawSetString( playerid, TuningBuy[ playerid ][ 3 ], globalstring );
-                        format( globalstring, sizeof( globalstring ), "pecas: ~w~%dR$", cInfo[ cid ][ cPrice ] );
+                        format( globalstring, sizeof( globalstring ), "pecas: ~w~%dUS$", cInfo[ cid ][ cPrice ] );
                         PlayerTextDrawSetString( playerid, TuningBuy[ playerid ][ 4 ], globalstring );
                         AddVehicleComponent( vehicleid, cInfo[ cid ][ cID ] );
                         GetVehicleCameraPos( vehicleid, Pos[ 0 ], Pos[ 1 ], Pos[ 2 ], 0, 6, 0.5 ); // done
@@ -19195,7 +19195,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
                   		TuningTDControl( playerid, true );
                   		format( globalstring, sizeof( globalstring ), "%s", cInfo[ cid ][ cName ] );
                     	PlayerTextDrawSetString( playerid, TuningBuy[ playerid ][ 3 ], globalstring );
-                    	format( globalstring, sizeof( globalstring ), "pecas: ~w~%dR$", cInfo[ cid ][ cPrice ] );
+                    	format( globalstring, sizeof( globalstring ), "pecas: ~w~%dUS$", cInfo[ cid ][ cPrice ] );
                     	PlayerTextDrawSetString( playerid, TuningBuy[ playerid ][ 4 ], globalstring );
                         AddVehicleComponent( vehicleid, cInfo[ cid ][ cID ] );
                         GetVehicleCameraPos( vehicleid, Pos[ 0 ], Pos[ 1 ], Pos[ 2 ], 0, -6, 0.5 ); // done
@@ -19701,7 +19701,7 @@ public OnModelSelectionResponse(playerid, extraid, index, modelid, response)
 		{
 		    if(PlayerInfo[playerid][pGrana] >= 50) {
 				new EmpresaID = PlayerInfo[playerid][pEntrouEmpresa];
-			    SCM(playerid, COLOR_LIGHTGREEN, "Você comprou uma nova skin por R$50.");
+			    SCM(playerid, COLOR_LIGHTGREEN, "Você comprou uma nova skin por US$50.");
 			    PlayerInfo[playerid][pSkin] = modelid;
 			    SetPlayerSkin(playerid, modelid);
 
@@ -19709,7 +19709,7 @@ public OnModelSelectionResponse(playerid, extraid, index, modelid, response)
 			    EmpInfo[EmpresaID][eBank] += 50;
 			    ApplyAnimation(playerid, "CLOTHES", "CLO_Buy", 3.0, 0, 0, 0, 0, 0, 1);
 			}
-			else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem R$50.");
+			else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem US$50.");
 		}
 	}
 	return 1;
@@ -19757,7 +19757,7 @@ stock MostrarConce2(playerid,carid,conce)
     ComprandoCarro[playerid][4] = 0;
 
     new NomeDoMovel[124];
-    format(NomeDoMovel,sizeof(NomeDoMovel),"Informações do Veículo:\nVeiculo %s\nPreço: R$%d\n", VehicleNames[(carid-400)], Price);
+    format(NomeDoMovel,sizeof(NomeDoMovel),"Informações do Veículo:\nVeiculo %s\nPreço: US$%d\n", VehicleNames[(carid-400)], Price);
     Dialog_Show(playerid, CONCE_Dialog, DIALOG_STYLE_MSGBOX, "Concessionárîa", NomeDoMovel, "Comprar", "Voltar");
 	return 1;
 }
@@ -19771,7 +19771,7 @@ stock MostrarConce2_AI(playerid,carid,conce)
     ComprandoCarro[playerid][4] = 1;
 
     new NomeDoMovel[124];
-    format(NomeDoMovel,sizeof(NomeDoMovel),"Informações do Veículo:\nVeiculo %s\nPreço: R$0\n", VehicleNames[(carid-400)]);
+    format(NomeDoMovel,sizeof(NomeDoMovel),"Informações do Veículo:\nVeiculo %s\nPreço: US$0\n", VehicleNames[(carid-400)]);
     Dialog_Show(playerid, CONCE_Dialog, DIALOG_STYLE_MSGBOX, "AjudaInicial", NomeDoMovel, "Comprar", "Voltar");
 	return 1;
 }
@@ -20788,7 +20788,7 @@ public TogSQLstatus(playerid, status)
 
 CMD:forum(playerid, params[])
 {
-    SCM(playerid, COLOR_LIGHTRED, "[WT:RP] Fórum do servidor: https://forum.iw-roleplay.com.br");
+    SCM(playerid, COLOR_LIGHTRED, "[WT:RP] Fórum do servidor: https://forum.wt-rp.com.br");
 	return 1;
 }
 
@@ -20897,7 +20897,7 @@ public VerStats(playerid, targetid)
 	SendClientMessage(targetid, COLOR_ESPECIAL2, string);
 	format(string, 256, "| Skill | Vida: [%.2f/%.2f] Colete: [%.2f/100] Força: [%d]", Health, PlayerInfo[playerid][pHealthMax], PlayerInfo[playerid][pArmour], PlayerInfo[playerid][pForca]);
 	SendClientMessage(targetid, COLOR_ESPECIAL1, string);
-	format(string, 256, "| Financeiro | Dinheiro: [R$%d] Dinheiro Sujo: [R$%d] Banco: [R$%d] Savings: [R$%d] Rendimento dos Savings: [R$%d]", PlayerInfo[playerid][pGrana], PlayerInfo[playerid][pGranaSuja], PlayerInfo[playerid][pBanco], PlayerInfo[playerid][pSavings], PlayerInfo[playerid][pSavingsGerando]);
+	format(string, 256, "| Financeiro | Dinheiro: [US$%d] Dinheiro Sujo: [US$%d] Banco: [US$%d] Savings: [US$%d] Rendimento dos Savings: [US$%d]", PlayerInfo[playerid][pGrana], PlayerInfo[playerid][pGranaSuja], PlayerInfo[playerid][pBanco], PlayerInfo[playerid][pSavings], PlayerInfo[playerid][pSavingsGerando]);
 	SendClientMessage(targetid, COLOR_ESPECIAL2, string);
 	format(string, 256, "| Outro | Genero: [%s]  Idade: [%s] Admin: [%d] Nome OOC: [%s]", str_gen, PlayerInfo[playerid][pAge], PlayerInfo[playerid][pAdmin], PlayerInfo[playerid][pNomeOOC]);
 	SendClientMessage(targetid, COLOR_ESPECIAL1, string);
@@ -23209,7 +23209,7 @@ CMD:comprarlicenca(playerid, params[])
 	if(biz != -1)
 	{
 		if( EmpInfo[biz][eTipo] == EMP_TIPO_LIC_CENTER)
- 			return Dialog_Show(playerid, DIALOG_CLICS, DIALOG_STYLE_TABLIST_HEADERS, "Comprar Licenças", "Categoria\tPreço\nMotorista\tR$150\nCaminhoneiro\tR$250", "Comprar", "Cancelar");
+ 			return Dialog_Show(playerid, DIALOG_CLICS, DIALOG_STYLE_TABLIST_HEADERS, "Comprar Licenças", "Categoria\tPreço\nMotorista\tUS$150\nCaminhoneiro\tUS$250", "Comprar", "Cancelar");
 	}
 	SetPlayerCheckpoint(playerid, 1991.5050,-1991.8192,13.5469, 3.0);
 	cp_target[playerid] = 1;
@@ -23227,7 +23227,7 @@ Dialog:DIALOG_CLICS(playerid, response, listitem, inputtext[])
 	    	case 0: //Motorista
 	    	{
 	    	    if(PlayerInfo[playerid][pDriveLic] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você já tem uma licença de motorista.");
-				if(PlayerInfo[playerid][pGrana] < 150) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem R$150 para comprar a licença de motorista.");
+				if(PlayerInfo[playerid][pGrana] < 150) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem US$150 para comprar a licença de motorista.");
 				PlayerInfo[playerid][pDriveLic] = 1;
 				PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-150;
 				SendClientMessage(playerid, COLOR_LIGHTGREEN, "Parabéns, você acaba de adquirir uma carteira de motorista.");
@@ -23235,7 +23235,7 @@ Dialog:DIALOG_CLICS(playerid, response, listitem, inputtext[])
 			case 1: //Caminhoneiro
 	    	{
 	    	    if(PlayerInfo[playerid][pTruckLic] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você já tem uma licença de Caminhoneiro.");
-				if(PlayerInfo[playerid][pGrana] < 250) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem R$250 para comprar a licença de Caminhoneiro.");
+				if(PlayerInfo[playerid][pGrana] < 250) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem US$250 para comprar a licença de Caminhoneiro.");
 				PlayerInfo[playerid][pTruckLic] = 1;
 				PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-250;
 				SendClientMessage(playerid, COLOR_LIGHTGREEN, "Parabéns, você acaba de adquirir uma licença de Caminhoneiro.");
@@ -23266,7 +23266,7 @@ stock IsPlayerAimings(playerid, aimid)
 CMD:ajuda(playerid, params[])
 {
 	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você precisa estar logado.");
-    SendClientMessage(playerid, COLOR_LIGHTGREEN, "_______________iw-roleplay.com.br______________");
+    SendClientMessage(playerid, COLOR_LIGHTGREEN, "_______________wt-rp.com.br______________");
     SendClientMessage(playerid, COLOR_ESPECIAL1, "[CONTA] /stats /upgrade /itens /inv(entario) /minhasdrogas /comprarlicenca /pegaremprego /mudarsenha /refundos");
     SendClientMessage(playerid, COLOR_ESPECIAL2, "[GERAL] /pagar /horas /relogio /comprar /id /bater /screen /pegar /removercp /cinto /tempopremium");
     SendClientMessage(playerid, COLOR_ESPECIAL1, "[GERAL] (/an)uncio /licencas /sos /limparchat /derrubar /corrigirvw /subir /darpeca /fomesede");
@@ -23352,7 +23352,7 @@ public ChecandoRefundo(playerid)
 			if(refundoGrana > 0)
 			{
 			    PlayerInfo[playerid][pBanco] += refundoGrana;
-			    format(strref, 128, "[REFUNDO]: {FFFFFF}Foi depositado em seu banco R$%d referente a um refundo.",refundoGrana);
+			    format(strref, 128, "[REFUNDO]: {FFFFFF}Foi depositado em seu banco US$%d referente a um refundo.",refundoGrana);
 			    SCM(playerid, COLOR_LIGHTGREEN, strref);
 			    format(strRefundo, 256, "UPDATE `refundo` SET `rUsado` = '1' WHERE `rID`='%d'",refundoID);
 				mysql_function_query(Pipeline, strRefundo, true, "OnQueryFinish", "ii", THREAD_NO_RESULT, playerid);
@@ -24859,8 +24859,8 @@ CMD:anuncio(playerid, params[])
 		SendClientMessage(playerid,COLOR_WHITE,"|-----[Anúncio - Rio de Janeiro]-----|");
    		format(string,sizeof(string),"Número de Caracteres: %d.",strlen(opt));
    		SendClientMessage(playerid,COLOR_WHITE,string);
-   		SendClientMessage(playerid,COLOR_WHITE,"Taxa: R$1 por caractere.");
-		format(string,sizeof(string),"Total: R$%d.",price);
+   		SendClientMessage(playerid,COLOR_WHITE,"Taxa: US$1 por caractere.");
+		format(string,sizeof(string),"Total: US$%d.",price);
 		SendClientMessage(playerid,COLOR_WHITE,string);
 		GivePlayerMoneyCA(playerid, -price);
 		Anuncio = 15;
@@ -24904,8 +24904,8 @@ CMD:anuncioemp(playerid, params[])
 		SendClientMessage(playerid,COLOR_WHITE,"|-----[Anúncio - Rio de Janeiro]-----|");
    		format(string,sizeof(string),"Número de Caracteres: %d.",strlen(opt));
    		SendClientMessage(playerid,COLOR_WHITE,string);
-   		SendClientMessage(playerid,COLOR_WHITE,"Taxa: R$1 por caractere.");
-		format(string,sizeof(string),"Total: R$%d.",price);
+   		SendClientMessage(playerid,COLOR_WHITE,"Taxa: US$1 por caractere.");
+		format(string,sizeof(string),"Total: US$%d.",price);
 		SendClientMessage(playerid,COLOR_WHITE,string);
 		GivePlayerMoneyCA(playerid, -price);
 		Anuncio = 15;
@@ -25639,26 +25639,26 @@ CMD:passargrana(playerid, params[])
             {
                 if(qnt > 1500)
                 {
-                    format(string, sizeof(string), "AdmWarn: ANTI-MF, %s[%d] pode estar fazendo money farm. [TC: %d, Entrgou R$%d, para: %s]", PlayerName(playerid,0), playerid, PlayerInfo[targetid][pLevel], qnt, PlayerName(var,0));
+                    format(string, sizeof(string), "AdmWarn: ANTI-MF, %s[%d] pode estar fazendo money farm. [TC: %d, Entrgou US$%d, para: %s]", PlayerName(playerid,0), playerid, PlayerInfo[targetid][pLevel], qnt, PlayerName(var,0));
 					SendAdminMessage(COLOR_YELLOW,string);
 
 					new strl[126];
-					format(strl, sizeof(strl), "[ Possivel Money Farm] %s pagou para %s a quantidade de R$%d.", PlayerName(playerid,0), PlayerName(var,0), qnt);
+					format(strl, sizeof(strl), "[ Possivel Money Farm] %s pagou para %s a quantidade de US$%d.", PlayerName(playerid,0), PlayerName(var,0), qnt);
 	   				LogCMD_PAGAR(strl);
                 }
             }
 
             PlayerInfo[playerid][pGranaSuja] = PlayerInfo[playerid][pGranaSuja]-qnt;
             PlayerInfo[var][pGranaSuja] = PlayerInfo[var][pGranaSuja]+qnt;
-			format(string,sizeof(string)," Você deu para %s, R$%d sujo.",PlayerName(var,1), qnt);
+			format(string,sizeof(string)," Você deu para %s, US$%d sujo.",PlayerName(var,1), qnt);
 	 		SendClientMessage(playerid, COLOR_CINZA,string);
-	 		format(string,sizeof(string)," Você recebeu R$%d sujo de %s.", qnt, PlayerName(playerid,1));
+	 		format(string,sizeof(string)," Você recebeu US$%d sujo de %s.", qnt, PlayerName(playerid,1));
 	 		SendClientMessage(var, COLOR_CINZA,string);
 
 	 		if(PlayerInfo[playerid][pMorto] == 0) ApplyAnimation(playerid,"DEALER","shop_pay",3.0,0,0,0,0,0,1);
 
 			new strl[126];
-	   		format(strl, sizeof(strl), "%s pagou para %s a quantidade de dinheiro sujo R$%d.", PlayerName(playerid,0), PlayerName(var,0), qnt);
+	   		format(strl, sizeof(strl), "%s pagou para %s a quantidade de dinheiro sujo US$%d.", PlayerName(playerid,0), PlayerName(var,0), qnt);
 	   		LogCMD_PAGAR(strl);
 	   		return 1;
 		}
@@ -25709,26 +25709,26 @@ CMD:pagar(playerid, params[])
             {
                 if(qnt > 1500)
                 {
-                    format(string, sizeof(string), "AdmWarn: ANTI-MF, %s[%d] pode estar fazendo money farm. [TC: %d, Entrgou R$%d, para: %s]", PlayerName(playerid,0), playerid, PlayerInfo[targetid][pLevel], qnt, PlayerName(var,0));
+                    format(string, sizeof(string), "AdmWarn: ANTI-MF, %s[%d] pode estar fazendo money farm. [TC: %d, Entrgou US$%d, para: %s]", PlayerName(playerid,0), playerid, PlayerInfo[targetid][pLevel], qnt, PlayerName(var,0));
 					SendAdminMessage(COLOR_YELLOW,string);
 
 					new strl[126];
-					format(strl, sizeof(strl), "[ Possivel Money Farm ] %s pagou para %s a quantidade de R$%d.", PlayerName(playerid,0), PlayerName(var,0), qnt);
+					format(strl, sizeof(strl), "[ Possivel Money Farm ] %s pagou para %s a quantidade de US$%d.", PlayerName(playerid,0), PlayerName(var,0), qnt);
 	   				LogCMD_PAGAR(strl);
                 }
             }
 
             PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-qnt;
             PlayerInfo[var][pGrana] = PlayerInfo[var][pGrana]+qnt;
-			format(string,sizeof(string)," Você deu para %s, R$%d.",PlayerName(var,1), qnt);
+			format(string,sizeof(string)," Você deu para %s, US$%d.",PlayerName(var,1), qnt);
 	 		SendClientMessage(playerid, COLOR_CINZA,string);
-	 		format(string,sizeof(string)," Você recebeu R$%d de %s.", qnt, PlayerName(playerid,1));
+	 		format(string,sizeof(string)," Você recebeu US$%d de %s.", qnt, PlayerName(playerid,1));
 	 		SendClientMessage(var, COLOR_CINZA,string);
 
 	 		if(PlayerInfo[playerid][pMorto] == 0) ApplyAnimation(playerid,"DEALER","shop_pay",3.0,0,0,0,0,0,1);
 
 			new strl[126];
-	   		format(strl, sizeof(strl), "%s pagou para %s a quantidade de R$%d.", PlayerName(playerid,0), PlayerName(var,0), qnt);
+	   		format(strl, sizeof(strl), "%s pagou para %s a quantidade de US$%d.", PlayerName(playerid,0), PlayerName(var,0), qnt);
 	   		LogCMD_PAGAR(strl);
 	   		return 1;
 		}
@@ -25769,8 +25769,8 @@ COMMAND:savings(playerid, params[])
 					new qnt = strval(tmp4);
 					if(PlayerInfo[playerid][pGrana] < qnt) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem tudo isso de dinheiro.");
 
-					if(qnt < 10000) return SendClientMessage(playerid, COLOR_LIGHTRED, "O valor minimo de depósito é de R$10,000.");
-					if(qnt > 500000) return SendClientMessage(playerid, COLOR_LIGHTRED, "O valor máximo de depósito é de R$500,000.");
+					if(qnt < 10000) return SendClientMessage(playerid, COLOR_LIGHTRED, "O valor minimo de depósito é de US$10,000.");
+					if(qnt > 500000) return SendClientMessage(playerid, COLOR_LIGHTRED, "O valor máximo de depósito é de US$500,000.");
 					if(PlayerInfo[playerid][pSavings] == 0)
 					{
 					    PlayerInfo[playerid][pSavings] = qnt;
@@ -25778,9 +25778,9 @@ COMMAND:savings(playerid, params[])
 	                    PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-qnt;
 
 					    SendClientMessage(playerid, COLOR_LIGHTGREEN, "_______________________________________");
-		    			SendClientMessage(playerid, COLOR_WHITE, "Caixa Ecônomica Federal");
-		    			format(chatstr,sizeof(chatstr),"Você investiu R$%d e só poderá ser retirado quando você atingir R$500,000.", qnt); SendClientMessage(playerid, COLOR_WHITE, chatstr);
-		    			SendClientMessage(playerid, COLOR_WHITE, "O seu investimento aumentará até que chegue em R$500,000.");
+		    			SendClientMessage(playerid, COLOR_WHITE, "Bank of America");
+		    			format(chatstr,sizeof(chatstr),"Você investiu US$%d e só poderá ser retirado quando você atingir US$500,000.", qnt); SendClientMessage(playerid, COLOR_WHITE, chatstr);
+		    			SendClientMessage(playerid, COLOR_WHITE, "O seu investimento aumentará até que chegue em US$500,000.");
 		    			SendClientMessage(playerid, COLOR_WHITE, "Você não terá acesso as suas funções bancárias em quanto houver um saving ativo.");
 		    			SendClientMessage(playerid, COLOR_LIGHTGREEN, "_______________________________________");
 
@@ -25800,11 +25800,11 @@ COMMAND:savings(playerid, params[])
 	                PlayerInfo[playerid][pBanco] = PlayerInfo[playerid][pBanco]+PlayerInfo[playerid][pSavings];
 
 				    SendClientMessage(playerid, COLOR_LIGHTGREEN, "_______________________________________");
-	    			SendClientMessage(playerid, COLOR_WHITE, "Caixa Ecônomica Federal");
-	    			format(chatstr,sizeof(chatstr),"Você sacou seus investimentos, um total de R$%d.", savings);
+	    			SendClientMessage(playerid, COLOR_WHITE, "Bank of America");
+	    			format(chatstr,sizeof(chatstr),"Você sacou seus investimentos, um total de US$%d.", savings);
 	    			SendClientMessage(playerid, COLOR_WHITE, chatstr);
 	    			SendClientMessage(playerid, COLOR_WHITE, "Suas funções bancárias foram reativadas.");
-	    			format(chatstr,sizeof(chatstr),"Saldo Atual: R$%d.", PlayerInfo[playerid][pBanco]);
+	    			format(chatstr,sizeof(chatstr),"Saldo Atual: US$%d.", PlayerInfo[playerid][pBanco]);
 	    			SendClientMessage(playerid, COLOR_WHITE, chatstr);
 	    			SendClientMessage(playerid, COLOR_LIGHTGREEN, "_______________________________________");
 
@@ -25815,7 +25815,7 @@ COMMAND:savings(playerid, params[])
 		   			format(strl, sizeof(strl), "%s sacou %d.", PlayerName(playerid,0), savings);
 		   			LogCMD_Savings(strl);
 				}
-				else return SendClientMessage(playerid, COLOR_LIGHTRED, "Seus investimentos ainda não atingiram o valor de R$500,000.");
+				else return SendClientMessage(playerid, COLOR_LIGHTRED, "Seus investimentos ainda não atingiram o valor de US$500,000.");
 			}
 		}
 	}
@@ -25872,7 +25872,7 @@ COMMAND:sacar(playerid, params[])
 	        if(HouseInfo[PlayerInfo[playerid][pEntrouCasa]][hDono] == PlayerInfo[playerid][pID])
 			{
           		SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /sacar [quantia]");
-				format(string, 256, "[Casa %d] Você tem R$%d guardado em sua casa.", PlayerInfo[playerid][pEntrouCasa], HouseInfo[PlayerInfo[playerid][pEntrouCasa]][hBank]);
+				format(string, 256, "[Casa %d] Você tem US$%d guardado em sua casa.", PlayerInfo[playerid][pEntrouCasa], HouseInfo[PlayerInfo[playerid][pEntrouCasa]][hBank]);
 				SendClientMessage(playerid, COLOR_CINZA, string);
 				return 1;
 			}
@@ -25882,14 +25882,14 @@ COMMAND:sacar(playerid, params[])
 		    if(EmpInfo[PlayerInfo[playerid][pEntrouEmpresa]][eDono] == PlayerInfo[playerid][pID])
 			{
    				SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /sacar [quantia]");
-				format(string, 256, "[Empresa %d] Você tem R$%d guardado em sua empresa.", PlayerInfo[playerid][pEntrouEmpresa], EmpInfo[PlayerInfo[playerid][pEntrouEmpresa]][eBank]);
+				format(string, 256, "[Empresa %d] Você tem US$%d guardado em sua empresa.", PlayerInfo[playerid][pEntrouEmpresa], EmpInfo[PlayerInfo[playerid][pEntrouEmpresa]][eBank]);
 				SendClientMessage(playerid, COLOR_CINZA, string);
 				return 1;
 			}
 			else if(EmpInfo[PlayerInfo[playerid][pEntrouEmpresa]][eTipo] == EMP_TIPO_BANCO)
 			{
 			    SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /sacar [quantia]");
-				format(string, 256, " Você tem R$%d em sua conta", PlayerInfo[playerid][pBanco]);
+				format(string, 256, " Você tem US$%d em sua conta", PlayerInfo[playerid][pBanco]);
 				SendClientMessage(playerid, COLOR_CINZA, string);
 			}
 			else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Essa empresa não é um banco ou você não tem acesso ao cofre da mesma.");
@@ -25908,12 +25908,12 @@ COMMAND:sacar(playerid, params[])
 
                     PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]+qnt;
                     HouseInfo[PlayerInfo[playerid][pEntrouCasa]][hBank] = HouseInfo[PlayerInfo[playerid][pEntrouCasa]][hBank]-qnt;
-                    format(string, 256, "[Casa %d] Você retirou R$%d em sua casa.", PlayerInfo[playerid][pEntrouCasa], qnt);
+                    format(string, 256, "[Casa %d] Você retirou US$%d em sua casa.", PlayerInfo[playerid][pEntrouCasa], qnt);
 					SendClientMessage(playerid, COLOR_CINZA, string);
 					SalvarCasa(PlayerInfo[playerid][pEntrouCasa]);
 
 					new strl[126];
-					format(strl, sizeof(strl), "%s sacou R$%d da casa %d.", PlayerName(playerid,0), qnt, PlayerInfo[playerid][pEntrouCasa]);
+					format(strl, sizeof(strl), "%s sacou US$%d da casa %d.", PlayerName(playerid,0), qnt, PlayerInfo[playerid][pEntrouCasa]);
 	   				LogCMD_sacar(strl);
 					return 1;
 				}
@@ -25928,13 +25928,13 @@ COMMAND:sacar(playerid, params[])
 
                     PlayerInfo[playerid][pGrana]+=qnt;
                     EmpInfo[PlayerInfo[playerid][pEntrouEmpresa]][eBank]-=qnt;
-                    format(string, 256, "[Empresa %d] Você retirou R$%d em sua empresa.", PlayerInfo[playerid][pEntrouEmpresa], qnt);
+                    format(string, 256, "[Empresa %d] Você retirou US$%d em sua empresa.", PlayerInfo[playerid][pEntrouEmpresa], qnt);
 					SendClientMessage(playerid, COLOR_CINZA, string);
 
 					SalvarEmpresa(PlayerInfo[playerid][pEntrouEmpresa]);
 
 					new strl[126];
-					format(strl, sizeof(strl), "%s sacou R$%d da empresa %d.", PlayerName(playerid,0), qnt, PlayerInfo[playerid][pEntrouEmpresa]);
+					format(strl, sizeof(strl), "%s sacou US$%d da empresa %d.", PlayerName(playerid,0), qnt, PlayerInfo[playerid][pEntrouEmpresa]);
 	   				LogCMD_sacar(strl);
 					return 1;
 				}
@@ -25945,10 +25945,10 @@ COMMAND:sacar(playerid, params[])
 	      			PlayerInfo[playerid][pBanco] = PlayerInfo[playerid][pBanco]-qnt;
 			        PlayerInfo[playerid][pGrana] += qnt;
 
-		    		format(chatstr,sizeof(chatstr),"Você sacou R$%d da sua conta, total: R$%d, taxa: R$0", qnt, PlayerInfo[playerid][pBanco]);
+		    		format(chatstr,sizeof(chatstr),"Você sacou US$%d da sua conta, total: US$%d, taxa: US$0", qnt, PlayerInfo[playerid][pBanco]);
 		    		SendClientMessage(playerid, COLOR_YELLOW, chatstr);
 		    		new strl[126];
-					format(strl, sizeof(strl), "%s sacou R$%d do banco %d.", PlayerName(playerid,0), qnt);
+					format(strl, sizeof(strl), "%s sacou US$%d do banco %d.", PlayerName(playerid,0), qnt);
 					LogCMD_sacar(strl);
 			    	return 1;
 				}
@@ -25972,7 +25972,7 @@ COMMAND:depositar(playerid, params[])
 	        if(HouseInfo[PlayerInfo[playerid][pEntrouCasa]][hDono] == PlayerInfo[playerid][pID])
 			{
           		SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /depositar [quantia]");
-				format(string, 256, "[Casa %d] Você tem R$%d guardado em sua casa.", PlayerInfo[playerid][pEntrouCasa], HouseInfo[PlayerInfo[playerid][pEntrouCasa]][hBank]);
+				format(string, 256, "[Casa %d] Você tem US$%d guardado em sua casa.", PlayerInfo[playerid][pEntrouCasa], HouseInfo[PlayerInfo[playerid][pEntrouCasa]][hBank]);
 				SendClientMessage(playerid, COLOR_CINZA, string);
 				return 1;
 			}
@@ -25982,14 +25982,14 @@ COMMAND:depositar(playerid, params[])
 		    if(EmpInfo[PlayerInfo[playerid][pEntrouEmpresa]][eDono] == PlayerInfo[playerid][pID])
 			{
    				SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /depositar [quantia]");
-				format(string, 256, "[Empresa %d] Você tem R$%d guardado em sua empresa.", PlayerInfo[playerid][pEntrouEmpresa], EmpInfo[PlayerInfo[playerid][pEntrouEmpresa]][eBank]);
+				format(string, 256, "[Empresa %d] Você tem US$%d guardado em sua empresa.", PlayerInfo[playerid][pEntrouEmpresa], EmpInfo[PlayerInfo[playerid][pEntrouEmpresa]][eBank]);
 				SendClientMessage(playerid, COLOR_CINZA, string);
 				return 1;
 			}
             else if(EmpInfo[PlayerInfo[playerid][pEntrouEmpresa]][eTipo] == EMP_TIPO_BANCO)
 			{
 				SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /depositar [quantia]");
-				format(string, 256, " Você tem R$%d em sua conta", PlayerInfo[playerid][pBanco]);
+				format(string, 256, " Você tem US$%d em sua conta", PlayerInfo[playerid][pBanco]);
 				SendClientMessage(playerid, COLOR_CINZA, string);
 				return 1;
 			}
@@ -26008,12 +26008,12 @@ COMMAND:depositar(playerid, params[])
 				{
                     PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-qnt;
                     HouseInfo[PlayerInfo[playerid][pEntrouCasa]][hBank] = HouseInfo[PlayerInfo[playerid][pEntrouCasa]][hBank]+qnt;
-                    format(string, 256, "[Casa %d] Você guardou R$%d em sua casa.", PlayerInfo[playerid][pEntrouCasa], qnt);
+                    format(string, 256, "[Casa %d] Você guardou US$%d em sua casa.", PlayerInfo[playerid][pEntrouCasa], qnt);
 					SendClientMessage(playerid, COLOR_CINZA, string);
 					SalvarCasa(PlayerInfo[playerid][pEntrouCasa]);
 
 					new strl[126];
-					format(strl, sizeof(strl), "%s depositou R$%d na casa %d.", PlayerName(playerid,0), qnt, PlayerInfo[playerid][pEntrouCasa]);
+					format(strl, sizeof(strl), "%s depositou US$%d na casa %d.", PlayerName(playerid,0), qnt, PlayerInfo[playerid][pEntrouCasa]);
 					LogCMD_deposito(strl);
 					return 1;
 				}
@@ -26024,13 +26024,13 @@ COMMAND:depositar(playerid, params[])
 				{
                     PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-qnt;
                     EmpInfo[PlayerInfo[playerid][pEntrouEmpresa]][eBank] = EmpInfo[PlayerInfo[playerid][pEntrouEmpresa]][eBank]+qnt;
-                    format(string, 256, "[Empresa %d] Você guardou R$%d em sua empresa.", PlayerInfo[playerid][pEntrouEmpresa], qnt);
+                    format(string, 256, "[Empresa %d] Você guardou US$%d em sua empresa.", PlayerInfo[playerid][pEntrouEmpresa], qnt);
 					SendClientMessage(playerid, COLOR_CINZA, string);
 
 					SalvarEmpresa(PlayerInfo[playerid][pEntrouEmpresa]);
 
 					new strl[126];
-					format(strl, sizeof(strl), "%s depositou R$%d na empresa %d.", PlayerName(playerid,0), qnt, PlayerInfo[playerid][pEntrouEmpresa]);
+					format(strl, sizeof(strl), "%s depositou US$%d na empresa %d.", PlayerName(playerid,0), qnt, PlayerInfo[playerid][pEntrouEmpresa]);
 					LogCMD_deposito(strl);
 					return 1;
 				}
@@ -26043,16 +26043,16 @@ COMMAND:depositar(playerid, params[])
 		        	PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-qnt;
 					
 					SendClientMessage(playerid, COLOR_LIGHTGREEN, "|___ EXTRATO BANCÁRIO ___|");
-					format(chatstr,sizeof(chatstr)," Balanço antigo: R$ %d.", saldoAntigo);
+					format(chatstr,sizeof(chatstr)," Balanço antigo: US$ %d.", saldoAntigo);
 			    	SendClientMessage(playerid, COLOR_ADMDUTYOFF, chatstr);
-			    	format(chatstr,sizeof(chatstr)," Depósito: R$ %d.", qnt);
+			    	format(chatstr,sizeof(chatstr)," Depósito: US$ %d.", qnt);
 			    	SendClientMessage(playerid, COLOR_PD2, chatstr);
 			    	SendClientMessage(playerid, COLOR_FINALDEPOSIT, "|-----------------------------------------|");
-			    	format(chatstr,sizeof(chatstr)," Novo balanço: R$ %d.", PlayerInfo[playerid][pBanco]);
+			    	format(chatstr,sizeof(chatstr)," Novo balanço: US$ %d.", PlayerInfo[playerid][pBanco]);
 			    	SendClientMessage(playerid, COLOR_WHITE, chatstr);
 
 			    	new strl[126];
-					format(strl, sizeof(strl), "%s depositou R$%d no banco.", PlayerName(playerid,0), qnt);
+					format(strl, sizeof(strl), "%s depositou US$%d no banco.", PlayerName(playerid,0), qnt);
 					LogCMD_deposito(strl);
 			    	return 1;
 				}
@@ -26079,15 +26079,16 @@ COMMAND:pix(playerid, params[])
 		        PlayerInfo[playa][pBanco] += qnt;
 		        PlayerInfo[playerid][pBanco] = PlayerInfo[playerid][pBanco]-qnt;
 
-	    		SendClientMessage(playerid, COLOR_WHITE, "Caixa Ecônomica Federal");
-	    		format(chatstr,sizeof(chatstr)," Você efetuou um PIX de R$%d, para a conta de %s.", qnt, PlayerName(playa, 0));
-
-	    		format(chatstr, sizeof(chatstr), "SMS: Você recebeu um PIX de %s no valor: R$%d, Ag: 3557 C:579847-2", PlayerName(playerid, 0), qnt);
+	    		SendClientMessage(playerid, COLOR_WHITE, "Bank of America");
+	    		format(chatstr,sizeof(chatstr)," Você efetuou um PIX de US$%d, para a conta de %s.", qnt, PlayerName(playa, 0));
 				SCM(playa, COLOR_YELLOW, chatstr);
-				PlayAudioStreamForPlayer(playerid, "https://progressive-roleplay.com/midia/pix.mp3");
+				
+	    		format(chatstr, sizeof(chatstr), "APP: Você recebeu um PIX de %s no valor de US$%d. Ag: 3557 C/C:579847-2", PlayerName(playerid, 0), qnt);
+				SCM(playa, COLOR_YELLOW, chatstr);
+				PlayAudioStreamForPlayer(playerid, "http://localhost/midia/pix.mp3");
 
 				new strl[126];
-				format(strl, sizeof(strl), "%s fez um pix R$%d para %s.", PlayerName(playerid,0), qnt, PlayerName(playa,0));
+				format(strl, sizeof(strl), "%s fez um pix US$%d para %s.", PlayerName(playerid,0), qnt, PlayerName(playa,0));
 				LogCMD_transf(strl);
 			}
 		}
@@ -26114,15 +26115,15 @@ COMMAND:transferir(playerid, params[])
 		        PlayerInfo[playa][pBanco] += qnt;
 		        PlayerInfo[playerid][pBanco] = PlayerInfo[playerid][pBanco]-qnt;
 
-	    		SendClientMessage(playerid, COLOR_WHITE, "Caixa Ecônomica Federal");
-	    		format(chatstr,sizeof(chatstr)," Você transferiu R$%d, para a conta de %s", qnt, PlayerName(playa, 0));
+	    		SendClientMessage(playerid, COLOR_WHITE, "Bank of America");
+	    		format(chatstr,sizeof(chatstr)," Você transferiu US$%d, para a conta de %s", qnt, PlayerName(playa, 0));
 				SCM(playa, COLOR_YELLOW, chatstr);
 
-	    		format(chatstr, sizeof(chatstr), "SMS: Você recebeu uma transferencia bancária de %s no valor: R$%d, remetente: Caixa Ecônomica Federal", PlayerName(playerid, 0), qnt);
+	    		format(chatstr, sizeof(chatstr), "SMS: Você recebeu uma transferencia bancária de %s no valor: US$%d, remetente: Bank of America", PlayerName(playerid, 0), qnt);
 				SCM(playa, COLOR_YELLOW, chatstr);
 
 				new strl[126];
-				format(strl, sizeof(strl), "%s transferiu R$%d para %s.", PlayerName(playerid,0), qnt, PlayerName(playa,0));
+				format(strl, sizeof(strl), "%s transferiu US$%d para %s.", PlayerName(playerid,0), qnt, PlayerName(playa,0));
 				LogCMD_transf(strl);
 			}
 		}
@@ -28038,7 +28039,7 @@ CMD:abrirpedagio(playerid, params[])
 		}
 		PlayerInfo[playerid][pGrana] -= TollCost;
 		new strl11[126];
-	   	format(strl11, sizeof(strl11), "%s pagou R$%d para o guarda da cabine.", PlayerName(playerid,0), TollCost);
+	   	format(strl11, sizeof(strl11), "%s pagou US$%d para o guarda da cabine.", PlayerName(playerid,0), TollCost);
 		SendClientMessage(playerid, COLOR_PURPLE, strl11);
 
 		SetTimerEx("TollUpdate", 1500, false, "d", playerid);
@@ -28141,7 +28142,7 @@ COMMAND:explodir(playerid,params[])
 					SendFacMessage(COLOR_LIGHTBLUE, 2, str);
 					new Float:x, Float:y, Float:z, Float:Distance = 25.0;
     				GetPlayerPos(playerid, x, y, z);
- 					PlayAudioStreamForPlayer(playerid, "https://progressive-roleplay.com/midia/alarme_casa.mp3", x, y, z, Distance, 1);
+ 					PlayAudioStreamForPlayer(playerid, "http://localhost/midia/alarme_casa.mp3", x, y, z, Distance, 1);
 					SendAdminAlert(COLOR_LIGHTRED, "AdmCmd:{FFFFFF} %s acaba de utilizar o comando /explodir banco.", PlayerName(playerid, 0));
 						
 					new strl[126];
@@ -28201,7 +28202,7 @@ COMMAND:explodir(playerid,params[])
 					SetTimerEx("ExplodindoCaixa", 15000, false, "d", playerid);
 					new Float:x, Float:y, Float:z, Float:Distance = 25.0;
     				GetPlayerPos(playerid, x, y, z);
- 					PlayAudioStreamForPlayer(playerid, "https://progressive-roleplay.com/midia/alarme_casa.mp3", x, y, z, Distance, 1);
+ 					PlayAudioStreamForPlayer(playerid, "http://localhost/midia/alarme_casa.mp3", x, y, z, Distance, 1);
 					new stringCaixaF[256];
 					format(stringCaixaF,sizeof(stringCaixaF),"** %s está armando uma dinamite no caixa eletronico.", PlayerName(playerid, 1));
 					ProxDetector(20.0, playerid, stringCaixaF,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
@@ -28278,7 +28279,7 @@ COMMAND:explodir(playerid,params[])
 					SetTimerEx("ExplodindoCofreL", 15000, false, "d", playerid);
 					new Float:x, Float:y, Float:z, Float:Distance = 25.0;
     				GetPlayerPos(playerid, x, y, z);
- 					PlayAudioStreamForPlayer(playerid, "https://progressive-roleplay.com/midia/alarme_casa.mp3", x, y, z, Distance, 1);
+ 					PlayAudioStreamForPlayer(playerid, "http://localhost/midia/alarme_casa.mp3", x, y, z, Distance, 1);
 					new stringCaixaF[256];
 					format(stringCaixaF,sizeof(stringCaixaF),"** %s posiciona-se perto do cofre e cola a C4.", PlayerName(playerid, 1));
 					ProxDetector(20.0, playerid, stringCaixaF,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
@@ -28371,7 +28372,7 @@ COMMAND:explodir(playerid,params[])
 					SetTimerEx("ExplodindoCaixa", 15000, false, "d", playerid);
 					new Float:x, Float:y, Float:z, Float:Distance = 25.0;
     				GetPlayerPos(playerid, x, y, z);
- 					PlayAudioStreamForPlayer(playerid, "https://progressive-roleplay.com/midia/alarme_casa.mp3", x, y, z, Distance, 1);
+ 					PlayAudioStreamForPlayer(playerid, "http://localhost/midia/alarme_casa.mp3", x, y, z, Distance, 1);
 					new stringCaixaF[256];
 					format(stringCaixaF,sizeof(stringCaixaF),"** %s está armando uma dinamite no caixa eletronico.", PlayerName(playerid, 1));
 					ProxDetector(20.0, playerid, stringCaixaF,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
@@ -28781,7 +28782,7 @@ COMMAND:caixa(playerid, params[])
     	{
     		TaNaATM[playerid] = i;
 			new str[126];
-			format(str, sizeof(str), "Saldo: R$%d\n-------------\nSacar", PlayerInfo[playerid][pBanco]);
+			format(str, sizeof(str), "Saldo: US$%d\n-------------\nSacar", PlayerInfo[playerid][pBanco]);
 			Dialog_Show(playerid, ATM_Banco, DIALOG_STYLE_LIST, "Caixa Eletronico", str, "Selecionar", "Fechar");
 			return 1;
 		}
@@ -28800,7 +28801,7 @@ Dialog:ATM_Banco(playerid, response, listitem, inputtext[]) {
 		else
 		{
 		    new str[126];
-			format(str, sizeof(str), "Saldo: R$%d\n-------------\nSacar", PlayerInfo[playerid][pBanco]);
+			format(str, sizeof(str), "Saldo: US$%d\n-------------\nSacar", PlayerInfo[playerid][pBanco]);
 			Dialog_Show(playerid, ATM_Banco, DIALOG_STYLE_LIST, "Caixa eletronico", str, "Selecionar", "Fechar");
 		}
 	}
@@ -30607,7 +30608,7 @@ COMMAND:carga(playerid, params[])
 
 forward DescongelarDescarregando(playerid, valor);
 public DescongelarDescarregando(playerid, valor){
-	format(string, sizeof string, "Carga descarregada, você recebeu R$%d.",valor);
+	format(string, sizeof string, "Carga descarregada, você recebeu US$%d.",valor);
 	SCM(playerid, COLOR_LIGHTGREEN, string);
     TogglePlayerControllable(playerid, 1);
 	return 1;
@@ -30615,7 +30616,7 @@ public DescongelarDescarregando(playerid, valor){
 
 forward DescongelarCarregando(playerid, valor);
 public DescongelarCarregando(playerid, valor){
-    format(string, sizeof string, "Carga carregada, você pagou R$%d.", valor);
+    format(string, sizeof string, "Carga carregada, você pagou US$%d.", valor);
     SCM(playerid, COLOR_LIGHTGREEN, string);
     TogglePlayerControllable(playerid, 1);
 	return 1;
@@ -32469,7 +32470,7 @@ Dialog:RefundoGrana(playerid, response, listitem, inputtext[])
     if(!response) return 1;
 	else
 	{
-		format(string, sizeof(string),"SERVER: Você recebeu o refundo de um de R$ %d.", Refundo[playerid][1]);
+		format(string, sizeof(string),"SERVER: Você recebeu o refundo de um de US$ %d.", Refundo[playerid][1]);
 		PlayerInfo[playerid][pGrana] += Refundo[playerid][1];
 		SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 		RefundoGranaRemover(Refundo[playerid][0]);
@@ -33201,9 +33202,9 @@ COMMAND:aceitar(playerid, params[])
 				if(modelid != 588) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O vendedor de HotDog não está mais no veículo!");
 
 			    new str[256];
-	    		format(str, 256, "%s aceitou seu hotdog por R$%d.", PlayerName(playerid,1),HotDogPrice[playerid]);
+	    		format(str, 256, "%s aceitou seu hotdog por US$%d.", PlayerName(playerid,1),HotDogPrice[playerid]);
 		   		SendClientMessage(HotDogOffer[playerid], COLOR_LIGHTBLUE, str);
-		   		format(str, 256, "Você aceitou o hotdog de %s por R$%d.", PlayerName(HotDogOffer[playerid],1),HotDogPrice[playerid]);
+		   		format(str, 256, "Você aceitou o hotdog de %s por US$%d.", PlayerName(HotDogOffer[playerid],1),HotDogPrice[playerid]);
 		   		SendClientMessage(playerid, COLOR_LIGHTBLUE, str);
 
 				PlayerInfo[playerid][pGrana] -= HotDogPrice[playerid];
@@ -37797,7 +37798,7 @@ CMD:empresa(playerid, params[])
 					}
 				}
 		 	}
-		 	format(string, sizeof(string), "Nome da Empresa\nGestão de Produtos\nGestão de Valores\nPreço de Entrada (R$%d)", EmpInfo[NaEmpresa][eEntradaPrice]);
+		 	format(string, sizeof(string), "Nome da Empresa\nGestão de Produtos\nGestão de Valores\nPreço de Entrada (US$%d)", EmpInfo[NaEmpresa][eEntradaPrice]);
 		 	Dialog_Show(playerid, Empresa_Editar, DIALOG_STYLE_LIST, "Configurações da Empresa", string, "Selecionar", "Voltar");
 			return 1;
 		}
@@ -37828,7 +37829,7 @@ Dialog:Empresa_Editar(playerid, response, listitem, inputtext[])
 				if(EmpInfo[IDDaEmpresa][eBank] > total) format(stroct, sizeof(stroct), "Anuncio: Ativo, visível.");
 				else format(stroct, sizeof(stroct), "Anuncio: Inativo, oculto.");
 
-				format(string, sizeof(string), "Total de Produtos: (%d/300)\nPreço a pagar por entrega.(R$%d por cada 5 produtos)\nAnunciar compra de produtos\n%s",
+				format(string, sizeof(string), "Total de Produtos: (%d/300)\nPreço a pagar por entrega.(US$%d por cada 5 produtos)\nAnunciar compra de produtos\n%s",
 					EmpInfo[IDDaEmpresa][eProdutos],EmpInfo[IDDaEmpresa][ePagaProd],stroct);
   				Dialog_Show(playerid, Gerenciar_prods, DIALOG_STYLE_LIST, "Configurações da Empresa - Gestão de Produtos", string, "Selecionar", "Voltar");
 			}
@@ -37838,7 +37839,7 @@ Dialog:Empresa_Editar(playerid, response, listitem, inputtext[])
 			    {
 			        case EMP_TIPO_247:
 			        {
-					    format(string, sizeof(string), "Item \t Preço \t Quantidade\nCelular \t R$%d\nGalão \t R$%d\nCaixa de Ferramentas \t R$%d\nMaço de cigarros \t R$%d\nRádio \t R$%d\nCamera \t R$%d\nLanche \t R$%d\nMascara \t R$%d\nBoombox \t R$%d\nCerveja \t R$%d",
+					    format(string, sizeof(string), "Item \t Preço \t Quantidade\nCelular \t US$%d\nGalão \t US$%d\nCaixa de Ferramentas \t US$%d\nMaço de cigarros \t US$%d\nRádio \t US$%d\nCamera \t US$%d\nLanche \t US$%d\nMascara \t US$%d\nBoombox \t US$%d\nCerveja \t US$%d",
 						EmpInfo[IDDaEmpresa][eCelularPreco],
 						EmpInfo[IDDaEmpresa][eGalaoPreco],
 						EmpInfo[IDDaEmpresa][eToolkitPreco],
@@ -37860,11 +37861,11 @@ Dialog:Empresa_Editar(playerid, response, listitem, inputtext[])
 			case 3:
 			{
 			    if(EmpInfo[IDDaEmpresa][eTipo] == EMP_TIPO_247) {
-			    	format(string, sizeof(string), "Preço da Venda da Gasolina (/abastecer)\nComprando gasolina: %d L\nPreço a pagar por L de gasolina: R$%d.", EmpInfo[IDDaEmpresa][eReqFuel],EmpInfo[IDDaEmpresa][eReqFuelPay]);
+			    	format(string, sizeof(string), "Preço da Venda da Gasolina (/abastecer)\nComprando gasolina: %d L\nPreço a pagar por L de gasolina: US$%d.", EmpInfo[IDDaEmpresa][eReqFuel],EmpInfo[IDDaEmpresa][eReqFuelPay]);
   					Dialog_Show(playerid, Gerenciar_Fuel, DIALOG_STYLE_LIST, "Configurações da Empresa - Gestão de Gasolina", string, "Selecionar", "Voltar");
 				}
 				else {
-					format(string, sizeof(string), "Preço da Entrada atual: R$%d.\n\nEntre com o novo valor da entrada:", EmpInfo[IDDaEmpresa][eEntradaPrice]);
+					format(string, sizeof(string), "Preço da Entrada atual: US$%d.\n\nEntre com o novo valor da entrada:", EmpInfo[IDDaEmpresa][eEntradaPrice]);
   					Dialog_Show(playerid, Gerenciar_EntradaPrice, DIALOG_STYLE_INPUT, "Configurações da Empresa - Enrada", string, "Alterar", "Voltar");
 				}
 
@@ -37887,14 +37888,14 @@ Dialog:Gerenciar_EntradaPrice(playerid, response, listitem, inputtext[])
 	    if(Input < 0 || Input > 99999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O valor inválido.");
 
 	    EmpInfo[IDDaEmpresa][eEntradaPrice] = Input;
-	    format(string, sizeof(string), "Valor da entrada alterado para R$%d.", EmpInfo[IDDaEmpresa][eEntradaPrice]);
+	    format(string, sizeof(string), "Valor da entrada alterado para US$%d.", EmpInfo[IDDaEmpresa][eEntradaPrice]);
 	    SendClientMessage(playerid, COLOR_LIGHTRED, string);
 
         if (IsValidDynamic3DTextLabel(EmpInfo[IDDaEmpresa][EmpText]))
 			DestroyDynamic3DTextLabel(EmpInfo[IDDaEmpresa][EmpText]);
 
 	    if(EmpInfo[IDDaEmpresa][eEntradaPrice] > 0)
- 			format(string, sizeof(string), "%s\nEntrada: R$%d",EmpInfo[IDDaEmpresa][eNome], EmpInfo[IDDaEmpresa][eEntradaPrice]);
+ 			format(string, sizeof(string), "%s\nEntrada: US$%d",EmpInfo[IDDaEmpresa][eNome], EmpInfo[IDDaEmpresa][eEntradaPrice]);
   		else
    			format(string, sizeof(string), "%s",EmpInfo[IDDaEmpresa][eNome]);
 		EmpInfo[IDDaEmpresa][EmpText] = CreateDynamic3DTextLabel(string, 0xFFFFFFFF, EmpInfo[IDDaEmpresa][eExX], EmpInfo[IDDaEmpresa][eExY], EmpInfo[IDDaEmpresa][eExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, EmpInfo[IDDaEmpresa][eExWorld], EmpInfo[IDDaEmpresa][eExInt]);
@@ -37945,7 +37946,7 @@ Dialog:Gerenciar_Fuel_1(playerid, response, listitem, inputtext[])
 		            if(Input < 1 || Input > 10) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O valor deve ser entre 1 e 10.");
 
                     EmpInfo[IDDaEmpresa][eFuelPrice] = Input;
-	        	    format(string, sizeof(string), "{33AA33}[Empresa] Preço da gasolina alterado para R$%d por Litro de gasolina.", Input);
+	        	    format(string, sizeof(string), "{33AA33}[Empresa] Preço da gasolina alterado para US$%d por Litro de gasolina.", Input);
 					SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 					SalvarEmpresa(IDDaEmpresa);
 		        }
@@ -37962,13 +37963,13 @@ Dialog:Gerenciar_Fuel_1(playerid, response, listitem, inputtext[])
 	        	    if(EmpInfo[IDDaEmpresa][eBank] > total)
 	        	    {
 		        	    EmpInfo[IDDaEmpresa][eReqFuelPay] = Input;
-		        	    format(string, sizeof(string), "[Empresa] A sua empresa está pagando R$%d por litro de gasolina.", Input);
+		        	    format(string, sizeof(string), "[Empresa] A sua empresa está pagando US$%d por litro de gasolina.", Input);
 						SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 						SalvarEmpresa(IDDaEmpresa);
 					}
 					else
 					{
-					    format(string, sizeof(string), "ERRO:{FFFFFF} Você está pagando %d por caixa, então para comprar %d, você deve deixar pelo menos R$%d no cofre da empresa.", EmpInfo[IDDaEmpresa][ePagaProd], Input, total);
+					    format(string, sizeof(string), "ERRO:{FFFFFF} Você está pagando %d por caixa, então para comprar %d, você deve deixar pelo menos US$%d no cofre da empresa.", EmpInfo[IDDaEmpresa][ePagaProd], Input, total);
 						SendClientMessage(playerid, COLOR_LIGHTRED, string);
 						SendClientMessage(playerid, COLOR_LIGHTRED, "[!] Caso você retire o dinheiro do cofre com um anuncio ativo, o anuncio ficará oculto até que a empresa tenha dinheiro.");
 					}
@@ -38019,7 +38020,7 @@ Dialog:Gerenciar_Prods_1(playerid, response, listitem, inputtext[])
 	        	case 1:
 	        	{
 	        	    EmpInfo[IDDaEmpresa][ePagaProd] = Input;
-	        	    format(string, sizeof(string), "{33AA33}[Empresa] Você alterou o preço pago por entrega para R$%d.", Input);
+	        	    format(string, sizeof(string), "{33AA33}[Empresa] Você alterou o preço pago por entrega para US$%d.", Input);
 					SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 					SalvarEmpresa(IDDaEmpresa);
 	        	}
@@ -38035,7 +38036,7 @@ Dialog:Gerenciar_Prods_1(playerid, response, listitem, inputtext[])
 					}
 					else
 					{
-					    format(string, sizeof(string), "ERRO:{FFFFFF} Você está pagando %d por caixa, então para comprar %d, você deve deixar pelo menos R$%d no cofre da empresa.", EmpInfo[IDDaEmpresa][ePagaProd], Input, total);
+					    format(string, sizeof(string), "ERRO:{FFFFFF} Você está pagando %d por caixa, então para comprar %d, você deve deixar pelo menos US$%d no cofre da empresa.", EmpInfo[IDDaEmpresa][ePagaProd], Input, total);
 						SendClientMessage(playerid, COLOR_LIGHTRED, string);
 						SendClientMessage(playerid, COLOR_LIGHTRED, "[!] Caso você retire o dinheiro do cofre com um anuncio ativo, o anuncio ficará oculto até que a empresa tenha dinheiro.");
 					}
@@ -38091,70 +38092,70 @@ Dialog:Gerenciar_Produtos_1(playerid, response, listitem, inputtext[])
 	        case 0:
 	        {
 	            EmpInfo[EditandoEmpresa[playerid]][eCelularPreco] = Input;
-	            format(string, sizeof(string), "{33AA33}[Empresa] Você alterou o preço do celular para R$%d.", Input);
+	            format(string, sizeof(string), "{33AA33}[Empresa] Você alterou o preço do celular para US$%d.", Input);
 				SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 				SalvarEmpresa(EditandoEmpresa[playerid]);
 	        }
 	        case 1:
 	        {
 	            EmpInfo[EditandoEmpresa[playerid]][eGalaoPreco] = Input;
-	            format(string, sizeof(string), "{33AA33}[Empresa] Você alterou o preço do galão para R$%d.", Input);
+	            format(string, sizeof(string), "{33AA33}[Empresa] Você alterou o preço do galão para US$%d.", Input);
 				SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 				SalvarEmpresa(EditandoEmpresa[playerid]);
 	        }
 	        case 2:
 	        {
 	            EmpInfo[EditandoEmpresa[playerid]][eToolkitPreco] = Input;
-	            format(string, sizeof(string), "{33AA33}[Empresa] Você alterou o preço da caixa de ferramentas para R$%d.", Input);
+	            format(string, sizeof(string), "{33AA33}[Empresa] Você alterou o preço da caixa de ferramentas para US$%d.", Input);
 				SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 				SalvarEmpresa(EditandoEmpresa[playerid]);
 	        }
 	        case 3:
 	        {
 	            EmpInfo[EditandoEmpresa[playerid]][eCigarroPreco] = Input;
-	            format(string, sizeof(string), "{33AA33}[Empresa] Você alterou o preço do maço de cigarros para R$%d.", Input);
+	            format(string, sizeof(string), "{33AA33}[Empresa] Você alterou o preço do maço de cigarros para US$%d.", Input);
 				SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 				SalvarEmpresa(EditandoEmpresa[playerid]);
 	        }
 	        case 4:
 	        {
 	            EmpInfo[EditandoEmpresa[playerid]][eRadioPreco] = Input;
-	            format(string, sizeof(string), "{33AA33}[Empresa] Você alterou o preço do rádio para R$%d.", Input);
+	            format(string, sizeof(string), "{33AA33}[Empresa] Você alterou o preço do rádio para US$%d.", Input);
 				SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 				SalvarEmpresa(EditandoEmpresa[playerid]);
 	        }
             case 5:
 	        {
 	            EmpInfo[EditandoEmpresa[playerid]][eCameraPreco] = Input;
-	            format(string, sizeof(string), "{33AA33}[Empresa] Você alterou o preço da Câmera para R$%d.", Input);
+	            format(string, sizeof(string), "{33AA33}[Empresa] Você alterou o preço da Câmera para US$%d.", Input);
 				SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 				SalvarEmpresa(EditandoEmpresa[playerid]);
 	        }
          	case 6:
 	        {
 	            EmpInfo[EditandoEmpresa[playerid]][eLanchePreco] = Input;
-	            format(string, sizeof(string), "{33AA33}[Empresa] Você alterou o preço do Lanche para R$%d.", Input);
+	            format(string, sizeof(string), "{33AA33}[Empresa] Você alterou o preço do Lanche para US$%d.", Input);
 				SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 				SalvarEmpresa(EditandoEmpresa[playerid]);
 	        }
 	        case 7:
 	        {
 	            EmpInfo[EditandoEmpresa[playerid]][eMascPreco] = Input;
-	            format(string, sizeof(string), "{33AA33}[Empresa] Você alterou o preço da Mascara para R$%d.", Input);
+	            format(string, sizeof(string), "{33AA33}[Empresa] Você alterou o preço da Mascara para US$%d.", Input);
 				SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 				SalvarEmpresa(EditandoEmpresa[playerid]);
 	        }
 	        case 8:
 	        {
 	            EmpInfo[EditandoEmpresa[playerid]][eBoomboxPreco] = Input;
-	            format(string, sizeof(string), "{33AA33}[Empresa] Você alterou o preço da Boombox para R$%d.", Input);
+	            format(string, sizeof(string), "{33AA33}[Empresa] Você alterou o preço da Boombox para US$%d.", Input);
 				SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 				SalvarEmpresa(EditandoEmpresa[playerid]);
 	        }
 	        case 9:
 	        {
 	            EmpInfo[EditandoEmpresa[playerid]][eCervejaPreco] = Input;
-	            format(string, sizeof(string), "{33AA33}[Empresa] Você alterou o preço da Cerveja para R$%d.", Input);
+	            format(string, sizeof(string), "{33AA33}[Empresa] Você alterou o preço da Cerveja para US$%d.", Input);
 				SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 				SalvarEmpresa(EditandoEmpresa[playerid]);
 	        }
@@ -39554,7 +39555,7 @@ CMD:limparbanco(playerid, params[])
 		SendAdminMessage(COLOR_LIGHTRED,string);
 
         new strl[126];
-		format(strl, 126, "%s zerou a conta bancária de %s. [ Total de: R$%d ]", PlayerName(playerid, 0), PlayerName(id, 0), tinhabanco);
+		format(strl, 126, "%s zerou a conta bancária de %s. [ Total de: US$%d ]", PlayerName(playerid, 0), PlayerName(id, 0), tinhabanco);
 		LogCMD_ZerouBanco(strl);
 	}
 	return 1;
@@ -39587,7 +39588,7 @@ CMD:limpargrana(playerid, params[])
 		SendAdminMessage(COLOR_LIGHTRED,string);
 
 		new strl[126];
-		format(strl, 126, "%s limpou o dinheiro de %s. [ Total de: R$%d ]", PlayerName(playerid, 0), PlayerName(id, 0), TinhaGrana);
+		format(strl, 126, "%s limpou o dinheiro de %s. [ Total de: US$%d ]", PlayerName(playerid, 0), PlayerName(id, 0), TinhaGrana);
 		LogCMD_ZerouGrana(strl);
 
 	}
@@ -42770,14 +42771,14 @@ CMD:setardinheiro(playerid, params[])
 	if(PlayerInfo[playerid][pAdmin] > 3001) format(admnome, sizeof(admnome), "%s", PlayerInfo[playerid][pNomeOOC]);
 	else format(admnome, sizeof(admnome), "%s", PlayerName(playerid, 0));
 
-    format(string,sizeof(string),"AdmCmd: O Administrador %s lhe setou R$%d.",admnome,qnt);
+    format(string,sizeof(string),"AdmCmd: O Administrador %s lhe setou US$%d.",admnome,qnt);
     SendClientMessage(other, COLOR_LIGHTRED, string);
 
-    format(string, sizeof(string), "AdmCmd: O administrador %s setou R$%d para %s.", admnome, qnt, PlayerName(other, 0));
+    format(string, sizeof(string), "AdmCmd: O administrador %s setou US$%d para %s.", admnome, qnt, PlayerName(other, 0));
 	SendAdminMessage(COLOR_LIGHTRED,string);
 
     new strl[126];
-	format(strl, 126, "%s setou R$%d para %s. [/setardinheiro]", PlayerName(playerid, 0), qnt, PlayerName(other, 0));
+	format(strl, 126, "%s setou US$%d para %s. [/setardinheiro]", PlayerName(playerid, 0), qnt, PlayerName(other, 0));
 	LogCMD_dargrana(strl);
 	return 1;
 }
@@ -43878,7 +43879,7 @@ public AtualizarTutorial(playerid)
 			SetPlayerColor(playerid,COLOR_WHITE);
 
 			SendClientMessage(playerid, COLOR_LIGHTRED,"Você passou pelo tutorial. Lhe desejamos um bom jogo.");
-			SendClientMessage(playerid, COLOR_LIGHTRED,"Não deixe de visitar nosso fórum: forum.iw-roleplay.com.br.");
+			SendClientMessage(playerid, COLOR_LIGHTRED,"Não deixe de visitar nosso fórum: forum.wt-rp.com.br.");
 			SendClientMessage(playerid, COLOR_LIGHTRED,"Utilize /gps para encontrar os principais pontos da cidade.");
 		}
 
@@ -45174,7 +45175,7 @@ public CarregandoGoverno()
 
 		}
 	}
-	printf("[CARREGADO] Cofre do governo: R$%d", GovInfo[gCofres]);
+	printf("[CARREGADO] Cofre do governo: US$%d", GovInfo[gCofres]);
 
 
 	print("SERVER: Carregado com sucesso!");
@@ -45341,7 +45342,7 @@ public CarregandoCasas()
 				}
                 if(HouseInfo[houseid][hAVenda] == 1)
 				{
-				    //format(string, sizeof(string), "[Propriedade]\nVende-se\nR$%d!",HouseInfo[houseid][hPreco]);
+				    //format(string, sizeof(string), "[Propriedade]\nVende-se\nUS$%d!",HouseInfo[houseid][hPreco]);
 				    //HouseInfo[houseid][HouseText] = CreateDynamic3DTextLabel(string, 0x00A974FF, HouseInfo[houseid][hExX], HouseInfo[houseid][hExY], HouseInfo[houseid][hExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, HouseInfo[houseid][hExWorld], HouseInfo[houseid][hExInt]);
 				    if(HouseInfo[houseid][hPlacaX] != 0 && HouseInfo[houseid][hPlacaY] != 0 && HouseInfo[houseid][hPlacaZ] != 0)
 					{
@@ -46216,7 +46217,7 @@ Dialog:VendendoCasa(playerid, response, listitem, inputtext[])
 	    {
 	    	case 0:
 	    	{
-	    	    format(string, sizeof(string), "Você tem certeza que deseja vender a sua casa (%d) por R$%d?\n\nDinheiro no Cofre da casa:\n%d\n(Ao vender a casa para o estado, você recebe apenas a metade do valor pago)",VendoCasa[playerid], (HouseInfo[VendoCasa[playerid]][hPreco]/2),HouseInfo[VendoCasa[playerid]][hBank]);
+	    	    format(string, sizeof(string), "Você tem certeza que deseja vender a sua casa (%d) por US$%d?\n\nDinheiro no Cofre da casa:\n%d\n(Ao vender a casa para o estado, você recebe apenas a metade do valor pago)",VendoCasa[playerid], (HouseInfo[VendoCasa[playerid]][hPreco]/2),HouseInfo[VendoCasa[playerid]][hBank]);
                 Dialog_Show(playerid, VendendoCasa1, DIALOG_STYLE_MSGBOX, "Confirmação de Venda", string, "Sim", "Cancelar");
 			}
 			case 1:
@@ -46253,7 +46254,7 @@ Dialog:VendendoGaragem(playerid, response, listitem, inputtext[])
 	    {
 	    	case 0:
 	    	{
-	    	    format(string, sizeof(string), "Você tem certeza que deseja vender a sua garagem (%d) por R$%d?\n(Ao vender a garagem para o estado, você recebe apenas a metade do valor pago)",VendoGaragem[playerid], (GaragemInfo[VendoGaragem[playerid]][hPreco]/2));
+	    	    format(string, sizeof(string), "Você tem certeza que deseja vender a sua garagem (%d) por US$%d?\n(Ao vender a garagem para o estado, você recebe apenas a metade do valor pago)",VendoGaragem[playerid], (GaragemInfo[VendoGaragem[playerid]][hPreco]/2));
                 Dialog_Show(playerid, VendendoGaragem1, DIALOG_STYLE_MSGBOX, "Confirmação de Venda", string, "Sim", "Cancelar");
 			}
 			case 1:
@@ -46359,7 +46360,7 @@ Dialog:VendendoCasa21(playerid, response, listitem, inputtext[])
 	    {
 		    if(!IsPlayerConnected(VendendoCasa[playerid][0])) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} ID inválido!");
 		    if(!IsPlayerNearPlayer(playerid, VendendoCasa[playerid][0], 8.0))  return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O comprador não está mais próximo a você!");
-		    format(string, sizeof(string), "%s está lhe oferecendo a casa %d por R$%d.",PlayerName(playerid, 1), VendendoCasa[playerid][2], valor);
+		    format(string, sizeof(string), "%s está lhe oferecendo a casa %d por US$%d.",PlayerName(playerid, 1), VendendoCasa[playerid][2], valor);
 	     	Dialog_Show(VendendoCasa[playerid][0], VendendoCasa22, DIALOG_STYLE_MSGBOX, "Confirmação de Venda", string, "Comprar", "Cancelar");
 		    VendendoCasa[playerid][1] = valor;
 		}
@@ -46381,7 +46382,7 @@ Dialog:VendendoGaragem21(playerid, response, listitem, inputtext[])
 	    {
 		    if(!IsPlayerConnected(VendendoGaragem[playerid][0])) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} ID inválido!");
 		    if(!IsPlayerNearPlayer(playerid, VendendoGaragem[playerid][0], 8.0))  return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O comprador não está mais próximo a você!");
-		    format(string, sizeof(string), "%s está lhe oferecendo a garagem %d por R$%d.",PlayerName(playerid, 1), VendendoGaragem[playerid][2], valor);
+		    format(string, sizeof(string), "%s está lhe oferecendo a garagem %d por US$%d.",PlayerName(playerid, 1), VendendoGaragem[playerid][2], valor);
 	     	Dialog_Show(VendendoGaragem[playerid][0], VendendoGaragem22, DIALOG_STYLE_MSGBOX, "Confirmação de Venda", string, "Comprar", "Cancelar");
 		    VendendoGaragem[playerid][1] = valor;
 		}
@@ -46410,7 +46411,7 @@ Dialog:VendendoCasa22(playerid, response, listitem, inputtext[])
 	    {
 	        if(!IsPlayerConnected(Vendedor))  return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O vendedor não está mais online.");
 	        if(PlayerInfo[Vendedor][pID] != HouseInfo[houseid][hDono]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Ocorreu um erro durante a venda da residencia, contate um admin se preciso.");
-	        format(string, sizeof(string), "%s aceitou sua oferta e comprou a sua casa por R$%d. (Casa: %d).",PlayerName(playerid, 1), VendendoCasa[Vendedor][1], houseid);
+	        format(string, sizeof(string), "%s aceitou sua oferta e comprou a sua casa por US$%d. (Casa: %d).",PlayerName(playerid, 1), VendendoCasa[Vendedor][1], houseid);
 	        SendClientMessage(VendendoCasa[playerid][0], -1, string);
 	        SendClientMessage(playerid, COLOR_LIGHTGREEN, "{33AA33}Você aceitou a oferta e comprou a casa!");
 
@@ -46462,7 +46463,7 @@ Dialog:VendendoGaragem22(playerid, response, listitem, inputtext[])
 	    {
 	        if(!IsPlayerConnected(Vendedor))  return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O vendedor não está mais online.");
 	        if(PlayerInfo[Vendedor][pID] != GaragemInfo[houseid][hDono]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Ocorreu um erro durante a venda da garagem, contate um admin se persistir.");
-	        format(string, sizeof(string), "%s aceitou sua oferta e comprou a sua casa por R$%d. (Casa: %d).",PlayerName(playerid, 1), VendendoCasa[Vendedor][1], houseid);
+	        format(string, sizeof(string), "%s aceitou sua oferta e comprou a sua casa por US$%d. (Casa: %d).",PlayerName(playerid, 1), VendendoCasa[Vendedor][1], houseid);
 	        SendClientMessage(VendendoGaragem[playerid][0], -1, string);
 	        SendClientMessage(playerid, COLOR_LIGHTGREEN, "{33AA33}Você aceitou a oferta e comprou a garagem!");
 
@@ -46504,7 +46505,7 @@ Dialog:VendendoCasa1(playerid, response, listitem, inputtext[])
 		{
   			if(HouseInfo[VendoCasa[playerid]][hDono] == PlayerInfo[playerid][pID])
     		{
-   				format(string, sizeof(string), "{33AA33}Você vendeu a sua casa (%d) por R$%d.", VendoCasa[playerid], HouseInfo[VendoCasa[playerid]][hPreco]/2);
+   				format(string, sizeof(string), "{33AA33}Você vendeu a sua casa (%d) por US$%d.", VendoCasa[playerid], HouseInfo[VendoCasa[playerid]][hPreco]/2);
 				SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 				HouseInfo[VendoCasa[playerid]][hDono] = 0;
 				HouseInfo[VendoCasa[playerid]][hAVenda] = 1;
@@ -46524,7 +46525,7 @@ Dialog:VendendoCasa1(playerid, response, listitem, inputtext[])
 	    		HouseInfo[houseid][hBank] = 0;
 	    		HouseInfo[houseid][hAlarme] = 0;
 
-				//format(string, sizeof(string), "[Propriedade]\nVende-se\nR$%d!",HouseInfo[houseid][hPreco]);
+				//format(string, sizeof(string), "[Propriedade]\nVende-se\nUS$%d!",HouseInfo[houseid][hPreco]);
     			//HouseInfo[houseid][HouseText] = CreateDynamic3DTextLabel(string, 0x00A974FF, HouseInfo[houseid][hExX], HouseInfo[houseid][hExY], HouseInfo[houseid][hExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, HouseInfo[houseid][hExWorld], HouseInfo[houseid][hExInt]);
 			    if(HouseInfo[houseid][hPlacaX] != 0 && HouseInfo[houseid][hPlacaY] != 0 && HouseInfo[houseid][hPlacaZ] != 0)
 				{
@@ -46547,7 +46548,7 @@ Dialog:VendendoGaragem1(playerid, response, listitem, inputtext[])
 		{
   			if(GaragemInfo[VendoGaragem[playerid]][hDono] == PlayerInfo[playerid][pID])
     		{
-   				format(string, sizeof(string), "{33AA33}Você vendeu a sua garagem (%d) por R$%d.", VendoGaragem[playerid], GaragemInfo[VendoGaragem[playerid]][hPreco]/2);
+   				format(string, sizeof(string), "{33AA33}Você vendeu a sua garagem (%d) por US$%d.", VendoGaragem[playerid], GaragemInfo[VendoGaragem[playerid]][hPreco]/2);
 				SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 				GaragemInfo[VendoGaragem[playerid]][hDono] = 0;
 				GaragemInfo[VendoGaragem[playerid]][hAVenda] = 1;
@@ -48038,7 +48039,7 @@ CMD:comprar(playerid, params[])
    			    {
    			        if(GetPlayerMoneyCA(playerid) >= HouseInfo[VendoCasa[playerid]][hPreco])
    			        {
-   			            format(string, sizeof(string), "Você tem certeza que gostaria de comprar a casa %d por R$%d.", VendoCasa[playerid], HouseInfo[VendoCasa[playerid]][hPreco]);
+   			            format(string, sizeof(string), "Você tem certeza que gostaria de comprar a casa %d por US$%d.", VendoCasa[playerid], HouseInfo[VendoCasa[playerid]][hPreco]);
 	     				Dialog_Show(playerid, ConfirmaCompraCasa, DIALOG_STYLE_MSGBOX, "Confirmação de Compra", string, "Comprar", "Cancelar");
 	     				return 1;
    			        }
@@ -48058,7 +48059,7 @@ CMD:comprar(playerid, params[])
    			    {
    			        if(GetPlayerMoneyCA(playerid) >= GaragemInfo[VendoGaragem[playerid]][hPreco])
    			        {
-   			            format(string, sizeof(string), "Você tem certeza que gostaria de comprar a garagem %d por R$%d.", VendoGaragem[playerid], GaragemInfo[VendoGaragem[playerid]][hPreco]);
+   			            format(string, sizeof(string), "Você tem certeza que gostaria de comprar a garagem %d por US$%d.", VendoGaragem[playerid], GaragemInfo[VendoGaragem[playerid]][hPreco]);
 	     				Dialog_Show(playerid, ConfirmaCompraGaragem, DIALOG_STYLE_MSGBOX, "Confirmação de Compra", string, "Comprar", "Cancelar");
 	     				return 1;
    			        }
@@ -48078,7 +48079,7 @@ CMD:comprar(playerid, params[])
    			    {
    			        if(GetPlayerMoneyCA(playerid) >= ComplexoInfo[VendoComplexo[playerid]][cPreco])
    			        {
-   			            format(string, sizeof(string), "Você tem certeza que gostaria de comprar o complexo %d por R$%d.", VendoComplexo[playerid], ComplexoInfo[VendoComplexo[playerid]][cPreco]);
+   			            format(string, sizeof(string), "Você tem certeza que gostaria de comprar o complexo %d por US$%d.", VendoComplexo[playerid], ComplexoInfo[VendoComplexo[playerid]][cPreco]);
 	     				Dialog_Show(playerid, ConfirmaCompraComplexo, DIALOG_STYLE_MSGBOX, "Confirmação de Compra", string, "Comprar", "Cancelar");
 	     				return 1;
    			        }
@@ -48099,9 +48100,9 @@ CMD:comprar(playerid, params[])
    			        if(GetPlayerMoneyCA(playerid) >= EmpInfo[VendoEmpresa[playerid]][ePreco])
    			        {
 						if(EmpInfo[VendoEmpresa[playerid]][eLeasing] > 0)
-						    format(string, sizeof(string), "Você tem certeza que gostaria de alugar a empresa %s (%d) por R$%d semanais?", EmpInfo[VendoEmpresa[playerid]][eNome], VendoEmpresa[playerid], EmpInfo[VendoEmpresa[playerid]][eLeasing]);
+						    format(string, sizeof(string), "Você tem certeza que gostaria de alugar a empresa %s (%d) por US$%d semanais?", EmpInfo[VendoEmpresa[playerid]][eNome], VendoEmpresa[playerid], EmpInfo[VendoEmpresa[playerid]][eLeasing]);
 						else
-   			            	format(string, sizeof(string), "Você tem certeza que gostaria de comprar a empresa %s (%d) por R$%d.", EmpInfo[VendoEmpresa[playerid]][eNome], VendoEmpresa[playerid], EmpInfo[VendoEmpresa[playerid]][ePreco]);
+   			            	format(string, sizeof(string), "Você tem certeza que gostaria de comprar a empresa %s (%d) por US$%d.", EmpInfo[VendoEmpresa[playerid]][eNome], VendoEmpresa[playerid], EmpInfo[VendoEmpresa[playerid]][ePreco]);
 	     				Dialog_Show(playerid, ConfirmaCompraEmpresa, DIALOG_STYLE_MSGBOX, "Confirmação", string, "Comprar", "Cancelar");
 	     				return 1;
    			        }
@@ -48136,7 +48137,7 @@ CMD:comprar(playerid, params[])
 			case EMP_TIPO_CONCE_NEW:
 			{
 			    new string_conce[2056];
-			    format(string_conce, sizeof(string_conce),"461\nR$%d\n462\nR$%d\n463\nR$%d\n468\nR$%d\n471\nR$%d\n521\nR$%d\n581\nR$%d\n586\nR$%d\n481\nR$%d\n509\nR$%d\n510\nR$%d",
+			    format(string_conce, sizeof(string_conce),"461\nUS$%d\n462\nUS$%d\n463\nUS$%d\n468\nUS$%d\n471\nUS$%d\n521\nUS$%d\n581\nUS$%d\n586\nUS$%d\n481\nUS$%d\n509\nUS$%d\n510\nUS$%d",
 					GetVehiclePrice(461),
 					GetVehiclePrice(462),
 					GetVehiclePrice(463),
@@ -48158,7 +48159,7 @@ CMD:comprar(playerid, params[])
 			}
 			case EMP_TIPO_247:
 			{
-			    format(string, sizeof(string), "Item \t Preço \nCelular \t R$%d\nGalão \t R$%d\nCaixa de Ferramentas \t R$%d\nCigarro \t R$%d\nRadio \t R$%d\nCâmera \t R$%d\nLanche \t R$%d\nMascara \t R$%d\nBoombox \t R$%d\nCerveja \t R$%d\nLata de Spray \t R$50",
+			    format(string, sizeof(string), "Item \t Preço \nCelular \t US$%d\nGalão \t US$%d\nCaixa de Ferramentas \t US$%d\nCigarro \t US$%d\nRadio \t US$%d\nCâmera \t US$%d\nLanche \t US$%d\nMascara \t US$%d\nBoombox \t US$%d\nCerveja \t US$%d\nLata de Spray \t US$50",
 				EmpInfo[NaEmpresa][eCelularPreco],
 				EmpInfo[NaEmpresa][eGalaoPreco],
 				EmpInfo[NaEmpresa][eToolkitPreco],
@@ -48173,47 +48174,47 @@ CMD:comprar(playerid, params[])
 			}
 			case EMP_TIPO_PAWN:
 			{
-   				Dialog_Show(playerid, DIALOG_PAWNSHOP, DIALOG_STYLE_TABLIST_HEADERS, empNome, "Produto\tPreço\nSoco Inglês\tR$300\nBastão\tR$300\nFaca\tR$2500\nPá\tR$400\nCane\tR$400\nTaco de Golfe\tR$350\n1x Raspador\tR$2000\nVender Peças", "Selecionar", "Cancelar");
+   				Dialog_Show(playerid, DIALOG_PAWNSHOP, DIALOG_STYLE_TABLIST_HEADERS, empNome, "Produto\tPreço\nSoco Inglês\tUS$300\nBastão\tUS$300\nFaca\tUS$2500\nPá\tUS$400\nCane\tUS$400\nTaco de Golfe\tUS$350\n1x Raspador\tUS$2000\nVender Peças", "Selecionar", "Cancelar");
 			}
 			case EMP_TIPO_BURGERSHOT:
 			{
-   				Dialog_Show(playerid, DIALOG_BURGERSHOT, DIALOG_STYLE_TABLIST_HEADERS, empNome, "Produto\tPreço\nX-Burguer\tR$5\nX-Egg\tR$6\nX-Baccon\tR$6\nX-Salada\tR$4\nX-Tudo\tR$10\nSprunk\tR$5", "Selecionar", "Cancelar");
+   				Dialog_Show(playerid, DIALOG_BURGERSHOT, DIALOG_STYLE_TABLIST_HEADERS, empNome, "Produto\tPreço\nX-Burguer\tUS$5\nX-Egg\tUS$6\nX-Baccon\tUS$6\nX-Salada\tUS$4\nX-Tudo\tUS$10\nSprunk\tUS$5", "Selecionar", "Cancelar");
 			}
             case EMP_TIPO_STACKED:
 			{
-   				Dialog_Show(playerid, DIALOG_STACKED, DIALOG_STYLE_TABLIST_HEADERS, empNome, "Produto\tPreço\nPizza Pequena\tR$8\nPizza + Refri\tR$12\nCombo Completo\tR$18", "Selecionar", "Cancelar");
+   				Dialog_Show(playerid, DIALOG_STACKED, DIALOG_STYLE_TABLIST_HEADERS, empNome, "Produto\tPreço\nPizza Pequena\tUS$8\nPizza + Refri\tUS$12\nCombo Completo\tUS$18", "Selecionar", "Cancelar");
 			}
 			case EMP_TIPO_CLUCKIN:
 			{
-   				Dialog_Show(playerid, DIALOG_CLUCKIN, DIALOG_STYLE_TABLIST_HEADERS, empNome, "Produto\tPreço\nCluckin Little Meal\tR$8\nCluckin Big Meal\tR$12\nCluckin Huge Meal\tR$18", "Selecionar", "Cancelar");
+   				Dialog_Show(playerid, DIALOG_CLUCKIN, DIALOG_STYLE_TABLIST_HEADERS, empNome, "Produto\tPreço\nCluckin Little Meal\tUS$8\nCluckin Big Meal\tUS$12\nCluckin Huge Meal\tUS$18", "Selecionar", "Cancelar");
 			}
 			case EMP_TIPO_BAR:
 			{
-			    Dialog_Show(playerid, DIALOG_BARSHOP, DIALOG_STYLE_TABLIST_HEADERS, empNome, "Produto\tPreço\nCerveja\tR$5\nVinho\tR$6\nSprunk\tR$2", "Selecionar", "Cancelar");
+			    Dialog_Show(playerid, DIALOG_BARSHOP, DIALOG_STYLE_TABLIST_HEADERS, empNome, "Produto\tPreço\nCerveja\tUS$5\nVinho\tUS$6\nSprunk\tUS$2", "Selecionar", "Cancelar");
 			}
 			case EMP_TIPO_AMMU:
 			{
    			 {
        			 if(PlayerInfo[playerid][pWepLic] == 1)
        			 {
-					Dialog_Show(playerid, DIALOG_AMMUNATION, DIALOG_STYLE_LIST, "Selecione um item.", "Colt 45\tR$6000\nSilenced\tR$6000\nDeagle\tR$6000\nShotgun\tR$15000\nMunição 9mm\tR$25\nMunição 12 CBC\tR$50", "Selecionar", "Cancelar");
+					Dialog_Show(playerid, DIALOG_AMMUNATION, DIALOG_STYLE_LIST, "Selecione um item.", "Colt 45\tUS$6000\nSilenced\tUS$6000\nDeagle\tUS$6000\nShotgun\tUS$15000\nMunição 9mm\tUS$25\nMunição 12 CBC\tUS$50", "Selecionar", "Cancelar");
        			 }
 					else return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem uma licença de armas tipo: A.");
 				}
 			}
             case EMP_TIPO_CEL:
             {
-                ShowPlayerDialog(playerid, EMP_TIPO_EMP_CELULAR, DIALOG_STYLE_PREVMODEL, "CELULARES", "330\nR$50\n18874\nR$100\n18873\nR$100\n18872\nR$100\n18871\nR$100\n18870\nR$100\n18869\nR$100\n18868\nR$100\n18867\nR$100\n18866\nR$100\n19513\nR$100\n18865\nR$150", "COMPRAR", "CANCELAR");
+                ShowPlayerDialog(playerid, EMP_TIPO_EMP_CELULAR, DIALOG_STYLE_PREVMODEL, "CELULARES", "330\nUS$50\n18874\nUS$100\n18873\nUS$100\n18872\nUS$100\n18871\nUS$100\n18870\nUS$100\n18869\nUS$100\n18868\nUS$100\n18867\nUS$100\n18866\nUS$100\n19513\nUS$100\n18865\nUS$150", "COMPRAR", "CANCELAR");
             }
 			case EMP_TIPO_FARMACIA:
 			{
-			    Dialog_Show(playerid, Dialog_Farmacia, DIALOG_STYLE_TABLIST_HEADERS, "FARMÁCIA", "Produto\tPreço\nPreçoCortador de remédio\tR$50\nEfedrina\tR$250\nAcido cloridrico\tR$300\nLidocaína\tR$50\nBenzocaína\tR$50\nHidroxizina\tR$50", "Selecionar", "Cancelar");
+			    Dialog_Show(playerid, Dialog_Farmacia, DIALOG_STYLE_TABLIST_HEADERS, "FARMÁCIA", "Produto\tPreço\nPreçoCortador de remédio\tUS$50\nEfedrina\tUS$250\nAcido cloridrico\tUS$300\nLidocaína\tUS$50\nBenzocaína\tUS$50\nHidroxizina\tUS$50", "Selecionar", "Cancelar");
 			}
         }
     }
 	if(IsPlayerInRangeOfPoint(playerid, 5, 2532.0464,-1916.4795,13.5480))
 	{
-	    Dialog_Show(playerid, DIALOG_BARSHOP_Rua, DIALOG_STYLE_LIST, "Selecione uma categoria.", "Cerveja\tR$5\nVinho\tR$6\nSprunk\tR$2", "Selecionar", "Cancelar");
+	    Dialog_Show(playerid, DIALOG_BARSHOP_Rua, DIALOG_STYLE_LIST, "Selecione uma categoria.", "Cerveja\tUS$5\nVinho\tUS$6\nSprunk\tUS$2", "Selecionar", "Cancelar");
 	}
 	else if(IsPlayerInRangeOfPoint(playerid, 5, 2532.0464,-1916.4795,13.5480))
 	{
@@ -48223,30 +48224,30 @@ CMD:comprar(playerid, params[])
 	{
 		Dialog_Show(playerid, Dialog_247Rua, DIALOG_STYLE_TABLIST_HEADERS, "24/7", "Produto\tPreço\n\
 		{878787}ELETRÔNICOS\n\
-		Celular\tR$120\n\
-		Radio\tR$190\n\
-		Câmera\tR$50\n\
-		Boombox\tR$140\n\
+		Celular\tUS$120\n\
+		Radio\tUS$190\n\
+		Câmera\tUS$50\n\
+		Boombox\tUS$140\n\
 		{878787}VARIADOS\n\
-		Galão\tR$50\n\
-		Caixa de Ferramentas\tR$180\n\
-		Cigarro\tR$8\n\
-		Mascara\tR$500\n\
-		Lata de Spray\tR$50\n\
+		Galão\tUS$50\n\
+		Caixa de Ferramentas\tUS$180\n\
+		Cigarro\tUS$8\n\
+		Mascara\tUS$500\n\
+		Lata de Spray\tUS$50\n\
 		{878787}BEBIDAS E COMIDA\n\
-		Lata de Spray\tR$50\n\
-		Pizza Pequena\tR$8\n\
-		Pizza + Refri\tR$12\n\
-		Combo Completo\tR$18 \
+		Lata de Spray\tUS$50\n\
+		Pizza Pequena\tUS$8\n\
+		Pizza + Refri\tUS$12\n\
+		Combo Completo\tUS$18 \
 		", "Comprar", "Cancelar");
 	}
 	else if(IsPlayerInRangeOfPoint(playerid, 5,  1488.6760,-1721.4026,8.2160))
 	{	
-		Dialog_Show(playerid, Dialog_Bomba, DIALOG_STYLE_TABLIST_HEADERS, "Loja de Bombas", "Produto\tPreço\n1x Dinamite [R$200]\n1x C4 [R$400]\n1x TNT [R$800]", "Comprar", "Cancelar");
+		Dialog_Show(playerid, Dialog_Bomba, DIALOG_STYLE_TABLIST_HEADERS, "Mercado Negro", "Produto\tPreço\n1x Dinamite [US$200]\n1x C4 [US$400]\n1x TNT [US$800]\n1x Mina Terrestre [US$150]", "Comprar", "Cancelar");
 	}
 	else if(IsPlayerInRangeOfPoint(playerid, 5, 2114.7300,-1806.5607,13.5616)) //Stacked aberta
 	{
-	    Dialog_Show(playerid, DIALOG_STACKEDRua, DIALOG_STYLE_TABLIST_HEADERS, "STACKED", "Produto\tPreço\nPizza Pequena\tR$8\nPizza + Refri\tR$12\nCombo Completo\tR$18", "Selecionar", "Cancelar");
+	    Dialog_Show(playerid, DIALOG_STACKEDRua, DIALOG_STYLE_TABLIST_HEADERS, "STACKED", "Produto\tPreço\nPizza Pequena\tUS$8\nPizza + Refri\tUS$12\nCombo Completo\tUS$18", "Selecionar", "Cancelar");
 	}
 	return 1;
 }
@@ -48274,7 +48275,7 @@ Dialog:Dialog_Bomba(playerid, response, listitem, inputtext[])
 		        if(PlayerInfo[playerid][pGrana] >= 200)
 				{
 					PlayerInfo[playerid][pBomba]++;
-					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Bombas] Você comprou uma dinamite por R$200.");
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Bombas] Você comprou uma dinamite por US$200.");
 					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-200;
 				}
 				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não tem dinheiro suficiente.");
@@ -48284,7 +48285,7 @@ Dialog:Dialog_Bomba(playerid, response, listitem, inputtext[])
 		        if(PlayerInfo[playerid][pGrana] >= 400)
 				{
 					PlayerInfo[playerid][pC4]++;
-					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Bombas] Você comprou uma C4 por R$400.");
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Bombas] Você comprou uma C4 por US$400.");
 					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-400;
 				}
 				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não tem dinheiro o suficiente.");
@@ -48294,8 +48295,18 @@ Dialog:Dialog_Bomba(playerid, response, listitem, inputtext[])
 		        if(PlayerInfo[playerid][pGrana] >= 800)
 				{
 					PlayerInfo[playerid][pTNT]++;
-					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Bombas] Você comprou uma C4 por R$800.");
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Bombas] Você comprou uma TNT por US$800.");
 					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-800;
+				}
+				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não tem dinheiro o suficiente.");
+            }
+		    case 3:
+		    {
+		        if(PlayerInfo[playerid][pGrana] >= 150)
+				{
+					PlayerInfo[playerid][pTNT]++;
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Bombas] Você comprou uma mina terrestre por US$150.");
+					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-150;
 				}
 				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não tem dinheiro o suficiente.");
             }
@@ -49253,7 +49264,7 @@ Dialog:DIALOG_PAWNSHOP(playerid, response, listitem, inputtext[])
 				}
 				case 7:
 	 		    {
-	 		        Dialog_Show(playerid, DIALOG_PAWNSHOP_VP, DIALOG_STYLE_LIST, "Pawn Shop - Vender peças", "1x Rádio [R$80]\n1x Neon [R$250]\n1x GPS [R$15]\n1x Immob [R$10]\n1x Tranca [R$10]\n1x Peças de Reparo [R$10]", "Vender", "Voltar");
+	 		        Dialog_Show(playerid, DIALOG_PAWNSHOP_VP, DIALOG_STYLE_LIST, "Pawn Shop - Vender peças", "1x Rádio [US$80]\n1x Neon [US$250]\n1x GPS [US$15]\n1x Immob [US$10]\n1x Tranca [US$10]\n1x Peças de Reparo [US$10]", "Vender", "Voltar");
 				}
 			}
  		}
@@ -49276,7 +49287,7 @@ Dialog:DIALOG_PAWNSHOP_VP(playerid, response, listitem, inputtext[])
 				{
 				    if(PlayerInfo[playerid][pPecasMecanicas][0] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem um rádio.");
 					PlayerInfo[playerid][pPecasMecanicas][0]--;
-					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Peças] Você vendeu um rádio por R$100.");
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Peças] Você vendeu um rádio por US$100.");
 					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]+100;
 				}
 				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} A empresa não tem dinheiro o suficiente.");
@@ -49288,7 +49299,7 @@ Dialog:DIALOG_PAWNSHOP_VP(playerid, response, listitem, inputtext[])
 		            if(PlayerInfo[playerid][pPecasMecanicas][1] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem um jogo de Neon.");
 
 					PlayerInfo[playerid][pPecasMecanicas][1]--;
-					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Peças] Você vendeu um jogo de Neon por R$250.");
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Peças] Você vendeu um jogo de Neon por US$250.");
 					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]+250;
 				}
 				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} A empresa não tem dinheiro o suficiente.");
@@ -49300,7 +49311,7 @@ Dialog:DIALOG_PAWNSHOP_VP(playerid, response, listitem, inputtext[])
 		            if(PlayerInfo[playerid][pPecasMecanicas][2] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem um GPS.");
 
 					PlayerInfo[playerid][pPecasMecanicas][2]--;
-					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Peças] Você vendeu um GPS por R$200.");
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Peças] Você vendeu um GPS por US$200.");
 					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]+200;
 				}
 				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} A empresa não tem dinheiro o suficiente.");
@@ -49312,7 +49323,7 @@ Dialog:DIALOG_PAWNSHOP_VP(playerid, response, listitem, inputtext[])
 		            if(PlayerInfo[playerid][pPecasMecanicas][3] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem um Immob.");
 
 					PlayerInfo[playerid][pPecasMecanicas][3]--;
-					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Peças] Você vendeu um Immob por R$80.");
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Peças] Você vendeu um Immob por US$80.");
 					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]+80;
 				}
 				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} A empresa não tem dinheiro o suficiente.");
@@ -49324,7 +49335,7 @@ Dialog:DIALOG_PAWNSHOP_VP(playerid, response, listitem, inputtext[])
 		            if(PlayerInfo[playerid][pPecasMecanicas][4] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem uma Tranca.");
 
 					PlayerInfo[playerid][pPecasMecanicas][4]--;
-					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Peças] Você vendeu uma Tranca por R$80.");
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Peças] Você vendeu uma Tranca por US$80.");
 					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]+80;
 				}
 				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} A empresa não tem dinheiro o suficiente.");
@@ -49336,7 +49347,7 @@ Dialog:DIALOG_PAWNSHOP_VP(playerid, response, listitem, inputtext[])
                     if(PlayerInfo[playerid][pPecasMecanicas][5] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem uma Peça de Reparo.");
 
 					PlayerInfo[playerid][pPecasMecanicas][5]--;
-					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Peças] Você vendeu uma Peça de Reparo por R$50.");
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Peças] Você vendeu uma Peça de Reparo por US$50.");
 					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]+50;
 				}
 				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} A empresa não tem dinheiro o suficiente.");
@@ -50079,7 +50090,7 @@ Dialog:ConfirmaCompraCasa(playerid, response, listitem, inputtext[])
 
 				//HouseInfo[i][HouseText] = CreateDynamic3DTextLabel("[Propriedade]", 0x00A974FF, HouseInfo[i][hExX], HouseInfo[i][hExY], HouseInfo[i][hExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, HouseInfo[i][hExWorld], HouseInfo[i][hExInt]);
 
-				format(string, sizeof(string), "[Casa] Você comprou a casa %d por R$%d. (/ajudacasa).",i, HouseInfo[i][hPreco]);
+				format(string, sizeof(string), "[Casa] Você comprou a casa %d por US$%d. (/ajudacasa).",i, HouseInfo[i][hPreco]);
 				SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 
 				HouseInfo[i][hDono] = PlayerInfo[playerid][pID];
@@ -50116,7 +50127,7 @@ Dialog:ConfirmaCompraGaragem(playerid, response, listitem, inputtext[])
 		    	if (IsValidDynamic3DTextLabel(GaragemInfo[i][HouseText]))
 					DestroyDynamic3DTextLabel(GaragemInfo[i][HouseText]);
 
-				format(string, sizeof(string), "[Garagem] Você comprou a garagem %d por R$%d. (/ajudagaragem).",i, GaragemInfo[i][hPreco]);
+				format(string, sizeof(string), "[Garagem] Você comprou a garagem %d por US$%d. (/ajudagaragem).",i, GaragemInfo[i][hPreco]);
 				SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 
 				GaragemInfo[i][hDono] = PlayerInfo[playerid][pID];
@@ -50156,7 +50167,7 @@ Dialog:ConfirmaCompraComplexo(playerid, response, listitem, inputtext[])
 				format(string, sizeof(string), "\n%s", ComplexoInfo[i][cNome]);
 				ComplexoInfo[i][cText] = CreateDynamic3DTextLabel(string, 0x00A974FF, ComplexoInfo[i][cExX], ComplexoInfo[i][cExY], ComplexoInfo[i][cExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, -1, -1);
 
-				format(string, sizeof(string), "[Complexo] Você comprou o complexo %d por R$%d(/ajudacomplexo).",i, ComplexoInfo[i][cPreco]);
+				format(string, sizeof(string), "[Complexo] Você comprou o complexo %d por US$%d(/ajudacomplexo).",i, ComplexoInfo[i][cPreco]);
 				SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 
 				ComplexoInfo[i][cDono] = PlayerInfo[playerid][pID];
@@ -50450,9 +50461,9 @@ CMD:acasa(playerid, params[])
 
 						SalvarCasa(i);
     					SendClientMessage(playerid, COLOR_LIGHTRED, "Preço da casa alterado.");
-    					format(string, sizeof(string), "AdmCmd: Você alterou o preço da casa %d para R$%d!", i, var);
+    					format(string, sizeof(string), "AdmCmd: Você alterou o preço da casa %d para US$%d!", i, var);
  						SendClientMessage(playerid, COLOR_LIGHTRED, string);
-						//format(string, sizeof(string), "[Propriedade]\nVende-se\nR$%d!",HouseInfo[i][hPreco]);
+						//format(string, sizeof(string), "[Propriedade]\nVende-se\nUS$%d!",HouseInfo[i][hPreco]);
 				    	//HouseInfo[i][HouseText] = CreateDynamic3DTextLabel(string, 0x00A974FF, HouseInfo[i][hExX], HouseInfo[i][hExY], HouseInfo[i][hExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, HouseInfo[i][hExWorld], HouseInfo[i][hExInt]);
       					return 1;
 					}
@@ -50667,7 +50678,7 @@ CMD:acasa(playerid, params[])
 	    		format(HouseInfo[houseid][hPerm2], 24, "Vazio");
 	    		format(HouseInfo[houseid][hPerm3], 24, "Vazio");
 
-				//format(string, sizeof(string), "[Propriedade]\nVende-se\nR$%d!",HouseInfo[houseid][hPreco]);
+				//format(string, sizeof(string), "[Propriedade]\nVende-se\nUS$%d!",HouseInfo[houseid][hPreco]);
     			//HouseInfo[houseid][HouseText] = CreateDynamic3DTextLabel(string, 0x00A974FF, HouseInfo[houseid][hExX], HouseInfo[houseid][hExY], HouseInfo[houseid][hExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, HouseInfo[houseid][hExWorld], HouseInfo[houseid][hExInt]);
 			    if(HouseInfo[houseid][hPlacaX] != 0 && HouseInfo[houseid][hPlacaY] != 0 && HouseInfo[houseid][hPlacaZ] != 0)
 				{
@@ -50938,9 +50949,9 @@ CMD:agaragem(playerid, params[])
 						GaragemInfo[i][hPreco] = var;
 
 						SalvarGaragem(i);
-    					format(string, sizeof(string), "AdmCmd: Você alterou o preço da garagem %d para R$%d!", i, var);
+    					format(string, sizeof(string), "AdmCmd: Você alterou o preço da garagem %d para US$%d!", i, var);
  						SendClientMessage(playerid, COLOR_LIGHTRED, string);
-						format(string, sizeof(string), "[Garagem]\nVende-se\nR$%d!",GaragemInfo[i][hPreco]);
+						format(string, sizeof(string), "[Garagem]\nVende-se\nUS$%d!",GaragemInfo[i][hPreco]);
 				    	return 1;
 					}
 		        }
@@ -51257,7 +51268,7 @@ public CarregandoComplexos()
 				    ComplexoInfo[complexid][cIcone] = CreateDynamicPickup(1314, 23, ComplexoInfo[complexid][cExX], ComplexoInfo[complexid][cExY], ComplexoInfo[complexid][cExZ], -1, -1, -1, STREAMER_DISTANCIA_ICONE_COMPLEXO);
 				    ComplexoInfo[complexid][cIcone2] = CreateDynamicPickup(1314, 23, ComplexoInfo[complexid][cExX2], ComplexoInfo[complexid][cExY2], ComplexoInfo[complexid][cExZ2], -1, -1, -1, STREAMER_DISTANCIA_ICONE_COMPLEXO);
 				    ComplexoInfo[complexid][cIcone3] = CreateDynamicPickup(1314, 23, ComplexoInfo[complexid][cExX3], ComplexoInfo[complexid][cExY3], ComplexoInfo[complexid][cExZ3], -1, -1, -1, STREAMER_DISTANCIA_ICONE_COMPLEXO);
-				    format(string, sizeof(string), "\n%s\nPrédio de Apartamentos[%d] A venda:\nPreço: R$%d!",ComplexoInfo[complexid][cNome],i,ComplexoInfo[complexid][cPreco]);
+				    format(string, sizeof(string), "\n%s\nPrédio de Apartamentos[%d] A venda:\nPreço: US$%d!",ComplexoInfo[complexid][cNome],i,ComplexoInfo[complexid][cPreco]);
 				    ComplexoInfo[complexid][cText] = CreateDynamic3DTextLabel(string, 0xC38A39FF, ComplexoInfo[complexid][cExX], ComplexoInfo[complexid][cExY], ComplexoInfo[complexid][cExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, -1, -1);
 				    if(ComplexoInfo[complexid][cPlacaX] != 0 && ComplexoInfo[complexid][cPlacaY] != 0 && ComplexoInfo[complexid][cPlacaZ] != 0)
 					{
@@ -51360,7 +51371,7 @@ Dialog:VendendoComplexo(playerid, response, listitem, inputtext[])
 	    {
 	    	case 0:
 	    	{
-	    	    format(string, sizeof(string), "Você tem certeza que deseja vender o complexo (%d) por R$%d?\n(Ao vender para o estado, você recebe apenas a metade do valor pago)",VendoComplexo[playerid], (ComplexoInfo[VendoComplexo[playerid]][cPreco]/2));
+	    	    format(string, sizeof(string), "Você tem certeza que deseja vender o complexo (%d) por US$%d?\n(Ao vender para o estado, você recebe apenas a metade do valor pago)",VendoComplexo[playerid], (ComplexoInfo[VendoComplexo[playerid]][cPreco]/2));
                 Dialog_Show(playerid, VendendoComplexo1, DIALOG_STYLE_MSGBOX, "Confirmação de Venda", string, "Sim", "Cancelar");
 			}
 			case 1:
@@ -51433,14 +51444,14 @@ Dialog:VendendoComplexo21(playerid, response, listitem, inputtext[])
 	    {
 		    if(!IsPlayerConnected(VendendoComplexo[playerid][0])) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} ID inválido!");
 		    if(!IsPlayerNearPlayer(playerid, VendendoComplexo[playerid][0], 8.0))  return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO:{FFFFFF} O comprador não está mais próximo a você!");
-		    format(string, sizeof(string), "[Complexo] %s está lhe oferecendo o complexo %d por R$%d.",PlayerName(playerid, 1), VendendoComplexo[playerid][2], valor);
+		    format(string, sizeof(string), "[Complexo] %s está lhe oferecendo o complexo %d por US$%d.",PlayerName(playerid, 1), VendendoComplexo[playerid][2], valor);
 	     	Dialog_Show(VendendoComplexo[playerid][0], VendendoComplexo22, DIALOG_STYLE_MSGBOX, "Proposta de Negócio", string, "Comprar", "Cancelar");
 		    VendendoComplexo[playerid][1] = valor;
 		}
 		else
 		{
 		    SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Valor inválido!");
-		    Dialog_Show(playerid, VendendoComplexo21, DIALOG_STYLE_INPUT, "Proposta de Negócio", "Digite o valor que você deseja cobrar pelo complexo\nMax: R$999999.", "Oferecer", "Cancelar");
+		    Dialog_Show(playerid, VendendoComplexo21, DIALOG_STYLE_INPUT, "Proposta de Negócio", "Digite o valor que você deseja cobrar pelo complexo\nMax: US$999999.", "Oferecer", "Cancelar");
 		}
 	}
 	return 1;
@@ -51462,7 +51473,7 @@ Dialog:VendendoComplexo22(playerid, response, listitem, inputtext[])
 	    {
 	        if(!IsPlayerConnected(Vendedor))  return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O vendedor não está mais online.");
 	        if(PlayerInfo[Vendedor][pID] != ComplexoInfo[houseid][cDono]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Ocorreu um erro durante a venda da residencia, contate um admin se preciso.");
-	        format(string, sizeof(string), "%s aceitou sua oferta e comprou o seu complexo por R$%d. (Complexo ID: %d).",PlayerName(playerid, 1), VendendoComplexo[Vendedor][1], houseid);
+	        format(string, sizeof(string), "%s aceitou sua oferta e comprou o seu complexo por US$%d. (Complexo ID: %d).",PlayerName(playerid, 1), VendendoComplexo[Vendedor][1], houseid);
 	        SendClientMessage(VendendoComplexo[playerid][0], -1, string);
 	        SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Complexo] Você aceitou a oferta e comprou o complexo.");
 
@@ -51501,7 +51512,7 @@ Dialog:VendendoComplexo1(playerid, response, listitem, inputtext[])
     		{
     		    if (IsValidDynamic3DTextLabel(ComplexoInfo[VendoComplexo[playerid]][cText]))
 					DestroyDynamic3DTextLabel(ComplexoInfo[VendoComplexo[playerid]][cText]);
-   				format(string, sizeof(string), "[Complexo] Você vendeu a seu complexo(%d) por R$%d.", VendoComplexo[playerid], ComplexoInfo[VendoComplexo[playerid]][cPreco]/2);
+   				format(string, sizeof(string), "[Complexo] Você vendeu a seu complexo(%d) por US$%d.", VendoComplexo[playerid], ComplexoInfo[VendoComplexo[playerid]][cPreco]/2);
 				SendClientMessage(playerid, COLOR_LIGHTRED, string);
 				ComplexoInfo[VendoComplexo[playerid]][cDono] = 0;
 				ComplexoInfo[VendoComplexo[playerid]][cAVenda] = 1;
@@ -51516,7 +51527,7 @@ Dialog:VendendoComplexo1(playerid, response, listitem, inputtext[])
 				new houseid = VendoComplexo[playerid];
 				if(IsValidDynamicObject(ComplexoInfo[houseid][cObjPlaca]))
     				DestroyDynamicObject(ComplexoInfo[houseid][cObjPlaca]);
-				format(string, sizeof(string), "\nVende-se\nR$%d!",ComplexoInfo[houseid][cPreco]);
+				format(string, sizeof(string), "\nVende-se\nUS$%d!",ComplexoInfo[houseid][cPreco]);
     			ComplexoInfo[houseid][cText] = CreateDynamic3DTextLabel(string, 0x00A974FF, ComplexoInfo[houseid][cExX], ComplexoInfo[houseid][cExY], ComplexoInfo[houseid][cExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, -1, -1);
 			    if(ComplexoInfo[houseid][cPlacaX] != 0 && ComplexoInfo[houseid][cPlacaY] != 0 && ComplexoInfo[houseid][cPlacaZ] != 0)
 				{
@@ -51577,7 +51588,7 @@ CMD:acomplexo(playerid, params[])
 	    				format(ComplexoInfo[i][cPerm3], 24, "Vazio");
 
 						mysql_function_query(Pipeline, "INSERT INTO `complexos` (`Dono`) VALUES(0)", false, "ComplexoCriada", "dd", i,playerid);
-						format(string, sizeof(string), "\n%s\nVende-se\nR$%d!",ComplexoInfo[i][cNome],ComplexoInfo[i][cPreco]);
+						format(string, sizeof(string), "\n%s\nVende-se\nUS$%d!",ComplexoInfo[i][cNome],ComplexoInfo[i][cPreco]);
                 		ComplexoInfo[i][cText] = CreateDynamic3DTextLabel(string, 0x00A974FF, ComplexoInfo[i][cExX], ComplexoInfo[i][cExY], ComplexoInfo[i][cExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, -1, -1);
                         new complexid = i;
                     	if(ComplexoInfo[complexid][complexIcone] != 0)
@@ -51731,9 +51742,9 @@ CMD:acomplexo(playerid, params[])
 						ComplexoInfo[i][cPreco] = var;
 
 						SalvarComplexo(i);
-    					format(string, sizeof(string), "AdmCmd: Você alterou o preço do complexo %d para R$%d!", i, var);
+    					format(string, sizeof(string), "AdmCmd: Você alterou o preço do complexo %d para US$%d!", i, var);
  						SendClientMessage(playerid, COLOR_LIGHTRED, string);
-						format(string, sizeof(string), "\n%s\nVende-se\nR$%d!",ComplexoInfo[i][cNome],ComplexoInfo[i][cPreco]);
+						format(string, sizeof(string), "\n%s\nVende-se\nUS$%d!",ComplexoInfo[i][cNome],ComplexoInfo[i][cPreco]);
 				    	ComplexoInfo[i][cText] = CreateDynamic3DTextLabel(string, 0x00A974FF, ComplexoInfo[i][cExX], ComplexoInfo[i][cExY], ComplexoInfo[i][cExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, -1, -1);
 						return 1;
 					}
@@ -51745,9 +51756,9 @@ CMD:acomplexo(playerid, params[])
 						ComplexoInfo[i][cPreco] = var;
 
 						SalvarComplexo(i);
-    					format(string, sizeof(string), "AdmCmd: Você alterou o preço do complexo %d para R$%d!", i, var);
+    					format(string, sizeof(string), "AdmCmd: Você alterou o preço do complexo %d para US$%d!", i, var);
  						SendClientMessage(playerid, COLOR_LIGHTRED, string);
-						format(string, sizeof(string), "\n%s\nVende-se\nR$%d!",ComplexoInfo[i][cNome],ComplexoInfo[i][cPreco]);
+						format(string, sizeof(string), "\n%s\nVende-se\nUS$%d!",ComplexoInfo[i][cNome],ComplexoInfo[i][cPreco]);
 				    	ComplexoInfo[i][cText] = CreateDynamic3DTextLabel(string, 0x00A974FF, ComplexoInfo[i][cExX], ComplexoInfo[i][cExY], ComplexoInfo[i][cExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, -1, -1);
 						return 1;
 					}
@@ -51759,9 +51770,9 @@ CMD:acomplexo(playerid, params[])
 						ComplexoInfo[i][cPreco] = var;
 
 						SalvarComplexo(i);
-    					format(string, sizeof(string), "AdmCmd: Você alterou o preço do complexo %d para R$%d!", i, var);
+    					format(string, sizeof(string), "AdmCmd: Você alterou o preço do complexo %d para US$%d!", i, var);
  						SendClientMessage(playerid, COLOR_LIGHTRED, string);
-						format(string, sizeof(string), "\n%s\nVende-se\nR$%d!",ComplexoInfo[i][cNome],ComplexoInfo[i][cPreco]);
+						format(string, sizeof(string), "\n%s\nVende-se\nUS$%d!",ComplexoInfo[i][cNome],ComplexoInfo[i][cPreco]);
 				    	ComplexoInfo[i][cText] = CreateDynamic3DTextLabel(string, 0x00A974FF, ComplexoInfo[i][cExX], ComplexoInfo[i][cExY], ComplexoInfo[i][cExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, -1, -1);
 						return 1;
 					}
@@ -52096,7 +52107,7 @@ CMD:acomplexo(playerid, params[])
 				new houseid = var;
 				if(IsValidDynamicObject(ComplexoInfo[houseid][cObjPlaca]))
     				DestroyDynamicObject(ComplexoInfo[houseid][cObjPlaca]);
-				format(string, sizeof(string), "\nVende-se\nR$%d!",ComplexoInfo[houseid][cPreco]);
+				format(string, sizeof(string), "\nVende-se\nUS$%d!",ComplexoInfo[houseid][cPreco]);
     			ComplexoInfo[houseid][cText] = CreateDynamic3DTextLabel(string, 0x00A974FF, ComplexoInfo[houseid][cExX], ComplexoInfo[houseid][cExY], ComplexoInfo[houseid][cExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, -1, -1);
 			    if(ComplexoInfo[houseid][cPlacaX] != 0 && ComplexoInfo[houseid][cPlacaY] != 0 && ComplexoInfo[houseid][cPlacaZ] != 0)
 				{
@@ -52196,9 +52207,9 @@ public CarregandoEmpresas()
                 if(EmpInfo[empid][eAVenda] == 1)
 				{
 				    if(EmpInfo[empid][eLeasing] > 0)
-				        format(string, sizeof(string), "%s\nAluga-se\nR$%d!",EmpInfo[empid][eNome],EmpInfo[empid][eLeasing]);
+				        format(string, sizeof(string), "%s\nAluga-se\nUS$%d!",EmpInfo[empid][eNome],EmpInfo[empid][eLeasing]);
 				    else
-				    	format(string, sizeof(string), "%s\nVende-se\nR$%d!",EmpInfo[empid][eNome],EmpInfo[empid][ePreco]);
+				    	format(string, sizeof(string), "%s\nVende-se\nUS$%d!",EmpInfo[empid][eNome],EmpInfo[empid][ePreco]);
 				    EmpInfo[empid][EmpText] = CreateDynamic3DTextLabel(string, 0xFFFFFFFF, EmpInfo[empid][eExX], EmpInfo[empid][eExY], EmpInfo[empid][eExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, EmpInfo[empid][eExWorld], EmpInfo[empid][eExInt]);
 				    if(EmpInfo[empid][ePlacaX] != 0 && EmpInfo[empid][ePlacaY] != 0 && EmpInfo[empid][ePlacaZ] != 0)
 					{
@@ -52217,7 +52228,7 @@ public CarregandoEmpresas()
 				else
 				{
 				    if(EmpInfo[empid][eEntradaPrice] > 0)
-				        format(string, sizeof(string), "%s\nEntrada: R$%d",EmpInfo[empid][eNome], EmpInfo[empid][eEntradaPrice]);
+				        format(string, sizeof(string), "%s\nEntrada: US$%d",EmpInfo[empid][eNome], EmpInfo[empid][eEntradaPrice]);
 				    else
 				    	format(string, sizeof(string), "%s",EmpInfo[empid][eNome]);
 				    EmpInfo[empid][EmpText] = CreateDynamic3DTextLabel(string, 0xFFFFFFFF, EmpInfo[empid][eExX], EmpInfo[empid][eExY], EmpInfo[empid][eExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, EmpInfo[empid][eExWorld], EmpInfo[empid][eExInt]);
@@ -52333,7 +52344,7 @@ Dialog:VendendoEmpresa(playerid, response, listitem, inputtext[])
 	                Dialog_Show(playerid, VendendoEmpresa_Leasing, DIALOG_STYLE_MSGBOX, "Confirmação de Abandono", "A sua empresa é alugada, realmente deseja abandona-la?", "Sim", "Cancelar");
 	    	    }
 	    	    else {
-		    	    format(string, sizeof(string), "Você tem certeza que deseja vender a sua empresa (%d) por R$%d?\n(Ao vender a empresa para o estado, você recebe apenas a metade do valor pago)",VendoEmpresa[playerid], (EmpInfo[VendoEmpresa[playerid]][ePreco]/2));
+		    	    format(string, sizeof(string), "Você tem certeza que deseja vender a sua empresa (%d) por US$%d?\n(Ao vender a empresa para o estado, você recebe apenas a metade do valor pago)",VendoEmpresa[playerid], (EmpInfo[VendoEmpresa[playerid]][ePreco]/2));
 	                Dialog_Show(playerid, VendendoEmpresa1, DIALOG_STYLE_MSGBOX, "Confirmação de Venda", string, "Sim", "Cancelar");
                 }
 			}
@@ -52407,7 +52418,7 @@ Dialog:VendendoEmpresa21(playerid, response, listitem, inputtext[])
 	    {
 		    if(!IsPlayerConnected(VendendoEmpresa[playerid][0])) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} ID inválido!");
 		    if(!IsPlayerNearPlayer(playerid, VendendoEmpresa[playerid][0], 8.0))  return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO:{FFFFFF} O comprador não está mais próximo a você!");
-		    format(string, sizeof(string), "%s está lhe oferecendo a empresa %d por R$%d.",PlayerName(playerid, 1), VendendoEmpresa[playerid][2], valor);
+		    format(string, sizeof(string), "%s está lhe oferecendo a empresa %d por US$%d.",PlayerName(playerid, 1), VendendoEmpresa[playerid][2], valor);
 	     	Dialog_Show(VendendoEmpresa[playerid][0], VendendoEmpresa22, DIALOG_STYLE_MSGBOX, "Confirmação de Venda", string, "Comprar", "Cancelar");
 		    VendendoEmpresa[playerid][1] = valor;
 		}
@@ -52436,7 +52447,7 @@ Dialog:VendendoEmpresa22(playerid, response, listitem, inputtext[])
 	    {
 	        if(!IsPlayerConnected(Vendedor))  return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O vendedor não está mais online.");
 	        if(PlayerInfo[Vendedor][pID] != EmpInfo[empid][eDono]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Ocorreu um erro durante a venda da residencia, contate um admin se preciso.");
-	        format(string, sizeof(string), "[Empresa] %s aceitou sua oferta e comprou a sua empresa por R$%d. (Empresa: %d).",PlayerName(playerid, 1), VendendoEmpresa[Vendedor][1], empid);
+	        format(string, sizeof(string), "[Empresa] %s aceitou sua oferta e comprou a sua empresa por US$%d. (Empresa: %d).",PlayerName(playerid, 1), VendendoEmpresa[Vendedor][1], empid);
 	        SendClientMessage(VendendoEmpresa[playerid][0], COLOR_LIGHTGREEN, string);
 	        SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Empresa] Você aceitou a oferta e comprou a empresa!");
 
@@ -52469,7 +52480,7 @@ Dialog:VendendoEmpresa1(playerid, response, listitem, inputtext[])
 		{
   			if(EmpInfo[VendoEmpresa[playerid]][eDono] == PlayerInfo[playerid][pID])
     		{
-   				format(string, sizeof(string), "[Empresa] Você vendeu a sua empresa (%d) por R$%d para o estado.", VendoEmpresa[playerid], EmpInfo[VendoEmpresa[playerid]][ePreco]/2);
+   				format(string, sizeof(string), "[Empresa] Você vendeu a sua empresa (%d) por US$%d para o estado.", VendoEmpresa[playerid], EmpInfo[VendoEmpresa[playerid]][ePreco]/2);
 				SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 				EmpInfo[VendoEmpresa[playerid]][eDono] = 0;
 				EmpInfo[VendoEmpresa[playerid]][eAVenda] = 1;
@@ -52481,7 +52492,7 @@ Dialog:VendendoEmpresa1(playerid, response, listitem, inputtext[])
 				new empid = VendoEmpresa[playerid];
 				if(IsValidDynamicObject(EmpInfo[empid][eObjPlaca]))
     				DestroyDynamicObject(EmpInfo[empid][eObjPlaca]);
-				format(string, sizeof(string), "%s\nVende-se\nR$%d!",EmpInfo[empid][eNome],EmpInfo[empid][ePreco]);
+				format(string, sizeof(string), "%s\nVende-se\nUS$%d!",EmpInfo[empid][eNome],EmpInfo[empid][ePreco]);
     			EmpInfo[empid][EmpText] = CreateDynamic3DTextLabel(string, 0xFFFFFFFF, EmpInfo[empid][eExX], EmpInfo[empid][eExY], EmpInfo[empid][eExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, EmpInfo[empid][eExWorld], EmpInfo[empid][eExInt]);
 			    if(EmpInfo[empid][ePlacaX] != 0 && EmpInfo[empid][ePlacaY] != 0 && EmpInfo[empid][ePlacaZ] != 0)
 				{
@@ -52513,7 +52524,7 @@ Dialog:VendendoEmpresa_Leasing(playerid, response, listitem, inputtext[])
 				new empid = VendoEmpresa[playerid];
 				if(IsValidDynamicObject(EmpInfo[empid][eObjPlaca]))
     				DestroyDynamicObject(EmpInfo[empid][eObjPlaca]);
-				format(string, sizeof(string), "%s\nVende-se\nR$%d!",EmpInfo[empid][eNome],EmpInfo[empid][ePreco]);
+				format(string, sizeof(string), "%s\nVende-se\nUS$%d!",EmpInfo[empid][eNome],EmpInfo[empid][ePreco]);
     			EmpInfo[empid][EmpText] = CreateDynamic3DTextLabel(string, 0xFFFFFFFF, EmpInfo[empid][eExX], EmpInfo[empid][eExY], EmpInfo[empid][eExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, EmpInfo[empid][eExWorld], EmpInfo[empid][eExInt]);
 			    if(EmpInfo[empid][ePlacaX] != 0 && EmpInfo[empid][ePlacaY] != 0 && EmpInfo[empid][ePlacaZ] != 0)
 				{
@@ -52580,12 +52591,12 @@ Dialog:ConfirmaCompraEmpresa(playerid, response, listitem, inputtext[])
 		    if(EmpInfo[i][eAVenda])
 		    {
 		        if(EmpInfo[i][eLeasing] == 0){
-		            format(string, sizeof(string), "[Empresa]  Você comprou a empresa %d por R$%d.",i, EmpInfo[i][ePreco]);
+		            format(string, sizeof(string), "[Empresa]  Você comprou a empresa %d por US$%d.",i, EmpInfo[i][ePreco]);
 					SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 		            GivePlayerMoneyCA(playerid,-EmpInfo[i][ePreco]);
 		        }
 		        else {
-		            format(string, sizeof(string), "[Empresa]  Você alugou a empresa [%d] %s por R$%d semanais, que serão descontados de você todo domingo as 18:00.",i, EmpInfo[i][eNome], EmpInfo[i][ePreco]);
+		            format(string, sizeof(string), "[Empresa]  Você alugou a empresa [%d] %s por US$%d semanais, que serão descontados de você todo domingo as 18:00.",i, EmpInfo[i][eNome], EmpInfo[i][ePreco]);
 					SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 		        }
 
@@ -52707,7 +52718,7 @@ CMD:aemp(playerid, params[])
 		    	{
 		    	    if(EmpInfo[i][eDono] != 0) return SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Você não pode setar leasing para uma empresa que já tem dono.");
 
-		    	    format(string, sizeof(string), "AdmCmd: Leasing setado para: R$%d por semana.", var);
+		    	    format(string, sizeof(string), "AdmCmd: Leasing setado para: US$%d por semana.", var);
 					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 
 					EmpInfo[i][eLeasing] = var;
@@ -52719,7 +52730,7 @@ CMD:aemp(playerid, params[])
 					if(IsValidDynamicObject(EmpInfo[empid][eObjPlaca]))
 	    				DestroyDynamicObject(EmpInfo[empid][eObjPlaca]);
 
-					format(string, sizeof(string), "%s\nAluga-se\nR$%d!",EmpInfo[empid][eNome],EmpInfo[empid][eLeasing]);
+					format(string, sizeof(string), "%s\nAluga-se\nUS$%d!",EmpInfo[empid][eNome],EmpInfo[empid][eLeasing]);
 	    			EmpInfo[empid][EmpText] = CreateDynamic3DTextLabel(string, 0xFFFFFFFF, EmpInfo[empid][eExX], EmpInfo[empid][eExY], EmpInfo[empid][eExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, EmpInfo[empid][eExWorld], EmpInfo[empid][eExInt]);
 
 					if(EmpInfo[empid][ePlacaX] != 0 && EmpInfo[empid][ePlacaY] != 0 && EmpInfo[empid][ePlacaZ] != 0)
@@ -52767,7 +52778,7 @@ CMD:aemp(playerid, params[])
 
 						mysql_function_query(Pipeline, "INSERT INTO `empresas` (`Dono`) VALUES(0)", false, "EmpresaCriada", "dd", i,playerid);
 						//SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Empresa criada com sucesso.");
-						format(string, sizeof(string), "%s\nVende-se\nR$%d!",EmpInfo[i][eNome],EmpInfo[i][ePreco]);
+						format(string, sizeof(string), "%s\nVende-se\nUS$%d!",EmpInfo[i][eNome],EmpInfo[i][ePreco]);
 						EmpInfo[i][eIcone] = CreateDynamicPickup(1272, 23, EmpInfo[i][eExX], EmpInfo[i][eExY], EmpInfo[i][eExZ], -1, -1, -1, STREAMER_DISTANCIA_ICONE_EMPRESA);
                 		EmpInfo[i][EmpText] = CreateDynamic3DTextLabel(string, 0xFFFFFFFF, EmpInfo[i][eExX], EmpInfo[i][eExY], EmpInfo[i][eExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, EmpInfo[i][eExWorld], EmpInfo[i][eExInt]);
 						return i;
@@ -52954,10 +52965,10 @@ CMD:aemp(playerid, params[])
 						EmpInfo[i][ePreco] = var;
 
 						SalvarEmpresa(i);
-    					format(string, sizeof(string), "AdmCmd: Você alterou o preço da empresa %d para R$%d!", i, var);
+    					format(string, sizeof(string), "AdmCmd: Você alterou o preço da empresa %d para US$%d!", i, var);
  						SendClientMessage(playerid, COLOR_LIGHTRED, string);
 
-						format(string, sizeof(string), "%s\nVende-se\nR$%d!",EmpInfo[i][eNome],EmpInfo[i][ePreco]);
+						format(string, sizeof(string), "%s\nVende-se\nUS$%d!",EmpInfo[i][eNome],EmpInfo[i][ePreco]);
 				    	EmpInfo[i][EmpText] = CreateDynamic3DTextLabel(string, 0xFFFFFFFF, EmpInfo[i][eExX], EmpInfo[i][eExY], EmpInfo[i][eExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, EmpInfo[i][eExWorld], EmpInfo[i][eExInt]);
 						return 1;
 					}
@@ -53120,7 +53131,7 @@ CMD:aemp(playerid, params[])
 						DestroyDynamic3DTextLabel(EmpInfo[empid][EmpText]);
 				if(IsValidDynamicObject(EmpInfo[empid][eObjPlaca]))
     				DestroyDynamicObject(EmpInfo[empid][eObjPlaca]);
-				format(string, sizeof(string), "%s\nVende-se\nR$%d!",EmpInfo[empid][eNome],EmpInfo[empid][ePreco]);
+				format(string, sizeof(string), "%s\nVende-se\nUS$%d!",EmpInfo[empid][eNome],EmpInfo[empid][ePreco]);
     			EmpInfo[empid][EmpText] = CreateDynamic3DTextLabel(string, 0xFFFFFFFF, EmpInfo[empid][eExX], EmpInfo[empid][eExY], EmpInfo[empid][eExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, EmpInfo[empid][eExWorld], EmpInfo[empid][eExInt]);
 			    if(EmpInfo[empid][ePlacaX] != 0 && EmpInfo[empid][ePlacaY] != 0 && EmpInfo[empid][ePlacaZ] != 0)
 				{
@@ -54068,7 +54079,7 @@ CMD:entrar(playerid, params[])
 	                            	PlayerInfo[playerid][pGrana] -= EmpInfo[i][eEntradaPrice];
 	                            	EmpInfo[i][eBank] += EmpInfo[i][eEntradaPrice];
 
-	                            	format(string,sizeof(string),"-> Você pagou R$%d para entrar na empresa.",EmpInfo[i][eEntradaPrice]);
+	                            	format(string,sizeof(string),"-> Você pagou US$%d para entrar na empresa.",EmpInfo[i][eEntradaPrice]);
 									SendClientMessage(playerid,COLOR_LIGHTGREEN,string);
 								}
 							}
@@ -55586,9 +55597,9 @@ public OfferSellCar(playerid,other,offset,price)
 					vehicle_sell_price[other] = price;
 					new str[256]; new vname[128];
 					GetVehicleNameByModel(VehicleInfo[i][vModel],vname);
-					format(str,sizeof(str),"{33AA33}%s ofereceu o %s para você por R$%d, você aceita?",PlayerName(playerid, 1),vname,price);
+					format(str,sizeof(str),"{33AA33}%s ofereceu o %s para você por US$%d, você aceita?",PlayerName(playerid, 1),vname,price);
 					ShowPlayerDialog(other,DIALOG_SELLCAR,DIALOG_STYLE_MSGBOX,"Alguém quer te vender um carro",str,"Aceitar","Recusar");
-					format(str,sizeof(str),"{33AA33}Você ofereceu seu %s para %s por R$%d.",vname,PlayerName(other, 1),price);
+					format(str,sizeof(str),"{33AA33}Você ofereceu seu %s para %s por US$%d.",vname,PlayerName(other, 1),price);
 					SendClientMessage(playerid,-1,str);
 					done = 1;
 	            }
@@ -55644,7 +55655,7 @@ public AcceptVehicleCharge(playerid,offset)
 									vehicle_creating = 0;
 									PlayerInfo[playerid][pGrana] -= price_to_keep_car;
 									new str[128];
-									format(str,sizeof(str),"Você resgatou seu veículo por R$%d, não esqueça de estaciona-lo.",price_to_keep_car);
+									format(str,sizeof(str),"Você resgatou seu veículo por US$%d, não esqueça de estaciona-lo.",price_to_keep_car);
 									SendClientMessage(playerid,COLOR_LIGHTGREEN,str);
                                     return 1;
 								}
@@ -55669,7 +55680,7 @@ public AcceptVehicleCharge(playerid,offset)
 					else
 					{
 					    new str[128];
-					    format(str,sizeof(str),"ERRO:{FFFFFF} Você não tem R$%d.",price_to_keep_car);
+					    format(str,sizeof(str),"ERRO:{FFFFFF} Você não tem US$%d.",price_to_keep_car);
 					    SendClientMessage(playerid,COLOR_LIGHTRED,str);
                         return 1;
 					}
@@ -55720,7 +55731,7 @@ public TowPlayerVehicle(playerid,offset)
 									SetVehicleToRespawn(vehicle_towing[playerid]);
 									vehicle_towing[playerid] = -1;
 								 	PlayerInfo[playerid][pGrana] -= 250;
-									SendClientMessage(playerid,COLOR_LIGHTGREEN,"Seu veículo foi guinchado para o local de spawn, e custou R$250");
+									SendClientMessage(playerid,COLOR_LIGHTGREEN,"Seu veículo foi guinchado para o local de spawn, e custou US$250");
 									PlayerPlaySound(playerid,1054,0.0,0.0,0.0);
 								}
 								else if(PlayerInfo[playerid][pGrana] >= 250)
@@ -56200,13 +56211,13 @@ stock RemontarCarro(playerid,offset)
 											if(PlayerInfo[playerid][pGrana] < price)
 										    {
 										        new str[126];
-										        format(str,sizeof(str),"ERRO:{FFFFFF} Você não tem R$%d para remontar este veículo.", price);
+										        format(str,sizeof(str),"ERRO:{FFFFFF} Você não tem US$%d para remontar este veículo.", price);
 												SendClientMessage(playerid,COLOR_LIGHTRED,str);
 											}
 											else
 											{
 											    new str[126];
-										        format(str,sizeof(str),"Você gastou R$%d para remontar seu veículo.", price);
+										        format(str,sizeof(str),"Você gastou US$%d para remontar seu veículo.", price);
 												SendClientMessage(playerid,COLOR_LIGHTGREEN,str);
 												PlayerInfo[playerid][pGrana] -= price;
 											    Remontou = 1;
@@ -56366,7 +56377,7 @@ stock UnimpoundVehicle(playerid,offset)
 						{
 						    new vname[64], str[128];
 							GetVehicleNameByModel(VehicleInfo[i][vModel],vname);
-						    format(str,sizeof(str),"ERRO:{FFFFFF} O seu %s tem %d multas, totalizando R$%d a ser pagas para que o veículo possa ser retirado!",vname,multas,valortotal);
+						    format(str,sizeof(str),"ERRO:{FFFFFF} O seu %s tem %d multas, totalizando US$%d a ser pagas para que o veículo possa ser retirado!",vname,multas,valortotal);
 							SendClientMessage(playerid,COLOR_LIGHTRED,str);
 							SendClientMessage(playerid,COLOR_GREY,"DICA: Vá até a prefeitura para pagar suas multas.");
 							return 1;
@@ -56643,7 +56654,7 @@ stock ProcessVehicleAuction(playerid,biz,vehicleid,price)
 	}
 	else
 	{
-	    SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem R$150");
+	    SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem US$150");
 	}
 }
 
@@ -64117,12 +64128,12 @@ COMMAND:veiculo(playerid,params[])
 	                    if(VehicleInfo[slot][vAjudaIni] == 1)
 	                    {
 	                        scrapprice = 0;
-	                        format(str,sizeof(str),"Você está prestes à sucatear o seu %s por R$0 [AJUDA INICIAL]. Você tem certeza disto?",vname);
+	                        format(str,sizeof(str),"Você está prestes à sucatear o seu %s por US$0 [AJUDA INICIAL]. Você tem certeza disto?",vname);
 	                    	ShowPlayerDialog(playerid,DIALOG_SCRAPCAR,DIALOG_STYLE_MSGBOX,"Você está prestes a deletar um veículo.",str,"Confirmar","Cancelar");
 	                    }
 	                    else
 	                    {
-	                        format(str,sizeof(str),"Você está prestes à sucatear o seu %s por R$%d. Você tem certeza disto?",vname,scrapprice);
+	                        format(str,sizeof(str),"Você está prestes à sucatear o seu %s por US$%d. Você tem certeza disto?",vname,scrapprice);
 	                    	ShowPlayerDialog(playerid,DIALOG_SCRAPCAR,DIALOG_STYLE_MSGBOX,"Você está prestes a deletar um veículo.",str,"Confirmar","Cancelar");
 	                    }
 	                    return 1;
@@ -64289,7 +64300,7 @@ COMMAND:veiculo(playerid,params[])
                             GetVehicleNameByModel(VehicleInfo[slot][vModel],vname);
 
                             format(string,sizeof(string),"\t\t\t\t------ RJ Seguros ------\n\n \
-                            Você está contratando um veículo para o seu %s, pelo valor de R$%d mensais.\n\n \
+                            Você está contratando um veículo para o seu %s, pelo valor de US$%d mensais.\n\n \
                             O seu veículo estará protegido contra: \n \
                             \t- Roubo e Furto\n\t- Acidentes Naturais\n\t- Explosões Acidentais \n\n \
                             [Pagamento]\nVocê deverá ter o valor todo mês ((Paycheck)) no banco, se não\nserá cancelado sem aviso prévio.\n",vname, price);
@@ -64549,7 +64560,7 @@ COMMAND:veiculo(playerid,params[])
 							SaveVehicle(slot);
 							return 1;
 						}
-						else return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem R$20 para estacionar seu veiculo.");
+						else return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem US$20 para estacionar seu veiculo.");
 					}
 					else return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Sistema de veiculos sobrecarregado, tente novamente em instantes");
 				}
@@ -66675,11 +66686,11 @@ Atualizar_PontoEntrega(entid)
 			else format(string, sizeof(string), "%s\nEstoque: %d/%d", PontoEntrega[entid][emNome],PontoEntrega[PontoEntrega[entid][emEmpresa]][emStock], PontoEntrega[entid][emStockMax]);
 		}
 		else if(PontoEntrega[entid][emFabrica] == 3)
-			format(string,sizeof(string), "%s\n%s\n%d/%d litros.\n{00D67B}R$%d{ABC3E5} por litro\n'/carga comprar'", PontoEntrega[entid][emNome],GetCargaTipo(PontoEntrega[entid][emFabrica]),PontoEntrega[entid][emStock],PontoEntrega[entid][emStockMax], PontoEntrega[entid][emCobraProd]);
+			format(string,sizeof(string), "%s\n%s\n%d/%d litros.\n{00D67B}US$%d{ABC3E5} por litro\n'/carga comprar'", PontoEntrega[entid][emNome],GetCargaTipo(PontoEntrega[entid][emFabrica]),PontoEntrega[entid][emStock],PontoEntrega[entid][emStockMax], PontoEntrega[entid][emCobraProd]);
 		else if(PontoEntrega[entid][emFabrica] == 6)
-			format(string,sizeof(string), "%s\n%s\n%d/%d litros.\n{00D67B}R$%d{ABC3E5} por carga\n'/carga comprar'", PontoEntrega[entid][emNome],GetCargaTipo(PontoEntrega[entid][emFabrica]),PontoEntrega[entid][emStock],PontoEntrega[entid][emStockMax], PontoEntrega[entid][emCobraProd]);
+			format(string,sizeof(string), "%s\n%s\n%d/%d litros.\n{00D67B}US$%d{ABC3E5} por carga\n'/carga comprar'", PontoEntrega[entid][emNome],GetCargaTipo(PontoEntrega[entid][emFabrica]),PontoEntrega[entid][emStock],PontoEntrega[entid][emStockMax], PontoEntrega[entid][emCobraProd]);
 		else if(PontoEntrega[entid][emCompra] == 6)
-			format(string,sizeof(string), "%s\n%s\n%d/%d litros.\n{00D67B}R$%d{ABC3E5} por carga\n'/carga vender'", PontoEntrega[entid][emNome],GetCargaTipo(PontoEntrega[entid][emCompra]),PontoEntrega[entid][emStockC],PontoEntrega[entid][emStockMaxC], PontoEntrega[entid][emPagProd]);
+			format(string,sizeof(string), "%s\n%s\n%d/%d litros.\n{00D67B}US$%d{ABC3E5} por carga\n'/carga vender'", PontoEntrega[entid][emNome],GetCargaTipo(PontoEntrega[entid][emCompra]),PontoEntrega[entid][emStockC],PontoEntrega[entid][emStockMaxC], PontoEntrega[entid][emPagProd]);
 		else if(PontoEntrega[entid][emEmpresa] != 9999) {
 			format(string, sizeof(string), "%s\nEstoque: %d/300", PontoEntrega[entid][emNome],EmpInfo[PontoEntrega[entid][emEmpresa]][eProdutos]);
 			if(EmpInfo[PontoEntrega[entid][emEmpresa]][eBank] < EmpInfo[PontoEntrega[entid][emEmpresa]][ePagaProd]) EmpInfo[PontoEntrega[entid][emEmpresa]][eReqProd] = 0;
@@ -67140,11 +67151,11 @@ Dialog:TruckerPDA(playerid, response, listitem, inputtext[])
 							   		{
 							   		    if(EmpInfo[i][eCompraTipo] == 3)
 							   		    {
-					                       	format(stringlist, sizeof(stringlist), "{A9DE31}Pagina 1{FFFFFF}\n%sR$%d / unidade\tProcura: %d Litro(s)\t%s", stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
+					                       	format(stringlist, sizeof(stringlist), "{A9DE31}Pagina 1{FFFFFF}\n%sUS$%d / unidade\tProcura: %d Litro(s)\t%s", stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
 										}
 							   		    else
 							   		    {
-					                       	format(stringlist, sizeof(stringlist), "{A9DE31}Pagina 1{FFFFFF}\n%sR$%d / unidade\tProcura: %d Caixa(s)\t%s", stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
+					                       	format(stringlist, sizeof(stringlist), "{A9DE31}Pagina 1{FFFFFF}\n%sUS$%d / unidade\tProcura: %d Caixa(s)\t%s", stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
 										}
 										count++;
 										VendoTPDA[playerid][count] = EmpInfo[i][eID];
@@ -67153,11 +67164,11 @@ Dialog:TruckerPDA(playerid, response, listitem, inputtext[])
 									{
 					      				if(EmpInfo[i][eCompraTipo] == 3)
 							   		    {
-					                       	format(stringlist, sizeof(stringlist), "%s\n%sR$%d / unidade\tProcura: %d Litro(s)\t%s", stringlist, stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
+					                       	format(stringlist, sizeof(stringlist), "%s\n%sUS$%d / unidade\tProcura: %d Litro(s)\t%s", stringlist, stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
 										}
 							   		    else
 							   		    {
-					                       	format(stringlist, sizeof(stringlist), "%s\n%sR$%d / unidade\tProcura: %d Caixa(s)\t%s", stringlist, stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
+					                       	format(stringlist, sizeof(stringlist), "%s\n%sUS$%d / unidade\tProcura: %d Caixa(s)\t%s", stringlist, stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
 										}
 										count++;
 										VendoTPDA[playerid][count] = EmpInfo[i][eID];
@@ -67195,7 +67206,7 @@ Dialog:TruckerPDA(playerid, response, listitem, inputtext[])
 		    	if(PontoEntrega[i][emExiste] != 0) {
 			    	if(PontoEntrega[i][emTipo] == 3) {
 			        	format(stringTipo1, sizeof stringTipo1, "%s", GetProdutoNome(PontoEntrega[i][emCompra]));
-						format(stringlist, sizeof(stringlist), "%s\n%sR$%d\t\t%d caixas {CDCFD3}(%d){FFFFFF}",stringlist,stringTipo1,PontoEntrega[i][emPagProd],PontoEntrega[i][emStockC],PontoEntrega[i][emStockMaxC]);
+						format(stringlist, sizeof(stringlist), "%s\n%sUS$%d\t\t%d caixas {CDCFD3}(%d){FFFFFF}",stringlist,stringTipo1,PontoEntrega[i][emPagProd],PontoEntrega[i][emStockC],PontoEntrega[i][emStockMaxC]);
 					}
 				}
 			}
@@ -67243,11 +67254,11 @@ Dialog:TruckerPDA_Empresas(playerid, response, listitem, inputtext[])
 		  						{
 		  			    			if(EmpInfo[i][eCompraTipo] == 3)
 					   			   	{
-		             					format(stringlist, sizeof(stringlist), "{A9DE31}Pagina 2\n<< Voltar{FFFFFF}\n%sR$%d / p/L\tProcura: %d Litros\t%s", stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
+		             					format(stringlist, sizeof(stringlist), "{A9DE31}Pagina 2\n<< Voltar{FFFFFF}\n%sUS$%d / p/L\tProcura: %d Litros\t%s", stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
 									}
 		 			    			else
 				   			    	{
-		             					format(stringlist, sizeof(stringlist), "{A9DE31}Pagina 2\n<< Voltar{FFFFFF}\n%sR$%d / unidade\tProcura: %d Caixas\t%s", stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
+		             					format(stringlist, sizeof(stringlist), "{A9DE31}Pagina 2\n<< Voltar{FFFFFF}\n%sUS$%d / unidade\tProcura: %d Caixas\t%s", stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
 									}
 									count++;
 									VendoTPDA[playerid][count] = EmpInfo[i][eID];
@@ -67256,11 +67267,11 @@ Dialog:TruckerPDA_Empresas(playerid, response, listitem, inputtext[])
 								{
 		  							if(EmpInfo[i][eCompraTipo] == 3)
 		   			    			{
-		             					format(stringlist, sizeof(stringlist), "{A9DE31}Pagina 2\n<< Voltar{FFFFFF}\n%sR$%d / p/L\tProcura: %d Litros\t%s", stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
+		             					format(stringlist, sizeof(stringlist), "{A9DE31}Pagina 2\n<< Voltar{FFFFFF}\n%sUS$%d / p/L\tProcura: %d Litros\t%s", stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
 									}
 		 			    			else
 				   			    	{
-		             					format(stringlist, sizeof(stringlist), "{A9DE31}Pagina 2\n<< Voltar{FFFFFF}\n%sR$%d / unidade\tProcura: %d Caixas\t%s", stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
+		             					format(stringlist, sizeof(stringlist), "{A9DE31}Pagina 2\n<< Voltar{FFFFFF}\n%sUS$%d / unidade\tProcura: %d Caixas\t%s", stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
 									}
 									count++;
 									VendoTPDA[playerid][count] = EmpInfo[i][eID];
@@ -67310,11 +67321,11 @@ Dialog:TruckerPDA_Empresas2(playerid, response, listitem, inputtext[])
 						   		{
 						   		    if(EmpInfo[i][eCompraTipo] == 3)
 						   		    {
-				                       	format(stringlist, sizeof(stringlist), "{A9DE31}Pagina 1{FFFFFF}\n%sR$%d / unidade\tProcura: %d Litro(s)\t%s", stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
+				                       	format(stringlist, sizeof(stringlist), "{A9DE31}Pagina 1{FFFFFF}\n%sUS$%d / unidade\tProcura: %d Litro(s)\t%s", stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
 									}
 						   		    else
 						   		    {
-				                       	format(stringlist, sizeof(stringlist), "{A9DE31}Pagina 1{FFFFFF}\n%sR$%d / unidade\tProcura: %d Caixa(s)\t%s", stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
+				                       	format(stringlist, sizeof(stringlist), "{A9DE31}Pagina 1{FFFFFF}\n%sUS$%d / unidade\tProcura: %d Caixa(s)\t%s", stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
 									}
 									count++;
 									VendoTPDA[playerid][count] = EmpInfo[i][eID];
@@ -67323,11 +67334,11 @@ Dialog:TruckerPDA_Empresas2(playerid, response, listitem, inputtext[])
 								{
 				      				if(EmpInfo[i][eCompraTipo] == 3)
 						   		    {
-				                       	format(stringlist, sizeof(stringlist), "%s\n%sR$%d / unidade\tProcura: %d Litro(s)\t%s", stringlist, stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
+				                       	format(stringlist, sizeof(stringlist), "%s\n%sUS$%d / unidade\tProcura: %d Litro(s)\t%s", stringlist, stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
 									}
 						   		    else
 						   		    {
-				                       	format(stringlist, sizeof(stringlist), "%s\n%sR$%d / unidade\tProcura: %d Caixa(s)\t%s", stringlist, stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
+				                       	format(stringlist, sizeof(stringlist), "%s\n%sUS$%d / unidade\tProcura: %d Caixa(s)\t%s", stringlist, stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
 									}
 									count++;
 									VendoTPDA[playerid][count] = EmpInfo[i][eID];
@@ -67375,11 +67386,11 @@ Dialog:TruckerPDA_Empresas2(playerid, response, listitem, inputtext[])
 		  						{
 		  			    			if(EmpInfo[i][eCompraTipo] == 3)
 					   			   	{
-		             					format(stringlist, sizeof(stringlist), "{A9DE31}Pagina 4\n<< Voltar{FFFFFF}\n%sR$%d / p/L\tProcura: %d Litros\t%s", stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
+		             					format(stringlist, sizeof(stringlist), "{A9DE31}Pagina 4\n<< Voltar{FFFFFF}\n%sUS$%d / p/L\tProcura: %d Litros\t%s", stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
 									}
 		 			    			else
 				   			    	{
-		             					format(stringlist, sizeof(stringlist), "{A9DE31}Pagina 4\n<< Voltar{FFFFFF}\n%sR$%d / unidade\tProcura: %d Caixas\t%s", stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
+		             					format(stringlist, sizeof(stringlist), "{A9DE31}Pagina 4\n<< Voltar{FFFFFF}\n%sUS$%d / unidade\tProcura: %d Caixas\t%s", stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
 									}
 									count++;
 									VendoTPDA[playerid][count] = EmpInfo[i][eID];
@@ -67388,11 +67399,11 @@ Dialog:TruckerPDA_Empresas2(playerid, response, listitem, inputtext[])
 								{
 		  							if(EmpInfo[i][eCompraTipo] == 3)
 		   			    			{
-		             					format(stringlist, sizeof(stringlist), "{A9DE31}Pagina 4\n<< Voltar{FFFFFF}\n%sR$%d / p/L\tProcura: %d Litros\t%s", stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
+		             					format(stringlist, sizeof(stringlist), "{A9DE31}Pagina 4\n<< Voltar{FFFFFF}\n%sUS$%d / p/L\tProcura: %d Litros\t%s", stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
 									}
 		 			    			else
 				   			    	{
-		             					format(stringlist, sizeof(stringlist), "{A9DE31}Pagina 4\n<< Voltar{FFFFFF}\n%sR$%d / unidade\tProcura: %d Caixas\t%s", stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
+		             					format(stringlist, sizeof(stringlist), "{A9DE31}Pagina 4\n<< Voltar{FFFFFF}\n%sUS$%d / unidade\tProcura: %d Caixas\t%s", stringTipo, EmpInfo[i][ePagaProd], EmpInfo[i][eReqProd], EmpInfo[i][eNome]);
 									}
 									count++;
 									VendoTPDA[playerid][count] = EmpInfo[i][eID];
@@ -67439,13 +67450,13 @@ Dialog:TruckerPDA_Primarias(playerid, response, listitem, inputtext[])
 
 	if(PontoEntrega[EmpID][emFabrica] == 3)
 	{
-		format(stringlist, sizeof(stringlist), "{FFFFFF}Bem vindo a {A9DE31}%s{FFFFFF}\n\n A industria está %s\n\n{A9DE31}A venda:{FFFFFF}\n{CDCFD3}Mercadoria:\t\tPreço:\t\tProdução/Hora\tEm Estoque (Estoque Máximo){FFFFFF}\n%sR$%d\t\t+%d L\t\t", PontoEntrega[EmpID][emNome],stringTipo,stringTipo1,PontoEntrega[EmpID][emCobraProd],PontoEntrega[EmpID][emProdHora]);
+		format(stringlist, sizeof(stringlist), "{FFFFFF}Bem vindo a {A9DE31}%s{FFFFFF}\n\n A industria está %s\n\n{A9DE31}A venda:{FFFFFF}\n{CDCFD3}Mercadoria:\t\tPreço:\t\tProdução/Hora\tEm Estoque (Estoque Máximo){FFFFFF}\n%sUS$%d\t\t+%d L\t\t", PontoEntrega[EmpID][emNome],stringTipo,stringTipo1,PontoEntrega[EmpID][emCobraProd],PontoEntrega[EmpID][emProdHora]);
 		format(stringlist, sizeof(stringlist), "%s\t\t%d Litros {CDCFD3}(%d)\n\n{A9DE31}Procura:{CDCFD3}\nEssa empresa é primária, portanto ela produz algo sem precisar de nenhum recurso.", stringlist,PontoEntrega[EmpID][emStock],PontoEntrega[EmpID][emStockMax]);
 	}
 	else
 	{
 	    format(stringlist, sizeof(stringlist), "{FFFFFF}Bem vindo a {A9DE31}%s{FFFFFF}\n\n A industria está %s\n\n{A9DE31}A venda:{FFFFFF}\n{CDCFD3}Mercadoria:\t\tPreço:\t\tProdução/Hora\tEm Estoque (Estoque Máximo){FFFFFF}", PontoEntrega[EmpID][emNome],stringTipo);
-        format(stringlist, sizeof(stringlist), "%s\n%sR$%d\t\t+%d\t\t\t%d caixas {CDCFD3}(%d){FFFFFF}",stringlist,stringTipo1,PontoEntrega[EmpID][emCobraProd],PontoEntrega[EmpID][emProdHora],PontoEntrega[EmpID][emStock],PontoEntrega[EmpID][emStockMax]);
+        format(stringlist, sizeof(stringlist), "%s\n%sUS$%d\t\t+%d\t\t\t%d caixas {CDCFD3}(%d){FFFFFF}",stringlist,stringTipo1,PontoEntrega[EmpID][emCobraProd],PontoEntrega[EmpID][emProdHora],PontoEntrega[EmpID][emStock],PontoEntrega[EmpID][emStockMax]);
 
 		for(new i = 0; i < MAX_EMPCARGA; i++)
 		{
@@ -67454,7 +67465,7 @@ Dialog:TruckerPDA_Primarias(playerid, response, listitem, inputtext[])
 			    if(PontoEntrega[i][emIndustria] == EmpID)
 			    {
 			        format(stringTipo1, sizeof stringTipo1, "%s", GetProdutoNome(PontoEntrega[i][emFabrica]));
-					format(stringlist, sizeof(stringlist), "%s\n%sR$%d\t\t+%d\t\t\t%d caixas {CDCFD3}(%d){FFFFFF}",stringlist,stringTipo1,PontoEntrega[i][emCobraProd],PontoEntrega[i][emProdHora],PontoEntrega[i][emStock],PontoEntrega[i][emStockMax]);
+					format(stringlist, sizeof(stringlist), "%s\n%sUS$%d\t\t+%d\t\t\t%d caixas {CDCFD3}(%d){FFFFFF}",stringlist,stringTipo1,PontoEntrega[i][emCobraProd],PontoEntrega[i][emProdHora],PontoEntrega[i][emStock],PontoEntrega[i][emStockMax]);
 				}
 			}
 		}
@@ -67500,13 +67511,13 @@ Dialog:TruckerPDA_Secundarias(playerid, response, listitem, inputtext[])
 	{
 		format(stringlist, sizeof(stringlist), "{FFFFFF}Bem vindo a {A9DE31}%s{FFFFFF}\n\n A industria está %s\n\n", PontoEntrega[empid][emNome],stringTipo);
 		format(stringlist, sizeof(stringlist), "%s{A9DE31}Procura:{FFFFFF}\n{CDCFD3}Mercadoria:\t\tPreço:\t\tConsumo/Hora\tEm Estoque (Estoque Máximo){FFFFFF}\n", stringlist);
-		format(stringlist, sizeof(stringlist), "%s%sR$%d\t\t-%d\t\t\t\t%d Prensado(s) {CDCFD3}(%d)",stringlist, stringTipo2,PontoEntrega[empid][emPagProd],PontoEntrega[empid][emConsHora],PontoEntrega[empid][emStockC],PontoEntrega[empid][emStockMaxC]);
+		format(stringlist, sizeof(stringlist), "%s%sUS$%d\t\t-%d\t\t\t\t%d Prensado(s) {CDCFD3}(%d)",stringlist, stringTipo2,PontoEntrega[empid][emPagProd],PontoEntrega[empid][emConsHora],PontoEntrega[empid][emStockC],PontoEntrega[empid][emStockMaxC]);
 	}
 	else if(PontoEntrega[empid][emCompra] == 55 && PontoEntrega[empid][emFabrica] == 56)
 	{
-		format(stringlist, sizeof(stringlist), "{FFFFFF}Bem vindo a {A9DE31}%s{FFFFFF}\n\n A industria está %s\n\n{A9DE31}A venda:{FFFFFF}\n{CDCFD3}Mercadoria:\t\tPreço:\t\tProdução/Hora\tEm Estoque (Estoque Máximo){FFFFFF}\n%sR$%d\t\t+%d\t\t", PontoEntrega[empid][emNome],stringTipo,stringTipo1,PontoEntrega[empid][emCobraProd],PontoEntrega[empid][emProdHora]);
+		format(stringlist, sizeof(stringlist), "{FFFFFF}Bem vindo a {A9DE31}%s{FFFFFF}\n\n A industria está %s\n\n{A9DE31}A venda:{FFFFFF}\n{CDCFD3}Mercadoria:\t\tPreço:\t\tProdução/Hora\tEm Estoque (Estoque Máximo){FFFFFF}\n%sUS$%d\t\t+%d\t\t", PontoEntrega[empid][emNome],stringTipo,stringTipo1,PontoEntrega[empid][emCobraProd],PontoEntrega[empid][emProdHora]);
 		format(stringlist, sizeof(stringlist), "%s\t\t%d Prensado(s) {CDCFD3}(%d)\n\n{A9DE31}Procura:{FFFFFF}\n{CDCFD3}Mercadoria:\t\tPreço:\t\tConsumo/Hora\tEm Estoque (Estoque Máximo){FFFFFF}\n", stringlist,PontoEntrega[empid][emStock],PontoEntrega[empid][emStockMax]);
-		format(stringlist, sizeof(stringlist), "%s%sR$%d\t\t-%d\t\t\t\t%d carcaças {CDCFD3}(%d)",stringlist, stringTipo2,PontoEntrega[empid][emPagProd],PontoEntrega[empid][emConsHora],PontoEntrega[empid][emStockC],PontoEntrega[empid][emStockMaxC]);
+		format(stringlist, sizeof(stringlist), "%s%sUS$%d\t\t-%d\t\t\t\t%d carcaças {CDCFD3}(%d)",stringlist, stringTipo2,PontoEntrega[empid][emPagProd],PontoEntrega[empid][emConsHora],PontoEntrega[empid][emStockC],PontoEntrega[empid][emStockMaxC]);
 	}
 	else
 	{
@@ -67514,13 +67525,13 @@ Dialog:TruckerPDA_Secundarias(playerid, response, listitem, inputtext[])
 
         //=======================================================================================================================
 		if(PontoEntrega[empid][emFabrica] != 0)
-			format(stringlist, sizeof(stringlist), "%s\n%sR$%d\t\t+%d\t\t\t%d caixas {CDCFD3}(%d){FFFFFF}",stringlist,stringTipo1,PontoEntrega[empid][emCobraProd],PontoEntrega[empid][emProdHora],PontoEntrega[empid][emStock],PontoEntrega[empid][emStockMax]);
+			format(stringlist, sizeof(stringlist), "%s\n%sUS$%d\t\t+%d\t\t\t%d caixas {CDCFD3}(%d){FFFFFF}",stringlist,stringTipo1,PontoEntrega[empid][emCobraProd],PontoEntrega[empid][emProdHora],PontoEntrega[empid][emStock],PontoEntrega[empid][emStockMax]);
 
 		for(new i = 0; i < MAX_EMPCARGA; i++) {
 		    if(PontoEntrega[i][emExiste] != 0 && PontoEntrega[i][emFabrica] != 0) {
 			    if(PontoEntrega[i][emIndustria] == empid) {
 			        format(stringTipo1, sizeof stringTipo1, "%s", GetProdutoNome(PontoEntrega[i][emFabrica]));
-					format(stringlist, sizeof(stringlist), "%s\n%sR$%d\t\t+%d\t\t\t%d caixas {CDCFD3}(%d){FFFFFF}",stringlist,stringTipo1,PontoEntrega[i][emCobraProd],PontoEntrega[i][emProdHora],PontoEntrega[i][emStock],PontoEntrega[i][emStockMax]);
+					format(stringlist, sizeof(stringlist), "%s\n%sUS$%d\t\t+%d\t\t\t%d caixas {CDCFD3}(%d){FFFFFF}",stringlist,stringTipo1,PontoEntrega[i][emCobraProd],PontoEntrega[i][emProdHora],PontoEntrega[i][emStock],PontoEntrega[i][emStockMax]);
 				}
 			}
 		}
@@ -67528,13 +67539,13 @@ Dialog:TruckerPDA_Secundarias(playerid, response, listitem, inputtext[])
 		format(stringlist, sizeof(stringlist), "%s\n\n{A9DE31}Procura:{FFFFFF}\n{CDCFD3}Mercadoria:\t\tPreço:\t\tConsumo/Hora\tEm Estoque (Estoque Máximo){FFFFFF}", stringlist);
 
 		if(PontoEntrega[empid][emCompra] != 0)
-			format(stringlist, sizeof(stringlist), "%s\n%sR$%d\t\t-%d\t\t\t%d caixas {CDCFD3}(%d){FFFFFF}",stringlist, stringTipo2,PontoEntrega[empid][emPagProd],PontoEntrega[empid][emConsHora],PontoEntrega[empid][emStockC],PontoEntrega[empid][emStockMaxC]);
+			format(stringlist, sizeof(stringlist), "%s\n%sUS$%d\t\t-%d\t\t\t%d caixas {CDCFD3}(%d){FFFFFF}",stringlist, stringTipo2,PontoEntrega[empid][emPagProd],PontoEntrega[empid][emConsHora],PontoEntrega[empid][emStockC],PontoEntrega[empid][emStockMaxC]);
 
 		for(new c = 0; c < MAX_EMPCARGA; c++) {
 		    if(PontoEntrega[c][emExiste] && PontoEntrega[c][emCompra] != 0) {
 			    if(PontoEntrega[c][emIndustriaC] == empid) {
 			        format(stringTipo2, sizeof stringTipo2, "%s", GetProdutoNome(PontoEntrega[c][emCompra]));
-					format(stringlist, sizeof(stringlist), "%s\n%sR$%d\t\t-%d\t\t\t%d caixas {CDCFD3}(%d){FFFFFF}",stringlist,stringTipo2,PontoEntrega[c][emPagProd],PontoEntrega[c][emConsHora],PontoEntrega[c][emStockC],PontoEntrega[c][emStockMaxC]);
+					format(stringlist, sizeof(stringlist), "%s\n%sUS$%d\t\t-%d\t\t\t%d caixas {CDCFD3}(%d){FFFFFF}",stringlist,stringTipo2,PontoEntrega[c][emPagProd],PontoEntrega[c][emConsHora],PontoEntrega[c][emStockC],PontoEntrega[c][emStockMaxC]);
 				}
 			}
 		}
@@ -68342,7 +68353,7 @@ public PokerPulse(tableid)
  	UpdateDynamic3DTextLabelText(PokerTable[tableid][pkrText3DID], COLOR_GOLD, " ");
 	if(PokerTable[tableid][pkrActivePlayers] >= 2 && PokerTable[tableid][pkrActive] == 2)
 	{
-		// Count the number of active players with more than R$0, activate the round if more than 1 gets counted.
+		// Count the number of active players with more than US$0, activate the round if more than 1 gets counted.
   		new tmpCount = 0;
     	for(new i = 0; i < 6; i++)
 		{
@@ -68612,9 +68623,9 @@ public PokerPulse(tableid)
 			// Chips
 		 	if(GetPVarInt(playerid, "pkrChips") > 0)
 		 	{
-		  		format(tmpString, sizeof(tmpString), "R$%d", GetPVarInt(playerid, "pkrChips"));
+		  		format(tmpString, sizeof(tmpString), "US$%d", GetPVarInt(playerid, "pkrChips"));
 		    } else {
-		    	format(tmpString, sizeof(tmpString), "~r~R$%d", GetPVarInt(playerid, "pkrChips"));
+		    	format(tmpString, sizeof(tmpString), "~r~US$%d", GetPVarInt(playerid, "pkrChips"));
 		    }
 		    for(new td = 0; td < 6; td++)
 			{
@@ -68680,12 +68691,12 @@ public PokerPulse(tableid)
 	   				{
 	       				if(GetPVarInt(playerid, "pkrWinner"))
 					   	{
-	        				format(tmpString, sizeof(tmpString), "+R$%d", PokerTable[tableid][pkrPot]);
+	        				format(tmpString, sizeof(tmpString), "+US$%d", PokerTable[tableid][pkrPot]);
 	            			SetPVarString(playerid, "pkrStatusString", tmpString);
 	               		}
 					   	else
 					   	{
-	        				format(tmpString, sizeof(tmpString), "-R$%d", GetPVarInt(playerid, "pkrCurrentBet"));
+	        				format(tmpString, sizeof(tmpString), "-US$%d", GetPVarInt(playerid, "pkrCurrentBet"));
 	            			SetPVarString(playerid, "pkrStatusString", tmpString);
 	               		}
 	              	}
@@ -68694,12 +68705,12 @@ public PokerPulse(tableid)
 	      				if(GetPVarInt(playerid, "pkrWinner"))
 					  	{
 	       					new splitPot = PokerTable[tableid][pkrPot]/PokerTable[tableid][pkrWinners];
-	            			format(tmpString, sizeof(tmpString), "+R$%d", splitPot);
+	            			format(tmpString, sizeof(tmpString), "+US$%d", splitPot);
 	               			SetPVarString(playerid, "pkrStatusString", tmpString);
 	                  	}
 					  	else
 					  	{
-	       					format(tmpString, sizeof(tmpString), "-R$%d", GetPVarInt(playerid, "pkrCurrentBet"));
+	       					format(tmpString, sizeof(tmpString), "-US$%d", GetPVarInt(playerid, "pkrCurrentBet"));
 	            			SetPVarString(playerid, "pkrStatusString", tmpString);
 	               		}
 					}
@@ -68720,12 +68731,12 @@ public PokerPulse(tableid)
 	   				{
 	       				if(GetPVarInt(playerid, "pkrWinner"))
 					   	{
-	        				format(tmpString, sizeof(tmpString), "+R$%d", PokerTable[tableid][pkrPot]);
+	        				format(tmpString, sizeof(tmpString), "+US$%d", PokerTable[tableid][pkrPot]);
 	            			SetPVarString(playerid, "pkrStatusString", tmpString);
 	               		}
 					   	else
 					   	{
-	        				format(tmpString, sizeof(tmpString), "-R$%d", GetPVarInt(playerid, "pkrCurrentBet"));
+	        				format(tmpString, sizeof(tmpString), "-US$%d", GetPVarInt(playerid, "pkrCurrentBet"));
 	            			SetPVarString(playerid, "pkrStatusString", tmpString);
 	            		}
 	              	}
@@ -68734,12 +68745,12 @@ public PokerPulse(tableid)
 	      				if(GetPVarInt(playerid, "pkrWinner"))
 					  	{
 	       					new splitPot = PokerTable[tableid][pkrPot]/PokerTable[tableid][pkrWinners];
-	            			format(tmpString, sizeof(tmpString), "+R$%d", splitPot);
+	            			format(tmpString, sizeof(tmpString), "+US$%d", splitPot);
 	               			SetPVarString(playerid, "pkrStatusString", tmpString);
 	                  	}
 					  	else
 					  	{
-	       					format(tmpString, sizeof(tmpString), "-R$%d", GetPVarInt(playerid, "pkrCurrentBet"));
+	       					format(tmpString, sizeof(tmpString), "-US$%d", GetPVarInt(playerid, "pkrCurrentBet"));
 	            			SetPVarString(playerid, "pkrStatusString", tmpString);
 	            		}
 	              	}
@@ -68762,7 +68773,7 @@ public PokerPulse(tableid)
 	      	}
 	  		else if(PokerTable[tableid][pkrActive] == 3)
 	  		{
-	    		format(tmpString, sizeof(tmpString), "Pot: R$%d", PokerTable[tableid][pkrPot]);
+	    		format(tmpString, sizeof(tmpString), "Pot: US$%d", PokerTable[tableid][pkrPot]);
 	      		if(playerid != -1) PlayerTextDrawSetString(playerid, PlayerPokerUI[playerid][37], tmpString);
 	        }
 			else if(PokerTable[tableid][pkrActive] == 4 && PokerTable[tableid][pkrDelay] < 19)
@@ -68771,13 +68782,13 @@ public PokerPulse(tableid)
 	  			{
 	     			new winnerName[24];
 	        		GetPlayerName(PokerTable[tableid][pkrWinnerID], winnerName, sizeof(winnerName));
-	          		format(tmpString, sizeof(tmpString), "%s ganhou R$%d", winnerName, PokerTable[tableid][pkrPot]);
+	          		format(tmpString, sizeof(tmpString), "%s ganhou US$%d", winnerName, PokerTable[tableid][pkrPot]);
 	          		if(playerid != -1) PlayerTextDrawSetString(playerid, PlayerPokerUI[playerid][37], tmpString);
 	            }
 				else if(PokerTable[tableid][pkrWinners] > 1)
 				{
 	   				new splitPot = PokerTable[tableid][pkrPot]/PokerTable[tableid][pkrWinners];
-	       			format(tmpString, sizeof(tmpString), "%d Vencedores levaram R$%d", PokerTable[tableid][pkrWinners], splitPot);
+	       			format(tmpString, sizeof(tmpString), "%d Vencedores levaram US$%d", PokerTable[tableid][pkrWinners], splitPot);
 	          		if(playerid != -1) PlayerTextDrawSetString(playerid, PlayerPokerUI[playerid][37], tmpString);
 				}
 			}
@@ -68798,7 +68809,7 @@ public PokerPulse(tableid)
 	   	 	}
 		   	else if(PokerTable[tableid][pkrActive] == 3)
 	  		{
-	    		format(tmpString, sizeof(tmpString), "Apostas: R$%d", PokerTable[tableid][pkrActiveBet]);
+	    		format(tmpString, sizeof(tmpString), "Apostas: US$%d", PokerTable[tableid][pkrActiveBet]);
 	      		if(playerid != -1) PlayerTextDrawSetString(playerid, PlayerPokerUI[playerid][46], tmpString);
 	        }
 			else if(PokerTable[tableid][pkrActive] == 4)
@@ -69115,7 +69126,7 @@ PokerAssignBlinds(tableid)
                         if(GetPVarInt(playerid, "pkrRoomDealer") != 1 && GetPVarInt(playerid, "pkrRoomBigBlind") != 1 && GetPVarInt(playerid, "pkrRoomSmallBlind") != 1) {
                                 SetPVarInt(playerid, "pkrRoomBigBlind", 1);
                                 new tmpString[128];
-                                format(tmpString, sizeof(tmpString), "~r~BB -R$%d", PokerTable[tableid][pkrBlind]);
+                                format(tmpString, sizeof(tmpString), "~r~BB -US$%d", PokerTable[tableid][pkrBlind]);
                                 SetPVarString(playerid, "pkrStatusString", tmpString);
                                 roomBigBlind = true;
 
@@ -69154,7 +69165,7 @@ PokerAssignBlinds(tableid)
                                 if(GetPVarInt(playerid, "pkrRoomDealer") != 1 && GetPVarInt(playerid, "pkrRoomBigBlind") != 1 && GetPVarInt(playerid, "pkrRoomSmallBlind") != 1) {
                                         SetPVarInt(playerid, "pkrRoomSmallBlind", 1);
                                         new tmpString[128];
-                                        format(tmpString, sizeof(tmpString), "~r~SB -R$%d", PokerTable[tableid][pkrBlind]/2);
+                                        format(tmpString, sizeof(tmpString), "~r~SB -US$%d", PokerTable[tableid][pkrBlind]/2);
                                         SetPVarString(playerid, "pkrStatusString", tmpString);
                                         roomSmallBlind = true;
 
@@ -70254,10 +70265,10 @@ ShowCasinoGamesMenu(playerid, dialogid)
 
                                 new szString[128];
                                 if(actualBet > GetPVarInt(playerid, "pkrChips")) {
-                                        format(szString, sizeof(szString), "{FFFFFF}Tem certeza de que deseja pagar R$%d (All-In)?:", actualBet);
+                                        format(szString, sizeof(szString), "{FFFFFF}Tem certeza de que deseja pagar US$%d (All-In)?:", actualBet);
                                         return ShowPlayerDialog(playerid, DIALOG_CGAMESCALLPOKER, DIALOG_STYLE_MSGBOX, "{FFFFFF}RJ Holden - (Pagar)", szString, "All-In", "Cancelar");
                                 }
-                                format(szString, sizeof(szString), "{FFFFFF}Tem certeza de que deseja pagar R$%d?:", actualBet);
+                                format(szString, sizeof(szString), "{FFFFFF}Tem certeza de que deseja pagar US$%d?:", actualBet);
                                 return ShowPlayerDialog(playerid, DIALOG_CGAMESCALLPOKER, DIALOG_STYLE_MSGBOX, "{FFFFFF}RJ Holden - (Pagar)", szString, "Pagar", "Cancelar");
                         } else {
                                 SendClientMessage(playerid, COLOR_WHITE, "DEALER: Você não tem fundos para pagar.");
@@ -70276,7 +70287,7 @@ ShowCasinoGamesMenu(playerid, dialogid)
 						{
                                 SetPVarInt(playerid, "pkrActionChoice", 1);
                                 new szString[128];
-                                format(szString, sizeof(szString), "{FFFFFF}Quanto você quer apostar? (R$%d-R$%d):", PokerTable[tableid][pkrActiveBet]+PokerTable[tableid][pkrBlind]/2, GetPVarInt(playerid, "pkrCurrentBet")+GetPVarInt(playerid, "pkrChips"));
+                                format(szString, sizeof(szString), "{FFFFFF}Quanto você quer apostar? (US$%d-US$%d):", PokerTable[tableid][pkrActiveBet]+PokerTable[tableid][pkrBlind]/2, GetPVarInt(playerid, "pkrCurrentBet")+GetPVarInt(playerid, "pkrChips"));
                                 return ShowPlayerDialog(playerid, DIALOG_CGAMESRAISEPOKER, DIALOG_STYLE_INPUT, "{FFFFFF}RJ Holden - (Apostar)", szString, "Apostar", "Cancelar");
                         } else if(GetPVarInt(playerid, "pkrCurrentBet")+GetPVarInt(playerid, "pkrChips") == PokerTable[tableid][pkrActiveBet]+PokerTable[tableid][pkrBlind]/2) {
                                 SetPVarInt(playerid, "pkrActionChoice", 1);
@@ -70295,7 +70306,7 @@ ShowCasinoGamesMenu(playerid, dialogid)
                 case DIALOG_CGAMESBUYINPOKER:
                 {
                         new szString[386];
-                        format(szString, sizeof(szString), "{FFFFFF}Por favor coloque um buy-in para a mesa:\n\nDinheiro Atual: {00FF00}R$%d{FFFFFF}\nBuy-In Maximo/Minimo: {00FF00}R$%d{FFFFFF}/{00FF00}R$%d{FFFFFF}", PlayerInfo[playerid][pGrana], PokerTable[GetPVarInt(playerid, "pkrTableID")-1][pkrBuyInMax], PokerTable[GetPVarInt(playerid, "pkrTableID")-1][pkrBuyInMin]);
+                        format(szString, sizeof(szString), "{FFFFFF}Por favor coloque um buy-in para a mesa:\n\nDinheiro Atual: {00FF00}US$%d{FFFFFF}\nBuy-In Maximo/Minimo: {00FF00}US$%d{FFFFFF}/{00FF00}US$%d{FFFFFF}", PlayerInfo[playerid][pGrana], PokerTable[GetPVarInt(playerid, "pkrTableID")-1][pkrBuyInMax], PokerTable[GetPVarInt(playerid, "pkrTableID")-1][pkrBuyInMin]);
                         return ShowPlayerDialog(playerid, DIALOG_CGAMESBUYINPOKER, DIALOG_STYLE_INPUT, "{FFFFFF}Mesa de Poker - (BuyIn)", szString, "Buy In", "Sair");
                 }
                 case DIALOG_CGAMESADMINMENU:
@@ -70336,7 +70347,7 @@ ShowCasinoGamesMenu(playerid, dialogid)
                                 new szString[512];
 
                                 if(PokerTable[tableid][pkrPass][0] == EOS) {
-                                        format(szString, sizeof(szString), "{FFFFFF}Buy-In Max\t({00FF00}R$%d{FFFFFF})\nBuy-In Min\t({00FF00}R$%d{FFFFFF})\nBlind\t\t({00FF00}R$%d{FFFFFF} / {00FF00}R$%d{FFFFFF})\nLimite\t\t(%d)\nSenha\t(%s)\nTempo por Round\t(%d)\nIniciar jogo",
+                                        format(szString, sizeof(szString), "{FFFFFF}Buy-In Max\t({00FF00}US$%d{FFFFFF})\nBuy-In Min\t({00FF00}US$%d{FFFFFF})\nBlind\t\t({00FF00}US$%d{FFFFFF} / {00FF00}US$%d{FFFFFF})\nLimite\t\t(%d)\nSenha\t(%s)\nTempo por Round\t(%d)\nIniciar jogo",
                                                 PokerTable[tableid][pkrBuyInMax],
                                                 PokerTable[tableid][pkrBuyInMin],
                                                 PokerTable[tableid][pkrBlind],
@@ -70346,7 +70357,7 @@ ShowCasinoGamesMenu(playerid, dialogid)
                                                 PokerTable[tableid][pkrSetDelay]
                                         );
                                 } else {
-                                        format(szString, sizeof(szString), "{FFFFFF}Buy-In Max\t({00FF00}R$%d{FFFFFF})\nBuy-In Min\t({00FF00}R$%d{FFFFFF})\nBlind\t\t({00FF00}R$%d{FFFFFF} / {00FF00}R$%d{FFFFFF})\nLimite\t\t(%d)\nSenha\t(%s)\nTempo por Round\t(%d)\nIniciar jogo",
+                                        format(szString, sizeof(szString), "{FFFFFF}Buy-In Max\t({00FF00}US$%d{FFFFFF})\nBuy-In Min\t({00FF00}US$%d{FFFFFF})\nBlind\t\t({00FF00}US$%d{FFFFFF} / {00FF00}US$%d{FFFFFF})\nLimite\t\t(%d)\nSenha\t(%s)\nTempo por Round\t(%d)\nIniciar jogo",
                                                 PokerTable[tableid][pkrBuyInMax],
                                                 PokerTable[tableid][pkrBuyInMin],
                                                 PokerTable[tableid][pkrBlind],
@@ -70995,7 +71006,7 @@ CMD:contrabando(playerid,params[])
     if(!PlayerInfo[playerid][pLogado]) return 1;
 	{
 	   	if (IsPlayerInRangeOfPoint(playerid, 5, 1096.8484,-1528.9009,22.7434))
-			Dialog_Show(playerid, DIALOG_VENDERJOIAS, DIALOG_STYLE_LIST, "Contrabando", "1x Ouro [R$2500]\n1x Prata [R$1600]\n1x Bronze [R$900]", "Vender", "Voltar");
+			Dialog_Show(playerid, DIALOG_VENDERJOIAS, DIALOG_STYLE_LIST, "Contrabando", "1x Ouro [US$2500]\n1x Prata [US$1600]\n1x Bronze [US$900]", "Vender", "Voltar");
 		else {
   			SetPlayerCheckpoint(playerid, 1096.8484,-1528.9009,22.7434, 5.0);
 			cp_target[playerid] = 1;
@@ -71012,7 +71023,7 @@ CMD:comprarpecas(playerid,params[])
 	if(PlayerInfo[playerid][pJob] == JOB_MECANICO)
 	{
 	   	if (IsPlayerInRangeOfPoint(playerid, 5, 1096.8484,-1528.9009,22.7434))
-			Dialog_Show(playerid, Dialog_CPecas, DIALOG_STYLE_LIST, "Peças de Mecanico", "1x Rádio [R$20]\n1x Neon [R$100]\n1x GPS [R$20]\n1x Immob [R$30]\n1x Tranca [R$20]\nPeças de Reparo\nBaterias", "Selecionar", "Voltar");
+			Dialog_Show(playerid, Dialog_CPecas, DIALOG_STYLE_LIST, "Peças de Mecanico", "1x Rádio [US$20]\n1x Neon [US$100]\n1x GPS [US$20]\n1x Immob [US$30]\n1x Tranca [US$20]\nPeças de Reparo\nBaterias", "Selecionar", "Voltar");
 		else {
   			SetPlayerCheckpoint(playerid, 1096.8484,-1528.9009,22.7434, 5.0);
 			cp_target[playerid] = 1;
@@ -71030,7 +71041,7 @@ CMD:comprarplaca(playerid,params[])
 	if(PlayerInfo[playerid][pJob] == JOB_FALSIFICADOR)
 	{
 	   	if (IsPlayerInRangeOfPoint(playerid, 5, 1096.8484,-1528.9009,22.7434) )
-			Dialog_Show(playerid, Dialog_CPlacas, DIALOG_STYLE_LIST, "Itens para Falsificadores", "1x Placa [R$1000]", "Selecionar", "Voltar");
+			Dialog_Show(playerid, Dialog_CPlacas, DIALOG_STYLE_LIST, "Itens para Falsificadores", "1x Placa [US$1000]", "Selecionar", "Voltar");
 		else {
   			SetPlayerCheckpoint(playerid, 1096.8484,-1528.9009,22.7434, 5.0);
 			cp_target[playerid] = 1;
@@ -71054,10 +71065,10 @@ Dialog:Dialog_CPlacas(playerid, response, listitem, inputtext[])
 		        if(PlayerInfo[playerid][pGranaSuja] >= 1000)
 				{
 					PlayerInfo[playerid][pPlacas]++;
-					SendClientMessage(playerid, COLOR_LIGHTGREEN, "Você comprou uma Placa nova por R$1000 sujo.");
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "Você comprou uma Placa nova por US$1000 sujo.");
 					PlayerInfo[playerid][pGranaSuja] = PlayerInfo[playerid][pGranaSuja]-1000;
 				}
-				else SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem R$1000 em sua mão.");
+				else SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem US$1000 em sua mão.");
 			}
 		}
 	}
@@ -71078,7 +71089,7 @@ Dialog:DIALOG_VENDERJOIAS(playerid, response, listitem, inputtext[])
 				{
 				    if(PlayerInfo[playerid][pOuro] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem um Ouro.");
 					PlayerInfo[playerid][pOuro]--;
-					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[OURO] Você vendeu uma barra de ouro por R$2500.");
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[OURO] Você vendeu uma barra de ouro por US$2500.");
 					PlayerInfo[playerid][pGranaSuja] = PlayerInfo[playerid][pGranaSuja]+2500;
 				}
 				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} A empresa não tem dinheiro o suficiente.");
@@ -71090,7 +71101,7 @@ Dialog:DIALOG_VENDERJOIAS(playerid, response, listitem, inputtext[])
 		            if(PlayerInfo[playerid][pPrata] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem uma barra de prata.");
 
 					PlayerInfo[playerid][pPrata]--;
-					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[PRATA] Você vendeu uma barra de prata por R$1600.");
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[PRATA] Você vendeu uma barra de prata por US$1600.");
 					PlayerInfo[playerid][pGranaSuja] = PlayerInfo[playerid][pGranaSuja]+1600;
 				}
 				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} A empresa não tem dinheiro o suficiente.");
@@ -71102,7 +71113,7 @@ Dialog:DIALOG_VENDERJOIAS(playerid, response, listitem, inputtext[])
 		            if(PlayerInfo[playerid][pPrata] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem uma barra de bronze.");
 
 					PlayerInfo[playerid][pPrata]--;
-					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[BRONZE] Você vendeu uma barra de bronze por R$900.");
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[BRONZE] Você vendeu uma barra de bronze por US$900.");
 					PlayerInfo[playerid][pGranaSuja] = PlayerInfo[playerid][pGranaSuja]+900;
 				}
 				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} A empresa não tem dinheiro o suficiente.");
@@ -71123,7 +71134,7 @@ Dialog:Dialog_CPecas(playerid, response, listitem, inputtext[])
 		        if(PlayerInfo[playerid][pGrana] >= 20)
 				{
 					PlayerInfo[playerid][pPecasMecanicas][0]++;
-					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Peças] Você comprou um rádio por R$20.");
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Peças] Você comprou um rádio por US$20.");
 					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-20;
 				}
 				else SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem dinheiro o suficiente.");
@@ -71133,7 +71144,7 @@ Dialog:Dialog_CPecas(playerid, response, listitem, inputtext[])
 		        if(PlayerInfo[playerid][pGrana] >= 100)
 		        {
 					PlayerInfo[playerid][pPecasMecanicas][1]++;
-					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Peças] Você comprou um jogo de Neon por R$100.");
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Peças] Você comprou um jogo de Neon por US$100.");
 					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-100;
 				}
 				else SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem dinheiro o suficiente.");
@@ -71143,7 +71154,7 @@ Dialog:Dialog_CPecas(playerid, response, listitem, inputtext[])
 		        if(PlayerInfo[playerid][pGrana] >= 20)
 		        {
 					PlayerInfo[playerid][pPecasMecanicas][2]++;
-					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Peças] Você comprou um GPS por R$20.");
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Peças] Você comprou um GPS por US$20.");
 					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-20;
 				}
 				else SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem dinheiro o suficiente.");
@@ -71153,7 +71164,7 @@ Dialog:Dialog_CPecas(playerid, response, listitem, inputtext[])
 		        if(PlayerInfo[playerid][pGrana] >= 30)
 		        {
 					PlayerInfo[playerid][pPecasMecanicas][3]++;
-					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Peças] Você comprou um Immob por R$30.");
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Peças] Você comprou um Immob por US$30.");
 					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-30;
 				}
 				else SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem dinheiro o suficiente.");
@@ -71163,19 +71174,19 @@ Dialog:Dialog_CPecas(playerid, response, listitem, inputtext[])
 		        if(PlayerInfo[playerid][pGrana] >= 20)
 		        {
 					PlayerInfo[playerid][pPecasMecanicas][4]++;
-					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Peças] Você comprou um Tranca por R$20.");
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Peças] Você comprou um Tranca por US$20.");
 					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-20;
 				}
 				else SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem dinheiro o suficiente.");
 			}
 			case 5:
 		    {
-				Dialog_Show(playerid, Dialog_CPecas2, DIALOG_STYLE_INPUT, "Comprar Peças", "Digite a quantidade de peças que você deseja comprar.\n\nValor por peça: R$20", "Comprar", "Cancelar");
+				Dialog_Show(playerid, Dialog_CPecas2, DIALOG_STYLE_INPUT, "Comprar Peças", "Digite a quantidade de peças que você deseja comprar.\n\nValor por peça: US$20", "Comprar", "Cancelar");
 
 			}
 			case 6:
 		    {
-				Dialog_Show(playerid, Dialog_CPecas3, DIALOG_STYLE_INPUT, "Comprar bateria", "Digite a quantidade de bateria que você deseja comprar.\n\nValor por peça: R$20", "Comprar", "Cancelar");
+				Dialog_Show(playerid, Dialog_CPecas3, DIALOG_STYLE_INPUT, "Comprar bateria", "Digite a quantidade de bateria que você deseja comprar.\n\nValor por peça: US$20", "Comprar", "Cancelar");
 
 			}
 		}
@@ -71191,12 +71202,12 @@ Dialog:Dialog_CPecas2(playerid, response, listitem, inputtext[]) {
 	    if(PlayerInfo[playerid][pGrana] >= 20){
             PlayerInfo[playerid][pPecasMecanicas][5] += quantidade;
 
-            format(string, sizeof string, "Você comprou %d peças de reparo por R$%d.", quantidade, precopecas);
+            format(string, sizeof string, "Você comprou %d peças de reparo por US$%d.", quantidade, precopecas);
 	        SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 			PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-precopecas;
 		}
 	    else {
-	        format(string, sizeof string, "Você não tem R$%d para comprar %d peças.",precopecas, quantidade);
+	        format(string, sizeof string, "Você não tem US$%d para comprar %d peças.",precopecas, quantidade);
 	        SendClientMessage(playerid, COLOR_LIGHTRED, string);
 	    }
 	}
@@ -71211,12 +71222,12 @@ Dialog:Dialog_CPecas3(playerid, response, listitem, inputtext[]) {
 	    if(PlayerInfo[playerid][pGrana] >= 20){
             PlayerInfo[playerid][pBateria] += quantidade;
 
-            format(string, sizeof string, "Você comprou %d baterias por R$%d.", quantidade, precopecas);
+            format(string, sizeof string, "Você comprou %d baterias por US$%d.", quantidade, precopecas);
 	        SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 			PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-precopecas;
 		}
 	    else {
-	        format(string, sizeof string, "Você não tem R$%d para comprar %d baterias.",precopecas, quantidade);
+	        format(string, sizeof string, "Você não tem US$%d para comprar %d baterias.",precopecas, quantidade);
 	        SendClientMessage(playerid, COLOR_LIGHTRED, string);
 	    }
 	}
@@ -74745,7 +74756,7 @@ stock SendRadioMessage(color,radioid,stringa[])
 	            	SendClientMessage(i,color,stringa);
 					new Float:x, Float:y, Float:z, Float:Distance = 10.0;
     				GetPlayerPos(i, x, y, z);
-    				PlayAudioStreamForPlayer(i, "https://progressive-roleplay.com/midia/bleep.mp3", x, y, z, Distance, 1);
+    				PlayAudioStreamForPlayer(i, "http://localhost/midia/bleep.mp3", x, y, z, Distance, 1);
 	            }
 	        }
 		}
@@ -74785,7 +74796,7 @@ CMD:departamento(playerid, params[])
 
 			new Float:x, Float:y, Float:z, Float:Distance = 10.0;
     		GetPlayerPos(playerid, x, y, z);
-    		PlayAudioStreamForPlayer(playerid, "https://progressive-roleplay.com/midia/bleep.mp3", x, y, z, Distance, 1);
+    		PlayAudioStreamForPlayer(playerid, "http://localhost/midia/bleep.mp3", x, y, z, Distance, 1);
     	}
 	}
 	return 1;
@@ -78931,7 +78942,7 @@ stock MenuCompraArma(playerid, pag)
 		    strcat(stringw, _string);
 	    }
 		print("Chegou droga");
-	    format(_string, sizeof(_string), "\nCancelar Pedido\n\n---------------------\nValor: R$%d", TraficInfo[traficid][traPedPrec]);
+	    format(_string, sizeof(_string), "\nCancelar Pedido\n\n---------------------\nValor: US$%d", TraficInfo[traficid][traPedPrec]);
 	    strcat(stringw, _string);
 	    Dialog_Show(playerid, DIALOG_VPEDIDO, DIALOG_STYLE_TABLIST_HEADERS, "Seu Pedido", stringw, "Selecionar", "Finalizar Pedido");
 	}
@@ -79159,18 +79170,18 @@ Dialog:DIALOG_VPEDIDO(playerid, response, listitem, inputtext[])
 
 
             Dialog_Show(playerid, DIALOG_TRAFICANTESARMA, DIALOG_STYLE_TABLIST_HEADERS, string, "Produto\tPreço\n \
-                Colt\tR$12000\n \
-                9mm Silenced\tR$12000\n \
-                Desert Eagle\tR$13000\n \
-                Shotgun\tR$50000\n \
-                Uzi\tR$22000\n \
-                AK-47\tR$150000\n \
-				M4A1\tR$230000\n \
-                Tec-9\tR$22000\n \
-                Munição: 9mm [50 balas]\tR$500\n \
-                Munição: 556mm [50 balas]\tR$800\n \
-                Munição: cartuchos [10 balas]\tR$500\n \
-                Munição: 12.7x106mm [5 balas]\tR$800\n \
+                Colt\tUS$12000\n \
+                9mm Silenced\tUS$12000\n \
+                Desert Eagle\tUS$13000\n \
+                Shotgun\tUS$50000\n \
+                Uzi\tUS$22000\n \
+                AK-47\tUS$150000\n \
+				M4A1\tUS$230000\n \
+                Tec-9\tUS$22000\n \
+                Munição: 9mm [50 balas]\tUS$500\n \
+                Munição: 556mm [50 balas]\tUS$800\n \
+                Munição: cartuchos [10 balas]\tUS$500\n \
+                Munição: 12.7x106mm [5 balas]\tUS$800\n \
                 Remover do Pedido \
                 ", "Pedir", "Cancelar");
 		}
@@ -79381,7 +79392,7 @@ CMD:encomenda(playerid, params[])
 				}
 				else
 				{
-					format(string, sizeof(string), "Você não tem R$%d. Vá buscar o dinheiro antes de pegar as armas.", TraficInfo[traficid][traPedPrec]);
+					format(string, sizeof(string), "Você não tem US$%d. Vá buscar o dinheiro antes de pegar as armas.", TraficInfo[traficid][traPedPrec]);
 					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 				}
 			}
@@ -79463,7 +79474,7 @@ CMD:encomenda(playerid, params[])
 				}
 				else
 				{
-					format(string, sizeof(string), "Você não tem R$%d. Vá buscar o dinheiro antes de pegar as drogas.", TraficInfo[traficid][traPedPrec]);
+					format(string, sizeof(string), "Você não tem US$%d. Vá buscar o dinheiro antes de pegar as drogas.", TraficInfo[traficid][traPedPrec]);
 					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 				}
 			}
@@ -79767,7 +79778,7 @@ stock CreatePlayerTextDraws( playerid ) {
         PlayerTextDrawFont(playerid, TuningBuy[ playerid ][ 3 ], 2);
         PlayerTextDrawSetProportional(playerid, TuningBuy[ playerid ][ 3 ], 1);
 
-        TuningBuy[ playerid ][ 4 ] = CreatePlayerTextDraw(playerid, 222.500000, 365.000000, "Preco: ~w~R$10000");
+        TuningBuy[ playerid ][ 4 ] = CreatePlayerTextDraw(playerid, 222.500000, 365.000000, "Preco: ~w~US$10000");
         PlayerTextDrawLetterSize(playerid, TuningBuy[ playerid ][ 4 ], 0.244999, 1.092499);
         PlayerTextDrawAlignment(playerid, TuningBuy[ playerid ][ 4 ], 1);
         PlayerTextDrawColor(playerid, TuningBuy[ playerid ][ 4 ], -1);
@@ -81193,12 +81204,12 @@ COMMAND:multas(playerid, params[])
 					{
 					    if(multas == 0)
 						{
-							format(LinhaAtt, 126, "Multa #%d [{7E98B6}R$%d]{ffffff} por %s",mm,MultasInfo[mm][mValor], MultasInfo[mm][mMotivo]);
+							format(LinhaAtt, 126, "Multa #%d [{7E98B6}US$%d]{ffffff} por %s",mm,MultasInfo[mm][mValor], MultasInfo[mm][mMotivo]);
 							strcat(Linha1, LinhaAtt);
 						}
 						else
 						{
-						    format(LinhaAtt, 126, "\nMulta #%d [{7E98B6}R$%d]{ffffff} por %s",mm,MultasInfo[mm][mValor], MultasInfo[mm][mMotivo]);
+						    format(LinhaAtt, 126, "\nMulta #%d [{7E98B6}US$%d]{ffffff} por %s",mm,MultasInfo[mm][mValor], MultasInfo[mm][mMotivo]);
 							strcat(Linha1, LinhaAtt);
 						}
 
@@ -81219,12 +81230,12 @@ COMMAND:multas(playerid, params[])
 
 								if(multas == 0)
 								{
-									format(LinhaAtt, 126, "[%s] Multa #%d [{7E98B6}R$%d]{ffffff} por %s",vname,mm,MultasInfo[mm][mValor], MultasInfo[mm][mMotivo]);
+									format(LinhaAtt, 126, "[%s] Multa #%d [{7E98B6}US$%d]{ffffff} por %s",vname,mm,MultasInfo[mm][mValor], MultasInfo[mm][mMotivo]);
 									strcat(Linha1, LinhaAtt);
 								}
 								else
 								{
-								    format(LinhaAtt, 126, "\n[%s] Multa #%d [{7E98B6}R$%d]{ffffff} por %s",vname,mm,MultasInfo[mm][mValor], MultasInfo[mm][mMotivo]);
+								    format(LinhaAtt, 126, "\n[%s] Multa #%d [{7E98B6}US$%d]{ffffff} por %s",vname,mm,MultasInfo[mm][mValor], MultasInfo[mm][mMotivo]);
 									strcat(Linha1, LinhaAtt);
 								}
 								VendoMultas[playerid][multas] = mm;
@@ -81263,7 +81274,7 @@ Dialog:DIALOG_VERMULTAS(playerid, response, listitem, inputtext[])
 
 	format(Informacoes, 1024, "{A9C4E4}Polícia Militar\t\t{7E98B6}Do Rio de Janeiro \
 	\n{A9C4E4}Policial:\t\t\t{7E98B6}%s \n \
-	\n{A9C4E4}Valor:\t\t\t{7E98B6}R$%d \
+	\n{A9C4E4}Valor:\t\t\t{7E98B6}US$%d \
 	\n{A9C4E4}Razão:\t\t\t{7E98B6}%s \
 	\n{A9C4E4}Data:\t\t\t{7E98B6}%s \
 	\n\n{A9C4E4}\t%s",MultasInfo[multa_id][mIssuer],MultasInfo[multa_id][mValor],MultasInfo[multa_id][mMotivo],MultasInfo[multa_id][mData],tempo);
@@ -81292,7 +81303,7 @@ Dialog:DIALOG_PAGARMULTAS(playerid, response, listitem, inputtext[])
 			GovInfo[gCofres] += MultasInfo[multa_id][mValor];
 
             new str[124];
-		    format(str, 124, "Você pagou a multa #%d de R$%d.", multa_id, MultasInfo[multa_id][mValor]);
+		    format(str, 124, "Você pagou a multa #%d de US$%d.", multa_id, MultasInfo[multa_id][mValor]);
             SendClientMessage(playerid, COLOR_LIGHTGREEN, str);
 
             format(string, sizeof(string), "DELETE FROM `multas` WHERE `mID` = '%d'", multa_id);
@@ -81308,7 +81319,7 @@ Dialog:DIALOG_PAGARMULTAS(playerid, response, listitem, inputtext[])
         else
 		{
 		    new str[124];
-		    format(str, 124, "Você não tem R$%d para pagar esta multa.", MultasInfo[multa_id][mValor]);
+		    format(str, 124, "Você não tem US$%d para pagar esta multa.", MultasInfo[multa_id][mValor]);
 			SendClientMessage(playerid, COLOR_LIGHTRED, str);
 			return 1;
 		}
@@ -81358,12 +81369,12 @@ COMMAND:vermultas(playerid, params[])
 
 							    if(multas == 0)
 								{
-									format(LinhaAtt, 126, "Multa\tValor\tMotivo\tTempo para Pagar\n#%d\t{7E98B6}R$%d\t{ffffff}%s\t%s",mm,MultasInfo[mm][mValor], MultasInfo[mm][mMotivo],tempo);
+									format(LinhaAtt, 126, "Multa\tValor\tMotivo\tTempo para Pagar\n#%d\t{7E98B6}US$%d\t{ffffff}%s\t%s",mm,MultasInfo[mm][mValor], MultasInfo[mm][mMotivo],tempo);
 									strcat(Linha1, LinhaAtt);
 								}
 								else
 								{
-								    format(LinhaAtt, 126, "\n#%d\t{7E98B6}R$%d\t{ffffff}%s\t%s",mm,MultasInfo[mm][mValor], MultasInfo[mm][mMotivo],tempo);
+								    format(LinhaAtt, 126, "\n#%d\t{7E98B6}US$%d\t{ffffff}%s\t%s",mm,MultasInfo[mm][mValor], MultasInfo[mm][mMotivo],tempo);
 									strcat(Linha1, LinhaAtt);
 								}
 
@@ -81410,12 +81421,12 @@ COMMAND:vermultas(playerid, params[])
 
 										if(multas == 0)
 										{
-											format(LinhaAtt, 126, "{ffffff}Multa\tValor\tMotivo\tTempo para Pagar\n#%d\t{7E98B6}R$%d\t{ffffff}%s\t%s",mm,MultasInfo[mm][mValor], MultasInfo[mm][mMotivo],tempo);
+											format(LinhaAtt, 126, "{ffffff}Multa\tValor\tMotivo\tTempo para Pagar\n#%d\t{7E98B6}US$%d\t{ffffff}%s\t%s",mm,MultasInfo[mm][mValor], MultasInfo[mm][mMotivo],tempo);
 											strcat(Linha1, LinhaAtt);
 										}
 										else
 										{
-										    format(LinhaAtt, 126, "\n#%d\t{7E98B6}R$%d\t{ffffff}%s\t%s",mm,MultasInfo[mm][mValor], MultasInfo[mm][mMotivo],tempo);
+										    format(LinhaAtt, 126, "\n#%d\t{7E98B6}US$%d\t{ffffff}%s\t%s",mm,MultasInfo[mm][mValor], MultasInfo[mm][mMotivo],tempo);
 											strcat(Linha1, LinhaAtt);
 										}
 										VendoMultas[playerid][multas] = mm;
@@ -81461,12 +81472,12 @@ COMMAND:vermultas(playerid, params[])
 
 											if(multas == 0)
 											{
-												format(LinhaAtt, 126, "{ffffff}Multa\tValor\tMotivo\tTempo para Pagar\n#%d\t{7E98B6}R$%d\t{ffffff}%s\t%s",mm,MultasInfo[mm][mValor], MultasInfo[mm][mMotivo],tempo);
+												format(LinhaAtt, 126, "{ffffff}Multa\tValor\tMotivo\tTempo para Pagar\n#%d\t{7E98B6}US$%d\t{ffffff}%s\t%s",mm,MultasInfo[mm][mValor], MultasInfo[mm][mMotivo],tempo);
 												strcat(Linha1, LinhaAtt);
 											}
 											else
 											{
-										    	format(LinhaAtt, 126, "\n#%d\t{7E98B6}R$%d\t{ffffff}%s\t%s",mm,MultasInfo[mm][mValor], MultasInfo[mm][mMotivo],tempo);
+										    	format(LinhaAtt, 126, "\n#%d\t{7E98B6}US$%d\t{ffffff}%s\t%s",mm,MultasInfo[mm][mValor], MultasInfo[mm][mMotivo],tempo);
 												strcat(Linha1, LinhaAtt);
 											}
 											VendoMultas[playerid][multas] = mm;
@@ -81512,7 +81523,7 @@ Dialog:DIALOG_VERMULTAS_P(playerid, response, listitem, inputtext[])
 
 	format(Informacoes, 1024, "{A9C4E4}Polícia Militar\t\t{7E98B6}Do Rio de Janeiro \
 	\n{A9C4E4}Policial:\t\t\t{7E98B6}%s \n \
-	\n{A9C4E4}Valor:\t\t\t{7E98B6}R$%d \
+	\n{A9C4E4}Valor:\t\t\t{7E98B6}US$%d \
 	\n{A9C4E4}Razão:\t\t\t{7E98B6}%s \
 	\n{A9C4E4}Data:\t\t\t{7E98B6}%s \
 	\n\n{A9C4E4}\t%s",MultasInfo[multa_id][mIssuer],MultasInfo[multa_id][mValor],MultasInfo[multa_id][mMotivo],MultasInfo[multa_id][mData],tempo);
@@ -81592,7 +81603,7 @@ COMMAND:corrida(playerid, params[])
 			{
 			    TaxiDrivers -= 1;
    				TransportDuty[playerid] = 0;
-				format(string, sizeof(string), "* Você está fora de serviço e ganhou R$%d.", TransportMoney[playerid]);
+				format(string, sizeof(string), "* Você está fora de serviço e ganhou US$%d.", TransportMoney[playerid]);
 				SendClientMessage(playerid, COLOR_WHITE, string);
 				PlayerInfo[playerid][pGrana] += TransportMoney[playerid];
 				TransportValue[playerid] = 0;
@@ -81609,7 +81620,7 @@ COMMAND:corrida(playerid, params[])
 					if(sscanf(params, "d", moneys)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /corrida [valor(1-5)]");
 					else {
 					    if(GetPlayerState(playerid) == 2) {
-							if(moneys < 1 || moneys > 5) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O preço da corrida deve ser entre R$1 e 5R$.");
+							if(moneys < 1 || moneys > 5) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O preço da corrida deve ser entre US$1 e 5US$.");
 							TransportDuty[playerid] = 1;
 							TaxiDrivers += 1;
 							TransportValue[playerid] = moneys;
@@ -81744,7 +81755,7 @@ COMMAND:hotdog(playerid, params[])
 	}
 	else
 	{
-	    if(preco < 1 || preco > 100) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O preço deve ser entre R$1 e R$100.");
+	    if(preco < 1 || preco > 100) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O preço deve ser entre US$1 e US$100.");
 
 	    if(IsPlayerConnected(targetid))
 	    {
@@ -81754,7 +81765,7 @@ COMMAND:hotdog(playerid, params[])
 
 			format(string, sizeof(string), "Você ofereceu um HotDog para %s.", PlayerName(targetid,1));
 			SendClientMessage(playerid, COLOR_GREEN, string);
-			format(string, sizeof(string), "%s te ofereceu um hot dog por R$%d. (digite '/aceitar hotdog' para aceitar).", PlayerName(playerid,1),preco);
+			format(string, sizeof(string), "%s te ofereceu um hot dog por US$%d. (digite '/aceitar hotdog' para aceitar).", PlayerName(playerid,1),preco);
 			SendClientMessage(targetid, COLOR_GREEN, string);
 			HotDogAccept[targetid] = 1;
 			HotDogOffer[targetid] = playerid;
@@ -82606,8 +82617,8 @@ Dialog:DIALOG_CEL_PLANOS(playerid, response, listitem, inputtext[])
 	            format(Infos, sizeof(Infos), "No pacote regular você paga apenas pelo que usar!\n\n \
 				É o famoso pós-pago, usou, pagou.\n\n \
 				Você pagará as seguintes taxas de uso:\n \
-				R$0,40 por segundo de sligação.\n \
-				R$8 por SMS enviado.\n\n \
+				US$0,40 por segundo de sligação.\n \
+				US$8 por SMS enviado.\n\n \
 				- ATENÇÃO: Ao trocar de plano você assina um contrato de 6 PayDay's.");
 	            Dialog_Show(playerid, DIALOG_CEL_PLANO1, DIALOG_STYLE_MSGBOX, "RJ Telefonica - Pacote regular", Infos, "Assinar", "Voltar");
 	        }
@@ -82618,7 +82629,7 @@ Dialog:DIALOG_CEL_PLANOS(playerid, response, listitem, inputtext[])
 				Você terá os seguintes beneficios:\n \
 				40 minutos de ligações.\n \
 				30 SMS's.\n \
-				Valor: R$100 por PayDay.\n\n \
+				Valor: US$100 por PayDay.\n\n \
 				- AVISO: Caso você utilizar mais minutos ou SMS's do que o assinado, você pagará a mais de acordo com o plano regular.\n \
 				- ATENÇÃO: Ao trocar de plano você assina um contrato de 6 PayDay's.");
 	            Dialog_Show(playerid, DIALOG_CEL_PLANO2, DIALOG_STYLE_MSGBOX,"RJ Telefonica - Pacote básico", Infos, "Assinar", "Voltar");
@@ -82630,7 +82641,7 @@ Dialog:DIALOG_CEL_PLANOS(playerid, response, listitem, inputtext[])
 				Você terá os seguintes beneficios:\n \
 				120 minutos de ligações.\n \
 				60 SMS's.\n \
-				Valor: R$200 por PayDay.\n\n \
+				Valor: US$200 por PayDay.\n\n \
 				- AVISO: Caso você utilizar mais minutos ou SMS's do que o assinado, você pagará a mais de acordo com o plano regular.\n \
 				- ATENÇÃO: Ao trocar de plano você assina um contrato de 6 PayDay's.");
 	            Dialog_Show(playerid, DIALOG_CEL_PLANO3, DIALOG_STYLE_MSGBOX, "RJ Telefonica - Pacote premium completo", Infos, "Assinar", "Voltar");
@@ -82642,7 +82653,7 @@ Dialog:DIALOG_CEL_PLANOS(playerid, response, listitem, inputtext[])
 				Você terá os seguintes beneficios:\n \
 				30 minutos de ligações.\n \
 				100 SMS's.\n \
-				Valor: R$250 por PayDay.\n\n \
+				Valor: US$250 por PayDay.\n\n \
 				- AVISO: Caso você utilizar mais minutos ou SMS's do que o assinado, você pagará a mais de acordo com o plano regular.\n \
 				- ATENÇÃO: Ao trocar de plano você assina um contrato de 6 PayDay's.");
 	            Dialog_Show(playerid, DIALOG_CEL_PLANO4, DIALOG_STYLE_MSGBOX, "RJ Telefonica - Pacote premium SMS", Infos, "Assinar", "Voltar");
@@ -82654,7 +82665,7 @@ Dialog:DIALOG_CEL_PLANOS(playerid, response, listitem, inputtext[])
 				Você terá os seguintes beneficios:\n \
 				200 minutos de ligações.\n \
 				30 SMS's.\n \
-				Valor: R$350 por PayDay.\n\n \
+				Valor: US$350 por PayDay.\n\n \
 				- AVISO: Caso você utilizar mais minutos ou SMS's do que o assinado, você pagará a mais de acordo com o plano regular.\n \
 				- ATENÇÃO: Ao trocar de plano você assina um contrato de 6 PayDay's.");
 	            Dialog_Show(playerid, DIALOG_CEL_PLANO5, DIALOG_STYLE_MSGBOX, "RJ Telefonica - Pacote premium Fala Mais", Infos, "Assinar", "Voltar");
@@ -83681,7 +83692,7 @@ public CobrarChamada(playerid)
     				totalcusto = floatround(tempocham*0.40);
 
 				CelularData[playerid][celTotalPD] = totalcusto;
-				format(str, 64, "Você desligou a chamada, custo total: R$%d.",totalcusto);
+				format(str, 64, "Você desligou a chamada, custo total: US$%d.",totalcusto);
 	  			SendClientMessage(playerid, COLOR_YELLOW, str);
 		    }
 		    else
@@ -83706,7 +83717,7 @@ public CobrarChamada(playerid)
 		            new totaltempo = tempocham*60,
 						totalcusto = floatround(totaltempo*0.40);
 					CelularData[playerid][celTotalPD] = totalcusto;
-					format(str, 64, "Você desligou a chamada, custo total: R$%d.",totalcusto);
+					format(str, 64, "Você desligou a chamada, custo total: US$%d.",totalcusto);
 		  			SendClientMessage(playerid, COLOR_YELLOW, str);
 			    }
 			    else
@@ -83723,7 +83734,7 @@ public CobrarChamada(playerid)
     				totalcusto = floatround(tempocham*0.40);
 
 				CelularData[playerid][celTotalPD] = totalcusto;
-				format(str, 64, "Você desligou a chamada, custo total: R$%d.",totalcusto);
+				format(str, 64, "Você desligou a chamada, custo total: US$%d.",totalcusto);
 	  			SendClientMessage(playerid, COLOR_YELLOW, str);
 			}
 		}
@@ -83733,7 +83744,7 @@ public CobrarChamada(playerid)
 	    new	totaltempo = CelularData[playerid][TempoChamada][0]+(CelularData[playerid][TempoChamada][1]*60)+((CelularData[playerid][TempoChamada][2]*60)*60),
 			totalcusto = floatround(totaltempo*TelPubPrice);
 
-		format(str, 64, "Você desligou a chamada, custo total: R$%d.",totalcusto);
+		format(str, 64, "Você desligou a chamada, custo total: US$%d.",totalcusto);
 		SendClientMessage(playerid, COLOR_YELLOW, str);
 
 	}
@@ -84711,7 +84722,7 @@ COMMAND:rojao(playerid, params[])
 	{
 		if(IsPlayerConnected(i) && IsPlayerInRangeOfPoint(i, 180.0, X, Y, Z))
 		{
-			PlayAudioStreamForPlayer(i, "https://progressive-roleplay.com/midia/fogo.mp3", X, Y, Z, 500.0, 1);
+			PlayAudioStreamForPlayer(i, "http://localhost/midia/fogo.mp3", X, Y, Z, 500.0, 1);
 		}
 	}
 	new stringfogos1[128];
@@ -86702,7 +86713,7 @@ CMD:governo(playerid,params[])
 		OutrasInfos[playerid][oGovEditor][1] = 0;
 
 		new govdialog[255];
-    	format(govdialog, 255, "Cofre Publico: R$%d\nTaxa do Governo: R$%d\nTaxa de Luz: R$%d\nSalarios Públicos\nTaxa Hospitalar: R$%d\nConvênio Médico: R$%d por/PD\nSalário Minimo: R$%d",
+    	format(govdialog, 255, "Cofre Publico: US$%d\nTaxa do Governo: US$%d\nTaxa de Luz: US$%d\nSalarios Públicos\nTaxa Hospitalar: US$%d\nConvênio Médico: US$%d por/PD\nSalário Minimo: US$%d",
             GovInfo[gCofres],
 			GovInfo[gTaxa],
 			GovInfo[gTaxaLuz],
@@ -86786,11 +86797,11 @@ Dialog:DIALOG_GOV_EDIT(playerid, response, listitem, inputtext[])
 	            GovInfo[gCofres] -= valor;
 	            PlayerInfo[playerid][pGrana] += valor;
 
-	            format(string, sizeof(string), "[GOV] Você retirou R$%d dos cofres publicos.", valor);
+	            format(string, sizeof(string), "[GOV] Você retirou US$%d dos cofres publicos.", valor);
 				SendClientMessage(playerid, COLOR_GREEN, string);
 
 	            new strl[126];
-				format(strl, sizeof(strl), "%s retirou R$%d dos cofres publicos. | Total no cofre: R$%d", PlayerName(playerid,0), valor, GovInfo[gCofres]);
+				format(strl, sizeof(strl), "%s retirou US$%d dos cofres publicos. | Total no cofre: US$%d", PlayerName(playerid,0), valor, GovInfo[gCofres]);
 				Cofres_Publicos(strl);
 
 				SalvarGoverno();
@@ -86802,11 +86813,11 @@ Dialog:DIALOG_GOV_EDIT(playerid, response, listitem, inputtext[])
 	            GovInfo[gCofres] += valor;
 	            PlayerInfo[playerid][pGrana] -= valor;
 
-                format(string, sizeof(string), "[GOV] Você depositou R$%d nos cofres publicos.", valor);
+                format(string, sizeof(string), "[GOV] Você depositou US$%d nos cofres publicos.", valor);
 				SendClientMessage(playerid, COLOR_GREEN, string);
 
 	            new strl[126];
-				format(strl, sizeof(strl), "%s depositou R$%d dos cofres publicos. | Total no cofre: R$%d", PlayerName(playerid,0), valor, GovInfo[gCofres]);
+				format(strl, sizeof(strl), "%s depositou US$%d dos cofres publicos. | Total no cofre: US$%d", PlayerName(playerid,0), valor, GovInfo[gCofres]);
 				Cofres_Publicos(strl);
 
 				SalvarGoverno();
@@ -86818,11 +86829,11 @@ Dialog:DIALOG_GOV_EDIT(playerid, response, listitem, inputtext[])
 	        if(0 > valor > 501) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} A taxa do governo não pode ser mais do que 500 ou menor que 0.");
          	GovInfo[gTaxa] = valor;
 
-            format(string, sizeof(string), "[GOV] Você alterou a taxa do governo para R$%d.", valor);
+            format(string, sizeof(string), "[GOV] Você alterou a taxa do governo para US$%d.", valor);
 			SendClientMessage(playerid, COLOR_GREEN, string);
 
             new strl[126];
-			format(strl, sizeof(strl), "%s alterou a taxa do governo para R$%d. | Total no cofre: R$%d", PlayerName(playerid,0), valor, GovInfo[gCofres]);
+			format(strl, sizeof(strl), "%s alterou a taxa do governo para US$%d. | Total no cofre: US$%d", PlayerName(playerid,0), valor, GovInfo[gCofres]);
 			Cofres_Publicos(strl);
 
 			SalvarGoverno();
@@ -86833,11 +86844,11 @@ Dialog:DIALOG_GOV_EDIT(playerid, response, listitem, inputtext[])
 	        if(0 > valor > 201) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} A taxa minima de luz não pode ser maior do que 200 ou menor que 0.");
          	GovInfo[gTaxaLuz] = valor;
 
-            format(string, sizeof(string), "[GOV] Você alterou a taxa minima de luz para R$%d.", valor);
+            format(string, sizeof(string), "[GOV] Você alterou a taxa minima de luz para US$%d.", valor);
 			SendClientMessage(playerid, COLOR_GREEN, string);
 
             new strl[126];
-			format(strl, sizeof(strl), "%s alterou a taxa de luz para R$%d. | Total no cofre: R$%d", PlayerName(playerid,0), valor, GovInfo[gCofres]);
+			format(strl, sizeof(strl), "%s alterou a taxa de luz para US$%d. | Total no cofre: US$%d", PlayerName(playerid,0), valor, GovInfo[gCofres]);
 			Cofres_Publicos(strl);
 
    			SalvarGoverno();
@@ -87004,11 +87015,11 @@ Dialog:DIALOG_GOV_EDIT(playerid, response, listitem, inputtext[])
 			        if(0 > valor) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O salário não pode ser menor que 0.");
          	        GovInfo[gSalarioPMERJ][govc] = valor;
 
-		            format(string, sizeof(string), "[GOV] Você alterou o salário para R$%d.", valor);
+		            format(string, sizeof(string), "[GOV] Você alterou o salário para US$%d.", valor);
 					SendClientMessage(playerid, COLOR_GREEN, string);
 
 			        new strl[126];
-					format(strl, sizeof(strl), "%s alterou o salário do cargo %d da PMERJ para R$%d. | Total no cofre: R$%d", PlayerName(playerid,0), (listitem+1),valor, GovInfo[gCofres]);
+					format(strl, sizeof(strl), "%s alterou o salário do cargo %d da PMERJ para US$%d. | Total no cofre: US$%d", PlayerName(playerid,0), (listitem+1),valor, GovInfo[gCofres]);
 					Cofres_Publicos(strl);
 
 					SalvarGoverno();
@@ -87028,11 +87039,11 @@ Dialog:DIALOG_GOV_EDIT(playerid, response, listitem, inputtext[])
 			        if(0 > valor) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O salário não pode ser menor que 0.");
          	        GovInfo[gSalarioFD][govc] = valor;
 
-		            format(string, sizeof(string), "[GOV] Você alterou o salário para R$%d.", valor);
+		            format(string, sizeof(string), "[GOV] Você alterou o salário para US$%d.", valor);
 					SendClientMessage(playerid, COLOR_GREEN, string);
 
 			        new strl[126];
-					format(strl, sizeof(strl), "%s alterou o salário do cargo %d do CBERJ para R$%d. | Total no cofre: R$%d", PlayerName(playerid,0), (listitem+1),valor, GovInfo[gCofres]);
+					format(strl, sizeof(strl), "%s alterou o salário do cargo %d do CBERJ para US$%d. | Total no cofre: US$%d", PlayerName(playerid,0), (listitem+1),valor, GovInfo[gCofres]);
 					Cofres_Publicos(strl);
 
 					SalvarGoverno();
@@ -87052,11 +87063,11 @@ Dialog:DIALOG_GOV_EDIT(playerid, response, listitem, inputtext[])
 			        if(0 > valor) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O salário não pode ser menor que 0.");
          	        GovInfo[gSalarioGOV][govc] = valor;
 
-		            format(string, sizeof(string), "[GOV] Você alterou o salário para R$%d.", valor);
+		            format(string, sizeof(string), "[GOV] Você alterou o salário para US$%d.", valor);
 					SendClientMessage(playerid, COLOR_GREEN, string);
 
 			        new strl[126];
-					format(strl, sizeof(strl), "%s alterou o salário do cargo %d do GOVERNO para R$%d. | Total no cofre: R$%d", PlayerName(playerid,0), (listitem+1),valor, GovInfo[gCofres]);
+					format(strl, sizeof(strl), "%s alterou o salário do cargo %d do GOVERNO para US$%d. | Total no cofre: US$%d", PlayerName(playerid,0), (listitem+1),valor, GovInfo[gCofres]);
 					Cofres_Publicos(strl);
 
 					SalvarGoverno();
@@ -87076,11 +87087,11 @@ Dialog:DIALOG_GOV_EDIT(playerid, response, listitem, inputtext[])
 			        if(0 > valor) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O salário não pode ser menor que 0.");
          	        GovInfo[gSalarioPC][govc] = valor;
 
-		            format(string, sizeof(string), "[GOV] Você alterou o salário para R$%d.", valor);
+		            format(string, sizeof(string), "[GOV] Você alterou o salário para US$%d.", valor);
 					SendClientMessage(playerid, COLOR_GREEN, string);
 
 			        new strl[126];
-					format(strl, sizeof(strl), "%s alterou o salário do cargo %d da PCERJ para R$%d. | Total no cofre: R$%d", PlayerName(playerid,0), (listitem+1),valor, GovInfo[gCofres]);
+					format(strl, sizeof(strl), "%s alterou o salário do cargo %d da PCERJ para US$%d. | Total no cofre: US$%d", PlayerName(playerid,0), (listitem+1),valor, GovInfo[gCofres]);
 					Cofres_Publicos(strl);
 
 					SalvarGoverno();
@@ -87100,11 +87111,11 @@ Dialog:DIALOG_GOV_EDIT(playerid, response, listitem, inputtext[])
 			        if(0 > valor) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O salário não pode ser menor que 0.");
          	        GovInfo[gSalarioEB][govc] = valor;
 
-		            format(string, sizeof(string), "[GOV] Você alterou o salário para R$%d.", valor);
+		            format(string, sizeof(string), "[GOV] Você alterou o salário para US$%d.", valor);
 					SendClientMessage(playerid, COLOR_GREEN, string);
 
 			        new strl[126];
-					format(strl, sizeof(strl), "%s alterou o salário do cargo %d do EB para R$%d. | Total no cofre: R$%d", PlayerName(playerid,0), (listitem+1),valor, GovInfo[gCofres]);
+					format(strl, sizeof(strl), "%s alterou o salário do cargo %d do EB para US$%d. | Total no cofre: US$%d", PlayerName(playerid,0), (listitem+1),valor, GovInfo[gCofres]);
 					Cofres_Publicos(strl);
 
 					SalvarGoverno();
@@ -87124,11 +87135,11 @@ Dialog:DIALOG_GOV_EDIT(playerid, response, listitem, inputtext[])
 			        if(0 > valor) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O salário não pode ser menor que 0.");
          	        GovInfo[gSalarioTJRP][govc] = valor;
 
-		            format(string, sizeof(string), "[GOV] Você alterou o salário DO TJRJ para R$%d.", valor);
+		            format(string, sizeof(string), "[GOV] Você alterou o salário DO TJRJ para US$%d.", valor);
 					SendClientMessage(playerid, COLOR_GREEN, string);
 
 			        new strl[126];
-					format(strl, sizeof(strl), "%s alterou o salário do cargo %d do TJRJ para R$%d. | Total no cofre: R$%d", PlayerName(playerid,0), (listitem+1),valor, GovInfo[gCofres]);
+					format(strl, sizeof(strl), "%s alterou o salário do cargo %d do TJRJ para US$%d. | Total no cofre: US$%d", PlayerName(playerid,0), (listitem+1),valor, GovInfo[gCofres]);
 					Cofres_Publicos(strl);
 
 					SalvarGoverno();
@@ -87148,11 +87159,11 @@ Dialog:DIALOG_GOV_EDIT(playerid, response, listitem, inputtext[])
 			        if(0 > valor) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O salário não pode ser menor que 0.");
          	        GovInfo[gSalarioFacCivil][govc] = valor;
 
-		            format(string, sizeof(string), "[GOV] Você alterou o salário das facções civil para R$%d.", valor);
+		            format(string, sizeof(string), "[GOV] Você alterou o salário das facções civil para US$%d.", valor);
 					SendClientMessage(playerid, COLOR_GREEN, string);
 
 			        new strl[126];
-					format(strl, sizeof(strl), "%s alterou o salário do cargo %d da facs civis para R$%d. | Total no cofre: R$%d", PlayerName(playerid,0), (listitem+1),valor, GovInfo[gCofres]);
+					format(strl, sizeof(strl), "%s alterou o salário do cargo %d da facs civis para US$%d. | Total no cofre: US$%d", PlayerName(playerid,0), (listitem+1),valor, GovInfo[gCofres]);
 					Cofres_Publicos(strl);
 
 					SalvarGoverno();
@@ -87165,11 +87176,11 @@ Dialog:DIALOG_GOV_EDIT(playerid, response, listitem, inputtext[])
 	        if(0 > valor > 501) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O valor da taxa hospitalar não pode ser mais do que 500 ou menor que 0.");
          	GovInfo[gTaxaHP] = valor;
 
-            format(string, sizeof(string), "[GOV] Você alterou a taxa hospitalar para R$%d.", valor);
+            format(string, sizeof(string), "[GOV] Você alterou a taxa hospitalar para US$%d.", valor);
 			SendClientMessage(playerid, COLOR_GREEN, string);
 
             new strl[126];
-			format(strl, sizeof(strl), "%s alterou a taxa hospitalar para R$%d. | Total no cofre: R$%d", PlayerName(playerid,0), valor, GovInfo[gCofres]);
+			format(strl, sizeof(strl), "%s alterou a taxa hospitalar para US$%d. | Total no cofre: US$%d", PlayerName(playerid,0), valor, GovInfo[gCofres]);
 			Cofres_Publicos(strl);
 
 			SalvarGoverno();
@@ -87180,11 +87191,11 @@ Dialog:DIALOG_GOV_EDIT(playerid, response, listitem, inputtext[])
 	        if(0 > valor > 201) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O valor do convenio não pode ser mais do que 200 ou menor que 0.");
          	GovInfo[gConvenio] = valor;
 
-            format(string, sizeof(string), "[GOV] Você alterou o valor do convênio para R$%d.", valor);
+            format(string, sizeof(string), "[GOV] Você alterou o valor do convênio para US$%d.", valor);
 			SendClientMessage(playerid, COLOR_GREEN, string);
 
             new strl[126];
-			format(strl, sizeof(strl), "%s alterou o valor do convênio para R$%d. | Total no cofre: R$%d", PlayerName(playerid,0), valor, GovInfo[gCofres]);
+			format(strl, sizeof(strl), "%s alterou o valor do convênio para US$%d. | Total no cofre: US$%d", PlayerName(playerid,0), valor, GovInfo[gCofres]);
 			Cofres_Publicos(strl);
 
 			SalvarGoverno();
@@ -87195,11 +87206,11 @@ Dialog:DIALOG_GOV_EDIT(playerid, response, listitem, inputtext[])
 	        if(0 > valor > 501) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O Salário Minimo não pode ser mais do que 500 ou menor que 0.");
          	GovInfo[gSalarioMin] = valor;
 
-            format(string, sizeof(string), "[GOV] Você alterou o salário minimo para R$%d.", valor);
+            format(string, sizeof(string), "[GOV] Você alterou o salário minimo para US$%d.", valor);
 			SendClientMessage(playerid, COLOR_GREEN, string);
 
             new strl[126];
-			format(strl, sizeof(strl), "%s alterou o salário minimo para R$%d. | Total no cofre: R$%d", PlayerName(playerid,0), valor, GovInfo[gCofres]);
+			format(strl, sizeof(strl), "%s alterou o salário minimo para US$%d. | Total no cofre: US$%d", PlayerName(playerid,0), valor, GovInfo[gCofres]);
 			Cofres_Publicos(strl);
 
 			SalvarGoverno();
@@ -87271,7 +87282,7 @@ CMD:convenio(playerid,params[])
 		format(ConvDial, 255, "\t\t\t- Convênio Médico -\t\t\t\n\n \
 		- Tenha um tratamento de qualidade no melhor Hospital do Rio de Janeiro e saia curado em menos tempo!\n \
 		- Reduzimos sua estadia em nosso Hospital em 50% do tempo.\n\n \
-		Valor do serviço: Apenas R$80 por PayDay!\n \
+		Valor do serviço: Apenas US$80 por PayDay!\n \
 		- Assine já conosco!! \n\n\n \
 		ATENÇÃO: O contrato só poderá ser cancelado após 3 PD's.");
 		Dialog_Show(playerid, DIALOG_CONVENIO, DIALOG_STYLE_MSGBOX, "Convenio Médico", ConvDial, "Assinar", "Cancelar");
@@ -87318,11 +87329,11 @@ CMD:doar(playerid, params[])
 
 		PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-qnt;
         GovInfo[gCofres] += qnt;
-		format(string,sizeof(string),"** Você doou R$%d para o governo. (%s)", qnt, PlayerName(playerid,0));
+		format(string,sizeof(string),"** Você doou US$%d para o governo. (%s)", qnt, PlayerName(playerid,0));
 		SendClientMessage(playerid, COLOR_CINZA,string);
 
 		new strl[126];
-		format(strl, sizeof(strl), "%s doou para o governo a quantidade de R$%d.", PlayerName(playerid,0), qnt);
+		format(strl, sizeof(strl), "%s doou para o governo a quantidade de US$%d.", PlayerName(playerid,0), qnt);
 	   	LogCMD_PAGAR(strl);
    		return 1;
 	}
@@ -87452,55 +87463,55 @@ public DesmanchandoVeh(playerid, parte)
 			{
 				PlayerInfo[playerid][pPecasMecanicas][5]+= 32;
 				PlayerInfo[playerid][pGranaSuja] += 9000;
-				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 32 peças de carro e R$9,000 sujo por desmanchar este veículo.");
+				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 32 peças de carro e US$9,000 sujo por desmanchar este veículo.");
 			}
 			else if(IsASUV(vid))
 			{
 		 		PlayerInfo[playerid][pPecasMecanicas][5]+= 25;
 				PlayerInfo[playerid][pGranaSuja] += 7000;
-				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 25 peças de carro e R$7,000 sujo por desmanchar este veículo.");
+				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 25 peças de carro e US$7,000 sujo por desmanchar este veículo.");
 			}
 			else if(IsASportCar(vid))
 			{
 		 		PlayerInfo[playerid][pPecasMecanicas][5]+= 20;
 				PlayerInfo[playerid][pGranaSuja] += 6000;
-				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 20 peças de carro e R$6,000 sujo por desmanchar este veículo.");
+				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 20 peças de carro e US$6,000 sujo por desmanchar este veículo.");
 			}
 			else if(IsAVan(vid))
 			{
 		 		PlayerInfo[playerid][pPecasMecanicas][5]+= 27;
 				PlayerInfo[playerid][pGranaSuja] += 5500;
-				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 27 peças de carro e R$5,500 sujo por desmanchar este veículo.");
+				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 27 peças de carro e US$5,500 sujo por desmanchar este veículo.");
 			}
 			else if(IsAPopularCar(vid))
 			{
 		 		PlayerInfo[playerid][pPecasMecanicas][5]+= 18;
 				PlayerInfo[playerid][pGranaSuja] += 4000;
-				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 18 peças de carro e R$4,000 sujo por desmanchar este veículo.");
+				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 18 peças de carro e US$4,000 sujo por desmanchar este veículo.");
 			}
 			else if(IsAUnique(vid))
 			{
 		 		PlayerInfo[playerid][pPecasMecanicas][5]+= 17;
 				PlayerInfo[playerid][pGranaSuja] += 3600;
-				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 17 peças de carro e R$3,600 sujo por desmanchar este veículo.");
+				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 17 peças de carro e US$3,600 sujo por desmanchar este veículo.");
 			}
 			else if(IsABike(vid))
 			{
 		 		PlayerInfo[playerid][pPecasMecanicas][5]+= 2;
 				PlayerInfo[playerid][pGranaSuja] += 1200;
-				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 6 peças de carro e R$1,200 sujo por desmanchar este veículo.");
+				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 6 peças de carro e US$1,200 sujo por desmanchar este veículo.");
 			}
 			else if(IsABicicleta(vid))
 			{
 				PlayerInfo[playerid][pPecasMecanicas][5]+= 1;
 				PlayerInfo[playerid][pGranaSuja] += 900;
-				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 4 peças de carro e R$900 sujo por desmanchar este veículo.");
+				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 4 peças de carro e US$900 sujo por desmanchar este veículo.");
 			}
 			else
 			{
 			    PlayerInfo[playerid][pPecasMecanicas][5]+= 3;
 				PlayerInfo[playerid][pGranaSuja] += 500;
-				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 3 peças de carro e R$500 sujo por desmanchar este veículo.");
+				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 3 peças de carro e US$500 sujo por desmanchar este veículo.");
 			}
 			new slot = GetVehicleSlot(vid);
 			if(slot > -1)
@@ -88581,11 +88592,11 @@ CMD:venderpeixes(playerid,params[])
 					new pay;
 				 	if(FishWeigh[playerid] > 0) {
 					 	pay = floatround(FishWeigh[playerid]*0.5);
-					 	format(string,sizeof(string),"Você recebeu R$%i por vender %i lbs de peixes.",pay,FishWeigh[playerid]);
+					 	format(string,sizeof(string),"Você recebeu US$%i por vender %i lbs de peixes.",pay,FishWeigh[playerid]);
 					}
 					else if(FishWeighBarco[playerid] > 0) {
 						pay = floatround(FishWeighBarco[playerid]*0.5);
-						format(string,sizeof(string),"Você recebeu R$%i por vender %i lbs de peixes.",pay,FishWeighBarco[playerid]);
+						format(string,sizeof(string),"Você recebeu US$%i por vender %i lbs de peixes.",pay,FishWeighBarco[playerid]);
 					}
 				    SendClientMessage(playerid,COLOR_LIGHTGREEN,string);
 
@@ -88612,11 +88623,11 @@ CMD:venderpeixes(playerid,params[])
 		 	new pay;
 		 	if(FishWeigh[playerid] > 0) {
 			 	pay = floatround(FishWeigh[playerid]*0.5);
-			 	format(string,sizeof(string),"Você recebeu R$%i por vender %i lbs de peixes.",pay,FishWeigh[playerid]);
+			 	format(string,sizeof(string),"Você recebeu US$%i por vender %i lbs de peixes.",pay,FishWeigh[playerid]);
 			}
 			else if(FishWeighBarco[playerid] > 0) {
 				pay = floatround(FishWeighBarco[playerid]*0.5);
-				format(string,sizeof(string),"Você recebeu R$%i por vender %i lbs de peixes.",pay,FishWeighBarco[playerid]);
+				format(string,sizeof(string),"Você recebeu US$%i por vender %i lbs de peixes.",pay,FishWeighBarco[playerid]);
 			}
 		    SendClientMessage(playerid,COLOR_LIGHTGREEN,string);
 
@@ -88916,7 +88927,7 @@ public OnVerRefudoGrana(extraid, id)
 
 	if(strcmp(ReturnName(extraid), nome) == 0)
 	{
-		Dialog_Show(extraid, RefundoGrana, DIALOG_STYLE_MSGBOX, "Refundo", "Chave: %d\nDinheiro: R$ %d \nAdministrador: %s\n\nCaso o item do refundo esteja errado contate um administrador.", "Receber", "Fechar", chave,arma,admin);
+		Dialog_Show(extraid, RefundoGrana, DIALOG_STYLE_MSGBOX, "Refundo", "Chave: %d\nDinheiro: US$ %d \nAdministrador: %s\n\nCaso o item do refundo esteja errado contate um administrador.", "Receber", "Fechar", chave,arma,admin);
 		Refundo[extraid][0] = chave;
 		Refundo[extraid][1] = arma;
 
@@ -88960,7 +88971,7 @@ CMD:refundargrana(playerid, params[])
 		new key = randomEx(1000, 99999999);
 
 		CriarRefundoGrana(PlayerInfo[playerid][pNomeOOC], level, key, userid);
-		SendAdminAlert(COLOR_LIGHTRED, "AdmCmd: %s criou uma chave de refundo ID %d para %s (Dinheiro: R$ %d).", PlayerInfo[playerid][pNomeOOC], key, userid, level);
+		SendAdminAlert(COLOR_LIGHTRED, "AdmCmd: %s criou uma chave de refundo ID %d para %s (Dinheiro: US$ %d).", PlayerInfo[playerid][pNomeOOC], key, userid, level);
 	}
 	return 1;
 }
@@ -89353,7 +89364,7 @@ CMD:propriedades(playerid, params[])
 				}
 
                 if(EmpInfo[i][eLeasing] > 0)
-                    format(string, sizeof(string), "[%d] %s | Localização: %s | Tipo: %s | Leasing: R$%d/semanal",i,EmpInfo[i][eNome],GetLocation(EmpInfo[i][eExX], EmpInfo[i][eExY], EmpInfo[i][eExZ]), tipo, EmpInfo[i][eLeasing]);
+                    format(string, sizeof(string), "[%d] %s | Localização: %s | Tipo: %s | Leasing: US$%d/semanal",i,EmpInfo[i][eNome],GetLocation(EmpInfo[i][eExX], EmpInfo[i][eExY], EmpInfo[i][eExZ]), tipo, EmpInfo[i][eLeasing]);
                 else
     		    	format(string, sizeof(string), "[%d] %s | Localização: %s | Tipo: %s",i,EmpInfo[i][eNome],GetLocation(EmpInfo[i][eExX], EmpInfo[i][eExY], EmpInfo[i][eExZ]), tipo);
 				SendClientMessage(playerid, COLOR_WHITE, string);

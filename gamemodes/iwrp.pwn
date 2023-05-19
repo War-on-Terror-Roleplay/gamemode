@@ -21,7 +21,7 @@
 #include <EVF>
 #include <trap>
 #include <explosive>
-//#include <mapandreas>
+#include <mapandreas>
 //#include <nex-ac>
 
 // --------- [ INCLUDES ] ---------
@@ -121,7 +121,7 @@ new Apostadores[MAX_PLAYERS][eApostador];
 //new UltimoResultado;
 new bool:PodeApostarBicho = true;
 //=====[SISTEMA DE PET BY YURS]=====
-/*#define MAX_PET 1000
+#define MAX_PET 1000
 
 #define PET_NONE    (0)
 #define PET_FOLLOW  (1)
@@ -146,9 +146,9 @@ enum E_PLAYER_PET
     Float:idle_posY,
     Float:idle_posZ,
     Timer:petTimer
-}*/
+}
 
-//new PetData[MAX_PLAYERS][E_PLAYER_PET];
+new PetData[MAX_PLAYERS][E_PLAYER_PET];
 
 //=============================
 new PlayersOnline = 0,
@@ -11182,10 +11182,10 @@ public OnPlayerConnect(playerid)
     Entregando[playerid] = 0;
     TemCorrida[playerid] = 0;
 
-    /*PetData[playerid][petModel] = INVALID_ACTOR_ID;
+    PetData[playerid][petModel] = INVALID_ACTOR_ID;
     PetData[playerid][petText] = Text3D:INVALID_STREAMER_ID;
     PetData[playerid][petStatus] = PET_NONE;
-    PetData[playerid][petSpawn] = false;*/
+    PetData[playerid][petSpawn] = false;
 
     LastShoter[playerid] = 0;
     SalvandoConta[playerid] = 0;
@@ -14647,7 +14647,7 @@ public OnVehicleDeath(vehicleid, killerid)
 	}
 	return 1;
 }
-/*COMMAND:darpet(playerid, params[])
+COMMAND:darpet(playerid, params[])
 {
     new targetid, petmodel;
 	new petzin[256];
@@ -14677,7 +14677,7 @@ COMMAND:petmenu(playerid, params[])
     return 1;
 }
 
-UpdatePetText3D(playerid, Float:x, Float:y, Float:z)
+/*UpdatePetText3D(playerid, Float:x, Float:y, Float:z)
 {
     if(IsValidDynamic3DTextLabel(PetData[playerid][petText]))
     {
@@ -14686,7 +14686,7 @@ UpdatePetText3D(playerid, Float:x, Float:y, Float:z)
         Streamer_SetFloatData(STREAMER_TYPE_3D_TEXT_LABEL, PetData[playerid][petText], E_STREAMER_Z, z);
     }
     return 1;
-}
+}*/
 
 IsPetSpawned(playerid)
 {
@@ -14819,23 +14819,21 @@ PetStay(playerid)
 }
 
 
-PetFollow(playerid, targetid)
-{
+PetFollow(playerid, targetid) {
     if(!IsPetSpawned(playerid))
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "Seu cachorro não está spawnado.");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "Seu animal de estimação não está spawnado.");
 
-    if(IsValidActor(PetData[playerid][petModel]))
-    {
+    if(IsValidActor(PetData[playerid][petModel])) {
         if(PetData[playerid][petStatus] == PET_FOLLOW)
         {
-            PetData[playerid][petTimer] = repeat Pet_Update(playerid, targetid);
+            stop PetData[playerid][petTimer];
         }
         PetData[playerid][petStatus] = PET_FOLLOW;
         ClearActorAnimations(PetData[playerid][petModel]);
         PetData[playerid][petTimer] = repeat Pet_Update(playerid, targetid);
-        SendClientMessage(playerid, COLOR_LIGHTRED, "Agora seu cachorro está te seguindo!");
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Seu animal de estimação agora está acompanhando.");
     }
-    return 1;
+    return true;
 }
 
 PetName(playerid)
@@ -14886,40 +14884,39 @@ Dialog:PETMENU(playerid, response, listitem, inputtext[])
     }
     return 1;
 }
-Dialog:PET_MENU_FOLLOW(playerid, response, listitem, inputtext[])
-{
-    if(response)
-    {
+Dialog:PET_MENU_FOLLOW(playerid, response, listitem, inputtext[]) {
+    if(response) {
         new targetid;
-
         if(isnull(inputtext))
             return PetFollow(playerid, playerid);
 
         if(!IsNumeric(inputtext))
-            return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Pet Follow", "Input Player ID that you wanted your pet to follow!", "Follow", "Cancelar");
+            return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Segue", "{FFFFFF}Insira o ID do jogador que você deseja que seu animal de estimação siga:", "Seguir", "Cancelar");
 
         if(sscanf(inputtext, "u", targetid))
-            return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Pet Follow", "ERROR: Input playerid can't be empty!\n\nInput Player ID that you wanted your pet to follow!", "Follow", "Cancelar");
-    
+            return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Segue", "{FF0000}ERRO: O ID inserido é inválido.\n\n{FFFFFF}Insira o ID do jogador que você deseja que seu animal de estimação siga:", "Seguir", "Cancelar");
+
         if(targetid == INVALID_PLAYER_ID)
-            return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Pet Follow", "ERROR: Invalid player id!\n\nInput Player ID that you wanted your pet to follow!", "Follow", "Cancelar");
-
-
+            return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Segue", "{FF0000}ERRO: O jogador especificado é inválido.\n\n{FFFFFF}Insira o ID do jogador que você deseja que seu animal de estimação siga:", "Seguir", "Cancelar");
+        
+        if(!IsPlayerNearPlayer(playerid, targetid, 10.0)) return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Segue", "{FF0000}ERRO: O jogador especificado não está perto o suficiente.\n\n{FFFFFF}Insira o ID do jogador que você deseja que seu animal de estimação siga:", "Seguir", "Cancelar");
+        
         PetFollow(playerid, targetid);
-		new petzin[256];
-		format(petzin, sizeof(petzin), "Seu pet está seguindo %s.", ReturnName(targetid, 0));
-        SendClientMessage(playerid, COLOR_LIGHTRED, petzin);
+        //SendClientMessage(playerid, COLOR_LIGHTRED, "Seu animal de estimação agora está seguindo %s.", PlayerName(targetid)); corrigir mensagem pet system
+        /*format(logString, sizeof(logString), "%s colocou seu animal de estimação para seguir %s", PlayerName(targetid, 0), pNome(targetid));
+        logCreate(playerid, logString, 19);*/
     }
-    return 1;
+    return true;
 }
-stock Float:GetDistance2D(Float:x1, Float:y1, Float:x2, Float:y2) {
+
+Float:GetDistance2D(Float:x1, Float:y1, Float:x2, Float:y2) {
 	return floatsqroot(
 		((x1 - x2) * (x1 - x2)) +
 		((y1 - y2) * (y1 - y2))
 	);
 }
 
-stock Float:GetAbsoluteAngle(Float:angle) {
+Float:GetAbsoluteAngle(Float:angle) {
 	while(angle < 0.0) {
 		angle += 360.0;
 	}
@@ -14984,13 +14981,13 @@ IsValidPetModel(skinid)
     return 0;
 }
 
-timer Pet_Update[100](playerid, targetid)
-{
-    if(PetData[playerid][petModelID] != 0 && PetData[playerid][petSpawn] && PetData[playerid][petStatus] == PET_FOLLOW)
-    {
+forward Float:GetDistance2D(Float:x1, Float:y1, Float:x2, Float:y2);
+forward Float:GetAngleToPoint(Float:fPointX, Float:fPointY, Float:fDestX, Float:fDestY);
 
-        if(!IsPlayerConnected(targetid) || GetActorVirtualWorld(PetData[playerid][petModel]) != GetPlayerVirtualWorld(targetid))
-        {
+timer Pet_Update[100](playerid, targetid) {
+    if(PetData[playerid][petModelID] != 0 && PetData[playerid][petSpawn] && PetData[playerid][petStatus] == PET_FOLLOW) {
+
+        if(!IsPlayerConnected(targetid) || GetActorVirtualWorld(PetData[playerid][petModel]) != GetPlayerVirtualWorld(targetid)) {
             PetData[playerid][petStatus] = PET_STAY;
             stop PetData[playerid][petTimer];
             ClearActorAnimations(PetData[playerid][petModel]);
@@ -15009,68 +15006,48 @@ timer Pet_Update[100](playerid, targetid)
         actorAngle = (GetAngleToPoint(actorX, actorY, plrX, plrY));
 
         animIndex = GetPlayerAnimationIndex(targetid);
-        switch(animIndex)
-        {
-            case 1222..1236, 1246..1250:
-            {
+        switch(animIndex) {
+            case 1222..1236, 1246..1250: {
                 
-                if(GetDistance2D(plrX, plrY, actorX, actorY) > 3.0 && GetDistance2D(plrX, plrY, actorX, actorY) < 5.0)
-                {
+                if(GetDistance2D(plrX, plrY, actorX, actorY) > 2.0 && GetDistance2D(plrX, plrY, actorX, actorY) < 5.0) {
                     GetXYFromAngle(actorX, actorY, actorAngle, 0.1);
-                    ApplyActorAnimation(PetData[playerid][petModel], "ped", "WALK_civi", 4.1, 1, 1, 1, 1, 0);
+                    ApplyActorAnimation(PetData[playerid][petModel], "ped", "WALK_civi", 4.1, true, true, true, true, 0);
                     MapAndreas_FindZ_For2DCoord(actorX, actorY, actorZ);
                     SetFacingPlayer(PetData[playerid][petModel], targetid);
-                    if(PetData[playerid][petModelID] >= 20069) SetActorPos(PetData[playerid][petModel], actorX, actorY, actorZ);
-                    else SetActorPos(PetData[playerid][petModel], actorX, actorY, actorZ+1);
-
-                    //UpdatePetText3D(playerid, actorX, actorY, actorZ+1.5);
+                    SetActorPos(PetData[playerid][petModel], actorX, actorY, actorZ+1);
                 }
-                else if(GetDistance2D(plrX, plrY, actorX, actorY) >= 5.0)
-                {
+                else if(GetDistance2D(plrX, plrY, actorX, actorY) >= 5.0) {
                     GetXYFromAngle(actorX, actorY, actorAngle, 0.3);
-                    ApplyActorAnimation(PetData[playerid][petModel], "ped", "run_civi", 4.1, 1, 1, 1, 1, 0);
+                    ApplyActorAnimation(PetData[playerid][petModel], "ped", "run_civi", 4.1, true, true, true, true, 0);
                     MapAndreas_FindZ_For2DCoord(actorX, actorY, actorZ);
                     SetFacingPlayer(PetData[playerid][petModel], targetid);
-                    if(PetData[playerid][petModelID] >= 20069) SetActorPos(PetData[playerid][petModel], actorX, actorY, actorZ);
-                    else SetActorPos(PetData[playerid][petModel], actorX, actorY, actorZ+1);
-
-                    //UpdatePetText3D(playerid, actorX, actorY, actorZ+1.5);
+                    SetActorPos(PetData[playerid][petModel], actorX, actorY, actorZ+1);
                 }
             }
             default:
             {
-                if (GetDistance2D(plrX, plrY, actorX, actorY) > 3.0 && GetDistance2D(plrX, plrY, actorX, actorY) < 5.0)
-                {
+                if (GetDistance2D(plrX, plrY, actorX, actorY) > 2.0 && GetDistance2D(plrX, plrY, actorX, actorY) < 5.0) {
                     GetXYFromAngle(actorX, actorY, actorAngle, 0.1);
-                    ApplyActorAnimation(PetData[playerid][petModel], "ped", "WALK_civi", 4.1, 1, 1, 1, 1, 0);
+                    ApplyActorAnimation(PetData[playerid][petModel], "ped", "WALK_civi", 4.1, true, true, true, true, 0);
                     MapAndreas_FindZ_For2DCoord(actorX, actorY, actorZ);
                     SetFacingPlayer(PetData[playerid][petModel], targetid);
-                    if(PetData[playerid][petModelID] >= 20069) SetActorPos(PetData[playerid][petModel], actorX, actorY, actorZ);
-                    else SetActorPos(PetData[playerid][petModel], actorX, actorY, actorZ+1);
-
-                    //UpdatePetText3D(playerid, actorX, actorY, actorZ+1.5);
+                    SetActorPos(PetData[playerid][petModel], actorX, actorY, actorZ+1);
                 }
-                else if(GetDistance2D(plrX, plrY, actorX, actorY) >= 5.0)
-                {
+                else if(GetDistance2D(plrX, plrY, actorX, actorY) >= 5.0) {
                     GetXYFromAngle(actorX, actorY, actorAngle, 0.3);
-                    ApplyActorAnimation(PetData[playerid][petModel], "ped", "run_civi", 4.1, 1, 1, 1, 1, 0);
+                    ApplyActorAnimation(PetData[playerid][petModel], "ped", "run_civi", 4.1, true, true, true, true, 0);
                     MapAndreas_FindZ_For2DCoord(actorX, actorY, actorZ);
                     SetFacingPlayer(PetData[playerid][petModel], targetid);
-                    if(PetData[playerid][petModelID] >= 20069) SetActorPos(PetData[playerid][petModel], actorX, actorY, actorZ);
-                    else SetActorPos(PetData[playerid][petModel], actorX, actorY, actorZ+1);
-
-                    //UpdatePetText3D(playerid, actorX, actorY, actorZ+1.5);
+                    SetActorPos(PetData[playerid][petModel], actorX, actorY, actorZ+1);
                 }
-                else if(GetDistance2D(plrX, plrY, actorX, actorY) <= 3.0)
-                {
+                else if(GetDistance2D(plrX, plrY, actorX, actorY) <= 2.0) {
                     ClearActorAnimations(PetData[playerid][petModel]);
-                    //UpdatePetText3D(playerid, actorX, actorY, actorZ);
                 }
             }
         }
     }
-    return 1;
-}*/
+    return true;
+}
 
 COMMAND:aceitarcobranca(playerid,params[])
 {
@@ -20916,7 +20893,7 @@ public OnModelSelectionResponse(playerid, extraid, index, modelid, response)
             PlayerInfo[playerid][pBanTeam] = 0;
             PlayerInfo[playerid][pRefundTeam] = 0;
             PlayerInfo[playerid][pPropertyTeam] = 0;
-            //PetData[playerid][petModelID] = 0;
+            PetData[playerid][petModelID] = 0;
 			PlayerInfo[playerid][pExecComando] = 0;
 
 			//==================================================================
@@ -22112,7 +22089,7 @@ public SalvarPlayer(playerid)
 			PlayerInfo[playerid][pID]);
 		mysql_function_query(Pipeline, query, false, "", "");
 
-		format(query,sizeof(query),"UPDATE `accounts` SET `Etnia` = '%d', `Olhos` = '%d', `Peso` = '%d', `Altura` = '%d', `Cabelo` = '%d', `Fome` = '%d', `Sede` = '%d', `FactionTeam` = '%d', `BanTeam` = '%d', `RefundTeam` = '%d', `PropertyTeam` = '%d', `CortaRem` = '%d', `pAlgemado` = '%d', `trafico`='%d' WHERE `ID` = '%d'",
+		format(query,sizeof(query),"UPDATE `accounts` SET `Etnia` = '%d', `Olhos` = '%d', `Peso` = '%d', `Altura` = '%d', `Cabelo` = '%d', `Fome` = '%d', `Sede` = '%d', `FactionTeam` = '%d', `BanTeam` = '%d', `RefundTeam` = '%d', `PropertyTeam` = '%d', `CortaRem` = '%d', `pAlgemado` = '%d', `trafico`='%d', `dog`='%d' WHERE `ID` = '%d'",
 			PlayerInfo[playerid][pEtnia],
 			PlayerInfo[playerid][pOlhos],
 			PlayerInfo[playerid][pPeso],
@@ -22127,7 +22104,7 @@ public SalvarPlayer(playerid)
 			PlayerInfo[playerid][pCortaRem],
 			OutrasInfos[playerid][oAlgemado],
 			PlayerInfo[playerid][pTrafico],
-			//PetData[playerid][petModelID],
+			PetData[playerid][petModelID],
             PlayerInfo[playerid][pID]);
 		mysql_function_query(Pipeline, query, false, "", "");
 
@@ -44966,7 +44943,7 @@ public LoadAccountInfo(extraid)
         cache_get_field_content(0, "BanTeam", tmp);  PlayerInfo[extraid][pBanTeam] = strval(tmp);
         cache_get_field_content(0, "RefundTeam", tmp);  PlayerInfo[extraid][pRefundTeam] = strval(tmp);
         cache_get_field_content(0, "PropertyTeam", tmp);  PlayerInfo[extraid][pPropertyTeam] = strval(tmp);
-        //cache_get_field_content(0, "dog", tmp);  PetData[extraid][petModelID] = strval(tmp);
+        cache_get_field_content(0, "dog", tmp);  PetData[extraid][petModelID] = strval(tmp);
 
 
         cache_get_field_content(0, "desmanx", tmp);  OutrasInfos[extraid][oDesmancheX] = floatstr(tmp);

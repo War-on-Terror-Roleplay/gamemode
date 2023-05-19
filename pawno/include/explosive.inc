@@ -1,5 +1,5 @@
 #if !defined MAX_EXPLOSIVES
-	#define MAX_EXPLOSIVES (128)
+	#define MAX_EXPLOSIVES (80)
 #endif
 #if !defined EXP_STREAMER_AREA_IDENTIFIER
 	#define EXP_STREAMER_AREA_IDENTIFIER (680)

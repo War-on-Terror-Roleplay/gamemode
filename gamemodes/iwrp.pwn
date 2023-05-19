@@ -2393,6 +2393,7 @@ enum e_Account
 	pWaypoint,
 	pSalarios,
 	pCortaRem,
+	pMinaTerrestre,
 	pLocation[32],
 	Float:pWaypointPos[3],
 	pSlot1,
@@ -11418,6 +11419,7 @@ public OnPlayerConnect(playerid)
 	PlayerInfo[playerid][pPontos] = 0;
 	PlayerInfo[playerid][pSalarios] = 0;
 	PlayerInfo[playerid][pCortaRem] = 0;
+	PlayerInfo[playerid][pMinaTerrestre] = 0;
 	PlayerInfo[playerid][pKickAll] = 0;
 	PlayerInfo[playerid][pBanAll] = 0;
 	PlayerInfo[playerid][pBanido] = 0;
@@ -20730,7 +20732,7 @@ public SalvarPlayer(playerid)
 			PlayerInfo[playerid][pID]);
 		mysql_function_query(Pipeline, query, false, "", "");
 
-		format(query,sizeof(query),"UPDATE `accounts` SET `Etnia` = '%d', `Olhos` = '%d', `Peso` = '%d', `Altura` = '%d', `Cabelo` = '%d', `Fome` = '%d', `Sede` = '%d', `FactionTeam` = '%d', `BanTeam` = '%d', `RefundTeam` = '%d', `PropertyTeam` = '%d', `CortaRem` = '%d', `pAlgemado` = '%d', `trafico`='%d', `dog`='%d' WHERE `ID` = '%d'",
+		format(query,sizeof(query),"UPDATE `accounts` SET `Etnia` = '%d', `Olhos` = '%d', `Peso` = '%d', `Altura` = '%d', `Cabelo` = '%d', `Fome` = '%d', `Sede` = '%d', `FactionTeam` = '%d', `BanTeam` = '%d', `RefundTeam` = '%d', `PropertyTeam` = '%d', `CortaRem` = '%d', `pAlgemado` = '%d', `trafico`='%d', `dog`='%d', `minat`='%d' WHERE `ID` = '%d'",
 			PlayerInfo[playerid][pEtnia],
 			PlayerInfo[playerid][pOlhos],
 			PlayerInfo[playerid][pPeso],
@@ -20746,6 +20748,7 @@ public SalvarPlayer(playerid)
 			OutrasInfos[playerid][oAlgemado],
 			PlayerInfo[playerid][pTrafico],
 			PetData[playerid][petModelID],
+			PlayerInfo[playerid][pMinaTerrestre],
             PlayerInfo[playerid][pID]);
 		mysql_function_query(Pipeline, query, false, "", "");
 
@@ -27146,10 +27149,9 @@ public PegouMetaR(playerid)
 COMMAND:explosivo(playerid, params[])
 {
 	if (!PlayerInfo[playerid][pLogado])
-		return SCM(playerid, COLOR_LIGHTRED, "Você precisa está logado para usar este comando.");
+		return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa está logado para usar este comando.");
 
-	new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
-    if(FacInfo[FacId][fTipo] == FAC_TIPO_PMERJ || FacInfo[FacId][fTipo] == FAC_TIPO_PCERJ)
+	if(PlayerInfo[playerid][pMinaTerrestre] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem uma mina terrestre.");
 	{
 		static
 			specifier[16],
@@ -27206,6 +27208,8 @@ COMMAND:explosivo(playerid, params[])
 				e_TRIGGER:param,
 				.time = time,
 				.playerid = playerid);
+
+			PlayerInfo[playerid][pMinaTerrestre] = PlayerInfo[playerid][pMinaTerrestre]-1;
 		}
 
 		if (!strcmp(params, "desarmar"))
@@ -43464,6 +43468,7 @@ public LoadAccountInfo(extraid)
 		cache_get_field_content(0, "trafico", tmp);  PlayerInfo[extraid][pTrafico] = strval(tmp);
 		cache_get_field_content(0, "FabricouDroga", tmp); PlayerInfo[extraid][pFabricouD] = strval(tmp);
 		cache_get_field_content(0, "CortaRem", tmp); PlayerInfo[extraid][pCortaRem] = strval(tmp);
+		cache_get_field_content(0, "minat", tmp); PlayerInfo[extraid][pMinaTerrestre] = strval(tmp);
 		cache_get_field_content(0, "pHabDrug", tmp);  PlayerInfo[extraid][pHabDrug] = strval(tmp);
 		cache_get_field_content(0, "pArmasResetadas", tmp);  PlayerInfo[extraid][pArmasResetadas] = strval(tmp);
 		cache_get_field_content(0, "pEntrouGaragem", tmp);	PlayerInfo[extraid][pEntrouGaragem] = strval(tmp);
@@ -48551,7 +48556,18 @@ Dialog:Dialog_247Rua(playerid, response, listitem, inputtext[])
 				}
 				else SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem dinheiro o suficiente.");
 			}
-			case 10:
+		    case 10:
+		    {
+		        if(PlayerInfo[playerid][pGrana] >= 1200000)
+				{
+		 		    PlayerPlaySound(playerid,1054, 0.0, 0.0, 0.0);
+		 		    ApplyAnimation(playerid,"DEALER","shop_pay",3.0,0,0,0,0,0,1);
+
+					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-1200000;
+				}
+				else SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem dinheiro o suficiente.");
+			}
+			case 11:
 		    {
 		        if(PlayerInfo[playerid][pGrana] >= 50)
 		        {
@@ -48567,7 +48583,7 @@ Dialog:Dialog_247Rua(playerid, response, listitem, inputtext[])
 				}
 				else SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem dinheiro o suficiente.");
 			}
-			case 11:
+			case 12:
 		    {
 		        if(PlayerInfo[playerid][pGrana] >= 1200000)
 				{
@@ -48578,7 +48594,7 @@ Dialog:Dialog_247Rua(playerid, response, listitem, inputtext[])
 				}
 				else SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem dinheiro o suficiente.");
 			}
-		    case 12:
+		    case 13:
 		    {
 		        if(PlayerInfo[playerid][pGrana] >= 8)
 				{
@@ -48594,7 +48610,7 @@ Dialog:Dialog_247Rua(playerid, response, listitem, inputtext[])
 				}
 				else SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem dinheiro o suficiente.");
 			}
- 		    case 13:
+ 		    case 14:
  		    {
  		        if(PlayerInfo[playerid][pGrana] >= 12)
  		        {
@@ -48608,7 +48624,7 @@ Dialog:Dialog_247Rua(playerid, response, listitem, inputtext[])
 				    return 1;
 				}
  		    }
- 		    case 14:
+ 		    case 15:
  		    {
  		        if(PlayerInfo[playerid][pGrana] >= 18)
  		        {

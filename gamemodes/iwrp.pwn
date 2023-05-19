@@ -27286,27 +27286,27 @@ COMMAND:explosivo(playerid, params[])
 		if (!strcmp(params, "armar"))
 		{
 			if (GetPlayerArmedExplosives(playerid) >= MAX_PLAYER_EXPLOSIVES)
-				return SendClientMessage(playerid, COLOR_LIGHTRED, "Exploda alguns de seus explosivos armados.");
+				return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Exploda alguns de seus explosivos armados.");
 
 			if (IsPlayerNearAnyExplosive(playerid))
-				return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não pode armar explosivos ao lado do outro.");
+				return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode armar explosivos ao lado do outro.");
 
 			static
 				time;
 
 			if (sscanf(specifier, "i", param))
 			{
-				SendClientMessage(playerid, COLOR_WHITE, "/explosivo armar [tipo de explosivo]");
+				SendClientMessage(playerid, COLOR_WHITE, "INFO: /explosivo armar [tipo de explosivo]");
 				return SendClientMessage(playerid, COLOR_WHITE, "Tipos de explosivos: 0 cronometrado, 1 controlo remoto, 2 proximidade (minas terrestres)");
 			}
 
 			if (param == _:TIME)
 			{
 				if (sscanf(specifier, "ii", param, time))
-					return SendClientMessage(playerid, COLOR_WHITE, "/explosivo armar 0 [tempo até explodir (em segundos)]");
+					return SendClientMessage(playerid, COLOR_WHITE, "INFO: /explosivo armar 0 [tempo até explodir (em segundos)]");
 
 				if (!(5 <= time <= MAX_EXPLOSIVE_TIME))
-					return SendClientMessage(playerid, COLOR_LIGHTRED, "O tempo deve estar entre 5 a 900 (15 min) segundos.");
+					return SendClientMessage(playerid, COLOR_LIGHTRED, "INFO: O tempo deve estar entre 5 a 900 (15 min) segundos.");
 			}
 
 			ApplyAnimation(playerid, "BOMBER", "null", 0.0, 0, 0, 0, 0, 0, 0);
@@ -27350,12 +27350,12 @@ COMMAND:explosivo(playerid, params[])
 		{
 			if (sscanf(specifier, "i", param))
 			{
-				SendClientMessage(playerid, -1, "/explosivo explodir [id do explosivo]");
-				return SendClientMessage(playerid, -1, "Use o comando \"/explosivo lista\" para visualizar o ID de explosivos armados por você.");
+				SendClientMessage(playerid, COLOR_WHITE, "INFO: /explosivo explodir [id do explosivo]");
+				return SendClientMessage(playerid, COLOR_WHITE, "Use o comando \"/explosivo lista\" para visualizar o ID de explosivos armados por você.");
 			}
 
 			if (playerid != GetExplosiveOwner(param))
-				return SendClientMessage(playerid, COLOR_LIGHTRED, "Você só pode explodir explosivos colocados por você.");
+				return SendClientMessage(playerid, COLOR_LIGHTRED, "INFO: Você só pode explodir explosivos colocados por você.");
 
 			ExplodeExplosive(param);
 		}
@@ -27367,19 +27367,19 @@ COMMAND:explosivo(playerid, params[])
 
 			str[0] = EOS;
 
-			SendClientMessage(playerid, COLOR_WHITE, "Lista de explosivos que você armou:");
+			SendClientMessage(playerid, COLOR_WHITE, "INFO: Lista de explosivos que você armou:");
 
 			foreach (new i : Explosive)
 			{
 				if (GetExplosiveOwner(i) == playerid)
 				{
-					format(str, sizeof(str), "Explosivo #%i", i);
+					format(str, sizeof(str), "INFO: Explosivo #%i", i);
 					SendClientMessage(playerid, COLOR_WHITE, str);
 				}
 			}
 
 			if (!str[0])
-				SendClientMessage(playerid, COLOR_WHITE, "Você ainda não armou nenhum explosivo.");
+				SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você ainda não armou nenhum explosivo.");
 		}
 	}
 	return 1;
@@ -27388,13 +27388,13 @@ COMMAND:explosivo(playerid, params[])
 
 COMMAND:trap(playerid)
 {
-    if(!PlayerInfo[playerid][pLogado]) return SCM(playerid, COLOR_LIGHTRED, "Você precisa está logado para usar este comando.");
+    if(!PlayerInfo[playerid][pLogado]) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa está logado para usar este comando.");
 
-	new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
-    if(FacInfo[FacId][fTipo] == FAC_TIPO_PMERJ || FacInfo[FacId][fTipo] == FAC_TIPO_PCERJ)
+	/*new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
+    if(FacInfo[FacId][fTipo] == FAC_TIPO_PMERJ || FacInfo[FacId][fTipo] == FAC_TIPO_PCERJ)*/
     {
         if (GetPlayerNearbyTrap(playerid) != INVALID_TRAP_ID)
-			return SCM(playerid, COLOR_LIGHTRED, "ERRO: Você não pode colocar uma armadilha em cima da outra.");
+			return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode colocar uma armadilha em cima da outra.");
 
         static
             Float:x,
@@ -27409,7 +27409,7 @@ COMMAND:trap(playerid)
         static
             str[45];
 
-        format(str, sizeof(str), "Você plantou uma armadilha no chão. (%i)", trapid);
+        format(str, sizeof(str), "INFO: Você plantou uma armadilha no chão. (%i)", trapid);
         SendClientMessage(playerid, -1, str);
     }
     return 1;
@@ -48362,7 +48362,7 @@ CMD:comprar(playerid, params[])
 	}
 	else if(IsPlayerInRangeOfPoint(playerid, 5,  1488.6760,-1721.4026,8.2160))
 	{	
-		Dialog_Show(playerid, Dialog_Bomba, DIALOG_STYLE_TABLIST_HEADERS, "Mercado Negro", "Produto\tPreço\n1x Dinamite [US$200]\n1x C4 [US$400]\n1x TNT [US$800]\n1x Mina Terrestre [US$150]", "Comprar", "Cancelar");
+		Dialog_Show(playerid, Dialog_Bomba, DIALOG_STYLE_TABLIST_HEADERS, "Mercado Negro", "Produto\tPreço\n1x Dinamite\tUS$200\n1x C4\tUS$400\n1x TNT\tUS$800\n1x Mina Terrestre\tUS$150", "Comprar", "Cancelar");
 	}
 	else if(IsPlayerInRangeOfPoint(playerid, 5, 2114.7300,-1806.5607,13.5616)) //Stacked aberta
 	{
@@ -48423,7 +48423,7 @@ Dialog:Dialog_Bomba(playerid, response, listitem, inputtext[])
 		    {
 		        if(PlayerInfo[playerid][pGrana] >= 150)
 				{
-					PlayerInfo[playerid][pTNT]++;
+					PlayerInfo[playerid][pMinaTerrestre]++;
 					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Bombas] Você comprou uma mina terrestre por US$150.");
 					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-150;
 				}

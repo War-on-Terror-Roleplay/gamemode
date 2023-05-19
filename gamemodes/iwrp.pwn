@@ -8563,8 +8563,8 @@ public PayDay(playerid) {
 
 			if(PlayerInfo[playerid][pLevel] >= 4 && PlayerInfo[playerid][pAjudaInicialDim] != 1) {
 			    PlayerInfo[playerid][pAjudaInicialDim] = 1;
-			    SendClientMessage(playerid,COLOR_LIGHTGREEN,"- Foi depositado em seu banco US$5.000 referente a ajuda do TC 4.");
-			    PlayerInfo[playerid][pBanco]+= 5000;
+			    SendClientMessage(playerid,COLOR_LIGHTGREEN,"- Foi depositado em seu banco US$25.000 referente a ajuda do TC 4.");
+			    PlayerInfo[playerid][pBanco]+= 25000;
 			}
 
 			if(PlayerInfo[playerid][pMascaraU] != 2) SetPlayerScore(playerid, PlayerInfo[playerid][pLevel]);

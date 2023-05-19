@@ -13521,14 +13521,14 @@ COMMAND:darpet(playerid, params[])
     if(PlayerInfo[playerid][pAdmin] <= 5) return SendClientMessage(playerid, COLOR_LIGHTRED, "{FFFFFF}Você não é um administrador.");
 
     if(sscanf(params, "ud", targetid, petmodel))
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "/darpet [playerid] [petmodel]");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: /darpet [playerid] [petmodel]");
 
     if(!IsValidPetModel(petmodel))
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "Modelo de cachorro invalido!");   
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Modelo de cachorro invalido!");   
 
     PetData[targetid][petModelID] = petmodel;
     format(petzin, sizeof(petzin), PetData[targetid][petName], 128, "Jack");
-    format(petzin, sizeof(petzin), "Você deu um pet para %s, modelo: ", PlayerName(targetid, 0), petmodel);
+    format(petzin, sizeof(petzin), "Você deu um pet para %s, modelo: %d.", PlayerName(targetid, 0), petmodel);
     SendClientMessage(playerid, COLOR_WHITE, petzin);
 
     return 1;
@@ -13537,7 +13537,10 @@ COMMAND:darpet(playerid, params[])
 COMMAND:petmenu(playerid, params[])
 {
     if(!PetData[playerid][petModelID])
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "You dont have a pet!");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não possui um pet.");
+
+	if(PlayerInfo[playerid][pDoador] <= 2)
+		return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não possui premium ouro ativo.");
 
     ShowPetMenu(playerid);
     return 1;

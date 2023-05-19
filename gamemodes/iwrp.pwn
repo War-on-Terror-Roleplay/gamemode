@@ -3035,7 +3035,7 @@ static LOJA_OUTROS_PMERJ[14] = {
 	-2125, -2105, -2127, -2108, 
 	-2128, -2100
 };
-//======== [PROTEGE]======//
+//======== [BRINKS]======//
 static PROTEGE_Uniformes[4] = {
     20501, 20503, 20504, 20505
 };
@@ -3067,7 +3067,7 @@ static LOJA_OUTROS_PCERJ[6] = {
 	-2055, -2106
 };
 
-//======== [EB]======//
+//======== [DEVGRU]======//
 static EB_Uniformes[18] = {
     20401, 20402, 20403, 20404,
 	20405, 20406, 20407, 20408,
@@ -3091,7 +3091,7 @@ static LOJA_OUTROS_EB[8] = {
 	-2120, -2107, -2103, -2112
 };
 
-//======== [CBERJ]======//
+//======== [MEDIC]======//
 static CBERJ_Uniformes[37] = {
 	20301, 20302, 20303, 20304,
 	20305, 20306, 20307, 20308,
@@ -4008,7 +4008,7 @@ new VehicleNames[213][256] = {
    "Dodo",
    "RC Cam",
    "Launch",
-   "PMERJ",//PMERJ
+   "LSPD",//USMC
    "SFPD",//SFPD
    "LVPD",//LVPD
    "Police Ranger",
@@ -6216,7 +6216,7 @@ public OnGameModeInit()
 	CreateDynamic3DTextLabel("[PCERJ]\n/entrar", 0xffffffff, 1400.2490,-12.1037,1001.0098, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
 	CreatePickup(1239, 1, 1400.2490,-12.1037,1001.0098, 0); 
 
-	CreateDynamic3DTextLabel("[PMERJ]\n/entrar", 0xffffffff, 2514.5640,-1525.5608,24.0324, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
+	CreateDynamic3DTextLabel("[USMC]\n/entrar", 0xffffffff, 2514.5640,-1525.5608,24.0324, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
 	CreatePickup(1239, 1, 2514.5640,-1525.5608,24.0324, 0); 
 
     CreateDynamic3DTextLabel("[CENTRO DE EMPREGOS]\nUse '/pegaremprego'", 0x008080FF, 1414.9390,-1576.9739,20.0859, 40.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
@@ -6228,7 +6228,7 @@ public OnGameModeInit()
     CreateDynamic3DTextLabel("[CENTRAL DE ANÚNCIOS]\nUse '/anuncio'\nUse '/anuncioemp'", 0xffffffff, 1166.6110,-1473.7046,15.7921, 40.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
     CreatePickup(1239, 1, 1166.6110,-1473.7046,15.7921, -1);
     
-	CreateDynamic3DTextLabel("[PMERJ]\n/reparar", 0xffffffff, 2507.6438,-1551.7308,24.0324, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
+	CreateDynamic3DTextLabel("[USMC]\n/reparar", 0xffffffff, 2507.6438,-1551.7308,24.0324, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
     CreatePickup(1239, 1, 2507.6438,-1551.7308,24.0324, 0);
 
 	CreateDynamic3DTextLabel("[PCERJ]\n/reparar", 0xffffffff, 1720.7937,-1578.8098,13.5547, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
@@ -6248,7 +6248,7 @@ public OnGameModeInit()
 
 	CreateDynamic3DTextLabel("[GARAGEM]\n/entrar", 0xffffffff, 2501.8635,-1564.3923,24.0324, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
     CreatePickup(1239, 1, 2501.8635,-1564.3923,24.0324, 0);
-	//PROTEGE
+	//BRINKS
 	CreateDynamic3DTextLabel("[GARAGEM]\n/entrar", 0xffffffff, 1772.9445,-1543.1234,13.6688, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
 	CreatePickup(1239, 1, 1772.9445,-1543.1234,13.6688, 0);
 
@@ -6764,7 +6764,7 @@ public CarregarPortoes()
 			{
 			    PortaoInfo[IdFac][ptObjeto] = CreateDynamicObject(PortaoInfo[IdFac][ptModelo], PortaoInfo[IdFac][ptX], PortaoInfo[IdFac][ptY], PortaoInfo[IdFac][ptZ], PortaoInfo[IdFac][ptRX], PortaoInfo[IdFac][ptRY], PortaoInfo[IdFac][ptRZ], PortaoInfo[IdFac][ptWorld], PortaoInfo[IdFac][ptInt]);
        			PortaoInfo[IdFac][ptAberto] = 0;
-				if(PortaoInfo[IdFac][ptModelo] == 190)
+				if(PortaoInfo[IdFac][ptModelo] == 911)
 				{
 				    SetDynamicObjectMaterial(PortaoInfo[IdFac][ptModelo], 0, 5422, "idlewood6_lae", "LoadingDoorClean", 0xFFFFFFFF);
 				}
@@ -7267,12 +7267,12 @@ public EntregandoArmaSQL(playerid, armaid, extra, equipar, raspada)
 				if(equipar == 1)
 				{
 				    new strl1[24];
-				    if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PMERJ) format(strl1, sizeof(strl1), "PMERJ");
+				    if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PMERJ) format(strl1, sizeof(strl1), "USMC");
                     else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PCERJ) format(strl1, sizeof(strl1), "PCERJ");
-                    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_CBERJ) format(strl1, sizeof(strl1), "CBERJ");
-				    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_GOV) format(strl1, sizeof(strl1), "GOVRJ");
-				    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_TJRP) format(strl1, sizeof(strl1), "TJRJ");
-					else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_BANK) format(strl1, sizeof(strl1), "PROTEGE");
+                    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_CBERJ) format(strl1, sizeof(strl1), "MEDIC");
+				    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_GOV) format(strl1, sizeof(strl1), "US GOV");
+				    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_TJRP) format(strl1, sizeof(strl1), "DOJ");
+					else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_BANK) format(strl1, sizeof(strl1), "BRINKS");
 					else format(strl1, sizeof(strl1), "Nenhum");
 
 	                new strl[326];
@@ -7348,12 +7348,12 @@ public ArmaEntregueComSucesso(playerid,armaid,ammo,extra,equipar,raspada)
     	if(equipar == 1)
 		{
   			new strl1[24];
-	    	if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PMERJ) format(strl1, sizeof(strl1), "PMERJ");
+	    	if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PMERJ) format(strl1, sizeof(strl1), "USMC");
             else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PCERJ) format(strl1, sizeof(strl1), "PCERJ");
-            else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_CBERJ) format(strl1, sizeof(strl1), "CBERJ");
-		    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_GOV) format(strl1, sizeof(strl1), "GOVRJ");
+            else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_CBERJ) format(strl1, sizeof(strl1), "MEDIC");
+		    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_GOV) format(strl1, sizeof(strl1), "US GOV");
 		    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_TJRP) format(strl1, sizeof(strl1), "TJRP");
-			else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_BANK) format(strl1, sizeof(strl1), "PROTEGE");
+			else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_BANK) format(strl1, sizeof(strl1), "BRINKS");
 			else format(strl1, sizeof(strl1), "Nenhum");
 
 			new strl[326];
@@ -8760,8 +8760,8 @@ public Timer_Celular()
 					}
 
 					new strnumb[24];
-					if(CelularData[playerid][LigandoParaNum] == 190 || CelularData[playerid][LigandoParaNum] == 191 || CelularData[playerid][LigandoParaNum] == 192 || CelularData[playerid][LigandoParaNum] == 193
-					|| CelularData[playerid][LigandoParaNum] == 194 || CelularData[playerid][LigandoParaNum] == 195 || CelularData[playerid][LigandoParaNum] == 196) format(strnumb,sizeof(strnumb),"90");
+					if(CelularData[playerid][LigandoParaNum] == 911 || CelularData[playerid][LigandoParaNum] == 912 || CelularData[playerid][LigandoParaNum] == 913 || CelularData[playerid][LigandoParaNum] == 914
+					|| CelularData[playerid][LigandoParaNum] == 915 || CelularData[playerid][LigandoParaNum] == 916 || CelularData[playerid][LigandoParaNum] == 917) format(strnumb,sizeof(strnumb),"90");
 					else format(strnumb,sizeof(strnumb),"%d",CelularData[playerid][LigandoParaNum]);
 
 			 		new str[56],strhora[10],strmim[10],strseg[10];
@@ -14456,7 +14456,7 @@ public OnPlayerText(playerid, text[])
 					}
 					return 0;
 				}
-		        case 190: // Emergencia
+		        case 911: // Emergencia
 				{
 	                if(strfind(text, "policia", true) != -1 || strfind(text, "policia", true) != -1 || strfind(text, "POLICIA", true) != -1)
 	                {
@@ -14520,7 +14520,7 @@ public OnPlayerText(playerid, text[])
 					    return 0;
 					}
 				}
-				case 191: // Emergencia > PMERJ - Nome
+				case 912: // Emergencia > USMC - Nome
 				{
 				    format(str, sizeof(str), "%s diz (celular): %s", PlayerName(playerid, 1), text);
 				    ProxDetectorJanela(DISTANCIA_CHAT, playerid, str, COLOR_FADE1, COLOR_FADE2, COLOR_FADE3, COLOR_FADE4, COLOR_FADE5);
@@ -14542,7 +14542,7 @@ public OnPlayerText(playerid, text[])
 				    CelularData[playerid][LigandoParaNum] = 192;
 					return 0;
 				}
-				case 192: // Emergencia > PMERJ - Localização
+				case 913: // Emergencia > USMC - Localização
 				{
 				    format(str, sizeof(str), "%s diz (celular): %s", PlayerName(playerid, 1), text);
 				    ProxDetectorJanela(DISTANCIA_CHAT, playerid, str, COLOR_FADE1, COLOR_FADE2, COLOR_FADE3, COLOR_FADE4, COLOR_FADE5);
@@ -14564,7 +14564,7 @@ public OnPlayerText(playerid, text[])
 
 				    return 0;
 				}
-				case 193: // Emergencia > PMERJ - Final
+				case 914: // Emergencia > USMC - Final
 				{
 				    format(str, sizeof(str), "%s diz (celular): %s", PlayerName(playerid, 1), text);
 				    ProxDetectorJanela(DISTANCIA_CHAT, playerid, str, COLOR_FADE1, COLOR_FADE2, COLOR_FADE3, COLOR_FADE4, COLOR_FADE5);
@@ -14584,9 +14584,9 @@ public OnPlayerText(playerid, text[])
 					//Conteudo a enviar via 911
                     new Nome[24]; GetPVarString(playerid, "911_Nome", Nome, 24);
 					new Local[24]; GetPVarString(playerid, "911_Local", Local, 24);
-					SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCIA POLICIAL__________|");
-                    SendFacMessage(COLOR_LIGHTBLUE, 2, "|__________EMERGENCIA POLICIAL__________|");
-					SendFacMessage(COLOR_LIGHTBLUE, 5, "|__________EMERGENCIA EXÉRCITO__________|");
+					//SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCY NOTIFICATION__________|");
+                    //SendFacMessage(COLOR_LIGHTBLUE, 2, "|__________EMERGENCY NOTIFICATION__________|");
+					//SendFacMessage(COLOR_LIGHTBLUE, 5, "|__________EMERGENCY NOTIFICATION__________|");
 					new orelhao_id = 999;
 					if(CelularData[playerid][LigandoOrelhaoAtendido] == 1)
 					{
@@ -14595,39 +14595,39 @@ public OnPlayerText(playerid, text[])
 					    {
 	    					format(str, sizeof(str), "Relator: %s Contato: #024-%.3s-%.3s", Nome, TelPublico[orelhao_id][orPrefixo],TelPublico[orelhao_id][orNumero]);
    							SendFacMessage(COLOR_LIGHTBLUE, 1, str);
-                            SendFacMessage(COLOR_LIGHTBLUE, 2, str);
-							SendFacMessage(COLOR_LIGHTBLUE, 5, str);
+                           // SendFacMessage(COLOR_LIGHTBLUE, 2, str);
+							//SendFacMessage(COLOR_LIGHTBLUE, 5, str);
 						}
 						else
 						{
 						    format(str, sizeof(str), "Relator: %s Contato: #%d", Nome, CelularData[playerid][celNumero]);
    							SendFacMessage(COLOR_LIGHTBLUE, 1, str);
-                            SendFacMessage(COLOR_LIGHTBLUE, 2, str);
-							SendFacMessage(COLOR_LIGHTBLUE, 5, str);
+                            //SendFacMessage(COLOR_LIGHTBLUE, 2, str);
+							//SendFacMessage(COLOR_LIGHTBLUE, 5, str);
 						}
 					}
 					else
 					{
      					format(str, sizeof(str), "Relator: %s Contato: #%d", Nome, CelularData[playerid][celNumero]);
    						SendFacMessage(COLOR_LIGHTBLUE, 1, str);
-                        SendFacMessage(COLOR_LIGHTBLUE, 2, str);
-						SendFacMessage(COLOR_LIGHTBLUE, 5, str);
+                        //SendFacMessage(COLOR_LIGHTBLUE, 2, str);
+						//SendFacMessage(COLOR_LIGHTBLUE, 5, str);
 					}
 
                     new location[MAX_ZONE_NAME];
 					GetPlayer2DZone(playerid, location, MAX_ZONE_NAME);
 					format(str, sizeof(str), "Local: %s", Local);
 	                SendFacMessage(COLOR_LIGHTBLUE, 1, str);
-                    SendFacMessage(COLOR_LIGHTBLUE, 2, str);
-					SendFacMessage(COLOR_LIGHTBLUE, 5, str);
+                    //SendFacMessage(COLOR_LIGHTBLUE, 2, str);
+					//SendFacMessage(COLOR_LIGHTBLUE, 5, str);
 	                format(str, sizeof(str), "Situação: %s", text);
 	                SendFacMessage(COLOR_LIGHTBLUE, 1, str);
-                    SendFacMessage(COLOR_LIGHTBLUE, 2, str);
-					SendFacMessage(COLOR_LIGHTBLUE, 5, str);
+                    //SendFacMessage(COLOR_LIGHTBLUE, 2, str);
+					//SendFacMessage(COLOR_LIGHTBLUE, 5, str);
 	                format(str, sizeof(str), "Rastreador: %s",location);
 	                SendFacMessage(COLOR_LIGHTBLUE, 1, str);
-                    SendFacMessage(COLOR_LIGHTBLUE, 2, str);
-					SendFacMessage(COLOR_LIGHTBLUE, 5, str);
+                    //SendFacMessage(COLOR_LIGHTBLUE, 2, str);
+					//SendFacMessage(COLOR_LIGHTBLUE, 5, str);
 
                     if(strfind(text, "'") != -1)
 					{
@@ -14653,7 +14653,7 @@ public OnPlayerText(playerid, text[])
 
 					return 0;
 				}
-				case 194: // Emergencia > CBERJ - Nome
+				case 915: // Emergencia > CBERJ - Nome
 				{
 				    format(str, sizeof(str), "%s diz (celular): %s", PlayerName(playerid, 1), text);
 				    ProxDetectorJanela(DISTANCIA_CHAT, playerid, str, COLOR_FADE1, COLOR_FADE2, COLOR_FADE3, COLOR_FADE4, COLOR_FADE5);
@@ -14674,7 +14674,7 @@ public OnPlayerText(playerid, text[])
 				    CelularData[playerid][LigandoParaNum] = 195;
 					return 0;
 				}
-				case 195: // Emergencia > CBERJ - Localização
+				case 916: // Emergencia > CBERJ - Localização
 				{
 				    format(str, sizeof(str), "%s diz (celular): %s", PlayerName(playerid, 1), text);
 				    ProxDetectorJanela(DISTANCIA_CHAT, playerid, str, COLOR_FADE1, COLOR_FADE2, COLOR_FADE3, COLOR_FADE4, COLOR_FADE5);
@@ -14696,7 +14696,7 @@ public OnPlayerText(playerid, text[])
 
 				    return 0;
 				}
-				case 196: // Emergencia > CBERJ - Final
+				case 917: // Emergencia > CBERJ - Final
 				{
 				    format(str, sizeof(str), "%s diz (celular): %s", PlayerName(playerid, 1), text);
 				    ProxDetectorJanela(DISTANCIA_CHAT, playerid, str, COLOR_FADE1, COLOR_FADE2, COLOR_FADE3, COLOR_FADE4, COLOR_FADE5);
@@ -27470,15 +27470,11 @@ COMMAND:traficar(playerid,params[])
 			new location[MAX_ZONE_NAME];
 			GetPlayer2DZone(playerid, location, MAX_ZONE_NAME);
 			new str[126];
-			SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCIA POLICIAL__________|");
-			SendFacMessage(COLOR_LIGHTBLUE, 2, "|__________EMERGENCIA POLICIAL__________|");
+			SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCY NOTIFICATION__________|");
 			SendFacMessage(COLOR_LIGHTBLUE, 1, "Relator: Anonimo, Contato: Orelhão");
-			SendFacMessage(COLOR_LIGHTBLUE, 2, "Relator: Anonimo, Contato: Orelhão");
 			SendFacMessage(COLOR_LIGHTBLUE, 1, "Situação: Tem uma pessoa vendendo cocaína, possivelmente armada e drogada.");
-			SendFacMessage(COLOR_LIGHTBLUE, 2, "Situação: Tem uma pessoa vendendo cocaína, possivelmente armada e drogada.");
 			format(str, sizeof(str), "Local: %s",location);
 			SendFacMessage(COLOR_LIGHTBLUE, 1, str);
-			SendFacMessage(COLOR_LIGHTBLUE, 2, str);
 		
 			new strl[126];
 			format(strl, 126, "%s vendeu droga pro Actor. [/traficar cocainaE]", PlayerName(playerid, 0));
@@ -27523,15 +27519,11 @@ COMMAND:traficar(playerid,params[])
 			new location[MAX_ZONE_NAME];
 			GetPlayer2DZone(playerid, location, MAX_ZONE_NAME);
 			new str[126];
-			SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCIA POLICIAL__________|");
-			SendFacMessage(COLOR_LIGHTBLUE, 2, "|__________EMERGENCIA POLICIAL__________|");
+			SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCY NOTIFICATION__________|");
 			SendFacMessage(COLOR_LIGHTBLUE, 1, "Relator: Anonimo, Contato: Orelhão");
-			SendFacMessage(COLOR_LIGHTBLUE, 2, "Relator: Anonimo, Contato: Orelhão");
 			SendFacMessage(COLOR_LIGHTBLUE, 1, "Situação: Tem uma pessoa vendendo cocaína, possivelmente armada e drogada.");
-			SendFacMessage(COLOR_LIGHTBLUE, 2, "Situação: Tem uma pessoa vendendo cocaína, possivelmente armada e drogada.");
 			format(str, sizeof(str), "Local: %s",location);
 			SendFacMessage(COLOR_LIGHTBLUE, 1, str);
-			SendFacMessage(COLOR_LIGHTBLUE, 2, str);
 		
 			new strl[126];
 			format(strl, 126, "%s vendeu droga pro Actor. [/traficar cocaina]", PlayerName(playerid, 0));
@@ -27576,15 +27568,11 @@ COMMAND:traficar(playerid,params[])
 			new location[MAX_ZONE_NAME];
 			GetPlayer2DZone(playerid, location, MAX_ZONE_NAME);
 			new str[126];
-			SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCIA POLICIAL__________|");
-			SendFacMessage(COLOR_LIGHTBLUE, 2, "|__________EMERGENCIA POLICIAL__________|");
+			SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCY NOTIFICATION__________|");
 			SendFacMessage(COLOR_LIGHTBLUE, 1, "Relator: Anonimo, Contato: Orelhão");
-			SendFacMessage(COLOR_LIGHTBLUE, 2, "Relator: Anonimo, Contato: Orelhão");
 			SendFacMessage(COLOR_LIGHTBLUE, 1, "Situação: Tem uma pessoa vendendo maconha, possivelmente armada e drogada.");
-			SendFacMessage(COLOR_LIGHTBLUE, 2, "Situação: Tem uma pessoa vendendo maconha, possivelmente armada e drogada.");
 			format(str, sizeof(str), "Local: %s",location);
 			SendFacMessage(COLOR_LIGHTBLUE, 1, str);
-			SendFacMessage(COLOR_LIGHTBLUE, 2, str);
 		
 			new strl[126];
 			format(strl, 126, "%s vendeu droga pro Actor. [/traficar MaconhaE]", PlayerName(playerid, 0));
@@ -28250,15 +28238,11 @@ COMMAND:explodir(playerid,params[])
 					ProxDetector(500.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
 
 					new str[126];
-					SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCIA POLICIAL__________|");
-					SendFacMessage(COLOR_LIGHTBLUE, 2, "|__________EMERGENCIA POLICIAL__________|");
+					SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCY NOTIFICATION__________|");
 					SendFacMessage(COLOR_LIGHTBLUE, 1, "Relator: Anonimo, Contato: Orelhão");
-					SendFacMessage(COLOR_LIGHTBLUE, 2, "Relator: Anonimo, Contato: Orelhão");
 					SendFacMessage(COLOR_LIGHTBLUE, 1, "Situação: Socorro, estão roubando a joalheria, venham rápido.");
-					SendFacMessage(COLOR_LIGHTBLUE, 2, "Situação: Socorro, estão explodindo a joalheria venham rápido.");
 					format(str, sizeof(str), "Local: %s",location);
 					SendFacMessage(COLOR_LIGHTBLUE, 1, str);
-					SendFacMessage(COLOR_LIGHTBLUE, 2, str);
 					new Float:x, Float:y, Float:z, Float:Distance = 25.0;
     				GetPlayerPos(playerid, x, y, z);
  					PlayAudioStreamForPlayer(playerid, "http://localhost/midia/alarme_casa.mp3", x, y, z, Distance, 1);
@@ -28331,15 +28315,11 @@ COMMAND:explodir(playerid,params[])
 					ProxDetector(500.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
 
 					new str[126];
-					SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCIA POLICIAL__________|");
-					SendFacMessage(COLOR_LIGHTBLUE, 2, "|__________EMERGENCIA POLICIAL__________|");
+					SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCY NOTIFICATION__________|");
 					SendFacMessage(COLOR_LIGHTBLUE, 1, "Relator: Anonimo, Contato: Orelhão");
-					SendFacMessage(COLOR_LIGHTBLUE, 2, "Relator: Anonimo, Contato: Orelhão");
-					SendFacMessage(COLOR_LIGHTBLUE, 1, "Situação: Socorro, estão roubando a Caixa Economica, venham rápido.");
-					SendFacMessage(COLOR_LIGHTBLUE, 2, "Situação: Socorro, estão roubando a Caixa Economica, venham rápido.");
+					SendFacMessage(COLOR_LIGHTBLUE, 1, "Situação: Socorro, estão roubando o Banco, venham rápido.");
 					format(str, sizeof(str), "Local: %s",location);
 					SendFacMessage(COLOR_LIGHTBLUE, 1, str);
-					SendFacMessage(COLOR_LIGHTBLUE, 2, str);
 
 					SendAdminAlert(COLOR_LIGHTRED, "AdmCmd:{FFFFFF} %s acaba de utilizar o comando /explodir banco.", PlayerName(playerid, 0));
 						
@@ -28408,19 +28388,15 @@ COMMAND:explodir(playerid,params[])
 					ProxDetector(200.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
 
 
-					SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCIA POLICIAL__________|");
-					SendFacMessage(COLOR_LIGHTBLUE, 2, "|__________EMERGENCIA POLICIAL__________|");
+					SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCY NOTIFICATION__________|");
 					SendFacMessage(COLOR_LIGHTBLUE, 1, "Relator: Anonimo, Contato: Orelhão");
-					SendFacMessage(COLOR_LIGHTBLUE, 2, "Relator: Anonimo, Contato: Orelhão");
 					SendFacMessage(COLOR_LIGHTBLUE, 1, "Situação: Socorro, estão explodindo o cofre da loja, venham rápido.");
-					SendFacMessage(COLOR_LIGHTBLUE, 2, "Situação: Socorro, estão explodindo o cofre da loja, venham rápido.");
 
 					new location[MAX_ZONE_NAME];
 					Get2DZone(location, TOTAL_ZONE_NAME, cLoja[i][clposX], cLoja[i][clposY], cLoja[i][clposZ]);
 
 					format(string, sizeof(string), "Local: %s",location);
 					SendFacMessage(COLOR_LIGHTBLUE, 1, string);
-					SendFacMessage(COLOR_LIGHTBLUE, 2, string);
 
 
 
@@ -28501,15 +28477,11 @@ COMMAND:explodir(playerid,params[])
 					ProxDetector(500.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
 
 					new str[126];
-					SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCIA POLICIAL__________|");
-					SendFacMessage(COLOR_LIGHTBLUE, 2, "|__________EMERGENCIA POLICIAL__________|");
+					SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCY NOTIFICATION__________|");
 					SendFacMessage(COLOR_LIGHTBLUE, 1, "Relator: Anonimo, Contato: Orelhão");
-					SendFacMessage(COLOR_LIGHTBLUE, 2, "Relator: Anonimo, Contato: Orelhão");
 					SendFacMessage(COLOR_LIGHTBLUE, 1, "Situação: Socorro, estão explodindo um caixa eletronico, venham rápido.");
-					SendFacMessage(COLOR_LIGHTBLUE, 2, "Situação: Socorro, estão explodindo um caixa eletronico, venham rápido.");
 					format(str, sizeof(str), "Local: %s",location);
 					SendFacMessage(COLOR_LIGHTBLUE, 1, str);
-					SendFacMessage(COLOR_LIGHTBLUE, 2, str);
 
 					SendAdminAlert(COLOR_LIGHTRED, "AdmCmd:{FFFFFF} %s acaba de utilizar o comando /explodir caixa.", PlayerName(playerid, 0));
 						
@@ -28830,8 +28802,7 @@ public ExplodindoBanco(playerid)
 			cbanco[i][cbRrombado] = 1;
 			PlayerInfo[playerid][pTNT]--;
 
-			SendFacMessage(COLOR_LIGHTBLUE, 1, "Maré-0: Uma explosão na Avenida da Ammu-Nation, caixa federal.");
-			SendFacMessage(COLOR_LIGHTBLUE, 2, "Maré-0: Uma explosão na Avenida da Ammu-Nation, caixa federal.");
+			SendFacMessage(COLOR_LIGHTBLUE, 1, "QG: Uma explosão no Bank of America, todas unidades para o local.");
 
 			new stringBCofre[256];
 			format(stringBCofre, sizeof(stringBCofre), "* Uma grande explosão acontece no banco *");
@@ -29965,7 +29936,7 @@ COMMAND:portao(playerid, params[])
 		   		        pport++;
 		   		    }
 				}
-				else if(PortaoInfo[i][ptFac] == 190 && IsLaw(playerid))
+				else if(PortaoInfo[i][ptFac] == 911 && IsLaw(playerid))
 	   		    {
 		   		    if(!PortaoInfo[i][ptAberto])
 		   		    {
@@ -31538,7 +31509,7 @@ CMD:ajudafaccao(playerid, params[])
     if(!PlayerInfo[playerid][pLogado]) return 1;
     SendClientMessage(playerid, COLOR_LIGHTGREEN, "_______________________________________");
     new faccao = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
-    if(FacInfo[faccao][fTipo] == FAC_TIPO_PMERJ) // PMERJ
+    if(FacInfo[faccao][fTipo] == FAC_TIPO_PMERJ) // USMC
     {
         SendClientMessage(playerid, COLOR_WHITE, "*** AJUDA FACCAO ***");
 		SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** Canal de rádio: 190");
@@ -31586,7 +31557,7 @@ CMD:ajudafaccao(playerid, params[])
             SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /cargo /nomecargo /convidar /demitir");
         }
     }
-  	if(FacInfo[faccao][fTipo] == FAC_TIPO_EB) // EB
+  	if(FacInfo[faccao][fTipo] == FAC_TIPO_EB) // DEVGRU
     {
         SendClientMessage(playerid, COLOR_WHITE, "*** AJUDA FACCAO ***");
 		SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** Canal de rádio: 180");
@@ -31605,7 +31576,7 @@ CMD:ajudafaccao(playerid, params[])
             SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /cargo /nomecargo /convidar /demitir");
         }
     }
-    if(FacInfo[faccao][fTipo] == FAC_TIPO_CBERJ) // CBERJ
+    if(FacInfo[faccao][fTipo] == FAC_TIPO_CBERJ) // MEDIC
     {
         SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACÇÃO *** Canal de rádio: 193");
         SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** (/r)adio /rbaixo (radio baixo) /f /membros /cocb /nickgb /nickbranco /distintivo");
@@ -31972,14 +31943,14 @@ COMMAND:equipargb(playerid, params[])
             {
                 case 407, 544:
                 {
-                    Dialog_Show(playerid, Equipando_GB, DIALOG_STYLE_LIST, "[CBERJ] Bombeiros", "Pegar Extintor\nPegar Serra\nPegar Machado", "Selecionar", "Cancelar");
+                    Dialog_Show(playerid, Equipando_GB, DIALOG_STYLE_LIST, "[MEDIC] Bombeiros", "Pegar Extintor\nPegar Serra\nPegar Machado", "Selecionar", "Cancelar");
         
                 }
                 default:
                 {
                     if(IsPlayerInRangeOfPoint(playerid,6.0,-294.7040,1443.2588,1088.9550))
                     {
-                        Dialog_Show(playerid, Equipando_GB, DIALOG_STYLE_LIST, "[CBERJ] Bombeiros", "Pegar Extintor\nPegar Serra\nPegar Machado", "Selecionar", "Cancelar");
+                        Dialog_Show(playerid, Equipando_GB, DIALOG_STYLE_LIST, "[MEDIC] Bombeiros", "Pegar Extintor\nPegar Serra\nPegar Machado", "Selecionar", "Cancelar");
                     }
                     else
                     {
@@ -32019,7 +31990,7 @@ Dialog:Equipando_GB(playerid, response, listitem, inputtext[])
                 EntregandoArmaSQL(playerid, 15, 0, 0, 0);
             }
         }
-        ShowModelSelectionMenu(playerid, "[CBERJ] Roupa de Bombeiro", MODEL_PMERJ_SKINS, CBERJ_Uniformes, sizeof(CBERJ_Uniformes), -16.0, 0.0, -55.0);
+        ShowModelSelectionMenu(playerid, "[MEDIC] Roupa de Bombeiro", MODEL_PMERJ_SKINS, CBERJ_Uniformes, sizeof(CBERJ_Uniformes), -16.0, 0.0, -55.0);
     }
     return 1;
 }
@@ -34781,37 +34752,37 @@ Dialog:Armario_PMERJ(playerid, response, listitem, inputtext[])
 				if(PlayerInfo[playerid][pArmario10] > 0) format(StrArm, sizeof(StrArm), "%s\nSlot 10 - %s : %d balas", StrArm, GunNames[ArmaData[PlayerInfo[playerid][pArmario10]][ArmaModelo]], ArmaData[PlayerInfo[playerid][pArmario10]][ArmaAmmo]);
 				    else format(StrArm, sizeof(StrArm), "%s\nSlot 10 - Vazio", StrArm);
 
-		    	Dialog_Show(playerid, Armario_PMERJ, DIALOG_STYLE_LIST, "[PMERJ] Armário", StrArm, "Selecionar", "Fechar");
+		    	Dialog_Show(playerid, Armario_PMERJ, DIALOG_STYLE_LIST, "[USMC] Armário", StrArm, "Selecionar", "Fechar");
 	        }
 	    	case 2:
 	    	{
 	    	    Menu_Armas[playerid][0] = 1;
 	    	    format(StrArm, sizeof(StrArm), "Colocar\nPegar");
-                Dialog_Show(playerid, Armario_PMERJ2, DIALOG_STYLE_LIST, "[PMERJ] Armário", StrArm, "Selecionar", "Cancelar");
+                Dialog_Show(playerid, Armario_PMERJ2, DIALOG_STYLE_LIST, "[USMC] Armário", StrArm, "Selecionar", "Cancelar");
 			}
 			case 3:
 			{
                 Menu_Armas[playerid][0] = 2;
 	    	    format(StrArm, sizeof(StrArm), "Colocar\nPegar");
-                Dialog_Show(playerid, Armario_PMERJ2, DIALOG_STYLE_LIST, "[PMERJ] Armário", StrArm, "Selecionar", "Cancelar");
+                Dialog_Show(playerid, Armario_PMERJ2, DIALOG_STYLE_LIST, "[USMC] Armário", StrArm, "Selecionar", "Cancelar");
 			}
 			case 4:
 			{
                 Menu_Armas[playerid][0] = 3;
 	    	    format(StrArm, sizeof(StrArm), "Colocar\nPegar");
-                Dialog_Show(playerid, Armario_PMERJ2, DIALOG_STYLE_LIST, "[PMERJ] Armário", StrArm, "Selecionar", "Cancelar");
+                Dialog_Show(playerid, Armario_PMERJ2, DIALOG_STYLE_LIST, "[USMC] Armário", StrArm, "Selecionar", "Cancelar");
 			}
 			case 5:
 			{
                 Menu_Armas[playerid][0] = 4;
 	    	    format(StrArm, sizeof(StrArm), "Colocar\nPegar");
-                Dialog_Show(playerid, Armario_PMERJ2, DIALOG_STYLE_LIST, "[PMERJ] Armário", StrArm, "Selecionar", "Cancelar");
+                Dialog_Show(playerid, Armario_PMERJ2, DIALOG_STYLE_LIST, "[USMC] Armário", StrArm, "Selecionar", "Cancelar");
 			}
 			case 6:
 			{
                 Menu_Armas[playerid][0] = 5;
 	    	    format(StrArm, sizeof(StrArm), "Colocar\nPegar");
-                Dialog_Show(playerid, Armario_PMERJ2, DIALOG_STYLE_LIST, "[PMERJ] Armário", StrArm, "Selecionar", "Cancelar");
+                Dialog_Show(playerid, Armario_PMERJ2, DIALOG_STYLE_LIST, "[USMC] Armário", StrArm, "Selecionar", "Cancelar");
 			}
 		}
 	}
@@ -34837,7 +34808,7 @@ Dialog:Armario_PMERJ2(playerid, response, listitem, inputtext[])
 				    {
         				PlayerInfo[playerid][pArmario1] = PlayerInfo[playerid][pArmaMao];
         				//ArmaData[armaid][ArmaAmmo] = GetPlayerAmmo(playerid);
-				        SCM(playerid, COLOR_LIGHTGREEN, "[Armário PMERJ] Arma guardada no armário, Slot 1.");
+				        SCM(playerid, COLOR_LIGHTGREEN, "[Armário USMC] Arma guardada no armário, Slot 1.");
 				        ArmaData[armaid][ArmaCom] = 0;
 				    	RemovePlayerAttachedObject(playerid, 0);
 				    	//========================================
@@ -34857,7 +34828,7 @@ Dialog:Armario_PMERJ2(playerid, response, listitem, inputtext[])
 				    {
         				PlayerInfo[playerid][pArmario2] = PlayerInfo[playerid][pArmaMao];
 				        //ArmaData[armaid][ArmaAmmo] = GetPlayerAmmo(playerid);
-				        SCM(playerid, COLOR_LIGHTGREEN, "[Armário PMERJ] Arma guardada no armário, Slot 2.");
+				        SCM(playerid, COLOR_LIGHTGREEN, "[Armário USMC] Arma guardada no armário, Slot 2.");
 				        ArmaData[armaid][ArmaCom] = 0;
 				    	RemovePlayerAttachedObject(playerid, 0);
 				    	//========================================
@@ -34877,7 +34848,7 @@ Dialog:Armario_PMERJ2(playerid, response, listitem, inputtext[])
 				    {
         				PlayerInfo[playerid][pArmario3] = PlayerInfo[playerid][pArmaMao];
 				        //ArmaData[armaid][ArmaAmmo] = GetPlayerAmmo(playerid);
-				        SCM(playerid, COLOR_LIGHTGREEN, "[Armário PMERJ] Arma guardada no armário, Slot 3.");
+				        SCM(playerid, COLOR_LIGHTGREEN, "[Armário USMC] Arma guardada no armário, Slot 3.");
 				        ArmaData[armaid][ArmaCom] = 0;
 				    	RemovePlayerAttachedObject(playerid, 0);
 				    	//========================================
@@ -34897,7 +34868,7 @@ Dialog:Armario_PMERJ2(playerid, response, listitem, inputtext[])
 				    {
         				PlayerInfo[playerid][pArmario4] = PlayerInfo[playerid][pArmaMao];
 				        //ArmaData[armaid][ArmaAmmo] = GetPlayerAmmo(playerid);
-				        SCM(playerid, COLOR_LIGHTRED, "[Armário PMERJ] Arma guardada no armário, Slot 4.");
+				        SCM(playerid, COLOR_LIGHTRED, "[Armário USMC] Arma guardada no armário, Slot 4.");
 				        ArmaData[armaid][ArmaCom] = 0;
 				    	RemovePlayerAttachedObject(playerid, 0);
 				    	//========================================
@@ -34917,7 +34888,7 @@ Dialog:Armario_PMERJ2(playerid, response, listitem, inputtext[])
 				    {
         				PlayerInfo[playerid][pArmario5] = PlayerInfo[playerid][pArmaMao];
 				        //ArmaData[armaid][ArmaAmmo] = GetPlayerAmmo(playerid);
-				        SCM(playerid, COLOR_LIGHTGREEN, "[Armário PMERJ] Arma guardada no armário, Slot 5.");
+				        SCM(playerid, COLOR_LIGHTGREEN, "[Armário USMC] Arma guardada no armário, Slot 5.");
 				        ArmaData[armaid][ArmaCom] = 0;
 				    	RemovePlayerAttachedObject(playerid, 0);
 				    	//========================================
@@ -34937,7 +34908,7 @@ Dialog:Armario_PMERJ2(playerid, response, listitem, inputtext[])
 				    {
         				PlayerInfo[playerid][pArmario6] = PlayerInfo[playerid][pArmaMao];
 				        //ArmaData[armaid][ArmaAmmo] = GetPlayerAmmo(playerid);
-				        SCM(playerid, COLOR_LIGHTGREEN, "[Armário PMERJ] Arma guardada no armário, Slot 6.");
+				        SCM(playerid, COLOR_LIGHTGREEN, "[Armário USMC] Arma guardada no armário, Slot 6.");
 				        ArmaData[armaid][ArmaCom] = 0;
 				    	RemovePlayerAttachedObject(playerid, 0);
 				    	//========================================
@@ -34957,7 +34928,7 @@ Dialog:Armario_PMERJ2(playerid, response, listitem, inputtext[])
 				    {
         				PlayerInfo[playerid][pArmario7] = PlayerInfo[playerid][pArmaMao];
 				        //ArmaData[armaid][ArmaAmmo] = GetPlayerAmmo(playerid);
-				        SCM(playerid, COLOR_LIGHTGREEN, "[Armário PMERJ] Arma guardada no armário, Slot 7.");
+				        SCM(playerid, COLOR_LIGHTGREEN, "[Armário USMC] Arma guardada no armário, Slot 7.");
 				        ArmaData[armaid][ArmaCom] = 0;
 				    	RemovePlayerAttachedObject(playerid, 0);
 				    	//========================================
@@ -34977,7 +34948,7 @@ Dialog:Armario_PMERJ2(playerid, response, listitem, inputtext[])
 				    {
         				PlayerInfo[playerid][pArmario8] = PlayerInfo[playerid][pArmaMao];
 				        //ArmaData[armaid][ArmaAmmo] = GetPlayerAmmo(playerid);
-				        SCM(playerid, COLOR_LIGHTGREEN, "[Armário PMERJ] Arma guardada no armário, Slot 8.");
+				        SCM(playerid, COLOR_LIGHTGREEN, "[Armário USMC] Arma guardada no armário, Slot 8.");
 				        ArmaData[armaid][ArmaCom] = 0;
 				    	RemovePlayerAttachedObject(playerid, 0);
 				    	//========================================
@@ -34997,7 +34968,7 @@ Dialog:Armario_PMERJ2(playerid, response, listitem, inputtext[])
 				    {
         				PlayerInfo[playerid][pArmario9] = PlayerInfo[playerid][pArmaMao];
 				        //ArmaData[armaid][ArmaAmmo] = GetPlayerAmmo(playerid);
-				        SCM(playerid, COLOR_LIGHTGREEN, "[Armário PMERJ] Arma guardada no armário, Slot 9.");
+				        SCM(playerid, COLOR_LIGHTGREEN, "[Armário USMC] Arma guardada no armário, Slot 9.");
 				        ArmaData[armaid][ArmaCom] = 0;
 				    	RemovePlayerAttachedObject(playerid, 0);
 				    	//========================================
@@ -35017,7 +34988,7 @@ Dialog:Armario_PMERJ2(playerid, response, listitem, inputtext[])
 				    {
         				PlayerInfo[playerid][pArmario10] = PlayerInfo[playerid][pArmaMao];
 				        //ArmaData[armaid][ArmaAmmo] = GetPlayerAmmo(playerid);
-				        SCM(playerid, COLOR_LIGHTGREEN, "[Armário PMERJ] Arma guardada no armário, Slot 10.");
+				        SCM(playerid, COLOR_LIGHTGREEN, "[Armário USMC] Arma guardada no armário, Slot 10.");
 				        ArmaData[armaid][ArmaCom] = 0;
 				    	RemovePlayerAttachedObject(playerid, 0);
 				    	//========================================
@@ -35052,7 +35023,7 @@ Dialog:Armario_PMERJ2(playerid, response, listitem, inputtext[])
 
 					    PlayerInfo[playerid][pArmaMao] = IdPahSalva;
 					    PlayerInfo[playerid][pArmario1] = 0;
-					    format(StrArm, sizeof(StrArm), "[Armário PMERJ] Você pegou uma %s de seu armário.",GunNames[ArmaModel]);
+					    format(StrArm, sizeof(StrArm), "[Armário USMC] Você pegou uma %s de seu armário.",GunNames[ArmaModel]);
 	    				SendClientMessage(playerid, COLOR_LIGHTGREEN, StrArm);
 	    				SalvarArma(IdPahSalva);
 					}
@@ -35073,7 +35044,7 @@ Dialog:Armario_PMERJ2(playerid, response, listitem, inputtext[])
                         else SetPlayerAttachedObject(playerid, 0, ArmaData[PlayerInfo[playerid][pArmario2]][ArmaExtra], 6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 1, 1, ArmaData[PlayerInfo[playerid][pArmario2]][ArmaRGB]);
 					    PlayerInfo[playerid][pArmaMao] = IdPahSalva;
 					    PlayerInfo[playerid][pArmario2] = 0;
-					    format(StrArm, sizeof(StrArm), "[Armário PMERJ] Você pegou uma %s de seu armário",GunNames[ArmaModel]);
+					    format(StrArm, sizeof(StrArm), "[Armário USMC] Você pegou uma %s de seu armário",GunNames[ArmaModel]);
 	    				SendClientMessage(playerid, COLOR_LIGHTGREEN, StrArm);
 	    				SalvarArma(IdPahSalva);
 					}
@@ -35094,7 +35065,7 @@ Dialog:Armario_PMERJ2(playerid, response, listitem, inputtext[])
 					    else SetPlayerAttachedObject(playerid, 0, ArmaData[PlayerInfo[playerid][pArmario3]][ArmaExtra], 6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 1, 1, ArmaData[PlayerInfo[playerid][pArmario3]][ArmaRGB]);
 					    PlayerInfo[playerid][pArmaMao] = IdPahSalva;
 					    PlayerInfo[playerid][pArmario3] = 0;
-					    format(StrArm, sizeof(StrArm), "[Armário PMERJ] Você pegou uma %s de seu armário",GunNames[ArmaModel]);
+					    format(StrArm, sizeof(StrArm), "[Armário USMC] Você pegou uma %s de seu armário",GunNames[ArmaModel]);
 	    				SendClientMessage(playerid, COLOR_LIGHTGREEN, StrArm);
 	    				SalvarArma(IdPahSalva);
 					}
@@ -35115,7 +35086,7 @@ Dialog:Armario_PMERJ2(playerid, response, listitem, inputtext[])
 					    else SetPlayerAttachedObject(playerid, 0, ArmaData[PlayerInfo[playerid][pArmario4]][ArmaExtra], 6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 1, 1, ArmaData[PlayerInfo[playerid][pArmario4]][ArmaRGB]);
 					    PlayerInfo[playerid][pArmaMao] = IdPahSalva;
 					    PlayerInfo[playerid][pArmario4] = 0;
-					    format(StrArm, sizeof(StrArm), "[Armário PMERJ] Você pegou uma %s de seu armário",GunNames[ArmaModel]);
+					    format(StrArm, sizeof(StrArm), "[Armário USMC] Você pegou uma %s de seu armário",GunNames[ArmaModel]);
 	    				SendClientMessage(playerid, COLOR_LIGHTGREEN, StrArm);
 	    				SalvarArma(IdPahSalva);
 					}
@@ -35136,7 +35107,7 @@ Dialog:Armario_PMERJ2(playerid, response, listitem, inputtext[])
 					    else SetPlayerAttachedObject(playerid, 0, ArmaData[PlayerInfo[playerid][pArmario5]][ArmaExtra], 6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 1, 1, ArmaData[PlayerInfo[playerid][pArmario5]][ArmaRGB]);
 					    PlayerInfo[playerid][pArmaMao] = IdPahSalva;
 					    PlayerInfo[playerid][pArmario5] = 0;
-					    format(StrArm, sizeof(StrArm), "[Armário PMERJ] Você pegou uma %s de seu armário",GunNames[ArmaModel]);
+					    format(StrArm, sizeof(StrArm), "[Armário USMC] Você pegou uma %s de seu armário",GunNames[ArmaModel]);
 	    				SendClientMessage(playerid, COLOR_LIGHTGREEN, StrArm);
 	    				SalvarArma(IdPahSalva);
 					}
@@ -35157,7 +35128,7 @@ Dialog:Armario_PMERJ2(playerid, response, listitem, inputtext[])
 					    else SetPlayerAttachedObject(playerid, 0, ArmaData[PlayerInfo[playerid][pArmario6]][ArmaExtra], 6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 1, 1, ArmaData[PlayerInfo[playerid][pArmario5]][ArmaRGB]);
 					    PlayerInfo[playerid][pArmaMao] = IdPahSalva;
 					    PlayerInfo[playerid][pArmario6] = 0;
-					    format(StrArm, sizeof(StrArm), "[Armário PMERJ] Você pegou uma %s de seu armário",GunNames[ArmaModel]);
+					    format(StrArm, sizeof(StrArm), "[Armário USMC] Você pegou uma %s de seu armário",GunNames[ArmaModel]);
 	    				SendClientMessage(playerid, COLOR_LIGHTGREEN, StrArm);
 	    				SalvarArma(IdPahSalva);
 					}
@@ -35178,7 +35149,7 @@ Dialog:Armario_PMERJ2(playerid, response, listitem, inputtext[])
 					    else SetPlayerAttachedObject(playerid, 0, ArmaData[PlayerInfo[playerid][pArmario7]][ArmaExtra], 7, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 1, 1, ArmaData[PlayerInfo[playerid][pArmario5]][ArmaRGB]);
 					    PlayerInfo[playerid][pArmaMao] = IdPahSalva;
 					    PlayerInfo[playerid][pArmario7] = 0;
-					    format(StrArm, sizeof(StrArm), "[Armário PMERJ] Você pegou uma %s de seu armário",GunNames[ArmaModel]);
+					    format(StrArm, sizeof(StrArm), "[Armário USMC] Você pegou uma %s de seu armário",GunNames[ArmaModel]);
 	    				SendClientMessage(playerid, COLOR_LIGHTGREEN, StrArm);
 	    				SalvarArma(IdPahSalva);
 					}
@@ -35199,7 +35170,7 @@ Dialog:Armario_PMERJ2(playerid, response, listitem, inputtext[])
 					    else SetPlayerAttachedObject(playerid, 0, ArmaData[PlayerInfo[playerid][pArmario8]][ArmaExtra], 8, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 1, 1, ArmaData[PlayerInfo[playerid][pArmario5]][ArmaRGB]);
 					    PlayerInfo[playerid][pArmaMao] = IdPahSalva;
 					    PlayerInfo[playerid][pArmario8] = 0;
-					    format(StrArm, sizeof(StrArm), "[Armário PMERJ] Você pegou uma %s de seu armário",GunNames[ArmaModel]);
+					    format(StrArm, sizeof(StrArm), "[Armário USMC] Você pegou uma %s de seu armário",GunNames[ArmaModel]);
 	    				SendClientMessage(playerid, COLOR_LIGHTGREEN, StrArm);
 	    				SalvarArma(IdPahSalva);
 					}
@@ -35220,7 +35191,7 @@ Dialog:Armario_PMERJ2(playerid, response, listitem, inputtext[])
 					    else SetPlayerAttachedObject(playerid, 0, ArmaData[PlayerInfo[playerid][pArmario9]][ArmaExtra], 9, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 1, 1, ArmaData[PlayerInfo[playerid][pArmario5]][ArmaRGB]);
 					    PlayerInfo[playerid][pArmaMao] = IdPahSalva;
 					    PlayerInfo[playerid][pArmario9] = 0;
-					    format(StrArm, sizeof(StrArm), "[Armário PMERJ] Você pegou uma %s de seu armário",GunNames[ArmaModel]);
+					    format(StrArm, sizeof(StrArm), "[Armário USMC] Você pegou uma %s de seu armário",GunNames[ArmaModel]);
 	    				SendClientMessage(playerid, COLOR_LIGHTGREEN, StrArm);
 	    				SalvarArma(IdPahSalva);
 					}
@@ -35241,7 +35212,7 @@ Dialog:Armario_PMERJ2(playerid, response, listitem, inputtext[])
 					    else SetPlayerAttachedObject(playerid, 0, ArmaData[PlayerInfo[playerid][pArmario10]][ArmaExtra], 10, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 1, 1, ArmaData[PlayerInfo[playerid][pArmario5]][ArmaRGB]);
 					    PlayerInfo[playerid][pArmaMao] = IdPahSalva;
 					    PlayerInfo[playerid][pArmario10] = 0;
-					    format(StrArm, sizeof(StrArm), "[Armário PMERJ] Você pegou uma %s de seu armário",GunNames[ArmaModel]);
+					    format(StrArm, sizeof(StrArm), "[Armário USMC] Você pegou uma %s de seu armário",GunNames[ArmaModel]);
 	    				SendClientMessage(playerid, COLOR_LIGHTGREEN, StrArm);
 	    				SalvarArma(IdPahSalva);
 					}
@@ -35285,7 +35256,7 @@ Dialog:Municoes_PMERJ(playerid, response, listitem, inputtext[])
 				    else format(StrArm, sizeof(StrArm), "%s\nSlot 9 - Vazio", StrArm);
 				if(PlayerInfo[playerid][pArmario10] > 0) format(StrArm, sizeof(StrArm), "%s\nSlot 10 - %s : %d balas", StrArm, GunNames[ArmaData[PlayerInfo[playerid][pArmario10]][ArmaModelo]], ArmaData[PlayerInfo[playerid][pArmario10]][ArmaAmmo]);
 				    else format(StrArm, sizeof(StrArm), "%s\nSlot 10 - Vazio", StrArm);
-		    	Dialog_Show(playerid, Armario_PMERJ, DIALOG_STYLE_LIST, "[PMERJ] Armário", StrArm, "Selecionar", "Fechar");
+		    	Dialog_Show(playerid, Armario_PMERJ, DIALOG_STYLE_LIST, "[USMC] Armário", StrArm, "Selecionar", "Fechar");
 			}
 			case 1:
 			{
@@ -35293,27 +35264,27 @@ Dialog:Municoes_PMERJ(playerid, response, listitem, inputtext[])
 				format(StrArm, sizeof(StrArm), "%s\n5x56mm: %d",StrArm,PlayerInfo[playerid][pArm556]);
 				format(StrArm, sizeof(StrArm), "%s\nCartucho: %d",StrArm,PlayerInfo[playerid][pArmCart]);
 				format(StrArm, sizeof(StrArm), "%s\n12.7x106mm: %d",StrArm,PlayerInfo[playerid][pArm127]);
-				Dialog_Show(playerid, Municoes_PMERJ, DIALOG_STYLE_LIST, "[PMERJ] Munições", StrArm, "Selecionar", "Cancelar");
+				Dialog_Show(playerid, Municoes_PMERJ, DIALOG_STYLE_LIST, "[USMC] Munições", StrArm, "Selecionar", "Cancelar");
 			}
 			case 2:
 			{
 			    Menu_Armas[playerid][0] = 1;
-			    Dialog_Show(playerid, Municoes_PMERJ2, DIALOG_STYLE_LIST, "[PMERJ] Munições", "Colocar\nPegar", "Selecionar", "Cancelar");
+			    Dialog_Show(playerid, Municoes_PMERJ2, DIALOG_STYLE_LIST, "[USMC] Munições", "Colocar\nPegar", "Selecionar", "Cancelar");
 			}
 			case 3:
 			{
 			    Menu_Armas[playerid][0] = 2;
-			    Dialog_Show(playerid, Municoes_PMERJ2, DIALOG_STYLE_LIST, "[PMERJ] Munições", "Colocar\nPegar", "Selecionar", "Cancelar");
+			    Dialog_Show(playerid, Municoes_PMERJ2, DIALOG_STYLE_LIST, "[USMC] Munições", "Colocar\nPegar", "Selecionar", "Cancelar");
 			}
 			case 4:
 			{
 			    Menu_Armas[playerid][0] = 3;
-			    Dialog_Show(playerid, Municoes_PMERJ2, DIALOG_STYLE_LIST, "[PMERJ] Munições", "Colocar\nPegar", "Selecionar", "Cancelar");
+			    Dialog_Show(playerid, Municoes_PMERJ2, DIALOG_STYLE_LIST, "[USMC] Munições", "Colocar\nPegar", "Selecionar", "Cancelar");
 			}
 			case 5:
 			{
 			    Menu_Armas[playerid][0] = 4;
-			    Dialog_Show(playerid, Municoes_PMERJ2, DIALOG_STYLE_LIST, "[PMERJ] Munições", "Colocar\nPegar", "Selecionar", "Cancelar");
+			    Dialog_Show(playerid, Municoes_PMERJ2, DIALOG_STYLE_LIST, "[USMC] Munições", "Colocar\nPegar", "Selecionar", "Cancelar");
 			}
 			default: return 1;
 		}
@@ -35328,8 +35299,8 @@ Dialog:Municoes_PMERJ2(playerid, response, listitem, inputtext[])
 	{
 	    switch(listitem)
 	    {
-	        case 0: Dialog_Show(playerid, Municoes_PMERJ3, DIALOG_STYLE_INPUT, "[PMERJ] Munições", "Digite o valor a ser guardado.", "Guardar", "Cancelar");
-			case 1: Dialog_Show(playerid, Municoes_PMERJ4, DIALOG_STYLE_INPUT, "[PMERJ] Munições", "Digite o valor a ser retirado.", "Pegar", "Cancelar");
+	        case 0: Dialog_Show(playerid, Municoes_PMERJ3, DIALOG_STYLE_INPUT, "[USMC] Munições", "Digite o valor a ser guardado.", "Guardar", "Cancelar");
+			case 1: Dialog_Show(playerid, Municoes_PMERJ4, DIALOG_STYLE_INPUT, "[USMC] Munições", "Digite o valor a ser retirado.", "Pegar", "Cancelar");
 		}
  	}
 	return 1;
@@ -35351,7 +35322,7 @@ Dialog:Municoes_PMERJ3(playerid, response, listitem, inputtext[])
 	   			{
 	    			PlayerInfo[playerid][pMun9mm] = PlayerInfo[playerid][pMun9mm]-Input;
 	     			PlayerInfo[playerid][pArm9mm] += Input;
-	       			format(StrMsg, sizeof(StrMsg), "[Armário PMERJ] Você guardou %d balas 9mm em seu armário.", Input);
+	       			format(StrMsg, sizeof(StrMsg), "[Armário USMC] Você guardou %d balas 9mm em seu armário.", Input);
 	          		SendClientMessage(playerid, COLOR_LIGHTGREEN, StrMsg);
 				}
 				else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem tudo isso.");
@@ -35364,7 +35335,7 @@ Dialog:Municoes_PMERJ3(playerid, response, listitem, inputtext[])
    				{
  					PlayerInfo[playerid][pMun556] = PlayerInfo[playerid][pMun556]-Input;
 	  				PlayerInfo[playerid][pArm556] += Input;
-      				format(StrMsg, sizeof(StrMsg), "[Armário PMERJ] Você guardou %d balas 5x56mm em seu armário.", Input);
+      				format(StrMsg, sizeof(StrMsg), "[Armário USMC] Você guardou %d balas 5x56mm em seu armário.", Input);
 	        		SendClientMessage(playerid, COLOR_LIGHTGREEN, StrMsg);
 				}
 				else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem tudo isso.");
@@ -35377,7 +35348,7 @@ Dialog:Municoes_PMERJ3(playerid, response, listitem, inputtext[])
      			{
        				PlayerInfo[playerid][pMunCart] = PlayerInfo[playerid][pMunCart]-Input;
 		        	PlayerInfo[playerid][pArmCart] += Input;
-          			format(StrMsg, sizeof(StrMsg), "[Armário PMERJ] Você guardou %d cartuchos em seu armário.", Input);
+          			format(StrMsg, sizeof(StrMsg), "[Armário USMC] Você guardou %d cartuchos em seu armário.", Input);
 		        	SendClientMessage(playerid, COLOR_LIGHTGREEN, StrMsg);
 				}
 				else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem tudo isso.");
@@ -35390,7 +35361,7 @@ Dialog:Municoes_PMERJ3(playerid, response, listitem, inputtext[])
 	 			{
  					PlayerInfo[playerid][pMun127] = PlayerInfo[playerid][pMun127]-Input;
      				PlayerInfo[playerid][pArm127] += Input;
-     				format(StrMsg, sizeof(StrMsg), "[Armário PMERJ] Você guardou %d balas 12.7x106mm em seu armário.", Input);
+     				format(StrMsg, sizeof(StrMsg), "[Armário USMC] Você guardou %d balas 12.7x106mm em seu armário.", Input);
      				SendClientMessage(playerid, COLOR_LIGHTGREEN, StrMsg);
 			    }
 			    else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem tudo isso.");
@@ -35416,7 +35387,7 @@ Dialog:Municoes_PMERJ4(playerid, response, listitem, inputtext[])
 				{
     				PlayerInfo[playerid][pArm9mm] = PlayerInfo[playerid][pArm9mm]-Input;
         			PlayerInfo[playerid][pMun9mm] += Input;
-           			format(StrMsg, sizeof(StrMsg), "[Armário PMERJ] Você pegou %d balas 9mm em seu armário.", Input);
+           			format(StrMsg, sizeof(StrMsg), "[Armário USMC] Você pegou %d balas 9mm em seu armário.", Input);
               		SendClientMessage(playerid, COLOR_LIGHTGREEN, StrMsg);
 				}
 				else return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Seu armário não tem tudo isso.");
@@ -35429,7 +35400,7 @@ Dialog:Municoes_PMERJ4(playerid, response, listitem, inputtext[])
 	            {
              		PlayerInfo[playerid][pArm556] = PlayerInfo[playerid][pArm556]-Input;
                		PlayerInfo[playerid][pMun556] += Input;
-	                format(StrMsg, sizeof(StrMsg), "[Armário PMERJ] Você pegou %d balas 5x56mm em seu armário.", Input);
+	                format(StrMsg, sizeof(StrMsg), "[Armário USMC] Você pegou %d balas 5x56mm em seu armário.", Input);
 	                SendClientMessage(playerid, COLOR_LIGHTGREEN, StrMsg);
 				}
 				else return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Seu armário não tem tudo isso.");
@@ -35442,7 +35413,7 @@ Dialog:Municoes_PMERJ4(playerid, response, listitem, inputtext[])
 	            {
              		PlayerInfo[playerid][pArmCart] = PlayerInfo[playerid][pArmCart]-Input;
                		PlayerInfo[playerid][pMunCart] += Input;
-	                format(StrMsg, sizeof(StrMsg), "[Armário PMERJ] Você pegou %d cartuchos em seu armário.", Input);
+	                format(StrMsg, sizeof(StrMsg), "[Armário USMC] Você pegou %d cartuchos em seu armário.", Input);
 	                SendClientMessage(playerid, COLOR_LIGHTGREEN, StrMsg);
 				}
 				else return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Seu armário não tem tudo isso.");
@@ -35455,7 +35426,7 @@ Dialog:Municoes_PMERJ4(playerid, response, listitem, inputtext[])
 	            {
              		PlayerInfo[playerid][pArm127] = PlayerInfo[playerid][pArm127]-Input;
                		PlayerInfo[playerid][pMun127] += Input;
-	                format(StrMsg, sizeof(StrMsg), "[Armário PMERJ] Você pegou %d balas 12.7x106mm em seu armário.", Input);
+	                format(StrMsg, sizeof(StrMsg), "[Armário USMC] Você pegou %d balas 12.7x106mm em seu armário.", Input);
 	                SendClientMessage(playerid, COLOR_LIGHTGREEN, StrMsg);
 			    }
 			    else return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Seu armário não tem tudo isso.");
@@ -35567,7 +35538,7 @@ COMMAND:cbarreira(playerid, params[])
     new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
     if(FacInfo[FacId][fTipo] == FAC_TIPO_PMERJ || FacInfo[FacId][fTipo] == FAC_TIPO_PCERJ || FacInfo[FacId][fTipo] == FAC_TIPO_EB || FacInfo[FacId][fTipo] == FAC_TIPO_CBERJ)
 	{
-        ShowModelSelectionMenu(playerid, "[PMERJ] Barreiras", MODEL_PMERJ_BARREIRAS, PMERJ_Barreiras, sizeof(PMERJ_Barreiras), -16.0, 0.0, -55.0);
+        ShowModelSelectionMenu(playerid, "[USMC] Barreiras", MODEL_PMERJ_BARREIRAS, PMERJ_Barreiras, sizeof(PMERJ_Barreiras), -16.0, 0.0, -55.0);
     }
 	return 1;
 }
@@ -35617,7 +35588,7 @@ CMD:uniforme(playerid, params[])
 		{
 		    if(PlayerInfo[playerid][pEmServico] == 1)
 		    {
-		    	ShowModelSelectionMenu(playerid, "[PMERJ] Uniformes", MODEL_PMERJ_SKINS, PMERJ_Uniformes, sizeof(PMERJ_Uniformes), -16.0, 0.0, -55.0);
+		    	ShowModelSelectionMenu(playerid, "[USMC] Uniformes", MODEL_PMERJ_SKINS, PMERJ_Uniformes, sizeof(PMERJ_Uniformes), -16.0, 0.0, -55.0);
 			}
 			else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
 		}
@@ -35641,11 +35612,11 @@ CMD:uniforme(playerid, params[])
         {
             if(PlayerInfo[playerid][pEmServico] == 1)
             {
-                ShowModelSelectionMenu(playerid, "[PROTEGE] Uniformes", MODEL_PMERJ_SKINS, PROTEGE_Uniformes, sizeof(PROTEGE_Uniformes), -16.0, 0.0, -55.0);
+                ShowModelSelectionMenu(playerid, "[BRINKS] Uniformes", MODEL_PMERJ_SKINS, PROTEGE_Uniformes, sizeof(PROTEGE_Uniformes), -16.0, 0.0, -55.0);
             }
             else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
         }
-        else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está no vestiário da PROTEGE.");
+        else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está no vestiário da BRINKS.");
     }
     if(FacInfo[FacId][fTipo] == FAC_TIPO_EB)
     {
@@ -35653,7 +35624,7 @@ CMD:uniforme(playerid, params[])
         {
             if(PlayerInfo[playerid][pEmServico] == 1)
             {
-                ShowModelSelectionMenu(playerid, "[EB] Uniformes", MODEL_EB_SKINS, EB_Uniformes, sizeof(EB_Uniformes), -16.0, 0.0, -55.0);
+                ShowModelSelectionMenu(playerid, "[DEVGRU] Uniformes", MODEL_EB_SKINS, EB_Uniformes, sizeof(EB_Uniformes), -16.0, 0.0, -55.0);
             }
             else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
         }
@@ -35665,7 +35636,7 @@ CMD:uniforme(playerid, params[])
         {
             if(PlayerInfo[playerid][pEmServico] == 1)
             {
-                ShowModelSelectionMenu(playerid, "[CBERJ] Uniformes", MODEL_PMERJ_SKINS, CBERJ_Uniformes, sizeof(CBERJ_Uniformes), -16.0, 0.0, -55.0);
+                ShowModelSelectionMenu(playerid, "[MEDIC] Uniformes", MODEL_PMERJ_SKINS, CBERJ_Uniformes, sizeof(CBERJ_Uniformes), -16.0, 0.0, -55.0);
             }
             else return SendClientMessage(playerid, COLOR_LIGHTRED, "[ERRO] {FFFFFF}Você não está em serviço.");
         }
@@ -35879,7 +35850,7 @@ CMD:trabalho(playerid, params[])
 							RemovePlayerAttachedObject(playerid, 0);
 							ArmasInv++;
 						}
-						if(ArmasInv > 0) SendClientMessage(playerid,COLOR_LIGHTRED,"[PMERJ] As suas armas do inventário foram retiradas.");
+						if(ArmasInv > 0) SendClientMessage(playerid,COLOR_LIGHTRED,"[USMC] As suas armas do inventário foram retiradas.");
 
 					    if(PlayerInfo[playerid][pMun9mm] > 0 || PlayerInfo[playerid][pMunCart] > 0 || PlayerInfo[playerid][pMun556] > 0 || PlayerInfo[playerid][pMun127] > 0)
 				        {
@@ -35887,7 +35858,7 @@ CMD:trabalho(playerid, params[])
 							PlayerInfo[playerid][pMunCart] = 0;
 							PlayerInfo[playerid][pMun556] = 0;
 							PlayerInfo[playerid][pMun127] = 0;
-							SendClientMessage(playerid,COLOR_LIGHTRED,"[PMERJ] As suas munições do inventário foram retiradas.");
+							SendClientMessage(playerid,COLOR_LIGHTRED,"[USMC] As suas munições do inventário foram retiradas.");
 				        }
 					}
 				}
@@ -36185,7 +36156,7 @@ CMD:trabalho(playerid, params[])
 
 					    if(PlayerInfo[playerid][pMun9mm] > 0 || PlayerInfo[playerid][pMunCart] > 0 || PlayerInfo[playerid][pMun556] > 0 || PlayerInfo[playerid][pMun127] > 0) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve guardar suas munições particulares no armário antes de entrar em serviço.");
 
-                        format(StrMsg, sizeof(StrMsg), "**PROTEGE: %s %s entrou em serviço!**", GetPlayerCargo(playerid), PlayerName(playerid, 0));
+                        format(StrMsg, sizeof(StrMsg), "**BRINKS: %s %s entrou em serviço!**", GetPlayerCargo(playerid), PlayerName(playerid, 0));
 	  					SendFacMessage(0x6666CCFF,FacId,StrMsg);
 	  					PlayerInfo[playerid][pEmServico] = 1;
 	  					SetPlayerSkin(playerid, PlayerInfo[playerid][pDutySkin]);
@@ -36196,7 +36167,7 @@ CMD:trabalho(playerid, params[])
 					    //if(PlayerInfo[playerid][pArmaMao] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa devolver suas armas ou guarda-las no armário para sair de serviço.");
 						//if(PlayerInfo[playerid][pColde] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa devolver a arma do corpo para sair de serviço.");
 
-					    format(StrMsg, sizeof(StrMsg), "** PROTEGE: %s %s saiu de serviço!**", GetPlayerCargo(playerid), PlayerName(playerid, 0));
+					    format(StrMsg, sizeof(StrMsg), "** BRINKS: %s %s saiu de serviço!**", GetPlayerCargo(playerid), PlayerName(playerid, 0));
 		   				SendFacMessage(0x6666CCFF,FacId,StrMsg);
 		   				PlayerInfo[playerid][pEmServico] = 0;
 		   				SetPlayerSkin(playerid, PlayerInfo[playerid][pSkin]);
@@ -36307,7 +36278,7 @@ CMD:trabalho(playerid, params[])
 							RemovePlayerAttachedObject(playerid, 0);
 							ArmasInv++;
 						}
-						if(ArmasInv > 0) SendClientMessage(playerid,COLOR_LIGHTRED,"[PROTEGE] As suas armas do inventário foram retiradas.");
+						if(ArmasInv > 0) SendClientMessage(playerid,COLOR_LIGHTRED,"[BRINKS] As suas armas do inventário foram retiradas.");
 
 					    if(PlayerInfo[playerid][pMun9mm] > 0 || PlayerInfo[playerid][pMunCart] > 0 || PlayerInfo[playerid][pMun556] > 0 || PlayerInfo[playerid][pMun127] > 0)
 				        {
@@ -36315,7 +36286,7 @@ CMD:trabalho(playerid, params[])
 							PlayerInfo[playerid][pMunCart] = 0;
 							PlayerInfo[playerid][pMun556] = 0;
 							PlayerInfo[playerid][pMun127] = 0;
-							SendClientMessage(playerid,COLOR_LIGHTRED,"[PROTEGE] As suas munições do inventário foram retiradas.");
+							SendClientMessage(playerid,COLOR_LIGHTRED,"[BRINKS] As suas munições do inventário foram retiradas.");
 				        }
 					}
 				}
@@ -36519,7 +36490,7 @@ CMD:trabalho(playerid, params[])
                             RemovePlayerAttachedObject(playerid, 0);
                             ArmasInv++;
                         }
-                        if(ArmasInv > 0) SendClientMessage(playerid,COLOR_LIGHTRED,"[PROTEGE] As suas armas do inventário foram retiradas.");
+                        if(ArmasInv > 0) SendClientMessage(playerid,COLOR_LIGHTRED,"[BRINKS] As suas armas do inventário foram retiradas.");
 
                         if(PlayerInfo[playerid][pMun9mm] > 0 || PlayerInfo[playerid][pMunCart] > 0 || PlayerInfo[playerid][pMun556] > 0 || PlayerInfo[playerid][pMun127] > 0)
                         {
@@ -36527,7 +36498,7 @@ CMD:trabalho(playerid, params[])
                             PlayerInfo[playerid][pMunCart] = 0;
                             PlayerInfo[playerid][pMun556] = 0;
                             PlayerInfo[playerid][pMun127] = 0;
-                            SendClientMessage(playerid,COLOR_LIGHTRED,"[PROTEGE] As suas munições do inventário foram retiradas.");
+                            SendClientMessage(playerid,COLOR_LIGHTRED,"[BRINKS] As suas munições do inventário foram retiradas.");
                         }
                     }
                 }
@@ -36711,7 +36682,7 @@ CMD:trabalho(playerid, params[])
                             RemovePlayerAttachedObject(playerid, 0);
                             ArmasInv++;
                         }
-                        if(ArmasInv > 0) SendClientMessage(playerid,COLOR_LIGHTRED,"[CBERJ] As suas armas do inventário foram retiradas.");
+                        if(ArmasInv > 0) SendClientMessage(playerid,COLOR_LIGHTRED,"[MEDIC] As suas armas do inventário foram retiradas.");
 
                         if(PlayerInfo[playerid][pMun9mm] > 0 || PlayerInfo[playerid][pMunCart] > 0 || PlayerInfo[playerid][pMun556] > 0 || PlayerInfo[playerid][pMun127] > 0)
                         {
@@ -36719,7 +36690,7 @@ CMD:trabalho(playerid, params[])
                             PlayerInfo[playerid][pMunCart] = 0;
                             PlayerInfo[playerid][pMun556] = 0;
                             PlayerInfo[playerid][pMun127] = 0;
-                            SendClientMessage(playerid,COLOR_LIGHTRED,"[CBERJ] As suas munições do inventário foram retiradas.");
+                            SendClientMessage(playerid,COLOR_LIGHTRED,"[MEDIC] As suas munições do inventário foram retiradas.");
                         }
                 }
             }
@@ -36812,7 +36783,7 @@ CMD:trabalhar(playerid, params[])
 
 					    if(PlayerInfo[playerid][pMun9mm] > 0 || PlayerInfo[playerid][pMunCart] > 0 || PlayerInfo[playerid][pMun556] > 0 || PlayerInfo[playerid][pMun127] > 0) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve guardar suas munições particulares no armário antes de entrar em serviço.");
 
-                        format(StrMsg, sizeof(StrMsg), "**PROTEGE: %s %s entrou em serviço!**", GetPlayerCargo(playerid), PlayerName(playerid, 0));
+                        format(StrMsg, sizeof(StrMsg), "**BRINKS: %s %s entrou em serviço!**", GetPlayerCargo(playerid), PlayerName(playerid, 0));
 	  					SendFacMessage(0x6666CCFF,FacId,StrMsg);
 	  					PlayerInfo[playerid][pEmServico] = 1;
 	  					SetPlayerSkin(playerid, PlayerInfo[playerid][pDutySkin]);
@@ -36823,7 +36794,7 @@ CMD:trabalhar(playerid, params[])
 					    //if(PlayerInfo[playerid][pArmaMao] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa devolver suas armas ou guarda-las no armário para sair de serviço.");
 						//if(PlayerInfo[playerid][pColde] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa devolver a arma do corpo para sair de serviço.");
 
-					    format(StrMsg, sizeof(StrMsg), "** PROTEGE: %s %s saiu de serviço!**", GetPlayerCargo(playerid), PlayerName(playerid, 0));
+					    format(StrMsg, sizeof(StrMsg), "** BRINKS: %s %s saiu de serviço!**", GetPlayerCargo(playerid), PlayerName(playerid, 0));
 		   				SendFacMessage(0x6666CCFF,FacId,StrMsg);
 		   				PlayerInfo[playerid][pEmServico] = 0;
 		   				SetPlayerSkin(playerid, PlayerInfo[playerid][pSkin]);
@@ -36934,7 +36905,7 @@ CMD:trabalhar(playerid, params[])
 							RemovePlayerAttachedObject(playerid, 0);
 							ArmasInv++;
 						}
-						if(ArmasInv > 0) SendClientMessage(playerid,COLOR_LIGHTRED,"[PROTEGE] As suas armas do inventário foram retiradas.");
+						if(ArmasInv > 0) SendClientMessage(playerid,COLOR_LIGHTRED,"[BRINKS] As suas armas do inventário foram retiradas.");
 
 					    if(PlayerInfo[playerid][pMun9mm] > 0 || PlayerInfo[playerid][pMunCart] > 0 || PlayerInfo[playerid][pMun556] > 0 || PlayerInfo[playerid][pMun127] > 0)
 				        {
@@ -36942,7 +36913,7 @@ CMD:trabalhar(playerid, params[])
 							PlayerInfo[playerid][pMunCart] = 0;
 							PlayerInfo[playerid][pMun556] = 0;
 							PlayerInfo[playerid][pMun127] = 0;
-							SendClientMessage(playerid,COLOR_LIGHTRED,"[PROTEGE] As suas munições do inventário foram retiradas.");
+							SendClientMessage(playerid,COLOR_LIGHTRED,"[BRINKS] As suas munições do inventário foram retiradas.");
 				        }
 					}
 				}
@@ -36963,7 +36934,7 @@ CMD:equipar(playerid, params[])
 	{
 	    if(PlayerInfo[playerid][pEmServico] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
 	    if(IsPlayerInRangeOfPoint(playerid, 15, FacInfo[i][fArmarioPosX], FacInfo[i][fArmarioPosY], FacInfo[i][fArmarioPosZ]) && GetPlayerVirtualWorld(playerid) == FacInfo[i][fArmarioVw])
-		  	Dialog_Show(playerid, Equipar_PMERJ, DIALOG_STYLE_LIST, "[PMERJ] Equipamentos", "Armas\nMunições\nColete\nRetirar Colete\nDevolver Armas\nAcessórios", "Selecionar", "Fechar");
+		  	Dialog_Show(playerid, Equipar_PMERJ, DIALOG_STYLE_LIST, "[USMC] Equipamentos", "Armas\nMunições\nColete\nRetirar Colete\nDevolver Armas\nAcessórios", "Selecionar", "Fechar");
 	    else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está na sala de equipamentos.");
 	}
     if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PCERJ)
@@ -36977,14 +36948,14 @@ CMD:equipar(playerid, params[])
     {
         if(PlayerInfo[playerid][pEmServico] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
         if(IsPlayerInRangeOfPoint(playerid, 15, FacInfo[i][fArmarioPosX], FacInfo[i][fArmarioPosY], FacInfo[i][fArmarioPosZ]) && GetPlayerVirtualWorld(playerid) == FacInfo[i][fArmarioVw])
-            Dialog_Show(playerid, Equipar_eb, DIALOG_STYLE_LIST, "[EB] Equipamentos", "Armas\nMunições\nColete\nRetirar Colete\nDevolver Armas\nAcessórios", "Selecionar", "Fechar");
+            Dialog_Show(playerid, Equipar_eb, DIALOG_STYLE_LIST, "[DEVGRU] Equipamentos", "Armas\nMunições\nColete\nRetirar Colete\nDevolver Armas\nAcessórios", "Selecionar", "Fechar");
         else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está na sala de equipamentos.");
     }
 	if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_BANK)
 	{
 	    if(PlayerInfo[playerid][pEmServico] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
 	    if(IsPlayerInRangeOfPoint(playerid, 15, FacInfo[i][fArmarioPosX], FacInfo[i][fArmarioPosY], FacInfo[i][fArmarioPosZ]) && GetPlayerVirtualWorld(playerid) == FacInfo[i][fArmarioVw])
-		  	Dialog_Show(playerid, Equipar_BANK, DIALOG_STYLE_LIST, "[PROTEGE] Equipamentos", "Armas\nMunições\nColete\nRetirar Colete\nDevolver Armas\nAcessórios", "Selecionar", "Fechar");
+		  	Dialog_Show(playerid, Equipar_BANK, DIALOG_STYLE_LIST, "[BRINKS] Equipamentos", "Armas\nMunições\nColete\nRetirar Colete\nDevolver Armas\nAcessórios", "Selecionar", "Fechar");
 	    else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está na sala de equipamentos.");
 	}
 	return 1;
@@ -36999,9 +36970,9 @@ Dialog:Equipar_eb(playerid, response, listitem, inputtext[])
         {
             case 0:
 			{
-				Dialog_Show(playerid, Equipar_EB1, DIALOG_STYLE_TABLIST_HEADERS, "[EB] Equipamentos", "Arma:\tCargo nescessário:\nCassetete\t1\nGranada de Fumaça\t1\nColt 45\t1\nDesert Eagle\t1\nShotgun\t1\nMP5\t1\nM4\t1\nParaquedas\t1\nSniper\t5", "Pegar", "Fechar");
+				Dialog_Show(playerid, Equipar_EB1, DIALOG_STYLE_TABLIST_HEADERS, "[DEVGRU] Equipamentos", "Arma:\tCargo nescessário:\nCassetete\t1\nGranada de Fumaça\t1\nColt 45\t1\nDesert Eagle\t1\nShotgun\t1\nMP5\t1\nM4\t1\nParaquedas\t1\nSniper\t5", "Pegar", "Fechar");
 			}
-			case 1: Dialog_Show(playerid, Equipar_EB2, DIALOG_STYLE_TABLIST_HEADERS, "[EB] Equipamentos", "Tipo de Munição:\tQuantidade:\n9mm\t60\nCartuchos\t60\n5.56mm\t120\n12.7x106mm\t60", "Pegar", "Fechar");
+			case 1: Dialog_Show(playerid, Equipar_EB2, DIALOG_STYLE_TABLIST_HEADERS, "[DEVGRU] Equipamentos", "Tipo de Munição:\tQuantidade:\n9mm\t60\nCartuchos\t60\n5.56mm\t120\n12.7x106mm\t60", "Pegar", "Fechar");
             case 2: { P_Armour[playerid] = 100; SetPlayerArmour_CA(playerid, 100); }
             case 3: { P_Armour[playerid] = 0; SetPlayerArmour_CA(playerid, 0); }
             case 4:
@@ -37191,9 +37162,9 @@ Dialog:Equipar_PMERJ(playerid, response, listitem, inputtext[])
         {
             case 0:
 			{
-				Dialog_Show(playerid, Equipar_PMERJ1, DIALOG_STYLE_TABLIST_HEADERS, "[PMERJ] Equipamentos", "Arma:\tCargo nescessário:\nCassetete\t1\nGranada de Fumaça\t1\nColt 45\t1\nDesert Eagle\t1\nShotgun\t1\nMP5\t1\nM4\t2", "Pegar", "Fechar");
+				Dialog_Show(playerid, Equipar_PMERJ1, DIALOG_STYLE_TABLIST_HEADERS, "[USMC] Equipamentos", "Arma:\tCargo nescessário:\nCassetete\t1\nGranada de Fumaça\t1\nColt 45\t1\nDesert Eagle\t1\nShotgun\t1\nMP5\t1\nM4\t2", "Pegar", "Fechar");
 			}
-			case 1: Dialog_Show(playerid, Equipar_PMERJ2, DIALOG_STYLE_TABLIST_HEADERS, "[PMERJ] Equipamentos", "Tipo de Munição:\tQuantidade:\n9mm\t60\nCartuchos\t60\n5.56mm\t250\n12.7x106mm\t60", "Pegar", "Fechar");
+			case 1: Dialog_Show(playerid, Equipar_PMERJ2, DIALOG_STYLE_TABLIST_HEADERS, "[USMC] Equipamentos", "Tipo de Munição:\tQuantidade:\n9mm\t60\nCartuchos\t60\n5.56mm\t250\n12.7x106mm\t60", "Pegar", "Fechar");
             case 2: { P_Armour[playerid] = 120; SetPlayerArmour_CA(playerid, 120); }
             case 3: { P_Armour[playerid] = 0; SetPlayerArmour_CA(playerid, 0); }
             case 4:
@@ -37363,9 +37334,9 @@ Dialog:Equipar_BANK(playerid, response, listitem, inputtext[])
         {
             case 0:
 			{
-				Dialog_Show(playerid, Equipar_BANK1, DIALOG_STYLE_TABLIST_HEADERS, "[PROTEGE] Equipamentos", "Arma:\tCargo nescessário:\nColt 45\t1\nShotgun\t1", "Pegar", "Fechar");
+				Dialog_Show(playerid, Equipar_BANK1, DIALOG_STYLE_TABLIST_HEADERS, "[BRINKS] Equipamentos", "Arma:\tCargo nescessário:\nColt 45\t1\nShotgun\t1", "Pegar", "Fechar");
 			}
-			case 1: Dialog_Show(playerid, Equipar_BANK2, DIALOG_STYLE_TABLIST_HEADERS, "[PROTEGE] Equipamentos", "Tipo de Munição:\tQuantidade:\n9mm\t60\nCartuchos", "Pegar", "Fechar");
+			case 1: Dialog_Show(playerid, Equipar_BANK2, DIALOG_STYLE_TABLIST_HEADERS, "[BRINKS] Equipamentos", "Tipo de Munição:\tQuantidade:\n9mm\t60\nCartuchos", "Pegar", "Fechar");
             case 2: { P_Armour[playerid] = 100; SetPlayerArmour_CA(playerid, 100); }
             case 3: { P_Armour[playerid] = 0; SetPlayerArmour_CA(playerid, 0); }
             case 4:
@@ -39363,7 +39334,7 @@ CMD:presos(playerid, params[])
 		{
 		    if(PlayerInfo[i][pPrisao] == 1)
 		    {
-		        format(stringaap, sizeof(stringaap), "[PMERJ] %s - ID: %d, Tempo: %d", PlayerName(i,1),i,PlayerInfo[i][pTemPreso]);
+		        format(stringaap, sizeof(stringaap), "[USMC] %s - ID: %d, Tempo: %d", PlayerName(i,1),i,PlayerInfo[i][pTemPreso]);
 				SCM(playerid, COLOR_GREY, stringaap);
 		        count++;
 			}
@@ -46805,7 +46776,7 @@ COMMAND:porta(playerid, params[])
 						pport++;
 					}
 				}
-				else if(PortaoInfo[i][ptFac] == 190 && IsLaw(playerid))
+				else if(PortaoInfo[i][ptFac] == 911 && IsLaw(playerid))
 				{
 				    if(!PortaoInfo[i][ptLock])
 		   		    {
@@ -48571,7 +48542,7 @@ Dialog:Dialog_247Rua(playerid, response, listitem, inputtext[])
 			}
 			case 2:
 		    {
-		        if(PlayerInfo[playerid][pGrana] >= 190)
+		        if(PlayerInfo[playerid][pGrana] >= 911)
 		        {
 					if(PlayerInfo[playerid][pRadio] != 0) return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você já tem um Rádio Comunicador.");
 		 		    SendClientMessage(playerid,COLOR_LIGHTGREEN,"Rádio Comunicador comprado (/ajudaradio)");
@@ -54260,14 +54231,14 @@ CMD:entrar(playerid, params[])
 
 	    SetPlayerPosFreeze(playerid, 1390.2905,-30.3338,1000.9183, 1);
 	}
-	else if(IsPlayerInRangeOfPoint(playerid, 5, 2514.5640,-1525.5608,24.0324))//PMERJ
+	else if(IsPlayerInRangeOfPoint(playerid, 5, 2514.5640,-1525.5608,24.0324))//USMC
 	{
 	    SetPlayerInterior(playerid, 5);
 	    SetPlayerVirtualWorld(playerid, 1);
 
 	    SetPlayerPosFreeze(playerid, 1513.2678,-1623.1249,774.0040, 1);
 	}
-	else if (IsPlayerInRangeOfPoint(playerid, 5.0, 954.6230,-1467.4749,13.5547)) // CBMERJ GARAGEM
+	else if (IsPlayerInRangeOfPoint(playerid, 5.0, 954.6230,-1467.4749,13.5547)) // MEDIC GARAGEM
 	{
 		new PlayerNoCarro[4];
 		new PlayerNoCarroL[4];
@@ -54324,13 +54295,13 @@ CMD:entrar(playerid, params[])
 			SetPlayerVirtualWorld(playerid, 0);
 			SetPlayerPos(playerid, 2296.9138,2498.3650,-7.4531);
 			SetPlayerFacingAngle(playerid, 0);
-			GameTextForPlayer(playerid, "~w~Bem-vindo a garagem do CBERJ.", 5000, 1);
+			GameTextForPlayer(playerid, "~w~Bem-vindo a garagem do MEDIC.", 5000, 1);
 			PlayerInfo[playerid][pInterior] = 0;
 			PlayerInfo[playerid][pWorld] = 0;
 
 		}
 	}
-	else if (IsPlayerInRangeOfPoint(playerid, 5.0, 1772.9445,-1543.1234,13.6688)) // PROTEGE GARAGEM
+	else if (IsPlayerInRangeOfPoint(playerid, 5.0, 1772.9445,-1543.1234,13.6688)) // BRINKS GARAGEM
 	{
 		new PlayerNoCarro[4];
 		new PlayerNoCarroL[4];
@@ -54387,7 +54358,7 @@ CMD:entrar(playerid, params[])
 			SetPlayerVirtualWorld(playerid, 0);
 			SetPlayerPos(playerid, 2481.5627,2513.5317,10.8203);
 			SetPlayerFacingAngle(playerid, 0);
-			GameTextForPlayer(playerid, "~w~Bem-vindo a garagem da PROTEGE.", 5000, 1);
+			GameTextForPlayer(playerid, "~w~Bem-vindo a garagem da BRINKS.", 5000, 1);
 			PlayerInfo[playerid][pInterior] = 0;
 			PlayerInfo[playerid][pWorld] = 0;
 
@@ -54456,7 +54427,7 @@ CMD:entrar(playerid, params[])
 
 		}
 	}
-	else if (IsPlayerInRangeOfPoint(playerid, 5.0, 2501.8445,-1564.4512,24.0324)) // PMERJ GARAGEM
+	else if (IsPlayerInRangeOfPoint(playerid, 5.0, 2501.8445,-1564.4512,24.0324)) // USMC GARAGEM
 	{
 		new PlayerNoCarro[4];
 		new PlayerNoCarroL[4];
@@ -54513,7 +54484,7 @@ CMD:entrar(playerid, params[])
 			SetPlayerVirtualWorld(playerid, 0);
 			SetPlayerPos(playerid, 2318.3911,2446.4016,3.2734);
 			SetPlayerFacingAngle(playerid, 0);
-			GameTextForPlayer(playerid, "~w~Bem-vindo a garagem da PMERJ.", 5000, 1);
+			GameTextForPlayer(playerid, "~w~Bem-vindo a garagem da USMC.", 5000, 1);
 
 		}
 
@@ -55020,7 +54991,7 @@ CMD:sair(playerid, params[])
 	}
 
 
-	else if(IsPlayerInRangeOfPoint(playerid, 5, 1513.2678,-1623.1249,774.0040))//PMERJ
+	else if(IsPlayerInRangeOfPoint(playerid, 5, 1513.2678,-1623.1249,774.0040))//USMC
 	{
 	    SetPlayerInterior(playerid, 0);
 	    SetPlayerVirtualWorld(playerid, 0);
@@ -55034,7 +55005,7 @@ CMD:sair(playerid, params[])
 	    SetPlayerPosFreeze(playerid, 2514.5640,-1525.5608,24.0324, 1);
 	}
 
-	else if (IsPlayerInRangeOfPoint(playerid, 5.0, 2296.9138,2498.3650,-7.4531)) // CBERJ GARAGEM
+	else if (IsPlayerInRangeOfPoint(playerid, 5.0, 2296.9138,2498.3650,-7.4531)) // MEDIC GARAGEM
 	{
 
 		new PlayerNoCarro[4];
@@ -55093,7 +55064,7 @@ CMD:sair(playerid, params[])
 			SetPlayerFacingAngle(playerid, 180);
 		}
 	}
-	else if (IsPlayerInRangeOfPoint(playerid, 20.0,2481.5627,2513.5317,10.8203)) // PROTEGE GARAGEM
+	else if (IsPlayerInRangeOfPoint(playerid, 20.0,2481.5627,2513.5317,10.8203)) // BRINKS GARAGEM
 	{
 
 		new PlayerNoCarro[4];
@@ -55211,7 +55182,7 @@ CMD:sair(playerid, params[])
 			SetPlayerFacingAngle(playerid, 180);
 		}
 	}
-	else if (IsPlayerInRangeOfPoint(playerid, 20.0, 2318.3911,2446.4016,3.2734)) // PMERJ GARAGEM
+	else if (IsPlayerInRangeOfPoint(playerid, 20.0, 2318.3911,2446.4016,3.2734)) // USMC GARAGEM
 	{
 		new PlayerNoCarro[4];
 		new PlayerNoCarroL[4];
@@ -62750,19 +62721,19 @@ COMMAND:gov(playerid, params[])
 	    new facID = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
 	    if(FacInfo[facID][fTipo] == FAC_TIPO_PMERJ)
 		{
-		    SendClientMessageToAll(0x005BB7FF, "{6495ed}PMERJ:");
+		    SendClientMessageToAll(0x005BB7FF, "{6495ed}USMC:");
 			format(string, sizeof(string), "{6495ed}%s", text);
     		SendClientMessageToAll(0x005BB7FF, string);
 		}
   		else if(FacInfo[facID][fTipo] == FAC_TIPO_GOV)
 		{
-		    SendClientMessageToAll(0x005BB7FF, "{6495ed}GOV-RJ:");
+		    SendClientMessageToAll(0x005BB7FF, "{6495ed}US GOV:");
 		    format(string, sizeof(string), "{6495ed}%s", text);
     		SendClientMessageToAll(0x005BB7FF, string);
 		}
   		else if(FacInfo[facID][fTipo] == FAC_TIPO_TJRP)
 		{
-		    SendClientMessageToAll(0x005BB7FF, "{6495ed}TJRJ:");
+		    SendClientMessageToAll(0x005BB7FF, "{6495ed}DOJ:");
 		    format(string, sizeof(string), "{6495ed}%s", text);
     		SendClientMessageToAll(0x005BB7FF, string);
 		}
@@ -62780,7 +62751,7 @@ COMMAND:gov(playerid, params[])
 		}
         else if(FacInfo[facID][fTipo] == FAC_TIPO_BANK)
         {
-            SendClientMessageToAll(0x005BB7FF, "{6495ed}PROTEGE:");
+            SendClientMessageToAll(0x005BB7FF, "{6495ed}BRINKS:");
             format(string, sizeof(string), "{6495ed}%s", text);
             SendClientMessageToAll(0x005BB7FF, string);
 		}		
@@ -74253,7 +74224,7 @@ stock ShowElevatorDialog2(playerid)
 	    strcat(strings, "\n");
 	}
 
-	ShowPlayerDialog(playerid, DIALOG_ID2, DIALOG_STYLE_LIST, "PMERJ", strings, "Selecionar", "Cancelar");
+	ShowPlayerDialog(playerid, DIALOG_ID2, DIALOG_STYLE_LIST, "USMC", strings, "Selecionar", "Cancelar");
 
 	return 1;
 }
@@ -74611,12 +74582,12 @@ COMMAND:canalradio(playerid, params[])
 	     	new Job = PlayerInfo[playerid][pJob];
             if(aimid == 190)
             {
-                if(FacInfo[FacId][fTipo] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito a PMERJ.");
+                if(FacInfo[FacId][fTipo] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito a USMC.");
                 temperm = 1;
             }
             if(aimid == 193) 
 			{
-                if(FacInfo[FacId][fTipo] != 3) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito a CBERJ.");
+                if(FacInfo[FacId][fTipo] != 3) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito a MEDIC.");
                 temperm = 1;
             }
 			if(aimid == 197)
@@ -74625,7 +74596,7 @@ COMMAND:canalradio(playerid, params[])
                 temperm = 1;
             }
             if(aimid == 183) {
-                if(FacInfo[FacId][fTipo] != 7) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito ao TJRJ.");
+                if(FacInfo[FacId][fTipo] != 7) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito ao DOJ.");
                 temperm = 1;
             }
 			if(aimid == 181) {
@@ -74637,7 +74608,7 @@ COMMAND:canalradio(playerid, params[])
 			    temperm = 1;
 			}
 			if(aimid == 185) {
-			    if(FacInfo[FacId][fTipo] != 6) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito a PROTEGE.");
+			    if(FacInfo[FacId][fTipo] != 6) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito a BRINKS.");
 			    temperm = 1;
 			}
 			if(aimid == 444) {
@@ -74684,7 +74655,7 @@ COMMAND:canalradio2(playerid, params[])
             new Job = PlayerInfo[playerid][pJob];
 	
             if(aimid == 190) {
-                if(FacInfo[FacId][fTipo] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito a PMERJ.");
+                if(FacInfo[FacId][fTipo] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito a USMC.");
                 temperm = 1;
             }
             if(aimid == 197) {
@@ -74692,11 +74663,11 @@ COMMAND:canalradio2(playerid, params[])
                 temperm = 1;
             }
             if(aimid == 193) {
-                if(FacInfo[FacId][fTipo] != 3) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito a CBERJ.");
+                if(FacInfo[FacId][fTipo] != 3) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito a MEDIC.");
                 temperm = 1;
             }
             if(aimid == 183) {
-                if(FacInfo[FacId][fTipo] != 7) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito ao TJRJ.");
+                if(FacInfo[FacId][fTipo] != 7) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito ao DOJ.");
                 temperm = 1;
             }
             if(aimid == 181) {
@@ -74708,7 +74679,7 @@ COMMAND:canalradio2(playerid, params[])
 			    temperm = 1;
 			}
 			if(aimid == 185) {
-			    if(FacInfo[FacId][fTipo] != 6) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito a PROTEGE.");
+			    if(FacInfo[FacId][fTipo] != 6) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito a BRINKS.");
 			    temperm = 1;
 			}
             if(aimid == 444) {
@@ -74900,12 +74871,12 @@ CMD:departamento(playerid, params[])
 		}
 		else
 		{
-		   	if(FacId == 1) format(StrFac, sizeof(StrFac), "PMERJ");
+		   	if(FacId == 1) format(StrFac, sizeof(StrFac), "USMC");
             else if(FacId == 2) format(StrFac, sizeof(StrFac), "PCERJ");
-            else if(FacId == 3) format(StrFac, sizeof(StrFac), "CBERJ");
-		   	else if(FacId == 4) format(StrFac, sizeof(StrFac), "GOVRJ");
-			else if(FacId == 6) format(StrFac, sizeof(StrFac), "EB");
-			else if(FacId == 5) format(StrFac, sizeof(StrFac), "PROTEGE");
+            else if(FacId == 3) format(StrFac, sizeof(StrFac), "MEDIC");
+		   	else if(FacId == 4) format(StrFac, sizeof(StrFac), "US GOV");
+			else if(FacId == 5) format(StrFac, sizeof(StrFac), "BRINKS");
+			else if(FacId == 6) format(StrFac, sizeof(StrFac), "DEVGRU");
 		    format(StrMsg, sizeof(StrMsg), "** [%s] %s: %s", StrFac, PlayerName(playerid, 0), opcao);
             SendFacMessage(0xff8282FF, PlayerInfo[playerid][pFac],StrMsg);
           
@@ -74938,12 +74909,12 @@ CMD:departamentobaixo(playerid, params[])
 		}
 		else
 		{
-		   	if(FacId == 1) format(StrFac, sizeof(StrFac), "PMERJ");
+		   	if(FacId == 1) format(StrFac, sizeof(StrFac), "USMC");
             else if(FacId == 2) format(StrFac, sizeof(StrFac), "PCERJ");
-            else if(FacId == 3) format(StrFac, sizeof(StrFac), "CBERJ");
-		   	else if(FacId == 4) format(StrFac, sizeof(StrFac), "GOVRJ");
-			else if(FacId == 6) format(StrFac, sizeof(StrFac), "EB");
-			else if(FacId == 5) format(StrFac, sizeof(StrFac), "PROTEGE");
+            else if(FacId == 3) format(StrFac, sizeof(StrFac), "MEDIC");
+		   	else if(FacId == 4) format(StrFac, sizeof(StrFac), "US GOV");
+			else if(FacId == 5) format(StrFac, sizeof(StrFac), "BRINKS");
+			else if(FacId == 6) format(StrFac, sizeof(StrFac), "DEVGRU");
 		    format(StrMsg, sizeof(StrMsg), "** [%s] %s: %s", StrFac, PlayerName(playerid, 0), opcao);
            	SendFacMessage(0xff8282FF, PlayerInfo[playerid][pFac],StrMsg);
 
@@ -75101,7 +75072,7 @@ CMD:factipo(playerid, params[])
 	if (sscanf(params, "ii", id, var2))
 	{
 		SendClientMessage(playerid, COLOR_LIGHTRED,"USE: /factipo [Id da Facção] [Tipo]");
-		SendClientMessage(playerid, COLOR_WHITE,"{FF6347}[Tipos]: 1 - PMERJ / 2 - PCERJ / 3 - CBERJ / 4 - GOV / 5 - EB / 6 - T. Valores / 10~13 - Gang / 14~17 - Mafia / 7 - Load & Reload / 8 - Civil");
+		SendClientMessage(playerid, COLOR_WHITE,"{FF6347}[Tipos]: 1 - USMC / 2 - PCERJ / 3 - MEDIC / 4 - GOV / 5 - EB / 6 - T. Valores / 10~13 - Gang / 14~17 - Mafia / 7 - Load & Reload / 8 - Civil");
 		return 1;
 	}
 	else
@@ -75295,7 +75266,7 @@ Dialog:FactionsList2(playerid, response, listitem, inputtext[]){
             case 1:
             {
                 format(string_name, sizeof(string_name), "%s - Tipo", FacInfo[FacID][fNome]);
-                format(string, sizeof(string), "PMERJ\nPCERJ\nCBERJ\nEB\nGOV\n--- [Drugs] ---\nNível 1\nNível 2\nNível 3\nNível 4\n--- [Armas] ---\nNível 1\nNível 2\nNível 3\nNível 4", FacInfo[FacID][fNome], FacInfo[FacID][fTipo]);
+                format(string, sizeof(string), "USMC\nPCERJ\nMEDIC\nEB\nGOV\n--- [Drugs] ---\nNível 1\nNível 2\nNível 3\nNível 4\n--- [Armas] ---\nNível 1\nNível 2\nNível 3\nNível 4", FacInfo[FacID][fNome], FacInfo[FacID][fTipo]);
 	    		Dialog_Show(playerid, FactionsList_NewType, DIALOG_STYLE_LIST, string_name, string, "Escolher", "Cancelar");
             }
             case 3:
@@ -75336,7 +75307,7 @@ Dialog:FactionsList_NewType(playerid, response, listitem, inputtext[]){
         {
             case 0: {
                 FacInfo[FacID][fTipo] = 1;
-                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: PMERJ.");
+                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: USMC.");
             }
             case 1: {
                 FacInfo[FacID][fTipo] = 2;
@@ -75344,7 +75315,7 @@ Dialog:FactionsList_NewType(playerid, response, listitem, inputtext[]){
             }
             case 2: {
                 FacInfo[FacID][fTipo] = 3;
-                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: CBERJ.");
+                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: MEDIC.");
             }
             case 3: {
                 FacInfo[FacID][fTipo] = 5;
@@ -75437,8 +75408,8 @@ COMMAND:setarportaofac(playerid, params[])
 		        PortaoInfo[portaoid][ptFac] = FacInfo[faccao][fID];
 		        PortaoInfo[portaoid][ptEmpresa] = 0;
 
-				if(faccao != 190) format(string,sizeof(string),"{FF6347}AdmCmd: Você setou o portão %d para a facção %s [%d].", portaoid, FacInfo[faccao][fNome], faccao);
-				else format(string,sizeof(string),"{FF6347}AdmCmd: Você setou o portão %d para o PMERJ.", portaoid);
+				if(faccao != 911) format(string,sizeof(string),"{FF6347}AdmCmd: Você setou o portão %d para a facção %s [%d].", portaoid, FacInfo[faccao][fNome], faccao);
+				else format(string,sizeof(string),"{FF6347}AdmCmd: Você setou o portão %d para o USMC.", portaoid);
 	    		SendClientMessage(playerid, COLOR_LIGHTRED, string);
 
 	    		SalvarPortao(portaoid);
@@ -83673,7 +83644,7 @@ public TempoParaAtenderem911(playerid,tipo)
 		}
     	CelularData[playerid][LigandoParaNum] = 191;
 	}
-	else if(tipo == 2) // CBERJ
+	else if(tipo == 2) // MEDIC
 	{
 	    if(CelularData[playerid][VivaVoz] == 0)
 		{
@@ -85057,7 +85028,7 @@ CMD:ligar(playerid, params[])
 	}
 	if(telefonefinal > 0 && telefonefinal < 10000)
 	{
-	    if(telefonefinal == 190 || telefonefinal == 555 || telefonefinal == 444 || telefonefinal == 222)
+	    if(telefonefinal == 911 || telefonefinal == 555 || telefonefinal == 444 || telefonefinal == 222)
 		{
 		    AnimCelular(playerid, 1);
 			LigarPara(playerid, telefonefinal, 1, -1);
@@ -85371,12 +85342,12 @@ public LigarPara(playerid, numero, tipo, id_orelhao) //Tipo 1 = Ligação Normal (
 				}
 			}
 		}
-		else if(numero == 190)
+		else if(numero == 911)
 		{
 		    if(id_orelhao == -1)
 		    {
 			    CelularData[playerid][UsandoCelOrOre] = 1;
-			    CelularData[playerid][LigandoParaNum] = 190;
+			    CelularData[playerid][LigandoParaNum] = 911;
 			    CelularData[playerid][LigandoParaNumAtendido] = 0;
 				new str[56], tempo = randomEx(4, 10);
 				format(str,sizeof(str),"Chamando~n~(%d)", numero);
@@ -85639,7 +85610,7 @@ public TempoParaAtenderem(playerid,tipo) //Tipo 1: Celular | Tipo 2: Orelhão
 {
 	switch(CelularData[playerid][LigandoParaNum])
 	{
-	    case 190:
+	    case 911:
 	    {
 	        new str[256],strop[26];
 	        if(tipo == 1)
@@ -86872,7 +86843,7 @@ Dialog:DIALOG_GOV_EDIT(playerid, response, listitem, inputtext[])
 				{
 					OutrasInfos[playerid][oGovEditor][0] = 4;
 					OutrasInfos[playerid][oGovEditor][1] = 0;
-                    Dialog_Show(playerid, DIALOG_GOV_EDIT, DIALOG_STYLE_LIST, "Governo", "PMERJ\nCBERJ\nGOV-RJ\nPCERJ\nEB\nTJRJ\nFacção Civil", "Selecionar", "Fechar");
+                    Dialog_Show(playerid, DIALOG_GOV_EDIT, DIALOG_STYLE_LIST, "Governo", "USMC\nMEDIC\nUS GOV\nPCERJ\nEB\nDOJ\nFacção Civil", "Selecionar", "Fechar");
 				}
 				case 4:
 				{
@@ -87138,7 +87109,7 @@ Dialog:DIALOG_GOV_EDIT(playerid, response, listitem, inputtext[])
 					SendClientMessage(playerid, COLOR_GREEN, string);
 
 			        new strl[126];
-					format(strl, sizeof(strl), "%s alterou o salário do cargo %d da PMERJ para US$%d. | Total no cofre: US$%d", PlayerName(playerid,0), (listitem+1),valor, GovInfo[gCofres]);
+					format(strl, sizeof(strl), "%s alterou o salário do cargo %d da USMC para US$%d. | Total no cofre: US$%d", PlayerName(playerid,0), (listitem+1),valor, GovInfo[gCofres]);
 					Cofres_Publicos(strl);
 
 					SalvarGoverno();
@@ -87162,7 +87133,7 @@ Dialog:DIALOG_GOV_EDIT(playerid, response, listitem, inputtext[])
 					SendClientMessage(playerid, COLOR_GREEN, string);
 
 			        new strl[126];
-					format(strl, sizeof(strl), "%s alterou o salário do cargo %d do CBERJ para US$%d. | Total no cofre: US$%d", PlayerName(playerid,0), (listitem+1),valor, GovInfo[gCofres]);
+					format(strl, sizeof(strl), "%s alterou o salário do cargo %d do MEDIC para US$%d. | Total no cofre: US$%d", PlayerName(playerid,0), (listitem+1),valor, GovInfo[gCofres]);
 					Cofres_Publicos(strl);
 
 					SalvarGoverno();
@@ -87254,11 +87225,11 @@ Dialog:DIALOG_GOV_EDIT(playerid, response, listitem, inputtext[])
 			        if(0 > valor) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O salário não pode ser menor que 0.");
          	        GovInfo[gSalarioTJRP][govc] = valor;
 
-		            format(string, sizeof(string), "[GOV] Você alterou o salário DO TJRJ para US$%d.", valor);
+		            format(string, sizeof(string), "[GOV] Você alterou o salário DO DOJ para US$%d.", valor);
 					SendClientMessage(playerid, COLOR_GREEN, string);
 
 			        new strl[126];
-					format(strl, sizeof(strl), "%s alterou o salário do cargo %d do TJRJ para US$%d. | Total no cofre: US$%d", PlayerName(playerid,0), (listitem+1),valor, GovInfo[gCofres]);
+					format(strl, sizeof(strl), "%s alterou o salário do cargo %d do DOJ para US$%d. | Total no cofre: US$%d", PlayerName(playerid,0), (listitem+1),valor, GovInfo[gCofres]);
 					Cofres_Publicos(strl);
 
 					SalvarGoverno();

@@ -13567,10 +13567,10 @@ ShowPetMenu(playerid)
 PetSpawn(playerid)
 {
     if(PetData[playerid][petSpawn])
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "Você já tem um cachorro spawnado.");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você já tem um cachorro spawnado.");
 
     if(GetPlayerVirtualWorld(playerid) != 0)
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não pode spawnar um cachorro em outro VW.");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não pode spawnar um cachorro em outro VW.");
 
     new petmodelid = PetData[playerid][petModelID]; //stringpet[255];
 
@@ -13581,8 +13581,6 @@ PetSpawn(playerid)
     GetPlayerFacingAngle(playerid, fAngle);
 
     PetData[playerid][petModel] = CreateActor(petmodelid, fX, fY+2, fZ, fAngle);
-    //format(stringpet, sizeof(stringpet), "Dono: %s\nNome: %s", ReturnName(playerid), PetData[playerid][petName]);
-    //PetData[playerid][petText] = CreateDynamic3DTextLabel(stringpet, COLOR_WHITE, fX, fY+2, fZ, 15.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
 
     PetData[playerid][petSpawn] = true;
     PetData[playerid][petStatus] = PET_FOLLOW;
@@ -13616,7 +13614,7 @@ PetDespawn(playerid)
 PetSit(playerid)
 {
     if(!IsPetSpawned(playerid))
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "Seu cachorro não está spawnado.");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Seu cachorro não está spawnado.");
 
     if(IsValidActor(PetData[playerid][petModel]))
     {
@@ -13632,7 +13630,7 @@ PetSit(playerid)
 PetLay(playerid)
 {
     if(!IsPetSpawned(playerid))
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "Seu cachorro não está spawnado.");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Seu cachorro não está spawnado.");
 
     if(IsValidActor(PetData[playerid][petModel]))
     {
@@ -13649,7 +13647,7 @@ PetLay(playerid)
 PetJump(playerid)
 {
     if(!IsPetSpawned(playerid))
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "Seu cachorro não está spawnado.");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Seu cachorro não está spawnado.");
 
     if(IsValidActor(PetData[playerid][petModel]))
     {
@@ -13665,14 +13663,14 @@ PetJump(playerid)
 PetStay(playerid)
 {
     if(!IsPetSpawned(playerid))
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "Seu cachorro não está spawnado.");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Seu cachorro não está spawnado.");
 
     if(IsValidActor(PetData[playerid][petModel]))
     {
         PetData[playerid][petStatus] = PET_STAY;
         stop PetData[playerid][petTimer];
         ClearDynamicActorAnimations(PetData[playerid][petModel]);
-        SendClientMessage(playerid, COLOR_WHITE, "Seu pet não está executando animação");
+        SendClientMessage(playerid, COLOR_WHITE, "ERRO: Seu pet não está executando a animação.");
     }
     return 1;
 }

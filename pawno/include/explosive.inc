@@ -8,16 +8,13 @@
 	#define MAX_EXPLOSIVE_TIME (900)
 #endif
 #if !defined MAX_PLAYER_EXPLOSIVES
-	#define MAX_PLAYER_EXPLOSIVES (2)
+	#define MAX_PLAYER_EXPLOSIVES (15)
 #endif
 #define INVALID_EXPLOSIVE_ID (-1)
 
 enum
 	e_TRIGGER
 {
-	/**
-	 * NOTE: O gatilho MOVEMENT ainda não foi implementado.
-	 */
 	TIME,
 	RADIO,
 	PROXIMITY,
@@ -180,18 +177,8 @@ CreateExplosive(Float:x, Float:y, Float:z,
 
 	g_sExplosive@Data[g_sExplosive@ID][E_EXPLOSIVE_OWNER] = playerid;
 
-	g_sExplosive@Data[g_sExplosive@ID][E_EXPLOSIVE_OBJECT] = CreateDynamicObject(19602,
-		x,
-		y,
-		z,
-		0.0,
-		0.0,
-		0.0);
-	g_sExplosive@Data[g_sExplosive@ID][E_EXPLOSIVE_AREA] = CreateDynamicSphere(
-		x,
-		y,
-		z,
-		1.5);
+	g_sExplosive@Data[g_sExplosive@ID][E_EXPLOSIVE_OBJECT] = CreateDynamicObject(19602, x, y, z, 0.0, 0.0, 0.0);
+	g_sExplosive@Data[g_sExplosive@ID][E_EXPLOSIVE_AREA] = CreateDynamicSphere(x, y, z, 1.5);
 
 	static
 		data[2];

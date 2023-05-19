@@ -12,6 +12,7 @@
 #include <neon>
 #include <dini>
 #include <YSI\y_bit>
+#include <YSI\y_hooks>
 #include "../include/gl_common.inc"
 #include <progress>
 #include <callbacks>
@@ -22,6 +23,7 @@
 #include <trap>
 #include <explosive>
 #include <mapandreas>
+//#include <cpn.inc>
 //#include <nex-ac>
 
 // --------- [ INCLUDES ] ---------
@@ -1321,7 +1323,9 @@ new Text:gTime;
 // --------- [ DEFINITIONS ] ---------
 #define MODEL_SELECTION_SKIN 1
 
-#define NAME_DRAWDISTANCE 		20.0
+//#define NAME_DRAWDISTANCE 		20.0
+#define NT_DISTANCE 20.0
+new Text3D:cNametag[MAX_PLAYERS];
 #define DISTANCIA_FERIMENTOS    20.0
 
 #define MAX_HOUSES  2500
@@ -6062,7 +6066,10 @@ public OnPlayerRequestDownload(playerid, type, crc)
 
 public OnGameModeInit()
 {
-    ShowNameTags(1);
+    ShowNameTags(0);
+    print("--- Custom nametags by Yur$ ---");
+    // OnPlayerUpdate causes lag and OnPlayer(Take/Give)Damage doesn't work with it
+    SetTimer("UpdateNametag", 1000, true); // So we're using a timer, change the interval to what you want
     //SendRconCommand("password 324rewr432er");
 	if (ambiente == 1){
 		Pipeline = mysql_connect(sz_Connection, sz_User, sz_DB, sz_Password);
@@ -6086,7 +6093,7 @@ public OnGameModeInit()
 	SendRconCommand(CA_LANGUAGE);
 
 	DisableInteriorEnterExits();
-	SetNameTagDrawDistance(NAME_DRAWDISTANCE);
+	//SetNameTagDrawDistance(NAME_DRAWDISTANCE);
     EnableStuntBonusForAll(0);
 
     ManualVehicleEngineAndLights();
@@ -6508,7 +6515,71 @@ public OnGameModeInit()
   	print("[CARREGADO] Sistema de Grafite");
 	return 1;
 }
+static GetHealthDots(playerid)
+{
+    new
+        dots[64], Float: HP;
+ 
+    GetPlayerHealth(playerid, HP);
+ 
+    if(HP >= 100)
+        dots = "••••••••••";
+    else if(HP >= 90)
+        dots = "•••••••••{660000}•";
+    else if(HP >= 80)
+        dots = "••••••••{660000}••";
+    else if(HP >= 70)
+        dots = "•••••••{660000}•••";
+    else if(HP >= 60)
+        dots = "••••••{660000}••••";
+    else if(HP >= 50)
+        dots = "•••••{660000}•••••";
+    else if(HP >= 40)
+        dots = "••••{660000}••••••";
+    else if(HP >= 30)
+        dots = "•••{660000}•••••••";
+    else if(HP >= 20)
+        dots = "••{660000}••••••••";
+    else if(HP >= 10)
+        dots = "•{660000}•••••••••";
+    else if(HP >= 0)
+        dots = "{660000}••••••••••";
+ 
+    return dots;
+}
 
+static GetArmorDots(playerid)
+{
+    new
+        dots[64], Float: AR;
+ 
+    GetPlayerArmour(playerid, AR);
+ 
+    if(AR >= 100)
+        dots = "••••••••••";
+    else if(AR >= 90)
+        dots = "•••••••••{666666}•";
+    else if(AR >= 80)
+        dots = "••••••••{666666}••";
+    else if(AR >= 70)
+        dots = "•••••••{666666}•••";
+    else if(AR >= 60)
+        dots = "••••••{666666}••••";
+    else if(AR >= 50)
+        dots = "•••••{666666}•••••";
+    else if(AR >= 40)
+        dots = "••••{666666}••••••";
+    else if(AR >= 30)
+        dots = "•••{666666}•••••••";
+    else if(AR >= 20)
+        dots = "••{666666}••••••••";
+    else if(AR >= 10)
+        dots = "•{666666}•••••••••";
+    else if(AR >= 0)
+        dots = "{666666}••••••••••";
+ 
+    return dots;
+}
 
 //=========================================================================================================================================
 
@@ -11089,6 +11160,8 @@ public OnPlayerConnect(playerid)
 {
     if(IsPlayerNPC(playerid)) return 1;
 
+	 cNametag[playerid] = CreateDynamic3DTextLabel("Loading nametag...", 0xFFFFFFFF, 0.0, 0.0, 0.1, NT_DISTANCE, .attachedplayer = playerid, .testlos = 1);
+
     PlayersOnline++;
 
     if(PlayersOnline > RecordDia) 		RecordDia = PlayersOnline;
@@ -12437,6 +12510,8 @@ public OnPlayerDisconnect(playerid, reason)
     PlayerDisconectDelTexts(playerid);
 	TelaLoginDel(playerid);
 	//PetDespawn(playerid);
+    if(IsValidDynamic3DTextLabel(cNametag[playerid]))
+              DestroyDynamic3DTextLabel(cNametag[playerid]);
 
 	if(GetPVarInt(playerid, "AcabouDeMorrer") == 1)
 	{
@@ -12672,7 +12747,28 @@ public OnPlayerDisconnect(playerid, reason)
 
 	return 1;
 }
-
+forward UpdateNametag();
+public UpdateNametag()
+{
+    for(new i = 0, j = GetPlayerPoolSize(); i <= j; i++)
+    {
+        if(IsPlayerConnected(i))
+        {
+            new nametag[128], playername[MAX_PLAYER_NAME], Float:armour;
+            GetPlayerArmour(i, armour);
+            GetPlayerName(i, playername, sizeof(playername));
+            if(armour > 1.0)
+            {
+                format(nametag, sizeof(nametag), "{%06x}%s {FFFFFF}(%i)\n{FFFFFF}%s\n{FF0000}%s", GetPlayerColor(i) >>> 8, playername, i, GetHealthDots(i), GetArmorDots(i));
+            }
+            else
+            {
+                format(nametag, sizeof(nametag), "{%06x}%s {FFFFFF}(%i)\n{FF0000}%s", GetPlayerColor(i) >>> 8, playername, i, GetHealthDots(i));
+            }
+            UpdateDynamic3DTextLabelText(cNametag[i], 0xFFFFFFFF, nametag);
+        }
+    }
+}
 stock PlayRingSoundTwice(playerid)
 {
 	PlaySound(playerid, 1138);

@@ -19,9 +19,10 @@
 #include <dialogs>
 #include <dns>
 #include <EVF>
+#include <trap>
+#include <explosive>
 //#include <mapandreas>
 //#include <nex-ac>
-
 
 // --------- [ INCLUDES ] ---------
 
@@ -67,12 +68,6 @@ new PlayerText:RadioComunicador[MAX_PLAYERS][2];
 
 #define DIALOG_PAINELNOME		1444
 #define DIALOG_PAINELSENHA		1445
-
-//VARIAVEIS
-new Mina1[MAX_PLAYERS];
-new Float: pX[MAX_PLAYERS], Float: pY[MAX_PLAYERS], Float: pZ[MAX_PLAYERS];
-new Passounamina;
-new Mina[MAX_PLAYERS];
 
 //Jogo do Bicho
 #define DIALOG_JOGODoBichoMenu			900
@@ -181,12 +176,12 @@ new ambiente = 1; // 0  - Localhost 1 - Produção
 
 //====== [DEFINIÇÕES DO SERVIDOR] =======================================================
 #define ULTIMO_GMX      "15/04/2023"
-#define CA_VERSAO       "IW:RP v2.09"
+#define CA_VERSAO       "WT:RP v2.09"
 #define CA_LINK         "weburl iw-roleplay.com.br"
-//#define CA_NOME         "hostname Iraq War Roleplay | BETA TEST CLOSED"
-#define CA_NOME         "hostname Iraq War Roleplay | iw-roleplay.com.br"
-#define CA_NOME2        "hostname Iraq War Roleplay [2x Paycheck]"
-#define CA_NOME3        "hostname Iraq War Roleplay [Manutenção rápida]"
+//#define CA_NOME         "hostname War on Terror Roleplay | BETA TEST CLOSED"
+#define CA_NOME         "hostname War on Terror Roleplay | iw-roleplay.com.br"
+#define CA_NOME2        "hostname War on Terror Roleplay [2x Paycheck]"
+#define CA_NOME3        "hostname War on Terror Roleplay [Manutenção rápida]"
 #define CA_LANGUAGE     "language Português Brasileiro"
 #define MAP_NAME        "mapname Rio de Janeiro"
 //==============================================================================
@@ -4087,7 +4082,7 @@ new Float:TrocaDeInt_Coordenadas[26][9] = {
 //==============================================================================
 //                              POKER SYSTEM
 //==============================================================================
-#define STR_VERSION "IW:RP v1.7 Version"
+#define STR_VERSION "WT:RP v1.7 Version"
 
 #define COLOR_GOLD										0xFFCC00AA
 
@@ -6009,7 +6004,7 @@ static const g_aPreloadLibs[][] =
 main()
 {
 	print("\n-------------------------------------------	");
-	print("	Iraq War Roleplay							");
+	print("	War on Terror Roleplay							");
 	print("	por Yur$										");
 	print("----------------------------------\n				");
 }
@@ -12857,7 +12852,7 @@ public CheckingAccount(playerid)
 		    mysql_real_escape_string(GetName(playerid), escapedPlayerName);
 			new str[250];
 			format(str, sizeof(str), "SERVER: Você só pode errar sua senha três (3) vezes.\n INFO: Nosso UCP é o https://iw-roleplay.com.br\n acesse-o para mais informações sobre sua conta.\n\n        Digite sua senha:");
-			ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "Iraq War Roleplay", str, "Autenticar", "Cancelar");
+			ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "War on Terror Roleplay", str, "Autenticar", "Cancelar");
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][0]);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][1]);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][3]);
@@ -12895,7 +12890,7 @@ public CheckingAccount(playerid)
 	{
 	    new str[256];
 		format(str, sizeof(str), "\nOlá %s.\nA sua conta não existe, por favor dirija-se ao UCP para criar um personagem\nAtente-se as regras no nosso fórum também.\nUCP: https://iw-roleplay.com.br/ucp\nFórum: https://iw-roleplay.com.br\n", GetName(playerid));
-  		ShowPlayerDialog(playerid, 999999, DIALOG_STYLE_MSGBOX, "Iraq War Roleplay - Informação", str, "Fechar", "");
+  		ShowPlayerDialog(playerid, 999999, DIALOG_STYLE_MSGBOX, "War on Terror Roleplay - Informação", str, "Fechar", "");
 		PlayerTextDrawShow(playerid, TelaLogin[playerid][0]);
 		PlayerTextDrawShow(playerid, TelaLogin[playerid][1]);
 		PlayerTextDrawShow(playerid, TelaLogin[playerid][2]);
@@ -12959,7 +12954,7 @@ public CheckingAccount(playerid)
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][6]);
 			new str[1024];
 			format(str, sizeof(str), "SERVER: Você só pode errar sua senha três (3) vezes.\n INFO: Nosso FÓRUM é o http://forum.progressive-roleplay\n acesse-o para mais informações sobre sua conta.\n\n        Digite sua senha:");
-			ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "Iraq War Roleplay", str, "Autenticar", "Cancelar");
+			ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "War on Terror Roleplay", str, "Autenticar", "Cancelar");
 		}
 		else
 		{
@@ -12984,7 +12979,7 @@ public CheckingAccount(playerid)
 		PlayerTextDrawShow(playerid, TelaLogin[playerid][4]);
 		PlayerTextDrawShow(playerid, TelaLogin[playerid][5]);
 	    new str[126];
-		format(str, sizeof(str), "Olá %s.\nBem vindo ao Iraq War Roleplay. Por favor entre com uma senha para registrar-se.", GetName(playerid));
+		format(str, sizeof(str), "Olá %s.\nBem vindo ao War on Terror Roleplay. Por favor entre com uma senha para registrar-se.", GetName(playerid));
   		ShowPlayerDialog(playerid, DIALOG_REGISTER, DIALOG_STYLE_INPUT, "Registrar", str, "Registrar", "Sair");
 	}
 }
@@ -17072,32 +17067,10 @@ public OnPlayerObjectMoved(playerid, objectid)
 	return 1;
 }
 
-/*public OnPlayerPickUpPickup(playerid, pickupid)
+public OnPlayerPickUpPickup(playerid, pickupid)
 {
 	return 1;
 
-}*/
-public OnPlayerPickUpPickup(playerid, pickupid)
-{
-	//QUANDO O JOGADOR PASSAR EM CIMA DA "MINA"
-	if(pickupid == Passounamina)
-	{
-	    //SendClientMessage(playerid, 0x00FF0000, "Voce pisou na mina e ela explodiu!");
-		for(new p = 0; p < 1; p++)
-		{
-		    foreach(new i: Player)
-		    {
-				if(IsPlayerConnected(playerid))
-				{
-		 			CreateExplosion(pX[p], pY[p], pZ[p], 10, 10);
-					DestroyObject(Mina1[p]);
-					Passounamina = DestroyPickup(0);
-					Mina[p] = 0;
-				}
-			}
-		}
-	}
-	return 1;
 }
 public OnPlayerPickUpDynamicPickup(playerid, pickupid)
 {
@@ -19471,7 +19444,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		  			    {
 			  			    new str[250];
 							format(str, sizeof(str), "SERVER: Você só pode errar sua senha três (3) vezes.\n\nDigite sua senha novamente:");
-							ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "Iraq War Roleplay", str, "Autenticar", "Cancelar");
+							ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "War on Terror Roleplay", str, "Autenticar", "Cancelar");
 						}
 					}
 	  			}
@@ -19479,7 +19452,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 	  			{
 	  			    new str[250];
 					format(str, sizeof(str), "SERVER: Você só pode errar sua senha três vezes.\n INFO: Nosso FÓRUM é o https://forum.iw-roleplay.com.br\n acesse-o para mais informações sobre sua conta.\n\n        Digite sua senha novamente:");
-					ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "Iraq War Roleplay", str, "Autenticar", "Cancelar");
+					ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "War on Terror Roleplay", str, "Autenticar", "Cancelar");
 
 				}
 			}
@@ -19503,7 +19476,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 	  			else
 				{
 				    new str[126];
-					format(str, sizeof(str), "Olá %s.\nBem-vindo ao Iraq War Roleplay. Por favor entre com uma senha para registrar-se.\nEntre com uma senha.", GetName(playerid));
+					format(str, sizeof(str), "Olá %s.\nBem-vindo ao War on Terror Roleplay. Por favor entre com uma senha para registrar-se.\nEntre com uma senha.", GetName(playerid));
   					ShowPlayerDialog(playerid, DIALOG_REGISTER, DIALOG_STYLE_INPUT, "Registrar", str, "Registrar", "Sair");
 				}
 
@@ -21817,13 +21790,13 @@ public OnQueryFinish(resultid, extraid, ConnectionHandle)
 				cache_get_field_content(0, "Data", tmp);
 	        	format(strdat, 24, "%s", tmp);
 
-				Dialog_Show(extraid, ShowBan, DIALOG_STYLE_MSGBOX, "Informativo de banimento", "Lamentamos informar que sua conta foi banida do Iraq War Roleplay.\n\nNome: %s\nAdministrador: %s\nMotivo: %s\nData e hora: %s\n\nCaso queira recorrer, poste seu Ban Appeal em nosso fórum.", "Fechar", "", PlayerName(extraid,0), stringadm, strMot, strdat);
+				Dialog_Show(extraid, ShowBan, DIALOG_STYLE_MSGBOX, "Informativo de banimento", "Lamentamos informar que sua conta foi banida do War on Terror Roleplay.\n\nNome: %s\nAdministrador: %s\nMotivo: %s\nData e hora: %s\n\nCaso queira recorrer, poste seu Ban Appeal em nosso fórum.", "Fechar", "", PlayerName(extraid,0), stringadm, strMot, strdat);
 				
 				SetTimerEx("TimerKick", 1000, 0, "d", extraid);
 			}
 			else
 			{
-		    	Dialog_Show(extraid, ShowBan, DIALOG_STYLE_MSGBOX, "Informativo de banimento", "Lamentamos informar que sua conta foi banida do Iraq War Roleplay.\n\nNome: %s\nAdministrador: Desconhecido\nMotivo: Deconhecido\nData e hora: Desconhecida\n\nCaso queira recorrer, poste seu Ban Appeal em nosso fórum.", "Fechar", "", PlayerName(extraid,0), stringadm, strMot, strdat);
+		    	Dialog_Show(extraid, ShowBan, DIALOG_STYLE_MSGBOX, "Informativo de banimento", "Lamentamos informar que sua conta foi banida do War on Terror Roleplay.\n\nNome: %s\nAdministrador: Desconhecido\nMotivo: Deconhecido\nData e hora: Desconhecida\n\nCaso queira recorrer, poste seu Ban Appeal em nosso fórum.", "Fechar", "", PlayerName(extraid,0), stringadm, strMot, strdat);
 				SetTimerEx("TimerKick", 1000, 0, "d", extraid);
 			}
 		}
@@ -22194,7 +22167,7 @@ public TogSQLstatus(playerid, status)
 
 CMD:forum(playerid, params[])
 {
-    SCM(playerid, COLOR_LIGHTRED, "[IW:RP] Fórum do servidor: https://forum.iw-roleplay.com.br");
+    SCM(playerid, COLOR_LIGHTRED, "[WT:RP] Fórum do servidor: https://forum.iw-roleplay.com.br");
 	return 1;
 }
 
@@ -28565,26 +28538,158 @@ public BateriaCarro2(playerid)
 
     return 1;
 }*/
-//Sistema de mina - Yur$
-CMD:mina(playerid)
+//Sistema de armadilha e explosivo
+COMMAND:explosivo(playerid, params[])
 {
-	if(Mina[playerid] >= 15) return SendClientMessage(playerid, COLOR_lIGHTRED, "Você já plantou 15 minas!");
-	GetPlayerPos(playerid, pX[playerid], pY[playerid], pZ[playerid]);
-	GetXYInFrontOfPlayer(playerid, pX[playerid], pY[playerid], 0.5);
-	Mina1[playerid] = CreateDynamicObject(1654, pX[playerid], pY[playerid], pZ[playerid] - 0.8,270,0,0);
-	SendClientMessage(playerid, COLOR_lIGHTRED, "Você implantou uma mina! Em 5 segundos ela será ativa saia já!");
-	ApplyAnimation(playerid, "BOMBER", "BOM_Plant", 5.0, 0, 0, 0, 0, 0);
-	//SetTimerEx("Depois", 5000, 0, "d", playerid);
-	Mina[playerid] = 1;
+	if (!PlayerInfo[playerid][pLogado])
+		return SCM(playerid, COLOR_LIGHTRED, "Você precisa está logado para usar este comando.");
+
+	new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
+    if(FacInfo[FacId][fTipo] == FAC_TIPO_PMERJ || FacInfo[FacId][fTipo] == FAC_TIPO_PCERJ)
+	{
+		static
+			specifier[16],
+			param;
+
+		if (sscanf(params, "s[16]S()[16]", params, specifier))
+		{
+			SendClientMessage(playerid, COLOR_WHITE, "/explosivo [FUNÇÃO] [parâmetros]");
+			return SendClientMessage(playerid, COLOR_WHITE, "Função: armar, desarmar, explodir, lista");
+		}
+
+		if (!strcmp(params, "armar"))
+		{
+			if (GetPlayerArmedExplosives(playerid) >= MAX_PLAYER_EXPLOSIVES)
+				return SendClientMessage(playerid, COLOR_LIGHTRED, "Exploda alguns de seus explosivos armados.");
+
+			if (IsPlayerNearAnyExplosive(playerid))
+				return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não pode armar explosivos ao lado do outro.");
+
+			static
+				time;
+
+			if (sscanf(specifier, "i", param))
+			{
+				SendClientMessage(playerid, COLOR_WHITE, "/explosivo armar [tipo de explosivo]");
+				return SendClientMessage(playerid, COLOR_WHITE, "Tipos de explosivos: 0 cronometrado, 1 controlo remoto, 2 proximidade (minas terrestres)");
+			}
+
+			/**
+			 * IMPORTANT: Deve haver uma checagem aqui para ver se o jogador tem um explosivo.
+			 */
+
+			if (param == _:TIME)
+			{
+				if (sscanf(specifier, "ii", param, time))
+					return SendClientMessage(playerid, COLOR_WHITE, "/explosivo armar 0 [tempo até explodir (em segundos)]");
+
+				if (!(5 <= time <= MAX_EXPLOSIVE_TIME))
+					return SendClientMessage(playerid, COLOR_LIGHTRED, "O tempo deve estar entre 5 a 900 (15 min) segundos.");
+			}
+
+			ApplyAnimation(playerid, "BOMBER", "null", 0.0, 0, 0, 0, 0, 0, 0);
+			ApplyAnimation(playerid, "BOMBER", "BOM_Plant", 4.1, 0, 0, 0, 0, 0, 1);
+
+			static
+				Float:x,
+				Float:y,
+				Float:z,
+				Float:a;
+
+			GetPlayerPos(playerid, x, y, z);
+			GetPlayerFacingAngle(playerid, a);
+
+			CreateExplosive(
+				(x + (1.5 * floatsin(-a, degrees))),
+				(y + (1.5 * floatcos(-a, degrees))),
+				((param == _:PROXIMITY) ? (z - 1.2) : (z - 0.92)),
+				e_TRIGGER:param,
+				.time = time,
+				.playerid = playerid);
+		}
+
+		if (!strcmp(params, "desarmar"))
+		{
+			static
+				id;
+
+			if (INVALID_EXPLOSIVE_ID == (id = GetPlayerNearestExplosive(playerid)))
+				return SendClientMessage(playerid, COLOR_LIGHTRED, "Nenhum explosivo perto de você.");
+
+			ApplyAnimation(playerid, "BOMBER", "null", 0.0, 0, 0, 0, 0, 0, 0);
+			ApplyAnimation(playerid, "BOMBER", "BOM_Plant", 4.1, 0, 0, 0, 0, 0, 1);
+
+			DefuseExplosive(id);
+		}
+
+		if (!strcmp(params, "explodir"))
+		{
+			if (sscanf(specifier, "i", param))
+			{
+				SendClientMessage(playerid, -1, "/explosivo explodir [id do explosivo]");
+				return SendClientMessage(playerid, -1, "Use o comando \"/explosivo lista\" para visualizar o ID de explosivos armados por você.");
+			}
+
+			if (playerid != GetExplosiveOwner(param))
+				return SendClientMessage(playerid, COLOR_LIGHTRED, "Você só pode explodir explosivos colocados por você.");
+
+			ExplodeExplosive(param);
+		}
+
+		if (!strcmp(params, "lista"))
+		{
+			static
+				str[17];
+
+			str[0] = EOS;
+
+			SendClientMessage(playerid, COLOR_WHITE, "Lista de explosivos que você armou:");
+
+			foreach (new i : Explosive)
+			{
+				if (GetExplosiveOwner(i) == playerid)
+				{
+					format(str, sizeof(str), "Explosivo #%i", i);
+					SendClientMessage(playerid, COLOR_WHITE, str);
+				}
+			}
+
+			if (!str[0])
+				SendClientMessage(playerid, COLOR_WHITE, "Você ainda não armou nenhum explosivo.");
+		}
+	}
 	return 1;
 }
-/*forward Depois(playerid);
-public Depois(playerid)
-{
-    Passounamina = CreatePickup(0, 1, pX[playerid], pY[playerid], pZ[playerid]);
-	return 1;
-}*/
 
+
+COMMAND:trap(playerid)
+{
+    if(!PlayerInfo[playerid][pLogado]) return SCM(playerid, COLOR_LIGHTRED, "Você precisa está logado para usar este comando.");
+
+	new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
+    if(FacInfo[FacId][fTipo] == FAC_TIPO_PMERJ || FacInfo[FacId][fTipo] == FAC_TIPO_PCERJ)
+    {
+        if (GetPlayerNearbyTrap(playerid) != INVALID_TRAP_ID)
+			return SCM(playerid, COLOR_LIGHTRED, "ERRO: Você não pode colocar uma armadilha em cima da outra.");
+
+        static
+            Float:x,
+            Float:y,
+            Float:z,
+            trapid = INVALID_TRAP_ID;
+
+        GetPlayerPos(playerid, x, y, z);
+
+        trapid = CreateTrap(x, y, z - 0.93, .playerid = playerid);
+
+        static
+            str[45];
+
+        format(str, sizeof(str), "Você plantou uma armadilha no chão. (%i)", trapid);
+        SendClientMessage(playerid, -1, str);
+    }
+    return 1;
+}
 //Sistema de vender drogas npc - Yur$
 COMMAND:traficar(playerid,params[])
 {
@@ -41912,7 +42017,7 @@ stock BanExtra(playerid,reason[],admin[])
 	else if(month == 12) { mtext = "Dezembro"; }
 	gettime(hour,minuite,second);
     PlayerInfo[playerid][pBanido] = 1;
-	Dialog_Show(playerid, ShowBan, DIALOG_STYLE_MSGBOX, "Informativo de banimento", "Lamentamos informar que sua conta foi banida do Iraq War Roleplay\n\nNome: %s\nAdministrador: %s\nMotivo: %s\nData e hora: %s\n\nCaso queira recorrer, poste seu Ban Appeal em nosso fórum.", "Fechar", "", PlayerInfo[playerid][pNomeOOC], admin, reason, ReturnDate());
+	Dialog_Show(playerid, ShowBan, DIALOG_STYLE_MSGBOX, "Informativo de banimento", "Lamentamos informar que sua conta foi banida do War on Terror Roleplay\n\nNome: %s\nAdministrador: %s\nMotivo: %s\nData e hora: %s\n\nCaso queira recorrer, poste seu Ban Appeal em nosso fórum.", "Fechar", "", PlayerInfo[playerid][pNomeOOC], admin, reason, ReturnDate());
 	PlayerTextDrawShow(playerid, TelaLogin[playerid][0]);
 	PlayerTextDrawShow(playerid, TelaLogin[playerid][1]);
 	PlayerTextDrawShow(playerid, TelaLogin[playerid][3]);
@@ -45103,8 +45208,8 @@ public AtualizarTutorial(playerid)
 			SetPlayerInterior(playerid, 0);
 			SetPlayerVirtualWorld(playerid, 0);
 
-			SendClientMessage(playerid, COLOR_YELLOW, "SERVER: Bem vindo ao Iraq War Roleplay");
-			SendClientMessage(playerid, COLOR_YELLOW, "SERVER: O IW:RP lhe proporciona uma extensa variedades de possibilidades");
+			SendClientMessage(playerid, COLOR_YELLOW, "SERVER: Bem vindo ao War on Terror Roleplay");
+			SendClientMessage(playerid, COLOR_YELLOW, "SERVER: O WT:RP lhe proporciona uma extensa variedades de possibilidades");
 			SendClientMessage(playerid, COLOR_YELLOW, "...onde você pode simular a vida de seu personagem sendo uma pessoa");
 			SendClientMessage(playerid, COLOR_YELLOW, "...honesta, digna, que segue as leis do estado, ou você pode ser um infrator");
 			SendClientMessage(playerid, COLOR_YELLOW, "...assassino, etc.. porém poderá arcar com as consequencias de suas escolhas.");
@@ -76544,8 +76649,8 @@ stock ViewFactions(playerid)
 			count_list++;
 		}
 	}
-	if(PlayerInfo[playerid][pAdmin] < 5) Dialog_Show(playerid, FactionsList, DIALOG_STYLE_TABLIST_HEADERS, "Facções [IW:RP]", stringa, "Fechar", "");
-	else Dialog_Show(playerid, FactionsList, DIALOG_STYLE_TABLIST_HEADERS, "Facções [IW:RP]", stringa, "Editar", "Fechar");
+	if(PlayerInfo[playerid][pAdmin] < 5) Dialog_Show(playerid, FactionsList, DIALOG_STYLE_TABLIST_HEADERS, "Facções [WT:RP]", stringa, "Fechar", "");
+	else Dialog_Show(playerid, FactionsList, DIALOG_STYLE_TABLIST_HEADERS, "Facções [WT:RP]", stringa, "Editar", "Fechar");
 	return 1;
 }
 
@@ -81387,7 +81492,7 @@ stock CreatePlayerTextDraws( playerid ) {
         PlayerTextDrawFont(playerid, TuningBuy[ playerid ][ 10 ], 2);
         PlayerTextDrawSetProportional(playerid, TuningBuy[ playerid ][ 10 ], 1);
 
-        TuningBuy[ playerid ][ 11 ] = CreatePlayerTextDraw(playerid, 225.000000, 401.916595, "Garagem de Tunning ~r~IW:RP");
+        TuningBuy[ playerid ][ 11 ] = CreatePlayerTextDraw(playerid, 225.000000, 401.916595, "Garagem de Tunning ~r~WT:RP");
         PlayerTextDrawLetterSize(playerid, TuningBuy[ playerid ][ 11 ], 0.258749, 0.987497);
         PlayerTextDrawAlignment(playerid, TuningBuy[ playerid ][ 11 ], 1);
         PlayerTextDrawColor(playerid, TuningBuy[ playerid ][ 11 ], -1);
@@ -91083,36 +91188,4 @@ CMD:checaratirador(playerid, params[]){
 	format(string,sizeof(string),"O ultimo player a atirar em %s foi %s.",PlayerName(otherid, 0), PlayerName(shooterid, 0));
 	SendClientMessage(playerid, COLOR_LIGHTRED, string);
 	return 1;
-}
-CMD:drone(playerid, params[])
-{
-    new Modelo, Color3[2], Float:Pos[4];
-
-    if(sscanf(params, "ddd", Modelo, Color3[0], Color3[1]))
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "USE: /drone [modelo] [color1] [color2]");
-
-    if(Modelo < 464 || Modelo > 465)
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: ID inválido.");
-
- 	GetPlayerPos(playerid, Pos[0], Pos[1], Pos[2]);
-    GetPlayerFacingAngle(playerid, Pos[3]);
-
-	format(string,sizeof(string),"* %s posiciona seu drone, liga o controle remoto e começa a manusear o drone.", PlayerName(playerid,1));
-	ProxDetector(15.0, playerid, string,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-    pVeh[playerid] = CreateVehicle(Modelo, Pos[0], Pos[1], Pos[2], Pos[3], Color3[0], Color3[1], -1);
-    PutPlayerInVehicle(playerid, pVeh[playerid], 0);
-    StartEngine(GetPlayerVehicleID(playerid));
-    return 1;
-}
-CMD:destruirdrone(playerid, params[])
-{
-    if(!PlayerInfo[playerid][pLogado]) return SCM(playerid, COLOR_LIGHTRED, "Você precisa está logado para usar este comando.");
-
-	DestroyVehicle(pVeh[playerid]);
-
-	format(string,sizeof(string),"* %s controla o drone até o ponto de pouso, desliga-o em seguida.", PlayerName(playerid,1));
-	ProxDetector(10.0, playerid, string,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-	StopEngine(GetPlayerVehicleID(playerid));
-    return 1;
 }

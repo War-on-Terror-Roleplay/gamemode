@@ -7960,7 +7960,6 @@ public Timer_Minutos()
 					else {
 					    TempoParaSalvar[i] = 0;
 					    SalvarPlayer(i);
-						TollUpdate();
 					}
 				}
 				if(AFKTimer[i] < 1200)
@@ -26459,8 +26458,8 @@ public StopTalking(playerid)
 	return 1;
 }
 //Sistema de homem bomba - Yur$
-ALTCOMMAND:vestircolete->Vestirbomba;
 CMD:vestircolete(playerid, params[])
+
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pLevel] < 2) return SCM(playerid, COLOR_LIGHTRED, "Você precisa de TC 2 ou mais para utilizar este comando!");
@@ -26469,9 +26468,10 @@ CMD:vestircolete(playerid, params[])
     if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
 	if(IsPlayerInWater(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não pode utilizar este comando enquanto estiver na água!");
 	if(TomouTazer[playerid] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não pode utilizar este comando enquanto estiver sob efeito do tazer!");
-    if(!IsPlayerInAnyVehicle(playerid) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa estar fora do veículo."));
     if(PlayerInfo[playerid][pTNT] < 3) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 3 TNT para formar o colete.");
-    SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Vestindo o colete, aguarde.");
+    
+	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Vestindo o colete, aguarde.");
+
     SetTimerEx("VestindoColeteBomba", 10000, false, "d", playerid);
 
 	return 1;
@@ -26485,7 +26485,7 @@ public VestindoColeteBomba(playerid)
 
     return 1;
 }
-ALTCOMMAND:homembomba->hb;
+
 CMD:homembomba(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
@@ -26495,6 +26495,7 @@ CMD:homembomba(playerid, params[])
     if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
 	if(IsPlayerInWater(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não pode utilizar este comando enquanto estiver na água!");
 	if(TomouTazer[playerid] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não pode utilizar este comando enquanto estiver sob efeito do tazer!");
+    if(PlayerInfo[playerid][pColeteBomba] < 1) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 1 colete bomba para explodir.");
 	if(PlayerInfo[playerid][pArrombarDNV_C] != 0)
 	{
 		new stringfogos[128];
@@ -26502,8 +26503,6 @@ CMD:homembomba(playerid, params[])
 		SendClientMessage(playerid,COLOR_LIGHTRED, stringfogos);
 		return 1;
 	}
-    if(!IsPlayerInAnyVehicle(playerid) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa estar fora do veículo."));
-    if(PlayerInfo[playerid][pColeteBomba] < 1) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 1 colete bomba para explodir.");
 
     SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Aguarde 3 segundos para explodir.");
     SetTimerEx("HomemBombaExplodindo", 3000, false, "d", playerid);

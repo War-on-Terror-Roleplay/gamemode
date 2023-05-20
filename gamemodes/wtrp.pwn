@@ -26520,7 +26520,7 @@ public HomemBombaExplodindo(playerid)
 	GetPlayerPos(playerid, x, y, z);
 
     CreateExplosion(x, y, z, 10, 20.0);
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você Explodiu");
+	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você Explodiu.");
     PlayerInfo[playerid][pColeteBomba]--;
 
     return 1;

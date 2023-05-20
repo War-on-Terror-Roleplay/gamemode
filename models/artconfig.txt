@@ -1,0 +1,72 @@
+//Navy Seals
+AddCharModel(287, 20101, "seals.dff", "seals.txd"); 
+AddCharModel(287, 20102, "seals2.dff", "seals2.txd"); 
+AddCharModel(287, 20103, "seals3.dff", "seals3.txd"); 
+AddCharModel(287, 20104, "seals4.dff", "seals4.txd"); 
+AddCharModel(287, 20105, "seals5.dff", "seals5.txd"); 
+
+//Pet System
+AddCharModel(13, 20069, "pet7.dff", "pet7.txd"); 
+AddCharModel(252, 20070, "pet6.dff", "pet6.txd");
+AddCharModel(252, 20071, "pet1.dff", "pet1.txd");
+AddCharModel(252, 20072, "pet2.dff", "pet2.txd");
+AddCharModel(252, 20073, "pet3.dff", "pet3.txd");
+AddCharModel(252, 20074, "pet3.dff", "pet3.txd");
+AddCharModel(252, 20075, "pet4.dff", "pet4.txd");
+AddCharModel(252, 20076, "pet5.dff", "pet5.txd");
+
+//objetos binco
+AddSimpleModel(-1, 19142, -2063, "rojao.dff", "rojao.txd");
+AddSimpleModel(-1,19142, -2100, "band.dff", "band.txd");
+AddSimpleModel(-1,19141, -2101, "cone.dff", "cone.txd");
+AddSimpleModel(-1,19141, -2102, "cavalete.dff", "cavalete.txd");
+AddSimpleModel(-1,19141, -2103, "faixa.dff", "faixa.txd");
+AddSimpleModel(-1,19942, -2104, "RadioMotorola.dff", "RadioMotorola.txd");
+AddSimpleModel(-1,18933, -2105, "chapeubope.dff", "chapeubope.txd");
+AddSimpleModel(-1,18636, -2106, "boneobjeto1.dff", "boneobjeto1.txd");
+AddSimpleModel(-1,18636, -2107, "boneobjeto2.dff", "boneobjeto2.txd");
+AddSimpleModel(-1,18636, -2108, "boneobjeto3.dff", "boneobjeto3.txd");
+AddSimpleModel(-1,18636, -2109, "boneobjeto4.dff", "boneobjeto4.txd");
+AddSimpleModel(-1,19142, -2110, "coletebandido.dff", "coletebandido.txd");
+AddSimpleModel(-1,3026, -2111, "mochila1.dff", "mochila1.txd");
+AddSimpleModel(-1,3026, -2112, "mochila2.dff", "mochila2.txd");
+AddSimpleModel(-1,3026, -2113, "mochila3.dff", "mochila3.txd");
+AddSimpleModel(-1,3026, -2114, "mochila4.dff", "mochila4.txd");
+AddSimpleModel(-1,18645, -2115, "helmet.dff", "helmet6.txd");
+AddSimpleModel(-1,18645, -2116, "helmet.dff", "helmet7.txd");
+AddSimpleModel(-1,18645, -2117, "helmet.dff", "helmet11.txd");
+AddSimpleModel(-1,18645, -2118, "helmet.dff", "helmet12.txd");
+AddSimpleModel(-1,18645, -2119, "helmet.dff", "helmet15.txd");
+AddSimpleModel(-1,18645, -2120, "helmet.dff", "helmet16.txd");
+AddSimpleModel(-1,18645, -2121, "helmet.dff", "helmet19.txd");
+AddSimpleModel(-1,18645, -2122, "helmet.dff", "helmet21.txd");
+AddSimpleModel(-1,18645, -2123, "helmet.dff", "helmet24.txd");
+AddSimpleModel(-1,18645, -2124, "helmet.dff", "helmet1.txd");
+AddSimpleModel(-1,3634, -2125, "ifood.dff", "ifood.txd");
+AddSimpleModel(-1,3634, -2127, "ubereats.dff", "ubereats.txd");
+AddSimpleModel(-1,3634, -2128, "bsimples.dff", "bsimples.txd");
+AddSimpleModel(-1,3634, -2129, "bolsanikelateral.dff", "bolsanikelateral.txd");
+AddSimpleModel(-1,3634, -2130, "PacoteMcDonalds.dff", "PacoteMcDonalds.txd");
+AddSimpleModel(-1,19142, -2131, "coletemoto.dff", "coletemoto.txd");
+AddSimpleModel(-1,3634, -2132, "barricada.dff", "barricada.txd");
+
+//Objetos GOV US
+AddSimpleModel(-1,3634, -2200, "escudo.dff", "escudo.txd");
+
+
+//Drogas
+AddSimpleModel(-1,19141, -2300, "maconhab.dff", "maconhab.txd");
+AddSimpleModel(-1,19141, -2301, "maconhar.dff", "maconhar.txd");
+AddSimpleModel(-1,19141, -2302, "cocaina.dff", "cocaina.txd");
+AddSimpleModel(-1,19141, -2303, "crackr.dff", "crackr.txd");
+AddSimpleModel(-1,19141, -2304, "crackb.dff", "crackb.txd");
+AddSimpleModel(-1,19141, -2305, "lsd.dff", "lsd.txd");
+AddSimpleModel(-1,19141, -2306, "lancaperfume.dff", "lancaperfume.txd");
+AddSimpleModel(-1,19141, -2307, "MesaDeDrogas.dff", "MesaDeDrogas.txd");
+
+//textdraw
+AddSimpleModel(-1,19379, -2007, "hud.dff", "hud.txd");
+AddSimpleModel(-1,19379, -2200, "login.dff", "tela.txd");
+AddSimpleModel(-1, 19379, -2201, "login.dff", "logo.txd");
+AddSimpleModel(-1, 19379, -7800, "login.dff", "logo32.txd"); //N?o remover
+AddSimpleModel(-1, 19315, -1095, "textdraw_object.dff", "textdraw_ui.txd");

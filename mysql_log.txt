@@ -1,0 +1,2 @@
+[14:04:29] [WARNING] CMySQLResult::GetRowDataByName - field not found ("ColeteBomba")
+[14:11:45] [ERROR] CMySQLQuery::Execute[] - (error #1054) Unknown column 'ColeteBomba' in 'field list'

@@ -2982,15 +2982,18 @@ static PMERJ_Uniformes[32] = {
 	20429, 20430, 20431, 20432
 };
 
-static PMERJ_Barreiras[16] = {
+static PMERJ_Barreiras[17] = {
 	1422, 1423, 1424, 1425, 1427,
 	981, 978, 979, 19425, 19467, 
-	1428, 1437, -2117, -2118, -2119
+	1428, 1437, -2101, -2102, -2103, 
+	-2132
 
 };
 
-static TRAF_Barreiras[4] = {
-	935, 3632, 1431, 2960
+static TRAF_Barreiras[8] = {
+	935, 3632, 1431, 2960,
+	-2132, -2101, -2102, 
+	-2103
 
 };
 
@@ -3091,7 +3094,7 @@ static LOJA_OUTROS_CBERJ[3] = {
 };
 
 //===== [ ITENS ] ====
-static LOJA_CHAPEU[137] = {
+static LOJA_CHAPEU[138] = {
 	2052, 2053, 18638, 18639, 18926, 18927, 18928, 18929, 18930, 18931, 18932,
 	18933, 18934, 18935, 18921, 18922, 18923, 18924, 18925, 18891, 18892, 18893,
 	18894, 18895, 18896, 18897, 18898, 18899, 18900, 18901, 18902, 18903, 18904,
@@ -3103,8 +3106,8 @@ static LOJA_CHAPEU[137] = {
 	19098, 19101, 19102, 19103, 19104, 19105, 19106, 19107, 19108, 19109, 19110,
 	19111, 19112, 19113, 19114, 19115, 19116, 19117, 19118, 19119, 19120, 19136,
 	19137, 19160, 19352, 19487, 19488, 19528, 19553, 19558, 19067, 19068, 19069,
-	19554, 19469, -2051, -2052, -2053, -2054, -2600, -2601, -2602, -2603, -2604,
-	-2605, -2606, -2607, -2608, -2609
+	19554, 19469, 2105, 2106, 2107, 2108, 2109, -2115, -2116, -2117, -2118, -2119,
+	-2120, -2121, -2122, -2123, -2124
 };
 
 static LOJA_MASCARAS[19] = {
@@ -3118,12 +3121,12 @@ static LOJA_OCULOS[31] = {
 	19028, 19029, 19030, 19031, 19032, 19033, 19034, 19035, 19015
 };
 
-static LOJA_OUTROS[50] = {
+static LOJA_OUTROS[48] = {
 	2919, 371, 3026, 11745, 19624, 19625, 1210, 19079, 19078, 18975, 19136,
 	19090, 19091, 19092, 19350, 19351, 19421, 19422, 19423, 19424, 19556, 19555,
 	19559, 19904, 11735, 19317, 19318, 19319, 19622, 19631, 19626, 19591, 19586,
-	19307, 19306, -2125, -2080, -2086, -2082, -2055, -2057, -2058, -2059, 
-	-2060, -2700, -2701, -2702, -2703, -2183, -2610
+	19307, 19306, -2100, -2104, -2111, -2112, -2113, -2114, -2125, -2126, -2127,
+	-2128, -2129, -2130, -2131
 	
 };
 
@@ -7337,7 +7340,7 @@ CMD:ajudablindagem(playerid, params[])
 	return 1;
 }
  
-CMD:blindar(playerid)
+CMD:blindar(playerid, params[])
 {
 	if(!IsPlayerInAnyVehicle(playerid))return SendClientMessage(playerid, COLOR_LIGHTRED, "Para você comprar uma blindagem , você precisa estar em um carro.");
     if(blindadinho[playerid] == 1)return SendClientMessage(playerid, COLOR_LIGHTRED, "Você já está blindado.");
@@ -7372,7 +7375,7 @@ public ziiQzblind(vehicleid, playerid)
 forward comprarblinddenovo(playerid);
 public comprarblinddenovo(playerid)
 {
- 	SendClientMessage(playerid, COLOR_LIGHTRED, "Você já pode comprar uma blindagem novamente.");
+ 	//SendClientMessage(playerid, COLOR_LIGHTRED, "Você já pode comprar uma blindagem novamente.");
   	blindadinho[playerid] = 0;
   	return 1;
 }
@@ -11742,7 +11745,36 @@ public OnPlayerConnect(playerid)
 
 	TextDrawHideForPlayer(playerid, HitMark);
 
-	//Remover mapas abaixo
+	//Mining Village
+	RemoveBuildingForPlayer(playerid, 3350, -773.039, 2419.649, 155.968, 0.250);
+	RemoveBuildingForPlayer(playerid, 3302, -808.546, 2428.939, 159.210, 0.250);
+	RemoveBuildingForPlayer(playerid, 3260, -770.242, 2421.270, 157.031, 0.250);
+	RemoveBuildingForPlayer(playerid, 3260, -774.226, 2421.270, 157.031, 0.250);
+	RemoveBuildingForPlayer(playerid, 3260, -775.195, 2424.959, 157.031, 0.250);
+	RemoveBuildingForPlayer(playerid, 3260, -773.750, 2426.090, 157.039, 0.250);
+	RemoveBuildingForPlayer(playerid, 3260, -771.554, 2425.959, 157.031, 0.250);
+	RemoveBuildingForPlayer(playerid, 3260, -769.156, 2424.770, 157.031, 0.250);
+	RemoveBuildingForPlayer(playerid, 3302, -772.273, 2422.020, 159.578, 0.250);
+	RemoveBuildingForPlayer(playerid, 3302, -770.335, 2422.020, 159.531, 0.250);
+	RemoveBuildingForPlayer(playerid, 3302, -774.203, 2425.370, 159.296, 0.250);
+	RemoveBuildingForPlayer(playerid, 3302, -772.257, 2425.379, 159.375, 0.250);
+	RemoveBuildingForPlayer(playerid, 16404, -772.164, 2424.199, 157.921, 0.250);
+	RemoveBuildingForPlayer(playerid, 3302, -812.328, 2428.139, 159.375, 0.250);
+	RemoveBuildingForPlayer(playerid, 3302, -811.734, 2429.989, 159.421, 0.250);
+	RemoveBuildingForPlayer(playerid, 3302, -807.960, 2430.790, 159.141, 0.250);
+	RemoveBuildingForPlayer(playerid, 3260, -813.085, 2428.290, 156.867, 0.250);
+	RemoveBuildingForPlayer(playerid, 3260, -810.085, 2426.179, 156.867, 0.250);
+	RemoveBuildingForPlayer(playerid, 3260, -807.406, 2430.129, 156.882, 0.250);
+	RemoveBuildingForPlayer(playerid, 3260, -811.851, 2432.080, 156.867, 0.250);
+	RemoveBuildingForPlayer(playerid, 3260, -808.039, 2431.870, 156.867, 0.250);
+	RemoveBuildingForPlayer(playerid, 16405, -809.695, 2429.219, 157.766, 0.250);
+	RemoveBuildingForPlayer(playerid, 16406, -662.617, 2309.949, 140.453, 0.250);
+	RemoveBuildingForPlayer(playerid, 16755, -662.617, 2309.949, 140.453, 0.250);
+	RemoveBuildingForPlayer(playerid, 3275, -804.367, 2340.840, 147.992, 0.250);
+	RemoveBuildingForPlayer(playerid, 3275, -797.234, 2328.560, 143.867, 0.250);
+	RemoveBuildingForPlayer(playerid, 3275, -812.054, 2406.449, 155.968, 0.250);
+	RemoveBuildingForPlayer(playerid, 3275, -775.992, 2408.360, 156.828, 0.250);
+	RemoveBuildingForPlayer(playerid, 16395, -763.632, 2307.479, 136.882, 0.250);
 
 	for(new i = 0; i < 50; i++) //CaminhaoSyst
 	{

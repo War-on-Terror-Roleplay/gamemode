@@ -8,12 +8,14 @@ AddCharModel(287, 20006, "taliba6.dff", "taliba6.txd");
 AddCharModel(287, 20007, "taliba7.dff", "taliba7.txd"); 
 AddCharModel(287, 20008, "taliba8.dff", "taliba8.txd"); 
 
+
 //Navy Seals
-AddCharModel(287, 20101, "seals.dff", "seals.txd"); 
+AddCharModel(287, 20101, "seals1.dff", "seals1.txd"); 
 AddCharModel(287, 20102, "seals2.dff", "seals2.txd"); 
 AddCharModel(287, 20103, "seals3.dff", "seals3.txd"); 
 AddCharModel(287, 20104, "seals4.dff", "seals4.txd"); 
 AddCharModel(287, 20105, "seals5.dff", "seals5.txd"); 
+
 
 //Pet System
 AddCharModel(13, 20069, "pet7.dff", "pet7.txd"); 
@@ -24,6 +26,15 @@ AddCharModel(252, 20073, "pet3.dff", "pet3.txd");
 AddCharModel(252, 20074, "pet3.dff", "pet3.txd");
 AddCharModel(252, 20075, "pet4.dff", "pet4.txd");
 AddCharModel(252, 20076, "pet5.dff", "pet5.txd");
+
+
+//textdraw
+AddSimpleModel(-1,19379, -2007, "hud.dff", "hud.txd");
+AddSimpleModel(-1,19379, -2002, "login.dff", "tela.txd");
+AddSimpleModel(-1, 19379, -2003, "login.dff", "logo.txd");
+AddSimpleModel(-1, 19379, -2007, "login.dff", "logo.txd");
+AddSimpleModel(-1, 19315, -1095, "textdraw_object.dff", "textdraw_ui.txd");
+
 
 //objetos binco
 AddSimpleModel(-1, 19142, -2063, "rojao.dff", "rojao.txd");
@@ -60,6 +71,7 @@ AddSimpleModel(-1,3634, -2130, "PacoteMcDonalds.dff", "PacoteMcDonalds.txd");
 AddSimpleModel(-1,19142, -2131, "coletemoto.dff", "coletemoto.txd");
 AddSimpleModel(-1,3634, -2132, "barricada.dff", "barricada.txd");
 
+
 //Objetos GOV US
 AddSimpleModel(-1,3634, -2200, "escudo.dff", "escudo.txd");
 
@@ -74,9 +86,3 @@ AddSimpleModel(-1,19141, -2305, "lsd.dff", "lsd.txd");
 AddSimpleModel(-1,19141, -2306, "lancaperfume.dff", "lancaperfume.txd");
 AddSimpleModel(-1,19141, -2307, "MesaDeDrogas.dff", "MesaDeDrogas.txd");
 
-//textdraw
-AddSimpleModel(-1,19379, -2007, "hud.dff", "hud.txd");
-AddSimpleModel(-1,19379, -2200, "login.dff", "tela.txd");
-AddSimpleModel(-1, 19379, -2201, "login.dff", "logo.txd");
-AddSimpleModel(-1, 19379, -7800, "login.dff", "logo32.txd"); //N?o remover
-AddSimpleModel(-1, 19315, -1095, "textdraw_object.dff", "textdraw_ui.txd");

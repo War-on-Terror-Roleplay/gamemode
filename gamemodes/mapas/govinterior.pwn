@@ -1,4 +1,6 @@
 stock interiorgov(){
+	new tmpobjid;
+	new texture_object;
 	// hospital . int
 	texture_object = CreateDynamicObject(2259,1158.007,-1322.527,1015.823,0.000,0.000,90.000,-1,-1,-1,350.000,350.000);
 	SetDynamicObjectMaterial(texture_object, 0, 14650, "ab_trukstpc", "mp_CJ_WOOD5", 0);

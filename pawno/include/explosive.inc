@@ -91,7 +91,7 @@ public OnPlayerEnterDynamicArea(playerid, areaid)
 
 	if (!Iter_Contains(Explosive, data[1]))
 	{
-		printf("Streamer Area contém um ID de item inválido. (%i)", data[1]);
+		//printf("Streamer Area contém um ID de item inválido. (%i)", data[1]);
 		return 1;
 	}
 
@@ -123,7 +123,7 @@ public OnPlayerEnterDynamicArea(playerid, areaid)
 		&& IsPlayerInAnyVehicle(playerid))
 		goto EXP@__;
 
-	printf("Explosivo %i desencadeado por %i.", data[1], playerid);
+	//printf("Explosivo %i desencadeado por %i.", data[1], playerid);
 
 	#if defined EXP@OnPlayerEnterDynamicArea
 		return EXP@OnPlayerEnterDynamicArea(playerid, areaid);
@@ -159,7 +159,7 @@ CreateExplosive(Float:x, Float:y, Float:z,
 {
 	if (INVALID_EXPLOSIVE_ID == (g_sExplosive@ID = Iter_Free(Explosive)))
 	{
-		print("O limite de criação de explosivos foi atingido.");
+		//print("O limite de criação de explosivos foi atingido.");
 		return
 			INVALID_EXPLOSIVE_ID;
 	}

@@ -64,7 +64,7 @@ new Float:FogueteX[MAX_PLAYERS], Float:FogueteY[MAX_PLAYERS], Float:FogueteZ[MAX
 new PlayerText:FomeSede[MAX_PLAYERS][5];
 
 //Tela de login
-new PlayerText: TelaLogin[MAX_PLAYERS][6];
+new PlayerText:TelaLogin[MAX_PLAYERS][6];
 
 //Hud Radio
 new PlayerText:RadioComunicador[MAX_PLAYERS][2];
@@ -2247,7 +2247,7 @@ new Float:garbage_profiles[4][14][3] = {
 };
 new garbage_vehicles[4];
 //==============================================================================//
-new Noia_1,
+/*new Noia_1,
     Noia_2,
     Noia_3,
     Noia_4,
@@ -2268,7 +2268,7 @@ new Noia_1,
     Noia_19,
     Noia_20,
     Noia_21,
-    Noia_22;
+    Noia_22;*/
 //==============================================================================//
 new Float:estacionamento_vagas[19][3] = {
 {1627.2080, -1046.3242, 23.5516},
@@ -9763,7 +9763,7 @@ public Timer_Segundos()
 
 						}
 				    }
-					/*if (PlayerInfo[i][pRegistrado] && PlayerInfo[i][pTutorial] && !PlayerInfo[i][pTemPreso] && PlayerInfo[i][pRegistrado] && IsPlayerConnected(i))
+					if (PlayerInfo[i][pRegistrado] && PlayerInfo[i][pTutorial] && !PlayerInfo[i][pTemPreso] && PlayerInfo[i][pRegistrado] && IsPlayerConnected(i))
 					{
 						new Float:health;
 						GetPlayerHealth(i,health);
@@ -9790,7 +9790,7 @@ public Timer_Segundos()
     	        				SetPlayerHealth(i, health-Perda -5);
         					}
         					PlayerInfo[i][pFomeTime] = 0;
-							//updateTextDrawFomeSede(i);
+							updateTextDrawFomeSede(i);
 
 							
         				}
@@ -9807,7 +9807,7 @@ public Timer_Segundos()
         					PlayerInfo[i][pSedeTime] = 0;
 							updateTextDrawFomeSede(i);
 						}
-					}*/
+					}
 					//Outras - Timers
 			        if(PlayerInfo[i][pTempoPLD] > 0) { PlayerInfo[i][pTempoPLD]--; }
 			        if(PlayerInfo[i][pArrombarDNV] > 0) { PlayerInfo[i][pArrombarDNV]--; }
@@ -21031,7 +21031,7 @@ public updateTextDrawCanalRadio(playerid){
 	PlayerTextDrawSetString(playerid, RadioComunicador[playerid][1], RadioString); 
 
 }
-/*forward updateTextDrawFomeSede(playerid);
+forward updateTextDrawFomeSede(playerid);
 public updateTextDrawFomeSede(playerid){
 	new fomeString[32];
 	new sedeString[32];
@@ -21104,7 +21104,7 @@ public VerFome(playerid, targetid)
     format(str4, 256, "|________________________________|");
     SendClientMessage(targetid, COLOR_LIGHTGREEN, str4);
     return 1;
-}*/
+}
 
 CMD:inv(playerid, params[])
 {
@@ -26531,7 +26531,7 @@ CMD:homembomba(playerid, params[])
     if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
 	if(IsPlayerInWater(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não pode utilizar este comando enquanto estiver na água!");
 	if(TomouTazer[playerid] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não pode utilizar este comando enquanto estiver sob efeito do tazer!");
-    if(PlayerInfo[playerid][pColeteBomba] < 1) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 1 colete bomba para explodir.");
+    if(PlayerInfo[playerid][pColeteBomba] <= 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 1 colete bomba para explodir.");
 	if(PlayerInfo[playerid][pArrombarDNV_C] != 0)
 	{
 		new stringfogos[128];
@@ -38396,20 +38396,20 @@ COMMAND:tog(playerid, params[])
 			{
 				SetPVarInt(playerid, "TogHud", 1);
 				SendClientMessage(playerid, COLOR_YELLOW, "INFO: HUD desativada.");
-                /*PlayerTextDrawHide(playerid, FomeSede[playerid][0]);
+                PlayerTextDrawHide(playerid, FomeSede[playerid][0]);
                 PlayerTextDrawHide(playerid, FomeSede[playerid][1]);
                 PlayerTextDrawHide(playerid, FomeSede[playerid][2]);
-                PlayerTextDrawHide(playerid, FomeSede[playerid][3]);*/
+                PlayerTextDrawHide(playerid, FomeSede[playerid][3]);
 
 			}
 			case 1:
 			{
 	   			SetPVarInt(playerid, "TogHud", 0);
 	   			SendClientMessage(playerid, COLOR_YELLOW, "INFO: HUD ativada.");
-                /*PlayerTextDrawShow(playerid, FomeSede[playerid][0]);
+                PlayerTextDrawShow(playerid, FomeSede[playerid][0]);
                 PlayerTextDrawShow(playerid, FomeSede[playerid][1]);
                 PlayerTextDrawShow(playerid, FomeSede[playerid][2]);
-                PlayerTextDrawShow(playerid, FomeSede[playerid][3]);*/
+                PlayerTextDrawShow(playerid, FomeSede[playerid][3]);
 				
 			}
 		}
@@ -40375,8 +40375,6 @@ stock BanExtra(playerid,reason[],admin[])
 	PlayerTextDrawShow(playerid, TelaLogin[playerid][3]);
 	PlayerTextDrawShow(playerid, TelaLogin[playerid][4]);
 	PlayerTextDrawShow(playerid, TelaLogin[playerid][5]);
-	PlayerTextDrawShow(playerid, TelaLogin[playerid][6]);
-	PlayerTextDrawShow(playerid, TelaLogin[playerid][7]);	
 	SetTimerEx("TimerKick", 500, 0, "d", playerid);
 	return 1;
 }
@@ -42205,10 +42203,10 @@ COMMAND:curar(playerid, params[])
 				PlayerInfo[targetid][pTomouTiroPesado] = 0;
 	    		PlayerInfo[targetid][pTomouTiroBrancas] = 0;
 
-				/*PlayerInfo[targetid][pFome] = 100;
+				PlayerInfo[targetid][pFome] = 100;
 				PlayerInfo[targetid][pSede] = 100;
 				
-				updateTextDrawFomeSede(playerid);*/
+				updateTextDrawFomeSede(playerid);
 
 				if (IsValidDynamic3DTextLabel(TextMorto[targetid])) DestroyDynamic3DTextLabel(TextMorto[targetid]);
 				
@@ -48740,7 +48738,7 @@ Dialog:EMP_TIPO_CLUCKIN(playerid, response, listitem, inputtext[])
 
 		 		        EmpInfo[NaEmpresa][eBank]+=8;
                         EmpInfo[NaEmpresa][eProdutos]-=1;
-						//updateTextDrawFomeSede(playerid);
+						updateTextDrawFomeSede(playerid);
 					    return 1;
 					}
 	 		    }
@@ -48758,7 +48756,7 @@ Dialog:EMP_TIPO_CLUCKIN(playerid, response, listitem, inputtext[])
 
 		 		        EmpInfo[NaEmpresa][eBank]+=12;
                         EmpInfo[NaEmpresa][eProdutos]-=1;
-						//updateTextDrawFomeSede(playerid);
+						updateTextDrawFomeSede(playerid);
 					    return 1;
 					}
 	 		    }
@@ -48776,7 +48774,7 @@ Dialog:EMP_TIPO_CLUCKIN(playerid, response, listitem, inputtext[])
 
 		 		        EmpInfo[NaEmpresa][eBank]+=18;
                         EmpInfo[NaEmpresa][eProdutos]-=1;
-		 		        //updateTextDrawFomeSede(playerid);
+		 		        updateTextDrawFomeSede(playerid);
 					    return 1;
 					}
 	 		    }
@@ -48809,7 +48807,7 @@ Dialog:DIALOG_STACKED(playerid, response, listitem, inputtext[])
 					    PlayerPlaySound(playerid,1054, 0.0, 0.0, 0.0);
 		 		        EmpInfo[NaEmpresa][eBank]+=8;
                         EmpInfo[NaEmpresa][eProdutos]-=1;
-						//updateTextDrawFomeSede(playerid);
+						updateTextDrawFomeSede(playerid);
 					    return 1;
 					}
 	 		    }
@@ -48824,7 +48822,7 @@ Dialog:DIALOG_STACKED(playerid, response, listitem, inputtext[])
 					    PlayerPlaySound(playerid,1054, 0.0, 0.0, 0.0);
 		 		        EmpInfo[NaEmpresa][eBank]+=12;
                         EmpInfo[NaEmpresa][eProdutos]-=1;
-						//updateTextDrawFomeSede(playerid);
+						updateTextDrawFomeSede(playerid);
 					    return 1;
 					}
 	 		    }
@@ -48839,7 +48837,7 @@ Dialog:DIALOG_STACKED(playerid, response, listitem, inputtext[])
 					    PlayerPlaySound(playerid,1054, 0.0, 0.0, 0.0);
 		 		        EmpInfo[NaEmpresa][eBank]+=18;
                         EmpInfo[NaEmpresa][eProdutos]-=1;
-						//updateTextDrawFomeSede(playerid);
+						updateTextDrawFomeSede(playerid);
 					    return 1;
 					}
 	 		    }
@@ -48876,7 +48874,7 @@ Dialog:DIALOG_BURGERSHOT(playerid, response, listitem, inputtext[])
 
 		 		        EmpInfo[NaEmpresa][eBank]+=5;
                         EmpInfo[NaEmpresa][eProdutos]-=1;
-						//updateTextDrawFomeSede(playerid);
+						updateTextDrawFomeSede(playerid);
 					    return 1;
 					}
 	 		    }
@@ -48889,7 +48887,7 @@ Dialog:DIALOG_BURGERSHOT(playerid, response, listitem, inputtext[])
 					    PlayerInfo[playerid][pSede] += 40;
 
 					    PlayerPlaySound(playerid,1054, 0.0, 0.0, 0.0);
-						//updateTextDrawFomeSede(playerid);
+						updateTextDrawFomeSede(playerid);
 		 		        EmpInfo[NaEmpresa][eBank]+=6;
 		 		        EmpInfo[NaEmpresa][eProdutos]-=1;
 					    SendClientMessage(playerid,COLOR_LIGHTGREEN,"Você comprou um X-Egg.");
@@ -48905,7 +48903,7 @@ Dialog:DIALOG_BURGERSHOT(playerid, response, listitem, inputtext[])
 					    PlayerInfo[playerid][pSede] += 50;
 
 					    PlayerPlaySound(playerid,1054, 0.0, 0.0, 0.0);
-						//updateTextDrawFomeSede(playerid);
+						updateTextDrawFomeSede(playerid);
 
 		 		        EmpInfo[NaEmpresa][eBank]+=6;
                         EmpInfo[NaEmpresa][eProdutos]-=1;
@@ -48927,7 +48925,7 @@ Dialog:DIALOG_BURGERSHOT(playerid, response, listitem, inputtext[])
                         EmpInfo[NaEmpresa][eProdutos]-=1;
 					    SendClientMessage(playerid,COLOR_LIGHTGREEN,"Você comprou uma X-Salada.");
 					    PlayerInfo[playerid][pGrana] -= 4;
-						//updateTextDrawFomeSede(playerid);
+						updateTextDrawFomeSede(playerid);
 					    return 1;
 					}
 				}
@@ -48943,7 +48941,7 @@ Dialog:DIALOG_BURGERSHOT(playerid, response, listitem, inputtext[])
 					    EmpInfo[NaEmpresa][eProdutos]-=1;
 					    SendClientMessage(playerid,COLOR_LIGHTGREEN,"Você comprou um X-Tudo.");
 					    PlayerInfo[playerid][pGrana] -= 10;
-						//updateTextDrawFomeSede(playerid);
+						updateTextDrawFomeSede(playerid);
 					    return 1;
 					}
 				}
@@ -48961,7 +48959,7 @@ Dialog:DIALOG_BURGERSHOT(playerid, response, listitem, inputtext[])
 	     				EmpInfo[NaEmpresa][eProdutos]-=1;
 	     				ApplyAnimation(playerid,"DEALER","shop_pay",3.0,0,0,0,0,0,1);
 	      				SetPlayerSpecialAction(playerid,SPECIAL_ACTION_DRINK_SPRUNK);
-						//updateTextDrawFomeSede(playerid);
+						updateTextDrawFomeSede(playerid);
 					}
 				}
 			}

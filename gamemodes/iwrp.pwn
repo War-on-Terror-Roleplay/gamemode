@@ -3008,7 +3008,7 @@ static LOJA_OUTROS_BANK[3] = {
 	19138, 19139, 19140
 	
 };
-//======== [PCERJ]======//
+//======== [CIA]======//
 static PCERJ_Uniformes[29] = {
     20200, 20201, 20202, 20203,
 	20204, 20205, 20206, 20207,
@@ -6175,10 +6175,10 @@ public OnGameModeInit()
     //PortoTrucker_ModeInit();
 
     //============ Pickup / TextLabel - Anuncio
-	CreateDynamic3DTextLabel("[PCERJ]\n/entrar", 0xffffffff, 1728.8789,-1565.1876,14.5625, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
+	CreateDynamic3DTextLabel("[CIA]\n/entrar", 0xffffffff, 1728.8789,-1565.1876,14.5625, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
 	CreatePickup(1239, 1, 1728.8789,-1565.1876,14.5625, 0); 
 
-	CreateDynamic3DTextLabel("[PCERJ]\n/entrar", 0xffffffff, 1400.2490,-12.1037,1001.0098, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
+	CreateDynamic3DTextLabel("[CIA]\n/entrar", 0xffffffff, 1400.2490,-12.1037,1001.0098, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
 	CreatePickup(1239, 1, 1400.2490,-12.1037,1001.0098, 0); 
 
 	CreateDynamic3DTextLabel("[USMC]\n/entrar", 0xffffffff, 2514.5640,-1525.5608,24.0324, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
@@ -6196,13 +6196,13 @@ public OnGameModeInit()
 	CreateDynamic3DTextLabel("[USMC]\n/reparar", 0xffffffff, 2507.6438,-1551.7308,24.0324, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
     CreatePickup(1239, 1, 2507.6438,-1551.7308,24.0324, 0);
 
-	CreateDynamic3DTextLabel("[PCERJ]\n/reparar", 0xffffffff, 1720.7937,-1578.8098,13.5547, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
+	CreateDynamic3DTextLabel("[CIA]\n/reparar", 0xffffffff, 1720.7937,-1578.8098,13.5547, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
     CreatePickup(1239, 1, 1720.7937,-1578.8098,13.5547, 0);
 
 	CreateDynamic3DTextLabel("[GARAGEM]\n/entrar", 0xffffffff, 1742.7393,-1551.3011,7.9609, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
     CreatePickup(1239, 1, 1742.7393,-1551.3011,7.9609, 0); 
 
-	CreateDynamic3DTextLabel("[PCERJ]\n/sair", 0xffffffff, -1628.0112,690.6479,7.1875, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
+	CreateDynamic3DTextLabel("[CIA]\n/sair", 0xffffffff, -1628.0112,690.6479,7.1875, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
 	CreatePickup(1239, 1, -1628.0112,690.6479,7.1875, 0); 
 
 	CreateDynamic3DTextLabel("[P. ONIBUS]\n/iniciarviagem", 0xffffffff, 1737.5643,-1859.1648,13.4141, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
@@ -7222,7 +7222,7 @@ public EntregandoArmaSQL(playerid, armaid, extra, equipar, raspada)
 				{
 				    new strl1[24];
 				    if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PMERJ) format(strl1, sizeof(strl1), "USMC");
-                    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PCERJ) format(strl1, sizeof(strl1), "PCERJ");
+                    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PCERJ) format(strl1, sizeof(strl1), "CIA");
                     else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_CBERJ) format(strl1, sizeof(strl1), "MEDIC");
 				    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_GOV) format(strl1, sizeof(strl1), "US GOV");
 				    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_TJRP) format(strl1, sizeof(strl1), "DOJ");
@@ -7303,7 +7303,7 @@ public ArmaEntregueComSucesso(playerid,armaid,ammo,extra,equipar,raspada)
 		{
   			new strl1[24];
 	    	if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PMERJ) format(strl1, sizeof(strl1), "USMC");
-            else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PCERJ) format(strl1, sizeof(strl1), "PCERJ");
+            else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PCERJ) format(strl1, sizeof(strl1), "CIA");
             else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_CBERJ) format(strl1, sizeof(strl1), "MEDIC");
 		    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_GOV) format(strl1, sizeof(strl1), "US GOV");
 		    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_TJRP) format(strl1, sizeof(strl1), "TJRP");
@@ -31154,7 +31154,7 @@ CMD:ajudafaccao(playerid, params[])
             SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /cargo /nomecargo /convidar /demitir");
         }
     }
-    if(FacInfo[faccao][fTipo] == FAC_TIPO_PCERJ) // PCERJ
+    if(FacInfo[faccao][fTipo] == FAC_TIPO_PCERJ) // CIA
     {
         SendClientMessage(playerid, COLOR_WHITE, "*** AJUDA FACCAO ***");
         SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** Canal de rádio: 197");
@@ -35680,7 +35680,7 @@ CMD:trabalho(playerid, params[])
                             RemovePlayerAttachedObject(playerid, 0);
                             ArmasInv++;
                         }
-                        if(ArmasInv > 0) SendClientMessage(playerid,COLOR_LIGHTRED,"[PCERJ] As suas armas do inventário foram retiradas.");
+                        if(ArmasInv > 0) SendClientMessage(playerid,COLOR_LIGHTRED,"[CIA] As suas armas do inventário foram retiradas.");
 
                         if(PlayerInfo[playerid][pMun9mm] > 0 || PlayerInfo[playerid][pMunCart] > 0 || PlayerInfo[playerid][pMun556] > 0 || PlayerInfo[playerid][pMun127] > 0)
                         {
@@ -35688,7 +35688,7 @@ CMD:trabalho(playerid, params[])
                             PlayerInfo[playerid][pMunCart] = 0;
                             PlayerInfo[playerid][pMun556] = 0;
                             PlayerInfo[playerid][pMun127] = 0;
-                            SendClientMessage(playerid,COLOR_LIGHTRED,"[PCERJ] As suas munições do inventário foram retiradas.");
+                            SendClientMessage(playerid,COLOR_LIGHTRED,"[CIA] As suas munições do inventário foram retiradas.");
                         }
                     }
                 }
@@ -36557,7 +36557,7 @@ CMD:equipar(playerid, params[])
     {
         if(PlayerInfo[playerid][pEmServico] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
         if(IsPlayerInRangeOfPoint(playerid, 15, FacInfo[i][fArmarioPosX], FacInfo[i][fArmarioPosY], FacInfo[i][fArmarioPosZ]) && GetPlayerVirtualWorld(playerid) == FacInfo[i][fArmarioVw])
-            Dialog_Show(playerid, Equipar_PCERJ, DIALOG_STYLE_LIST, "[PCERJ] Equipamentos", "Armas\nMunições\nColete\nRetirar Colete\nDevolver Armas\nAcessórios", "Selecionar", "Fechar");
+            Dialog_Show(playerid, Equipar_PCERJ, DIALOG_STYLE_LIST, "[CIA] Equipamentos", "Armas\nMunições\nColete\nRetirar Colete\nDevolver Armas\nAcessórios", "Selecionar", "Fechar");
         else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está na sala de equipamentos.");
     }
     if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_EB)
@@ -37060,9 +37060,9 @@ Dialog:Equipar_PCERJ(playerid, response, listitem, inputtext[])
         {
             case 0:
 			{
-				Dialog_Show(playerid, Equipar_PCERJ1, DIALOG_STYLE_TABLIST_HEADERS, "[PCERJ] Equipamentos", "Arma:\tCargo nescessário:\nCassetete\t1\nGranada de Fumaça\t1\nColt 45\t1\nDesert Eagle\t1\nShotgun\t1\nMP5\t1\nM4\t1\nParaquedas\t1\nSniper\t5", "Pegar", "Fechar");
+				Dialog_Show(playerid, Equipar_PCERJ1, DIALOG_STYLE_TABLIST_HEADERS, "[CIA] Equipamentos", "Arma:\tCargo nescessário:\nCassetete\t1\nGranada de Fumaça\t1\nColt 45\t1\nDesert Eagle\t1\nShotgun\t1\nMP5\t1\nM4\t1\nParaquedas\t1\nSniper\t5", "Pegar", "Fechar");
 			}
-			case 1: Dialog_Show(playerid, Equipar_PCERJ2, DIALOG_STYLE_TABLIST_HEADERS, "[PCERJ] Equipamentos", "Tipo de Munição:\tQuantidade:\n9mm\t60\nCartuchos\t60\n5.56mm\t120\n12.7x106mm\t60", "Pegar", "Fechar");
+			case 1: Dialog_Show(playerid, Equipar_PCERJ2, DIALOG_STYLE_TABLIST_HEADERS, "[CIA] Equipamentos", "Tipo de Munição:\tQuantidade:\n9mm\t60\nCartuchos\t60\n5.56mm\t120\n12.7x106mm\t60", "Pegar", "Fechar");
             case 2: { P_Armour[playerid] = 100; SetPlayerArmour_CA(playerid, 100); }
             case 3: { P_Armour[playerid] = 0; SetPlayerArmour_CA(playerid, 0); }
             case 4:
@@ -53833,14 +53833,14 @@ CMD:entrar(playerid, params[])
 	    PlayerInfo[playerid][pEntrouGaragem] = -1;
 	    EntrouInt[playerid] = 1;
 	}
-	else if(IsPlayerInRangeOfPoint(playerid, 5, 1728.8789,-1565.1876,14.5625))//PCERJ 1 andar
+	else if(IsPlayerInRangeOfPoint(playerid, 5, 1728.8789,-1565.1876,14.5625))//CIA 1 andar
 	{
 	    SetPlayerInterior(playerid, 0);
 	    SetPlayerVirtualWorld(playerid, 0);
 
 	    SetPlayerPosFreeze(playerid, 1410.2965,-10.9775,1001.0098, 1);
 	}
-	else if(IsPlayerInRangeOfPoint(playerid, 5, 1400.2490,-12.1037,1001.0098))//PCERJ 2 andar
+	else if(IsPlayerInRangeOfPoint(playerid, 5, 1400.2490,-12.1037,1001.0098))//CIA 2 andar
 	{
 	    SetPlayerInterior(playerid, 0);
 	    SetPlayerVirtualWorld(playerid, 0);
@@ -53980,7 +53980,7 @@ CMD:entrar(playerid, params[])
 
 		}
 	}
-	else if (IsPlayerInRangeOfPoint(playerid, 5.0, 1744.0854,-1555.1968,8.4305)) // PCERJ GARAGEM
+	else if (IsPlayerInRangeOfPoint(playerid, 5.0, 1744.0854,-1555.1968,8.4305)) // CIA GARAGEM
 	{
 		new PlayerNoCarro[4];
 		new PlayerNoCarroL[4];
@@ -54037,7 +54037,7 @@ CMD:entrar(playerid, params[])
 			SetPlayerVirtualWorld(playerid, 0);
 			SetPlayerPos(playerid, -1627.9585,690.3979,6.7627);
 			SetPlayerFacingAngle(playerid, 0);
-			GameTextForPlayer(playerid, "~w~Bem-vindo a garagem da PCERJ.", 5000, 1);
+			GameTextForPlayer(playerid, "~w~Bem-vindo a garagem da CIA.", 5000, 1);
 			PlayerInfo[playerid][pInterior] = 0;
 			PlayerInfo[playerid][pWorld] = 0;
 
@@ -54585,7 +54585,7 @@ CMD:sair(playerid, params[])
 	    SetPlayerPosFreeze(playerid, 2027.3602,-1386.4576,17.2108, 1);
 	}
 
-	else if(IsPlayerInRangeOfPoint(playerid, 5, 1410.2965,-10.9775,1001.0098))//PCERJ 1 andar
+	else if(IsPlayerInRangeOfPoint(playerid, 5, 1410.2965,-10.9775,1001.0098))//CIA 1 andar
 	{
 	    SetPlayerInterior(playerid, 0);
 	    SetPlayerVirtualWorld(playerid, 0);
@@ -54598,7 +54598,7 @@ CMD:sair(playerid, params[])
 
 	    SetPlayerPosFreeze(playerid, 1728.8789,-1565.1876,14.5625, 1);
 	}
-	else if(IsPlayerInRangeOfPoint(playerid, 5, 1390.2905,-30.3338,1000.9183))//PCERJ 2 andar
+	else if(IsPlayerInRangeOfPoint(playerid, 5, 1390.2905,-30.3338,1000.9183))//CIA 2 andar
 	{
 	    SetPlayerInterior(playerid, 0);
 	    SetPlayerVirtualWorld(playerid, 0);
@@ -54739,7 +54739,7 @@ CMD:sair(playerid, params[])
 			SetPlayerFacingAngle(playerid, 180);
 		}
 	}
-	else if (IsPlayerInRangeOfPoint(playerid, 20.0, -1628.0112,690.6479,7.1875)) // PCERJ GARAGEM
+	else if (IsPlayerInRangeOfPoint(playerid, 20.0, -1628.0112,690.6479,7.1875)) // CIA GARAGEM
 	{
 
 		new PlayerNoCarro[4];
@@ -62361,7 +62361,7 @@ COMMAND:gov(playerid, params[])
 		}
         else if(FacInfo[facID][fTipo] == FAC_TIPO_PCERJ)
         {
-            SendClientMessageToAll(0x005BB7FF, "{6495ed}PCERJ:");
+            SendClientMessageToAll(0x005BB7FF, "{6495ed}CIA:");
             format(string, sizeof(string), "{6495ed}%s", text);
             SendClientMessageToAll(0x005BB7FF, string);
 		}
@@ -74208,7 +74208,7 @@ COMMAND:canalradio(playerid, params[])
             }
 			if(aimid == 197)
             {
-                if(FacInfo[FacId][fTipo] != 2) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito a PCERJ.");
+                if(FacInfo[FacId][fTipo] != 2) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito a CIA.");
                 temperm = 1;
             }
             if(aimid == 183) {
@@ -74275,7 +74275,7 @@ COMMAND:canalradio2(playerid, params[])
                 temperm = 1;
             }
             if(aimid == 197) {
-                if(FacInfo[FacId][fTipo] != 2) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito a PCERJ.");
+                if(FacInfo[FacId][fTipo] != 2) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito a CIA.");
                 temperm = 1;
             }
             if(aimid == 193) {
@@ -74488,7 +74488,7 @@ CMD:departamento(playerid, params[])
 		else
 		{
 		   	if(FacId == 1) format(StrFac, sizeof(StrFac), "USMC");
-            else if(FacId == 2) format(StrFac, sizeof(StrFac), "PCERJ");
+            else if(FacId == 2) format(StrFac, sizeof(StrFac), "CIA");
             else if(FacId == 3) format(StrFac, sizeof(StrFac), "MEDIC");
 		   	else if(FacId == 4) format(StrFac, sizeof(StrFac), "US GOV");
 			else if(FacId == 5) format(StrFac, sizeof(StrFac), "BRINKS");
@@ -74526,7 +74526,7 @@ CMD:departamentobaixo(playerid, params[])
 		else
 		{
 		   	if(FacId == 1) format(StrFac, sizeof(StrFac), "USMC");
-            else if(FacId == 2) format(StrFac, sizeof(StrFac), "PCERJ");
+            else if(FacId == 2) format(StrFac, sizeof(StrFac), "CIA");
             else if(FacId == 3) format(StrFac, sizeof(StrFac), "MEDIC");
 		   	else if(FacId == 4) format(StrFac, sizeof(StrFac), "US GOV");
 			else if(FacId == 5) format(StrFac, sizeof(StrFac), "BRINKS");
@@ -74688,7 +74688,7 @@ CMD:factipo(playerid, params[])
 	if (sscanf(params, "ii", id, var2))
 	{
 		SendClientMessage(playerid, COLOR_LIGHTRED,"USE: /factipo [Id da Facção] [Tipo]");
-		SendClientMessage(playerid, COLOR_WHITE,"{FF6347}[Tipos]: 1 - USMC / 2 - PCERJ / 3 - MEDIC / 4 - GOV / 5 - EB / 6 - T. Valores / 10~13 - Gang / 14~17 - Mafia / 7 - Load & Reload / 8 - Civil");
+		SendClientMessage(playerid, COLOR_WHITE,"{FF6347}[Tipos]: 1 - USMC / 2 - CIA / 3 - MEDIC / 4 - GOV / 5 - EB / 6 - T. Valores / 10~13 - Gang / 14~17 - Mafia / 7 - Load & Reload / 8 - Civil");
 		return 1;
 	}
 	else
@@ -74882,7 +74882,7 @@ Dialog:FactionsList2(playerid, response, listitem, inputtext[]){
             case 1:
             {
                 format(string_name, sizeof(string_name), "%s - Tipo", FacInfo[FacID][fNome]);
-                format(string, sizeof(string), "USMC\nPCERJ\nMEDIC\nEB\nGOV\n--- [Drugs] ---\nNível 1\nNível 2\nNível 3\nNível 4\n--- [Armas] ---\nNível 1\nNível 2\nNível 3\nNível 4", FacInfo[FacID][fNome], FacInfo[FacID][fTipo]);
+                format(string, sizeof(string), "USMC\nCIA\nMEDIC\nEB\nGOV\n--- [Drugs] ---\nNível 1\nNível 2\nNível 3\nNível 4\n--- [Armas] ---\nNível 1\nNível 2\nNível 3\nNível 4", FacInfo[FacID][fNome], FacInfo[FacID][fTipo]);
 	    		Dialog_Show(playerid, FactionsList_NewType, DIALOG_STYLE_LIST, string_name, string, "Escolher", "Cancelar");
             }
             case 3:
@@ -74927,7 +74927,7 @@ Dialog:FactionsList_NewType(playerid, response, listitem, inputtext[]){
             }
             case 1: {
                 FacInfo[FacID][fTipo] = 2;
-                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: PCERJ.");
+                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: CIA.");
             }
             case 2: {
                 FacInfo[FacID][fTipo] = 3;
@@ -86459,7 +86459,7 @@ Dialog:DIALOG_GOV_EDIT(playerid, response, listitem, inputtext[])
 				{
 					OutrasInfos[playerid][oGovEditor][0] = 4;
 					OutrasInfos[playerid][oGovEditor][1] = 0;
-                    Dialog_Show(playerid, DIALOG_GOV_EDIT, DIALOG_STYLE_LIST, "Governo", "USMC\nMEDIC\nUS GOV\nPCERJ\nEB\nDOJ\nFacção Civil", "Selecionar", "Fechar");
+                    Dialog_Show(playerid, DIALOG_GOV_EDIT, DIALOG_STYLE_LIST, "Governo", "USMC\nMEDIC\nUS GOV\nCIA\nEB\nDOJ\nFacção Civil", "Selecionar", "Fechar");
 				}
 				case 4:
 				{
@@ -86797,7 +86797,7 @@ Dialog:DIALOG_GOV_EDIT(playerid, response, listitem, inputtext[])
 					SendClientMessage(playerid, COLOR_GREEN, string);
 
 			        new strl[126];
-					format(strl, sizeof(strl), "%s alterou o salário do cargo %d da PCERJ para US$%d. | Total no cofre: US$%d", PlayerName(playerid,0), (listitem+1),valor, GovInfo[gCofres]);
+					format(strl, sizeof(strl), "%s alterou o salário do cargo %d da CIA para US$%d. | Total no cofre: US$%d", PlayerName(playerid,0), (listitem+1),valor, GovInfo[gCofres]);
 					Cofres_Publicos(strl);
 
 					SalvarGoverno();

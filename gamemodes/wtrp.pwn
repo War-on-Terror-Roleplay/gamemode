@@ -2334,6 +2334,7 @@ enum e_Account
 	pBomba,
 	pC4,
 	pTNT,
+	pColeteBomba,
 	pTempoPLD,
 	pToolKit,
 	pArrombarDNV,
@@ -7322,14 +7323,14 @@ public ArmaEntregueComSucesso(playerid,armaid,ammo,extra,equipar,raspada)
 
 CMD:bichos(playerid, params[]) 
 {
-	if(!PlayerInfo[playerid][pLogado]) return 1;
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	MostrarMenuTabela(playerid);
 	return 1;
 }
  
 CMD:jogodobicho(playerid, params[]) 
 {
-	if(!PlayerInfo[playerid][pLogado]) return 1;
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	MostrarMenuBicho(playerid);
 	return 1;
 }
@@ -7425,19 +7426,19 @@ PegarBicho(numero) {
 
 CMD:morto(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pMorto] > 0) SetarAnimMorto(playerid);
 	return 1;
 }
 CMD:limparchat(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	LimparChat(playerid);
 	return 1;
 }
 CMD:veraparencia(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new target;
     if( sscanf( params, "d", target ) ) return SCM(playerid, COLOR_LIGHTRED, "USE: {FFFFFF}/veraparencia [playerid]");
     else
@@ -7464,7 +7465,7 @@ CMD:minhaaparencia(playerid, params[])
 COMMAND:painel(playerid, params[]) 
 
 {
-	if(!PlayerInfo[playerid][pLogado]) return 1;
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if (PlayerInfo[playerid][pAdmin] < 5) return 1;
 	if(!strlen(params))
 		return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: {FFFFFF}Use /Painel [Nome/Senha].");
@@ -7817,7 +7818,7 @@ Dialog:CABELOS(playerid, response, listitem, inputtext[])
 
 CMD:numeracao(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pArmaMao] == 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem nenhuma arma em mãos");
 
     new otherid;
@@ -10220,7 +10221,7 @@ public Timer_Segundos()
 
 CMD:ajudaradio(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	SCM(playerid, COLOR_LIGHTGREEN,"|_____________________Ajuda rádio______________________|");
 	SCM(playerid, COLOR_YELLOW,"[!] Você pode comprar um rádio em uma 24/7");
 	SCM(playerid, COLOR_WHITE,"/canalradio {FFFFFF}- Define qual o canal que você quer em qual slot.");
@@ -10231,7 +10232,7 @@ CMD:ajudaradio(playerid, params[])
 
 CMD:ajudajogo(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	SCM(playerid, COLOR_LIGHTGREEN,"|_____________________Ajuda jogo do Bicho______________________|");
 	SCM(playerid, COLOR_YELLOW,"[!] Comandos para jogar no jogo do bicho");
 	SCM(playerid, COLOR_WHITE,"/jogodobicho {FFFFFF}- Abre o dialog para apostas e ver os bichos e informações.");
@@ -10242,7 +10243,7 @@ CMD:ajudajogo(playerid, params[])
 
 CMD:ajudacelular(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	SCM(playerid, COLOR_LIGHTGREEN,"_______________________________________");
 	SCM(playerid, COLOR_BRANCO,"*** AJUDA *** Você pode comprar um celular numa 24/7");
 	SCM(playerid, COLOR_CINZA,"*** CELULAR *** /ligar ('ex: /ligar911') /celular /sms (/des)ligar");
@@ -10252,7 +10253,7 @@ CMD:ajudacelular(playerid, params[])
 
 CMD:quebrarcelular(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(CelularData[playerid][celNumero] != 0)
 	{
 		CelularData[playerid][celNumero] = 0;
@@ -10265,7 +10266,7 @@ CMD:quebrarcelular(playerid, params[])
 
 CMD:ajudaarma(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	SCM(playerid, COLOR_LIGHTGREEN,"_______________________________________");
 	SCM(playerid, COLOR_CINZA,"*** AJUDA ARMA *** Você pode guardar/retirar armas pequenas no inventário.");
 	SCM(playerid, COLOR_CINZA,"*** AJUDA ARMA *** Você pode utilizar /recarregar ou a tecla 'Y' para recarregar.");
@@ -10281,7 +10282,7 @@ CMD:ajudaarma(playerid, params[])
 
 CMD:ajudadrogas(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	SCM(playerid, COLOR_LIGHTGREEN,"____________________Ajuda Drogas____________________");
 	SCM(playerid, COLOR_BRANCO,"/minhasdrogas - Mostra os seus pacotes de drogas.");
 	SCM(playerid, COLOR_BRANCO,"/meusingredientes - Mostra os seus ingredientes");
@@ -10296,7 +10297,7 @@ CMD:ajudadrogas(playerid, params[])
 
 CMD:armasid(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] >= 1)
     {
 	    SCM(playerid, COLOR_LIGHTGREEN,"_______________________________________");
@@ -10684,7 +10685,7 @@ public OnUnoccupiedVehicleUpdate(vehicleid, playerid, passenger_seat, Float:new_
 public OnVehicleDamageStatusUpdate(vehicleid, playerid)
 {
     if(IsPushbike(GetVehicleModel(GetPlayerVehicleID(playerid)))) return 1;
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 
     new Float:vidaCar;
 	GetVehicleHealth(vehicleid, vidaCar);
@@ -10957,6 +10958,7 @@ public ResetVarsPlayerInfo(extraid)
 	PlayerInfo[extraid][pBomba] = 0;
 	PlayerInfo[extraid][pC4] = 0;
 	PlayerInfo[extraid][pTNT] = 0;
+	PlayerInfo[extraid][pColeteBomba] = 0;
 	PlayerInfo[extraid][pPecasMecanicas][0] = 0;
 	PlayerInfo[extraid][pPecasMecanicas][1] = 0;
 	PlayerInfo[extraid][pPecasMecanicas][2] = 0;
@@ -13908,7 +13910,7 @@ timer Pet_Update[100](playerid, targetid) {
 
 COMMAND:aceitarcobranca(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 
     if(IsPlayerInRangeOfPoint(playerid,7.5,1500.2792,-1241.3109,14.5563))
 	{
@@ -15162,7 +15164,7 @@ stock IsSeatTaken(vehicleid, seatid)
 }
 CMD:iniciarviagem(playerid)
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
  	if(PlayerInfo[playerid][pJob] != JOB_MOTORISTA) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não é um motorista de onibus."); 
     if(GetVehicleModel(GetPlayerVehicleID(playerid)) == 437) return SCM(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Você tem que estar em um ônibus (Coach) para começar a rota!");
 	if(IsPlayerInRangeOfPoint(playerid, 5, 1737.5643,-1859.1648,13.4141))
@@ -15199,7 +15201,7 @@ public MsgBus(playerid)
 
 CMD:ifood(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
  	if(PlayerInfo[playerid][pJob] != JOB_MOTOBOY) return SCM(playerid, COLOR_LIGHTRED, "Você não é um entregador do ifood.");
     AppLigado[playerid] = 0;
     iFood[playerid] = 1;
@@ -15209,7 +15211,7 @@ CMD:ifood(playerid, params[])
 
 CMD:ligarapp(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
  	if(PlayerInfo[playerid][pJob] != JOB_MOTOBOY) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não é um entregador do ifood.");
 	if(AppLigado[playerid] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{ffffff} Você já está conectado");
     if(IsPlayerInAnyVehicle(playerid) && GetPlayerState(playerid) == PLAYER_STATE_DRIVER)
@@ -15222,7 +15224,7 @@ CMD:ligarapp(playerid, params[])
 }
 CMD:desligarapp(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
  	if(PlayerInfo[playerid][pJob] != JOB_MOTOBOY) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não é um entregador do ifood.");
 
     if(AppLigado[playerid] != 1)
@@ -15311,7 +15313,7 @@ stock randomEspecial(minimo,maximo)
 
 CMD:hacker(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
  	if(PlayerInfo[playerid][pJob] != JOB_HACK) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não é um hacker.");
 	new complexid = PlayerInfo[playerid][pEntrouComplexo];
 	if(complexid == -1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em um complexo.");
@@ -15424,7 +15426,7 @@ public HackerSuccesed(playerid)
 
 CMD:taxi(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(!IsPlayerInAnyVehicle(playerid)) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em um veículo.");
  	if(PlayerInfo[playerid][pJob] != JOB_TAXISTA)  return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não é um taxista.");
 
@@ -16977,7 +16979,7 @@ stock Porcentagem(Amount,Porcento)
 
 COMMAND:cc(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new Float:velocidade;
 	if(sscanf(params, "f", velocidade)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /cc [Velocidade (10~30)]");
 	else
@@ -20627,7 +20629,7 @@ public SalvarPlayer(playerid)
 		);
 	    mysql_function_query(Pipeline, query, false, "", "");
 
-        format(query, sizeof(query), "UPDATE `accounts` SET `pPayDay` = '%d', `pDutySkin` = '%d', `pColde` = '%d', `pColdreA` = '%d', `pArmario1` = '%d', `pArmario2` = '%d', `pArmario3` = '%d', `pArmario4` = '%d', `pArmario5` = '%d' WHERE `ID` = '%d'",
+        format(query, sizeof(query), "UPDATE `accounts` SET `pPayDay` = '%d', `pDutySkin` = '%d', `pColde` = '%d', `pColdreA` = '%d', `pArmario1` = '%d', `pArmario2` = '%d', `pArmario3` = '%d', `pArmario4` = '%d', `pArmario5` = '%d', `ColeteBomba` = '%d' WHERE `ID` = '%d'",
 			PlayerInfo[playerid][pPayDay],
 			PlayerInfo[playerid][pDutySkin],
 			PlayerInfo[playerid][pColde],
@@ -20637,6 +20639,7 @@ public SalvarPlayer(playerid)
 			PlayerInfo[playerid][pArmario3],
 			PlayerInfo[playerid][pArmario4],
 			PlayerInfo[playerid][pArmario5],
+			PlayerInfo[playerid][pColeteBomba],
 		    PlayerInfo[playerid][pID]
 		);
 		mysql_function_query(Pipeline, query, false, "", "");
@@ -20845,7 +20848,7 @@ CMD:forum(playerid, params[])
 
 CMD:verstats(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 1) return 1;
     new target;
     if( sscanf( params, "d", target ) ) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /verstats [playerid]");
@@ -20858,14 +20861,14 @@ CMD:verstats(playerid, params[])
 
 CMD:fomesede(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     VerFome(playerid, playerid);
     return 1;
 }
 
 CMD:stats(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     VerStats(playerid, playerid);
 	return 1;
 }
@@ -21070,7 +21073,7 @@ public VerFome(playerid, targetid)
 
 CMD:inv(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new StrArm[562];
 	Menu_Armas[playerid][0] = 0;
 	format(StrArm, sizeof(StrArm), "{007B00}Ver municões >>{FFFFFF}\nArmas:");
@@ -21090,7 +21093,7 @@ CMD:inv(playerid, params[])
 
 CMD:arma(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(TazerPlayer[playerid] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando com o tazer na mão.");
 	if(gettime() < FloodCMD[playerid]) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Aguarde um segundo antes de usar um comando novamente.");
 	if(IsPlayerEditandoAlgo(playerid)) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Termine de editar o objeto antes.");
@@ -21222,7 +21225,7 @@ public AttachArmaCorpo(playerid, armaid, bone)
 ALTCOMMAND:pa->pegararma;
 CMD:pegararma(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(TazerPlayer[playerid] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando com o tazer na mão.");
     if(IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando dentro de um veículo.");
     if(PlayerInfo[playerid][pArmaMao] != 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já tem uma arma em mãos.");
@@ -21365,7 +21368,7 @@ CMD:pegararma(playerid, params[])
 ALTCOMMAND:ga->guardararma;
 CMD:guardararma(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando dentro de um veículo.");
     if(PlayerInfo[playerid][pArmaMao] == 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem nenhuma arma em mãos");
     if(gettime() < FloodCMD[playerid]) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Aguarde um segundo antes de usar um comando novamente.");
@@ -21504,7 +21507,7 @@ CMD:guardararma(playerid, params[])
 
 COMMAND:larma(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando dentro de um veículo.");
 	if(TaEmUmElevador(playerid)) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode dropar algo dentro de um elevador.");
     if(gettime() < FloodCMD[playerid]) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Aguarde um segundo antes de usar um comando novamente.");
@@ -21605,7 +21608,7 @@ COMMAND:larma(playerid, params[])
 
 COMMAND:dropar(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando dentro de um veículo.");
 	if(TaEmUmElevador(playerid)) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode dropar algo dentro de um elevador.");
     if(gettime() < FloodCMD[playerid]) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Aguarde um segundo antes de usar um comando novamente.");
@@ -21711,7 +21714,7 @@ COMMAND:dropar(playerid, params[])
 
 COMMAND:largarchave(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pChaveEmprestada] != 0)
 	    PlayerInfo[playerid][pChaveEmprestada] = 0;
     SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você largou a chave emprestada.");
@@ -21720,7 +21723,7 @@ COMMAND:largarchave(playerid, params[])
 
 COMMAND:dropare(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando dentro de um veículo.");
 	if(TaEmUmElevador(playerid)) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode dropar algo dentro de um elevador.");
     if(gettime() < FloodCMD[playerid]) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Aguarde um segundo antes de usar um comando novamente.");
@@ -22313,7 +22316,7 @@ public DropandoCartuxo(playerid,Ammo)
 
 CMD:apegar(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 3000) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando.");
 
 	new AchouAlgo = 0;
@@ -22429,7 +22432,7 @@ CMD:apegar(playerid, params[])
 
 CMD:pegar(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando dentro de um veículo.");
     if(OutrasInfos[playerid][oAlgemado] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode realizar essa ação estando algemado.");
 	if(PlayerInfo[playerid][pLevel] < 3) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de TC 3 ou mais para dropar algo.");
@@ -23334,7 +23337,7 @@ CMD:ajuda(playerid, params[])
 
 CMD:refundos(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     Dialog_Show(playerid, RFPrincipal, DIALOG_STYLE_LIST, "Refundo", "Armas\nDinheiro\nDrogas e Munições", "Selecionar", "Cancelar");
 	return 1;
 }
@@ -23470,7 +23473,7 @@ public ChecandoRefundo(playerid)
 
 CMD:mudarsenha(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 
  	ShowPlayerDialog(playerid, DIALOG_NOVASENHA, DIALOG_STYLE_PASSWORD, "Alterar Senha", "\nAlteração da senha.\n\nSua senha deve conter no minimo 6 caracters\n", "Alterar", "Cancelar");
 	return 1;
@@ -23478,7 +23481,7 @@ CMD:mudarsenha(playerid, params[])
 
 CMD:corrigirpos(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(CaindoInt[playerid] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está entrando em lugar nenhum.");
 
 	if(PlayerInfo[playerid][pTemPreso] > 0)
@@ -23600,7 +23603,7 @@ CMD:corrigirpos(playerid, params[])
 
 CMD:subir(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(SetandoPos[playerid] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está entrando em algum lugar.");
 
     new Float:x, Float:y, Float:z;
@@ -23614,7 +23617,7 @@ CMD:subir(playerid, params[])
 
 CMD:documentos(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pMorto] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você está muito ferido.");
 
     new var,var2,tipo[128];
@@ -23733,7 +23736,7 @@ ALTCOMMAND:passarbeck->passarcigarro;
 ALTCOMMAND:passarcig->passarcigarro;
 CMD:passarcigarro(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pMorto] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você está muito ferido.");
 	if(FumandoMaconha[playerid] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está segurando um cigarro de maconha.");
 
@@ -23808,7 +23811,7 @@ CMD:passarcigarro(playerid, params[])
 
 CMD:levantar(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pMorto] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você está muito ferido.");
 
 	new var;
@@ -23856,7 +23859,7 @@ CMD:levantar(playerid, params[])
 }
 CMD:desbugarmouse(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	CancelSelectTextDraw(playerid);
 	return 1;
 }
@@ -23927,7 +23930,7 @@ CMD:corrigirvw(playerid, params[])
 
 COMMAND:usar(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(FumandoCigarro[playerid] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode pegar um item em quanto fuma. ('/apagarcigarro')");
 
     if(isnull(params)) {
@@ -23975,7 +23978,7 @@ COMMAND:usar(playerid, params[])
 
 COMMAND:recarregar(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(gettime() < FloodCMD[playerid]) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Aguarde um segundo antes de usar um comando novamente.");
   	if(PlayerInfo[playerid][pMorto] > 0)  return SendClientMessage(playerid, COLOR_LIGHTRED, "Você está muito ferido para recarregar.");
 	if(IsPlayerInAnyVehicle(playerid) && GetPlayerAmmo(playerid) > 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você deve gastar toda a munição antes de recarregar a arma dentro do veículo.");
@@ -24376,7 +24379,7 @@ COMMAND:recarregar(playerid, params[])
 
 COMMAND:rebocar(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(IsPlayerConnected(playerid)) {
  		if(IsPlayerInAnyVehicle(playerid)) {
      		new m = GetVehicleModel(GetPlayerVehicleID(playerid));
@@ -24470,7 +24473,7 @@ COMMAND:carwhisper(playerid,params[])
 
 COMMAND:removercp(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	DisablePlayerCheckpoint(playerid);
 	SendClientMessage(playerid,COLOR_LIGHTGREEN,"Checkpoint removido.");
 	return 1;
@@ -24621,7 +24624,7 @@ COMMAND:boombox(playerid,params[])
 
 COMMAND:estacoesradio(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	mysql_function_query(Pipeline, "SELECT * FROM rp_radio_stations ORDER BY radioID", true, "QUERY_REQ_STATIONS", "");
  	return 1;
 }
@@ -25105,7 +25108,7 @@ COMMAND:moeda(playerid, params[])
 
 COMMAND:cigarro(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(GetPlayerSpecialAction(playerid) == SPECIAL_ACTION_SMOKE_CIGGY) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem um cigarro em mãos.");
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa estar logado.");
     if(IsPlayerAttachedObjectSlotUsed(playerid, 5)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando em quanto segura algo. ('/usar nenhum')");
@@ -25122,7 +25125,7 @@ COMMAND:cigarro(playerid, params[])
 }
 CMD:apagarcigarro(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(IsPlayerConnected(playerid))
  	{
   		if(PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Logue-se primeiro. ");
@@ -25360,7 +25363,7 @@ public PlayerDeslogouEditandoAlgo(playerid) {
 ALTCOMMAND:dar->entregar;
 CMD:entregar(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pLevel] < 3) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de TC 3 ou mais para dropar algo.");
     if(gettime() < FloodCMD[playerid]) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Aguarde um segundo antes de usar um comando novamente.");
 	if(IsPlayerEditandoAlgo(playerid)) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Termine de editar o objeto antes.");
@@ -25651,7 +25654,7 @@ CMD:entregar(playerid, params[])
 
 CMD:passargrana(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new qnt, var;
 	if (sscanf(params, "I(9999)i",var, qnt)) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} /pagar [ID/Mascara id] [Valor]");
 	else
@@ -25721,7 +25724,7 @@ CMD:passargrana(playerid, params[])
 
 CMD:pagar(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new qnt, var;
 	if (sscanf(params, "I(9999)i",var, qnt)) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} /pagar [ID/Mascara id] [Valor]");
 	else
@@ -25878,7 +25881,7 @@ ALTCOMMAND:s->whisper;
 ALTCOMMAND:w->whisper;
 COMMAND:whisper(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new opcao[256], var;
 	if (sscanf(params, "I(9999)s[256]",var, opcao))
 	{
@@ -26455,10 +26458,77 @@ public StopTalking(playerid)
     ClearAnimations(playerid, 1);
 	return 1;
 }
+//Sistema de homem bomba - Yur$
+ALTCOMMAND:vestircolete->Vestirbomba;
+CMD:vestircolete(playerid, params[])
+{
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
+	if(PlayerInfo[playerid][pLevel] < 2) return SCM(playerid, COLOR_LIGHTRED, "Você precisa de TC 2 ou mais para utilizar este comando!");
+    if(PlayerInfo[playerid][pMorto] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
+    if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
+    if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
+	if(IsPlayerInWater(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não pode utilizar este comando enquanto estiver na água!");
+	if(TomouTazer[playerid] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não pode utilizar este comando enquanto estiver sob efeito do tazer!");
+    if(!IsPlayerInAnyVehicle(playerid) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa estar fora do veículo."));
+    if(PlayerInfo[playerid][pTNT] < 3) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 3 TNT para formar o colete.");
+    SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Vestindo o colete, aguarde.");
+    SetTimerEx("VestindoColeteBomba", 10000, false, "d", playerid);
+
+	return 1;
+}
+
+forward VestindoColeteBomba(playerid);
+public VestindoColeteBomba(playerid)
+{
+	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você vestiu o colete.");
+    PlayerInfo[playerid][pTNT] = PlayerInfo[playerid][pTNT]-= 3;
+
+    return 1;
+}
+ALTCOMMAND:homembomba->hb;
+CMD:homembomba(playerid, params[])
+{
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
+	if(PlayerInfo[playerid][pLevel] < 2) return SCM(playerid, COLOR_LIGHTRED, "Você precisa de TC 2 ou mais para utilizar este comando!");
+    if(PlayerInfo[playerid][pMorto] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
+    if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
+    if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
+	if(IsPlayerInWater(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não pode utilizar este comando enquanto estiver na água!");
+	if(TomouTazer[playerid] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não pode utilizar este comando enquanto estiver sob efeito do tazer!");
+	if(PlayerInfo[playerid][pArrombarDNV_C] != 0)
+	{
+		new stringfogos[128];
+		format(stringfogos, sizeof(stringfogos),"Aguarde %d segundos antes de explodir novamente.", PlayerInfo[playerid][pArrombarDNV_C]);
+		SendClientMessage(playerid,COLOR_LIGHTRED, stringfogos);
+		return 1;
+	}
+    if(!IsPlayerInAnyVehicle(playerid) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa estar fora do veículo."));
+    if(PlayerInfo[playerid][pColeteBomba] < 1) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 1 colete bomba para explodir.");
+
+    SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Aguarde 3 segundos para explodir.");
+    SetTimerEx("HomemBombaExplodindo", 3000, false, "d", playerid);
+
+	return 1;
+}
+
+forward HomemBombaExplodindo(playerid);
+public HomemBombaExplodindo(playerid)
+{
+    PlayerInfo[playerid][pArrombarDNV_C] = 1200;
+    
+    new Float:x, Float:y, Float:z;
+	GetPlayerPos(playerid, x, y, z);
+
+    CreateExplosion(x, y, z, 10, 20.0);
+	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você Explodiu");
+    PlayerInfo[playerid][pColeteBomba]--;
+
+    return 1;
+}
 //Sistema de misturar drogas - Yur$
 COMMAND:misturar(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new idx = 0;
 	new tmp[256];
 	tmp = strtok(params,idx);
@@ -27347,7 +27417,7 @@ COMMAND:trap(playerid)
 //Sistema de vender drogas npc - Yur$
 COMMAND:traficar(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new idx = 0;
 	new tmp[256];
 	tmp = strtok(params,idx);
@@ -27706,7 +27776,7 @@ public PegouGranaErvaETrf(playerid)
 //==========[SISTEMA DE LAVAGEM DE DINHEIRO]========================
 COMMAND:lavar(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new idx = 0;
 	new tmp[256];
 	tmp = strtok(params,idx);
@@ -27783,7 +27853,7 @@ public PegouGranaSuja(playerid)
 //==========[SISTEMA DE ROUBO]========================
 COMMAND:explodir(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new idx = 0;
 	new tmp[256];
 	tmp = strtok(params,idx);
@@ -28115,7 +28185,7 @@ COMMAND:explodir(playerid,params[])
 
 COMMAND:roubar(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new idx = 0;
 	new tmp[256];
 	tmp = strtok(params,idx);
@@ -28516,7 +28586,7 @@ Dialog:ATM_Banco(playerid, response, listitem, inputtext[]) {
 
 CMD:ferimentos(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new targetid, stringfer[1024], stringfera[24], string11[126];
 	if (sscanf(params, "u", targetid)) return SendClientMessage(playerid, COLOR_WHITE,"{FF6347}[USE]:{FFFFFF} /ferimentos [ID]");
 	else
@@ -28557,7 +28627,7 @@ CMD:ferimentos(playerid, params[])
 }
 CMD:ado(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new opcao[256], str[256];
 	if (sscanf(params, "s[256]", opcao)) return SendClientMessage(playerid, COLOR_WHITE,"{FF6347}[USE]:{FFFFFF} /ado [descrição]");
 	else
@@ -28572,7 +28642,7 @@ CMD:ado(playerid, params[])
 
 COMMAND:ame(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new text[128],stringa[256];
 	if(sscanf(params, "s[128]", text)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /ame [ação]");
 	else
@@ -28592,7 +28662,7 @@ COMMAND:ame(playerid, params[])
 ALTCOMMAND:g->gritar;
 COMMAND:gritar(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new text[128];
 	if(sscanf(params, "s[128]", text)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} (/g)ritar [texto]");
 	else
@@ -28681,7 +28751,7 @@ COMMAND:gritar(playerid, params[])
 ALTCOMMAND:porta_me->pme;
 CMD:pme(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new opcao[256], str[256];
 	if (sscanf(params, "s[256]", opcao)) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} /pme [ação]");
 	else
@@ -28796,7 +28866,7 @@ CMD:pme(playerid, params[])
 ALTCOMMAND:porta_do->pdo;
 CMD:pdo(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new opcao[256], str[256];
 	if (sscanf(params, "s[256]", opcao)) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} /pdo [descrição]");
 	else
@@ -28911,7 +28981,7 @@ CMD:pdo(playerid, params[])
 
 COMMAND:ir(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pAdmin] > 0 || PlayerInfo[playerid][pTester] > 0)
 	{
 		new targetid;
@@ -28960,7 +29030,7 @@ COMMAND:ir(playerid, params[])
 
 COMMAND:enviarjogador(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid, targetid2;
 	if(sscanf(params, "uu", targetid,targetid2)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /enviarjogador [Id do Player a receber o player] [Id do Player a ser enviado]");
 	else
@@ -29011,7 +29081,7 @@ COMMAND:enviarjogador(playerid, params[])
 
 COMMAND:trazer(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid;
 	if(sscanf(params, "u", targetid)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /trazer [id]");
 	else
@@ -29153,7 +29223,7 @@ COMMAND:trazer(playerid, params[])
 
 COMMAND:apagarpixe(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 
     if(PlayerInfo[playerid][pAdmin] > 0 || PlayerInfo[playerid][pTester] > 0 || FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_GOV || FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PMERJ)
 	{
@@ -29187,7 +29257,7 @@ COMMAND:apagarpixe(playerid, params[])
 
 COMMAND:verpixes(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 
 	if(PlayerInfo[playerid][pAdmin] > 0 || PlayerInfo[playerid][pTester] > 0 || FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_GOV || FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PMERJ)
 	{
@@ -29209,7 +29279,7 @@ COMMAND:verpixes(playerid, params[])
 
 CMD:ajudaemprego(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	switch(PlayerInfo[playerid][pJob])
 	{
 	    case JOB_MECANICO:
@@ -29471,7 +29541,7 @@ public TrocandoPlacaV(playerid, slot)
 
 COMMAND:treinar(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pJob] != JOB_TREINADOR) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não é um treinador.");
 
 	new targetid, lutaid;
@@ -29509,7 +29579,7 @@ COMMAND:treinar(playerid, params[])
 
 CMD:ajudapoker(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	SendClientMessage(playerid, COLOR_LIGHTGREEN, "____________________Ajuda Poker____________________");
 	SendClientMessage(playerid, COLOR_WHITE, "/sentarmesa, /sairmesa");
 	SendClientMessage(playerid, COLOR_WHITE, "/leavetable, /debugsound, /debugtextsize, /debugcamera, /leavedebugcamera, /debugseat");
@@ -29517,7 +29587,7 @@ CMD:ajudapoker(playerid, params[])
 }
 COMMAND:portao(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new pport = 0;
  	for(new i; i < MAX_PORTOES; i++)
   	{
@@ -29641,7 +29711,7 @@ stock temCaixa(vehicleid){
 
 COMMAND:carga(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pJob] != JOB_CAMINHONEIRO) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não é um caminhoneiro.");
 
     new engine,lights,alarm,doors,bonnet,boot,objective;
@@ -30768,7 +30838,7 @@ stock ObjetoPrensado(playerid,vehicleid,slot,tipo)
 
 CMD:ajudacasa(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     SendClientMessage(playerid, COLOR_LIGHTGREEN, "_______________________________________");
     SendClientMessage(playerid, COLOR_BRANCO, "*** AJUDA CASA ***");
     SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA CASA *** /comprar /vender /entrar /sair /casas /sacar /depositar");
@@ -30781,7 +30851,7 @@ CMD:ajudacasa(playerid, params[])
 
 CMD:ajudagaragem(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     SendClientMessage(playerid, COLOR_LIGHTGREEN, "_______________________________________");
     SendClientMessage(playerid, COLOR_BRANCO, "*** AJUDA GARAGEM ***");
     SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA GARAGEM *** /comprar /vender /entrar /sair /garagens");
@@ -31022,7 +31092,7 @@ CMD:bater(playerid, params[])
 
 COMMAND:apreender(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new faccao = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
     if(FacInfo[faccao][fTipo] == FAC_TIPO_PMERJ || FacInfo[faccao][fTipo] == FAC_TIPO_PCERJ) // PMERJ
     {
@@ -31068,7 +31138,7 @@ COMMAND:apreender(playerid,params[])
 
 CMD:blockf(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new faccao = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
     if(PlayerInfo[playerid][pFac] < 1) return 1;
     new StrMsg[256];
@@ -31122,7 +31192,7 @@ COMMAND:dados(playerid, params[])
 
 CMD:ajudafaccao(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     SendClientMessage(playerid, COLOR_LIGHTGREEN, "_______________________________________");
     new faccao = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
     if(FacInfo[faccao][fTipo] == FAC_TIPO_PMERJ) // USMC
@@ -31280,7 +31350,7 @@ CMD:ajudafaccao(playerid, params[])
 
 COMMAND:retirar(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(IsLaw2(playerid))
 	{
 	    new other, tmp2[126], str[256];
@@ -31426,7 +31496,7 @@ COMMAND:retirar(playerid,params[])
 
 COMMAND:aretirar(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] >= 4)
 	{
 	    new other, tmp2[126], str[256];
@@ -31528,7 +31598,7 @@ COMMAND:aretirar(playerid,params[])
 
 COMMAND:limparpregos(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
 	if(FacInfo[FacId][fTipo] == FAC_TIPO_PMERJ || FacInfo[FacId][fTipo] == FAC_TIPO_EB || FacInfo[FacId][fTipo] == FAC_TIPO_PCERJ)
 	{
@@ -31547,7 +31617,7 @@ COMMAND:limparpregos(playerid,params[])
 
 COMMAND:equipargb(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(!PlayerToPortaMalasCar(playerid,1,5.0)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está próximo de um caminhão de bombeiros.");
     new carid = PlayerToPortaMalasCar(playerid,2,3.0);
     new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
@@ -31613,7 +31683,7 @@ Dialog:Equipando_GB(playerid, response, listitem, inputtext[])
 
 CMD:taser(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
     if(FacInfo[FacId][fTipo] == FAC_TIPO_PMERJ || FacInfo[FacId][fTipo] == FAC_TIPO_PCERJ || FacInfo[FacId][fTipo] == FAC_TIPO_EB)
     {
@@ -31649,7 +31719,7 @@ CMD:taser(playerid, params[])
 
 CMD:balasborracha(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
     if(FacInfo[FacId][fTipo] == FAC_TIPO_PMERJ || FacInfo[FacId][fTipo] == FAC_TIPO_PCERJ || FacInfo[FacId][fTipo] == FAC_TIPO_EB)
     {
@@ -31685,7 +31755,7 @@ CMD:balasborracha(playerid, params[])
 
 COMMAND:tapeteprego(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
 	if(FacInfo[FacId][fTipo] == FAC_TIPO_PMERJ || FacInfo[FacId][fTipo] == FAC_TIPO_EB || FacInfo[FacId][fTipo] == FAC_TIPO_PCERJ)
 	{
@@ -31709,7 +31779,7 @@ COMMAND:tapeteprego(playerid,params[])
 
 COMMAND:removerprego(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
 	if(FacInfo[FacId][fTipo] == FAC_TIPO_PMERJ || FacInfo[FacId][fTipo] == FAC_TIPO_EB || FacInfo[FacId][fTipo] == FAC_TIPO_PCERJ)
 	{
@@ -31785,7 +31855,7 @@ stock DeleteClosestStrip(playerid)
 }
 COMMAND:ejetar(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid;
 	if(sscanf(params, "u", targetid)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /ejetar [id]");
 	else
@@ -31807,7 +31877,7 @@ COMMAND:ejetar(playerid, params[])
 }
 COMMAND:deter(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid,seatid;
 	if(sscanf(params, "ui", targetid,seatid)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /deter [id] [ID do assento]");
 	else
@@ -31831,7 +31901,7 @@ COMMAND:deter(playerid, params[])
 ALTCOMMAND:carregarferido->colocarferido;
 COMMAND:colocarferido(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid,seatid;
 	if(sscanf(params, "ui", targetid,seatid)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /colocarferido [id] [ID do assento]");
 	else
@@ -32815,7 +32885,7 @@ ALTCOMMAND:cump->cumprimentar;
 ALTCOMMAND:cumprimento->cumprimentar;
 COMMAND:cumprimentar(playerid, params[])
 {
-	if(!PlayerInfo[playerid][pLogado]) return 1;
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid, cumpid;
 	if(sscanf(params, "ui", targetid, cumpid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "USE:{FFFFFF} (/cump)rimentar [id] [1-8]");
 	else
@@ -32861,7 +32931,7 @@ stock SetPlayerToFacePlayer(playerid, targetid)
 
 COMMAND:aceitar(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new stringrt[64];
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
     new option[56], InvId;
@@ -33234,7 +33304,7 @@ COMMAND:membros(playerid, params[])
 ALTCOMMAND:m->megafone;
 COMMAND:megafone(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new text[128];
 
 	if(sscanf(params, "s[128]", text)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /m [mensagem do megafone]");
@@ -33295,7 +33365,7 @@ COMMAND:megafone(playerid, params[])
 
 CMD:prender(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]), StrMsg[124];
 
     if(IsPlayerInRangeOfPoint(playerid, 8, 1396.2954,-10.2383,1000.9221))
@@ -33477,7 +33547,7 @@ CMD:prender(playerid, params[])
 }
 COMMAND:armazem(playerid, params[])
 {
-	if(!PlayerInfo[playerid][pLogado]) return 1;
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(IsPlayerEditandoAlgo(playerid)) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Termine de editar o objeto antes.");
 
     new c = -1;
@@ -34283,7 +34353,7 @@ Dialog:Municoes_House4(playerid, response, listitem, inputtext[])
 
 CMD:armario(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pEmServico] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você só pode usar o armário estando fora de serviço.");
     if(IsPlayerEditandoAlgo(playerid)) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Termine de editar o objeto antes.");
 
@@ -35054,7 +35124,7 @@ Dialog:Municoes_PMERJ4(playerid, response, listitem, inputtext[])
 
 COMMAND:cbarreira2(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 3000) return 1;
     new targetid;
 	if(sscanf(params, "i", targetid)) SendClientMessage(playerid, COLOR_LIGHTRED, "USE:{FFFFFF} /cbarreira2 [id]");
@@ -35087,7 +35157,7 @@ COMMAND:cbarreira2(playerid, params[])
 
 COMMAND:barricada(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pLevel] < 10) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de TC 10 ou mais para colocar barricada");
     if(PlayerInfo[playerid][pEditandoBareira] != -1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já está colocando uma barreira.");
 	/*new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
@@ -35104,7 +35174,7 @@ COMMAND:barricada(playerid, params[])
 }
 CMD:arbarricadas(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pEditandoBareira] != -1) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Termine de editar a barreira atual antes de deletar alguma.");
     if(PlayerInfo[playerid][pAdmin] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED,"Você não é um administrador.");
 	{
@@ -35121,7 +35191,7 @@ CMD:arbarricadas(playerid, params[])
 }
 CMD:rbarricada(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pLevel] < 10) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de TC 10 ou mais para retirar barricada");
     if(PlayerInfo[playerid][pEditandoBareira] != -1) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Termine de editar a barricada atual antes de deletar alguma.");
 	/*new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]), alguma = 0;
@@ -35148,7 +35218,7 @@ CMD:rbarricada(playerid, params[])
 
 COMMAND:cbarreira(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pEditandoBareira] != -1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já está colocando uma barreira.");
     if(PlayerInfo[playerid][pEmServico] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
     new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
@@ -35161,7 +35231,7 @@ COMMAND:cbarreira(playerid, params[])
 
 CMD:rbarreira(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pEditandoBareira] != -1) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Termine de editar a barreira atual antes de deletar alguma.");
     //if(PlayerInfo[playerid][pEmServico] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
     new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]), alguma = 0;
@@ -35187,7 +35257,7 @@ CMD:rbarreira(playerid, params[])
 
 CMD:vitor(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 
 	ShowModelSelectionMenu(playerid, "[PREMIUM] Skins", MODEL_VITOR_SKINS, VITOR_Uniformes, sizeof(VITOR_Uniformes), -16.0, 0.0, -55.0);
 	return 1;
@@ -35195,7 +35265,7 @@ CMD:vitor(playerid, params[])
 
 CMD:uniforme(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
 	
     if(FacInfo[FacId][fTipo] == FAC_TIPO_PMERJ)
@@ -35263,7 +35333,7 @@ CMD:uniforme(playerid, params[])
 
 CMD:trabalho(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(IsPlayerEditandoAlgo(playerid)) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Termine de editar o objeto antes.");
 
     new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
@@ -36318,7 +36388,7 @@ CMD:trabalho(playerid, params[])
 
 CMD:trabalhar(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(IsPlayerEditandoAlgo(playerid)) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Termine de editar o objeto antes.");
 
     new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
@@ -36541,7 +36611,7 @@ CMD:trabalhar(playerid, params[])
 
 CMD:equipar(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(TazerPlayer[playerid] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando com o taser na mão.");
 	new i = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
 	if(i == -1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pertence a nenhuma facção.");
@@ -37245,7 +37315,7 @@ Dialog:Equipar_PCERJ2(playerid, response, listitem, inputtext[])
 
 CMD:cargo(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pFac] == 0) return 1;
 	else
 	{
@@ -37306,7 +37376,7 @@ CMD:cargo(playerid, params[])
 
 CMD:amarrar(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(OutrasInfos[playerid][oAlgemado] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não pode amarrar pois está algemado.");
     if(OutrasInfos[playerid][oAmarrado] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não pode amarrar pois está amarrado.");
     {
@@ -37391,7 +37461,7 @@ public ArrastarUpdate(playerid, targetid)
 }
 CMD:algemar(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(OutrasInfos[playerid][oAlgemado] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode algemar pois está algemado.");
     if(OutrasInfos[playerid][oAmarrado] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode algemar pois está amarrado.");
     new faccao = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
@@ -37425,7 +37495,7 @@ stock SetPlayerAlgema(playerid, algemado){
 }
 CMD:desalgemar(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(OutrasInfos[playerid][oAlgemado] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode desalgemar pois está algemado.");
     if(OutrasInfos[playerid][oAmarrado] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode desalgemar pois está amarrado.");
     new faccao = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
@@ -37449,7 +37519,7 @@ CMD:desalgemar(playerid, params[])
 
 CMD:desamarrar(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(OutrasInfos[playerid][oAlgemado] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não pode desamarrar pois está algemado.");
     if(OutrasInfos[playerid][oAmarrado] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não pode desamarrar pois está amarrado.");
     {
@@ -37473,7 +37543,7 @@ CMD:desamarrar(playerid, params[])
 
 CMD:ajudaempresa(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     SendClientMessage(playerid, COLOR_LIGHTGREEN, "_______________________________________");
     SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA EMPRESA *** /comprar /vender /entrar /sair /empresa");
     SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA EMPRESA *** /nomeemp /precogasolina /sacar /depositar");
@@ -37485,7 +37555,7 @@ CMD:ajudaempresa(playerid, params[])
 
 CMD:empresa(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new NaEmpresa = PlayerInfo[playerid][pEntrouEmpresa];
     if(NaEmpresa != -1)
     {
@@ -37902,7 +37972,7 @@ Dialog:Empresa_Editar_Nome(playerid, response, listitem, inputtext[])
 }
 COMMAND:abastecer(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new id = Pump_Nearest(playerid);
 	if (id != -1)
 	{
@@ -37943,7 +38013,7 @@ COMMAND:abastecer(playerid,params[])
 
 COMMAND:galao(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(!IsPlayerInAnyVehicle(playerid))
     {
 	    new option[32];
@@ -37993,7 +38063,7 @@ COMMAND:galao(playerid,params[])
 
 CMD:junioradmins3(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new AdmSTR[86];
 	new Totaltesters = 0;
 	SendClientMessage(playerid, 0xb4b5b7FF, "Juniors Admins:");
@@ -38024,7 +38094,7 @@ CMD:junioradmins3(playerid, params[])
 
 CMD:admins(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new AdmSTR[86];
 	new TotalAdmins = 0;
 	SendClientMessage(playerid, 0xb4b5b7FF, "Administradores Online:");
@@ -38109,7 +38179,7 @@ CMD:admins(playerid, params[])
 ALTCOMMAND:reloadint->atualizarcasa;
 CMD:atualizarcasa(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	AtualizarMoveisCasa(playerid);
 	return 1;
 }
@@ -38125,7 +38195,7 @@ stock SendAdminAndRegMessage(color,stringca[]) {
 }
 
 CMD:ajudatog(playerid, params[]) {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     SendClientMessage(playerid, COLOR_LIGHTRED, "/tog [celular] - Desliga seu celular.");
     SendClientMessage(playerid, COLOR_LIGHTRED, "/tog [pm] - Desativa suas PM's. Apenas para Donater's.");
     SendClientMessage(playerid, COLOR_LIGHTRED, "/tog [faccao] - Desativa o chat da facção.");
@@ -38865,7 +38935,7 @@ CMD:ajudateam(playerid, params[])
 
 COMMAND:mascarados(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pAdmin] > 0 || PlayerInfo[playerid][pTester] > 0)
 	{
 	    new stringaap[256], mascarados = 0;
@@ -38886,7 +38956,7 @@ COMMAND:mascarados(playerid, params[])
 
 COMMAND:itensp(playerid, params[])
 {
-	if(!PlayerInfo[playerid][pLogado]) return 1;
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(IsPlayerConnected(playerid))
 	{
  		if(PlayerInfo[playerid][pLogado])
@@ -38900,7 +38970,7 @@ COMMAND:itensp(playerid, params[])
 
 COMMAND:timerindustrias(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pAdmin] > 3000)
 	{
     	Timer_Industrias(1);
@@ -38911,7 +38981,7 @@ COMMAND:timerindustrias(playerid, params[])
 
 CMD:id(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if (isnull(params))
 	    return SCM(playerid, COLOR_LIGHTRED, "USE: /id [playerid/nome]");
 
@@ -38941,7 +39011,7 @@ CMD:id(playerid, params[])
 
 CMD:presos(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PMERJ || FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_EB || FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] ==  FAC_TIPO_PCERJ || PlayerInfo[playerid][pAdmin] > 0 || PlayerInfo[playerid][pTester] > 0)
 	{
 		new count, stringaap[64];
@@ -39007,7 +39077,7 @@ CMD:presos(playerid, params[])
 
 COMMAND:tirardrogas(playerid, params[])
 {
-	if(!PlayerInfo[playerid][pLogado]) return 1;
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid;
 	if(PlayerInfo[playerid][pAdmin] < 3) return 1;
 	if(sscanf(params, "u", targetid)) SendClientMessage(playerid, COLOR_LIGHTRED, "USE: /tirardrogas [id]");
@@ -39031,7 +39101,7 @@ COMMAND:tirardrogas(playerid, params[])
 
 COMMAND:drogaaa(playerid, params[])
 {
-	if(!PlayerInfo[playerid][pLogado]) return 1;
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pAdmin] >= 5)
 	{
 	    if(IsPlayerConnected(playerid))
@@ -39045,7 +39115,7 @@ COMMAND:drogaaa(playerid, params[])
 
 COMMAND:down(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(IsPlayerConnected(playerid))
  	{
   		if (PlayerInfo[playerid][pAdmin] >= 5)
@@ -39068,7 +39138,7 @@ COMMAND:down(playerid, params[])
 
 COMMAND:up(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(IsPlayerConnected(playerid))
  	{
   		if (PlayerInfo[playerid][pAdmin] >= 5)
@@ -39091,7 +39161,7 @@ COMMAND:up(playerid, params[])
 
 COMMAND:front(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(IsPlayerConnected(playerid))
  	{
   		if (PlayerInfo[playerid][pAdmin] >= 5)
@@ -39114,7 +39184,7 @@ COMMAND:front(playerid, params[])
 
 COMMAND:back(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(IsPlayerConnected(playerid))
  	{
   		if (PlayerInfo[playerid][pAdmin] >= 5)
@@ -39137,7 +39207,7 @@ COMMAND:back(playerid, params[])
 
 COMMAND:spec(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid,playersip[128];
 	if(sscanf(params, "u", targetid)) SendClientMessage(playerid, COLOR_LIGHTRED, "USE: /spec [id]");
 	else
@@ -39200,7 +39270,7 @@ COMMAND:specoff(playerid, params[])
 COMMAND:listaspec(playerid, params[])
 {
     if(PlayerInfo[playerid][pAdmin] < 1) return 1;
-	if(!PlayerInfo[playerid][pLogado]) return 1;
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new temspec = 0;
 
     if(PlayerInfo[playerid][pAdmin] < 5)
@@ -39237,7 +39307,7 @@ COMMAND:listaspec(playerid, params[])
 CMD:limparbanco(playerid, params[])
 {
     if(PlayerInfo[playerid][pAdmin] < 5) return 1;
-	if(!PlayerInfo[playerid][pLogado]) return 1;
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new id;
 	if (sscanf(params, "i", id))
 	{
@@ -39270,7 +39340,7 @@ CMD:limparbanco(playerid, params[])
 CMD:limpargrana(playerid, params[])
 {
     if(PlayerInfo[playerid][pAdmin] < 5) return 1;
-	if(!PlayerInfo[playerid][pLogado]) return 1;
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new id;
 	if(sscanf(params, "i", id))
 	{
@@ -39304,7 +39374,7 @@ CMD:limpargrana(playerid, params[])
 CMD:desarmar(playerid, params[])
 {
     if(PlayerInfo[playerid][pAdmin] < 3) return 1;
-	if(!PlayerInfo[playerid][pLogado]) return 1;
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new id;
 	if (sscanf(params, "i", id))
 	{
@@ -39336,7 +39406,7 @@ CMD:desarmar(playerid, params[])
 CMD:facnum(playerid, params[])
 {
 	//if(PlayerInfo[playerid][pAdmin] < 5  || PlayerInfo[playerid][pFactionTeam] < 1) return 1;
-	if(!PlayerInfo[playerid][pLogado]) return 1;
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 
 	new faccao = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
 	if(10 < FacInfo[faccao][fTipo] < 18) // Gangs&Máfias
@@ -39367,7 +39437,7 @@ CMD:facnum(playerid, params[])
 
 COMMAND:afktodos(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 1) return 1;
     if(PlayerInfo[playerid][pTester] < 1) return 1;
     SendClientMessage(playerid, COLOR_LIGHTGREEN, "______Players AFK______");
@@ -39389,7 +39459,7 @@ COMMAND:afktodos(playerid, params[])
 
 COMMAND:afk(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new targetid;
 	if(sscanf(params, "u", targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /afk [id]");
 	else
@@ -39404,7 +39474,7 @@ COMMAND:afk(playerid, params[])
 
 COMMAND:fpd2(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 3002) return 1;
 	PayDay(playerid);
 	return 1;
@@ -39412,7 +39482,7 @@ COMMAND:fpd2(playerid, params[])
 
 COMMAND:checaravisos(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 1) return 1;
     new targetid, str[256];
 	if(sscanf(params, "u", targetid)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /checaravisos [id]");
@@ -39428,7 +39498,7 @@ COMMAND:checaravisos(playerid, params[])
 
 COMMAND:daraviso(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 1) return 1;
     new targetid, aviso[126];
 	if(sscanf(params, "us", targetid, aviso)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /daraviso [id] [motivo]");
@@ -39444,7 +39514,7 @@ COMMAND:daraviso(playerid, params[])
 
 COMMAND:removeraviso(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 1) return 1;
     new targetid, aviso[126];
 	if(sscanf(params, "us", targetid, aviso)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /removeraviso [id] [motivo]");
@@ -39544,7 +39614,7 @@ COMMAND:setarpremium(playerid, params[])
 }
 
 CMD:tempopremium(playerid,params[]){
-	if(!PlayerInfo[playerid][pLogado]) return 1;
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pDoador] < 1) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não é um premium.");
     format(string, sizeof(string), "[DONATER] Você se manter com o status de donater até %s.", ConvertTimestampToDate( PlayerInfo[playerid][pDoadorTempo] ));
     SCM(playerid, COLOR_LIGHTGREEN, string);
@@ -39553,7 +39623,7 @@ CMD:tempopremium(playerid,params[]){
 
 COMMAND:darnamechange(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pAdmin] < 3002) return SendClientMessage(playerid, COLOR_LIGHTRED, "{FFFFFF}Você não possui acesso a este comando.");
 	new targetid;
 	if(sscanf(params, "u", targetid)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /darnamechange [id]");
@@ -39577,7 +39647,7 @@ COMMAND:darnamechange(playerid, params[])
 
 COMMAND:ajail(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid, tempo, motivo[256];
 	if(sscanf(params, "uis", targetid, tempo, motivo)) SendClientMessage(playerid, COLOR_LIGHTRED, "SINTAXE:{FFFFFF} /ajail [id] [tempo(mim)] [motivo]");
 	else
@@ -39661,7 +39731,7 @@ COMMAND:ajail(playerid, params[])
 
 COMMAND:unbanip(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new type[128];
 	if(sscanf(params, "s[128]", type)) SendClientMessage(playerid, COLOR_LIGHTRED, "USE: /unbanip [ip]");
 	else
@@ -39681,7 +39751,7 @@ COMMAND:unbanip(playerid, params[])
 
 COMMAND:banip(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new type[128];
 	if(sscanf(params, "s[128]", type)) SendClientMessage(playerid, COLOR_LIGHTRED, "USE: /banirip [ip]");
 	else
@@ -39701,7 +39771,7 @@ COMMAND:banip(playerid, params[])
 
 COMMAND:verip(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid;
 	if(sscanf(params, "u", targetid)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /verip [id]");
 	else
@@ -39868,7 +39938,7 @@ public AjilzandoPlayer(playerid, tempo)
 
 COMMAND:aveiculo(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new option[11], variavel;
 
     new vehicleid = GetPlayerVehicleID(playerid);
@@ -40644,7 +40714,7 @@ public SendBankErrorMessage(playerid){
 
 CMD:tratar(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(IsPlayerInRangeOfPoint(playerid, 20, 174.4834,2784.5520,767.7469))
 	{
         if (IsValidDynamic3DTextLabel(TextMorto[playerid])) DestroyDynamic3DTextLabel(TextMorto[playerid]);
@@ -40825,7 +40895,7 @@ CMD:tratar(playerid,params[])
 
 CMD:deixarferido(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     //new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
     //if(FacInfo[FacId][fTipo] == FAC_TIPO_CBERJ)
     //{
@@ -41464,7 +41534,7 @@ COMMAND:amotor(playerid,params[])
 
 CMD:trazerveiculo(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new vehicle, Float:x, Float:y, Float:z;
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
  	if(PlayerInfo[playerid][pAdmin] >= 1 || PlayerInfo[playerid][pTester] >= 1)
@@ -41486,7 +41556,7 @@ CMD:trazerveiculo(playerid, params[])
 
 COMMAND:irveiculo(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if((!OutrasInfos[playerid][oAdminOnDuty] && !OutrasInfos[playerid][oTesterOnDuty] ) && PlayerInfo[playerid][pAdmin] < 5) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar em modo de trabalho para utilizar este comando. '/aduty'.");
 
 	new type;
@@ -41507,7 +41577,7 @@ COMMAND:irveiculo(playerid, params[])
 
 COMMAND:checarsos(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid;
 	if(sscanf(params, "u", targetid)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /checarsos [ID do jogador]");
 	else
@@ -41525,7 +41595,7 @@ COMMAND:checarsos(playerid, params[])
 ALTCOMMAND:aj->aceitarajuda;
 COMMAND:aceitarajuda(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid;
 	if(sscanf(params, "u", targetid)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /aceitarajuda [ID do jogador]");
 	else
@@ -41566,7 +41636,7 @@ COMMAND:aceitarajuda(playerid, params[])
 ALTCOMMAND:rj->rejeitarajuda;
 COMMAND:rejeitarajuda(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid;
 	if(sscanf(params, "u", targetid)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /rejeitarajuda [ID do jogador]");
 	else
@@ -41935,7 +42005,7 @@ COMMAND:liberaracesso(playerid, params[])
 
 COMMAND:iniciartratamento(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid;
 	if(sscanf(params, "u", targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "USE: /iniciartratamento [ID do jogador]");
 	else
@@ -41966,7 +42036,7 @@ COMMAND:iniciartratamento(playerid, params[])
 
 COMMAND:finalizartratamento(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid;
 	if(sscanf(params, "u", targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "USE: /finalizartratamento [ID do jogador]");
 	else
@@ -41998,7 +42068,7 @@ COMMAND:finalizartratamento(playerid, params[])
 ALTCOMMAND:desf->desfibrilador;
 COMMAND:desfibrilador(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid;
 	if(sscanf(params, "u", targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} (/desf)ibrilador [ID do jogador]");
 	else
@@ -42049,7 +42119,7 @@ COMMAND:desfibrilador(playerid, params[])
 
 COMMAND:curar(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] > 0 || PlayerInfo[playerid][pTester] > 0)
     {
 	    if((!OutrasInfos[playerid][oAdminOnDuty] && !OutrasInfos[playerid][oTesterOnDuty] ) && PlayerInfo[playerid][pAdmin] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar em modo de trabalho para utilizar este comando.");
@@ -42118,7 +42188,7 @@ COMMAND:curar(playerid, params[])
 
 COMMAND:setarvida(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid, Float:inter;
 	if(sscanf(params, "uf", targetid, inter)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /setarvida [id] [vida]");
 	else
@@ -42160,7 +42230,7 @@ COMMAND:setarvida(playerid, params[])
 
 COMMAND:setarcolete(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid, Float:inter;
 	if(sscanf(params, "uf", targetid, inter)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /setarcolete [id] [colete]");
 	else
@@ -42189,7 +42259,7 @@ COMMAND:setarcolete(playerid, params[])
 
 COMMAND:setarskin(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid, inter;
 	if(sscanf(params, "ii", targetid, inter)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /setarskin [id] [Skin ID]");
 	else
@@ -42210,7 +42280,7 @@ COMMAND:setarskin(playerid, params[])
 
 COMMAND:setarclima(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid;
 	if(sscanf(params, "d", targetid)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /SetWeather [id]");
 	else
@@ -42253,7 +42323,7 @@ stock setarPlayerFaccao(targetid, facid, cargo){
 COMMAND:setarfaccao(playerid, params[])
 {
     if (PlayerInfo[playerid][pAdmin] < 5 && PlayerInfo[playerid][pFactionTeam] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem acesso a esse comando.");
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid, faccao, cargo, maxcargo;
 	if(sscanf(params, "uii", targetid, faccao, cargo)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /setarfaccao [Playerid] [Faction ID] [Cargo]");
 	else
@@ -42292,7 +42362,7 @@ COMMAND:setarfaccao(playerid, params[])
 
 COMMAND:setaremprego(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 5) return 1;
 	new targetid, inter;
 	if(sscanf(params, "ui", targetid, inter)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /setarjob [id] [job id]");
@@ -42342,7 +42412,7 @@ COMMAND:pontodesmanche(playerid, params[])
 
 COMMAND:mudarsexo(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 5) return 1;
 	new targetid, inter;
 	if(sscanf(params, "ui", targetid, inter)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /mudarsexo [id] [1 Homem | 2 Mulher]");
@@ -42359,7 +42429,7 @@ COMMAND:mudarsexo(playerid, params[])
 
 COMMAND:mudaridade(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 5) return 1;
 	new targetid, inter;
 	if(sscanf(params, "ui", targetid, inter)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /mudaridade [id] [idade]");
@@ -42376,7 +42446,7 @@ COMMAND:mudaridade(playerid, params[])
 
 COMMAND:setarvw(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid, inter;
 	if(sscanf(params, "ui", targetid, inter)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /setarvw [id] [world id]");
 	else
@@ -42396,7 +42466,7 @@ COMMAND:setarvw(playerid, params[])
 
 COMMAND:setarint(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid, inter;
 	if(sscanf(params, "ui", targetid, inter)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /setarint [id] [interior id]");
 	else
@@ -42416,7 +42486,7 @@ COMMAND:setarint(playerid, params[])
 
 COMMAND:irpos(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new Float:posx, Float:posy, Float:posz;
 	if(sscanf(params, "fff", posx, posy, posz)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /irpos [X] [Y] [Z]");
 	else
@@ -42433,7 +42503,7 @@ COMMAND:irpos(playerid, params[])
 
 CMD:abrirelevador(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pAdmin] < 5) return 1;
 	if(!OutrasInfos[playerid][oAdminOnDuty] && PlayerInfo[playerid][pAdmin] < 3000) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar em modo de trabalho para utilizar este comando. '/aduty'.");
     Floor_OpenDoors(0);
@@ -42443,7 +42513,7 @@ CMD:abrirelevador(playerid, params[])
 
 CMD:abrirelevador1(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pAdmin] < 5) return 1;
 	if(!OutrasInfos[playerid][oAdminOnDuty] && PlayerInfo[playerid][pAdmin] < 3000) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar em modo de trabalho para utilizar este comando. '/aduty'.");
     Floor_OpenDoors1(0);
@@ -42453,7 +42523,7 @@ CMD:abrirelevador1(playerid, params[])
 
 CMD:abrirelevador2(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pAdmin] < 5) return 1;
 	if(!OutrasInfos[playerid][oAdminOnDuty] && PlayerInfo[playerid][pAdmin] < 3000) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar em modo de trabalho para utilizar este comando. '/aduty'.");
     Floor_OpenDoors2(0);
@@ -42462,7 +42532,7 @@ CMD:abrirelevador2(playerid, params[])
 }
 CMD:setardinheiro(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pAdmin] < 5) return 1;
 	if(!OutrasInfos[playerid][oAdminOnDuty] && PlayerInfo[playerid][pAdmin] < 3000) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar em modo de trabalho para utilizar este comando. '/aduty'.");
 	new other,qnt;
@@ -42491,7 +42561,7 @@ CMD:setardinheiro(playerid, params[])
 
 CMD:setararma(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pAdmin] < 5) return 1;
 	if(!OutrasInfos[playerid][oAdminOnDuty] && PlayerInfo[playerid][pAdmin] < 3000) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar em modo de trabalho para utilizar este comando. '/aduty'.");
 	new other,arma;
@@ -42531,7 +42601,7 @@ CMD:setararma(playerid, params[])
 
 CMD:setarammo(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pAdmin] < 5) return 1;
 	if(!OutrasInfos[playerid][oAdminOnDuty] && PlayerInfo[playerid][pAdmin] < 3000) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar em modo de trabalho para utilizar este comando. '/aduty'.");
 	new other,Arma,Ammo;
@@ -42600,7 +42670,7 @@ CMD:setarammo(playerid, params[])
 
 CMD:pm(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(GetPVarInt(playerid, "TogPM") == 1)
     {
 		if(PlayerInfo[playerid][pAdmin] >= 3) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} As suas PM's estão desativadas. (/tog pm) ou utilize /apm");
@@ -42650,7 +42720,7 @@ CMD:pm(playerid, params[])
 
 CMD:apm(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pAdmin] >= 1 || PlayerInfo[playerid][pTester] >= 1)
 	{
 		new opcao[256], var;
@@ -42682,7 +42752,7 @@ CMD:apm(playerid, params[])
 
 CMD:dobaixo(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new opcao[256], str[256];
 	if (sscanf(params, "s[256]", opcao)) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} /do [descrição]");
 	else
@@ -42696,7 +42766,7 @@ CMD:dobaixo(playerid, params[])
 
 CMD:mebaixo(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new opcao[256], str[256];
 	if (sscanf(params, "s[256]", opcao)) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} /mebaixo [ação]");
 	else
@@ -42711,7 +42781,7 @@ CMD:mebaixo(playerid, params[])
 ALTCOMMAND:me->eu;
 CMD:eu(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new opcao[256], str[256];
 	if (sscanf(params, "s[256]", opcao)) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} /me [ação]");
 	else
@@ -42725,7 +42795,7 @@ CMD:eu(playerid, params[])
 
 CMD:do(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new opcao[256], str[256];
 	if (sscanf(params, "s[256]", opcao)) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} /do [descrição]");
 	else
@@ -42739,7 +42809,7 @@ CMD:do(playerid, params[])
 
 CMD:b(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new opcao[256], str[256];
 	if (sscanf(params, "s[256]", opcao)) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} /b [texto]");
 	else
@@ -42763,7 +42833,7 @@ CMD:b(playerid, params[])
 
 CMD:palcopref(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pAdmin] >= 5)
 	{
 	    if(StatusPalco == 0)
@@ -42849,7 +42919,7 @@ CMD:palcopref(playerid, params[])
 
 COMMAND:gmx(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 3000) return 1;
 	for(new i = 0; i < MAX_PLAYERS; i++)
 	{
@@ -42862,7 +42932,7 @@ COMMAND:gmx(playerid, params[])
 
 COMMAND:complexosint(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if (PlayerInfo[playerid][pAdmin] < 5 && PlayerInfo[playerid][pPropertyTeam] < 1) return 1;
     if(!OutrasInfos[playerid][oAdminOnDuty] && PlayerInfo[playerid][pAdmin] < 3000) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar em modo de trabalho para utilizar este comando. '/aduty'.");
 	ShowInterioresDialog(playerid);
@@ -42871,7 +42941,7 @@ COMMAND:complexosint(playerid, params[])
 
 CMD:empint(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if (PlayerInfo[playerid][pAdmin] < 5 && PlayerInfo[playerid][pPropertyTeam] < 1) return 1;
     if(!OutrasInfos[playerid][oAdminOnDuty] && PlayerInfo[playerid][pAdmin] < 3000) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar em modo de trabalho para utilizar este comando. '/aduty'.");
     ShowEmpInterioresDialog(playerid);
@@ -42880,7 +42950,7 @@ CMD:empint(playerid, params[])
 
 CMD:empint1(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if (PlayerInfo[playerid][pAdmin] < 5 && PlayerInfo[playerid][pPropertyTeam] < 1) return 1;
     if(!OutrasInfos[playerid][oAdminOnDuty] && PlayerInfo[playerid][pAdmin] < 3000) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar em modo de trabalho para utilizar este comando. '/aduty'.");
     ShowEmpInterioresDialog1(playerid);
@@ -42889,7 +42959,7 @@ CMD:empint1(playerid, params[])
 
 CMD:empint2(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if (PlayerInfo[playerid][pAdmin] < 5 && PlayerInfo[playerid][pPropertyTeam] < 1) return 1;
     if(!OutrasInfos[playerid][oAdminOnDuty] && PlayerInfo[playerid][pAdmin] < 3000) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar em modo de trabalho para utilizar este comando. '/aduty'.");
     ShowEmpInterioresDialog2(playerid);
@@ -42898,7 +42968,7 @@ CMD:empint2(playerid, params[])
 
 CMD:empintv(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if (PlayerInfo[playerid][pAdmin] < 5 && PlayerInfo[playerid][pPropertyTeam] < 1) return 1;
     if(!OutrasInfos[playerid][oAdminOnDuty] && PlayerInfo[playerid][pAdmin] < 3000) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar em modo de trabalho para utilizar este comando. '/aduty'.");
     ShowEmpVInterioresDialog(playerid);
@@ -42907,7 +42977,7 @@ CMD:empintv(playerid, params[])
 
 CMD:casasint(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if (PlayerInfo[playerid][pAdmin] < 5 && PlayerInfo[playerid][pPropertyTeam] < 1) return 1;
     if(!OutrasInfos[playerid][oAdminOnDuty] && PlayerInfo[playerid][pAdmin] < 3000) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar em modo de trabalho para utilizar este comando. '/aduty'.");
     ShowHouseInterioresDialog(playerid);
@@ -42916,7 +42986,7 @@ CMD:casasint(playerid, params[])
 
 CMD:casasint1(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if (PlayerInfo[playerid][pAdmin] < 5 && PlayerInfo[playerid][pPropertyTeam] < 1) return 1;
     if(!OutrasInfos[playerid][oAdminOnDuty] && PlayerInfo[playerid][pAdmin] < 3000) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar em modo de trabalho para utilizar este comando. '/aduty'.");
     ShowCasasInterioresDialog(playerid);
@@ -42925,7 +42995,7 @@ CMD:casasint1(playerid, params[])
 
 CMD:casasint2(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if (PlayerInfo[playerid][pAdmin] < 5 && PlayerInfo[playerid][pPropertyTeam] < 1) return 1;
     if(!OutrasInfos[playerid][oAdminOnDuty] && PlayerInfo[playerid][pAdmin] < 3000) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar em modo de trabalho para utilizar este comando. '/aduty'.");
     ShowCasasInterioresDialog1(playerid);
@@ -42934,7 +43004,7 @@ CMD:casasint2(playerid, params[])
 
 CMD:irls(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 1 && PlayerInfo[playerid][pTester] < 1) return 1;
     if((!OutrasInfos[playerid][oAdminOnDuty] && !OutrasInfos[playerid][oTesterOnDuty] ) && PlayerInfo[playerid][pAdmin] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar em modo de trabalho para utilizar este comando. '/aduty'.");
     PlayerInfo[playerid][pEntrouCasa] = -1;
@@ -43048,6 +43118,7 @@ public LoadAccountInfo(extraid)
 		cache_get_field_content(0, "Bomba", tmp);			PlayerInfo[extraid][pBomba] = strval(tmp);
 		cache_get_field_content(0, "C4", tmp);			PlayerInfo[extraid][pC4] = strval(tmp);
 		cache_get_field_content(0, "TNT", tmp);			PlayerInfo[extraid][pTNT] = strval(tmp);
+		cache_get_field_content(0, "ColeteBomba", tmp);			PlayerInfo[extraid][pColeteBomba] = strval(tmp);
 		cache_get_field_content(0, "PecasMecanicas0", tmp);PlayerInfo[extraid][pPecasMecanicas][0] = strval(tmp);
 		cache_get_field_content(0, "PecasMecanicas1", tmp);PlayerInfo[extraid][pPecasMecanicas][1] = strval(tmp);
 		cache_get_field_content(0, "PecasMecanicas2", tmp);PlayerInfo[extraid][pPecasMecanicas][2] = strval(tmp);
@@ -44637,7 +44708,7 @@ public OnPlayerEditDynamicObject(playerid, objectid, response, Float:x, Float:y,
 
 COMMAND:corfurniture(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 3001) return 1;
 	new vworld, tipo, propid;
 	if(sscanf(params, "iii", vworld, tipo, propid))
@@ -45447,7 +45518,7 @@ SalvarGaragem(houseid)
 ALTCOMMAND:lock->trancar;
 CMD:trancar(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new tranccc = 0;
     for(new i; i < MAX_HOUSES; i++)
     {
@@ -45842,7 +45913,7 @@ CMD:trancar(playerid, params[])
 
 CMD:vender(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     for(new i; i < MAX_HOUSES; i++)
     {
         if(HouseInfo[i][hCriada])
@@ -46289,7 +46360,7 @@ Dialog:VendendoGaragem1(playerid, response, listitem, inputtext[])
 
 CMD:vercasas(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 5) return 1;
     new idx = 0;
     new tmp[64];
@@ -46326,7 +46397,7 @@ CMD:vercasas(playerid, params[])
 
 COMMAND:porta(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new pport = 0;
     for(new m; m < MAX_MOVEIS; m++)
     {
@@ -46428,7 +46499,7 @@ COMMAND:porta(playerid, params[])
 
 CMD:xmradio(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new radio = 0;
 
     if(IsPlayerInAnyVehicle(playerid))
@@ -46669,7 +46740,7 @@ CMD:xmradio(playerid, params[])
 
 CMD:darpermissao(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new c = -1;
     if(PlayerInfo[playerid][pEntrouCasa] != -1) c = PlayerInfo[playerid][pEntrouCasa];
     else if(PlayerInfo[playerid][pEntrouEmpresa] != -1) c = PlayerInfo[playerid][pEntrouEmpresa];
@@ -46777,7 +46848,7 @@ CMD:darpermissao(playerid, params[])
 
 CMD:permitidos(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new c = -1;
     if(PlayerInfo[playerid][pEntrouCasa] != -1) c = PlayerInfo[playerid][pEntrouCasa];
     else if(PlayerInfo[playerid][pEntrouEmpresa] != -1) c = PlayerInfo[playerid][pEntrouEmpresa];
@@ -47111,7 +47182,7 @@ Dialog:DIALOG_PERMITIDOS2(playerid, response, listitem, inputtext[])
 }
 COMMAND:trocarinterior2(playerid, params[])
 {
-	if(!PlayerInfo[playerid][pLogado]) return 1;
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(TrocandoInterior[playerid] != 9999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já está trocando de interior");
 	new c = PlayerInfo[playerid][pEntrouCasa];
 	if(c != -1)
@@ -47154,7 +47225,7 @@ COMMAND:trocarinterior2(playerid, params[])
 
 CMD:alarmecasa(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pEntrouCasa] != -1)
     {
         new c = PlayerInfo[playerid][pEntrouCasa];
@@ -47241,7 +47312,7 @@ CMD:alarmecasa(playerid, params[])
 
 CMD:alarmegaragem(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pEntrouGaragem] != -1)
     {
         new c = PlayerInfo[playerid][pEntrouGaragem];
@@ -47734,7 +47805,7 @@ Dialog:DIALOG_F_MOVEIS4(playerid, response, listitem, inputtext[])
 }
 CMD:comprar(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(VendoCasa[playerid] != 9999)
     {
         if(HouseInfo[VendoCasa[playerid]][hCriada])
@@ -49504,7 +49575,7 @@ public ItemCompradoComSucesso(playerid,itemid,index,tipo)
 
 CMD:itens(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pPrisao] > 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar itens em quanto estiver preso.");
 	if(PlayerInfo[playerid][pEditandoItens] != 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa terminar de editar o item antes de abrir este menu.");
 	new strLista[1024];
@@ -49895,7 +49966,7 @@ Dialog:ConfirmaCompraComplexo(playerid, response, listitem, inputtext[])
 
 CMD:ircasa(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pAdmin] < 1 && PlayerInfo[playerid][pTester] < 1 && PlayerInfo[playerid][pPropertyTeam] < 1) return 1;
 	new var;
 	if (sscanf(params, "I(9999)", var))
@@ -49922,7 +49993,7 @@ CMD:ircasa(playerid, params[])
 
 CMD:irgaragem(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 5) return 1;
     new var;
     if (sscanf(params, "I(9999)", var))
@@ -49948,7 +50019,7 @@ CMD:irgaragem(playerid, params[])
 
 CMD:enderecocasa(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if (PlayerInfo[playerid][pAdmin] < 5 && PlayerInfo[playerid][pPropertyTeam] < 1) return 1;
 	new opcao[32];
 	if (sscanf(params, "s[24]", opcao)) return SendClientMessage(playerid, COLOR_LIGHTRED,"USE: /enderecocasa [edereço]");
@@ -50410,7 +50481,7 @@ public CasaCriada(houseid,playerid)
 
 CMD:agaragem(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if (PlayerInfo[playerid][pAdmin] < 5 && PlayerInfo[playerid][pPropertyTeam] < 1) return 1;
 	new opcao[24], var, var2;
 	if (sscanf(params, "s[24]I(9999)I(9999)", opcao,var, var2))
@@ -51248,7 +51319,7 @@ Dialog:VendendoComplexo1(playerid, response, listitem, inputtext[])
 
 CMD:acomplexo(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 5) return 1;
 	new opcao[24], var;
 	if (sscanf(params, "s[24]I(9999)", opcao,var))
@@ -52245,7 +52316,7 @@ Dialog:VendendoEmpresa_Leasing(playerid, response, listitem, inputtext[])
 
 CMD:verempresas(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 5) return 1;
     new idx = 0;
     new tmp[64];
@@ -52329,7 +52400,7 @@ Dialog:ConfirmaCompraEmpresa(playerid, response, listitem, inputtext[])
 
 CMD:nomeemp(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new type[255];
 	if(sscanf(params, "s[255]", type)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /nomeemp [Nome da Empresa]");
 	else
@@ -52369,7 +52440,7 @@ CMD:nomeemp(playerid, params[])
 
 CMD:precogasolina(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new var;
 	if(sscanf(params, "I(9999)", var)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /precogasolina [Valor]");
 	else
@@ -52397,7 +52468,7 @@ CMD:precogasolina(playerid, params[])
 
 CMD:aemp(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if (PlayerInfo[playerid][pAdmin] < 5 && PlayerInfo[playerid][pPropertyTeam] < 1) return 1;
 	new opcao[24], var;
 	if (sscanf(params, "s[24]I(9999)", opcao,var))
@@ -53098,7 +53169,7 @@ public SetPlayerPosLogin(playerid, Float:ppoox, Float:ppooy, Float:ppooz, fase)
 ALTCOMMAND:enter->entrar;
 CMD:entrar(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     for(new i; i < MAX_HOUSES; i++)
     {
         if(HouseInfo[i][hInt] != 0)
@@ -54115,7 +54186,7 @@ CMD:entrar(playerid, params[])
 ALTCOMMAND:exit->sair;
 CMD:sair(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     for(new i; i < MAX_HOUSES; i++)
     {
         if(HouseInfo[i][hTipo] == 0)
@@ -54890,7 +54961,7 @@ stock SetVehicleDamage(vehicleid)
 
 CMD:resetararmasserv(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if (PlayerInfo[playerid][pAdmin] < 3001) return 1;
 
 	for(new i; i < MAX_VEHICLES; i++)
@@ -56157,7 +56228,7 @@ stock TowCompanyCars(company)
 
 CMD:verdrogas(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 5) return 1;
     new idx = 0;
     new tmp[64];
@@ -56173,7 +56244,7 @@ CMD:verdrogas(playerid, params[])
 
 COMMAND:verveiculos(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] >= 5)
     {
 		new idx = 0;
@@ -56218,7 +56289,7 @@ COMMAND:verveiculos(playerid,params[])
 
 COMMAND:ircarrosql(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new idx = 0;
 	if(PlayerInfo[playerid][pAdmin] >= 3000)
     {
@@ -56257,7 +56328,7 @@ COMMAND:ircarrosql(playerid,params[])
 
 COMMAND:savevehicles(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] >= 5)
     {
 		SendClientMessage(playerid,COLOR_LIGHTGREEN,"[SALVANDO] Salvando veículos");
@@ -56451,7 +56522,7 @@ stock PlayerToPortaMalasCar(playerid,type,Float:distance)
 
 COMMAND:desapreender(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(IsPlayerInRangeOfPoint(playerid,7.5,2819.6492,-1203.3964,24.9792))
 	{
 		new idx = 0;
@@ -56474,13 +56545,13 @@ COMMAND:desapreender(playerid,params[])
 
 COMMAND:v(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	return cmd_veiculo(playerid,params);
 }
 
 COMMAND:luzes(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(IsPlayerInAnyVehicle(playerid) && GetPlayerState(playerid) == PLAYER_STATE_DRIVER)
 	{
  		new vehicleid = GetPlayerVehicleID(playerid);
@@ -56495,7 +56566,7 @@ COMMAND:luzes(playerid,params[])
 ALTCOMMAND:pt->portamalas;
 COMMAND:portamalas(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     //if(PlayerInfo[playerid][pEmServico] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando estando em serviço.");
     if(IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa estar fora do veículo.");
     if(gettime() < FloodCMD[playerid]) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Aguarde um segundo antes de usar um comando novamente.");
@@ -62327,7 +62398,7 @@ COMMAND:portamalas(playerid,params[])
 
 COMMAND:gov(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pFacCargo] < 5) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem acesso a este comando.");
 
 	new text[256];
@@ -62383,7 +62454,7 @@ ALTCOMMAND:pluvas->portaluvas;
 ALTCOMMAND:pl->portaluvas;
 COMMAND:portaluvas(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(!IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa estar dentro do veículo.");
     if(GetPlayerVehicleSeat(playerid) != 0 && GetPlayerVehicleSeat(playerid) != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa estar em um dos bancos da frente do veículo.");
     if(gettime() < FloodCMD[playerid]) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Aguarde um segundo antes de usar um comando novamente.");
@@ -63632,7 +63703,7 @@ CMD:desalugarveiculo(playerid)
 
 COMMAND:veiculo(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new idx = 0;
 	new tmp[256];
 	tmp = strtok(params,idx);
@@ -64315,7 +64386,7 @@ public GastarVeiculo(vehicleslot, tipo, Float:quantidade){
 ALTCOMMAND:engine->motor;
 COMMAND:motor(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(IsPushbike(GetVehicleModel(GetPlayerVehicleID(playerid))))
 	{
 		SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Este veículo não tem motor!");
@@ -64394,7 +64465,7 @@ COMMAND:motor(playerid,params[])
 
 COMMAND:janela(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(!IsAWindowCar(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este veículo não tem uma janela.");
     if(IsPlayerInAnyVehicle(playerid) && !IsPushbike(GetVehicleModel(GetPlayerVehicleID(playerid))))
     {
@@ -64990,7 +65061,7 @@ stock ArmasNoPortaMalas(vehid)
 
 COMMAND:prefixo(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(IsPlayerInAnyVehicle(playerid))
     {
     	new getcarro = GetPlayerVehicleID(playerid);
@@ -65485,7 +65556,7 @@ public GetClosestVehicleArrombar(playerid)
 
 COMMAND:quebrartrava(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Para arrombar um veiculo/propriedade, você precisa comprar uma caixa de ferramentas em uma 24-7");
     SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} utilize o comando /arrombar");
     return 1;
@@ -66272,7 +66343,7 @@ stock PlayerToCar(playerid,type,Float:distance)
 
 CMD:criarpe(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new id;
 
     if (PlayerInfo[playerid][pAdmin] < 5)
@@ -66502,7 +66573,7 @@ public GetClosetIndustry(playerid){
 
 CMD:editarpe(playerid, params[])
 {
-	if(!PlayerInfo[playerid][pLogado]) return 1;
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new id = -1,
  		type[12],
 		var = -1;
@@ -66690,7 +66761,7 @@ CMD:editarpe(playerid, params[])
 
 CMD:nomeindustria(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new id = -1,
 	    name[24];
 
@@ -66713,7 +66784,7 @@ CMD:nomeindustria(playerid, params[])
 
 CMD:abastecerbomba(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pJob] != JOB_CAMINHONEIRO) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não é um caminhoneiro.");
 
 	new vehicleid = GetPlayerVehicleID(playerid);
@@ -66756,7 +66827,7 @@ CMD:abastecerbomba(playerid, params[])
 }
 CMD:tpda(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pJob] != JOB_CAMINHONEIRO) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não é um caminhoneiro.");
 
 	for(new i; i<50; i++)
@@ -67561,7 +67632,7 @@ public Pump_Save(pumpid)
 
 CMD:criarbomba(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new bizid;
 
     if (PlayerInfo[playerid][pAdmin] < 5)
@@ -67617,7 +67688,7 @@ public OnPumpCreated(playerid,bizid)
 
 CMD:deletarbomba(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	static
 	    id = 0;
 
@@ -67637,7 +67708,7 @@ CMD:deletarbomba(playerid, params[])
 
 CMD:setarbomba(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	static
 	    id = 0,
 		amount;
@@ -70118,7 +70189,7 @@ ShowCasinoGamesMenu(playerid, dialogid)
 
 CMD:casinogames(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pAdmin] >= 3000)
 	{
 		ShowCasinoGamesMenu(playerid, DIALOG_CGAMESADMINMENU);
@@ -70128,7 +70199,7 @@ CMD:casinogames(playerid, params[])
 
 CMD:debugseat(playerid, params[]) // DEBUG ONLY
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	for(new t = 0; t < MAX_POKERTABLES; t++)
 	{
  		if(IsPlayerInRangeOfPoint(playerid, 5.0, PokerTable[t][pkrX], PokerTable[t][pkrY], PokerTable[t][pkrZ]))
@@ -70147,7 +70218,7 @@ CMD:debugseat(playerid, params[]) // DEBUG ONLY
 
 CMD:debugcamera(playerid, params[]) // DEBUG ONLY
 {
-    	if(!PlayerInfo[playerid][pLogado]) return 1;
+    	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
         for(new t = 0; t < MAX_POKERTABLES; t++) {
                 if(IsPlayerInRangeOfPoint(playerid, 5.0, PokerTable[t][pkrX], PokerTable[t][pkrY], PokerTable[t][pkrZ])) {
                         CameraRadiusSetPos(playerid, PokerTable[t][pkrX], PokerTable[t][pkrY], PokerTable[t][pkrZ], 90.0, 4.7, 0.1);
@@ -70157,7 +70228,7 @@ CMD:debugcamera(playerid, params[]) // DEBUG ONLY
 }
 CMD:debugcamera1(playerid, params[]) // DEBUG ONLY
 {
-    	if(!PlayerInfo[playerid][pLogado]) return 1;
+    	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
         for(new t = 0; t < MAX_POKERTABLES; t++) {
                 if(IsPlayerInRangeOfPoint(playerid, 5.0, PokerTable[t][pkrX], PokerTable[t][pkrY], PokerTable[t][pkrZ])) {
                         CameraRadiusSetPos(playerid, PokerTable[t][pkrX], PokerTable[t][pkrY], PokerTable[t][pkrZ], 87.0, 4.7, 0.1);
@@ -70167,7 +70238,7 @@ CMD:debugcamera1(playerid, params[]) // DEBUG ONLY
 }
 CMD:debugcamera2(playerid, params[]) // DEBUG ONLY
 {
-    	if(!PlayerInfo[playerid][pLogado]) return 1;
+    	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
         for(new t = 0; t < MAX_POKERTABLES; t++) {
                 if(IsPlayerInRangeOfPoint(playerid, 5.0, PokerTable[t][pkrX], PokerTable[t][pkrY], PokerTable[t][pkrZ])) {
                         CameraRadiusSetPos(playerid, PokerTable[t][pkrX], PokerTable[t][pkrY], PokerTable[t][pkrZ], 93.0, 4.7, 0.1);
@@ -70178,7 +70249,7 @@ CMD:debugcamera2(playerid, params[]) // DEBUG ONLY
 
 CMD:leavedebugcamera(playerid, params[]) // DEBUG ONLY
 {
-        if(!PlayerInfo[playerid][pLogado]) return 1;
+        if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
         SetCameraBehindPlayer(playerid);
         TogglePlayerControllable(playerid, 1);
         ClearAnimations(playerid, 1);
@@ -70188,7 +70259,7 @@ CMD:leavedebugcamera(playerid, params[]) // DEBUG ONLY
 
 CMD:sentarmesa(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(GetPVarType(playerid, "pkrTableID") == 0)
 	{
  		for(new t = 0; t < MAX_POKERTABLES; t++)
@@ -70226,7 +70297,7 @@ CMD:sentarmesa(playerid, params[])
 
 CMD:sairmesa(playerid, params[])
 {
-		if(!PlayerInfo[playerid][pLogado]) return 1;
+		if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
         if(GetPVarType(playerid, "pkrTableID")) {
                 LeavePokerTable(playerid);
         }
@@ -70235,14 +70306,14 @@ CMD:sairmesa(playerid, params[])
 
 CMD:debugsound(playerid, params[]) // DEBUG ONLY
 {
-        if(!PlayerInfo[playerid][pLogado]) return 1;
+        if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
         PlayerPlaySound(playerid, strval(params), 0.0, 0.0, 0.0);
        	return 1;
 }
 
 CMD:debugtextsize(playerid, params[])
 {
-        if(!PlayerInfo[playerid][pLogado]) return 1;
+        if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
         switch(strval(params))
         {
                 case 0:
@@ -70561,7 +70632,7 @@ stock RepairVehicleEx(vehicleid)
 
 CMD:sairemprego(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pAdmin] >= 3000)
 	{
 	    if(PlayerInfo[playerid][pJob] == JOB_LIXEIRO) { OnPlayerEndGarbage(playerid); }
@@ -70592,7 +70663,7 @@ CMD:sairemprego(playerid,params[])
 
 CMD:pegaremprego(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pJob] == 0)
 	{
 	    if(PlayerInfo[playerid][pJobTempo] == 0)
@@ -70709,7 +70780,7 @@ Dialog:Dialog_Empregos(playerid, response, listitem, inputtext[])
 
 CMD:contrabando(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	{
 	   	if (IsPlayerInRangeOfPoint(playerid, 5, 1096.8484,-1528.9009,22.7434))
 			Dialog_Show(playerid, DIALOG_VENDERJOIAS, DIALOG_STYLE_LIST, "Contrabando", "1x Ouro [US$2500]\n1x Prata [US$1600]\n1x Bronze [US$900]", "Vender", "Voltar");
@@ -70725,7 +70796,7 @@ CMD:contrabando(playerid,params[])
 
 CMD:comprarpecas(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pJob] == JOB_MECANICO)
 	{
 	   	if (IsPlayerInRangeOfPoint(playerid, 5, 1096.8484,-1528.9009,22.7434))
@@ -70743,7 +70814,7 @@ CMD:comprarpecas(playerid,params[])
 
 CMD:comprarplaca(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pJob] == JOB_FALSIFICADOR)
 	{
 	   	if (IsPlayerInRangeOfPoint(playerid, 5, 1096.8484,-1528.9009,22.7434) )
@@ -70943,7 +71014,7 @@ Dialog:Dialog_CPecas3(playerid, response, listitem, inputtext[]) {
 
 CMD:minhasbombas(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	format(string,sizeof(string),"_______Peças de %s:_______", PlayerName(playerid, 0));
 	SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
@@ -70955,7 +71026,7 @@ CMD:minhasbombas(playerid,params[])
 
 CMD:minhaspecas(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	//if(PlayerInfo[playerid][pJob] != JOB_MECANICO && PlayerInfo[playerid][pJob] != JOB_DESMANCHE) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não é um mecânico.");
 	format(string,sizeof(string),"_______Peças de %s:_______", PlayerName(playerid, 0));
@@ -73945,7 +74016,7 @@ public IsMedic(playerid)
 
 COMMAND:sirene(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new i = GetPlayerVehicleID(playerid);
     if(GetVehicleModel(i) == 525)
     {
@@ -74080,7 +74151,7 @@ COMMAND:sirene(playerid,params[])
 
 CMD:f(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
 	if(FacId == -1) return 1;
 
@@ -74183,7 +74254,7 @@ stock SendPOLICIAMessage(radioid,slot,color,strings[])
 
 COMMAND:canalradio(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pMorto] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Você está muito ferido para executar essa ação.");
 	if(!PlayerInfo[playerid][pRadio]) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não tem um rádio.");
 
@@ -74256,7 +74327,7 @@ COMMAND:canalradio(playerid, params[])
 
 COMMAND:canalradio2(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pMorto] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Você está muito ferido para executar essa ação.");
     if(!PlayerInfo[playerid][pRadio]) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não tem um rádio.");
 
@@ -74326,7 +74397,7 @@ COMMAND:canalradio2(playerid, params[])
 ALTCOMMAND:r->radio;
 CMD:radio(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(!PlayerInfo[playerid][pRadio]) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não tem um rádio.");
     if(OutrasInfos[playerid][oAlgemado] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:: Você não pode falar no rádio estando algemado.");
     if(OutrasInfos[playerid][oAmarrado] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não pode falar no rádio estando amarrado.");
@@ -74358,7 +74429,7 @@ CMD:radio(playerid, params[])
 ALTCOMMAND:r2->radio2;
 CMD:radio2(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(!PlayerInfo[playerid][pRadio]) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não tem um rádio.");
     if(OutrasInfos[playerid][oAlgemado] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:: Você não pode falar no rádio estando algemado.");
     if(OutrasInfos[playerid][oAmarrado] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não pode falar no rádio estando amarrado.");
@@ -74389,7 +74460,7 @@ CMD:radio2(playerid, params[])
 ALTCOMMAND:rbaixo->radiobaixo;
 CMD:radiobaixo(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(!PlayerInfo[playerid][pRadio]) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não tem um rádio.");
     if(OutrasInfos[playerid][oAlgemado] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:: Você não pode falar no rádio estando algemado.");
     if(OutrasInfos[playerid][oAmarrado] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não pode falar no rádio estando amarrado.");
@@ -74421,7 +74492,7 @@ CMD:radiobaixo(playerid, params[])
 ALTCOMMAND:rbaixo2->radiobaixo2;
 CMD:radiobaixo2(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(!PlayerInfo[playerid][pRadio]) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não tem um rádio.");
     if(OutrasInfos[playerid][oAlgemado] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:: Você não pode falar no rádio estando algemado.");
     if(OutrasInfos[playerid][oAmarrado] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não pode falar no rádio estando amarrado.");
@@ -74473,7 +74544,7 @@ stock SendRadioMessage(color,radioid,stringa[])
 ALTCOMMAND:dep->departamento; 
 CMD:departamento(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(!PlayerInfo[playerid][pRadio]) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não tem um rádio.");
 
     new FacId = PlayerInfo[playerid][pFac];
@@ -74511,7 +74582,7 @@ CMD:departamento(playerid, params[])
 ALTCOMMAND:depbaixo->departamentobaixo;
 CMD:departamentobaixo(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(!PlayerInfo[playerid][pRadio]) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não tem um rádio.");
 
     new FacId = PlayerInfo[playerid][pFac];
@@ -74572,7 +74643,7 @@ stock GetPlayerCargo(playerid)
 
 CMD:nomecargo(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pFac] == 0) return 1;
 	else
 	{
@@ -74682,7 +74753,7 @@ CMD:nomecargo(playerid, params[])
 
 CMD:factipo(playerid, params[])
 {
-	if(!PlayerInfo[playerid][pLogado]) return 1;
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if (PlayerInfo[playerid][pAdmin] < 5 && PlayerInfo[playerid][pFactionTeam] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem acesso a esse comando.");
 	new id, var2;
 	if (sscanf(params, "ii", id, var2))
@@ -74707,7 +74778,7 @@ CMD:factipo(playerid, params[])
 }
 CMD:criarfaccao(playerid, params[])
 {
-	if(!PlayerInfo[playerid][pLogado]) return 1;
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if (PlayerInfo[playerid][pAdmin] < 5) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem acesso a esse comando.");
 	new opcao[34];
 	if (sscanf(params, "s[34]", opcao)) return SendClientMessage(playerid, COLOR_LIGHTRED,"USE: /criarfaccao [Nome]");
@@ -74787,7 +74858,7 @@ public FaccaoCriada(playerid,StrNome[])
 //===========================================================================================================================================================================================
 CMD:faccoes(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	ViewFactions(playerid);
 	return 1;
 }
@@ -74850,7 +74921,7 @@ stock GetFactionBySqlId(sqlid){
 
 new SelectedEditFactionId[MAX_PLAYERS];
 Dialog:FactionsList(playerid, response, listitem, inputtext[]){
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 5) return 1;
 
     if(response){
@@ -74865,7 +74936,7 @@ Dialog:FactionsList(playerid, response, listitem, inputtext[]){
 }
 
 Dialog:FactionsList2(playerid, response, listitem, inputtext[]){
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 5) return 1;
 
     if(response){
@@ -74895,7 +74966,7 @@ Dialog:FactionsList2(playerid, response, listitem, inputtext[]){
 	return 1;
 }
 Dialog:FactionsList_Del(playerid, response, listitem, inputtext[]){
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 5) return 1;
 
     if(response){
@@ -74914,7 +74985,7 @@ Dialog:FactionsList_Del(playerid, response, listitem, inputtext[]){
 }
 
 Dialog:FactionsList_NewType(playerid, response, listitem, inputtext[]){
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 5) return 1;
 
     if(response){
@@ -74995,7 +75066,7 @@ Dialog:FactionsList_NewType(playerid, response, listitem, inputtext[]){
 }
 
 Dialog:FactionsList_NewName(playerid, response, listitem, inputtext[]){
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 5) return 1;
 
     if(response){
@@ -75011,7 +75082,7 @@ Dialog:FactionsList_NewName(playerid, response, listitem, inputtext[]){
 
 COMMAND:setarportaofac(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new portaoid, faccao;
 	if(sscanf(params, "dd", portaoid, faccao)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /setarportaofac [PortaoID] [Faction ID]");
 	else
@@ -75038,7 +75109,7 @@ COMMAND:setarportaofac(playerid, params[])
 
 COMMAND:setarportaoemp(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new portaoid, faccao;
 	if(sscanf(params, "dd", portaoid, faccao)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /setarportaoemp [PortaoID] [Empresa ID]");
 	else
@@ -75064,7 +75135,7 @@ COMMAND:setarportaoemp(playerid, params[])
 
 CMD:facname(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if (PlayerInfo[playerid][pAdmin] < 5 && PlayerInfo[playerid][pFactionTeam] < 1) return 1;
     new type[255],id;
 	if(sscanf(params, "ds[255]", id, type)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /facname [Facid] [Nome da Facção]");
@@ -75088,7 +75159,7 @@ CMD:facname(playerid, params[])
 
 COMMAND:setarrange(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new portaoid, Range;
 	if(sscanf(params, "dd", portaoid, Range)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /setarrange [PortaoID] [Range]");
 	else
@@ -75113,7 +75184,7 @@ COMMAND:setarrange(playerid, params[])
 
 COMMAND:tempoaberto(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new portaoid, Range;
 	if(sscanf(params, "dd", portaoid, Range)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /tempoaberto [PortaoID] [Tempo (Segundos)]");
 	else
@@ -75138,7 +75209,7 @@ COMMAND:tempoaberto(playerid, params[])
 
 CMD:aportao(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 5 && PlayerInfo[playerid][pPropertyTeam] < 1 && PlayerInfo[playerid][pFactionTeam] < 1) return 1;
 	new opcao[24], var;
 	if (sscanf(params, "s[24]I(300)", opcao,var))
@@ -76057,7 +76128,7 @@ public QUERY_LOAD_LABORATORIO()
 CMD:attachtrailer(playerid, params[])
 {
 	if(PlayerInfo[playerid][pAdmin] < 5) return 1;
-	if(!PlayerInfo[playerid][pLogado]) return 1;
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new vehicleid, trailerid;
 	if (sscanf(params, "ii", vehicleid, trailerid)) return SendClientMessage(playerid, COLOR_LIGHTRED,"USE: /attachtrailer [veiculoid] [trailerid]");
 	else
@@ -76070,7 +76141,7 @@ CMD:attachtrailer(playerid, params[])
 CMD:setararmario(playerid, params[])
 {
 	if(PlayerInfo[playerid][pAdmin] < 5) return 1;
-	if(!PlayerInfo[playerid][pLogado]) return 1;
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new facid;
 	if (sscanf(params, "i", facid)) return SendClientMessage(playerid, COLOR_LIGHTRED,"USE: /setarrarmario [facID]");
 	else
@@ -76100,7 +76171,7 @@ stock gerarArmario(facid){
 //=========================================================================================================================================================
 COMMAND:criaratm(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] >= 5)
 	{
 		CriarATMDB(playerid);
@@ -76161,7 +76232,7 @@ public SaveATM(i)
 //=================[SISTEMA DE LABOLATORIO]======================
 COMMAND:criarlabo(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if (PlayerInfo[playerid][pAdmin] < 5)
 	{
 		CriarFABRICADROGA(playerid);
@@ -76219,7 +76290,7 @@ public SaveFABRICAD(i)
 //=================[SISTEMA ROUBO DE COFRE]======================
 COMMAND:criarjoia(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] >= 5)
 	{
 		CriarJOIA(playerid);
@@ -76277,7 +76348,7 @@ public SaveJOIA(i)
 }
 COMMAND:criarcofre(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] >= 5)
 	{
 		CriarCOFREBDB(playerid);
@@ -76336,7 +76407,7 @@ public SaveCOFREB(i)
 
 COMMAND:criarcofrel(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] >= 5)
 	{
 		CriarCOFRELDB(playerid);
@@ -76395,7 +76466,7 @@ public SaveCOFREL(i)
 
 CMD:comecarcarregamento(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_BANK)
 	{
 	    new CaixasAEntregar=0,str[64];
@@ -76444,7 +76515,7 @@ CMD:comecarcarregamento(playerid, params[])
 
 COMMAND:falar(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(IsPlayerInRangeOfPoint(playerid,5.0, 1405.7192,-5.6531,1003.9926))
  	{
  	    if(PlayerInfo[playerid][pArmaMao] != 0) return SCM(playerid, COLOR_LIGHTRED, "Você não pode pegar um malote em quanto segura uma arma.");
@@ -76481,7 +76552,7 @@ COMMAND:falar(playerid,params[])
 
 COMMAND:entregarmalotes(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER)
  	{
   		if(company_work_stage[playerid] > 0)
@@ -76505,7 +76576,7 @@ COMMAND:entregarmalotes(playerid,params[])
 
 COMMAND:carregaratm(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	for(new i = 0; i < MAX_ATM; i++)
 	{
 		if(IsPlayerInRangeOfPoint(playerid,3.0,ATMs[i][aposX], ATMs[i][aposY], ATMs[i][aposZ]))
@@ -76541,7 +76612,7 @@ COMMAND:carregaratm(playerid,params[])
 
 COMMAND:pararcarregamento(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(company_work_stage[playerid] > 0)
  	{
   		DisablePlayerCheckpoint(playerid);
@@ -76620,7 +76691,7 @@ public CreateFireEx(Float:X, Float:Y, Float:Z, World, Interior,Health)
 }
 COMMAND:afogo(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] >= 3)
 	{
 		new Float:X, Float:Y, Float:Z;
@@ -76631,7 +76702,7 @@ COMMAND:afogo(playerid, params[])
 }
 COMMAND:localizarfogo(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
     if(FacInfo[FacId][fTipo] == FAC_TIPO_CBERJ)
     {
@@ -76656,7 +76727,7 @@ COMMAND:localizarfogo(playerid, params[])
 }
 COMMAND:removerfogo(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] >= 3)
 	{
 	    if(IsAroundFire(playerid, 1, 2.5) && GetPlayerState(playerid) == PLAYER_STATE_ONFOOT)
@@ -76739,7 +76810,7 @@ stock GetPlayer2DZone(playerid, zone[], len)
 forward SaveDrogas(playerid);
 public SaveDrogas(playerid)
 {
-	if(!PlayerInfo[playerid][pLogado]) return 1;
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new _dinamicString[1024];
     if(!IsPlayerConnected(playerid)) { return 1; }
 
@@ -77361,13 +77432,13 @@ public UsarDrogaLogando(playerid)
 
 CMD:minhasdrogas(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     ShowDrugs(playerid, playerid);
 	return 1;
 }
 CMD:meusingredientes(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     ShowIngredientes(playerid, playerid);
 	return 1;
 }
@@ -77440,9 +77511,9 @@ stock ResetPlayerDrugs(playerid)
 
 CMD:drogas(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new str[256];
-	if(!PlayerInfo[playerid][pLogado]) return 1;
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new alternativa[64], nomedroga[64], other, ammount;
 	if(sscanf(params, "s[64]S(nada)[64]I(-1)I(-1)", alternativa, nomedroga, ammount, other))
 	{
@@ -78348,7 +78419,7 @@ public SetPlayerArmour_CA(playerid, Float:armour)
 
 CMD:ns(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new stats[400+1];
  	GetPlayerNetworkStats(playerid, stats, sizeof(stats)); // get your own networkstats
  	SendClientMessage(playerid,-1, stats);
@@ -79059,7 +79130,7 @@ Dialog:DIALOG_TRAFICANTESARMA(playerid, response, listitem, inputtext[])
 
 CMD:encomenda(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new traficid = 9999,
 	    temcarroperto = 0,
 		Float:X,
@@ -79825,7 +79896,7 @@ public ResetTuning( slot )
 
 CMD:tunar( playerid, params[] )
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pJob] != JOB_MECANICO) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não é um mecânico.");
 
 	new taperto = 0;
@@ -79851,7 +79922,7 @@ CMD:tunar( playerid, params[] )
 
 CMD:removertunnings( playerid, params[] )
 {
-        if(!PlayerInfo[playerid][pLogado]) return 1;
+        if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     	if(PlayerInfo[playerid][pJob] != JOB_MECANICO && PlayerInfo[playerid][pAdmin] < 3000) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não é um mecânico.");
 
         new taperto = 0;
@@ -79885,7 +79956,7 @@ CMD:removertunnings( playerid, params[] )
 }
 //==============================================================================
 CMD:criartunador( playerid, params[] ) {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 3000 ) return true;
     new i = NextIDGarage( MAX_GARAGES ), Float:Pos[ 3 ], file[ 40 ];
     GetPlayerPos( playerid, Pos[ 0 ], Pos[ 1 ], Pos[ 2 ] );
@@ -79901,7 +79972,7 @@ CMD:criartunador( playerid, params[] ) {
 }
 //==============================================================================
 CMD:deletartunador( playerid, params[] ) {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 3000 ) return true;
     new i = GetNearestTGarage( playerid );
     if( i == -1 ) return SCM(playerid, COLOR_LIGHTRED, "Você não está próximo a uma oficina.");
@@ -79970,7 +80041,7 @@ stock SetTune( veiculo, ocasiao, vehicleid)
 //==============================================================================
 CMD:criarcarro2(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pAdmin] < 5) return 1;
     new vehid;
     new param[7];
@@ -79989,7 +80060,7 @@ CMD:criarcarro2(playerid, params[])
 
 CMD:destruircarro2(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pAdmin] < 5) return 1;
 	new slot = GetVehicleSlot(GetPlayerVehicleID(playerid));
  	if(slot > -1)
@@ -80019,7 +80090,7 @@ stock FindFreeObjectSlotInCar(vehid)
 
 COMMAND:aobj(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 3000) return 1;
 	new objectmodel, car;
  	if(sscanf(params, "ii", objectmodel, car))
@@ -80045,7 +80116,7 @@ COMMAND:aobj(playerid, params[])
 
 COMMAND:dobj(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 3000) return 1;
 	new arrayid, car;
  	if(sscanf(params, "ii", arrayid, car))
@@ -80073,7 +80144,7 @@ COMMAND:dobj(playerid, params[])
 
 COMMAND:nickbranco(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PMERJ && FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PCERJ)
     if(PlayerInfo[playerid][pEmServico] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
     {
@@ -80083,7 +80154,7 @@ COMMAND:nickbranco(playerid, params[])
 }
 COMMAND:nickazul(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PMERJ && FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PCERJ)
     if(PlayerInfo[playerid][pEmServico] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
     {
@@ -80094,7 +80165,7 @@ COMMAND:nickazul(playerid, params[])
 
 COMMAND:nickgb(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_CBERJ)
     if(PlayerInfo[playerid][pEmServico] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
     {
@@ -80105,7 +80176,7 @@ COMMAND:nickgb(playerid, params[])
 
 COMMAND:lancargranada(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] != FAC_TIPO_PMERJ && FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] != FAC_TIPO_PCERJ && FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] != FAC_TIPO_EB) return SendClientMessage(playerid, COLOR_WHITE, "Você deve ser um policial para usar este comando.");
 	if(PlayerInfo[playerid][pEmServico] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
     for(new h = 0; h < MAX_HOUSES; h++)
@@ -80369,7 +80440,7 @@ public ResetVariables(playerid)
 
 CMD:pixar(playerid, params[], help)
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(GetPlayerWeapon(playerid) == 41)
 	{
 	    if(PlayerInfo[playerid][pLevel] > 25)
@@ -80459,7 +80530,7 @@ SalvarPixe(pid)
 
 CMD:suporte(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(IsPlayerEditandoAlgo(playerid)) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Termine de editar o objeto antes.");
 
 	new veiculo = GetPlayerVehicleID(playerid);
@@ -80625,7 +80696,7 @@ public InGarbage(playerid)
 
 COMMAND:comecarcoleta(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(!InGarbage(playerid)) return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não está em um caminhão de lixo.");
 	if(PlayerInfo[playerid][pJob] != JOB_LIXEIRO) return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não é um lixeiro.");
 	if(PlayerInfo[playerid][pJobInPd] > 6) return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você já trabalhou bastante neste PayDay, volte após seu pagamento.");
@@ -80637,7 +80708,7 @@ COMMAND:comecarcoleta(playerid,params[])
 
 COMMAND:cancelarcoleta(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(garbage_run[playerid] > -1)
     {
        	GameTextForPlayer(playerid,"~r~Trabalho cancelado",5000,5);
@@ -80654,7 +80725,7 @@ COMMAND:cancelarcoleta(playerid,params[])
 //==============================================================================
 COMMAND:apagao(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new type[128],amount;
 	if(sscanf(params, "s[128]i", type, amount))
 	{
@@ -80683,7 +80754,7 @@ COMMAND:apagao(playerid, params[])
 //==============================================================================
 COMMAND:freio(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(IsPlayerInAnyVehicle(playerid))
  	{
  	    if(IsPushbike(GetVehicleModel(GetPlayerVehicleID(playerid)))) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este veículo não tem freio.");
@@ -81272,7 +81343,7 @@ COMMAND:cinto(playerid, params[])
 
 COMMAND:checarcinto(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid,stext[50];
 	if(sscanf(params, "u", targetid)) SendClientMessage(playerid, COLOR_GREY, "ERRO:{FFFFFF} /checarcinto [ID do jogador]");
 	else
@@ -81300,7 +81371,7 @@ COMMAND:checarcinto(playerid, params[])
 
 COMMAND:corrida(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(IsPlayerConnected(playerid))
  	{
   		if(PlayerInfo[playerid][pJob] == JOB_TAXISTA)
@@ -81345,7 +81416,7 @@ COMMAND:corrida(playerid, params[])
 
 COMMAND:cancelartaxi(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(ChamouTaxi[playerid] == 1)
  	{
   		if(TaxiCallTime[playerid] > 0)
@@ -81375,7 +81446,7 @@ COMMAND:cancelartaxi(playerid, params[])
 
 COMMAND:cancelarmecanico(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(ChamouMec[playerid] == 1)
  	{
   		if(MecCallTime[playerid] > 0)
@@ -82304,7 +82375,7 @@ public CriarTextsCelularP(playerid)
 
 CMD:planos(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(CelularData[playerid][celNumero] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem um celular.");
 	Dialog_Show(playerid, DIALOG_CEL_PLANOS, DIALOG_STYLE_LIST, "RJ Telefonica - Planos de cobrança", "Pacote Regular\nPacote Básico\nPacote Premium Completo\nPacote Premium SMS\nPacote Premium Fala Mais", "Ver Infos", "Fechar");
 	return 1;
@@ -82768,7 +82839,7 @@ public SumirCelular(playerid)
 
 CMD:vivavoz(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(CelularData[playerid][celNumero] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem um celular.");
     if(CelularData[playerid][UsandoCelOrOre] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você deve estar em uma chamada, utilizando seu celular para poder ativar o vivavoz.");
     if(PlayerInfo[playerid][pMorto] > 0)  return SendClientMessage(playerid, COLOR_LIGHTRED, "Você está muito ferido para isso.");
@@ -82791,7 +82862,7 @@ CMD:vivavoz(playerid, params[])
 ALTCOMMAND:cel->celular;
 CMD:celular(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(CelularData[playerid][celNumero] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem um celular.");
     if(CelularData[playerid][OreID] != 0 || CelularData[playerid][EmLigacao] != 999 || CelularData[playerid][LigandoPara] != 999 || CelularData[playerid][LigandoParaNum] != 999 || CelularData[playerid][LigandoOrelhao] != 999 || CelularData[playerid][AtendeuOrelhao] != 999) return SendClientMessage(playerid, COLOR_WHITE, "Você não pode utilizar este comando em quanto estiver em uma chamada.");
     if(PlayerInfo[playerid][pMorto] > 0)  return SendClientMessage(playerid, COLOR_LIGHTRED, "Você está muito ferido para isso.");
@@ -83195,7 +83266,7 @@ public DeletandoSMS(playerid,sms_id)
 
 CMD:sms(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(CelularData[playerid][celNumero] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem um celular.");
 	if(CelularData[playerid][DelaySMS] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já tem um SMS sendo enviado, aguarde.");
     if(CelularData[playerid][EmLigacao] != 999 || CelularData[playerid][LigandoPara] != 999 || CelularData[playerid][LigandoParaNum] != 999 || CelularData[playerid][LigandoOrelhao] != 999 || CelularData[playerid][AtendeuOrelhao] != 999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já está em uma chamada ou está ligando.");
@@ -83280,7 +83351,7 @@ public TempoParaAtenderem911(playerid,tipo)
 ALTCOMMAND:des->desligar;
 CMD:desligar(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(CelularData[playerid][LigandoPara] != 999 && CelularData[playerid][LigandoParaNumAtendido] == 0 && CelularData[playerid][LigandoOrelhao] == 999 && CelularData[playerid][AtendeuOrelhao] == 999)
 	{
 	    DesligarChamada(playerid, 1);
@@ -83751,7 +83822,7 @@ stock AnimCelular(playerid, tipo)
 ALTCOMMAND:at->atender;
 CMD:atender(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(CelularData[playerid][celNumero] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem um celular.");
     if(CelularData[playerid][OreID] != 0 || CelularData[playerid][EmLigacao] != 999 || CelularData[playerid][LigandoPara] != 999 || CelularData[playerid][LigandoParaNum] != 999 || CelularData[playerid][LigandoOrelhao] != 999 || CelularData[playerid][AtendeuOrelhao] != 999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já está em uma chamada ou está ligando.");
     if(PlayerInfo[playerid][pMorto] > 0)  return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você está muito ferido para isso.");
@@ -83840,7 +83911,7 @@ CMD:atender(playerid, params[])
 
 CMD:orelhao(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pMorto] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você está muito ferido para isso.");
     if(CelularData[playerid][CelularAberto] == 1 || CelularData[playerid][EmLigacao] != 999 || CelularData[playerid][LigandoPara] != 999 || CelularData[playerid][LigandoParaNum] != 999 || CelularData[playerid][LigandoOrelhao] != 999 || CelularData[playerid][AtendeuOrelhao] != 999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já está em uma chamada ou está ligando ou com o celular aberto.");
 
@@ -83931,7 +84002,7 @@ CMD:orelhao(playerid, params[])
 
 CMD:rastrear(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] != FAC_TIPO_PMERJ && FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] != FAC_TIPO_PCERJ && FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] != FAC_TIPO_EB) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem acesso a este comando.");
 
 	if(CelularData[playerid][EmLigacao] != 999 || CelularData[playerid][LigandoPara] != 999 || CelularData[playerid][LigandoParaNum] != 999 || CelularData[playerid][LigandoOrelhao] != 999 || CelularData[playerid][AtendeuOrelhao] != 999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já está em uma chamada ou está ligando.");
@@ -84386,6 +84457,7 @@ ALTCOMMAND:foguete->fogos;
 ALTCOMMAND:fogos->rojao;
 COMMAND:rojao(playerid, params[])
 {
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pLevel] < 2) return SCM(playerid, COLOR_LIGHTRED, "Você precisa de TC 2 ou mais para utilizar este comando!");
     if(PlayerInfo[playerid][pMorto] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
     if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
@@ -84507,7 +84579,7 @@ public AbaixarMao(playerid)
 
 CMD:ligar(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(CelularData[playerid][celNumero] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem um celular.");
 	if(CelularData[playerid][EmLigacao] != 999 || CelularData[playerid][LigandoPara] != 999 || CelularData[playerid][LigandoParaNum] != 999 || CelularData[playerid][LigandoOrelhao] != 999 || CelularData[playerid][AtendeuOrelhao] != 999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já está em uma chamada ou está ligando.");
 	if(CelularData[playerid][celModo] == 3) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Seu celular está em modo avião.");
@@ -85486,7 +85558,7 @@ stock PegarSinalCelular_TorID(playerid)
 
 COMMAND:atorre(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 4) return 1;
     new option[11], variavel;
     new str[256];
@@ -85643,7 +85715,7 @@ public CarregandoTorres()
 
 COMMAND:atelpub(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 4) return 1;
     new option[11], variavel;
     new str[256];
@@ -85969,7 +86041,7 @@ public SalvarSMS(playerid)
 
 CMD:contatoscel(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pAdmin] < 3000) return 1;
 	CarregarContatosCel(playerid);
 	SCM(playerid, COLOR_LIGHTRED, "CONTATOS RECARREGADOS!");
@@ -86412,7 +86484,7 @@ stock GetLocation(Float:fX, Float:fY, Float:fZ)
 //============================================================================== [ Governo ]
 CMD:governo(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_GOV && PlayerInfo[playerid][pFacCargo] == 12)
 	{
 		OutrasInfos[playerid][oGovEditor][0] = 0;
@@ -86980,7 +87052,7 @@ public SalvarGoverno()
 //==============================================================================
 CMD:convenio(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pConvenio] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já tem um convênio, use /cancelarconvenio para cancela-lo.");
     if(IsPlayerInRangeOfPoint(playerid, 20, 174.4834,2784.5520,767.7469))
 	{
@@ -87007,7 +87079,7 @@ Dialog:DIALOG_CONVENIO(playerid, response, listitem, inputtext[])
 }
 CMD:cancelarconvenio(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pConvenio] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem um convênio.");
 	if(PlayerInfo[playerid][pConvenio] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você ainda não pode cancelar o seu convênio.");
     if(IsPlayerInRangeOfPoint(playerid, 20, 175.0955, 2786.4817, 766.7490))
@@ -87434,7 +87506,7 @@ CMD:parardemanche(playerid, params[])
 
 COMMAND:pegarcarcaca(playerid,params[])
 {
-	if(!PlayerInfo[playerid][pLogado]) return 1;
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(IsPlayerConnected(playerid))
 	{
 	    new VehicleP = GetPlayerVehicleID(playerid);
@@ -87493,11 +87565,11 @@ stock GetName(playerid) return Nickname[playerid];
 ALTCOMMAND:mobilia->furniture;
 CMD:furniture(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pEditMovel] != -1 ) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Termine de editar o objeto antes");
 	if(PlayerInfo[playerid][pEditPorta][0] != -1) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Termine de editar o objeto antes");
 	if(PlayerInfo[playerid][pEditPorta][1] != -1) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Termine de editar o objeto antes");
-	if(!PlayerInfo[playerid][pLogado]) return 1;
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     VendoFurniList[playerid][199] = 0;
     TexturaEdit[playerid] = 0;
 
@@ -88646,7 +88718,7 @@ public OnVerRefudoGrana(extraid, id)
 }
 CMD:refundararma(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if (PlayerInfo[playerid][pAdmin] < 1 && PlayerInfo[playerid][pRefundTeam] < 1 && !OutrasInfos[playerid][oAdminOnDuty])
 	    return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve usar o comando /aduty antes.");
 
@@ -88664,7 +88736,7 @@ CMD:refundararma(playerid, params[])
 }
 CMD:refundargrana(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
    	if (PlayerInfo[playerid][pAdmin] < 1 && PlayerInfo[playerid][pRefundTeam] < 1 && !OutrasInfos[playerid][oAdminOnDuty])
 	    return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve usar o comando /aduty antes.");
 
@@ -88683,7 +88755,7 @@ CMD:refundargrana(playerid, params[])
 }
 CMD:refundaritem(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
    	if (PlayerInfo[playerid][pAdmin] < 1 && PlayerInfo[playerid][pRefundTeam] < 1 && !OutrasInfos[playerid][oAdminOnDuty])
 	    return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve usar o comando /aduty antes.");
 
@@ -88804,7 +88876,7 @@ RefundoItemRemover(chave)
 }
 CMD:ajudainicial(playerid,params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pLevel] >= 0 && PlayerInfo[playerid][pAjudaInicial] != 2)
 	{
 	    new NaEmpresa = PlayerInfo[playerid][pEntrouEmpresa];
@@ -88998,14 +89070,14 @@ Dialog:WoW(playerid, response, listitem, inputtext[]) {
 }
 CMD:gps(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	Dialog_Show(playerid, WoW, DIALOG_STYLE_LIST, "GPS", "Procurar Endereço >>\n16ºBPM\nPosto de Gasolina\nAgência de Empregos\n24-7\nConcesionária\nLoja de Roupas\nBanco\nPawn Shop\nPizzaria\nPier de Pesca\nCasa de Apostas\nHospital\nLoja de Peças\nAnuncios\nAuto Escola\n29ºDP Penha\nLoja de Armas\nUPA 24 HRS\nDesligar o GPS", "Selecionar", "Fechar");
 	return 1;
 }
 
 CMD:propriedades(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new casa = 0,
 		complexo = 0,
 		garagem = 0,
@@ -89138,7 +89210,7 @@ stock GetWeekDay()
 
 CMD:obj(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if (PlayerInfo[playerid][pAdmin] < 3001) return 1;
 
     new obj_id = 0;
@@ -89158,7 +89230,7 @@ CMD:obj(playerid, params[])
 
 CMD:sound(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return 1;
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if (PlayerInfo[playerid][pAdmin] < 4 && !OutrasInfos[playerid][oAdminOnDuty])
 	    return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve usar o comando /aduty antes.");
 
@@ -89229,7 +89301,7 @@ CMD:VendoObjetos(playerid, params[]){
 ALTCOMMAND:ultimoatirador->checaratirador;
 ALTCOMMAND:uatirador->checaratirador;
 CMD:checaratirador(playerid, params[]){
-	if(!PlayerInfo[playerid][pLogado]) return 1;
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pAdmin] < 1) return 1;
     if (PlayerInfo[playerid][pAdmin] < 4 && !OutrasInfos[playerid][oAdminOnDuty])
 	    return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve usar o comando /aduty antes.");

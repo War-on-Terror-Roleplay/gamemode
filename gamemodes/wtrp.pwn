@@ -26518,6 +26518,7 @@ public VestindoColeteBomba(playerid)
 {
 	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você vestiu o colete.");
     PlayerInfo[playerid][pTNT] = PlayerInfo[playerid][pTNT]-= 3;
+    PlayerInfo[playerid][pColeteBomba] = PlayerInfo[pColeteBomba][pTNT]+= 1;
 
     return 1;
 }

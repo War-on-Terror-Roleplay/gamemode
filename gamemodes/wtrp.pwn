@@ -64,7 +64,7 @@ new Float:FogueteX[MAX_PLAYERS], Float:FogueteY[MAX_PLAYERS], Float:FogueteZ[MAX
 new PlayerText:FomeSede[MAX_PLAYERS][5];
 
 //Tela de login
-new PlayerText:TelaLogin[MAX_PLAYERS][9];
+new PlayerText: TelaLogin[MAX_PLAYERS][6];
 
 //Hud Radio
 new PlayerText:RadioComunicador[MAX_PLAYERS][2];
@@ -5885,23 +5885,10 @@ static g_aFemaleSkins[77] = {
 	298
 };
 
-static g_NewSkins[100] = {
-    20002, 20003, 20004,
-    20005, 20006, 20007, 20008,
-    20009, 20010, 20011, 20012,
-    20013, 20014, 20015, 20016,
-    20017, 20018, 20019, 20020,
-    20022, 20023, 20024, 20025,
-    20026, 20027, 20028, 20029,
-    20030, 20031, 20032, 20033,
-    20034, 20035, 20036, 20037,
-    20038, 20039, 20040, 20041,
-	20042, 20045, 20046, 20047, 
-	20049, 20050, 20051, 20052,
-	20054, 20055, 20056, 20057,
-	20058, 20059, 20060, 20061,
-	20062, 20063, 20064, 20065,
-	20066, 20067, 20068
+static g_NewSkins[8] = {
+    20001,
+	20002, 20003, 20004, 20005,
+	20006, 20007, 20008
 };
 
 
@@ -6112,7 +6099,7 @@ public OnGameModeInit()
 		new slot = GetVehicleSlot(veh);
 		VehicleInfo[slot][vBateria] = 10000.0;
     }
-    Noia_1 = CreateActor(20001,2573.5181,-1124.5466,65.3464,63.5828); 
+    /*Noia_1 = CreateActor(20001,2573.5181,-1124.5466,65.3464,63.5828); 
     Noia_2 = CreateActor(20002,2577.3850,-1130.1652,65.1935,237.8145); 
     Noia_3 = CreateActor(20003,2595.5320,-1111.5963,67.4365,135.0617); 
     Noia_4 = CreateActor(20004,2589.0232,-1112.6173,66.9152,225.2634); 
@@ -6177,7 +6164,7 @@ public OnGameModeInit()
     SetActorInvulnerable(Noia_21, true);
     SetActorVirtualWorld(Noia_21, 0);     
     SetActorInvulnerable(Noia_22, true);
-    SetActorVirtualWorld(Noia_22, 0);     
+    SetActorVirtualWorld(Noia_22, 0);*/
 
 
     //Basket
@@ -9776,7 +9763,7 @@ public Timer_Segundos()
 
 						}
 				    }
-					if (PlayerInfo[i][pRegistrado] && PlayerInfo[i][pTutorial] && !PlayerInfo[i][pTemPreso] && PlayerInfo[i][pRegistrado] && IsPlayerConnected(i))
+					/*if (PlayerInfo[i][pRegistrado] && PlayerInfo[i][pTutorial] && !PlayerInfo[i][pTemPreso] && PlayerInfo[i][pRegistrado] && IsPlayerConnected(i))
 					{
 						new Float:health;
 						GetPlayerHealth(i,health);
@@ -9803,7 +9790,7 @@ public Timer_Segundos()
     	        				SetPlayerHealth(i, health-Perda -5);
         					}
         					PlayerInfo[i][pFomeTime] = 0;
-							updateTextDrawFomeSede(i);
+							//updateTextDrawFomeSede(i);
 
 							
         				}
@@ -9820,7 +9807,7 @@ public Timer_Segundos()
         					PlayerInfo[i][pSedeTime] = 0;
 							updateTextDrawFomeSede(i);
 						}
-					}
+					}*/
 					//Outras - Timers
 			        if(PlayerInfo[i][pTempoPLD] > 0) { PlayerInfo[i][pTempoPLD]--; }
 			        if(PlayerInfo[i][pArrombarDNV] > 0) { PlayerInfo[i][pArrombarDNV]--; }
@@ -11882,7 +11869,6 @@ public CheckingAccount(playerid)
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][3]);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][4]);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][5]);
-			PlayerTextDrawShow(playerid, TelaLogin[playerid][6]);
 			new str[1024];
 			format(str, sizeof(str), "SERVER: Você só pode errar sua senha três (3) vezes.\n INFO: Nosso FÓRUM é o http://forum.wt-rp.com.br\n acesse-o para mais informações sobre sua conta.\n\n        Digite sua senha:");
 			ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "War on Terror Roleplay", str, "Autenticar", "Cancelar");
@@ -11894,8 +11880,6 @@ public CheckingAccount(playerid)
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][3]);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][4]);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][5]);
-			PlayerTextDrawShow(playerid, TelaLogin[playerid][6]);
-			PlayerTextDrawShow(playerid, TelaLogin[playerid][8]);
 		    new strdebug[56];
 			format(strdebug,126,"ERRO: O seu personagem %s, já está logado... Caso estranhe isto, contate um administrador.", GetName(playerid));
 			SendClientMessage(playerid, COLOR_LIGHTRED, strdebug);
@@ -12279,8 +12263,8 @@ public PlayerConectCriarTexts(playerid)
 	PlayerTextDrawFont(playerid, ClickTD[playerid], 2);
 	PlayerTextDrawSetProportional(playerid, ClickTD[playerid], 1);
 
-    TelaLogin[playerid][0] = CreatePlayerTextDraw(playerid, 0.000, -2.000, "mdl-2200:fundo");
-    PlayerTextDrawTextSize(playerid, TelaLogin[playerid][0], 1676.000, 455.000);
+    TelaLogin[playerid][0] = CreatePlayerTextDraw(playerid, -18.000, -3.000, "mdl-2002:fundo");
+    PlayerTextDrawTextSize(playerid, TelaLogin[playerid][0], 1783.000, 496.000);
     PlayerTextDrawAlignment(playerid, TelaLogin[playerid][0], 1);
     PlayerTextDrawColor(playerid, TelaLogin[playerid][0], -1);
     PlayerTextDrawSetShadow(playerid, TelaLogin[playerid][0], 0);
@@ -12289,8 +12273,8 @@ public PlayerConectCriarTexts(playerid)
     PlayerTextDrawFont(playerid, TelaLogin[playerid][0], 4);
     PlayerTextDrawSetProportional(playerid, TelaLogin[playerid][0], 1);
 
-    TelaLogin[playerid][1] = CreatePlayerTextDraw(playerid, 220.000, -13.000, "mdl-2201:logo");
-    PlayerTextDrawTextSize(playerid, TelaLogin[playerid][1], 210.000, 230.000);
+    TelaLogin[playerid][1] = CreatePlayerTextDraw(playerid, 32.000, 426.000, "mdl-2002:serverok");
+    PlayerTextDrawTextSize(playerid, TelaLogin[playerid][1], 625.000, 25.000);
     PlayerTextDrawAlignment(playerid, TelaLogin[playerid][1], 1);
     PlayerTextDrawColor(playerid, TelaLogin[playerid][1], -1);
     PlayerTextDrawSetShadow(playerid, TelaLogin[playerid][1], 0);
@@ -12299,8 +12283,8 @@ public PlayerConectCriarTexts(playerid)
     PlayerTextDrawFont(playerid, TelaLogin[playerid][1], 4);
     PlayerTextDrawSetProportional(playerid, TelaLogin[playerid][1], 1);
 
-    TelaLogin[playerid][2] = CreatePlayerTextDraw(playerid, 235.000, 169.000, "mdl-2200:ucp");
-    PlayerTextDrawTextSize(playerid, TelaLogin[playerid][2], 173.000, 112.000);
+    TelaLogin[playerid][2] = CreatePlayerTextDraw(playerid, -22.000, 426.000, "mdl-2002:fok");
+    PlayerTextDrawTextSize(playerid, TelaLogin[playerid][2], 55.000, 23.000);
     PlayerTextDrawAlignment(playerid, TelaLogin[playerid][2], 1);
     PlayerTextDrawColor(playerid, TelaLogin[playerid][2], -1);
     PlayerTextDrawSetShadow(playerid, TelaLogin[playerid][2], 0);
@@ -12309,8 +12293,8 @@ public PlayerConectCriarTexts(playerid)
     PlayerTextDrawFont(playerid, TelaLogin[playerid][2], 4);
     PlayerTextDrawSetProportional(playerid, TelaLogin[playerid][2], 1);
 
-    TelaLogin[playerid][3] = CreatePlayerTextDraw(playerid, 18.000, 428.000, "mdl-2200:serverok");
-    PlayerTextDrawTextSize(playerid, TelaLogin[playerid][3], 625.000, 22.000);
+    TelaLogin[playerid][3] = CreatePlayerTextDraw(playerid, 7.000, 429.000, "mdl-2002:ok");
+    PlayerTextDrawTextSize(playerid, TelaLogin[playerid][3], 17.000, 17.000);
     PlayerTextDrawAlignment(playerid, TelaLogin[playerid][3], 1);
     PlayerTextDrawColor(playerid, TelaLogin[playerid][3], -1);
     PlayerTextDrawSetShadow(playerid, TelaLogin[playerid][3], 0);
@@ -12319,8 +12303,8 @@ public PlayerConectCriarTexts(playerid)
     PlayerTextDrawFont(playerid, TelaLogin[playerid][3], 4);
     PlayerTextDrawSetProportional(playerid, TelaLogin[playerid][3], 1);
 
-    TelaLogin[playerid][4] = CreatePlayerTextDraw(playerid, 0.000, 428.000, "mdl-2200:fok");
-    PlayerTextDrawTextSize(playerid, TelaLogin[playerid][4], 18.000, 43.000);
+    TelaLogin[playerid][4] = CreatePlayerTextDraw(playerid, 253.000, 11.000, "mdl-2003:logo");
+    PlayerTextDrawTextSize(playerid, TelaLogin[playerid][4], 121.000, 123.000);
     PlayerTextDrawAlignment(playerid, TelaLogin[playerid][4], 1);
     PlayerTextDrawColor(playerid, TelaLogin[playerid][4], -1);
     PlayerTextDrawSetShadow(playerid, TelaLogin[playerid][4], 0);
@@ -12329,8 +12313,8 @@ public PlayerConectCriarTexts(playerid)
     PlayerTextDrawFont(playerid, TelaLogin[playerid][4], 4);
     PlayerTextDrawSetProportional(playerid, TelaLogin[playerid][4], 1);
 
-    TelaLogin[playerid][5] = CreatePlayerTextDraw(playerid, 2.000, 432.000, "mdl-2200:ok");
-    PlayerTextDrawTextSize(playerid, TelaLogin[playerid][5], 11.000, 12.000);
+    TelaLogin[playerid][5] = CreatePlayerTextDraw(playerid, 246.000, 131.000, "mdl-2002:welcomeback");
+    PlayerTextDrawTextSize(playerid, TelaLogin[playerid][5], 140.000, 13.000);
     PlayerTextDrawAlignment(playerid, TelaLogin[playerid][5], 1);
     PlayerTextDrawColor(playerid, TelaLogin[playerid][5], -1);
     PlayerTextDrawSetShadow(playerid, TelaLogin[playerid][5], 0);
@@ -12338,37 +12322,6 @@ public PlayerConectCriarTexts(playerid)
     PlayerTextDrawBackgroundColor(playerid, TelaLogin[playerid][5], 255);
     PlayerTextDrawFont(playerid, TelaLogin[playerid][5], 4);
     PlayerTextDrawSetProportional(playerid, TelaLogin[playerid][5], 1);
-
-    TelaLogin[playerid][6] = CreatePlayerTextDraw(playerid, 234.000, 137.000, "mdl-2200:welcomeback");
-    PlayerTextDrawTextSize(playerid, TelaLogin[playerid][6], 174.000, 15.000);
-    PlayerTextDrawAlignment(playerid, TelaLogin[playerid][6], 1);
-    PlayerTextDrawColor(playerid, TelaLogin[playerid][6], -1);
-    PlayerTextDrawSetShadow(playerid, TelaLogin[playerid][6], 0);
-    PlayerTextDrawSetOutline(playerid, TelaLogin[playerid][6], 0);
-    PlayerTextDrawBackgroundColor(playerid, TelaLogin[playerid][6], 255);
-    PlayerTextDrawFont(playerid, TelaLogin[playerid][6], 4);
-    PlayerTextDrawSetProportional(playerid, TelaLogin[playerid][6], 1);
-
-    TelaLogin[playerid][7] = CreatePlayerTextDraw(playerid, 224.000, 154.000, "mdl-2200:ban");
-    PlayerTextDrawTextSize(playerid, TelaLogin[playerid][7], 192.000, 122.000);
-    PlayerTextDrawAlignment(playerid, TelaLogin[playerid][7], 1);
-    PlayerTextDrawColor(playerid, TelaLogin[playerid][7], -1);
-    PlayerTextDrawSetShadow(playerid, TelaLogin[playerid][7], 0);
-    PlayerTextDrawSetOutline(playerid, TelaLogin[playerid][7], 0);
-    PlayerTextDrawBackgroundColor(playerid, TelaLogin[playerid][7], 255);
-    PlayerTextDrawFont(playerid, TelaLogin[playerid][7], 4);
-    PlayerTextDrawSetProportional(playerid, TelaLogin[playerid][7], 1);
-
-    TelaLogin[playerid][8] = CreatePlayerTextDraw(playerid, 234.000, 169.000, "mdl-2200:pjon");
-    PlayerTextDrawTextSize(playerid, TelaLogin[playerid][8], 175.000, 122.000);
-    PlayerTextDrawAlignment(playerid, TelaLogin[playerid][8], 1);
-    PlayerTextDrawColor(playerid, TelaLogin[playerid][8], -1);
-    PlayerTextDrawSetShadow(playerid, TelaLogin[playerid][8], 0);
-    PlayerTextDrawSetOutline(playerid, TelaLogin[playerid][8], 0);
-    PlayerTextDrawBackgroundColor(playerid, TelaLogin[playerid][8], 255);
-    PlayerTextDrawFont(playerid, TelaLogin[playerid][8], 4);
-    PlayerTextDrawSetProportional(playerid, TelaLogin[playerid][8], 1);
-
 
 	return 1;
 }
@@ -12382,9 +12335,6 @@ public TelaLoginDel(playerid)
 	PlayerTextDrawDestroy(playerid, TelaLogin[playerid][3]);
 	PlayerTextDrawDestroy(playerid, TelaLogin[playerid][4]);
 	PlayerTextDrawDestroy(playerid, TelaLogin[playerid][5]);
-	PlayerTextDrawDestroy(playerid, TelaLogin[playerid][6]);
-	PlayerTextDrawDestroy(playerid, TelaLogin[playerid][7]);
-	PlayerTextDrawDestroy(playerid, TelaLogin[playerid][8]);
 	return 1;
 }
 
@@ -12421,9 +12371,6 @@ public PlayerDisconectDelTexts(playerid)
 	PlayerTextDrawDestroy(playerid, TelaLogin[playerid][3]);
 	PlayerTextDrawDestroy(playerid, TelaLogin[playerid][4]);
 	PlayerTextDrawDestroy(playerid, TelaLogin[playerid][5]);
-	PlayerTextDrawDestroy(playerid, TelaLogin[playerid][6]);
-	PlayerTextDrawDestroy(playerid, TelaLogin[playerid][7]);
-	PlayerTextDrawDestroy(playerid, TelaLogin[playerid][8]);
 	PlayerTextDrawDestroy(playerid, Speedo[playerid]);
 	PlayerTextDrawDestroy(playerid, ClickTD[playerid]);
 	return 1;
@@ -20947,12 +20894,12 @@ CMD:verstats(playerid, params[])
 	}
 }
 
-CMD:fomesede(playerid, params[])
+/*CMD:fomesede(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     VerFome(playerid, playerid);
     return 1;
-}
+}*/
 
 CMD:stats(playerid, params[])
 {
@@ -21084,7 +21031,7 @@ public updateTextDrawCanalRadio(playerid){
 	PlayerTextDrawSetString(playerid, RadioComunicador[playerid][1], RadioString); 
 
 }
-forward updateTextDrawFomeSede(playerid);
+/*forward updateTextDrawFomeSede(playerid);
 public updateTextDrawFomeSede(playerid){
 	new fomeString[32];
 	new sedeString[32];
@@ -21157,7 +21104,7 @@ public VerFome(playerid, targetid)
     format(str4, 256, "|________________________________|");
     SendClientMessage(targetid, COLOR_LIGHTGREEN, str4);
     return 1;
-}
+}*/
 
 CMD:inv(playerid, params[])
 {
@@ -23411,7 +23358,7 @@ CMD:ajuda(playerid, params[])
     SendClientMessage(playerid, COLOR_LIGHTGREEN, "_______________wt-rp.com.br______________");
     SendClientMessage(playerid, COLOR_ESPECIAL1, "[CONTA] /stats /upgrade /itens /inv(entario) /minhasdrogas /comprarlicenca /pegaremprego /mudarsenha /refundos");
     SendClientMessage(playerid, COLOR_ESPECIAL2, "[GERAL] /pagar /horas /relogio /comprar /id /bater /screen /pegar /removercp /cinto /tempopremium");
-    SendClientMessage(playerid, COLOR_ESPECIAL1, "[GERAL] (/an)uncio /licencas /sos /limparchat /derrubar /corrigirvw /subir /darpeca /fomesede");
+    SendClientMessage(playerid, COLOR_ESPECIAL1, "[GERAL] (/an)uncio /licencas /sos /limparchat /derrubar /corrigirvw /subir /darpeca");
     SendClientMessage(playerid, COLOR_ESPECIAL2, "[CHAT] (/s)ussurar (/g)ritar (/l)ocal /me /b(OOC) /do /baixo /pm(OOC) (/r)adio /cw");
     SendClientMessage(playerid, COLOR_ESPECIAL1, "[BANCO] /sacar /depositar /transferir /savings /caixa");
     SendClientMessage(playerid, COLOR_ESPECIAL2, "[AJUDA] /ajudacelular /ajudacasa (/v)eiculo /ajudaempresa /ajudaemprego /ajudafaccao /ajudapesca");
@@ -38449,20 +38396,20 @@ COMMAND:tog(playerid, params[])
 			{
 				SetPVarInt(playerid, "TogHud", 1);
 				SendClientMessage(playerid, COLOR_YELLOW, "INFO: HUD desativada.");
-                PlayerTextDrawHide(playerid, FomeSede[playerid][0]);
+                /*PlayerTextDrawHide(playerid, FomeSede[playerid][0]);
                 PlayerTextDrawHide(playerid, FomeSede[playerid][1]);
                 PlayerTextDrawHide(playerid, FomeSede[playerid][2]);
-                PlayerTextDrawHide(playerid, FomeSede[playerid][3]);
+                PlayerTextDrawHide(playerid, FomeSede[playerid][3]);*/
 
 			}
 			case 1:
 			{
 	   			SetPVarInt(playerid, "TogHud", 0);
 	   			SendClientMessage(playerid, COLOR_YELLOW, "INFO: HUD ativada.");
-                PlayerTextDrawShow(playerid, FomeSede[playerid][0]);
+                /*PlayerTextDrawShow(playerid, FomeSede[playerid][0]);
                 PlayerTextDrawShow(playerid, FomeSede[playerid][1]);
                 PlayerTextDrawShow(playerid, FomeSede[playerid][2]);
-                PlayerTextDrawShow(playerid, FomeSede[playerid][3]);
+                PlayerTextDrawShow(playerid, FomeSede[playerid][3]);*/
 				
 			}
 		}
@@ -42258,10 +42205,10 @@ COMMAND:curar(playerid, params[])
 				PlayerInfo[targetid][pTomouTiroPesado] = 0;
 	    		PlayerInfo[targetid][pTomouTiroBrancas] = 0;
 
-				PlayerInfo[targetid][pFome] = 100;
+				/*PlayerInfo[targetid][pFome] = 100;
 				PlayerInfo[targetid][pSede] = 100;
 				
-				updateTextDrawFomeSede(playerid);
+				updateTextDrawFomeSede(playerid);*/
 
 				if (IsValidDynamic3DTextLabel(TextMorto[targetid])) DestroyDynamic3DTextLabel(TextMorto[targetid]);
 				
@@ -48793,7 +48740,7 @@ Dialog:EMP_TIPO_CLUCKIN(playerid, response, listitem, inputtext[])
 
 		 		        EmpInfo[NaEmpresa][eBank]+=8;
                         EmpInfo[NaEmpresa][eProdutos]-=1;
-						updateTextDrawFomeSede(playerid);
+						//updateTextDrawFomeSede(playerid);
 					    return 1;
 					}
 	 		    }
@@ -48811,7 +48758,7 @@ Dialog:EMP_TIPO_CLUCKIN(playerid, response, listitem, inputtext[])
 
 		 		        EmpInfo[NaEmpresa][eBank]+=12;
                         EmpInfo[NaEmpresa][eProdutos]-=1;
-						updateTextDrawFomeSede(playerid);
+						//updateTextDrawFomeSede(playerid);
 					    return 1;
 					}
 	 		    }
@@ -48829,7 +48776,7 @@ Dialog:EMP_TIPO_CLUCKIN(playerid, response, listitem, inputtext[])
 
 		 		        EmpInfo[NaEmpresa][eBank]+=18;
                         EmpInfo[NaEmpresa][eProdutos]-=1;
-		 		        updateTextDrawFomeSede(playerid);
+		 		        //updateTextDrawFomeSede(playerid);
 					    return 1;
 					}
 	 		    }
@@ -48862,7 +48809,7 @@ Dialog:DIALOG_STACKED(playerid, response, listitem, inputtext[])
 					    PlayerPlaySound(playerid,1054, 0.0, 0.0, 0.0);
 		 		        EmpInfo[NaEmpresa][eBank]+=8;
                         EmpInfo[NaEmpresa][eProdutos]-=1;
-						updateTextDrawFomeSede(playerid);
+						//updateTextDrawFomeSede(playerid);
 					    return 1;
 					}
 	 		    }
@@ -48877,7 +48824,7 @@ Dialog:DIALOG_STACKED(playerid, response, listitem, inputtext[])
 					    PlayerPlaySound(playerid,1054, 0.0, 0.0, 0.0);
 		 		        EmpInfo[NaEmpresa][eBank]+=12;
                         EmpInfo[NaEmpresa][eProdutos]-=1;
-						updateTextDrawFomeSede(playerid);
+						//updateTextDrawFomeSede(playerid);
 					    return 1;
 					}
 	 		    }
@@ -48892,7 +48839,7 @@ Dialog:DIALOG_STACKED(playerid, response, listitem, inputtext[])
 					    PlayerPlaySound(playerid,1054, 0.0, 0.0, 0.0);
 		 		        EmpInfo[NaEmpresa][eBank]+=18;
                         EmpInfo[NaEmpresa][eProdutos]-=1;
-						updateTextDrawFomeSede(playerid);
+						//updateTextDrawFomeSede(playerid);
 					    return 1;
 					}
 	 		    }
@@ -48929,7 +48876,7 @@ Dialog:DIALOG_BURGERSHOT(playerid, response, listitem, inputtext[])
 
 		 		        EmpInfo[NaEmpresa][eBank]+=5;
                         EmpInfo[NaEmpresa][eProdutos]-=1;
-						updateTextDrawFomeSede(playerid);
+						//updateTextDrawFomeSede(playerid);
 					    return 1;
 					}
 	 		    }
@@ -48942,7 +48889,7 @@ Dialog:DIALOG_BURGERSHOT(playerid, response, listitem, inputtext[])
 					    PlayerInfo[playerid][pSede] += 40;
 
 					    PlayerPlaySound(playerid,1054, 0.0, 0.0, 0.0);
-						updateTextDrawFomeSede(playerid);
+						//updateTextDrawFomeSede(playerid);
 		 		        EmpInfo[NaEmpresa][eBank]+=6;
 		 		        EmpInfo[NaEmpresa][eProdutos]-=1;
 					    SendClientMessage(playerid,COLOR_LIGHTGREEN,"Você comprou um X-Egg.");
@@ -48958,7 +48905,7 @@ Dialog:DIALOG_BURGERSHOT(playerid, response, listitem, inputtext[])
 					    PlayerInfo[playerid][pSede] += 50;
 
 					    PlayerPlaySound(playerid,1054, 0.0, 0.0, 0.0);
-						updateTextDrawFomeSede(playerid);
+						//updateTextDrawFomeSede(playerid);
 
 		 		        EmpInfo[NaEmpresa][eBank]+=6;
                         EmpInfo[NaEmpresa][eProdutos]-=1;
@@ -48980,7 +48927,7 @@ Dialog:DIALOG_BURGERSHOT(playerid, response, listitem, inputtext[])
                         EmpInfo[NaEmpresa][eProdutos]-=1;
 					    SendClientMessage(playerid,COLOR_LIGHTGREEN,"Você comprou uma X-Salada.");
 					    PlayerInfo[playerid][pGrana] -= 4;
-						updateTextDrawFomeSede(playerid);
+						//updateTextDrawFomeSede(playerid);
 					    return 1;
 					}
 				}
@@ -48996,7 +48943,7 @@ Dialog:DIALOG_BURGERSHOT(playerid, response, listitem, inputtext[])
 					    EmpInfo[NaEmpresa][eProdutos]-=1;
 					    SendClientMessage(playerid,COLOR_LIGHTGREEN,"Você comprou um X-Tudo.");
 					    PlayerInfo[playerid][pGrana] -= 10;
-						updateTextDrawFomeSede(playerid);
+						//updateTextDrawFomeSede(playerid);
 					    return 1;
 					}
 				}
@@ -49014,7 +48961,7 @@ Dialog:DIALOG_BURGERSHOT(playerid, response, listitem, inputtext[])
 	     				EmpInfo[NaEmpresa][eProdutos]-=1;
 	     				ApplyAnimation(playerid,"DEALER","shop_pay",3.0,0,0,0,0,0,1);
 	      				SetPlayerSpecialAction(playerid,SPECIAL_ACTION_DRINK_SPRUNK);
-						updateTextDrawFomeSede(playerid);
+						//updateTextDrawFomeSede(playerid);
 					}
 				}
 			}

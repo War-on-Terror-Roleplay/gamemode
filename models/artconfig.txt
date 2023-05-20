@@ -1,3 +1,13 @@
+//Insurgentes
+AddCharModel(287, 20001, "taliba.dff", "taliba.txd"); 
+AddCharModel(287, 20002, "taliba2.dff", "taliba2.txd"); 
+AddCharModel(287, 20003, "taliba3.dff", "taliba3.txd"); 
+AddCharModel(287, 20004, "taliba4.dff", "taliba4.txd"); 
+AddCharModel(287, 20005, "taliba5.dff", "taliba5.txd"); 
+AddCharModel(287, 20006, "taliba6.dff", "taliba6.txd"); 
+AddCharModel(287, 20007, "taliba7.dff", "taliba7.txd"); 
+AddCharModel(287, 20008, "taliba8.dff", "taliba8.txd"); 
+
 //Navy Seals
 AddCharModel(287, 20101, "seals.dff", "seals.txd"); 
 AddCharModel(287, 20102, "seals2.dff", "seals2.txd"); 

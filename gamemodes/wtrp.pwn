@@ -2348,6 +2348,7 @@ enum e_Account
 	pC4,
 	pTNT,
 	pColeteBomba,
+	pMorteiro,
 	pTempoPLD,
 	pToolKit,
 	pArrombarDNV,
@@ -7329,6 +7330,16 @@ public ArmaEntregueComSucesso(playerid,armaid,ammo,extra,equipar,raspada)
 }
 CMD:criarmorteiro(playerid, params[])
 {
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
+    if(PlayerInfo[playerid][pMorteiro] <= 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 1 colete bomba para explodir.");
+    if(PlayerInfo[playerid][pArrombarDNV_C] != 0)
+    {
+        new stringfogos[128];
+        format(stringfogos, sizeof(stringfogos),"Aguarde %d segundos antes de lançar um morteiro novamente.", PlayerInfo[playerid][pArrombarDNV_C]);
+        SendClientMessage(playerid,COLOR_LIGHTRED, stringfogos);
+        return 1;
+    }
+
 	new Float:x, Float:y, Float:z;
 	GetPlayerPos(playerid, x, y, z);
 	if(MissilCriado[playerid] == true)
@@ -7338,18 +7349,21 @@ CMD:criarmorteiro(playerid, params[])
 	}
 	else
 	{
-        Missil[0][playerid] = CreateObject(-2201,x,y,z+3,0.0000000,0.0000000,44.9950000);
-		Missil[1][playerid] = CreateObject(-2201,x,y,z+8,0.0000000,0.0000000,44.9950000);
-		Missil[2][playerid] = CreateObject(-2201,x,y,z+13,0.0000000,0.0000000,44.9950000);
-		SetPlayerPos(playerid, x+1.5, y+1.5, z);
+		PlayerInfo[playerid][pMorteiro]--;
+		PlayerInfo[playerid][pArrombarDNV_C] = 2400;
+        /*Missil[0][playerid] = CreateObject(-2201,x,y,z+3,0.0000000,0.0000000,44.9950000);
+		Missil[1][playerid] = CreateObject(-2201,x,y,z+8,0.0000000,0.0000000,44.9950000);*/
+		Missil[2][playerid] = CreateObject(-2201,x,y,z);
+		SetPlayerPos(playerid, x, y, z);
 		MissilCriado[playerid] = true;
-		SendClientMessage(playerid, COLOR_WHITE, "Morteiro armado.");
+		SendClientMessage(playerid, COLOR_WHITE, "INFO: Morteiro armado.");
 	}
  	return 1;
 }
  
 CMD:disparar(playerid, params[])
 {
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(MissilCriado[playerid] == false)
 	{
 		SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem um morteiro armado.");
@@ -7364,7 +7378,7 @@ CMD:disparar(playerid, params[])
 	{
 	    new Float:x, Float:y, Float:z;
 	    GetObjectPos(Missil[0][playerid], x, y, z);
-	    CreateExplosion(x, y, z, 1, 1);
+	    //CreateExplosion(x, y, z, 1, 1);
 	    MoveObject(Missil[0][playerid], x, y, z+700, 90, 0, 0, 0);
 	    MoveObject(Missil[1][playerid], x, y, z+705, 90, 0, 0, 0);
 	    MoveObject(Missil[2][playerid], x, y, z+710, 90, 0, 0, 0);
@@ -7380,7 +7394,7 @@ CMD:ajudablindagem(playerid, params[])
 	return 1;
 }
  
-CMD:ajudarmorteiro(playerid, params[])
+CMD:ajudamorteiro(playerid, params[])
 {
 	SendClientMessage(playerid, COLOR_LIGHTGREEN, "_____________________________Ajuda Morteiro_____________________________");
 	SendClientMessage(playerid, COLOR_WHITE, "** AJUDA ** /criarmorteiro - Cria um Morteiro.");
@@ -7396,8 +7410,8 @@ public OnPlayerClickMap(playerid, Float:fX, Float:fY, Float:fZ)
     AlvoX[playerid] = fX;
     AlvoY[playerid] = fY;
     MapAndreas_FindAverageZ(fX, fY, AlvoZ[playerid]);
-    SendClientMessage(playerid, COLOR_CINZA, "Alvo Marcado!");
-    SendClientMessage(playerid, COLOR_CINZA, "Use: /disparar para Lançar o morteiro!");
+    SendClientMessage(playerid, COLOR_CINZA, "INFO: Alvo marcado!");
+    SendClientMessage(playerid, COLOR_CINZA, "USE: /disparar para Lançar o morteiro!");
     }
 	return 1;
 }
@@ -11121,6 +11135,7 @@ public ResetVarsPlayerInfo(extraid)
 	PlayerInfo[extraid][pC4] = 0;
 	PlayerInfo[extraid][pTNT] = 0;
 	PlayerInfo[extraid][pColeteBomba] = 0;
+	PlayerInfo[extraid][pMorteiro] = 0;
 	PlayerInfo[extraid][pPecasMecanicas][0] = 0;
 	PlayerInfo[extraid][pPecasMecanicas][1] = 0;
 	PlayerInfo[extraid][pPecasMecanicas][2] = 0;
@@ -20782,7 +20797,7 @@ public SalvarPlayer(playerid)
 		);
 	    mysql_function_query(Pipeline, query, false, "", "");
 
-        format(query, sizeof(query), "UPDATE `accounts` SET `pPayDay` = '%d', `pDutySkin` = '%d', `pColde` = '%d', `pColdreA` = '%d', `pArmario1` = '%d', `pArmario2` = '%d', `pArmario3` = '%d', `pArmario4` = '%d', `pArmario5` = '%d', `ColeteBomba` = '%d' WHERE `ID` = '%d'",
+        format(query, sizeof(query), "UPDATE `accounts` SET `pPayDay` = '%d', `pDutySkin` = '%d', `pColde` = '%d', `pColdreA` = '%d', `pArmario1` = '%d', `pArmario2` = '%d', `pArmario3` = '%d', `pArmario4` = '%d', `pArmario5` = '%d', `ColeteBomba` = '%d', `Morteiro` = '%d' WHERE `ID` = '%d'",
 			PlayerInfo[playerid][pPayDay],
 			PlayerInfo[playerid][pDutySkin],
 			PlayerInfo[playerid][pColde],
@@ -20793,6 +20808,7 @@ public SalvarPlayer(playerid)
 			PlayerInfo[playerid][pArmario4],
 			PlayerInfo[playerid][pArmario5],
 			PlayerInfo[playerid][pColeteBomba],
+			PlayerInfo[playerid][pMorteiro],
 		    PlayerInfo[playerid][pID]
 		);
 		mysql_function_query(Pipeline, query, false, "", "");
@@ -43272,6 +43288,7 @@ public LoadAccountInfo(extraid)
 		cache_get_field_content(0, "C4", tmp);			PlayerInfo[extraid][pC4] = strval(tmp);
 		cache_get_field_content(0, "TNT", tmp);			PlayerInfo[extraid][pTNT] = strval(tmp);
 		cache_get_field_content(0, "ColeteBomba", tmp);			PlayerInfo[extraid][pColeteBomba] = strval(tmp);
+		cache_get_field_content(0, "Morteiro", tmp);			PlayerInfo[extraid][pMorteiro] = strval(tmp);
 		cache_get_field_content(0, "PecasMecanicas0", tmp);PlayerInfo[extraid][pPecasMecanicas][0] = strval(tmp);
 		cache_get_field_content(0, "PecasMecanicas1", tmp);PlayerInfo[extraid][pPecasMecanicas][1] = strval(tmp);
 		cache_get_field_content(0, "PecasMecanicas2", tmp);PlayerInfo[extraid][pPecasMecanicas][2] = strval(tmp);

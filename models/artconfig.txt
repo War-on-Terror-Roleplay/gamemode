@@ -76,6 +76,7 @@ AddSimpleModel(-1,3634, -2132, "barricada.dff", "barricada.txd");
 
 //Objetos GOV US
 AddSimpleModel(-1,3634, -2200, "escudo.dff", "escudo.txd");
+AddSimpleModel(-1,3634, -2201, "morteiro.dff", "morteiro.txd");
 
 
 //Drogas

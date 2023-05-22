@@ -2350,6 +2350,7 @@ enum e_Account
 	pTNT,
 	pColeteBomba,
 	pMorteiro,
+	pKitMedico,
 	pTempoPLD,
 	pToolKit,
 	pArrombarDNV,
@@ -11145,6 +11146,7 @@ public ResetVarsPlayerInfo(extraid)
 	PlayerInfo[extraid][pTNT] = 0;
 	PlayerInfo[extraid][pColeteBomba] = 0;
 	PlayerInfo[extraid][pMorteiro] = 0;
+	PlayerInfo[extraid][pKitMedico] = 0;
 	PlayerInfo[extraid][pPecasMecanicas][0] = 0;
 	PlayerInfo[extraid][pPecasMecanicas][1] = 0;
 	PlayerInfo[extraid][pPecasMecanicas][2] = 0;
@@ -20820,13 +20822,14 @@ public SalvarPlayer(playerid)
 		);
 		mysql_function_query(Pipeline, query, false, "", "");
 
-    	format(query, sizeof(query), "UPDATE `accounts` SET `pArmario6` = '%d', `pArmario7` = '%d', `pArmario8` = '%d', `pArmario9` = '%d', `pArmario10` = '%d', `baterias` = '%d' WHERE `ID` = '%d'",
+    	format(query, sizeof(query), "UPDATE `accounts` SET `pArmario6` = '%d', `pArmario7` = '%d', `pArmario8` = '%d', `pArmario9` = '%d', `pArmario10` = '%d', `baterias` = '%d', `KitMedico` = '%d' WHERE `ID` = '%d'",
 			PlayerInfo[playerid][pArmario6],
 			PlayerInfo[playerid][pArmario7],
 			PlayerInfo[playerid][pArmario8],
 			PlayerInfo[playerid][pArmario9],
 			PlayerInfo[playerid][pArmario10],
 			PlayerInfo[playerid][pBateria],
+			PlayerInfo[playerid][pKitMedico],
 		    PlayerInfo[playerid][pID]
 		);
 		mysql_function_query(Pipeline, query, false, "", "");
@@ -42240,6 +42243,55 @@ COMMAND:finalizartratamento(playerid, params[])
 	}
 	return 1;
 }
+COMMAND:kitmedico(playerid, params[])
+{
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
+	new targetid;
+	if(sscanf(params, "u", targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} (/desf)ibrilador [ID do jogador]");
+	else
+	{
+        if(PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar logado para utilizar este comando.");
+        if(!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador não está conectado!");
+        if(PlayerInfo[targetid][pMorto] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador não necessita de cuidados médicos.");
+        if(PlayerInfo[playerid][pMorto] > 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
+        if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
+        if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
+		if(PlayerInfo[playerid][pKitMedico] <= 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve ter pelo menos 1 kit médico.");
+		{
+  			if(GetDistanceBetweenPlayers(playerid,targetid) <= 5.0)
+	    	{
+		    	format(string, sizeof(string), "* %s utiliza seu kit médico em %s.", PlayerName(playerid,1), PlayerName(targetid,1));
+       			ProxDetector(20.0, playerid, string,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
+
+				if(PlayerInfo[targetid][pTomouAlgumTiro] > 0)
+				{
+       				SendClientMessage(playerid, COLOR_LIGHTRED, "INFO: Este jogador levou algum tiro e precisa ser internado, caso contrário ele morrerá sangrando.");
+       				SendClientMessage(targetid, COLOR_LIGHTRED, "((Um médico lhe reviveu, porém você precisa ser internado para curar seus ferimentos a bala, caso contrário você morrerá sangrando.))");
+				}
+				else
+				{
+				    ZerarDamages(targetid);
+				}
+				PlayerInfo[playerid][pKitMedico] = PlayerInfo[playerid][pKitMedico]-1;
+    		    PlayerInfo[targetid][pMorto] = 0;
+				TogglePlayerControllable(targetid,true);
+    			SetPlayerHealth(targetid, 150);
+				P_Health[targetid] = 150;
+				God_Aviso2[targetid] = 0;
+				God_VidaAnterior2[targetid] = 50;
+ 		    	PlayerPlaySound(targetid,1150, 0.0, 0.0, 0.0);
+  		    	ApplyAnimation(targetid, "CARRY", "crry_prtial", 2.0, 0, 0, 0, 0, 0);
+         		SetPlayerChatBubble(targetid, "", 0xe8827600, 100.0, 1);
+
+				TempoDesistir[targetid] = 0;
+   				PodeAceitarMorte[targetid] = 0;
+     		}
+     		else return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não está próximo suficiente deste jogador!");
+		}
+	}
+	return 1;
+}
+
 
 ALTCOMMAND:desf->desfibrilador;
 COMMAND:desfibrilador(playerid, params[])
@@ -43296,6 +43348,7 @@ public LoadAccountInfo(extraid)
 		cache_get_field_content(0, "TNT", tmp);			PlayerInfo[extraid][pTNT] = strval(tmp);
 		cache_get_field_content(0, "ColeteBomba", tmp);			PlayerInfo[extraid][pColeteBomba] = strval(tmp);
 		cache_get_field_content(0, "Morteiro", tmp);			PlayerInfo[extraid][pMorteiro] = strval(tmp);
+		cache_get_field_content(0, "KitMedico", tmp);			PlayerInfo[extraid][pKitMedico] = strval(tmp);
 		cache_get_field_content(0, "PecasMecanicas0", tmp);PlayerInfo[extraid][pPecasMecanicas][0] = strval(tmp);
 		cache_get_field_content(0, "PecasMecanicas1", tmp);PlayerInfo[extraid][pPecasMecanicas][1] = strval(tmp);
 		cache_get_field_content(0, "PecasMecanicas2", tmp);PlayerInfo[extraid][pPecasMecanicas][2] = strval(tmp);
@@ -80354,7 +80407,7 @@ COMMAND:nickgb(playerid, params[])
 COMMAND:lancargranada(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-    if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] != FAC_TIPO_PMERJ && FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] != FAC_TIPO_PCERJ && FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] != FAC_TIPO_EB) return SendClientMessage(playerid, COLOR_WHITE, "Você deve ser um policial para usar este comando.");
+    //if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] != FAC_TIPO_PMERJ && FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] != FAC_TIPO_PCERJ && FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] != FAC_TIPO_EB) return SendClientMessage(playerid, COLOR_WHITE, "Você deve ser um policial para usar este comando.");
 	if(PlayerInfo[playerid][pEmServico] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
     for(new h = 0; h < MAX_HOUSES; h++)
 	{

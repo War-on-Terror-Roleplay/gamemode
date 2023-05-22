@@ -82,6 +82,7 @@ new blindadinho[MAX_PLAYERS] = 0;
 //SISTEMA DE MORTEIRO BY YURS
 new bool:MissilCriado[MAX_PLAYERS];
 new Missil[3][MAX_PLAYERS];
+new MorteiroPrincipal[1][MAX_PLAYERS];
 new MissilCaindo[3][MAX_PLAYERS];
 new Float:AlvoX[MAX_PLAYERS], Float:AlvoY[MAX_PLAYERS], Float:AlvoZ[MAX_PLAYERS];
 
@@ -7353,7 +7354,7 @@ CMD:criarmorteiro(playerid, params[])
 		PlayerInfo[playerid][pArrombarDNV_C] = 2400;
         /*Missil[0][playerid] = CreateObject(-2201,x,y,z+3,0.0000000,0.0000000,44.9950000);
 		Missil[1][playerid] = CreateObject(-2201,x,y,z+8,0.0000000,0.0000000,44.9950000);*/
-		Missil[2][playerid] = CreateObject(-2201,x,y,z);
+		MorteiroPrincipal[0][playerid] = CreateDynamicObject(-2201,x,y,z+1,0.0000000,0.0000000,0.0000000);
 		SetPlayerPos(playerid, x, y, z);
 		MissilCriado[playerid] = true;
 		SendClientMessage(playerid, COLOR_WHITE, "INFO: Morteiro armado.");
@@ -7419,6 +7420,7 @@ public OnPlayerClickMap(playerid, Float:fX, Float:fY, Float:fZ)
 forward QuedaMissil(playerid);
 public QuedaMissil(playerid)
 {
+	DestroyObject(MorteiroPrincipal[0][playerid]);
 	DestroyObject(Missil[0][playerid]);
 	DestroyObject(Missil[1][playerid]);
 	DestroyObject(Missil[2][playerid]);

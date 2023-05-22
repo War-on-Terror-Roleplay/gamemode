@@ -7385,6 +7385,13 @@ CMD:disparar(playerid, params[])
 	    MoveObject(Missil[2][playerid], x, y, z+710, 90, 0, 0, 0);
 	    SetTimerEx("QuedaMissil", 5000, false, "i", playerid);
 	}
+	foreach(Player, i)
+	{
+		if(IsPlayerConnected(i) && IsPlayerInRangeOfPoint(i, 180.0, X, Y, Z))
+		{
+			PlayAudioStreamForPlayer(i, "http://localhost/midia/fogo.mp3", X, Y, Z, 500.0, 1);
+		}
+	}
 	return 1;
 }
 CMD:ajudablindagem(playerid, params[])
@@ -9902,13 +9909,13 @@ public Timer_Segundos()
 						new Float:health;
 						GetPlayerHealth(i,health);
 						new Float:Perda;
-						if(PlayerInfo[i][pFome] == 0) Perda = 1.0;
-						if(PlayerInfo[i][pSede] == 0) Perda = 2.0;
+						if(PlayerInfo[i][pFome] == 0) Perda = 0.10;
+						if(PlayerInfo[i][pSede] == 0) Perda = 0.10;
 						//else Perda = 0.10;
 
             			PlayerInfo[i][pFomeTime]++;
 						PlayerInfo[i][pSedeTime]++;
-		    			if (PlayerInfo[i][pFomeTime] >= 180)
+		    			if (PlayerInfo[i][pFomeTime] >= 600)
 						{
 
 							
@@ -9921,14 +9928,14 @@ public Timer_Segundos()
     		    			}
         					else if (PlayerInfo[i][pFome] == 0)
 							{
-    	        				SetPlayerHealth(i, health-Perda -5);
+    	        				SetPlayerHealth(i, health-Perda -1);
         					}
         					PlayerInfo[i][pFomeTime] = 0;
 							updateTextDrawFomeSede(i);
 
 							
         				}
-	        			if (PlayerInfo[i][pSedeTime] >= 180)
+	        			if (PlayerInfo[i][pSedeTime] >= 600)
 						{
 							if (PlayerInfo[i][pSede] > 0)
 							{
@@ -9936,7 +9943,7 @@ public Timer_Segundos()
 							}
 							else if (PlayerInfo[i][pSede] == 0)
 							{
-		        				SetPlayerHealth(i, health-Perda -6);
+		        				SetPlayerHealth(i, health-Perda -1);
         					}
         					PlayerInfo[i][pSedeTime] = 0;
 							updateTextDrawFomeSede(i);
@@ -14164,10 +14171,8 @@ public OnPlayerText(playerid, text[])
 	new str[256];
     if(strfind(text,"!kill",true) == 0) return Kick(playerid);
    	if(strfind(text,"www.samphax.tk",true) == 0) return Kick(playerid);
-	if(strfind(text,"koplan",true) == 0) return Kick(playerid);
-	if(strfind(text,"kopran",true) == 0) return Kick(playerid);
-	if(strfind(text,"csp",true) == 0) return Kick(playerid);
-	if(strfind(text,"csprp",true) == 0) return Kick(playerid);
+	if(strfind(text,"adrp",true) == 0) return Kick(playerid);
+	if(strfind(text,"advanced roleplay",true) == 0) return Kick(playerid);
 
     if(!PlayerInfo[playerid][pLogado]) return 0;
 	if(PlayerInfo[playerid][pMorto] <= 1)
@@ -14607,19 +14612,19 @@ public OnPlayerText(playerid, text[])
 	                    CelularData[playerid][LigandoParaNum] = 101;
 	                    return 0;
 	                }
-	                else if(strfind(text, "bombeiros", true) != -1 || strfind(text, "Bombeiros", true) != -1 || strfind(text, "BOMBEIROS", true) != -1)
+	                else if(strfind(text, "medico", true) != -1 || strfind(text, "Medico", true) != -1 || strfind(text, "MEDICO", true) != -1)
 	                {
 	                    format(str, sizeof(str), "%s diz (celular): %s", PlayerName(playerid, 1), text);
 				    	ProxDetectorJanela(DISTANCIA_CHAT, playerid, str, COLOR_FADE1, COLOR_FADE2, COLOR_FADE3, COLOR_FADE4, COLOR_FADE5);
 
 	                    if(CelularData[playerid][VivaVoz] == 0)
 						{
-	                    	format(str, sizeof(str), "%s Atendente diz: Estou transferindo sua ligação para os bombeiros, aguarde um momento...", strop);
+	                    	format(str, sizeof(str), "%s Atendente diz: Estou transferindo sua ligação para os Médico, aguarde um momento...", strop);
 		            		SendClientMessage(playerid, COLOR_LINHATELEFONICA, str);
 						}
 						else
 						{
-						    format(str, sizeof(str), "[VIVA VOZ] Atendente diz: Estou transferindo sua ligação para os bombeiros, aguarde um momento...");
+						    format(str, sizeof(str), "[VIVA VOZ] Atendente diz: Estou transferindo sua ligação para os Médico, aguarde um momento...");
 		    				ProxDetectorJanela(RANGE_VIVAVOZ, playerid, str, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA);
 						}
 
@@ -14636,12 +14641,12 @@ public OnPlayerText(playerid, text[])
 
 	                    if(CelularData[playerid][VivaVoz] == 0)
 						{
-	                    	format(str, sizeof(str), "%s Atendente diz: Desculpe mas eu não lhe entendi, qual serviço você necessita? ((Policia ou bombeiros))", strop);
+	                    	format(str, sizeof(str), "%s Atendente diz: Desculpe mas eu não lhe entendi, qual serviço você necessita? ((Policia ou Médico))", strop);
 		            		SendClientMessage(playerid, COLOR_LINHATELEFONICA, str);
 						}
 						else
 						{
-						    format(str, sizeof(str), "[VIVA VOZ] Atendente diz: Desculpe mas eu não lhe entendi, qual serviço você necessita? ((Policia ou bombeiros))");
+						    format(str, sizeof(str), "[VIVA VOZ] Atendente diz: Desculpe mas eu não lhe entendi, qual serviço você necessita? ((Policia ou Médico))");
 		    				ProxDetectorJanela(RANGE_VIVAVOZ, playerid, str, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA);
 						}
 					    return 0;
@@ -14666,7 +14671,7 @@ public OnPlayerText(playerid, text[])
 	 					ProxDetectorJanela(RANGE_VIVAVOZ, playerid, str, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA);
 					}
 
-				    CelularData[playerid][LigandoParaNum] = 192;
+				    CelularData[playerid][LigandoParaNum] = 912;
 					return 0;
 				}
 				case 913: // Emergencia > USMC - Localização
@@ -14687,7 +14692,7 @@ public OnPlayerText(playerid, text[])
 					    format(str, sizeof(str), "[VIVA VOZ] Atendente diz: Nos informe a situação por favor...");
 	 					ProxDetectorJanela(RANGE_VIVAVOZ, playerid, str, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA);
 					}
-				    CelularData[playerid][LigandoParaNum] = 193;
+				    CelularData[playerid][LigandoParaNum] = 913;
 
 				    return 0;
 				}
@@ -14711,7 +14716,7 @@ public OnPlayerText(playerid, text[])
 					//Conteudo a enviar via 911
                     new Nome[24]; GetPVarString(playerid, "911_Nome", Nome, 24);
 					new Local[24]; GetPVarString(playerid, "911_Local", Local, 24);
-					//SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCY NOTIFICATION__________|");
+					SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCY NOTIFICATION__________|");
                     //SendFacMessage(COLOR_LIGHTBLUE, 2, "|__________EMERGENCY NOTIFICATION__________|");
 					//SendFacMessage(COLOR_LIGHTBLUE, 5, "|__________EMERGENCY NOTIFICATION__________|");
 					new orelhao_id = 999;
@@ -14798,7 +14803,7 @@ public OnPlayerText(playerid, text[])
 					    format(str, sizeof(str), "[VIVA VOZ] Atendente diz: Nos informe a localização por favor...");
 	 					ProxDetectorJanela(RANGE_VIVAVOZ, playerid, str, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA);
 					}
-				    CelularData[playerid][LigandoParaNum] = 195;
+				    CelularData[playerid][LigandoParaNum] = 915;
 					return 0;
 				}
 				case 916: // Emergencia > CBERJ - Localização
@@ -14819,7 +14824,7 @@ public OnPlayerText(playerid, text[])
 					    format(str, sizeof(str), "[VIVA VOZ] Atendente diz: Nos informe a situação por favor...");
 	 					ProxDetectorJanela(RANGE_VIVAVOZ, playerid, str, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA);
 					}
-				    CelularData[playerid][LigandoParaNum] = 196;
+				    CelularData[playerid][LigandoParaNum] = 916;
 
 				    return 0;
 				}
@@ -31790,7 +31795,7 @@ COMMAND:limparpregos(playerid,params[])
 COMMAND:equipargb(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-    if(!PlayerToPortaMalasCar(playerid,1,5.0)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está próximo de um caminhão de bombeiros.");
+    if(!PlayerToPortaMalasCar(playerid,1,5.0)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está próximo de um caminhão de Médico.");
     new carid = PlayerToPortaMalasCar(playerid,2,3.0);
     new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
     if(FacInfo[FacId][fTipo] == FAC_TIPO_CBERJ)
@@ -31801,14 +31806,14 @@ COMMAND:equipargb(playerid, params[])
             {
                 case 407, 544:
                 {
-                    Dialog_Show(playerid, Equipando_GB, DIALOG_STYLE_LIST, "[MEDIC] Bombeiros", "Pegar Extintor\nPegar Serra\nPegar Machado", "Selecionar", "Cancelar");
+                    Dialog_Show(playerid, Equipando_GB, DIALOG_STYLE_LIST, "[MEDIC] Médico", "Pegar Extintor\nPegar Serra\nPegar Machado", "Selecionar", "Cancelar");
         
                 }
                 default:
                 {
                     if(IsPlayerInRangeOfPoint(playerid,6.0,-294.7040,1443.2588,1088.9550))
                     {
-                        Dialog_Show(playerid, Equipando_GB, DIALOG_STYLE_LIST, "[MEDIC] Bombeiros", "Pegar Extintor\nPegar Serra\nPegar Machado", "Selecionar", "Cancelar");
+                        Dialog_Show(playerid, Equipando_GB, DIALOG_STYLE_LIST, "[MEDIC] Médico", "Pegar Extintor\nPegar Serra\nPegar Machado", "Selecionar", "Cancelar");
                     }
                     else
                     {
@@ -35499,7 +35504,7 @@ CMD:uniforme(playerid, params[])
             }
             else return SendClientMessage(playerid, COLOR_LIGHTRED, "[ERRO] {FFFFFF}Você não está em serviço.");
         }
-        else return SendClientMessage(playerid, COLOR_LIGHTRED, "[ERRO] {FFFFFF}Você não está no vestiário do Corpo de Bombeiros");
+        else return SendClientMessage(playerid, COLOR_LIGHTRED, "[ERRO] {FFFFFF}Você não está no vestiário do Corpo de Médico");
     }
 	return 1;
 }
@@ -36554,7 +36559,7 @@ CMD:trabalho(playerid, params[])
                 }
             }
         }
-        else return SendClientMessage(playerid, COLOR_LIGHTRED, "[ERRO] {FFFFFF}Você não está no vestiário do departamento de bombeiros.");
+        else return SendClientMessage(playerid, COLOR_LIGHTRED, "[ERRO] {FFFFFF}Você não está no vestiário do departamento de Médico.");
     }
 	return 1;
 }
@@ -81221,7 +81226,7 @@ Dialog:DIALOG_VERMULTAS(playerid, response, listitem, inputtext[])
 	else
 	    format(tempo, 124, "Você tem {7E98B6}%d minutos{A9C4E4} para pagar esta multa.",MultasInfo[multa_id][mPayHours]);
 
-	format(Informacoes, 1024, "{A9C4E4}Polícia Militar\t\t{7E98B6}Do Rio de Janeiro \
+	format(Informacoes, 1024, "{A9C4E4}Marinha\t\t{7E98B6}Dos Estados Unidos\
 	\n{A9C4E4}Policial:\t\t\t{7E98B6}%s \n \
 	\n{A9C4E4}Valor:\t\t\t{7E98B6}US$%d \
 	\n{A9C4E4}Razão:\t\t\t{7E98B6}%s \
@@ -81470,7 +81475,7 @@ Dialog:DIALOG_VERMULTAS_P(playerid, response, listitem, inputtext[])
 	else
 	    format(tempo, 124, "Você tem {7E98B6}%d minutos{A9C4E4} para pagar esta multa.",MultasInfo[multa_id][mPayHours]);
 
-	format(Informacoes, 1024, "{A9C4E4}Polícia Militar\t\t{7E98B6}Do Rio de Janeiro \
+	format(Informacoes, 1024, "{A9C4E4}Marinha\t\t{7E98B6}Dos Estados Unidos \
 	\n{A9C4E4}Policial:\t\t\t{7E98B6}%s \n \
 	\n{A9C4E4}Valor:\t\t\t{7E98B6}US$%d \
 	\n{A9C4E4}Razão:\t\t\t{7E98B6}%s \
@@ -83493,29 +83498,29 @@ public TempoParaAtenderem911(playerid,tipo)
 	{
 	    if(CelularData[playerid][VivaVoz] == 0)
 		{
- 			format(str, sizeof(str), "%s Atendente diz: Polícia Militar, %s, qual o seu nome?", strop, strmomento);
+ 			format(str, sizeof(str), "%s Atendente diz: Marinha, %s, qual o seu nome?", strop, strmomento);
     		SendClientMessage(playerid, COLOR_LINHATELEFONICA, str);
 		}
 		else
 		{
-  			format(str, sizeof(str), "[VIVA VOZ] Atendente diz: Polícia Militar, %s, qual o seu nome?", strmomento);
+  			format(str, sizeof(str), "[VIVA VOZ] Atendente diz: Marinha, %s, qual o seu nome?", strmomento);
 			ProxDetector(RANGE_VIVAVOZ, playerid, str, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA);
 		}
-    	CelularData[playerid][LigandoParaNum] = 191;
+    	CelularData[playerid][LigandoParaNum] = 912;
 	}
 	else if(tipo == 2) // MEDIC
 	{
 	    if(CelularData[playerid][VivaVoz] == 0)
 		{
-	    	format(str, sizeof(str), "%s Atendente diz: Bombeiros %s, qual o seu nome?", strop, strmomento);
+	    	format(str, sizeof(str), "%s Atendente diz: Médico %s, qual o seu nome?", strop, strmomento);
     		SendClientMessage(playerid, COLOR_LINHATELEFONICA, str);
 		}
 		else
 		{
-		    format(str, sizeof(str), "[VIVA VOZ] Atendente diz: Bombeiros %s, qual o seu nome?", strmomento);
+		    format(str, sizeof(str), "[VIVA VOZ] Atendente diz: Médico %s, qual o seu nome?", strmomento);
 		    ProxDetector(RANGE_VIVAVOZ, playerid, str, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA);
 		}
-    	CelularData[playerid][LigandoParaNum] = 194;
+    	CelularData[playerid][LigandoParaNum] = 914;
 	}
 	return 1;
 }
@@ -85494,7 +85499,7 @@ public TempoParaAtenderem(playerid,tipo) //Tipo 1: Celular | Tipo 2: Orelhão
 			else format(strr, 24, "Boa noite");
 
 	        CelularData[playerid][LigandoParaNumAtendido] = 1;
-	        format(str,sizeof(str),"%s Atendente diz: Serviço de emergências %s, qual serviço você necessita? ((policia, bombeiros, ambos))", strop, strr);
+	        format(str,sizeof(str),"%s Atendente diz: Serviço de emergências %s, qual serviço você necessita? ((policia, medico, ambos))", strop, strr);
 	        SendClientMessage(playerid, COLOR_LINHATELEFONICA, str);
 
 			format(str,sizeof(str),"Em_chamada~n~(%d)~n~00:00:00", CelularData[playerid][LigandoParaNum]);

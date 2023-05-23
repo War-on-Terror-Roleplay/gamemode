@@ -7386,11 +7386,29 @@ CMD:disparar(playerid, params[])
 	    MoveObject(Missil[2][playerid], x, y, z+710, 90, 0, 0, 0);
 	    SetTimerEx("QuedaMissil", 5000, false, "i", playerid);
 	}
+	new Float:X, Float:Y, Float:Z;
+	new worldid = GetPlayerVirtualWorld(playerid);
+ 	new intid = GetPlayerInterior(playerid);
+		
+	GetPlayerPos(playerid, X, Y, Z);
+	GetXYInFrontOfPlayer(playerid, X, Y, 30);
+
 	foreach(Player, i)
 	{
-		if(IsPlayerConnected(i) && IsPlayerInRangeOfPoint(i, 180.0, X, Y, Z))
+		if(IsPlayerInRangeOfPoint(i, 200.0, X, Y, Z))
 		{
-			PlayAudioStreamForPlayer(i, "http://localhost/midia/fogo.mp3", X, Y, Z, 500.0, 1);
+			Streamer_UpdateEx(i, X, Y, (Z), worldid, intid);
+		}
+	}
+
+
+	SetTimerEx("LancarFoguete", 2500, 0, "i", playerid);
+
+	foreach(Player, i)
+	{
+		if(IsPlayerConnected(i) && IsPlayerInRangeOfPoint(i, 200.0, X, Y, Z))
+		{
+			PlayAudioStreamForPlayer(i, "http://localhost/midia/morteiro.mp3", X, Y, Z, 200.0, 1);
 		}
 	}
 	return 1;

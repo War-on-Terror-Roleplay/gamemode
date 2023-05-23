@@ -79,6 +79,13 @@ new blindadinho[MAX_PLAYERS] = 0;
 #define DIALOG_PAINELNOME		1444
 #define DIALOG_PAINELSENHA		1445
 
+//SISTEMA DE MORTEIRO BY YURS
+new bool:MissilCriado[MAX_PLAYERS];
+new Missil[3][MAX_PLAYERS];
+new MorteiroPrincipal[1][MAX_PLAYERS];
+new MissilCaindo[3][MAX_PLAYERS];
+new Float:AlvoX[MAX_PLAYERS], Float:AlvoY[MAX_PLAYERS], Float:AlvoZ[MAX_PLAYERS];
+
 //Jogo do Bicho
 #define DIALOG_JOGODoBichoMenu			900
 #define DIALOG_JOGODoBichoTabela			901
@@ -2342,6 +2349,8 @@ enum e_Account
 	pC4,
 	pTNT,
 	pColeteBomba,
+	pMorteiro,
+	pKitMedico,
 	pTempoPLD,
 	pToolKit,
 	pArrombarDNV,
@@ -6064,6 +6073,8 @@ public OnGameModeInit()
 
     OOCChat = 0;
 
+	MapAndreas_Init(MAP_ANDREAS_MODE_MINIMAL);
+
 	//==========================================================================
     //Trem = AddStaticVehicleEx(538,-1942.0443,183.1388,25.5979,280.0056, -1, -1, 9999999);
     //ConnectNPC("Trainbot","train_carp");
@@ -7319,14 +7330,163 @@ public ArmaEntregueComSucesso(playerid,armaid,ammo,extra,equipar,raspada)
     }
 	return 1;
 }
+CMD:criarmorteiro(playerid, params[])
+{
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
+    if(PlayerInfo[playerid][pMorteiro] <= 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 1 colete bomba para explodir.");
+    if(PlayerInfo[playerid][pArrombarDNV_C] != 0)
+    {
+        new stringfogos[128];
+        format(stringfogos, sizeof(stringfogos),"Aguarde %d segundos antes de lançar um morteiro novamente.", PlayerInfo[playerid][pArrombarDNV_C]);
+        SendClientMessage(playerid,COLOR_LIGHTRED, stringfogos);
+        return 1;
+    }
+
+	new Float:x, Float:y, Float:z;
+	GetPlayerPos(playerid, x, y, z);
+	if(MissilCriado[playerid] == true)
+	{
+		SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já tem um morteiro armado, dispare-o primeiro.");
+		return 1;
+	}
+	else
+	{
+		PlayerInfo[playerid][pMorteiro]--;
+		PlayerInfo[playerid][pArrombarDNV_C] = 2400;
+        /*Missil[0][playerid] = CreateObject(-2201,x,y,z+3,0.0000000,0.0000000,44.9950000);
+		Missil[1][playerid] = CreateObject(-2201,x,y,z+8,0.0000000,0.0000000,44.9950000);*/
+		MorteiroPrincipal[0][playerid] = CreateDynamicObject(-2201,x,y,z+1,0.0000000,0.0000000,0.0000000);
+		SetPlayerPos(playerid, x, y, z);
+		MissilCriado[playerid] = true;
+		SendClientMessage(playerid, COLOR_WHITE, "INFO: Morteiro armado.");
+	}
+ 	return 1;
+}
+ 
+CMD:disparar(playerid, params[])
+{
+	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
+	if(MissilCriado[playerid] == false)
+	{
+		SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem um morteiro armado.");
+		return 1;
+	}
+	if(AlvoX[playerid] == 0 && AlvoY[playerid] == 0 && AlvoZ[playerid] == 0)
+	{
+		SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não escolheu um Alvo!");
+		return 1;
+	}
+	else
+	{
+	    new Float:x, Float:y, Float:z;
+	    GetObjectPos(Missil[0][playerid], x, y, z);
+	    //CreateExplosion(x, y, z, 1, 1);
+	    MoveObject(Missil[0][playerid], x, y, z+700, 90, 0, 0, 0);
+	    MoveObject(Missil[1][playerid], x, y, z+705, 90, 0, 0, 0);
+	    MoveObject(Missil[2][playerid], x, y, z+710, 90, 0, 0, 0);
+	    SetTimerEx("QuedaMissil", 5000, false, "i", playerid);
+	}
+	new Float:X, Float:Y, Float:Z;
+	new worldid = GetPlayerVirtualWorld(playerid);
+ 	new intid = GetPlayerInterior(playerid);
+		
+	GetPlayerPos(playerid, X, Y, Z);
+	GetXYInFrontOfPlayer(playerid, X, Y, 30);
+
+	foreach(Player, i)
+	{
+		if(IsPlayerInRangeOfPoint(i, 200.0, X, Y, Z))
+		{
+			Streamer_UpdateEx(i, X, Y, (Z), worldid, intid);
+		}
+	}
+
+
+	SetTimerEx("LancarFoguete", 2500, 0, "i", playerid);
+
+	foreach(Player, i)
+	{
+		if(IsPlayerConnected(i) && IsPlayerInRangeOfPoint(i, 200.0, X, Y, Z))
+		{
+			PlayAudioStreamForPlayer(i, "http://localhost/midia/morteiro.mp3", X, Y, Z, 200.0, 1);
+		}
+	}
+	return 1;
+}
 CMD:ajudablindagem(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-	SendClientMessage(playerid, COLOR_LIGHTGREEN, "____________________Ajuda Blindagem____________________");
+	SendClientMessage(playerid, COLOR_YELLOW, "____________________Ajuda Blindagem____________________");
 	SendClientMessage(playerid, COLOR_WHITE, "/blindar /blindagem");
 	return 1;
 }
  
+CMD:ajudamorteiro(playerid, params[])
+{
+	SendClientMessage(playerid, COLOR_LIGHTGREEN, "_____________________________Ajuda Morteiro_____________________________");
+	SendClientMessage(playerid, COLOR_WHITE, "** AJUDA ** /criarmorteiro - Cria um Morteiro.");
+	SendClientMessage(playerid, COLOR_WHITE, "** AJUDA ** /disparar - Lança um Morteiro.");
+	SendClientMessage(playerid, COLOR_WHITE, "** AJUDA ** Marque no Mapa o lugar onde o morteiro deve cair.");
+	return 1;
+}
+ 
+public OnPlayerClickMap(playerid, Float:fX, Float:fY, Float:fZ)
+{
+    if(MissilCriado[playerid] == true)
+    {
+    AlvoX[playerid] = fX;
+    AlvoY[playerid] = fY;
+    MapAndreas_FindAverageZ(fX, fY, AlvoZ[playerid]);
+    SendClientMessage(playerid, COLOR_CINZA, "INFO: Alvo marcado!");
+    SendClientMessage(playerid, COLOR_CINZA, "USE: /disparar para Lançar o morteiro!");
+    }
+	return 1;
+}
+ 
+forward QuedaMissil(playerid);
+public QuedaMissil(playerid)
+{
+	DestroyObject(MorteiroPrincipal[0][playerid]);
+	DestroyObject(Missil[0][playerid]);
+	DestroyObject(Missil[1][playerid]);
+	DestroyObject(Missil[2][playerid]);
+	MissilCaindo[0][playerid] = CreateObject(1636, AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid]+100, 0, 180, 0);
+	MissilCaindo[1][playerid] = CreateObject(1636, AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid]+105, 0, 180, 0);
+	MissilCaindo[2][playerid] = CreateObject(1636, AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid]+110, 0, 180, 0);
+	MoveObject(MissilCaindo[0][playerid], AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid], 50, 0, 180, 0);
+	MoveObject(MissilCaindo[1][playerid], AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid]+5, 50, 0, 180, 0);
+	MoveObject(MissilCaindo[2][playerid], AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid]+10, 50, 0, 180, 0);
+	SetTimerEx("MissilExplode", 1700, false, "i", playerid);
+	return 1;
+}
+ 
+forward MissilExplode(playerid);
+public MissilExplode(playerid)
+{
+	CreateExplosion(AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid], 2, 10);
+	CreateExplosion(AlvoX[playerid]+3, AlvoY[playerid], AlvoZ[playerid], 2, 10);
+	CreateExplosion(AlvoX[playerid]+3, AlvoY[playerid]+3, AlvoZ[playerid], 2, 10);
+	CreateExplosion(AlvoX[playerid], AlvoY[playerid]+3, AlvoZ[playerid], 2, 10);
+	CreateExplosion(AlvoX[playerid]-3, AlvoY[playerid]+3, AlvoZ[playerid], 2, 10);
+	CreateExplosion(AlvoX[playerid]-3, AlvoY[playerid], AlvoZ[playerid], 2, 10);
+	CreateExplosion(AlvoX[playerid]-3, AlvoY[playerid]-3, AlvoZ[playerid], 2, 10);
+	CreateExplosion(AlvoX[playerid], AlvoY[playerid]-3, AlvoZ[playerid], 2, 10);
+	CreateExplosion(AlvoX[playerid]+3, AlvoY[playerid]-3, AlvoZ[playerid], 2, 10);
+	DestroyObject(MissilCaindo[0][playerid]);
+	DestroyObject(MissilCaindo[1][playerid]);
+	DestroyObject(MissilCaindo[2][playerid]);
+	Missil[0][playerid] = 0;
+	Missil[0][playerid] = 0;
+	Missil[0][playerid] = 0;
+	MissilCaindo[0][playerid] = 0;
+	MissilCaindo[1][playerid] = 0;
+	MissilCaindo[2][playerid] = 0;
+	MissilCriado[playerid] = false;
+	AlvoX[playerid] = 0;
+	AlvoY[playerid] = 0;
+	AlvoZ[playerid] = 0;
+	return 1;
+}
 CMD:blindar(playerid, params[])
 {
 	if(!IsPlayerInAnyVehicle(playerid))return SendClientMessage(playerid, COLOR_LIGHTRED, "Para você comprar uma blindagem , você precisa estar em um carro.");
@@ -9768,13 +9928,13 @@ public Timer_Segundos()
 						new Float:health;
 						GetPlayerHealth(i,health);
 						new Float:Perda;
-						if(PlayerInfo[i][pFome] == 0) Perda = 1.0;
-						if(PlayerInfo[i][pSede] == 0) Perda = 2.0;
+						if(PlayerInfo[i][pFome] == 0) Perda = 0.10;
+						if(PlayerInfo[i][pSede] == 0) Perda = 0.10;
 						//else Perda = 0.10;
 
             			PlayerInfo[i][pFomeTime]++;
 						PlayerInfo[i][pSedeTime]++;
-		    			if (PlayerInfo[i][pFomeTime] >= 180)
+		    			if (PlayerInfo[i][pFomeTime] >= 600)
 						{
 
 							
@@ -9787,14 +9947,14 @@ public Timer_Segundos()
     		    			}
         					else if (PlayerInfo[i][pFome] == 0)
 							{
-    	        				SetPlayerHealth(i, health-Perda -5);
+    	        				SetPlayerHealth(i, health-Perda -1);
         					}
         					PlayerInfo[i][pFomeTime] = 0;
 							updateTextDrawFomeSede(i);
 
 							
         				}
-	        			if (PlayerInfo[i][pSedeTime] >= 180)
+	        			if (PlayerInfo[i][pSedeTime] >= 600)
 						{
 							if (PlayerInfo[i][pSede] > 0)
 							{
@@ -9802,7 +9962,7 @@ public Timer_Segundos()
 							}
 							else if (PlayerInfo[i][pSede] == 0)
 							{
-		        				SetPlayerHealth(i, health-Perda -6);
+		        				SetPlayerHealth(i, health-Perda -1);
         					}
         					PlayerInfo[i][pSedeTime] = 0;
 							updateTextDrawFomeSede(i);
@@ -11003,6 +11163,8 @@ public ResetVarsPlayerInfo(extraid)
 	PlayerInfo[extraid][pC4] = 0;
 	PlayerInfo[extraid][pTNT] = 0;
 	PlayerInfo[extraid][pColeteBomba] = 0;
+	PlayerInfo[extraid][pMorteiro] = 0;
+	PlayerInfo[extraid][pKitMedico] = 0;
 	PlayerInfo[extraid][pPecasMecanicas][0] = 0;
 	PlayerInfo[extraid][pPecasMecanicas][1] = 0;
 	PlayerInfo[extraid][pPecasMecanicas][2] = 0;
@@ -14029,10 +14191,8 @@ public OnPlayerText(playerid, text[])
 	new str[256];
     if(strfind(text,"!kill",true) == 0) return Kick(playerid);
    	if(strfind(text,"www.samphax.tk",true) == 0) return Kick(playerid);
-	if(strfind(text,"koplan",true) == 0) return Kick(playerid);
-	if(strfind(text,"kopran",true) == 0) return Kick(playerid);
-	if(strfind(text,"csp",true) == 0) return Kick(playerid);
-	if(strfind(text,"csprp",true) == 0) return Kick(playerid);
+	if(strfind(text,"adrp",true) == 0) return Kick(playerid);
+	if(strfind(text,"advanced roleplay",true) == 0) return Kick(playerid);
 
     if(!PlayerInfo[playerid][pLogado]) return 0;
 	if(PlayerInfo[playerid][pMorto] <= 1)
@@ -14472,19 +14632,19 @@ public OnPlayerText(playerid, text[])
 	                    CelularData[playerid][LigandoParaNum] = 101;
 	                    return 0;
 	                }
-	                else if(strfind(text, "bombeiros", true) != -1 || strfind(text, "Bombeiros", true) != -1 || strfind(text, "BOMBEIROS", true) != -1)
+	                else if(strfind(text, "medico", true) != -1 || strfind(text, "Medico", true) != -1 || strfind(text, "MEDICO", true) != -1)
 	                {
 	                    format(str, sizeof(str), "%s diz (celular): %s", PlayerName(playerid, 1), text);
 				    	ProxDetectorJanela(DISTANCIA_CHAT, playerid, str, COLOR_FADE1, COLOR_FADE2, COLOR_FADE3, COLOR_FADE4, COLOR_FADE5);
 
 	                    if(CelularData[playerid][VivaVoz] == 0)
 						{
-	                    	format(str, sizeof(str), "%s Atendente diz: Estou transferindo sua ligação para os bombeiros, aguarde um momento...", strop);
+	                    	format(str, sizeof(str), "%s Atendente diz: Estou transferindo sua ligação para os Médico, aguarde um momento...", strop);
 		            		SendClientMessage(playerid, COLOR_LINHATELEFONICA, str);
 						}
 						else
 						{
-						    format(str, sizeof(str), "[VIVA VOZ] Atendente diz: Estou transferindo sua ligação para os bombeiros, aguarde um momento...");
+						    format(str, sizeof(str), "[VIVA VOZ] Atendente diz: Estou transferindo sua ligação para os Médico, aguarde um momento...");
 		    				ProxDetectorJanela(RANGE_VIVAVOZ, playerid, str, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA);
 						}
 
@@ -14501,12 +14661,12 @@ public OnPlayerText(playerid, text[])
 
 	                    if(CelularData[playerid][VivaVoz] == 0)
 						{
-	                    	format(str, sizeof(str), "%s Atendente diz: Desculpe mas eu não lhe entendi, qual serviço você necessita? ((Policia ou bombeiros))", strop);
+	                    	format(str, sizeof(str), "%s Atendente diz: Desculpe mas eu não lhe entendi, qual serviço você necessita? ((Policia ou Médico))", strop);
 		            		SendClientMessage(playerid, COLOR_LINHATELEFONICA, str);
 						}
 						else
 						{
-						    format(str, sizeof(str), "[VIVA VOZ] Atendente diz: Desculpe mas eu não lhe entendi, qual serviço você necessita? ((Policia ou bombeiros))");
+						    format(str, sizeof(str), "[VIVA VOZ] Atendente diz: Desculpe mas eu não lhe entendi, qual serviço você necessita? ((Policia ou Médico))");
 		    				ProxDetectorJanela(RANGE_VIVAVOZ, playerid, str, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA);
 						}
 					    return 0;
@@ -14531,7 +14691,7 @@ public OnPlayerText(playerid, text[])
 	 					ProxDetectorJanela(RANGE_VIVAVOZ, playerid, str, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA);
 					}
 
-				    CelularData[playerid][LigandoParaNum] = 192;
+				    CelularData[playerid][LigandoParaNum] = 912;
 					return 0;
 				}
 				case 913: // Emergencia > USMC - Localização
@@ -14552,7 +14712,7 @@ public OnPlayerText(playerid, text[])
 					    format(str, sizeof(str), "[VIVA VOZ] Atendente diz: Nos informe a situação por favor...");
 	 					ProxDetectorJanela(RANGE_VIVAVOZ, playerid, str, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA);
 					}
-				    CelularData[playerid][LigandoParaNum] = 193;
+				    CelularData[playerid][LigandoParaNum] = 913;
 
 				    return 0;
 				}
@@ -14576,7 +14736,7 @@ public OnPlayerText(playerid, text[])
 					//Conteudo a enviar via 911
                     new Nome[24]; GetPVarString(playerid, "911_Nome", Nome, 24);
 					new Local[24]; GetPVarString(playerid, "911_Local", Local, 24);
-					//SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCY NOTIFICATION__________|");
+					SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCY NOTIFICATION__________|");
                     //SendFacMessage(COLOR_LIGHTBLUE, 2, "|__________EMERGENCY NOTIFICATION__________|");
 					//SendFacMessage(COLOR_LIGHTBLUE, 5, "|__________EMERGENCY NOTIFICATION__________|");
 					new orelhao_id = 999;
@@ -14663,7 +14823,7 @@ public OnPlayerText(playerid, text[])
 					    format(str, sizeof(str), "[VIVA VOZ] Atendente diz: Nos informe a localização por favor...");
 	 					ProxDetectorJanela(RANGE_VIVAVOZ, playerid, str, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA);
 					}
-				    CelularData[playerid][LigandoParaNum] = 195;
+				    CelularData[playerid][LigandoParaNum] = 915;
 					return 0;
 				}
 				case 916: // Emergencia > CBERJ - Localização
@@ -14684,7 +14844,7 @@ public OnPlayerText(playerid, text[])
 					    format(str, sizeof(str), "[VIVA VOZ] Atendente diz: Nos informe a situação por favor...");
 	 					ProxDetectorJanela(RANGE_VIVAVOZ, playerid, str, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA);
 					}
-				    CelularData[playerid][LigandoParaNum] = 196;
+				    CelularData[playerid][LigandoParaNum] = 916;
 
 				    return 0;
 				}
@@ -20664,7 +20824,7 @@ public SalvarPlayer(playerid)
 		);
 	    mysql_function_query(Pipeline, query, false, "", "");
 
-        format(query, sizeof(query), "UPDATE `accounts` SET `pPayDay` = '%d', `pDutySkin` = '%d', `pColde` = '%d', `pColdreA` = '%d', `pArmario1` = '%d', `pArmario2` = '%d', `pArmario3` = '%d', `pArmario4` = '%d', `pArmario5` = '%d', `ColeteBomba` = '%d' WHERE `ID` = '%d'",
+        format(query, sizeof(query), "UPDATE `accounts` SET `pPayDay` = '%d', `pDutySkin` = '%d', `pColde` = '%d', `pColdreA` = '%d', `pArmario1` = '%d', `pArmario2` = '%d', `pArmario3` = '%d', `pArmario4` = '%d', `pArmario5` = '%d', `ColeteBomba` = '%d', `Morteiro` = '%d' WHERE `ID` = '%d'",
 			PlayerInfo[playerid][pPayDay],
 			PlayerInfo[playerid][pDutySkin],
 			PlayerInfo[playerid][pColde],
@@ -20675,17 +20835,19 @@ public SalvarPlayer(playerid)
 			PlayerInfo[playerid][pArmario4],
 			PlayerInfo[playerid][pArmario5],
 			PlayerInfo[playerid][pColeteBomba],
+			PlayerInfo[playerid][pMorteiro],
 		    PlayerInfo[playerid][pID]
 		);
 		mysql_function_query(Pipeline, query, false, "", "");
 
-    	format(query, sizeof(query), "UPDATE `accounts` SET `pArmario6` = '%d', `pArmario7` = '%d', `pArmario8` = '%d', `pArmario9` = '%d', `pArmario10` = '%d', `baterias` = '%d' WHERE `ID` = '%d'",
+    	format(query, sizeof(query), "UPDATE `accounts` SET `pArmario6` = '%d', `pArmario7` = '%d', `pArmario8` = '%d', `pArmario9` = '%d', `pArmario10` = '%d', `baterias` = '%d', `KitMedico` = '%d' WHERE `ID` = '%d'",
 			PlayerInfo[playerid][pArmario6],
 			PlayerInfo[playerid][pArmario7],
 			PlayerInfo[playerid][pArmario8],
 			PlayerInfo[playerid][pArmario9],
 			PlayerInfo[playerid][pArmario10],
 			PlayerInfo[playerid][pBateria],
+			PlayerInfo[playerid][pKitMedico],
 		    PlayerInfo[playerid][pID]
 		);
 		mysql_function_query(Pipeline, query, false, "", "");
@@ -31654,7 +31816,7 @@ COMMAND:limparpregos(playerid,params[])
 COMMAND:equipargb(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-    if(!PlayerToPortaMalasCar(playerid,1,5.0)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está próximo de um caminhão de bombeiros.");
+    if(!PlayerToPortaMalasCar(playerid,1,5.0)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está próximo de um caminhão de Médico.");
     new carid = PlayerToPortaMalasCar(playerid,2,3.0);
     new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
     if(FacInfo[FacId][fTipo] == FAC_TIPO_CBERJ)
@@ -31665,14 +31827,14 @@ COMMAND:equipargb(playerid, params[])
             {
                 case 407, 544:
                 {
-                    Dialog_Show(playerid, Equipando_GB, DIALOG_STYLE_LIST, "[MEDIC] Bombeiros", "Pegar Extintor\nPegar Serra\nPegar Machado", "Selecionar", "Cancelar");
+                    Dialog_Show(playerid, Equipando_GB, DIALOG_STYLE_LIST, "[MEDIC] Médico", "Pegar Extintor\nPegar Serra\nPegar Machado", "Selecionar", "Cancelar");
         
                 }
                 default:
                 {
                     if(IsPlayerInRangeOfPoint(playerid,6.0,-294.7040,1443.2588,1088.9550))
                     {
-                        Dialog_Show(playerid, Equipando_GB, DIALOG_STYLE_LIST, "[MEDIC] Bombeiros", "Pegar Extintor\nPegar Serra\nPegar Machado", "Selecionar", "Cancelar");
+                        Dialog_Show(playerid, Equipando_GB, DIALOG_STYLE_LIST, "[MEDIC] Médico", "Pegar Extintor\nPegar Serra\nPegar Machado", "Selecionar", "Cancelar");
                     }
                     else
                     {
@@ -35363,7 +35525,7 @@ CMD:uniforme(playerid, params[])
             }
             else return SendClientMessage(playerid, COLOR_LIGHTRED, "[ERRO] {FFFFFF}Você não está em serviço.");
         }
-        else return SendClientMessage(playerid, COLOR_LIGHTRED, "[ERRO] {FFFFFF}Você não está no vestiário do Corpo de Bombeiros");
+        else return SendClientMessage(playerid, COLOR_LIGHTRED, "[ERRO] {FFFFFF}Você não está no vestiário do Corpo de Médico");
     }
 	return 1;
 }
@@ -36418,7 +36580,7 @@ CMD:trabalho(playerid, params[])
                 }
             }
         }
-        else return SendClientMessage(playerid, COLOR_LIGHTRED, "[ERRO] {FFFFFF}Você não está no vestiário do departamento de bombeiros.");
+        else return SendClientMessage(playerid, COLOR_LIGHTRED, "[ERRO] {FFFFFF}Você não está no vestiário do departamento de Médico.");
     }
 	return 1;
 }
@@ -42099,6 +42261,55 @@ COMMAND:finalizartratamento(playerid, params[])
 	}
 	return 1;
 }
+COMMAND:kitmedico(playerid, params[])
+{
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
+	new targetid;
+	if(sscanf(params, "u", targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} (/desf)ibrilador [ID do jogador]");
+	else
+	{
+        if(PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar logado para utilizar este comando.");
+        if(!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador não está conectado!");
+        if(PlayerInfo[targetid][pMorto] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador não necessita de cuidados médicos.");
+        if(PlayerInfo[playerid][pMorto] > 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
+        if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
+        if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
+		if(PlayerInfo[playerid][pKitMedico] <= 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve ter pelo menos 1 kit médico.");
+		{
+  			if(GetDistanceBetweenPlayers(playerid,targetid) <= 5.0)
+	    	{
+		    	format(string, sizeof(string), "* %s utiliza seu kit médico em %s.", PlayerName(playerid,1), PlayerName(targetid,1));
+       			ProxDetector(20.0, playerid, string,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
+
+				if(PlayerInfo[targetid][pTomouAlgumTiro] > 0)
+				{
+       				SendClientMessage(playerid, COLOR_LIGHTRED, "INFO: Este jogador levou algum tiro e precisa ser internado, caso contrário ele morrerá sangrando.");
+       				SendClientMessage(targetid, COLOR_LIGHTRED, "((Um médico lhe reviveu, porém você precisa ser internado para curar seus ferimentos a bala, caso contrário você morrerá sangrando.))");
+				}
+				else
+				{
+				    ZerarDamages(targetid);
+				}
+				PlayerInfo[playerid][pKitMedico] = PlayerInfo[playerid][pKitMedico]-1;
+    		    PlayerInfo[targetid][pMorto] = 0;
+				TogglePlayerControllable(targetid,true);
+    			SetPlayerHealth(targetid, 150);
+				P_Health[targetid] = 150;
+				God_Aviso2[targetid] = 0;
+				God_VidaAnterior2[targetid] = 50;
+ 		    	PlayerPlaySound(targetid,1150, 0.0, 0.0, 0.0);
+  		    	ApplyAnimation(targetid, "CARRY", "crry_prtial", 2.0, 0, 0, 0, 0, 0);
+         		SetPlayerChatBubble(targetid, "", 0xe8827600, 100.0, 1);
+
+				TempoDesistir[targetid] = 0;
+   				PodeAceitarMorte[targetid] = 0;
+     		}
+     		else return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não está próximo suficiente deste jogador!");
+		}
+	}
+	return 1;
+}
+
 
 ALTCOMMAND:desf->desfibrilador;
 COMMAND:desfibrilador(playerid, params[])
@@ -43154,6 +43365,8 @@ public LoadAccountInfo(extraid)
 		cache_get_field_content(0, "C4", tmp);			PlayerInfo[extraid][pC4] = strval(tmp);
 		cache_get_field_content(0, "TNT", tmp);			PlayerInfo[extraid][pTNT] = strval(tmp);
 		cache_get_field_content(0, "ColeteBomba", tmp);			PlayerInfo[extraid][pColeteBomba] = strval(tmp);
+		cache_get_field_content(0, "Morteiro", tmp);			PlayerInfo[extraid][pMorteiro] = strval(tmp);
+		cache_get_field_content(0, "KitMedico", tmp);			PlayerInfo[extraid][pKitMedico] = strval(tmp);
 		cache_get_field_content(0, "PecasMecanicas0", tmp);PlayerInfo[extraid][pPecasMecanicas][0] = strval(tmp);
 		cache_get_field_content(0, "PecasMecanicas1", tmp);PlayerInfo[extraid][pPecasMecanicas][1] = strval(tmp);
 		cache_get_field_content(0, "PecasMecanicas2", tmp);PlayerInfo[extraid][pPecasMecanicas][2] = strval(tmp);
@@ -80212,7 +80425,7 @@ COMMAND:nickgb(playerid, params[])
 COMMAND:lancargranada(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-    if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] != FAC_TIPO_PMERJ && FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] != FAC_TIPO_PCERJ && FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] != FAC_TIPO_EB) return SendClientMessage(playerid, COLOR_WHITE, "Você deve ser um policial para usar este comando.");
+    //if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] != FAC_TIPO_PMERJ && FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] != FAC_TIPO_PCERJ && FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] != FAC_TIPO_EB) return SendClientMessage(playerid, COLOR_WHITE, "Você deve ser um policial para usar este comando.");
 	if(PlayerInfo[playerid][pEmServico] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
     for(new h = 0; h < MAX_HOUSES; h++)
 	{
@@ -81084,7 +81297,7 @@ Dialog:DIALOG_VERMULTAS(playerid, response, listitem, inputtext[])
 	else
 	    format(tempo, 124, "Você tem {7E98B6}%d minutos{A9C4E4} para pagar esta multa.",MultasInfo[multa_id][mPayHours]);
 
-	format(Informacoes, 1024, "{A9C4E4}Polícia Militar\t\t{7E98B6}Do Rio de Janeiro \
+	format(Informacoes, 1024, "{A9C4E4}Marinha\t\t{7E98B6}Dos Estados Unidos\
 	\n{A9C4E4}Policial:\t\t\t{7E98B6}%s \n \
 	\n{A9C4E4}Valor:\t\t\t{7E98B6}US$%d \
 	\n{A9C4E4}Razão:\t\t\t{7E98B6}%s \
@@ -81333,7 +81546,7 @@ Dialog:DIALOG_VERMULTAS_P(playerid, response, listitem, inputtext[])
 	else
 	    format(tempo, 124, "Você tem {7E98B6}%d minutos{A9C4E4} para pagar esta multa.",MultasInfo[multa_id][mPayHours]);
 
-	format(Informacoes, 1024, "{A9C4E4}Polícia Militar\t\t{7E98B6}Do Rio de Janeiro \
+	format(Informacoes, 1024, "{A9C4E4}Marinha\t\t{7E98B6}Dos Estados Unidos \
 	\n{A9C4E4}Policial:\t\t\t{7E98B6}%s \n \
 	\n{A9C4E4}Valor:\t\t\t{7E98B6}US$%d \
 	\n{A9C4E4}Razão:\t\t\t{7E98B6}%s \
@@ -83356,29 +83569,29 @@ public TempoParaAtenderem911(playerid,tipo)
 	{
 	    if(CelularData[playerid][VivaVoz] == 0)
 		{
- 			format(str, sizeof(str), "%s Atendente diz: Polícia Militar, %s, qual o seu nome?", strop, strmomento);
+ 			format(str, sizeof(str), "%s Atendente diz: Marinha, %s, qual o seu nome?", strop, strmomento);
     		SendClientMessage(playerid, COLOR_LINHATELEFONICA, str);
 		}
 		else
 		{
-  			format(str, sizeof(str), "[VIVA VOZ] Atendente diz: Polícia Militar, %s, qual o seu nome?", strmomento);
+  			format(str, sizeof(str), "[VIVA VOZ] Atendente diz: Marinha, %s, qual o seu nome?", strmomento);
 			ProxDetector(RANGE_VIVAVOZ, playerid, str, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA);
 		}
-    	CelularData[playerid][LigandoParaNum] = 191;
+    	CelularData[playerid][LigandoParaNum] = 912;
 	}
 	else if(tipo == 2) // MEDIC
 	{
 	    if(CelularData[playerid][VivaVoz] == 0)
 		{
-	    	format(str, sizeof(str), "%s Atendente diz: Bombeiros %s, qual o seu nome?", strop, strmomento);
+	    	format(str, sizeof(str), "%s Atendente diz: Médico %s, qual o seu nome?", strop, strmomento);
     		SendClientMessage(playerid, COLOR_LINHATELEFONICA, str);
 		}
 		else
 		{
-		    format(str, sizeof(str), "[VIVA VOZ] Atendente diz: Bombeiros %s, qual o seu nome?", strmomento);
+		    format(str, sizeof(str), "[VIVA VOZ] Atendente diz: Médico %s, qual o seu nome?", strmomento);
 		    ProxDetector(RANGE_VIVAVOZ, playerid, str, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA, COLOR_LINHATELEFONICA);
 		}
-    	CelularData[playerid][LigandoParaNum] = 194;
+    	CelularData[playerid][LigandoParaNum] = 914;
 	}
 	return 1;
 }
@@ -85357,7 +85570,7 @@ public TempoParaAtenderem(playerid,tipo) //Tipo 1: Celular | Tipo 2: Orelhão
 			else format(strr, 24, "Boa noite");
 
 	        CelularData[playerid][LigandoParaNumAtendido] = 1;
-	        format(str,sizeof(str),"%s Atendente diz: Serviço de emergências %s, qual serviço você necessita? ((policia, bombeiros, ambos))", strop, strr);
+	        format(str,sizeof(str),"%s Atendente diz: Serviço de emergências %s, qual serviço você necessita? ((policia, medico, ambos))", strop, strr);
 	        SendClientMessage(playerid, COLOR_LINHATELEFONICA, str);
 
 			format(str,sizeof(str),"Em_chamada~n~(%d)~n~00:00:00", CelularData[playerid][LigandoParaNum]);

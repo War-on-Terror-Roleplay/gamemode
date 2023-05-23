@@ -27559,8 +27559,8 @@ COMMAND:explosivo(playerid, params[])
 			GetPlayerFacingAngle(playerid, a);
 
 			CreateExplosive(
-				(x + (1.5 * floatsin(-a, degrees))),
-				(y + (1.5 * floatcos(-a, degrees))),
+				(x + (1.0 * floatsin(-a, degrees))),
+				(y + (1.0 * floatcos(-a, degrees))),
 				((param == _:PROXIMITY) ? (z - 1.2) : (z - 0.92)),
 				e_TRIGGER:param,
 				.time = time,
@@ -27623,12 +27623,12 @@ COMMAND:explosivo(playerid, params[])
 }
 
 
-COMMAND:trap(playerid)
+COMMAND:armadilha(playerid)
 {
     if(!PlayerInfo[playerid][pLogado]) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa está logado para usar este comando.");
 
-	/*new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
-    if(FacInfo[FacId][fTipo] == FAC_TIPO_PMERJ || FacInfo[FacId][fTipo] == FAC_TIPO_PCERJ)*/
+	new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
+    if(FacInfo[FacId][fTipo] == FAC_TIPO_PMERJ)
     {
         if (GetPlayerNearbyTrap(playerid) != INVALID_TRAP_ID)
 			return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode colocar uma armadilha em cima da outra.");
@@ -27647,7 +27647,7 @@ COMMAND:trap(playerid)
             str[45];
 
         format(str, sizeof(str), "INFO: Você plantou uma armadilha no chão. (%i)", trapid);
-        SendClientMessage(playerid, -1, str);
+        SendClientMessage(playerid, COLOR_CINZA, str);
     }
     return 1;
 }

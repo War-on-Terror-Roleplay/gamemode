@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20/05/2023 às 20:42
+-- Tempo de geração: 23/05/2023 às 18:29
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -239,15 +239,17 @@ CREATE TABLE `accounts` (
   `Bronze` int(11) DEFAULT NULL,
   `dog` int(11) NOT NULL,
   `minat` int(11) NOT NULL,
-  `ColeteBomba` int(11) NOT NULL
+  `ColeteBomba` int(11) NOT NULL,
+  `Morteiro` int(11) DEFAULT NULL,
+  `KitMedico` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Despejando dados para a tabela `accounts`
 --
 
-INSERT INTO `accounts` (`ID`, `Username`, `Password`, `Level`, `Gender`, `Age`, `Admin`, `Skin`, `pLutaStyle`, `PosX`, `PosY`, `PosZ`, `PosA`, `registrado`, `Health`, `Armour`, `Interior`, `World`, `Tutorial`, `EntrouCasa`, `Grana`, `Morto`, `pAlgemado`, `UltimoLogin`, `EntrouComplexo`, `EntrouEmpresa`, `Celular`, `ChaveEmprestada`, `Job`, `PecasMecanicas0`, `PecasMecanicas1`, `PecasMecanicas2`, `PecasMecanicas3`, `PecasMecanicas4`, `PecasMecanicas5`, `PecasMecanicas6`, `Fac`, `TempoPLD`, `ToolKit`, `ArrombarDNV`, `Galao`, `ArmaMao`, `Mun9mm`, `Mun556`, `MunCart`, `Mun127`, `pSlot1`, `pSlot2`, `pSlot3`, `pSlot4`, `pSlot5`, `pSlot1a`, `pSlot2a`, `pSlot3a`, `pSlot4a`, `pSlot5a`, `FacCargo`, `pEmServico`, `pPayDay`, `pDutySkin`, `pColde`, `pColdreA`, `pArmario1`, `pArmario2`, `pArmario3`, `pArmario4`, `pArmario5`, `pArm9mm`, `pArm556`, `pArmCart`, `pArm127`, `pPrisao`, `pTemPreso`, `CelularL`, `pTester`, `pAceitoSos`, `pNomeOOC`, `pDamage0`, `pDamage1`, `pDamage2`, `pDamage3`, `pDamage4`, `pDamage5`, `pDamage6`, `pDamage7`, `pDamage8`, `pDamage9`, `pDamage10`, `pDamage11`, `pDamage12`, `pDamage13`, `pDamage14`, `pDamage15`, `pDamage16`, `pDamage17`, `pDamage18`, `pDamage19`, `pBanco`, `pMancando`, `pHealthMax`, `pChatStyle`, `pPontos`, `pKickAll`, `pBanAll`, `pBanido`, `pWalkStyle`, `pDoador`, `pChangeNames`, `pDoadorTempo`, `pForca`, `pRadio`, `pRadioChan`, `pMascara`, `pMascaraU`, `pMascID`, `pNomeP`, `pAvisos`, `pAviso1`, `pAviso2`, `pAviso3`, `pMenosDanoTiro`, `pDrogaTime`, `pFome`, `pTremorAtirar`, `pUsouDroga`, `pSkillTiro`, `pSavings`, `pColdreX`, `pColdreY`, `pColdreZ`, `pColdreRX`, `pColdreRY`, `pColdreRZ`, `pColdreBone`, `pDriveLic`, `pWepLic`, `pFlyLic`, `pTruckLic`, `pSavingsGerando`, `pBoombox`, `pCigarros`, `pLogado`, `pCasasDeletadas`, `pJobTempo`, `pPlacas`, `pArrombarDNV_C`, `pRaspador`, `pJobInPd`, `pHabDrug`, `pCelularModel`, `pArmasResetadas`, `pEntrouGaragem`, `CelularRing`, `CelularPlano`, `CelularTPlano`, `CelMinutos`, `CelSMSs`, `CelTotalPD`, `AjudaInicial`, `pTomouAlgumTiro`, `pTomouTiroPesado`, `pTomouTiroBrancas`, `pConvenio`, `pTempoMorto`, `desmanx`, `desmany`, `desmanz`, `desmanr`, `tempodesman`, `pAjudaInicialDim`, `pSalarios`, `Birthdate`, `Origin`, `CreateDate`, `pExecComando`, `pRadioChan2`, `Etnia`, `Peso`, `Altura`, `Olhos`, `Cabelo`, `Fome`, `Sede`, `FactionTeam`, `BanTeam`, `RefundTeam`, `PropertyTeam`, `ucpOwn`, `Bomba`, `TNT`, `C4`, `trafico`, `FabricouDroga`, `CortaRem`, `GranaSuja`, `lavar`, `lavax`, `lavay`, `lavaz`, `pArmario6`, `pArmario7`, `pArmario8`, `pArmario9`, `pArmario10`, `baterias`, `bateria`, `Ouro`, `Prata`, `Bronze`, `dog`, `minat`, `ColeteBomba`) VALUES
-(1, 'Yuri_Braga', 'BDA64281CB3260DC7F7C9F186DEBA2CDA136CA8840CD40830772158D1335D21548AD5CB80E26E59BF33BA62465A469F5A68D0B8F42B38462B2B2750D425F9117', 0, 1, 0, 3002, 20006, 4, -793.328, 2258.51, 59.1971, 269.68, 1, 100, 0, 0, 0, 1, -1, 14665, 0, 0, '20-5-2023 - 14:11:45', -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 411, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 53, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'YurS', '', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', 5000, NULL, 100, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Yuri_Braga', 0, '', 'NULL', NULL, 0, 0, NULL, 0, 0, 6000, 0, 0.098099, 0.280098, -0.146999, 177.2, 177, -4.2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 98, 98, 0, 0, 0, 0, NULL, 0, 8, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, 20069, 0, 0);
+INSERT INTO `accounts` (`ID`, `Username`, `Password`, `Level`, `Gender`, `Age`, `Admin`, `Skin`, `pLutaStyle`, `PosX`, `PosY`, `PosZ`, `PosA`, `registrado`, `Health`, `Armour`, `Interior`, `World`, `Tutorial`, `EntrouCasa`, `Grana`, `Morto`, `pAlgemado`, `UltimoLogin`, `EntrouComplexo`, `EntrouEmpresa`, `Celular`, `ChaveEmprestada`, `Job`, `PecasMecanicas0`, `PecasMecanicas1`, `PecasMecanicas2`, `PecasMecanicas3`, `PecasMecanicas4`, `PecasMecanicas5`, `PecasMecanicas6`, `Fac`, `TempoPLD`, `ToolKit`, `ArrombarDNV`, `Galao`, `ArmaMao`, `Mun9mm`, `Mun556`, `MunCart`, `Mun127`, `pSlot1`, `pSlot2`, `pSlot3`, `pSlot4`, `pSlot5`, `pSlot1a`, `pSlot2a`, `pSlot3a`, `pSlot4a`, `pSlot5a`, `FacCargo`, `pEmServico`, `pPayDay`, `pDutySkin`, `pColde`, `pColdreA`, `pArmario1`, `pArmario2`, `pArmario3`, `pArmario4`, `pArmario5`, `pArm9mm`, `pArm556`, `pArmCart`, `pArm127`, `pPrisao`, `pTemPreso`, `CelularL`, `pTester`, `pAceitoSos`, `pNomeOOC`, `pDamage0`, `pDamage1`, `pDamage2`, `pDamage3`, `pDamage4`, `pDamage5`, `pDamage6`, `pDamage7`, `pDamage8`, `pDamage9`, `pDamage10`, `pDamage11`, `pDamage12`, `pDamage13`, `pDamage14`, `pDamage15`, `pDamage16`, `pDamage17`, `pDamage18`, `pDamage19`, `pBanco`, `pMancando`, `pHealthMax`, `pChatStyle`, `pPontos`, `pKickAll`, `pBanAll`, `pBanido`, `pWalkStyle`, `pDoador`, `pChangeNames`, `pDoadorTempo`, `pForca`, `pRadio`, `pRadioChan`, `pMascara`, `pMascaraU`, `pMascID`, `pNomeP`, `pAvisos`, `pAviso1`, `pAviso2`, `pAviso3`, `pMenosDanoTiro`, `pDrogaTime`, `pFome`, `pTremorAtirar`, `pUsouDroga`, `pSkillTiro`, `pSavings`, `pColdreX`, `pColdreY`, `pColdreZ`, `pColdreRX`, `pColdreRY`, `pColdreRZ`, `pColdreBone`, `pDriveLic`, `pWepLic`, `pFlyLic`, `pTruckLic`, `pSavingsGerando`, `pBoombox`, `pCigarros`, `pLogado`, `pCasasDeletadas`, `pJobTempo`, `pPlacas`, `pArrombarDNV_C`, `pRaspador`, `pJobInPd`, `pHabDrug`, `pCelularModel`, `pArmasResetadas`, `pEntrouGaragem`, `CelularRing`, `CelularPlano`, `CelularTPlano`, `CelMinutos`, `CelSMSs`, `CelTotalPD`, `AjudaInicial`, `pTomouAlgumTiro`, `pTomouTiroPesado`, `pTomouTiroBrancas`, `pConvenio`, `pTempoMorto`, `desmanx`, `desmany`, `desmanz`, `desmanr`, `tempodesman`, `pAjudaInicialDim`, `pSalarios`, `Birthdate`, `Origin`, `CreateDate`, `pExecComando`, `pRadioChan2`, `Etnia`, `Peso`, `Altura`, `Olhos`, `Cabelo`, `Fome`, `Sede`, `FactionTeam`, `BanTeam`, `RefundTeam`, `PropertyTeam`, `ucpOwn`, `Bomba`, `TNT`, `C4`, `trafico`, `FabricouDroga`, `CortaRem`, `GranaSuja`, `lavar`, `lavax`, `lavay`, `lavaz`, `pArmario6`, `pArmario7`, `pArmario8`, `pArmario9`, `pArmario10`, `baterias`, `bateria`, `Ouro`, `Prata`, `Bronze`, `dog`, `minat`, `ColeteBomba`, `Morteiro`, `KitMedico`) VALUES
+(1, 'Yuri_Braga', 'BDA64281CB3260DC7F7C9F186DEBA2CDA136CA8840CD40830772158D1335D21548AD5CB80E26E59BF33BA62465A469F5A68D0B8F42B38462B2B2750D425F9117', 0, 1, 0, 3002, 20006, 4, -793.328, 2258.51, 59.1971, 269.68, 1, 100, 0, 0, 0, 1, -1, 14665, 0, 0, '20-5-2023 - 14:11:45', -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 411, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 53, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'YurS', '', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', 5000, NULL, 100, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Yuri_Braga', 0, '', 'NULL', NULL, 0, 0, NULL, 0, 0, 6000, 0, 0.098099, 0.280098, -0.146999, 177.2, 177, -4.2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 98, 98, 0, 0, 0, 0, NULL, 0, 8, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, 20069, 0, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -757,13 +759,13 @@ CREATE TABLE `faccoes` (
 --
 
 INSERT INTO `faccoes` (`fID`, `fCriada`, `fNome`, `fTipo`, `fRank1`, `fRank2`, `fRank3`, `fRank4`, `fRank5`, `fRank6`, `fRank7`, `fRank8`, `fRank9`, `fRank10`, `fRank11`, `fRank12`, `fEntX`, `fEntY`, `fEntZ`, `fSaiX`, `fSaiY`, `fSaiZ`, `fTrancada`, `fTrafNum`, `fMembros`, `fOrdem`, `fComando`, `fArmarioPosX`, `fArmarioPosY`, `fArmarioPosZ`, `fArmarioVw`) VALUES
-(1, 1, 'PMERJ', 1, 'CFAP', 'Soldado 2ÂªCl PM', 'Soldado 1ÂªCl PM', 'Cabo PM', '3ÂºSargento PM', '2ÂºSargento PM', '1ÂºSargento PM', 'SubTenente PM', 'Aspirante a Oficial PM', '2ÂºTenente PM', '1ÂºTenente PM', 'CapitÃ£o PM', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1535.51, -1644.62, 777.502, 1),
+(1, 1, 'PMERJ', 1, 'CFAP', 'Soldado 2Ã‚ÂªCl PM', 'Soldado 1Ã‚ÂªCl PM', 'Cabo PM', '3Ã‚ÂºSargento PM', '2Ã‚ÂºSargento PM', '1Ã‚ÂºSargento PM', 'SubTenente PM', 'Aspirante a Oficial PM', '2Ã‚ÂºTenente PM', '1Ã‚ÂºTenente PM', 'CapitÃƒÂ£o PM', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1535.51, -1644.62, 777.502, 1),
 (2, 1, 'PCERJ', 2, 'ACADEPOL', 'Inspetor', 'Investigador', 'Investigador Chefe', 'CORE', 'Coordenador Chefe', '', '', '', '', 'Delegado Adjunto', 'Delegado Titular', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1402.9, -15.6177, 1001.01, 9),
-(3, 1, 'CBMERJ', 3, 'Aluno Soldado', 'Soldado', 'Cabo', '3Âº Sargento', '2Âº Sargento', '1Âº Sargento', 'Cadete', 'Aspirante a Oficial', '2Âº Tenente', '1Âº Tenente', 'CapitÃ£o', 'Major', 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 959.236, -1444.91, 13.525, 0),
-(4, 1, 'GOV-RJ', 4, 'FuncionÃ¡rios Pub. Nv. 1', 'FuncionÃ¡rios Pub. Nv. 2', 'FuncionÃ¡rios Pub. Nv. 3', 'FuncionÃ¡rios Publicos N', 'FuncionÃ¡rios Publicos N', 'FuncionÃ¡rios Publicos N', 'Diretores Setoriais Mun', 'Vice-SecretÃ¡rio Municip', 'SecretÃ¡rio Municipal', 'Assessor', 'Vice-Prefeito', 'Prefeito', 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0),
-(5, 1, 'PROTEGE', 6, 'Em FormaÃ§Ã£o', 'Vigilante', 'Vigilante LÃ­der', 'Chefe de Frota', 'Supervisor', 'Vigilante', 'Motorista', 'Chefe de SeguranÃ§a', 'Supervisor', 'Gerente', 'Coordenador', 'Diretor', 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 1757.82, -1567.17, 13.7376, 0),
+(3, 1, 'CBMERJ', 3, 'Aluno Soldado', 'Soldado', 'Cabo', '3Ã‚Âº Sargento', '2Ã‚Âº Sargento', '1Ã‚Âº Sargento', 'Cadete', 'Aspirante a Oficial', '2Ã‚Âº Tenente', '1Ã‚Âº Tenente', 'CapitÃƒÂ£o', 'Major', 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 959.236, -1444.91, 13.525, 0),
+(4, 1, 'GOV-RJ', 4, 'FuncionÃƒÂ¡rios Pub. Nv.', 'FuncionÃƒÂ¡rios Pub. Nv.', 'FuncionÃƒÂ¡rios Pub. Nv.', 'FuncionÃƒÂ¡rios Publicos', 'FuncionÃƒÂ¡rios Publicos', 'FuncionÃƒÂ¡rios Publicos', 'Diretores Setoriais Mun', 'Vice-SecretÃƒÂ¡rio Munic', 'SecretÃƒÂ¡rio Municipal', 'Assessor', 'Vice-Prefeito', 'Prefeito', 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0),
+(5, 1, 'PROTEGE', 6, 'Em FormaÃƒÂ§ÃƒÂ£o', 'Vigilante', 'Vigilante LÃƒÂ­der', 'Chefe de Frota', 'Supervisor', 'Vigilante', 'Motorista', 'Chefe de SeguranÃƒÂ§a', 'Supervisor', 'Gerente', 'Coordenador', 'Diretor', 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 1757.82, -1567.17, 13.7376, 0),
 (6, 1, 'TJRJ', 16, '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 15555, 0, 5, 0, 0, 0, 0, 0),
-(7, 1, 'Gotti Ties', 15, 'Interno', 'FuncionÃ¡rio I', 'FuncionÃ¡rio II', 'FuncionÃ¡rio III', 'FuncionÃ¡rio IV', 'FuncionÃ¡rio V', 'Supervisor', 'LÃ­der Setorial', 'Gestor Empresarial', 'Chefe de OperaÃ§Ãµes', 'Chefe Executivo', 'Presidente', 0, 0, 0, 0, 0, 0, 0, 3456843, 0, 6, 0, 0, 0, 0, 0);
+(7, 1, 'Gotti Ties', 15, 'Interno', 'FuncionÃƒÂ¡rio I', 'FuncionÃƒÂ¡rio II', 'FuncionÃƒÂ¡rio III', 'FuncionÃƒÂ¡rio IV', 'FuncionÃƒÂ¡rio V', 'Supervisor', 'LÃƒÂ­der Setorial', 'Gestor Empresarial', 'Chefe de OperaÃƒÂ§ÃƒÂµes', 'Chefe Executivo', 'Presidente', 0, 0, 0, 0, 0, 0, 0, 3456843, 0, 6, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -937,15 +939,15 @@ CREATE TABLE `jockeyclub` (
 
 INSERT INTO `jockeyclub` (`id`, `nome`, `vitorias`, `derrotas`, `corridas`) VALUES
 (1, 'Hard Trick', 195, 752, 947),
-(2, 'Ultra-RÃƒÂ¡pido', 118, 767, 885),
-(3, 'PÃƒÂ© de Pano', 290, 607, 897),
+(2, 'Ultra-RÃƒÆ’Ã‚Â¡pido', 118, 767, 885),
+(3, 'PÃƒÆ’Ã‚Â© de Pano', 290, 607, 897),
 (4, 'Holy Legal', 173, 735, 908),
 (5, 'COWBOY', 169, 698, 867),
 (6, 'Bala no Alvo', 324, 587, 911),
 (7, 'Kiss me now', 162, 741, 903),
 (8, 'Esfinge', 290, 587, 877),
-(9, 'TupÃƒÂ£ Sky', 197, 729, 926),
-(10, 'JosÃƒÂ© Cuervo', 177, 729, 906),
+(9, 'TupÃƒÆ’Ã‚Â£ Sky', 197, 729, 926),
+(10, 'JosÃƒÆ’Ã‚Â© Cuervo', 177, 729, 906),
 (11, 'X-Thunder', 128, 830, 958),
 (12, 'Caribean Queen', 186, 654, 840),
 (13, 'Hypnose', 173, 704, 877),

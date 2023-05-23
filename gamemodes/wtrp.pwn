@@ -1303,7 +1303,7 @@ new Text:gTime;
 #define MODEL_SELECTION_SKIN 1
 
 //#define NAME_DRAWDISTANCE 		20.0
-#define NT_DISTANCE 20.0
+#define NT_DISTANCE 30.0
 new Text3D:cNametag[MAX_PLAYERS];
 #define DISTANCIA_FERIMENTOS    20.0
 
@@ -7352,10 +7352,10 @@ CMD:criarmorteiro(playerid, params[])
 	else
 	{
 		PlayerInfo[playerid][pMorteiro]--;
-		PlayerInfo[playerid][pArrombarDNV_C] = 2400;
+
         /*Missil[0][playerid] = CreateObject(-2201,x,y,z+3,0.0000000,0.0000000,44.9950000);
 		Missil[1][playerid] = CreateObject(-2201,x,y,z+8,0.0000000,0.0000000,44.9950000);*/
-		MorteiroPrincipal[0][playerid] = CreateDynamicObject(-2201,x,y,z+1,0.0000000,0.0000000,0.0000000);
+		MorteiroPrincipal[0][playerid] = CreateObject(-2201,x,y,z-1,0.0000000,0.0000000,0.0000000);
 		SetPlayerPos(playerid, x, y, z);
 		MissilCriado[playerid] = true;
 		SendClientMessage(playerid, COLOR_WHITE, "INFO: Morteiro armado.");
@@ -7378,13 +7378,14 @@ CMD:disparar(playerid, params[])
 	}
 	else
 	{
+		PlayerInfo[playerid][pArrombarDNV_C] = 1;
 	    new Float:x, Float:y, Float:z;
 	    GetObjectPos(Missil[0][playerid], x, y, z);
 	    //CreateExplosion(x, y, z, 1, 1);
 	    MoveObject(Missil[0][playerid], x, y, z+700, 90, 0, 0, 0);
 	    MoveObject(Missil[1][playerid], x, y, z+705, 90, 0, 0, 0);
 	    MoveObject(Missil[2][playerid], x, y, z+710, 90, 0, 0, 0);
-	    SetTimerEx("QuedaMissil", 5000, false, "i", playerid);
+	    SetTimerEx("QuedaMissil", 500, false, "i", playerid);
 	}
 	new Float:X, Float:Y, Float:Z;
 	new worldid = GetPlayerVirtualWorld(playerid);
@@ -7400,9 +7401,6 @@ CMD:disparar(playerid, params[])
 			Streamer_UpdateEx(i, X, Y, (Z), worldid, intid);
 		}
 	}
-
-
-	SetTimerEx("LancarFoguete", 2500, 0, "i", playerid);
 
 	foreach(Player, i)
 	{
@@ -7475,6 +7473,8 @@ public MissilExplode(playerid)
 	DestroyObject(MissilCaindo[0][playerid]);
 	DestroyObject(MissilCaindo[1][playerid]);
 	DestroyObject(MissilCaindo[2][playerid]);
+	DestroyObject(MissilCaindo[2][playerid]);
+	DestroyObject(MorteiroPrincipal[0][playerid]);
 	Missil[0][playerid] = 0;
 	Missil[0][playerid] = 0;
 	Missil[0][playerid] = 0;
@@ -7788,7 +7788,44 @@ COMMAND:propertyteam(playerid, params[])
     }
     return 1;
 }
+COMMAND:setmorteiro(playerid, params[])
+{
+    if (PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
+    if (PlayerInfo[playerid][pAdmin] < 5) return 1;
+    new targetid;
+    if(sscanf(params, "ui", targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /setmorteiro [id]");
+    else
+    {
+        if (!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_WHITE, "{FF6347}Este jogador não está conectado!");
+        if(PlayerInfo[playerid][pAdmin] >= 5)
+        {
+            new admnome[24];
+            if(PlayerInfo[playerid][pAdmin] > 3000) format(admnome, sizeof(admnome), "%s", PlayerInfo[playerid][pNomeOOC]);
+            else format(admnome, sizeof(admnome), "%s", PlayerName(playerid, 0));
 
+            if(PlayerInfo[targetid][pMorteiro] == 0)
+            {
+                PlayerInfo[targetid][pMorteiro] = 100;
+                PlayerInfo[targetid][pKitMedico] = 100;
+                PlayerInfo[targetid][pMinaTerrestre] = 100;
+                PlayerInfo[targetid][pColeteBomba] = 100;
+                format(string,sizeof(string),"AdmCmd: Você setou para %s 10 morteiros.",PlayerName(targetid, 0));
+                SendClientMessage(playerid, COLOR_LIGHTRED, string);
+                format(string,sizeof(string),"-> %s lhe deu 10 morteiros, parabéns por esta conquista.",admnome);
+                SendClientMessage(targetid, COLOR_YELLOW, string);
+            }
+            else
+            {
+                PlayerInfo[targetid][pMorteiro] = 0;
+                format(string,sizeof(string),"AdmCmd: Você removeu os morteiros de %s.",PlayerName(targetid, 0));
+                SendClientMessage(playerid, COLOR_LIGHTRED, string);
+                format(string,sizeof(string),"AdmCmd: %s removeu seus morteiros.",admnome);
+                SendClientMessage(targetid, COLOR_LIGHTRED, string);
+            }
+        }
+    }
+    return 1;
+}
 COMMAND:factionteam(playerid, params[])
 {
     if (PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
@@ -11163,6 +11200,7 @@ public ResetVarsPlayerInfo(extraid)
 	PlayerInfo[extraid][pC4] = 0;
 	PlayerInfo[extraid][pTNT] = 0;
 	PlayerInfo[extraid][pColeteBomba] = 0;
+	FishWeigh[extraid] = 0;
 	PlayerInfo[extraid][pMorteiro] = 0;
 	PlayerInfo[extraid][pKitMedico] = 0;
 	PlayerInfo[extraid][pPecasMecanicas][0] = 0;
@@ -17323,7 +17361,7 @@ public OnPlayerUpdate_Timer()
       					format(sspeed, sizeof(sspeed), "%.0f km/h", final_speed);
      					PlayerTextDrawSetString(playerid, Speedo[playerid], sspeed);
 					}
-					if(final_speed > 150.0)
+					if(final_speed > 300.0)
 				   	{
 				  		TogglePlayerControllable(playerid, false);
 					   	format(string, sizeof(string), "AdmWarn: O ANTI-CHEAT detectou que %s(%d) pode estar de Speed Hack.", PlayerName(playerid,0), playerid);
@@ -17784,7 +17822,7 @@ public OnPlayerUpdate_Timer()
 				   	new surf = GetPlayerSurfingVehicleID(playerid);
 					if(surf == INVALID_VEHICLE_ID)
 					{
-				  		if(GetPlayerSpeed_HACK(playerid) > 100.0)
+				  		if(GetPlayerSpeed_HACK(playerid) > 300.0)
 				   		{
 				     	    if(AvisoDeSpeed[playerid] == 0)
 				     	    {
@@ -20840,7 +20878,7 @@ public SalvarPlayer(playerid)
 		);
 		mysql_function_query(Pipeline, query, false, "", "");
 
-    	format(query, sizeof(query), "UPDATE `accounts` SET `pArmario6` = '%d', `pArmario7` = '%d', `pArmario8` = '%d', `pArmario9` = '%d', `pArmario10` = '%d', `baterias` = '%d', `KitMedico` = '%d' WHERE `ID` = '%d'",
+    	format(query, sizeof(query), "UPDATE `accounts` SET `pArmario6` = '%d', `pArmario7` = '%d', `pArmario8` = '%d', `pArmario9` = '%d', `pArmario10` = '%d', `baterias` = '%d', `KitMedico` =, `Peixes` = '%d' WHERE `ID` = '%d'",
 			PlayerInfo[playerid][pArmario6],
 			PlayerInfo[playerid][pArmario7],
 			PlayerInfo[playerid][pArmario8],
@@ -20848,6 +20886,7 @@ public SalvarPlayer(playerid)
 			PlayerInfo[playerid][pArmario10],
 			PlayerInfo[playerid][pBateria],
 			PlayerInfo[playerid][pKitMedico],
+			FishWeigh[playerid],
 		    PlayerInfo[playerid][pID]
 		);
 		mysql_function_query(Pipeline, query, false, "", "");
@@ -43365,6 +43404,7 @@ public LoadAccountInfo(extraid)
 		cache_get_field_content(0, "C4", tmp);			PlayerInfo[extraid][pC4] = strval(tmp);
 		cache_get_field_content(0, "TNT", tmp);			PlayerInfo[extraid][pTNT] = strval(tmp);
 		cache_get_field_content(0, "ColeteBomba", tmp);			PlayerInfo[extraid][pColeteBomba] = strval(tmp);
+		cache_get_field_content(0, "Peixes", tmp);			FishWeigh[extraid] = strval(tmp);
 		cache_get_field_content(0, "Morteiro", tmp);			PlayerInfo[extraid][pMorteiro] = strval(tmp);
 		cache_get_field_content(0, "KitMedico", tmp);			PlayerInfo[extraid][pKitMedico] = strval(tmp);
 		cache_get_field_content(0, "PecasMecanicas0", tmp);PlayerInfo[extraid][pPecasMecanicas][0] = strval(tmp);
@@ -48268,7 +48308,7 @@ CMD:comprar(playerid, params[])
 	}
 	else if(IsPlayerInRangeOfPoint(playerid, 5,  1488.6760,-1721.4026,8.2160))
 	{	
-		Dialog_Show(playerid, Dialog_Bomba, DIALOG_STYLE_TABLIST_HEADERS, "Mercado Negro", "Produto\tPreço\n1x Dinamite\tUS$200\n1x C4\tUS$400\n1x TNT\tUS$800\n1x Mina Terrestre\tUS$150", "Comprar", "Cancelar");
+		Dialog_Show(playerid, Dialog_Bomba, DIALOG_STYLE_TABLIST_HEADERS, "Mercado Negro", "Produto\tPreço\n1x Dinamite\tUS$200\n1x C4\tUS$400\n1x TNT\tUS$800\n1x Mina Terrestre\tUS$150\n1x Morteiro\tUS$250\n1x Kit medico\tUS$250", "Comprar", "Cancelar");
 	}
 	else if(IsPlayerInRangeOfPoint(playerid, 5, 2114.7300,-1806.5607,13.5616)) //Stacked aberta
 	{
@@ -48332,6 +48372,26 @@ Dialog:Dialog_Bomba(playerid, response, listitem, inputtext[])
 					PlayerInfo[playerid][pMinaTerrestre]++;
 					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Bombas] Você comprou uma mina terrestre por US$150.");
 					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-150;
+				}
+				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não tem dinheiro o suficiente.");
+            }
+		    case 4:
+		    {
+		        if(PlayerInfo[playerid][pGrana] >= 250)
+				{
+					PlayerInfo[playerid][pMinaTerrestre]++;
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Bombas] Você comprou um morteiro por US$250.");
+					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-250;
+				}
+				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não tem dinheiro o suficiente.");
+            }
+		    case 5:
+		    {
+		        if(PlayerInfo[playerid][pGrana] >= 250)
+				{
+					PlayerInfo[playerid][pMinaTerrestre]++;
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "Você comprou um kit médico por US$250.");
+					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-250;
 				}
 				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não tem dinheiro o suficiente.");
             }
@@ -88429,16 +88489,17 @@ CMD:pescar(playerid,params[])
 	if(Fishingando[playerid] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já está pescando.");
 	if(!IsPlayerInAnyVehicle(playerid))
 	{
-        if(IsPlayerInRangeOfPoint(playerid,10.0,403.6926,-2088.1819,7.8359) || IsPlayerInRangeOfPoint(playerid,10.0,354.9837,-2088.4375,7.8359) ||
-        IsPlayerInRangeOfPoint(playerid,10.0,398.7906,-2088.4426,7.8359) || IsPlayerInRangeOfPoint(playerid,10.0,357.9417,-2088.7976,7.8359) ||
-        IsPlayerInRangeOfPoint(playerid,10.0,396.1158,-2088.4426,7.8359) || IsPlayerInRangeOfPoint(playerid,10.0,349.8815,-2086.5725,7.8301) ||
-        IsPlayerInRangeOfPoint(playerid,10.0,391.0401,-2088.4419,7.8359) || IsPlayerInRangeOfPoint(playerid,10.0,350.1172,-2073.5886,7.8359) ||
-        IsPlayerInRangeOfPoint(playerid,10.0,383.4347,-2088.4409,7.8359) || IsPlayerInRangeOfPoint(playerid,10.0,350.0663,-2067.8779,7.8359) ||
-        IsPlayerInRangeOfPoint(playerid,10.0,374.8870,-2088.4392,7.8359) || IsPlayerInRangeOfPoint(playerid,10.0,350.0005,-2065.2246,7.8359) ||
-        IsPlayerInRangeOfPoint(playerid,10.0,369.6994,-2088.4382,7.8359) || IsPlayerInRangeOfPoint(playerid,10.0,349.8986,-2059.9092,7.8359) ||
-        IsPlayerInRangeOfPoint(playerid,10.0,367.0965,-2088.4382,7.8359) || IsPlayerInRangeOfPoint(playerid,10.0,349.8648,-2052.6252,7.8359) ||
-        IsPlayerInRangeOfPoint(playerid,10.0,362.4504,-2088.4380,7.8359)
-        )
+	    if(IsPlayerInRangeOfPoint(playerid,10.0,-421.8124,1163.7900,1.6578) || IsPlayerInRangeOfPoint(playerid,10.0,-414.5241,1190.0347,1.7527) ||
+	    IsPlayerInRangeOfPoint(playerid,10.0,-419.8822,1164.7745,2.0288) || IsPlayerInRangeOfPoint(playerid,10.0,-414.9144,1192.6268,1.3929) ||
+	    IsPlayerInRangeOfPoint(playerid,10.0,-415.9147,1162.6982,2.4821) || IsPlayerInRangeOfPoint(playerid,10.0,-414.6339,1195.3804,1.3882) ||
+	    IsPlayerInRangeOfPoint(playerid,10.0,-412.1781,1158.1616,1.1650) || IsPlayerInRangeOfPoint(playerid,10.0,-414.2467,1197.8469,1.4638) ||
+	    IsPlayerInRangeOfPoint(playerid,10.0,-410.4559,1154.1013,1.2015) || IsPlayerInRangeOfPoint(playerid,10.0,413.9751,1200.4679,1.4984) ||
+	    IsPlayerInRangeOfPoint(playerid,10.0,-413.1750,1176.1078,1.8043) || IsPlayerInRangeOfPoint(playerid,10.0,-413.6239,1203.8584,1.5431) ||
+	    IsPlayerInRangeOfPoint(playerid,10.0,-413.9286,1178.0979,1.4633) || IsPlayerInRangeOfPoint(playerid,10.0,-413.2846,1207.1333,1.5864) ||
+	    IsPlayerInRangeOfPoint(playerid,10.0,-414.4085,1181.1007,1.5727) || IsPlayerInRangeOfPoint(playerid,10.0,-412.9334,1210.0679,1.6498) ||
+	    IsPlayerInRangeOfPoint(playerid,10.0,-414.7546,1184.4944,1.8035) || IsPlayerInRangeOfPoint(playerid,10.0,-412.6500,1213.2979,1.5125) ||
+	    IsPlayerInRangeOfPoint(playerid,10.0,-414.4362,1187.6384,1.9408) || IsPlayerInRangeOfPoint(playerid,10.0,-411.8940,1216.5142,1.4954)
+	    )
 		{
 		    if(FishWeighBarco[playerid] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já tem algum barco carregado com peixes.");
 		    if(PlayerInfo[playerid][pLoadCrate] != -1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já está carregando uma caixa.");
@@ -88500,32 +88561,32 @@ CMD:pescar(playerid,params[])
 		    }
 		}
 
-		if(MaxPesoBoat < 10000) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este veículo não pode ser utilizado para pesca.");
+		if(MaxPesoBoat < 20000) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Este veículo não pode ser utilizado para pesca.");
 		new slot = GetVehicleSlot(VehicleP);
 		if(slot > -1) {
 	    	if(VehicleInfo[slot][vOwner] == PlayerInfo[playerid][pID]) {
 	    		if(FishBarcoPoint[playerid] == 0) {
-	    		    if(IsPlayerInRangeOfPoint(playerid,40.0,375.8828,-2153.1353,-0.9955)) {
+	    		    if(IsPlayerInRangeOfPoint(playerid,40.0,428.6887, -2175.5571, 6.7853)) {
 		    		    FishWeighBarcoID[playerid] = VehicleP;
-
+		    		    
 		    		    Fishingando[playerid] = 1;
 						GetPlayerPos(playerid,x,y,z);
 				  		FishingPosX[playerid] = x;
 				    	FishingPosY[playerid] = y;
 				    	FishingPosZ[playerid] = z;
-		    		    FishTimer[playerid] = SetTimerEx("PlayerFishing",4000,false,"ii",playerid,2);
+		    		    FishTimer[playerid] = SetTimerEx("PlayerFishing",9000,false,"ii",playerid,2);
 	     				SendClientMessage(playerid,COLOR_LIGHTGREEN,"Pescando... Não se mova.");
 	     				return 1;
 					}
 	    		    else {
 						SendClientMessage(playerid, COLOR_LIGHTGREEN, "Vá até o ponto de pesca e utilize o comando novamente.");
 						cp_target[playerid] = 1;
-		    		    SetPlayerCheckpoint(playerid, 375.8828,-2153.1353,-0.9955, 10.0);
+		    		    SetPlayerCheckpoint(playerid, 428.6887, -2175.5571, 6.7853, 10.0);
 		    		    return 1;
 					}
 	    		}
 	    		if(FishBarcoPoint[playerid] >= 1 && FishBarcoPoint[playerid] < 11) {
-	    		    if(IsPlayerInRangeOfPoint(playerid,40.0,375.8828,-2153.1353,-0.9955)) {
+	    		    if(IsPlayerInRangeOfPoint(playerid,40.0,428.6887, -2175.5571, 6.7853)) {
 		    		    FishWeighBarcoID[playerid] = VehicleP;
 
 						Fishingando[playerid] = 1;
@@ -88533,50 +88594,50 @@ CMD:pescar(playerid,params[])
 				  		FishingPosX[playerid] = x;
 				    	FishingPosY[playerid] = y;
 				    	FishingPosZ[playerid] = z;
-		    		    FishTimer[playerid] = SetTimerEx("PlayerFishing",4000,false,"ii",playerid,2);
+		    		    FishTimer[playerid] = SetTimerEx("PlayerFishing",9000,false,"ii",playerid,2);
 	     				SendClientMessage(playerid,COLOR_LIGHTGREEN,"Pescando... Não se mova.");
 	     				return 1;
 					}
 	    		    else {
 						SendClientMessage(playerid, COLOR_LIGHTGREEN, "Vá até o ponto de pesca e utilize o comando novamente.");
 						cp_target[playerid] = 1;
-		    		    SetPlayerCheckpoint(playerid, 375.7923,-2158.4731,2.8651, 10.0);
+		    		    SetPlayerCheckpoint(playerid, 428.6887, -2175.5571, 6.7853, 10.0);
 		    		    return 1;
 					}
 	    		}
 	    		else if(FishBarcoPoint[playerid] >= 11 && FishBarcoPoint[playerid] < 21) {
-	    		    if(IsPlayerInRangeOfPoint(playerid,40.0,375.7923,-2158.4731,2.8651)) {
+	    		    if(IsPlayerInRangeOfPoint(playerid,40.0,282.5921, -2122.5930, 6.7853)) {
 					    GetPlayerPos(playerid,x,y,z);
 				  		FishingPosX[playerid] = x;
 				    	FishingPosY[playerid] = y;
 				    	FishingPosZ[playerid] = z;
 				    	Fishingando[playerid] = 1;
-		    		    FishTimer[playerid] = SetTimerEx("PlayerFishing",4000,false,"ii",playerid,2);
+		    		    FishTimer[playerid] = SetTimerEx("PlayerFishing",9000,false,"ii",playerid,2);
 	     				SendClientMessage(playerid,COLOR_LIGHTGREEN,"Pescando... Não se mova.");
 	     				return 1;
 					}
 	    		    else {
 						SendClientMessage(playerid, COLOR_LIGHTGREEN, "Vá até o ponto de pesca e utilize o comando novamente.");
 						cp_target[playerid] = 1;
-		    		    SetPlayerCheckpoint(playerid, 365.1804,-2194.3152,-0.1900, 10.0);
+		    		    SetPlayerCheckpoint(playerid, 282.5921, -2122.5930, 6.7853, 10.0);
 		    		    return 1;
 					}
 	    		}
 	    		else if(FishBarcoPoint[playerid] >= 21 && FishBarcoPoint[playerid] < 31) {
-	    		    if(IsPlayerInRangeOfPoint(playerid,40.0,365.1804,-2194.3152,-0.1900)) {
+	    		    if(IsPlayerInRangeOfPoint(playerid,40.0,224.2460, -2260.6943, 6.7853)) {
 					    GetPlayerPos(playerid,x,y,z);
 				  		FishingPosX[playerid] = x;
 				    	FishingPosY[playerid] = y;
 				    	FishingPosZ[playerid] = z;
 				    	Fishingando[playerid] = 1;
-		    		    FishTimer[playerid] = SetTimerEx("PlayerFishing",4000,false,"ii",playerid,2);
+		    		    FishTimer[playerid] = SetTimerEx("PlayerFishing",9000,false,"ii",playerid,2);
 	     				SendClientMessage(playerid,COLOR_LIGHTGREEN,"Pescando... Não se mova.");
 	     				return 1;
 					}
 	    		    else {
 						SendClientMessage(playerid, COLOR_LIGHTGREEN, "Vá até o ponto de pesca e utilize o comando novamente.");
 						cp_target[playerid] = 1;
-		    		    SetPlayerCheckpoint(playerid, 365.1804,-2194.3152,-0.1900, 10.0);
+		    		    SetPlayerCheckpoint(playerid, 224.2460, -2260.6943, 6.7853, 10.0);
 		    		    return 1;
 					}
 	    		}
@@ -88601,28 +88662,28 @@ CMD:meuspeixes(playerid,params[])
 CMD:venderpeixes(playerid,params[])
 {
     if (PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_WHITE, "Você deve estar logado para utilizar este comando.");
-    if(PlayerInfo[playerid][pJob] != JOB_PESCADOR) return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não é um pescador.");
-
+    if(PlayerInfo[playerid][pJob] != JOB_PESCADOR) return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO: Você não é um pescador.");
+    
 	if(IsPlayerInAnyVehicle(playerid)) {
 		new VehicleP = GetPlayerVehicleID(playerid);
 	    if(FishWeighBarcoID[playerid] > -1) {
 	        if(FishWeigh[playerid] > 0 || FishWeighBarco[playerid] > 0) {
 		        if(FishWeighBarcoID[playerid] == VehicleP) {
-		            if(!IsPlayerInRangeOfPoint(playerid,15.0,2784.9338,-2454.6338,13.6344)) {
-					    SetPlayerCheckpoint(playerid, 2784.9338,-2454.6338,13.6344, 10.0);
-						SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não está na casa de vendas de peixe.");
+		            if(!IsPlayerInRangeOfPoint(playerid,15.0,-754.3839,1529.4766,26.9495)) {
+					    SetPlayerCheckpoint(playerid, -754.3839,1529.4766,26.9495, 10.0);
+						SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO: Você não está na casa de vendas de peixe.");
 						cp_target[playerid] = 1;
 						return 1;
 					}
 
 					new pay;
 				 	if(FishWeigh[playerid] > 0) {
-					 	pay = floatround(FishWeigh[playerid]*0.5);
-					 	format(string,sizeof(string),"Você recebeu US$%i por vender %i lbs de peixes.",pay,FishWeigh[playerid]);
+					 	pay = floatround(FishWeigh[playerid]*0.2);
+					 	format(string,sizeof(string),"Você recebeu $%i por vender %i lbs de peixes.",pay,FishWeigh[playerid]);
 					}
 					else if(FishWeighBarco[playerid] > 0) {
-						pay = floatround(FishWeighBarco[playerid]*0.5);
-						format(string,sizeof(string),"Você recebeu US$%i por vender %i lbs de peixes.",pay,FishWeighBarco[playerid]);
+						pay = floatround(FishWeighBarco[playerid]*0.2);
+						format(string,sizeof(string),"Você recebeu $%i por vender %i lbs de peixes.",pay,FishWeighBarco[playerid]);
 					}
 				    SendClientMessage(playerid,COLOR_LIGHTGREEN,string);
 
@@ -88633,27 +88694,27 @@ CMD:venderpeixes(playerid,params[])
 				    FishWeighBarco[playerid] = 0;
 				    PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]+pay;
 		        }
-		        else return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não está no seu barco carregado.");
+		        else return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO: Você não está no seu barco carregado.");
 			}
 	    }
-	    else return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não tem peixes para vender.");
+	    else return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO: Você não tem peixes para vender.");
 	}
 	else {
 	    if(FishWeigh[playerid] > 0 || FishWeighBarco[playerid] > 0) {
 			if(!IsPlayerInRangeOfPoint(playerid,5.0, -754.3839,1529.4766,26.9495)) {
 			    SetPlayerCheckpoint(playerid, -754.3839,1529.4766,26.9495, 5.0);
-				SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não está na casa de vendas de peixe.");
+				SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO: Você não está na casa de vendas de peixe.");
 				cp_target[playerid] = 1;
 				return 1;
 			}
 		 	new pay;
 		 	if(FishWeigh[playerid] > 0) {
-			 	pay = floatround(FishWeigh[playerid]*0.5);
-			 	format(string,sizeof(string),"Você recebeu US$%i por vender %i lbs de peixes.",pay,FishWeigh[playerid]);
+			 	pay = floatround(FishWeigh[playerid]*0.2);
+			 	format(string,sizeof(string),"Você recebeu $%i por vender %i lbs de peixes.",pay,FishWeigh[playerid]);
 			}
 			else if(FishWeighBarco[playerid] > 0) {
-				pay = floatround(FishWeighBarco[playerid]*0.5);
-				format(string,sizeof(string),"Você recebeu US$%i por vender %i lbs de peixes.",pay,FishWeighBarco[playerid]);
+				pay = floatround(FishWeighBarco[playerid]*0.2);
+				format(string,sizeof(string),"Você recebeu $%i por vender %i lbs de peixes.",pay,FishWeighBarco[playerid]);
 			}
 		    SendClientMessage(playerid,COLOR_LIGHTGREEN,string);
 
@@ -88664,7 +88725,7 @@ CMD:venderpeixes(playerid,params[])
 		    FishWeighBarco[playerid] = 0;
 		    PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]+pay;
 		}
-		else return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não tem peixes para vender.");
+		else return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO: Você não tem peixes para vender.");
 	}
     return true;
 }
@@ -88674,14 +88735,14 @@ public PlayerFishing(playerid,tipo)
 {
     new fish = randomEx(0,8), str[256], fweight;
     RemovePlayerAttachedObject(playerid,0);
-
+    
     new Float:DistMax;
     if(tipo == 1) DistMax = 3.0;
     else if(tipo == 2) DistMax = 20.0;
-
+    
     if(!IsPlayerInRangeOfPoint(playerid, DistMax, FishingPosX[playerid],FishingPosY[playerid],FishingPosZ[playerid]))
 	{
-	 	SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Você saiu do local em que você estava pescando e a pesca foi cancelada.");
+	 	SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO: Você saiu do local em que você estava pescando e a pesca foi cancelada.");
 	 	Fishingando[playerid] = 0;
 	}
 	switch(fish)
@@ -88710,7 +88771,7 @@ public PlayerFishing(playerid,tipo)
 	}
 	SCM(playerid, COLOR_LIGHTGREEN, str);
 	Fishingando[playerid] = 0;
-
+	
 	if(tipo == 2)
 	{
 		FishBarcoPoint[playerid]++;
@@ -89253,7 +89314,7 @@ Dialog:WoW(playerid, response, listitem, inputtext[]) {
 		    Dialog_Show(playerid, DIALOG_GPS_END, DIALOG_STYLE_INPUT, "GPS - Endereço residêncial", "Entre com o endereço da residência:", "Encontrar", "Cancelar");
 			return 1;
 		}
-	    case 1: GPS(playerid, "16ºBPM/UPP", 2515.4541,-1524.9955,24.0324);
+	    case 1: GPS(playerid, "USMC", 2515.4541,-1524.9955,24.0324);
 	    case 2:
 		{
             emp_pox = GetClosetPump(playerid);
@@ -89304,13 +89365,13 @@ Dialog:WoW(playerid, response, listitem, inputtext[]) {
 			 emp_pox = GetClosetBusiness(playerid, EMP_TIPO_LIC_CENTER);
 			 GPS(playerid, "Auto Escola", EmpInfo[emp_pox][eExX],EmpInfo[emp_pox][eExY],EmpInfo[emp_pox][eExZ]);
 		}
-		case 16: GPS(playerid, "Delegacia", 1729.1348,-1577.5988,13.5451);
+		case 16: GPS(playerid, "Mercado Negro", 1729.1348,-1577.5988,13.5451);
 		case 17:
 		{
 		    emp_pox = GetClosetBusiness(playerid, 8);
 		    GPS(playerid, "Loja de Armas", EmpInfo[emp_pox][eExX],EmpInfo[emp_pox][eExY],EmpInfo[emp_pox][eExZ]);
 		}
-		case 18: GPS(playerid, "UPA 24 HORAS", 2027.3602,-1386.4576,17.2108);
+		case 18: GPS(playerid, "Hospital", 2027.3602,-1386.4576,17.2108);
 		case 19: LGPS(playerid);
  	}
  	SendClientMessage(playerid, COLOR_LIGHTGREEN, "O local escolhido foi marcado em seu GPS.");
@@ -89319,7 +89380,7 @@ Dialog:WoW(playerid, response, listitem, inputtext[]) {
 CMD:gps(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-	Dialog_Show(playerid, WoW, DIALOG_STYLE_LIST, "GPS", "Procurar Endereço >>\n16ºBPM\nPosto de Gasolina\nAgência de Empregos\n24-7\nConcesionária\nLoja de Roupas\nBanco\nPawn Shop\nPizzaria\nPier de Pesca\nCasa de Apostas\nHospital\nLoja de Peças\nAnuncios\nAuto Escola\n29ºDP Penha\nLoja de Armas\nUPA 24 HRS\nDesligar o GPS", "Selecionar", "Fechar");
+	Dialog_Show(playerid, WoW, DIALOG_STYLE_LIST, "GPS", "Procurar Endereço >>\nUSMC\nPosto de Gasolina\nAgência de Empregos\n24-7\nConcesionária\nLoja de Roupas\nBanco\nPawn Shop\nPizzaria\nPier de Pesca\nCasa de Apostas\nHospital\nLoja de Peças\nCentral Anuncios\nDMV\nMercado Negro\nLoja de Armas\nHospital\nDesligar o GPS", "Selecionar", "Fechar");
 	return 1;
 }
 

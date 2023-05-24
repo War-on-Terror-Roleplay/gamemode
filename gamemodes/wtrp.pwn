@@ -7332,6 +7332,31 @@ public ArmaEntregueComSucesso(playerid,armaid,ammo,extra,equipar,raspada)
     }
 	return 1;
 }
+COMMAND:settempo(playerid, params[])
+{
+    if (PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
+    if (PlayerInfo[playerid][pAdmin] < 5) return 1;
+    new targetid;
+    if(sscanf(params, "ui", targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /settempo [id]");
+    else
+    {
+        if (!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_WHITE, "{FF6347}Este jogador não está conectado!");
+        if(PlayerInfo[playerid][pAdmin] >= 5)
+        {
+            new admnome[24];
+            if(PlayerInfo[playerid][pAdmin] > 3000) format(admnome, sizeof(admnome), "%s", PlayerInfo[playerid][pNomeOOC]);
+            else format(admnome, sizeof(admnome), "%s", PlayerName(playerid, 0));
+
+            if(PlayerInfo[targetid][pArrombarDNV_C] >= 0)
+            {
+                PlayerInfo[targetid][pArrombarDNV_C] = 0;
+                format(string,sizeof(string),"AdmCmd: Você setou o timer 0 para %s.",PlayerName(targetid, 0));
+                SendClientMessage(playerid, COLOR_LIGHTRED, string);
+            }
+        }
+    }
+    return 1;
+}
 CMD:criarmorteiro(playerid, params[])
 {
 	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");

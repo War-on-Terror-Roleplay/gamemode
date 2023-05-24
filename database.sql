@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23/05/2023 às 18:29
+-- Tempo de geração: 24/05/2023 às 22:28
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -241,15 +241,17 @@ CREATE TABLE `accounts` (
   `minat` int(11) NOT NULL,
   `ColeteBomba` int(11) NOT NULL,
   `Morteiro` int(11) DEFAULT NULL,
-  `KitMedico` int(11) DEFAULT NULL
+  `KitMedico` int(11) DEFAULT NULL,
+  `Peixes` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Despejando dados para a tabela `accounts`
 --
 
-INSERT INTO `accounts` (`ID`, `Username`, `Password`, `Level`, `Gender`, `Age`, `Admin`, `Skin`, `pLutaStyle`, `PosX`, `PosY`, `PosZ`, `PosA`, `registrado`, `Health`, `Armour`, `Interior`, `World`, `Tutorial`, `EntrouCasa`, `Grana`, `Morto`, `pAlgemado`, `UltimoLogin`, `EntrouComplexo`, `EntrouEmpresa`, `Celular`, `ChaveEmprestada`, `Job`, `PecasMecanicas0`, `PecasMecanicas1`, `PecasMecanicas2`, `PecasMecanicas3`, `PecasMecanicas4`, `PecasMecanicas5`, `PecasMecanicas6`, `Fac`, `TempoPLD`, `ToolKit`, `ArrombarDNV`, `Galao`, `ArmaMao`, `Mun9mm`, `Mun556`, `MunCart`, `Mun127`, `pSlot1`, `pSlot2`, `pSlot3`, `pSlot4`, `pSlot5`, `pSlot1a`, `pSlot2a`, `pSlot3a`, `pSlot4a`, `pSlot5a`, `FacCargo`, `pEmServico`, `pPayDay`, `pDutySkin`, `pColde`, `pColdreA`, `pArmario1`, `pArmario2`, `pArmario3`, `pArmario4`, `pArmario5`, `pArm9mm`, `pArm556`, `pArmCart`, `pArm127`, `pPrisao`, `pTemPreso`, `CelularL`, `pTester`, `pAceitoSos`, `pNomeOOC`, `pDamage0`, `pDamage1`, `pDamage2`, `pDamage3`, `pDamage4`, `pDamage5`, `pDamage6`, `pDamage7`, `pDamage8`, `pDamage9`, `pDamage10`, `pDamage11`, `pDamage12`, `pDamage13`, `pDamage14`, `pDamage15`, `pDamage16`, `pDamage17`, `pDamage18`, `pDamage19`, `pBanco`, `pMancando`, `pHealthMax`, `pChatStyle`, `pPontos`, `pKickAll`, `pBanAll`, `pBanido`, `pWalkStyle`, `pDoador`, `pChangeNames`, `pDoadorTempo`, `pForca`, `pRadio`, `pRadioChan`, `pMascara`, `pMascaraU`, `pMascID`, `pNomeP`, `pAvisos`, `pAviso1`, `pAviso2`, `pAviso3`, `pMenosDanoTiro`, `pDrogaTime`, `pFome`, `pTremorAtirar`, `pUsouDroga`, `pSkillTiro`, `pSavings`, `pColdreX`, `pColdreY`, `pColdreZ`, `pColdreRX`, `pColdreRY`, `pColdreRZ`, `pColdreBone`, `pDriveLic`, `pWepLic`, `pFlyLic`, `pTruckLic`, `pSavingsGerando`, `pBoombox`, `pCigarros`, `pLogado`, `pCasasDeletadas`, `pJobTempo`, `pPlacas`, `pArrombarDNV_C`, `pRaspador`, `pJobInPd`, `pHabDrug`, `pCelularModel`, `pArmasResetadas`, `pEntrouGaragem`, `CelularRing`, `CelularPlano`, `CelularTPlano`, `CelMinutos`, `CelSMSs`, `CelTotalPD`, `AjudaInicial`, `pTomouAlgumTiro`, `pTomouTiroPesado`, `pTomouTiroBrancas`, `pConvenio`, `pTempoMorto`, `desmanx`, `desmany`, `desmanz`, `desmanr`, `tempodesman`, `pAjudaInicialDim`, `pSalarios`, `Birthdate`, `Origin`, `CreateDate`, `pExecComando`, `pRadioChan2`, `Etnia`, `Peso`, `Altura`, `Olhos`, `Cabelo`, `Fome`, `Sede`, `FactionTeam`, `BanTeam`, `RefundTeam`, `PropertyTeam`, `ucpOwn`, `Bomba`, `TNT`, `C4`, `trafico`, `FabricouDroga`, `CortaRem`, `GranaSuja`, `lavar`, `lavax`, `lavay`, `lavaz`, `pArmario6`, `pArmario7`, `pArmario8`, `pArmario9`, `pArmario10`, `baterias`, `bateria`, `Ouro`, `Prata`, `Bronze`, `dog`, `minat`, `ColeteBomba`, `Morteiro`, `KitMedico`) VALUES
-(1, 'Yuri_Braga', 'BDA64281CB3260DC7F7C9F186DEBA2CDA136CA8840CD40830772158D1335D21548AD5CB80E26E59BF33BA62465A469F5A68D0B8F42B38462B2B2750D425F9117', 0, 1, 0, 3002, 20006, 4, -793.328, 2258.51, 59.1971, 269.68, 1, 100, 0, 0, 0, 1, -1, 14665, 0, 0, '20-5-2023 - 14:11:45', -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 411, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 53, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'YurS', '', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', 5000, NULL, 100, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Yuri_Braga', 0, '', 'NULL', NULL, 0, 0, NULL, 0, 0, 6000, 0, 0.098099, 0.280098, -0.146999, 177.2, 177, -4.2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 98, 98, 0, 0, 0, 0, NULL, 0, 8, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, 20069, 0, 0, NULL, NULL);
+INSERT INTO `accounts` (`ID`, `Username`, `Password`, `Level`, `Gender`, `Age`, `Admin`, `Skin`, `pLutaStyle`, `PosX`, `PosY`, `PosZ`, `PosA`, `registrado`, `Health`, `Armour`, `Interior`, `World`, `Tutorial`, `EntrouCasa`, `Grana`, `Morto`, `pAlgemado`, `UltimoLogin`, `EntrouComplexo`, `EntrouEmpresa`, `Celular`, `ChaveEmprestada`, `Job`, `PecasMecanicas0`, `PecasMecanicas1`, `PecasMecanicas2`, `PecasMecanicas3`, `PecasMecanicas4`, `PecasMecanicas5`, `PecasMecanicas6`, `Fac`, `TempoPLD`, `ToolKit`, `ArrombarDNV`, `Galao`, `ArmaMao`, `Mun9mm`, `Mun556`, `MunCart`, `Mun127`, `pSlot1`, `pSlot2`, `pSlot3`, `pSlot4`, `pSlot5`, `pSlot1a`, `pSlot2a`, `pSlot3a`, `pSlot4a`, `pSlot5a`, `FacCargo`, `pEmServico`, `pPayDay`, `pDutySkin`, `pColde`, `pColdreA`, `pArmario1`, `pArmario2`, `pArmario3`, `pArmario4`, `pArmario5`, `pArm9mm`, `pArm556`, `pArmCart`, `pArm127`, `pPrisao`, `pTemPreso`, `CelularL`, `pTester`, `pAceitoSos`, `pNomeOOC`, `pDamage0`, `pDamage1`, `pDamage2`, `pDamage3`, `pDamage4`, `pDamage5`, `pDamage6`, `pDamage7`, `pDamage8`, `pDamage9`, `pDamage10`, `pDamage11`, `pDamage12`, `pDamage13`, `pDamage14`, `pDamage15`, `pDamage16`, `pDamage17`, `pDamage18`, `pDamage19`, `pBanco`, `pMancando`, `pHealthMax`, `pChatStyle`, `pPontos`, `pKickAll`, `pBanAll`, `pBanido`, `pWalkStyle`, `pDoador`, `pChangeNames`, `pDoadorTempo`, `pForca`, `pRadio`, `pRadioChan`, `pMascara`, `pMascaraU`, `pMascID`, `pNomeP`, `pAvisos`, `pAviso1`, `pAviso2`, `pAviso3`, `pMenosDanoTiro`, `pDrogaTime`, `pFome`, `pTremorAtirar`, `pUsouDroga`, `pSkillTiro`, `pSavings`, `pColdreX`, `pColdreY`, `pColdreZ`, `pColdreRX`, `pColdreRY`, `pColdreRZ`, `pColdreBone`, `pDriveLic`, `pWepLic`, `pFlyLic`, `pTruckLic`, `pSavingsGerando`, `pBoombox`, `pCigarros`, `pLogado`, `pCasasDeletadas`, `pJobTempo`, `pPlacas`, `pArrombarDNV_C`, `pRaspador`, `pJobInPd`, `pHabDrug`, `pCelularModel`, `pArmasResetadas`, `pEntrouGaragem`, `CelularRing`, `CelularPlano`, `CelularTPlano`, `CelMinutos`, `CelSMSs`, `CelTotalPD`, `AjudaInicial`, `pTomouAlgumTiro`, `pTomouTiroPesado`, `pTomouTiroBrancas`, `pConvenio`, `pTempoMorto`, `desmanx`, `desmany`, `desmanz`, `desmanr`, `tempodesman`, `pAjudaInicialDim`, `pSalarios`, `Birthdate`, `Origin`, `CreateDate`, `pExecComando`, `pRadioChan2`, `Etnia`, `Peso`, `Altura`, `Olhos`, `Cabelo`, `Fome`, `Sede`, `FactionTeam`, `BanTeam`, `RefundTeam`, `PropertyTeam`, `ucpOwn`, `Bomba`, `TNT`, `C4`, `trafico`, `FabricouDroga`, `CortaRem`, `GranaSuja`, `lavar`, `lavax`, `lavay`, `lavaz`, `pArmario6`, `pArmario7`, `pArmario8`, `pArmario9`, `pArmario10`, `baterias`, `bateria`, `Ouro`, `Prata`, `Bronze`, `dog`, `minat`, `ColeteBomba`, `Morteiro`, `KitMedico`, `Peixes`) VALUES
+(1, 'Yuri_Braga', 'BDA64281CB3260DC7F7C9F186DEBA2CDA136CA8840CD40830772158D1335D21548AD5CB80E26E59BF33BA62465A469F5A68D0B8F42B38462B2B2750D425F9117', 6, 1, 0, 3002, 20104, 4, -780.241, 1490.49, 23.6539, 89.7287, 1, 84, 160, 0, 0, 1, -1, 14665, 0, 0, '24-5-2023 - 14:16:49', -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 4245, 0, 83, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 35, 0, 2, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'YurS', '', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', 30342, NULL, 100, 0, 3, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Yuri_Braga', 0, '', 'NULL', NULL, 0, 0, NULL, 0, 0, 6000, 0, 0.098099, 0.280097, -0.146999, 177.2, 177, -4.2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 118, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 100, 100, 0, 0, 0, 0, NULL, 0, 5, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, 20069, 59, 0, 100, 100, NULL),
+(2, 'Chris_Kyle', '80ED4128F485D7A3A7C32D743EEA66B2B4FF043912A029FD9AB420586363BCDEF13FED3996DA502394437745994657E738759FE679DF08D609C0CE7930CBBE82', 3, 1, 0, 3002, 2, 4, -730.17, 1540.93, 39.5751, 340.437, 1, 100, 0, 0, 0, 1, -1, 1200, 0, 0, '23-5-2023 - 15:31:37', -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 840, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Hoyo', '', '', '', '', '', '', '', '', '', '', NULL, NULL, NULL, NULL, NULL, '', '', '', '', '', 5171, NULL, 100, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Chris_Kyle', 0, '', 'NULL', NULL, 0, 0, NULL, 0, 0, 6000, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 625, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 0, 1, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 100, 100, 0, 0, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 0, 0, 100, 99, 100, 100, NULL);
 
 -- --------------------------------------------------------
 
@@ -538,7 +540,47 @@ INSERT INTO `contatoscel` (`id`, `nome`, `numero`, `dono`) VALUES
 (36, 'Contato_37', NULL, 1),
 (37, 'Contato_38', NULL, 1),
 (38, 'Contato_39', NULL, 1),
-(39, 'Contato_40', NULL, 1);
+(39, 'Contato_40', NULL, 1),
+(0, 'Contato_1', 0, 2),
+(1, 'Contato_2', 0, 2),
+(2, 'Contato_3', 0, 2),
+(3, 'Contato_4', 0, 2),
+(4, 'Contato_5', 0, 2),
+(5, 'Contato_6', 0, 2),
+(6, 'Contato_7', 0, 2),
+(7, 'Contato_8', 0, 2),
+(8, 'Contato_9', 0, 2),
+(9, 'Contato_10', 0, 2),
+(10, 'Contato_11', 0, 2),
+(11, 'Contato_12', 0, 2),
+(12, 'Contato_13', 0, 2),
+(13, 'Contato_14', 0, 2),
+(14, 'Contato_15', 0, 2),
+(15, 'Contato_16', 0, 2),
+(16, 'Contato_17', 0, 2),
+(17, 'Contato_18', 0, 2),
+(18, 'Contato_19', 0, 2),
+(19, 'Contato_20', 0, 2),
+(20, 'Contato_21', 0, 2),
+(21, 'Contato_22', 0, 2),
+(22, 'Contato_23', 0, 2),
+(23, 'Contato_24', 0, 2),
+(24, 'Contato_25', 0, 2),
+(25, 'Contato_26', NULL, 2),
+(26, 'Contato_27', NULL, 2),
+(27, 'Contato_28', NULL, 2),
+(28, 'Contato_29', NULL, 2),
+(29, 'Contato_30', NULL, 2),
+(30, 'Contato_31', NULL, 2),
+(31, 'Contato_32', NULL, 2),
+(32, 'Contato_33', NULL, 2),
+(33, 'Contato_34', NULL, 2),
+(34, 'Contato_35', NULL, 2),
+(35, 'Contato_36', NULL, 2),
+(36, 'Contato_37', NULL, 2),
+(37, 'Contato_38', NULL, 2),
+(38, 'Contato_39', NULL, 2),
+(39, 'Contato_40', NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -594,6 +636,14 @@ CREATE TABLE `drogas` (
   `hidroxina` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+--
+-- Despejando dados para a tabela `drogas`
+--
+
+INSERT INTO `drogas` (`Name`, `MaconhaR`, `MaconhaB`, `MaconhaE`, `CocaR`, `CocaB`, `CocaE`, `CrackR`, `CrackB`, `CrackE`, `LSDR`, `LSDB`, `LSDE`, `MetR`, `MetB`, `MetE`, `Sementes`, `BDS`, `PBC`, `Pseudoefedrina`, `Acloridrico`, `Efedrina`, `id`, `IDp`, `LancaPer`, `lidococa`, `benzococa`, `hidroxina`) VALUES
+('Yuri_Braga', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 1, 1, 0, 0, 0, 0),
+('Chris_Kyle', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0, 0, 2, 2, 0, 0, 0, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -629,7 +679,9 @@ CREATE TABLE `droparmas` (
 
 INSERT INTO `droparmas` (`ArmaID`, `Com`, `CompradaPor`, `CompradaData`, `Numeracao`, `Modelo`, `Ammo`, `Cor`, `NoChao`, `ArmaX`, `ArmaY`, `ArmaZ`, `ArmaRX`, `ArmaRY`, `ArmaRZ`, `Inte`, `World`, `ArmaExtra`, `ArmaRGB`, `ArmaRaspada`) VALUES
 (1, 1, 'Yuri Braga', '19-5-2023 - 16:47:53', 91394070, 31, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0),
-(2, 1, 'Yuri Braga', '20-5-2023 - 14:05:12', 86754891, 31, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0);
+(2, 1, 'Yuri Braga', '20-5-2023 - 14:05:12', 86754891, 31, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0),
+(3, 0, 'Yuri Braga', '23-5-2023 - 15:28:43', 82541958, 34, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0),
+(4, 2, 'Chris Kyle', '23-5-2023 - 13:52:01', 39565154, 31, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -1586,7 +1638,47 @@ INSERT INTO `sms` (`id`, `ativo`, `lido`, `mensagem`, `mensageml`, `por`, `data`
 (36, NULL, NULL, NULL, NULL, NULL, NULL, 1),
 (37, NULL, NULL, NULL, NULL, NULL, NULL, 1),
 (38, NULL, NULL, NULL, NULL, NULL, NULL, 1),
-(39, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+(39, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(0, 0, 0, '', '', 0, '', 2),
+(1, 0, 0, '', '', 0, '', 2),
+(2, 0, 0, '', '', 0, '', 2),
+(3, 0, 0, '', '', 0, '', 2),
+(4, 0, 0, '', '', 0, '', 2),
+(5, 0, 0, '', '', 0, '', 2),
+(6, 0, 0, '', '', 0, '', 2),
+(7, 0, 0, '', '', 0, '', 2),
+(8, 0, 0, '', '', 0, '', 2),
+(9, 0, 0, '', '', 0, '', 2),
+(10, 0, 0, '', '', 0, '', 2),
+(11, 0, 0, '', '', 0, '', 2),
+(12, 0, 0, '', '', 0, '', 2),
+(13, 0, 0, '', '', 0, '', 2),
+(14, 0, 0, '', '', 0, '', 2),
+(15, 0, 0, '', '', 0, '', 2),
+(16, 0, 0, '', '', 0, '', 2),
+(17, 0, 0, '', '', 0, '', 2),
+(18, 0, 0, '', '', 0, '', 2),
+(19, 0, 0, '', '', 0, '', 2),
+(20, 0, 0, '', '', 0, '', 2),
+(21, 0, 0, '', '', 0, '', 2),
+(22, 0, 0, '', '', 0, '', 2),
+(23, 0, 0, '', '', 0, '', 2),
+(24, 0, 0, '', '', 0, '', 2),
+(25, NULL, NULL, NULL, NULL, NULL, NULL, 2),
+(26, NULL, NULL, NULL, NULL, NULL, NULL, 2),
+(27, NULL, NULL, NULL, NULL, NULL, NULL, 2),
+(28, NULL, NULL, NULL, NULL, NULL, NULL, 2),
+(29, NULL, NULL, NULL, NULL, NULL, NULL, 2),
+(30, NULL, NULL, NULL, NULL, NULL, NULL, 2),
+(31, NULL, NULL, NULL, NULL, NULL, NULL, 2),
+(32, NULL, NULL, NULL, NULL, NULL, NULL, 2),
+(33, NULL, NULL, NULL, NULL, NULL, NULL, 2),
+(34, NULL, NULL, NULL, NULL, NULL, NULL, 2),
+(35, NULL, NULL, NULL, NULL, NULL, NULL, 2),
+(36, NULL, NULL, NULL, NULL, NULL, NULL, 2),
+(37, NULL, NULL, NULL, NULL, NULL, NULL, 2),
+(38, NULL, NULL, NULL, NULL, NULL, NULL, 2),
+(39, NULL, NULL, NULL, NULL, NULL, NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -2004,7 +2096,7 @@ ALTER TABLE `ucp_users`
 -- AUTO_INCREMENT de tabela `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `armarios`
@@ -2064,13 +2156,13 @@ ALTER TABLE `crimes`
 -- AUTO_INCREMENT de tabela `drogas`
 --
 ALTER TABLE `drogas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `droparmas`
 --
 ALTER TABLE `droparmas`
-  MODIFY `ArmaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ArmaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `drop_drug`

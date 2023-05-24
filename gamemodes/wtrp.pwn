@@ -74605,9 +74605,9 @@ COMMAND:canalradio(playerid, params[])
                 if(FacInfo[FacId][fTipo] != 3) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito a MEDIC.");
                 temperm = 1;
             }
-			if(aimid == 197)
+			if(aimid == 1551)
             {
-                if(FacInfo[FacId][fTipo] != 2) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito a CIA.");
+                if(FacInfo[FacId][fTipo] != 2) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito a Navy Seals.");
                 temperm = 1;
             }
             if(aimid == 183) {
@@ -74669,12 +74669,12 @@ COMMAND:canalradio2(playerid, params[])
             new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
             new Job = PlayerInfo[playerid][pJob];
 	
-            if(aimid == 190) {
+            if(aimid == 1550) {
                 if(FacInfo[FacId][fTipo] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito a USMC.");
                 temperm = 1;
             }
-            if(aimid == 197) {
-                if(FacInfo[FacId][fTipo] != 2) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito a CIA.");
+            if(aimid == 1551) {
+                if(FacInfo[FacId][fTipo] != 2) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito a Navy Seals.");
                 temperm = 1;
             }
             if(aimid == 193) {
@@ -74887,7 +74887,7 @@ CMD:departamento(playerid, params[])
 		else
 		{
 		   	if(FacId == 1) format(StrFac, sizeof(StrFac), "USMC");
-            else if(FacId == 2) format(StrFac, sizeof(StrFac), "CIA");
+            else if(FacId == 2) format(StrFac, sizeof(StrFac), "Seals Team");
             else if(FacId == 3) format(StrFac, sizeof(StrFac), "MEDIC");
 		   	else if(FacId == 4) format(StrFac, sizeof(StrFac), "US GOV");
 			else if(FacId == 5) format(StrFac, sizeof(StrFac), "BRINKS");
@@ -74925,7 +74925,7 @@ CMD:departamentobaixo(playerid, params[])
 		else
 		{
 		   	if(FacId == 1) format(StrFac, sizeof(StrFac), "USMC");
-            else if(FacId == 2) format(StrFac, sizeof(StrFac), "CIA");
+            else if(FacId == 2) format(StrFac, sizeof(StrFac), "Seals Team");
             else if(FacId == 3) format(StrFac, sizeof(StrFac), "MEDIC");
 		   	else if(FacId == 4) format(StrFac, sizeof(StrFac), "US GOV");
 			else if(FacId == 5) format(StrFac, sizeof(StrFac), "BRINKS");
@@ -75087,7 +75087,7 @@ CMD:factipo(playerid, params[])
 	if (sscanf(params, "ii", id, var2))
 	{
 		SendClientMessage(playerid, COLOR_LIGHTRED,"USE: /factipo [Id da Facção] [Tipo]");
-		SendClientMessage(playerid, COLOR_WHITE,"{FF6347}[Tipos]: 1 - USMC / 2 - CIA / 3 - MEDIC / 4 - GOV / 5 - EB / 6 - T. Valores / 10~13 - Gang / 14~17 - Mafia / 7 - Load & Reload / 8 - Civil");
+		SendClientMessage(playerid, COLOR_WHITE,"{FF6347}[Tipos]: 1 - USMC / 2 - Seals / 3 - MEDIC / 4 - GOV / 5 - EB / 6 - T. Valores / 10~13 - Gang / 14~17 - Mafia / 7 - Load & Reload / 8 - Civil");
 		return 1;
 	}
 	else
@@ -75281,7 +75281,7 @@ Dialog:FactionsList2(playerid, response, listitem, inputtext[]){
             case 1:
             {
                 format(string_name, sizeof(string_name), "%s - Tipo", FacInfo[FacID][fNome]);
-                format(string, sizeof(string), "USMC\nCIA\nMEDIC\nEB\nGOV\n--- [Drugs] ---\nNível 1\nNível 2\nNível 3\nNível 4\n--- [Armas] ---\nNível 1\nNível 2\nNível 3\nNível 4", FacInfo[FacID][fNome], FacInfo[FacID][fTipo]);
+                format(string, sizeof(string), "USMC\nSeals\nMEDIC\nEB\nGOV\n--- [Drugs] ---\nNível 1\nNível 2\nNível 3\nNível 4\n--- [Armas] ---\nNível 1\nNível 2\nNível 3\nNível 4", FacInfo[FacID][fNome], FacInfo[FacID][fTipo]);
 	    		Dialog_Show(playerid, FactionsList_NewType, DIALOG_STYLE_LIST, string_name, string, "Escolher", "Cancelar");
             }
             case 3:
@@ -75326,7 +75326,7 @@ Dialog:FactionsList_NewType(playerid, response, listitem, inputtext[]){
             }
             case 1: {
                 FacInfo[FacID][fTipo] = 2;
-                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: CIA.");
+                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: Seals.");
             }
             case 2: {
                 FacInfo[FacID][fTipo] = 3;
@@ -84917,7 +84917,7 @@ CMD:ligar(playerid, params[])
 	if(sscanf(params,"s[15]",number))
 	{
 		SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /ligar [Numero/Contato]");
-		SendClientMessage(playerid, COLOR_LIGHTRED, "Números públicos: 190 - Emergencias | 444 - Taxi | 555 - Mecânico");
+		SendClientMessage(playerid, COLOR_LIGHTRED, "Números públicos: 911 - Emergencias | 444 - Taxi | 555 - Mecânico");
 		return 1;
 	}
 	new telefonefinal = strval(number);
@@ -86859,7 +86859,7 @@ Dialog:DIALOG_GOV_EDIT(playerid, response, listitem, inputtext[])
 				{
 					OutrasInfos[playerid][oGovEditor][0] = 4;
 					OutrasInfos[playerid][oGovEditor][1] = 0;
-                    Dialog_Show(playerid, DIALOG_GOV_EDIT, DIALOG_STYLE_LIST, "Governo", "USMC\nMEDIC\nUS GOV\nCIA\nEB\nDOJ\nFacção Civil", "Selecionar", "Fechar");
+                    Dialog_Show(playerid, DIALOG_GOV_EDIT, DIALOG_STYLE_LIST, "Governo", "USMC\nMEDIC\nUS GOV\nSeals\nEB\nDOJ\nFacção Civil", "Selecionar", "Fechar");
 				}
 				case 4:
 				{
@@ -87197,7 +87197,7 @@ Dialog:DIALOG_GOV_EDIT(playerid, response, listitem, inputtext[])
 					SendClientMessage(playerid, COLOR_GREEN, string);
 
 			        new strl[126];
-					format(strl, sizeof(strl), "%s alterou o salário do cargo %d da CIA para US$%d. | Total no cofre: US$%d", PlayerName(playerid,0), (listitem+1),valor, GovInfo[gCofres]);
+					format(strl, sizeof(strl), "%s alterou o salário do cargo %d da Seals para US$%d. | Total no cofre: US$%d", PlayerName(playerid,0), (listitem+1),valor, GovInfo[gCofres]);
 					Cofres_Publicos(strl);
 
 					SalvarGoverno();

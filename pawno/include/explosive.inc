@@ -177,7 +177,7 @@ CreateExplosive(Float:x, Float:y, Float:z,
 
 	g_sExplosive@Data[g_sExplosive@ID][E_EXPLOSIVE_OWNER] = playerid;
 
-	g_sExplosive@Data[g_sExplosive@ID][E_EXPLOSIVE_OBJECT] = CreateDynamicObject(19602, x, y, z, 0.0, 0.0, 0.0);
+	g_sExplosive@Data[g_sExplosive@ID][E_EXPLOSIVE_OBJECT] = CreateDynamicObject(-2203, x, y, z, 0.0, 0.0, 0.0);
 	g_sExplosive@Data[g_sExplosive@ID][E_EXPLOSIVE_AREA] = CreateDynamicSphere(x, y, z, 1.5);
 
 	static

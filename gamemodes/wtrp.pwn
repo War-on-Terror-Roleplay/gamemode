@@ -5894,10 +5894,12 @@ static g_aFemaleSkins[77] = {
 	298
 };
 
-static g_NewSkins[8] = {
+static g_NewSkins[15] = {
     20001,
 	20002, 20003, 20004, 20005,
-	20006, 20007, 20008
+	20006, 20007, 20008, 20009,
+	20010, 20011, 20012, 20013,
+	20014, 20015
 };
 
 
@@ -7448,9 +7450,9 @@ public QuedaMissil(playerid)
 	DestroyObject(Missil[0][playerid]);
 	DestroyObject(Missil[1][playerid]);
 	DestroyObject(Missil[2][playerid]);
-	MissilCaindo[0][playerid] = CreateObject(1636, AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid]+100, 0, 180, 0);
-	MissilCaindo[1][playerid] = CreateObject(1636, AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid]+105, 0, 180, 0);
-	MissilCaindo[2][playerid] = CreateObject(1636, AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid]+110, 0, 180, 0);
+	MissilCaindo[0][playerid] = CreateObject(-2202, AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid]+100, 0, 180, 0);
+	MissilCaindo[1][playerid] = CreateObject(-2202, AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid]+105, 0, 180, 0);
+	MissilCaindo[2][playerid] = CreateObject(-2202, AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid]+110, 0, 180, 0);
 	MoveObject(MissilCaindo[0][playerid], AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid], 50, 0, 180, 0);
 	MoveObject(MissilCaindo[1][playerid], AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid]+5, 50, 0, 180, 0);
 	MoveObject(MissilCaindo[2][playerid], AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid]+10, 50, 0, 180, 0);

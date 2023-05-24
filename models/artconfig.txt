@@ -7,6 +7,13 @@ AddCharModel(287, 20005, "taliba5.dff", "taliba5.txd");
 AddCharModel(287, 20006, "taliba6.dff", "taliba6.txd"); 
 AddCharModel(287, 20007, "taliba7.dff", "taliba7.txd"); 
 AddCharModel(287, 20008, "taliba8.dff", "taliba8.txd"); 
+AddCharModel(287, 20009, "taliba9.dff", "taliba9.txd"); 
+AddCharModel(287, 20010, "taliba10.dff", "taliba10.txd"); 
+AddCharModel(287, 20011, "taliba11.dff", "taliba11.txd"); 
+AddCharModel(287, 20012, "taliba12.dff", "taliba12.txd"); 
+AddCharModel(287, 20013, "taliba13.dff", "taliba13.txd"); 
+AddCharModel(287, 20014, "taliba14.dff", "taliba14.txd"); 
+AddCharModel(287, 20015, "taliba15.dff", "taliba15.txd"); 
 
 
 //Navy Seals
@@ -77,6 +84,8 @@ AddSimpleModel(-1,3634, -2132, "barricada.dff", "barricada.txd");
 //Objetos GOV US
 AddSimpleModel(-1,3634, -2200, "escudo.dff", "escudo.txd");
 AddSimpleModel(-1,3634, -2201, "morteiro.dff", "morteiro.txd");
+AddSimpleModel(-1,1636, -2202, "munimorteiro.dff", "munimorteiro.txd");
+AddSimpleModel(-1,1636, -2203, "mina.dff", "mina.txd");
 
 
 //Drogas

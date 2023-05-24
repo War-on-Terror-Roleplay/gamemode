@@ -3028,15 +3028,8 @@ static LOJA_OUTROS_BANK[3] = {
 	
 };
 //======== [Seals Team]======//
-static PCERJ_Uniformes[29] = {
-    20200, 20201, 20202, 20203,
-	20204, 20205, 20206, 20207,
-	20208, 20209, 20210, 20211,
-	20212, 20213, 20214, 20215,
-	20216, 20217, 20218, 20219,
-	20220, 20221, 20222, 20223,
-	20224, 20225, 20226, 20227,
-	20228
+static PCERJ_Uniformes[1] = {
+    20200
 };
 static LOJA_OCULOS_PCERJ[3] = {
     19138, 19139, 19140
@@ -31487,7 +31480,7 @@ CMD:ajudafaccao(playerid, params[])
         SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** Canal de rádio: 197");
         SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** (/r)adio /rbaixo (radio baixo) /algemar /f /distintivo");
         SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** (/r2)adio /rbaixo2 (radio baixo 2) /nickbranco /nickazul");
-        SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /deixarferido /blockf /gov /cecopol /prefixo /rprefixo");
+        SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /deixarferido /blockf /gov /squad /prefixo /rprefixo");
         SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /membros /equipar /trabalho /uniforme /revistar");
         SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /cbarreira /rbarreira /prender");
         SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /deter /tablet /apreender /retirar");
@@ -32961,7 +32954,7 @@ COMMAND:usmc(playerid, params[])
 	return 1;
 }
 
-COMMAND:cecopol(playerid, params[])
+COMMAND:squad(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
     if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PCERJ)
@@ -32969,11 +32962,11 @@ COMMAND:cecopol(playerid, params[])
         if(PlayerInfo[playerid][pFacCargo] < 4) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem acesso a este comando.");
 
         new other[256];
-        if (sscanf(params, "s[256]",other)) SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} /cecopol [texto]");
+        if (sscanf(params, "s[256]",other)) SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} /squad [texto]");
         else
         {
             new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
-            format(string, sizeof(string), "**[CH: 191, S: 1] CECOPOL: %s **", other);
+            format(string, sizeof(string), "**[CH: 1551, S: 1] COP: %s **", other);
             SendFacMessage(0xFFFF79FF,FacId,string);
             return 1;
         }
@@ -35886,7 +35879,7 @@ CMD:trabalho(playerid, params[])
 
                         if(PlayerInfo[playerid][pMun9mm] > 0 || PlayerInfo[playerid][pMunCart] > 0 || PlayerInfo[playerid][pMun556] > 0 || PlayerInfo[playerid][pMun127] > 0) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve guardar suas munições particulares no armário antes de entrar em serviço.");
 
-                        format(StrMsg, sizeof(StrMsg), "** CECOPOL: %s %s entrou em serviço!**", GetPlayerCargo(playerid), PlayerName(playerid, 0));
+                        format(StrMsg, sizeof(StrMsg), "** SEALS TEAM: %s %s entrou em serviço!**", GetPlayerCargo(playerid), PlayerName(playerid, 0));
                         SendFacMessage(0x6666CCFF,FacId,StrMsg);
                         PlayerInfo[playerid][pEmServico] = 1;
                         SetPlayerSkin(playerid, PlayerInfo[playerid][pDutySkin]);
@@ -35897,7 +35890,7 @@ CMD:trabalho(playerid, params[])
                         //if(PlayerInfo[playerid][pArmaMao] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa devolver suas armas ou guarda-las no armário para sair de serviço.");
                         //if(PlayerInfo[playerid][pColde] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa devolver a arma do corpo para sair de serviço.");
 
-                        format(StrMsg, sizeof(StrMsg), "** CECOPOL: %s %s saiu de serviço!**", GetPlayerCargo(playerid), PlayerName(playerid, 0));
+                        format(StrMsg, sizeof(StrMsg), "** SEALS TEAM: %s %s saiu de serviço!**", GetPlayerCargo(playerid), PlayerName(playerid, 0));
                         SendFacMessage(0x6666CCFF,FacId,StrMsg);
                         PlayerInfo[playerid][pEmServico] = 0;
                         SetPlayerSkin(playerid, PlayerInfo[playerid][pSkin]);
@@ -36008,7 +36001,7 @@ CMD:trabalho(playerid, params[])
                             RemovePlayerAttachedObject(playerid, 0);
                             ArmasInv++;
                         }
-                        if(ArmasInv > 0) SendClientMessage(playerid,COLOR_LIGHTRED,"[Seals Team] As suas armas do inventário foram retiradas.");
+                        if(ArmasInv > 0) SendClientMessage(playerid,COLOR_LIGHTRED,"[SEALS TEAM] As suas armas do inventário foram retiradas.");
 
                         if(PlayerInfo[playerid][pMun9mm] > 0 || PlayerInfo[playerid][pMunCart] > 0 || PlayerInfo[playerid][pMun556] > 0 || PlayerInfo[playerid][pMun127] > 0)
                         {
@@ -36016,12 +36009,12 @@ CMD:trabalho(playerid, params[])
                             PlayerInfo[playerid][pMunCart] = 0;
                             PlayerInfo[playerid][pMun556] = 0;
                             PlayerInfo[playerid][pMun127] = 0;
-                            SendClientMessage(playerid,COLOR_LIGHTRED,"[Seals Team] As suas munições do inventário foram retiradas.");
+                            SendClientMessage(playerid,COLOR_LIGHTRED,"[SEALS TEAM] As suas munições do inventário foram retiradas.");
                         }
                     }
                 }
             }
-            else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está vestiário da polícia.");
+            else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está vestiário dos Seals.");
     }
     if(FacInfo[FacId][fTipo] == FAC_TIPO_EB)
     {
@@ -62760,7 +62753,7 @@ COMMAND:gov(playerid, params[])
 		}
         else if(FacInfo[facID][fTipo] == FAC_TIPO_PCERJ)
         {
-            SendClientMessageToAll(0x005BB7FF, "{6495ed}CIA:");
+            SendClientMessageToAll(0x005BB7FF, "{6495ed}SEALS TEAM SIX:");
             format(string, sizeof(string), "{6495ed}%s", text);
             SendClientMessageToAll(0x005BB7FF, string);
 		}

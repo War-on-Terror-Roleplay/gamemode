@@ -3027,7 +3027,7 @@ static LOJA_OUTROS_BANK[3] = {
 	19138, 19139, 19140
 	
 };
-//======== [CIA]======//
+//======== [Seals Team]======//
 static PCERJ_Uniformes[29] = {
     20200, 20201, 20202, 20203,
 	20204, 20205, 20206, 20207,
@@ -3051,7 +3051,7 @@ static LOJA_OUTROS_PCERJ[6] = {
 	-2055, -2106
 };
 
-//======== [DEVGRU]======//
+//======== [EB]======//
 static EB_Uniformes[18] = {
     20401, 20402, 20403, 20404,
 	20405, 20406, 20407, 20408,
@@ -6185,10 +6185,10 @@ public OnGameModeInit()
     //PortoTrucker_ModeInit();
 
     //============ Pickup / TextLabel - Anuncio
-	CreateDynamic3DTextLabel("[CIA]\n/entrar", 0xffffffff, 1728.8789,-1565.1876,14.5625, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
+	CreateDynamic3DTextLabel("[Seals Team]\n/entrar", 0xffffffff, 1728.8789,-1565.1876,14.5625, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
 	CreatePickup(1239, 1, 1728.8789,-1565.1876,14.5625, 0); 
 
-	CreateDynamic3DTextLabel("[CIA]\n/entrar", 0xffffffff, 1400.2490,-12.1037,1001.0098, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
+	CreateDynamic3DTextLabel("[Seals Team]\n/entrar", 0xffffffff, 1400.2490,-12.1037,1001.0098, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
 	CreatePickup(1239, 1, 1400.2490,-12.1037,1001.0098, 0); 
 
 	CreateDynamic3DTextLabel("[USMC]\n/entrar", 0xffffffff, 2514.5640,-1525.5608,24.0324, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
@@ -6206,13 +6206,13 @@ public OnGameModeInit()
 	CreateDynamic3DTextLabel("[USMC]\n/reparar", 0xffffffff, 2507.6438,-1551.7308,24.0324, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
     CreatePickup(1239, 1, 2507.6438,-1551.7308,24.0324, 0);
 
-	CreateDynamic3DTextLabel("[CIA]\n/reparar", 0xffffffff, 1720.7937,-1578.8098,13.5547, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
+	CreateDynamic3DTextLabel("[Seals Team]\n/reparar", 0xffffffff, 1720.7937,-1578.8098,13.5547, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
     CreatePickup(1239, 1, 1720.7937,-1578.8098,13.5547, 0);
 
 	CreateDynamic3DTextLabel("[GARAGEM]\n/entrar", 0xffffffff, 1742.7393,-1551.3011,7.9609, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
     CreatePickup(1239, 1, 1742.7393,-1551.3011,7.9609, 0); 
 
-	CreateDynamic3DTextLabel("[CIA]\n/sair", 0xffffffff, -1628.0112,690.6479,7.1875, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
+	CreateDynamic3DTextLabel("[Seals Team]\n/sair", 0xffffffff, -1628.0112,690.6479,7.1875, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
 	CreatePickup(1239, 1, -1628.0112,690.6479,7.1875, 0); 
 
 	CreateDynamic3DTextLabel("[P. ONIBUS]\n/iniciarviagem", 0xffffffff, 1737.5643,-1859.1648,13.4141, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
@@ -7232,7 +7232,7 @@ public EntregandoArmaSQL(playerid, armaid, extra, equipar, raspada)
 				{
 				    new strl1[24];
 				    if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PMERJ) format(strl1, sizeof(strl1), "USMC");
-                    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PCERJ) format(strl1, sizeof(strl1), "CIA");
+                    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PCERJ) format(strl1, sizeof(strl1), "Seals Team");
                     else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_CBERJ) format(strl1, sizeof(strl1), "MEDIC");
 				    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_GOV) format(strl1, sizeof(strl1), "US GOV");
 				    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_TJRP) format(strl1, sizeof(strl1), "DOJ");
@@ -7313,7 +7313,7 @@ public ArmaEntregueComSucesso(playerid,armaid,ammo,extra,equipar,raspada)
 		{
   			new strl1[24];
 	    	if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PMERJ) format(strl1, sizeof(strl1), "USMC");
-            else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PCERJ) format(strl1, sizeof(strl1), "CIA");
+            else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PCERJ) format(strl1, sizeof(strl1), "Seals Team");
             else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_CBERJ) format(strl1, sizeof(strl1), "MEDIC");
 		    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_GOV) format(strl1, sizeof(strl1), "US GOV");
 		    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_TJRP) format(strl1, sizeof(strl1), "TJRP");
@@ -14795,7 +14795,7 @@ public OnPlayerText(playerid, text[])
                     new Nome[24]; GetPVarString(playerid, "911_Nome", Nome, 24);
 					new Local[24]; GetPVarString(playerid, "911_Local", Local, 24);
 					SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCY NOTIFICATION__________|");
-                    //SendFacMessage(COLOR_LIGHTBLUE, 2, "|__________EMERGENCY NOTIFICATION__________|");
+                    SendFacMessage(COLOR_LIGHTBLUE, 2, "|__________EMERGENCY NOTIFICATION__________|");
 					//SendFacMessage(COLOR_LIGHTBLUE, 5, "|__________EMERGENCY NOTIFICATION__________|");
 					new orelhao_id = 999;
 					if(CelularData[playerid][LigandoOrelhaoAtendido] == 1)
@@ -14805,14 +14805,14 @@ public OnPlayerText(playerid, text[])
 					    {
 	    					format(str, sizeof(str), "Relator: %s Contato: #024-%.3s-%.3s", Nome, TelPublico[orelhao_id][orPrefixo],TelPublico[orelhao_id][orNumero]);
    							SendFacMessage(COLOR_LIGHTBLUE, 1, str);
-                           // SendFacMessage(COLOR_LIGHTBLUE, 2, str);
+                           SendFacMessage(COLOR_LIGHTBLUE, 2, str);
 							//SendFacMessage(COLOR_LIGHTBLUE, 5, str);
 						}
 						else
 						{
 						    format(str, sizeof(str), "Relator: %s Contato: #%d", Nome, CelularData[playerid][celNumero]);
    							SendFacMessage(COLOR_LIGHTBLUE, 1, str);
-                            //SendFacMessage(COLOR_LIGHTBLUE, 2, str);
+                            SendFacMessage(COLOR_LIGHTBLUE, 2, str);
 							//SendFacMessage(COLOR_LIGHTBLUE, 5, str);
 						}
 					}
@@ -14820,7 +14820,7 @@ public OnPlayerText(playerid, text[])
 					{
      					format(str, sizeof(str), "Relator: %s Contato: #%d", Nome, CelularData[playerid][celNumero]);
    						SendFacMessage(COLOR_LIGHTBLUE, 1, str);
-                        //SendFacMessage(COLOR_LIGHTBLUE, 2, str);
+                        SendFacMessage(COLOR_LIGHTBLUE, 2, str);
 						//SendFacMessage(COLOR_LIGHTBLUE, 5, str);
 					}
 
@@ -14828,15 +14828,15 @@ public OnPlayerText(playerid, text[])
 					GetPlayer2DZone(playerid, location, MAX_ZONE_NAME);
 					format(str, sizeof(str), "Local: %s", Local);
 	                SendFacMessage(COLOR_LIGHTBLUE, 1, str);
-                    //SendFacMessage(COLOR_LIGHTBLUE, 2, str);
+                    SendFacMessage(COLOR_LIGHTBLUE, 2, str);
 					//SendFacMessage(COLOR_LIGHTBLUE, 5, str);
 	                format(str, sizeof(str), "Situação: %s", text);
 	                SendFacMessage(COLOR_LIGHTBLUE, 1, str);
-                    //SendFacMessage(COLOR_LIGHTBLUE, 2, str);
+                    SendFacMessage(COLOR_LIGHTBLUE, 2, str);
 					//SendFacMessage(COLOR_LIGHTBLUE, 5, str);
 	                format(str, sizeof(str), "Rastreador: %s",location);
 	                SendFacMessage(COLOR_LIGHTBLUE, 1, str);
-                    //SendFacMessage(COLOR_LIGHTBLUE, 2, str);
+                    SendFacMessage(COLOR_LIGHTBLUE, 2, str);
 					//SendFacMessage(COLOR_LIGHTBLUE, 5, str);
 
                     if(strfind(text, "'") != -1)
@@ -15585,7 +15585,7 @@ public HJTimeLimit(playerid)
     
 	ShowPlayerDialog(playerid,-1,0,"","","","");
 	HackerJob[playerid] = 0;
-	PlayerInfo[playerid][pArrombarDNV_C] = 2400;
+	PlayerInfo[playerid][pArrombarDNV_C] = 90;
 	SendClientMessage(playerid,COLOR_WHITE,"O tempo de trabalho acabou e você não terminou.");
 	return 1;
 }
@@ -26771,7 +26771,7 @@ CMD:homembomba(playerid, params[])
 forward HomemBombaExplodindo(playerid);
 public HomemBombaExplodindo(playerid)
 {
-    PlayerInfo[playerid][pArrombarDNV_C] = 1200;
+    PlayerInfo[playerid][pArrombarDNV_C] = 600;
     
     new Float:x, Float:y, Float:z;
 	GetPlayerPos(playerid, x, y, z);
@@ -28522,7 +28522,7 @@ COMMAND:roubar(playerid,params[])
 
 				new location[MAX_ZONE_NAME];
 				Get2DZone(location, TOTAL_ZONE_NAME, cLoja[i][clposX], cLoja[i][clposY], cLoja[i][clposZ]);
-				format(string, sizeof(string), "** MARE 0: Um cofre explodiu em %s.**", location);
+				format(string, sizeof(string), "** USMC: Um cofre explodiu em %s.**", location);
 				SendFacMessage(0x6666CCFF,1,string);
 				SendFacMessage(0x6666CCFF,2,string);
 
@@ -28624,7 +28624,7 @@ public ExplodindoCaixa(playerid)
             Get2DZone(location, TOTAL_ZONE_NAME, ATMs[i][aposX], ATMs[i][aposY], ATMs[i][aposZ]);
 
 			new stringCaixaF[256];
-			format(stringCaixaF, sizeof(stringCaixaF), "** MARE 0: Um caixa eletronico explodiu em %s.**", location);
+			format(stringCaixaF, sizeof(stringCaixaF), "** USMC: Um caixa eletronico explodiu em %s.**", location);
    			SendFacMessage(0x6666CCFF,1,stringCaixaF);
    			SendFacMessage(0x6666CCFF,2,stringCaixaF);
 
@@ -31351,7 +31351,7 @@ COMMAND:apreender(playerid,params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new faccao = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
-    if(FacInfo[faccao][fTipo] == FAC_TIPO_PMERJ || FacInfo[faccao][fTipo] == FAC_TIPO_PCERJ) // PMERJ
+    if(FacInfo[faccao][fTipo] == FAC_TIPO_PMERJ || FacInfo[faccao][fTipo] == FAC_TIPO_PCERJ) // Seals Team
     {
         new veh;
         if(sscanf(params,"i",veh))
@@ -31455,12 +31455,12 @@ CMD:ajudafaccao(playerid, params[])
     if(FacInfo[faccao][fTipo] == FAC_TIPO_PMERJ) // USMC
     {
         SendClientMessage(playerid, COLOR_WHITE, "*** AJUDA FACCAO ***");
-		SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** Canal de rádio: 190");
+		SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** Canal de rádio: 1550");
 		SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** (/r)adio /rbaixo (radio baixo) /algemar /f /distintivo");
         SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** (/r2)adio /rbaixo2 (radio baixo 2) /nickbranco /nickazul");
 		SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /deixarferido /blockf /prefixo /rprefixo /retirar");
         SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /membros /equipar /trabalho /uniforme /revistar");
-        SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /cbarreira /rbarreira /armario /prender /sirene /mare");
+        SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /cbarreira /rbarreira /armario /prender /sirene /usmc");
         SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /deter /tablet /apreender /tapeteprego /removerprego /retirar");
 		if(PlayerInfo[playerid][pFacCargo] >= 9)
 		{
@@ -32941,7 +32941,7 @@ COMMAND:licenciar(playerid, params[])
 	return 1;
 }
 
-COMMAND:mare(playerid, params[])
+COMMAND:usmc(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
     if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PMERJ)
@@ -32949,11 +32949,11 @@ COMMAND:mare(playerid, params[])
 	    if(PlayerInfo[playerid][pFacCargo] < 4) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem acesso a este comando.");
 
 	    new other[256];
-		if (sscanf(params, "s[256]",other)) SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} /mare [texto]");
+		if (sscanf(params, "s[256]",other)) SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} /usmc [texto]");
 		else
 		{
 		    new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
-			format(string, sizeof(string), "**[CH: 190, S: 1] MARE 0: %s **", other);
+			format(string, sizeof(string), "**[CH: 1550, S: 1] USMC: %s **", other);
 			SendFacMessage(0xFFFF79FF,FacId,string);
 			return 1;
 		}
@@ -35544,7 +35544,7 @@ CMD:uniforme(playerid, params[])
         {
             if(PlayerInfo[playerid][pEmServico] == 1)
             {
-                ShowModelSelectionMenu(playerid, "[PCERJ] Uniformes", MODEL_PMERJ_SKINS, PCERJ_Uniformes, sizeof(PCERJ_Uniformes), -16.0, 0.0, -55.0);
+                ShowModelSelectionMenu(playerid, "[Seals Team] Uniformes", MODEL_PMERJ_SKINS, PCERJ_Uniformes, sizeof(PCERJ_Uniformes), -16.0, 0.0, -55.0);
             }
             else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
         }
@@ -35568,7 +35568,7 @@ CMD:uniforme(playerid, params[])
         {
             if(PlayerInfo[playerid][pEmServico] == 1)
             {
-                ShowModelSelectionMenu(playerid, "[DEVGRU] Uniformes", MODEL_EB_SKINS, EB_Uniformes, sizeof(EB_Uniformes), -16.0, 0.0, -55.0);
+                ShowModelSelectionMenu(playerid, "[EB] Uniformes", MODEL_EB_SKINS, EB_Uniformes, sizeof(EB_Uniformes), -16.0, 0.0, -55.0);
             }
             else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
         }
@@ -35672,7 +35672,7 @@ CMD:trabalho(playerid, params[])
 
 					    if(PlayerInfo[playerid][pMun9mm] > 0 || PlayerInfo[playerid][pMunCart] > 0 || PlayerInfo[playerid][pMun556] > 0 || PlayerInfo[playerid][pMun127] > 0) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve guardar suas munições particulares no armário antes de entrar em serviço.");
 
-                        format(StrMsg, sizeof(StrMsg), "** MARE 0: %s %s entrou em serviço!**", GetPlayerCargo(playerid), PlayerName(playerid, 0));
+                        format(StrMsg, sizeof(StrMsg), "** USMC: %s %s entrou em serviço!**", GetPlayerCargo(playerid), PlayerName(playerid, 0));
 	  					SendFacMessage(0x6666CCFF,FacId,StrMsg);
 	  					PlayerInfo[playerid][pEmServico] = 1;
 	  					SetPlayerSkin(playerid, PlayerInfo[playerid][pDutySkin]);
@@ -35683,7 +35683,7 @@ CMD:trabalho(playerid, params[])
 					    //if(PlayerInfo[playerid][pArmaMao] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa devolver suas armas ou guarda-las no armário para sair de serviço.");
 						//if(PlayerInfo[playerid][pColde] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa devolver a arma do corpo para sair de serviço.");
 
-					    format(StrMsg, sizeof(StrMsg), "** MARE 0: %s %s saiu de serviço!**", GetPlayerCargo(playerid), PlayerName(playerid, 0));
+					    format(StrMsg, sizeof(StrMsg), "** USMC: %s %s saiu de serviço!**", GetPlayerCargo(playerid), PlayerName(playerid, 0));
 		   				SendFacMessage(0x6666CCFF,FacId,StrMsg);
 		   				PlayerInfo[playerid][pEmServico] = 0;
 		   				SetPlayerSkin(playerid, PlayerInfo[playerid][pSkin]);
@@ -36008,7 +36008,7 @@ CMD:trabalho(playerid, params[])
                             RemovePlayerAttachedObject(playerid, 0);
                             ArmasInv++;
                         }
-                        if(ArmasInv > 0) SendClientMessage(playerid,COLOR_LIGHTRED,"[CIA] As suas armas do inventário foram retiradas.");
+                        if(ArmasInv > 0) SendClientMessage(playerid,COLOR_LIGHTRED,"[Seals Team] As suas armas do inventário foram retiradas.");
 
                         if(PlayerInfo[playerid][pMun9mm] > 0 || PlayerInfo[playerid][pMunCart] > 0 || PlayerInfo[playerid][pMun556] > 0 || PlayerInfo[playerid][pMun127] > 0)
                         {
@@ -36016,7 +36016,7 @@ CMD:trabalho(playerid, params[])
                             PlayerInfo[playerid][pMunCart] = 0;
                             PlayerInfo[playerid][pMun556] = 0;
                             PlayerInfo[playerid][pMun127] = 0;
-                            SendClientMessage(playerid,COLOR_LIGHTRED,"[CIA] As suas munições do inventário foram retiradas.");
+                            SendClientMessage(playerid,COLOR_LIGHTRED,"[Seals Team] As suas munições do inventário foram retiradas.");
                         }
                     }
                 }
@@ -36885,14 +36885,14 @@ CMD:equipar(playerid, params[])
     {
         if(PlayerInfo[playerid][pEmServico] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
         if(IsPlayerInRangeOfPoint(playerid, 15, FacInfo[i][fArmarioPosX], FacInfo[i][fArmarioPosY], FacInfo[i][fArmarioPosZ]) && GetPlayerVirtualWorld(playerid) == FacInfo[i][fArmarioVw])
-            Dialog_Show(playerid, Equipar_PCERJ, DIALOG_STYLE_LIST, "[CIA] Equipamentos", "Armas\nMunições\nColete\nRetirar Colete\nDevolver Armas\nAcessórios", "Selecionar", "Fechar");
+            Dialog_Show(playerid, Equipar_PCERJ, DIALOG_STYLE_LIST, "[Seals Team] Equipamentos", "Armas\nMunições\nColete\nRetirar Colete\nDevolver Armas\nAcessórios", "Selecionar", "Fechar");
         else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está na sala de equipamentos.");
     }
     if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_EB)
     {
         if(PlayerInfo[playerid][pEmServico] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
         if(IsPlayerInRangeOfPoint(playerid, 15, FacInfo[i][fArmarioPosX], FacInfo[i][fArmarioPosY], FacInfo[i][fArmarioPosZ]) && GetPlayerVirtualWorld(playerid) == FacInfo[i][fArmarioVw])
-            Dialog_Show(playerid, Equipar_eb, DIALOG_STYLE_LIST, "[DEVGRU] Equipamentos", "Armas\nMunições\nColete\nRetirar Colete\nDevolver Armas\nAcessórios", "Selecionar", "Fechar");
+            Dialog_Show(playerid, Equipar_eb, DIALOG_STYLE_LIST, "[EB] Equipamentos", "Armas\nMunições\nColete\nRetirar Colete\nDevolver Armas\nAcessórios", "Selecionar", "Fechar");
         else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está na sala de equipamentos.");
     }
 	if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_BANK)
@@ -36914,9 +36914,9 @@ Dialog:Equipar_eb(playerid, response, listitem, inputtext[])
         {
             case 0:
 			{
-				Dialog_Show(playerid, Equipar_EB1, DIALOG_STYLE_TABLIST_HEADERS, "[DEVGRU] Equipamentos", "Arma:\tCargo nescessário:\nCassetete\t1\nGranada de Fumaça\t1\nColt 45\t1\nDesert Eagle\t1\nShotgun\t1\nMP5\t1\nM4\t1\nParaquedas\t1\nSniper\t5", "Pegar", "Fechar");
+				Dialog_Show(playerid, Equipar_EB1, DIALOG_STYLE_TABLIST_HEADERS, "[EB] Equipamentos", "Arma:\tCargo nescessário:\nCassetete\t1\nGranada de Fumaça\t1\nColt 45\t1\nDesert Eagle\t1\nShotgun\t1\nMP5\t1\nM4\t1\nParaquedas\t1\nSniper\t5", "Pegar", "Fechar");
 			}
-			case 1: Dialog_Show(playerid, Equipar_EB2, DIALOG_STYLE_TABLIST_HEADERS, "[DEVGRU] Equipamentos", "Tipo de Munição:\tQuantidade:\n9mm\t60\nCartuchos\t60\n5.56mm\t120\n12.7x106mm\t60", "Pegar", "Fechar");
+			case 1: Dialog_Show(playerid, Equipar_EB2, DIALOG_STYLE_TABLIST_HEADERS, "[EB] Equipamentos", "Tipo de Munição:\tQuantidade:\n9mm\t60\nCartuchos\t60\n5.56mm\t120\n12.7x106mm\t60", "Pegar", "Fechar");
             case 2: { P_Armour[playerid] = 100; SetPlayerArmour_CA(playerid, 100); }
             case 3: { P_Armour[playerid] = 0; SetPlayerArmour_CA(playerid, 0); }
             case 4:
@@ -37388,9 +37388,9 @@ Dialog:Equipar_PCERJ(playerid, response, listitem, inputtext[])
         {
             case 0:
 			{
-				Dialog_Show(playerid, Equipar_PCERJ1, DIALOG_STYLE_TABLIST_HEADERS, "[CIA] Equipamentos", "Arma:\tCargo nescessário:\nCassetete\t1\nGranada de Fumaça\t1\nColt 45\t1\nDesert Eagle\t1\nShotgun\t1\nMP5\t1\nM4\t1\nParaquedas\t1\nSniper\t5", "Pegar", "Fechar");
+				Dialog_Show(playerid, Equipar_PCERJ1, DIALOG_STYLE_TABLIST_HEADERS, "[Seals Team] Equipamentos", "Arma:\tCargo nescessário:\nCassetete\t1\nGranada de Fumaça\t1\nColt 45\t1\nDesert Eagle\t1\nShotgun\t1\nMP5\t1\nM4\t1\nParaquedas\t1\nSniper\t5", "Pegar", "Fechar");
 			}
-			case 1: Dialog_Show(playerid, Equipar_PCERJ2, DIALOG_STYLE_TABLIST_HEADERS, "[CIA] Equipamentos", "Tipo de Munição:\tQuantidade:\n9mm\t60\nCartuchos\t60\n5.56mm\t120\n12.7x106mm\t60", "Pegar", "Fechar");
+			case 1: Dialog_Show(playerid, Equipar_PCERJ2, DIALOG_STYLE_TABLIST_HEADERS, "[Seals Team] Equipamentos", "Tipo de Munição:\tQuantidade:\n9mm\t60\nCartuchos\t60\n5.56mm\t120\n12.7x106mm\t60", "Pegar", "Fechar");
             case 2: { P_Armour[playerid] = 100; SetPlayerArmour_CA(playerid, 100); }
             case 3: { P_Armour[playerid] = 0; SetPlayerArmour_CA(playerid, 0); }
             case 4:
@@ -39284,7 +39284,7 @@ CMD:presos(playerid, params[])
 			}
 			if(PlayerInfo[i][pPrisao] == 2)
 		    {
-		        format(stringaap, sizeof(stringaap), "[PCERJ] %s - ID: %d, Tempo: %d", PlayerName(i,1),i,PlayerInfo[i][pTemPreso]);
+		        format(stringaap, sizeof(stringaap), "[Seals Team] %s - ID: %d, Tempo: %d", PlayerName(i,1),i,PlayerInfo[i][pTemPreso]);
 				SCM(playerid, COLOR_GREY, stringaap);
 		        count++;
 			}
@@ -66259,12 +66259,12 @@ COMMAND:arrombar(playerid,params[])
 													    }
 													}
 
-													format(string, sizeof(string), "SMS: O alarme da sua residência nº%d em %s foi disparado.", i, location);
+													format(string, sizeof(string), "SMS: O alarme da sua residência Nº%d em %s foi disparado.", i, location);
 													SCM(id_dono, COLOR_YELLOW, string);
 												}
 												if(HouseInfo[i][hAlarme] > 2)
 												{
-												    format(string, sizeof(string), "** MARE 0: O alarme da casa %d em %s foi disparado.**", i, location);
+												    format(string, sizeof(string), "** USMC: O alarme da casa %d em %s foi disparado.**", i, location);
    													SendFacMessage(0x6666CCFF,1,string);
    													SendFacMessage(0x6666CCFF,2,string);
 												}
@@ -66350,12 +66350,12 @@ COMMAND:arrombar(playerid,params[])
 													    }
 													}
 
-													format(string, sizeof(string), "SMS: O alarme da sua garagem nº%d em %s foi disparado.", i, location);
+													format(string, sizeof(string), "SMS: O alarme da sua garagem Nº%d em %s foi disparado.", i, location);
 													SCM(id_dono, COLOR_YELLOW, string);
 												}
 												if(GaragemInfo[i][hAlarme] > 2)
 												{
-												    format(string, sizeof(string), "** MARE 0: O alarme da garagem nº%d em %s foi disparado.**", i, location);
+												    format(string, sizeof(string), "** USMC: O alarme da garagem Nº%d em %s foi disparado.**", i, location);
    													SendFacMessage(0x6666CCFF,1,string);
    													SendFacMessage(0x6666CCFF,2,string);
 												}
@@ -66509,12 +66509,12 @@ public ArrombouACasa(playerid)
  					id_dono = pp;
 	    		}
 			}
-			format(string, sizeof(string), "SMS: O alarme da sua residência nº%d em %s foi disparado.", i, location);
+			format(string, sizeof(string), "SMS: O alarme da sua residência Nº%d em %s foi disparado.", i, location);
 			SCM(id_dono, COLOR_YELLOW, string);
 		}
 		if(HouseInfo[i][hAlarme] > 2)
 		{
-  			format(string, sizeof(string), "** MARE 0: O alarme da casa nº%d em %s foi disparado.**", i, location);
+  			format(string, sizeof(string), "** USMC: O alarme da casa Nº%d em %s foi disparado.**", i, location);
 			SendFacMessage(0x6666CCFF,1,string);
 			SendFacMessage(0x6666CCFF,2,string);
 		}
@@ -66574,12 +66574,12 @@ public ArrombouAGaragem(playerid)
 	    		    id_dono = pp;
 	    		}
 			}
-			format(string, sizeof(string), "SMS: O alarme da sua garagem nº%d em %s foi disparado.", i, location);
+			format(string, sizeof(string), "SMS: O alarme da sua garagem Nº%d em %s foi disparado.", i, location);
 			SCM(id_dono, COLOR_YELLOW, string);
 		}
 		if(GaragemInfo[i][hAlarme] > 2)
 		{
-  			format(string, sizeof(string), "** MARE 0: O alarme da garagem nº%d em %s foi disparado.**", i, location);
+  			format(string, sizeof(string), "** USMC: O alarme da garagem Nº%d em %s foi disparado.**", i, location);
 			SendFacMessage(0x6666CCFF,1,string);
 			SendFacMessage(0x6666CCFF,2,string);
 		}
@@ -74595,7 +74595,7 @@ COMMAND:canalradio(playerid, params[])
 	    if(aimid > 180 && aimid < 555) {
 		    new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
 	     	new Job = PlayerInfo[playerid][pJob];
-            if(aimid == 190)
+            if(aimid == 1550)
             {
                 if(FacInfo[FacId][fTipo] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este rádio é restrito a USMC.");
                 temperm = 1;

@@ -55,6 +55,9 @@ new PayDayDuplo = 0;
 new CarRent[10];
 new RentCarKey[MAX_PLAYERS];
 
+//New Blindagem system
+#define MaxVuln 100000
+new Vuln[MAX_VEHICLES];
 
 //Sistema de ROJÃO
 new Foguete[MAX_PLAYERS];
@@ -68,11 +71,7 @@ new PlayerText:TelaLogin[MAX_PLAYERS][6];
 
 //Hud Radio
 new PlayerText:RadioComunicador[MAX_PLAYERS][2];
-// Sistema de blindagem
-#define		NUMERO_CARROS       90000
 
-new blindziiQz[MAX_VEHICLES];
-new blindadinho[MAX_PLAYERS] = 0;
 
 
 //Painel adm
@@ -6350,8 +6349,6 @@ public OnGameModeInit()
     SetTimer("Timer_Minutos", 60000, true);
     SetTimer("OnPlayerUpdate_Timer", 600, true);
     SetTimer("Tempo_Clima", 3600000, true);
-	SetTimer("comprarblinddenovo", 60000, true);
-    SetTimer("ziiQzblind", 500, true);	
 
 	
 	mapacivil();
@@ -7357,15 +7354,44 @@ COMMAND:settempo(playerid, params[])
     }
     return 1;
 }
+CMD:blindar(playerid, params[]) 
+{ 
+	if(PlayerInfo[playerid][pJob] != JOB_MECANICO) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não é um mecânico.");
+    if(!IsPlayerInAnyVehicle(playerid)) 
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em um veículo."); 
+
+    new vehicleid = GetPlayerVehicleID(playerid), modeloo = GetVehicleModel(vehicleid); 
+    switch(modeloo) 
+    { 
+        case 522, 581, 586, 521, 468, 463, 461, 462, 448: return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este Modelo de veículo não Pode ser blindado!."); 
+    } 
+
+	new taperto = 0;
+ 	for(new i = 1; i < MAX_GARAGES; i++)
+	{
+		if( IsPlayerInRangeOfPoint( playerid, 10.0, tGarage[ i ][ Position ][ 0 ], tGarage[ i ][  Position ][ 1 ], tGarage[ i ][ Position ][ 2 ] ) )
+		{
+			taperto = 1;
+			break;
+		}
+ 	}
+ 	if(taperto == 0) return SCM(playerid, COLOR_LIGHTRED, "Você não está em uma oficina.");
+
+    Vuln[vehicleid] = VulnMAX; 
+    RepairVehicle(vehicleid); 
+    SendClientMessage(playerid, COLOR_WHITE, "Seu veículo foi blindado."); 
+
+    return true; 
+}
 CMD:criarmorteiro(playerid, params[])
 {
 	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pMorteiro] <= 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 1 colete bomba para explodir.");
     if(PlayerInfo[playerid][pArrombarDNV_C] != 0)
     {
-        new stringfogos[128];
-        format(stringfogos, sizeof(stringfogos),"Aguarde %d segundos antes de lançar um morteiro novamente.", PlayerInfo[playerid][pArrombarDNV_C]);
-        SendClientMessage(playerid,COLOR_LIGHTRED, stringfogos);
+        new stringmorteiro[128];
+        format(stringmorteiro, sizeof(stringmorteiro),"Aguarde %d segundos antes de lançar um morteiro novamente.", PlayerInfo[playerid][pArrombarDNV_C]);
+        SendClientMessage(playerid,COLOR_LIGHTRED, stringmorteiro);
         return 1;
     }
 
@@ -7438,13 +7464,6 @@ CMD:disparar(playerid, params[])
 	}
 	return 1;
 }
-CMD:ajudablindagem(playerid, params[])
-{
-    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-	SendClientMessage(playerid, COLOR_YELLOW, "____________________Ajuda Blindagem____________________");
-	SendClientMessage(playerid, COLOR_WHITE, "/blindar /blindagem");
-	return 1;
-}
  
 CMD:ajudamorteiro(playerid, params[])
 {
@@ -7512,47 +7531,17 @@ public MissilExplode(playerid)
 	AlvoX[playerid] = 0;
 	AlvoY[playerid] = 0;
 	AlvoZ[playerid] = 0;
+	SetTimerEx("TimerZera", 12000, false, "i", playerid);
 	return 1;
 }
-CMD:blindar(playerid, params[])
+forward TimerZera(playerid);
+public TimerZera(playerid)
 {
-	if(!IsPlayerInAnyVehicle(playerid))return SendClientMessage(playerid, COLOR_LIGHTRED, "Para você comprar uma blindagem , você precisa estar em um carro.");
-    if(blindadinho[playerid] == 1)return SendClientMessage(playerid, COLOR_LIGHTRED, "Você já está blindado.");
-	new idcarro = GetPlayerVehicleID(playerid);
-    blindadinho[playerid] = 1;
-	blindziiQz[GetPlayerVehicleID(playerid)] = 100;
-	RepairVehicle(GetPlayerVehicleID(playerid));
-	ziiQzblind(idcarro, playerid);
-	SendClientMessage(playerid, COLOR_LIGHTRED, "Você blindou o veículo.");
-  	return 1;
-}
-forward ziiQzblind(vehicleid, playerid);
-public ziiQzblind(vehicleid, playerid)
-{
-	for(new car = 1; car <= NUMERO_CARROS; car++)
-	{
-	    if(blindziiQz[car] > 0)
-		{
-			new Float:health;
-    		GetVehicleHealth(car, health);
-        	if(health < 999)
-			{
-	    		blindziiQz[car] -= 5;
-	    		RepairVehicle(car);
-	    		return 0;
-			}
-    	}
-	}
+	SendClientMessage(playerid, COLOR_LIGHTRED, "Você já pode disparar outro morteiro novamente.");
+	PlayerInfo[targetid][pArrombarDNV_C] = 0;
 	return 1;
 }
- 
-forward comprarblinddenovo(playerid);
-public comprarblinddenovo(playerid)
-{
- 	//SendClientMessage(playerid, COLOR_LIGHTRED, "Você já pode comprar uma blindagem novamente.");
-  	blindadinho[playerid] = 0;
-  	return 1;
-}
+
 CMD:bichos(playerid, params[]) 
 {
 	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
@@ -10955,6 +10944,11 @@ public OnVehicleDamageStatusUpdate(vehicleid, playerid)
     if(IsPushbike(GetVehicleModel(GetPlayerVehicleID(playerid)))) return 1;
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 
+	if(Vuln[vehicleid] > 0)
+    {
+        Vuln[vehicleid] --;
+        RepairVehicle(vehicleid);
+	}
     new Float:vidaCar;
 	GetVehicleHealth(vehicleid, vidaCar);
     new slot = GetVehicleSlot(vehicleid);
@@ -13689,7 +13683,6 @@ public OnVehicleDeath(vehicleid, killerid)
 {
     if(!IsValidVehicle(vehicleid)) return 0;
 
-	blindziiQz[GetPlayerVehicleID(vehicleid)] = 0;
 
     new slot = GetVehicleSlot(vehicleid);
 	if(slot > -1) {

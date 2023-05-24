@@ -56,7 +56,7 @@ new CarRent[10];
 new RentCarKey[MAX_PLAYERS];
 
 //New Blindagem system
-#define MaxVuln 100000
+#define VulnMAX 100000
 new Vuln[MAX_VEHICLES];
 
 //Sistema de ROJÃO
@@ -7538,7 +7538,7 @@ forward TimerZera(playerid);
 public TimerZera(playerid)
 {
 	SendClientMessage(playerid, COLOR_LIGHTRED, "Você já pode disparar outro morteiro novamente.");
-	PlayerInfo[targetid][pArrombarDNV_C] = 0;
+	PlayerInfo[playerid][pArrombarDNV_C] = 0;
 	return 1;
 }
 

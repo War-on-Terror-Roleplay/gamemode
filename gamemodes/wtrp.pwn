@@ -2703,7 +2703,7 @@ enum g_Info
 };
 new GaragemInfo[MAX_GARAGENS][g_Info];
 //==============================================================================
-//                      		Furniture System by: Freeze
+//                      		Furniture System by Yur$
 //==============================================================================
 #define MAX_MOVEIS 30000
 
@@ -3252,7 +3252,7 @@ static CARROS_AJUDAINI[8] = {
 	468
 };
 //==============================================================================
-//                      		Faction System by: Freeze
+//                      		Faction System by Yur$
 //==============================================================================
 #define MAX_FACCOES 50
 enum fac_Info
@@ -3502,7 +3502,7 @@ enum e_Info
 new EmpInfo[MAX_EMPRESAS][e_Info];
 
 //==============================================================================
-//                      VEHICLE SYSTEM - BY: FREEZE
+//                      VEHICLE SYSTEM - by Yur$
 //==============================================================================
 #define MAX_CA_VEHICLES 50000
 new purchasing_vehicle[MAX_PLAYERS],
@@ -10220,7 +10220,7 @@ public Timer_Segundos()
 					}
 					//=============================================================
 					//==============================================================
-					//Weather Sys By Freeze
+					//Weather Sys by Yur$
 					if(PlayerInfo[i][pDrogaTime] == 0)
 					{
 						if(PlayerInfo[i][pEntrouCasa] == -1 && PlayerInfo[i][pEntrouEmpresa] == -1  && PlayerInfo[i][pEntrouComplexo] == -1 && PlayerInfo[i][pEntrouGaragem] == -1 && EntrouInt[i] == -1)

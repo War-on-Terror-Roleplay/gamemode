@@ -14001,20 +14001,20 @@ Dialog:PET_MENU_FOLLOW(playerid, response, listitem, inputtext[]) {
             return PetFollow(playerid, playerid);
 
         if(!IsNumeric(inputtext))
-            return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Segue", "{FFFFFF}Insira o ID do jogador que você deseja que seu animal de estimação siga:", "Seguir", "Cancelar");
+            return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Seguir", "{FFFFFF}Insira o ID do jogador que você deseja que seu animal de estimação siga:", "Seguir", "Cancelar");
 
         if(sscanf(inputtext, "u", targetid))
-            return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Segue", "{FF0000}ERRO: O ID inserido é inválido.\n\n{FFFFFF}Insira o ID do jogador que você deseja que seu animal de estimação siga:", "Seguir", "Cancelar");
+            return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Seguir", "{FF0000}ERRO: O ID inserido é inválido.\n\n{FFFFFF}Insira o ID do jogador que você deseja que seu animal de estimação siga:", "Seguir", "Cancelar");
 
         if(targetid == INVALID_PLAYER_ID)
-            return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Segue", "{FF0000}ERRO: O jogador especificado é inválido.\n\n{FFFFFF}Insira o ID do jogador que você deseja que seu animal de estimação siga:", "Seguir", "Cancelar");
+            return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Seguir", "{FF0000}ERRO: O jogador especificado é inválido.\n\n{FFFFFF}Insira o ID do jogador que você deseja que seu animal de estimação siga:", "Seguir", "Cancelar");
         
-        if(!IsPlayerNearPlayer(playerid, targetid, 10.0)) return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Segue", "{FF0000}ERRO: O jogador especificado não está perto o suficiente.\n\n{FFFFFF}Insira o ID do jogador que você deseja que seu animal de estimação siga:", "Seguir", "Cancelar");
+        if(!IsPlayerNearPlayer(playerid, targetid, 10.0)) return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Seguir", "{FF0000}ERRO: O jogador especificado não está perto o suficiente.\n\n{FFFFFF}Insira o ID do jogador que você deseja que seu animal de estimação siga:", "Seguir", "Cancelar");
         
         PetFollow(playerid, targetid);
-        //SendClientMessage(playerid, COLOR_LIGHTRED, "Seu animal de estimação agora está seguindo %s.", PlayerName(targetid)); corrigir mensagem pet system
-        /*format(logString, sizeof(logString), "%s colocou seu animal de estimação para seguir %s", PlayerName(targetid, 0), pNome(targetid));
-        logCreate(playerid, logString, 19);*/
+		new petsegue[256];
+		format(petsegue,sizeof(petsegue), "Seu animal de estimação agora está seguindo %s.", PlayerName(targetid));
+		SendClientMessage(COLOR_WHITE, petsegue);
     }
     return true;
 }

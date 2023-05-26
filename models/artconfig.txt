@@ -47,8 +47,8 @@ AddSimpleModel(-1, 19379, -2007, "login.dff", "logo.txd");
 AddSimpleModel(-1, 19315, -1095, "textdraw_object.dff", "textdraw_ui.txd");
 
 //objetos mapas
-AddSimpleModel(-1, 19142, -1004, "aviao1.dff", "aviao1.txd");
-AddSimpleModel(-1, 19142, -1005, "aviao2.dff", "aviao2.txd");
+AddSimpleModel(-1, 19142, -1003, "aviao1.dff", "aviao1.txd");
+AddSimpleModel(-1, 19142, -1004, "aviao2.dff", "aviao2.txd");
 
 //objetos binco
 AddSimpleModel(-1, 19142, -2063, "rojao.dff", "rojao.txd");

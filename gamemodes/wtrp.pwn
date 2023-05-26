@@ -1,3 +1,4 @@
+//checar correção - Sistema de seguro veícular
 // --------- [ INCLUDES ] ---------
 #include <a_samp>
 #include <a_mysql>
@@ -6228,8 +6229,8 @@ public OnGameModeInit()
     CreateDynamic3DTextLabel("[PÁTIO]\nUse '/apreender'\nUse '/desapreender'",0xffffffff,2819.6492,-1203.3964,24.9792, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
     CreatePickup(1239, 1, 2819.6492,-1203.3964,24.9792, 0);
 
-	CreateDynamic3DTextLabel("[Agencia de Seguros]\nUse '/aceitarcobranca'",0xffffffff,1500.2792,-1241.3109,14.5563, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
-	CreatePickup(1239, 1, 1500.2792,-1241.3109,14.5563, 0);
+	CreateDynamic3DTextLabel("[Agencia de Seguros]\nUse '/aceitarcobranca'",0xffffffff,1500.2792,-1241.3109,14.5563, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);//checar correção
+	CreatePickup(1239, 1, 1500.2792,-1241.3109,14.5563, 0);//checar correção
 
     //PEIXES
     CreateDynamic3DTextLabel("{FFFFFF}[Casa de Peixes]\nUse '/venderpeixes'",0xffffffff, 2784.9338,-2454.6338,13.6344, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
@@ -14163,7 +14164,7 @@ COMMAND:aceitarcobranca(playerid,params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 
-    if(IsPlayerInRangeOfPoint(playerid,7.5,1500.2792,-1241.3109,14.5563))
+    if(IsPlayerInRangeOfPoint(playerid,7.5,1500.2792,-1241.3109,14.5563))//checar correção
 	{
 		new idx = 0;
 		new tmp[64];
@@ -14176,7 +14177,7 @@ COMMAND:aceitarcobranca(playerid,params[])
 	else
 	{
  		SendClientMessage(playerid,COLOR_LIGHTRED,"Você não esta na agência de seguros. (Marcada no mapa)");
-   		SetPlayerCheckpoint(playerid,1500.2792,-1241.3109,14.5563,5.0);
+   		SetPlayerCheckpoint(playerid,1500.2792,-1241.3109,14.5563,5.0);//checar correção
 	    cp_target[playerid] = 2;
 	}
 	return 1;
@@ -64048,7 +64049,7 @@ COMMAND:veiculo(playerid,params[])
 
 	if(strcmp(tmp,"remontar",true) == 0)
 	{
-		if(IsPlayerInRangeOfPoint(playerid,7.5,1500.2792,-1241.3109,14.5563))
+		if(IsPlayerInRangeOfPoint(playerid,7.5,1500.2792,-1241.3109,14.5563))//checar correção
 		{
 		    new tmp2[32];
 		    tmp2 = strtok(params,idx);
@@ -64061,7 +64062,7 @@ COMMAND:veiculo(playerid,params[])
 		else
 		{
 		    SendClientMessage(playerid,COLOR_LIGHTRED,"Você não esta na agência de seguros. (Marcada no mapa)");
-		    SetPlayerCheckpoint(playerid,1500.2792,-1241.3109,14.5563,5.0);
+		    SetPlayerCheckpoint(playerid,1500.2792,-1241.3109,14.5563,5.0);//checar correção
 		    cp_target[playerid] = 2;
 		    return 1;
 		}
@@ -64220,7 +64221,7 @@ COMMAND:veiculo(playerid,params[])
 	        {
 	            if(VehicleInfo[slot][vOwner] == GetCharacterID(playerid))
 	            {
-	                if(IsPlayerInRangeOfPoint(playerid,10.0,2408.4861,-1427.5201,23.9904))//checar
+	                if(IsPlayerInRangeOfPoint(playerid,10.0,2408.4861,-1427.5201,23.9904))//checar correção
 	                {
 						new vname[128];
 	                    GetVehicleNameByModel(VehicleInfo[slot][vModel],vname);
@@ -64243,7 +64244,7 @@ COMMAND:veiculo(playerid,params[])
 					else
 					{
 					    SendClientMessage(playerid,COLOR_LIGHTRED,"AVISO: Você não está próximo ao ponto do ferro velho. Um checkpoint foi adicionado ao seu mapa.");
-						SetPlayerCheckpoint(playerid,2408.4861,-1427.5201,23.9904,15.0);
+						SetPlayerCheckpoint(playerid,2408.4861,-1427.5201,23.9904,15.0);//checar correção
 						going_to_scrap[playerid] = 1;
 						return 1;
 					}

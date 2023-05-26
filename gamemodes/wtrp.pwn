@@ -38316,12 +38316,12 @@ COMMAND:galao(playerid,params[])
 	return 1;
 }
 
-CMD:junioradmins3(playerid, params[])
+CMD:tester(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new AdmSTR[86];
 	new Totaltesters = 0;
-	SendClientMessage(playerid, 0xb4b5b7FF, "Juniors Admins:");
+	SendClientMessage(playerid, 0xb4b5b7FF, "Testers:");
 	for(new i = 0; i < MAX_PLAYERS; i++)
 	{
 	    if(IsPlayerConnected(i) && PlayerInfo[i][pLogado])
@@ -38343,7 +38343,7 @@ CMD:junioradmins3(playerid, params[])
 			}
 		}
 	}
-	if(Totaltesters == 0) SendClientMessage(playerid, COLOR_CINZA, " Não há Juniors Admins online.");
+	if(Totaltesters == 0) SendClientMessage(playerid, COLOR_CINZA, " Não há Testers online.");
 	return 1;
 }
 
@@ -38700,7 +38700,7 @@ COMMAND:reportar(playerid, params[])
 	{
         format(string, sizeof(string), "[REPORT: %d]{B1C8FB} %s (%d) reportou o jogador %s(id: %d), %s.", playerid, PlayerName(playerid, 0), playerid, PlayerName(targetid, 0), targetid, text);
 	    SendAdminAndRegMessage(COLOR_LIGHTRED,string);
-		SendClientMessage(playerid, COLOR_LIGHTGREEN,"Seu pedido de ajuda foi enviado para todos Admins/Juniors Admins online.");
+		SendClientMessage(playerid, COLOR_LIGHTGREEN,"Seu pedido de ajuda foi enviado para todos Admins/Testers online.");
 		SetPVarInt(playerid, "HelpMe", gettime()+180);
 	}
 	return 1;
@@ -38726,13 +38726,13 @@ COMMAND:sos(playerid, params[])
         if(found == 0) {
             format(string, sizeof(string), "[SOS: %d]{B1C8FB} %s (%d): %s.", playerid, PlayerName(playerid, 0), playerid, text);
 		    SendAdminAndRegMessage(COLOR_LIGHTRED,string);
-		    SendClientMessage(playerid, COLOR_LIGHTGREEN,"Seu pedido de ajuda foi enviado para todos Admins/Juniors Admins online.");
+		    SendClientMessage(playerid, COLOR_LIGHTGREEN,"Seu pedido de ajuda foi enviado para todos Admins/Testers online.");
 		    SetPVarInt(playerid, "HelpMe", gettime()+180);
 			return 1;
         }
         format(string, sizeof(string), "[SOS: %d]{B1C8FB} %s (%d): %s.", playerid, PlayerName(playerid, 0), playerid, text);
 	    SendAdminAndRegMessage(COLOR_LIGHTRED,string);
-		SendClientMessage(playerid, COLOR_LIGHTGREEN,"Seu pedido de ajuda foi enviado para todos Admins/Juniors Admins online.");
+		SendClientMessage(playerid, COLOR_LIGHTGREEN,"Seu pedido de ajuda foi enviado para todos Admins/Testers online.");
 		SetPVarInt(playerid, "HelpMe", gettime()+180);
 	}
 
@@ -39148,7 +39148,7 @@ CMD:ajudaadmin(playerid, params[])
 			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Game Admin 4]{FFFFFF} /destruirarma /aretirar");
 		}
 		if(PlayerInfo[playerid][pAdmin] >= 5){
-			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Head Admin]{FFFFFF} /checarsos /setaradmin /setarjunioradmin /SetWeather /setardinheiro /desbugarvc /pontodesmanche /mudarsexo");
+			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Head Admin]{FFFFFF} /checarsos /setaradmin /setartester /SetWeather /setardinheiro /desbugarvc /pontodesmanche /mudarsexo");
 			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Head Admin]{FFFFFF} /amotor /atrancar /entrarveiculo /pnomeooc /verveiculos /ulogin /mudarsexo /setaremprego /savevehicles");
 			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Head Admin]{FFFFFF} /abrirelevador /abrirelevador1 /irpos /unbanip /limpargrana /limparbanco /mudarclima /mudaridade");
 			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Equipes]{FFFFFF} /refundteam /banappeal /factionteam /propertyteam");
@@ -42098,7 +42098,7 @@ COMMAND:setartester(playerid, params[])
     if (PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
 	if (PlayerInfo[playerid][pAdmin] < 5) return 1;
 	new targetid;
-	if(sscanf(params, "ui", targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /setarjunioradmin [id]");
+	if(sscanf(params, "ui", targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /setartester [id]");
 	else
 	{
 	    if (!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_WHITE, "{FF6347}Este jogador não está conectado!");

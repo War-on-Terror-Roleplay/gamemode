@@ -11976,6 +11976,9 @@ public OnPlayerConnect(playerid)
 	RemoveBuildingForPlayer(playerid, 3275, -812.054, 2406.449, 155.968, 0.250);
 	RemoveBuildingForPlayer(playerid, 3275, -775.992, 2408.360, 156.828, 0.250);
 	RemoveBuildingForPlayer(playerid, 16395, -763.632, 2307.479, 136.882, 0.250);
+	//Avião
+	RemoveBuildingForPlayer(playerid, 8171, 1477.380, 1586.619, 9.812, 0.250);
+	RemoveBuildingForPlayer(playerid, 8361, 1477.380, 1586.619, 9.812, 0.250);
 
 	for(new i = 0; i < 50; i++) //CaminhaoSyst
 	{

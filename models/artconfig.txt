@@ -24,6 +24,8 @@ AddCharModel(287, 20104, "seals4.dff", "seals4.txd");
 AddCharModel(287, 20105, "seals5.dff", "seals5.txd"); 
 AddCharModel(287, 20106, "seals6.dff", "seals6.txd"); 
 AddCharModel(287, 20107, "seals7.dff", "seals7.txd"); 
+AddCharModel(287, 20108, "seals8.dff", "seals8.txd"); 
+AddCharModel(287, 20109, "seals9.dff", "seals9.txd"); 
 
 
 //Pet System

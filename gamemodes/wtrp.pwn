@@ -6345,7 +6345,7 @@ public OnGameModeInit()
 
 	
 	mapacivil();
-	governamental();
+	governamentalex();
 	faccoes();
 	interiorgov();
 	empresasint();

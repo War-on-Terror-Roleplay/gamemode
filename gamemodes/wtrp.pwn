@@ -193,9 +193,9 @@ new ambiente = 1; // 0  - Localhost 1 - Produção
 //====== [DEFINIÇÕES DO SERVIDOR] =======================================================
 #define ULTIMO_GMX      "15/04/2023"
 #define CA_VERSAO       "WT:RP v2.09"
-#define CA_LINK         "weburl wt-rp.com.br"
+#define CA_LINK         "weburl WT-RP.COM.BR"
 //#define CA_NOME         "hostname War on Terror Roleplay | BETA TEST CLOSED"
-#define CA_NOME         "hostname War on Terror Roleplay | wt-rp.com.br"
+#define CA_NOME         "hostname War on Terror Roleplay | WT-RP.COM.BR"
 #define CA_NOME2        "hostname War on Terror Roleplay [2x Paycheck]"
 #define CA_NOME3        "hostname War on Terror Roleplay [Manutenção rápida]"
 #define CA_LANGUAGE     "language Português Brasileiro"
@@ -8487,7 +8487,7 @@ stock GetSalarioJob(playerid)
 {
 	new Pagamento = 0;
 	if(PlayerInfo[playerid][pJob] > 0)
-		Pagamento = 350;
+		Pagamento = 489;
 
 	return Pagamento;
 }
@@ -11475,7 +11475,7 @@ public OnPlayerConnect(playerid)
 	    SetPlayerVirtualWorld(playerid, 9999);
 	    SendClientMessage(playerid, COLOR_YELLOW, "SERVER: Você precisa de um nome real para jogar no servidor.");
 		SendClientMessage(playerid, COLOR_YELLOW, "EXEMPLO: Nome_Sobrenome (Dica: não use numeros e muitas letras maiusculas em CAPSLOCK).");
-		SendClientMessage(playerid, COLOR_YELLOW, "PARA MAIS INFORMAÇÕES: https://forum.wt-rp.com.br");
+		SendClientMessage(playerid, COLOR_YELLOW, "PARA MAIS INFORMAÇÕES: https://forum.WT-RP.COM.BR");
 
 
 		SetTimerEx("KickInTime", 1000, 0, "i", playerid);
@@ -12087,7 +12087,7 @@ public CheckingAccount(playerid)
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][4]);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][5]);
 			new str[1024];
-			format(str, sizeof(str), "SERVER: Você só pode errar sua senha três (3) vezes.\n INFO: Nosso FÓRUM é o http://forum.wt-rp.com.br\n acesse-o para mais informações sobre sua conta.\n\n        Digite sua senha:");
+			format(str, sizeof(str), "SERVER: Você só pode errar sua senha três (3) vezes.\n INFO: Nosso FÓRUM é o http://forum.WT-RP.COM.BR\n acesse-o para mais informações sobre sua conta.\n\n        Digite sua senha:");
 			ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "War on Terror Roleplay", str, "Autenticar", "Cancelar");
 		}
 		else
@@ -13388,7 +13388,7 @@ public OnPlayerSpawn(playerid){
                     PlayerInfo[playerid][pRegistrado] = 1;
 
                     SetPlayerColor(playerid,COLOR_WHITE);
-                    SendClientMessage(playerid, COLOR_LIGHTRED,"INFO: Não deixe de visitar nosso fórum: forum.wt-rp.com.br.");
+                    SendClientMessage(playerid, COLOR_LIGHTRED,"INFO: Não deixe de visitar nosso fórum: forum.WT-RP.COM.BR.");
                     SendClientMessage(playerid, COLOR_LIGHTRED,"INFO: Utilize /gps para encontrar os principais pontos da cidade.");
                 }
 	
@@ -18399,7 +18399,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 	  			else
 	  			{
 	  			    new str[250];
-					format(str, sizeof(str), "SERVER: Você só pode errar sua senha três vezes.\n INFO: Nosso FÓRUM é o https://forum.wt-rp.com.br\n acesse-o para mais informações sobre sua conta.\n\n        Digite sua senha novamente:");
+					format(str, sizeof(str), "SERVER: Você só pode errar sua senha três vezes.\n INFO: Nosso FÓRUM é o https://forum.WT-RP.COM.BR\n acesse-o para mais informações sobre sua conta.\n\n        Digite sua senha novamente:");
 					ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "War on Terror Roleplay", str, "Autenticar", "Cancelar");
 
 				}
@@ -21094,7 +21094,7 @@ public TogSQLstatus(playerid, status)
 
 CMD:forum(playerid, params[])
 {
-    SCM(playerid, COLOR_LIGHTRED, "[WT:RP] Fórum do servidor: https://forum.wt-rp.com.br");
+    SCM(playerid, COLOR_LIGHTRED, "[WT:RP] Fórum do servidor: https://forum.WT-RP.COM.BR");
 	return 1;
 }
 
@@ -23572,15 +23572,16 @@ stock IsPlayerAimings(playerid, aimid)
 CMD:ajuda(playerid, params[])
 {
 	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você precisa estar logado.");
-    SendClientMessage(playerid, COLOR_LIGHTGREEN, "_______________wt-rp.com.br______________");
-    SendClientMessage(playerid, COLOR_ESPECIAL1, "[CONTA] /stats /upgrade /itens /inv(entario) /minhasdrogas /comprarlicenca /pegaremprego /mudarsenha /refundos");
-    SendClientMessage(playerid, COLOR_ESPECIAL2, "[GERAL] /pagar /horas /relogio /comprar /id /bater /screen /pegar /removercp /cinto /tempopremium");
-    SendClientMessage(playerid, COLOR_ESPECIAL1, "[GERAL] (/an)uncio /licencas /sos /limparchat /derrubar /corrigirvw /subir /darpeca");
-    SendClientMessage(playerid, COLOR_ESPECIAL2, "[CHAT] (/s)ussurar (/g)ritar (/l)ocal /me /b(OOC) /do /baixo /pm(OOC) (/r)adio /cw");
-    SendClientMessage(playerid, COLOR_ESPECIAL1, "[BANCO] /sacar /depositar /transferir /savings /caixa");
-    SendClientMessage(playerid, COLOR_ESPECIAL2, "[AJUDA] /ajudacelular /ajudacasa (/v)eiculo /ajudaempresa /ajudaemprego /ajudafaccao /ajudapesca");
-    SendClientMessage(playerid, COLOR_ESPECIAL1, "[AJUDA] /ajudaradio /ajudadrogas /ajudaarma /ajudajogo /levantar /documentos /itensp /multas");
-    SendClientMessage(playerid, COLOR_ESPECIAL2, "[TOG/ESTILOS/OUTROS] /tog /estilochat /estilocaminhada /afk /passarcigarro /passarbeck");
+    SendClientMessage(playerid, COLOR_LIGHTGREEN, "_______________WT-RP.COM.BR______________");
+    SendClientMessage(playerid, COLOR_ESPECIAL1, "[CONTA] /explosivo /vestircolete /homembomba /criarmorteiro /disparar /ajudarmorteiro /blindar");
+    SendClientMessage(playerid, COLOR_ESPECIAL2, "[CONTA] /stats /upgrade /itens /inv(entario) /minhasdrogas /comprarlicenca /pegaremprego /mudarsenha /refundos");
+    SendClientMessage(playerid, COLOR_ESPECIAL1, "[GERAL] /pagar /horas /relogio /comprar /id /bater /screen /pegar /removercp /cinto /tempopremium");
+    SendClientMessage(playerid, COLOR_ESPECIAL2, "[GERAL] (/an)uncio /licencas /sos /limparchat /derrubar /corrigirvw /subir /darpeca");
+    SendClientMessage(playerid, COLOR_ESPECIAL1, "[CHAT] (/s)ussurar (/g)ritar (/l)ocal /me /b(OOC) /do /baixo /pm(OOC) (/r)adio /cw");
+    SendClientMessage(playerid, COLOR_ESPECIAL2, "[BANCO] /sacar /depositar /transferir /savings /caixa");
+    SendClientMessage(playerid, COLOR_ESPECIAL1, "[AJUDA] /ajudacelular /ajudacasa (/v)eiculo /ajudaempresa /ajudaemprego /ajudafaccao /ajudapesca");
+    SendClientMessage(playerid, COLOR_ESPECIAL2, "[AJUDA] /ajudaradio /ajudadrogas /ajudaarma /ajudajogo /levantar /documentos /itensp /multas");
+    SendClientMessage(playerid, COLOR_ESPECIAL1, "[TOG/ESTILOS/OUTROS] /tog /estilochat /estilocaminhada /afk /passarcigarro /passarbeck");
     if(PlayerInfo[playerid][pAdmin] > 0 || PlayerInfo[playerid][pTester] > 0) SendClientMessage(playerid, COLOR_ESPECIAL1, "[ADMIN] /ajudaadmin(/aa) /ajudateam");
     SendClientMessage(playerid, COLOR_LIGHTGREEN, "____________________________________________");
 
@@ -41487,7 +41488,7 @@ COMMAND:namechange(playerid, params[])
 			mysql_format(Pipeline, ChangeStr, sizeof(ChangeStr), "SELECT * FROM `accounts` WHERE `Username` = '%s'", type);
 			mysql_function_query(Pipeline, ChangeStr, true, "TrocandoNome", "i", playerid);
 		}
-		else return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O seu novo nome deve seguir o padrão RP, Nome_Sobrenome.");
+		else return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O seu novo nome deve seguir o padrão ROLEPLAY, Nome_Sobrenome.");
 	}
 	return 1;
 }
@@ -43960,7 +43961,7 @@ public AtualizarTutorial(playerid)
 			SetPlayerColor(playerid,COLOR_WHITE);
 
 			SendClientMessage(playerid, COLOR_LIGHTRED,"Você passou pelo tutorial. Lhe desejamos um bom jogo.");
-			SendClientMessage(playerid, COLOR_LIGHTRED,"Não deixe de visitar nosso fórum: forum.wt-rp.com.br.");
+			SendClientMessage(playerid, COLOR_LIGHTRED,"Não deixe de visitar nosso fórum: forum.WT-RP.COM.BR.");
 			SendClientMessage(playerid, COLOR_LIGHTRED,"Utilize /gps para encontrar os principais pontos da cidade.");
 		}
 
@@ -65419,7 +65420,7 @@ COMMAND:prefixo(playerid,params[])
  	else return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} {FFFFFF}Você não está em um veículo.");
 }
 
-CMD:nickoff(playerid)
+/*CMD:nickoff(playerid)
 {
     for(new i = 0; i < MAX_PLAYERS; i++) ShowPlayerNameTagForPlayer(playerid, i, false);
     GameTextForPlayer(playerid, "~W~Nicks Desativos ~R~off", 5000, 5);
@@ -65431,7 +65432,7 @@ CMD:nickon(playerid)
 for(new i = 0; i < MAX_PLAYERS; i++) ShowPlayerNameTagForPlayer(playerid, i, true);
 GameTextForPlayer(playerid, "~W~Nicks Ativos ~R~", 5000, 5);
 return 1;
-}
+}*/
 
 CMD:rprefixo(playerid,params[])
 {
@@ -75719,19 +75720,30 @@ stock ChangeName(playerid,newname[])
 
 Dialog:DIALOG_CN_S(playerid, response, listitem, inputtext[])
 {
-    if(!response)
+    if(!response) 
     {
-        SendClientMessage(playerid, COLOR_GREEN, "[Namechange] Certo, agora sua personagem é uma Mulher. Boa vida nova!");
+        SendClientMessage(playerid, COLOR_GREEN, "[namechange] Certo, agora sua personagem é uma Mulher, qual a idade dela?");
         PlayerInfo[playerid][pGender] = 2;
-        //Dialog_Show(playerid,DIALOG_CN_ID,DIALOG_STYLE_INPUT,"Namechange","Qual a idade do seu personagem?","Masculino","Feminino");
+        Dialog_Show(playerid,DIALOG_CN_ID,DIALOG_STYLE_INPUT,"namechange","Qual a idade do seu personagem?","Masculino","Feminino");
     }
 	else
 	{
-	    SendClientMessage(playerid, COLOR_GREEN, "[Namechange] Certo, agora sua personagem é um Homem. Boa vida nova!");
+	    SendClientMessage(playerid, COLOR_GREEN, "[namechange] Certo, agora sua personagem é um Homem, qual a idade dele?");
 	    PlayerInfo[playerid][pGender] = 1;
-	    //Dialog_Show(playerid,DIALOG_CN_ID,DIALOG_STYLE_INPUT,"Namechange","Qual a idade do seu personagem?","Masculino","Feminino");
+	    Dialog_Show(playerid,DIALOG_CN_ID,DIALOG_STYLE_INPUT,"namechange","Qual a idade do seu personagem?","Masculino","Feminino");
 	}
 	return 1;
+}
+Dialog:DIALOG_CN_ID(playerid, response, listitem, inputtext[])
+{
+	new idade = strval(inputtext);
+	if(idade > 13 && idade < 99)
+	{
+    	PlayerInfo[playerid][pAge] = idade;
+    	format(string,126,"[namechange] Certo, sua personagem tem %d anos. Boa vida nova!",idade);
+    	SCM(playerid, COLOR_GREEN, string);
+	}
+    return 1;
 }
 
 stock IsPlayerFacingPlayer(playerid, targetid, Float:dOffset)

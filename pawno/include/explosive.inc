@@ -292,7 +292,7 @@ IsPlayerNearAnyExplosive(playerid)
 	{
 		GetExplosiveRange(i, range);
 
-		if (IsPlayerInRangeOfPoint(playerid, (range + 3.0), g_sExplosive@Data[i][E_EXPLOSIVE_X], g_sExplosive@Data[i][E_EXPLOSIVE_Y], g_sExplosive@Data[i][E_EXPLOSIVE_Z]))
+		if (IsPlayerInRangeOfPoint(playerid, (range + 0.2), g_sExplosive@Data[i][E_EXPLOSIVE_X], g_sExplosive@Data[i][E_EXPLOSIVE_Y], g_sExplosive@Data[i][E_EXPLOSIVE_Z]))
 			return true;
 	}
 	return false;

@@ -27572,8 +27572,8 @@ COMMAND:explosivo(playerid, params[])
 			GetPlayerFacingAngle(playerid, a);
 
 			CreateExplosive(
-				(x + (1.0 * floatsin(-a, degrees))),
-				(y + (1.0 * floatcos(-a, degrees))),
+				(x + (2.0 * floatsin(-a, degrees))),
+				(y + (2.0 * floatcos(-a, degrees))),
 				((param == _:PROXIMITY) ? (z - 1.2) : (z - 0.92)),
 				e_TRIGGER:param,
 				.time = time,

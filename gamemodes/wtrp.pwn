@@ -12520,15 +12520,15 @@ public PlayerConectCriarTexts(playerid)
     PlayerTextDrawFont(playerid, TelaLogin[playerid][3], 4);
     PlayerTextDrawSetProportional(playerid, TelaLogin[playerid][3], 1);
 
-    TelaLogin[playerid][4] = CreatePlayerTextDraw(playerid, 253.000, 11.000, "mdl-2003:logo");
-    PlayerTextDrawTextSize(playerid, TelaLogin[playerid][4], 121.000, 123.000);
-    PlayerTextDrawAlignment(playerid, TelaLogin[playerid][4], 1);
-    PlayerTextDrawColor(playerid, TelaLogin[playerid][4], -1);
-    PlayerTextDrawSetShadow(playerid, TelaLogin[playerid][4], 0);
-    PlayerTextDrawSetOutline(playerid, TelaLogin[playerid][4], 0);
-    PlayerTextDrawBackgroundColor(playerid, TelaLogin[playerid][4], 255);
-    PlayerTextDrawFont(playerid, TelaLogin[playerid][4], 4);
-    PlayerTextDrawSetProportional(playerid, TelaLogin[playerid][4], 1);
+	TelaLogin[playerid][4] = CreatePlayerTextDraw(playerid, 259.000, 11.000, "mdl-2003:logo");
+	PlayerTextDrawTextSize(playerid, TelaLogin[playerid][4], 121.000, 123.000);
+	PlayerTextDrawAlignment(playerid, TelaLogin[playerid][4], 1);
+	PlayerTextDrawColor(playerid, TelaLogin[playerid][4], -1);
+	PlayerTextDrawSetShadow(playerid, TelaLogin[playerid][4], 0);
+	PlayerTextDrawSetOutline(playerid, TelaLogin[playerid][4], 0);
+	PlayerTextDrawBackgroundColor(playerid, TelaLogin[playerid][4], 255);
+	PlayerTextDrawFont(playerid, TelaLogin[playerid][4], 4);
+	PlayerTextDrawSetProportional(playerid, TelaLogin[playerid][4], 1);
 
     TelaLogin[playerid][5] = CreatePlayerTextDraw(playerid, 246.000, 131.000, "mdl-2002:welcomeback");
     PlayerTextDrawTextSize(playerid, TelaLogin[playerid][5], 140.000, 13.000);
@@ -14801,7 +14801,7 @@ public OnPlayerText(playerid, text[])
 					    {
 	    					format(str, sizeof(str), "Relator: %s Contato: #024-%.3s-%.3s", Nome, TelPublico[orelhao_id][orPrefixo],TelPublico[orelhao_id][orNumero]);
    							SendFacMessage(COLOR_LIGHTBLUE, 1, str);
-                           SendFacMessage(COLOR_LIGHTBLUE, 2, str);
+                            SendFacMessage(COLOR_LIGHTBLUE, 2, str);
 							//SendFacMessage(COLOR_LIGHTBLUE, 5, str);
 						}
 						else

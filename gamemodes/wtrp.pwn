@@ -3028,20 +3028,21 @@ static LOJA_OUTROS_BANK[3] = {
 	
 };
 //======== [Seals Team]======//
-static PCERJ_Uniformes[1] = {
-    20200
+static PCERJ_Uniformes[9] = {
+    20101, 20102, 20103, 20104,
+    20105, 20106, 20107, 20108,
+	20109
 };
 static LOJA_OCULOS_PCERJ[3] = {
     19138, 19139, 19140
 };
 
-static LOJA_CHAPEU_PCERJ[2] = {
-    -2103,-2129
+static LOJA_CHAPEU_PCERJ[1] = {
+    -2105
 };
 
-static LOJA_OUTROS_PCERJ[6] = {
-	-2102, -2105, -2125, -2056,
-	-2055, -2106
+static LOJA_OUTROS_PCERJ[3] = {
+	-2100, -2104, -2200
 };
 
 //======== [EB]======//

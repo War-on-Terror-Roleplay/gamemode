@@ -24,8 +24,7 @@
 #include <trap>
 #include <explosive>
 #include <mapandreas>
-//#include <cpn.inc>
-//#include <nex-ac>
+#include <nex-ac>
 
 // --------- [ INCLUDES ] ---------
 
@@ -200,7 +199,7 @@ new ambiente = 1; // 0  - Localhost 1 - Produção
 #define CA_NOME2        "hostname War on Terror Roleplay [2x Paycheck]"
 #define CA_NOME3        "hostname War on Terror Roleplay [Manutenção rápida]"
 #define CA_LANGUAGE     "language Português Brasileiro"
-#define MAP_NAME        "mapname Rio de Janeiro"
+#define MAP_NAME        "mapname Afeganistão"
 //==============================================================================
 #define ANIM_DOIS_MORTE 3000
 #define DISTANCIA_CHAT  12.0
@@ -14013,9 +14012,9 @@ Dialog:PET_MENU_FOLLOW(playerid, response, listitem, inputtext[]) {
         if(!IsPlayerNearPlayer(playerid, targetid, 10.0)) return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Seguir", "{FF0000}ERRO: O jogador especificado não está perto o suficiente.\n\n{FFFFFF}Insira o ID do jogador que você deseja que seu animal de estimação siga:", "Seguir", "Cancelar");
         
         PetFollow(playerid, targetid);
-		new petsegue[256];
+		/*new petsegue[256];
 		format(petsegue,sizeof(petsegue), "Seu animal de estimação agora está seguindo %s.", PlayerName(targetid));
-		SendClientMessage(COLOR_WHITE, petsegue);
+		SendClientMessage(COLOR_WHITE, petsegue);*/
     }
     return true;
 }
@@ -14575,7 +14574,7 @@ public OnPlayerText(playerid, text[])
 					        format(AnuncioLista[anid][AnuncioPor], 24, "%s", PlayerName(playerid, 0));
 					        format(AnuncioLista[anid][AnuncioMsg], 162, "[Anúncio] %s", text);
 
-					        SendClientMessage(playerid,COLOR_WHITE,"|-----[Anúncio - Rio de Janeiro]-----|");
+					        SendClientMessage(playerid,COLOR_WHITE,"|-----[Anúncio - Afeganistão]-----|");
 					   		format(string,sizeof(string),"Número de Caracteres: %d.",strlen(text));
 					   		SendClientMessage(playerid,COLOR_WHITE,string);
 					   		SendClientMessage(playerid,COLOR_WHITE,"Taxa: US$1 por caractere.");
@@ -14640,7 +14639,7 @@ public OnPlayerText(playerid, text[])
 					        format(AnuncioLista[anid][AnuncioPor], 24, "%s", PlayerName(playerid, 0));
 					        format(AnuncioLista[anid][AnuncioMsg], 162, "[Anúncio] %s, Telefone: %s", text, playernum);
 
-					        SendClientMessage(playerid,COLOR_WHITE,"|-----[Anúncio — Rio de Janeiro]-----|");
+					        SendClientMessage(playerid,COLOR_WHITE,"|-----[Anúncio — Afeganistão]-----|");
 					   		format(string,sizeof(string),"Número de Caracteres: %d.",strlen(text));
 					   		SendClientMessage(playerid,COLOR_WHITE,string);
 					   		SendClientMessage(playerid,COLOR_WHITE,"Taxa: US$1 por caractere.");
@@ -25085,7 +25084,7 @@ CMD:licenca(playerid, params[])
 	    	format(str,sizeof(str),"* %s mostra suas licenças para %s", PlayerName(playerid, 0), PlayerName(other, 1));
 			ProxDetector(10.0, playerid, str,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
 		}
-	    SendClientMessage(other, COLOR_LIGHTGREEN,"________Rio de Janeiro ID_________");
+	    SendClientMessage(other, COLOR_LIGHTGREEN,"________Afeganistão ID_________");
 		//==========================================================================
 		format(string, sizeof(string), "Nome: %s", PlayerName(playerid, 0));
 		SendClientMessage(other, COLOR_WHITE, string);
@@ -25164,7 +25163,7 @@ CMD:anuncio(playerid, params[])
  		format(stringan, sizeof(stringan), "[Anúncio] %s, Telefone: %d", opt, CelularData[playerid][celNumero]);
 		EnviarAnuncioDePlayer(COLOR_LIGHTGREEN, stringan);
 
-		SendClientMessage(playerid,COLOR_WHITE,"|-----[Anúncio - Rio de Janeiro]-----|");
+		SendClientMessage(playerid,COLOR_WHITE,"|-----[Anúncio - Afeganistão]-----|");
    		format(string,sizeof(string),"Número de Caracteres: %d.",strlen(opt));
    		SendClientMessage(playerid,COLOR_WHITE,string);
    		SendClientMessage(playerid,COLOR_WHITE,"Taxa: US$1 por caractere.");
@@ -25209,7 +25208,7 @@ CMD:anuncioemp(playerid, params[])
 		EnviarAnuncioDePlayer(COLOR_LIGHTGREEN, string);
 
 
-		SendClientMessage(playerid,COLOR_WHITE,"|-----[Anúncio - Rio de Janeiro]-----|");
+		SendClientMessage(playerid,COLOR_WHITE,"|-----[Anúncio - Afeganistão]-----|");
    		format(string,sizeof(string),"Número de Caracteres: %d.",strlen(opt));
    		SendClientMessage(playerid,COLOR_WHITE,string);
    		SendClientMessage(playerid,COLOR_WHITE,"Taxa: US$1 por caractere.");
@@ -42594,7 +42593,7 @@ COMMAND:setarclima(playerid, params[])
             if(IsPlayerInLS(playerid))
             {
                 Clima_LS = targetid;
-                SendClientMessage(playerid, COLOR_LIGHTGREEN, "Você alterou o clima de Rio de Janeiro.");
+                SendClientMessage(playerid, COLOR_LIGHTGREEN, "Você alterou o clima de Afeganistão.");
             }
 			if(IsPlayerInLV(playerid))
 			{
@@ -43876,7 +43875,7 @@ public AtualizarTutorial(playerid)
 			SetPlayerVirtualWorld(playerid, 0);
 
 			SendClientMessage(playerid, COLOR_YELLOW, "SERVER: Auto Escola");
-			SendClientMessage(playerid, COLOR_YELLOW, "Aqui você poderá tirar a sua carteira de motorista para andar legalmente de veículo pelas ruas de Rio de Janeiro.");
+			SendClientMessage(playerid, COLOR_YELLOW, "Aqui você poderá tirar a sua carteira de motorista para andar legalmente de veículo pelas ruas de Afeganistão.");
 			FaseTutorial[playerid] = 4;
 			SetTimerEx("AtualizarTutorial", 8000, 0, "d", playerid);
 		}
@@ -82059,7 +82058,7 @@ public CriarCelular_Base()
 	TextDrawSetProportional(Celular_Base[0], 0);
 	TextDrawSetShadow(Celular_Base[0], 0);
 
-	Celular_Base[1] = TextDrawCreate(537.199829, 334.8, "RJ_Telefonica");
+	Celular_Base[1] = TextDrawCreate(537.199829, 334.8, "AF_Telefonica");
 	TextDrawLetterSize(Celular_Base[1], 0.253598, 1.069864);
 	TextDrawAlignment(Celular_Base[1], 1);
 	TextDrawColor(Celular_Base[1], -1);
@@ -82338,7 +82337,7 @@ public CriarCelular_Base()
 	TextDrawSetProportional(TelPubBase[2], 1);
 	TextDrawSetShadow(TelPubBase[2], 0);
 
-	TelPubBase[3] = TextDrawCreate(549.599853, 400.560180, "RJ_Telefonica");
+	TelPubBase[3] = TextDrawCreate(549.599853, 400.560180, "AF_Telefonica");
 	TextDrawLetterSize(TelPubBase[3], 0.150000, 1.000000);
 	TextDrawAlignment(TelPubBase[3], 2);
 	TextDrawColor(TelPubBase[3], 0xB5B5B5FF);
@@ -87339,7 +87338,7 @@ CMD:convenio(playerid,params[])
 	{
         new ConvDial[522];
 		format(ConvDial, 255, "\t\t\t- Convênio Médico -\t\t\t\n\n \
-		- Tenha um tratamento de qualidade no melhor Hospital do Rio de Janeiro e saia curado em menos tempo!\n \
+		- Tenha um tratamento de qualidade no melhor Hospital do Afeganistão e saia curado em menos tempo!\n \
 		- Reduzimos sua estadia em nosso Hospital em 50% do tempo.\n\n \
 		Valor do serviço: Apenas US$80 por PayDay!\n \
 		- Assine já conosco!! \n\n\n \

@@ -193,9 +193,9 @@ new ambiente = 1; // 0  - Localhost 1 - Produção
 //====== [DEFINIÇÕES DO SERVIDOR] =======================================================
 #define ULTIMO_GMX      "15/04/2023"
 #define CA_VERSAO       "WT:RP v2.09"
-#define CA_LINK         "weburl WT-RP.COM.BR"
+#define CA_LINK         "weburl wt-rp.com.br"
 //#define CA_NOME         "hostname War on Terror Roleplay | BETA TEST CLOSED"
-#define CA_NOME         "hostname War on Terror Roleplay | WT-RP.COM.BR"
+#define CA_NOME         "hostname War on Terror Roleplay | discord.io/wtroleplay"
 #define CA_NOME2        "hostname War on Terror Roleplay [2x Paycheck]"
 #define CA_NOME3        "hostname War on Terror Roleplay [Manutenção rápida]"
 #define CA_LANGUAGE     "language Português Brasileiro"
@@ -11475,7 +11475,7 @@ public OnPlayerConnect(playerid)
 	    SetPlayerVirtualWorld(playerid, 9999);
 	    SendClientMessage(playerid, COLOR_YELLOW, "SERVER: Você precisa de um nome real para jogar no servidor.");
 		SendClientMessage(playerid, COLOR_YELLOW, "EXEMPLO: Nome_Sobrenome (Dica: não use numeros e muitas letras maiusculas em CAPSLOCK).");
-		SendClientMessage(playerid, COLOR_YELLOW, "PARA MAIS INFORMAÇÕES: https://forum.WT-RP.COM.BR");
+		SendClientMessage(playerid, COLOR_YELLOW, "PARA MAIS INFORMAÇÕES: https://forum.wt-rp.com.br");
 
 
 		SetTimerEx("KickInTime", 1000, 0, "i", playerid);
@@ -12087,7 +12087,7 @@ public CheckingAccount(playerid)
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][4]);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][5]);
 			new str[1024];
-			format(str, sizeof(str), "SERVER: Você só pode errar sua senha três (3) vezes.\n INFO: Nosso FÓRUM é o http://forum.WT-RP.COM.BR\n acesse-o para mais informações sobre sua conta.\n\n        Digite sua senha:");
+			format(str, sizeof(str), "SERVER: Você só pode errar sua senha três (3) vezes.\n INFO: Nosso FÓRUM é o http://forum.wt-rp.com.br\n acesse-o para mais informações sobre sua conta.\n\n        Digite sua senha:");
 			ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "War on Terror Roleplay", str, "Autenticar", "Cancelar");
 		}
 		else
@@ -13388,7 +13388,7 @@ public OnPlayerSpawn(playerid){
                     PlayerInfo[playerid][pRegistrado] = 1;
 
                     SetPlayerColor(playerid,COLOR_WHITE);
-                    SendClientMessage(playerid, COLOR_LIGHTRED,"INFO: Não deixe de visitar nosso fórum: forum.WT-RP.COM.BR.");
+                    SendClientMessage(playerid, COLOR_LIGHTRED,"INFO: Não deixe de visitar nosso fórum: forum.wt-rp.com.br.");
                     SendClientMessage(playerid, COLOR_LIGHTRED,"INFO: Utilize /gps para encontrar os principais pontos da cidade.");
                 }
 	
@@ -18399,7 +18399,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 	  			else
 	  			{
 	  			    new str[250];
-					format(str, sizeof(str), "SERVER: Você só pode errar sua senha três vezes.\n INFO: Nosso FÓRUM é o https://forum.WT-RP.COM.BR\n acesse-o para mais informações sobre sua conta.\n\n        Digite sua senha novamente:");
+					format(str, sizeof(str), "SERVER: Você só pode errar sua senha três vezes.\n INFO: Nosso FÓRUM é o https://forum.wt-rp.com.br\n acesse-o para mais informações sobre sua conta.\n\n        Digite sua senha novamente:");
 					ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "War on Terror Roleplay", str, "Autenticar", "Cancelar");
 
 				}
@@ -21094,7 +21094,7 @@ public TogSQLstatus(playerid, status)
 
 CMD:forum(playerid, params[])
 {
-    SCM(playerid, COLOR_LIGHTRED, "[WT:RP] Fórum do servidor: https://forum.WT-RP.COM.BR");
+    SCM(playerid, COLOR_LIGHTRED, "[WT:RP] Fórum do servidor: https://forum.wt-rp.com.br");
 	return 1;
 }
 
@@ -43961,7 +43961,7 @@ public AtualizarTutorial(playerid)
 			SetPlayerColor(playerid,COLOR_WHITE);
 
 			SendClientMessage(playerid, COLOR_LIGHTRED,"Você passou pelo tutorial. Lhe desejamos um bom jogo.");
-			SendClientMessage(playerid, COLOR_LIGHTRED,"Não deixe de visitar nosso fórum: forum.WT-RP.COM.BR.");
+			SendClientMessage(playerid, COLOR_LIGHTRED,"Não deixe de visitar nosso fórum: forum.wt-rp.com.br.");
 			SendClientMessage(playerid, COLOR_LIGHTRED,"Utilize /gps para encontrar os principais pontos da cidade.");
 		}
 

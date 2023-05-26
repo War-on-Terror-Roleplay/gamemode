@@ -1,0 +1,20 @@
+[21:28:30] [ERROR] CMySQLQuery::Execute[] - (error #1064) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' `Peixes` = '100' WHERE `ID` = '0'' at line 1
+[21:32:50] [ERROR] CMySQLQuery::Execute[] - (error #1064) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' `Peixes` = '100' WHERE `ID` = '0'' at line 1
+[21:33:23] [ERROR] CMySQLQuery::Execute[] - (error #1064) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' `Peixes` = '100' WHERE `ID` = '0'' at line 1
+[21:36:31] [ERROR] CMySQLQuery::Execute[] - (error #1064) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' `Peixes` = '100' WHERE `ID` = '0'' at line 1
+[21:50:25] [ERROR] CMySQLQuery::Execute[] - (error #1064) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' `Peixes` = '100' WHERE `ID` = '0'' at line 1
+[22:07:24] [ERROR] CMySQLQuery::Execute[] - (error #1064) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' `Peixes` = '100' WHERE `ID` = '0'' at line 1
+[18:43:05] [ERROR] CMySQLQuery::Execute[] - (error #1064) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' `Peixes` = '100' WHERE `ID` = '0'' at line 1
+[18:47:49] [ERROR] CMySQLQuery::Execute[] - (error #1064) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' `Peixes` = '100' WHERE `ID` = '0'' at line 1
+[18:55:40] [ERROR] CMySQLQuery::Execute[] - (error #1064) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' `Peixes` = '100' WHERE `ID` = '0'' at line 1
+[21:00:34] [ERROR] CMySQLConnection::Connect - (error #2003) Can't connect to MySQL server on 'localhost' (10061)
+[21:00:34] [ERROR] CMySQLQuery::Execute - (error #2006) MySQL server has gone away
+[21:00:34] [WARNING] cache_get_row_count - no active cache
+[21:00:34] [ERROR] CMySQLQuery::Execute - (error #2006) MySQL server has gone away
+[21:00:34] [WARNING] cache_get_field_content - no active cache
+[21:00:38] [ERROR] CMySQLConnection::Connect - (error #2003) Can't connect to MySQL server on 'localhost' (10061)
+[21:00:38] [ERROR] CMySQLConnection::Connect - (error #2003) Can't connect to MySQL server on 'localhost' (10061)
+[21:00:38] [ERROR] CMySQLConnection::Connect - (error #2003) Can't connect to MySQL server on 'localhost' (10061)
+[21:38:57] [ERROR] CMySQLQuery::Execute[] - (error #1064) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' `Peixes` = '100' WHERE `ID` = '0'' at line 1
+[21:55:52] [ERROR] CMySQLQuery::Execute[] - (error #1064) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' `Peixes` = '100' WHERE `ID` = '0'' at line 1
+[22:12:56] [ERROR] CMySQLQuery::Execute[] - (error #1064) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' `Peixes` = '100' WHERE `ID` = '0'' at line 1

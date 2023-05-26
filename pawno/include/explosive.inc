@@ -1,5 +1,5 @@
 #if !defined MAX_EXPLOSIVES
-	#define MAX_EXPLOSIVES (10)
+	#define MAX_EXPLOSIVES (50)
 #endif
 #if !defined EXP_STREAMER_AREA_IDENTIFIER
 	#define EXP_STREAMER_AREA_IDENTIFIER (680)
@@ -8,7 +8,7 @@
 	#define MAX_EXPLOSIVE_TIME (900)
 #endif
 #if !defined MAX_PLAYER_EXPLOSIVES
-	#define MAX_PLAYER_EXPLOSIVES (1)
+	#define MAX_PLAYER_EXPLOSIVES (5)
 #endif
 #define INVALID_EXPLOSIVE_ID (-1)
 
@@ -292,7 +292,7 @@ IsPlayerNearAnyExplosive(playerid)
 	{
 		GetExplosiveRange(i, range);
 
-		if (IsPlayerInRangeOfPoint(playerid, (range + 1.0), g_sExplosive@Data[i][E_EXPLOSIVE_X], g_sExplosive@Data[i][E_EXPLOSIVE_Y], g_sExplosive@Data[i][E_EXPLOSIVE_Z]))
+		if (IsPlayerInRangeOfPoint(playerid, (range + 3.0), g_sExplosive@Data[i][E_EXPLOSIVE_X], g_sExplosive@Data[i][E_EXPLOSIVE_Y], g_sExplosive@Data[i][E_EXPLOSIVE_Z]))
 			return true;
 	}
 	return false;

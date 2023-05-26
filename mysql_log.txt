@@ -18,3 +18,9 @@
 [21:38:57] [ERROR] CMySQLQuery::Execute[] - (error #1064) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' `Peixes` = '100' WHERE `ID` = '0'' at line 1
 [21:55:52] [ERROR] CMySQLQuery::Execute[] - (error #1064) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' `Peixes` = '100' WHERE `ID` = '0'' at line 1
 [22:12:56] [ERROR] CMySQLQuery::Execute[] - (error #1064) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' `Peixes` = '100' WHERE `ID` = '0'' at line 1
+[20:12:55] [ERROR] CMySQLConnection::Connect - (error #2003) Can't connect to MySQL server on 'localhost' (10061)
+[20:12:55] [ERROR] CMySQLQuery::Execute - (error #2006) MySQL server has gone away
+[20:12:55] [WARNING] cache_get_row_count - no active cache
+[20:12:55] [ERROR] CMySQLQuery::Execute - (error #2006) MySQL server has gone away
+[20:12:55] [WARNING] cache_get_field_content - no active cache
+[20:12:59] [ERROR] CMySQLConnection::Connect - (error #2003) Can't connect to MySQL server on 'localhost' (10061)

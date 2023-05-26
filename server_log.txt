@@ -3989,3 +3989,1161 @@ v0.3.DL-R1, (C)2005-2018 SA-MP Team
 [14:29:09] 
 [14:29:09] Jogador Jason_Hayes - Personagem salvo com sucesso.
 [14:29:09] [part] Jason_Hayes has left the server (0:1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[20:03:56] password = ""  (string)
+[20:03:56] filterscripts = ""  (string)
+[20:03:56] artpath = "models"  (string)
+[20:03:56] 
+[20:03:56] Server Plugins
+[20:03:56] --------------
+[20:03:56]  Loading plugin: nativechecker
+[20:03:56]   Loaded.
+[20:03:56]  Loading plugin: mysql
+[20:03:56]  >> plugin.mysql: R39-5 successfully loaded.
+[20:03:56]   Loaded.
+[20:03:56]  Loading plugin: streamer
+[20:03:56] 
+
+*** Streamer Plugin v2.9.2 by Incognito loaded ***
+
+[20:03:56]   Loaded.
+[20:03:56]  Loading plugin: sscanf
+[20:03:56] 
+
+[20:03:56]  ===============================
+
+[20:03:56]       sscanf plugin loaded.     
+
+[20:03:56]          Version:  2.8.1        
+
+[20:03:56]    (c) 2012 Alex "Y_Less" Cole  
+
+[20:03:56]  ===============================
+
+[20:03:56]   Loaded.
+[20:03:56]  Loading plugin: Whirlpool
+[20:03:56]  
+[20:03:56]  ==================
+[20:03:56]  
+[20:03:56]   Whirlpool loaded
+[20:03:56]  
+[20:03:56]  ==================
+[20:03:56]  
+[20:03:56]   Loaded.
+[20:03:56]  Loading plugin: mapandreas
+[20:03:56]   Loaded.
+[20:03:56]  Loading plugin: ColAndreas
+[20:03:56] *********************
+[20:03:56] ** Created By:     **
+[20:03:56] ** [uL]Chris42O    **
+[20:03:56] ** [uL]Slice       **
+[20:03:56] ** [uL]Pottus      **
+[20:03:56] *********************
+[20:03:56] No collision data found.
+[20:03:56] *********************
+[20:03:56]   ColAndreas Loaded
+[20:03:56]    v1.4.0
+[20:03:56] *********************
+[20:03:56]   Loaded.
+[20:03:56]  Loading plugin: dns
+[20:03:56] 
+
+*** DNS Plugin v2.4 by Incognito loaded ***
+
+[20:03:56]   Loaded.
+[20:03:56]  Loading plugin: YSF_DL
+[20:03:56] 
+[20:03:56]  ==============================================
+[20:03:56]  YSF 2.2 (compiled Sep 19 2021 13:02:34) loaded
+[20:03:56]   (c) 2008 Alex "Y_Less" Cole
+[20:03:56]   (c) 2010 - 2018 kurta999
+[20:03:56]   (c) 2018 - 2020 IllidanS4
+[20:03:56]  Server version: 0.3.DL R1, Windows
+[20:03:56]  ==============================================
+[20:03:56] 
+[20:03:56]   Loaded.
+[20:03:56]  Loaded 9 plugins.
+
+[20:03:56] [artwork:crc] taliba.dff CRC = 0x59945A80
+[20:03:56] [artwork:crc] taliba.txd CRC = 0x6355B6A
+[20:03:56] [artwork:crc] taliba2.dff CRC = 0xBB63B464
+[20:03:56] [artwork:crc] taliba2.txd CRC = 0x90B27E6E
+[20:03:56] [artwork:crc] taliba3.dff CRC = 0xE2E733E8
+[20:03:56] [artwork:crc] taliba3.txd CRC = 0xBC08005E
+[20:03:56] [artwork:crc] taliba4.dff CRC = 0x6828674B
+[20:03:56] [artwork:crc] taliba4.txd CRC = 0xB491BD51
+[20:03:56] [artwork:crc] taliba5.dff CRC = 0xDF6EC86
+[20:03:56] [artwork:crc] taliba5.txd CRC = 0x68893977
+[20:03:56] [artwork:crc] taliba6.dff CRC = 0xC47278F3
+[20:03:56] [artwork:crc] taliba6.txd CRC = 0x8C65BC30
+[20:03:56] [artwork:crc] taliba7.dff CRC = 0x21ED392D
+[20:03:56] [artwork:crc] taliba7.txd CRC = 0x3C5B484E
+[20:03:56] [artwork:crc] taliba8.dff CRC = 0x4C679CBE
+[20:03:56] [artwork:crc] taliba8.txd CRC = 0x23FF2285
+[20:03:56] [artwork:crc] taliba9.dff CRC = 0xDD1F6BE8
+[20:03:56] [artwork:crc] taliba9.txd CRC = 0x3724AA26
+[20:03:56] [artwork:crc] taliba10.dff CRC = 0x134E2005
+[20:03:56] [artwork:crc] taliba10.txd CRC = 0xD51A0FF9
+[20:03:56] [artwork:crc] taliba11.dff CRC = 0x448A080D
+[20:03:56] [artwork:crc] taliba11.txd CRC = 0x62CFAC9F
+[20:03:56] [artwork:crc] taliba12.dff CRC = 0xE56251EE
+[20:03:56] [artwork:crc] taliba12.txd CRC = 0xFDE64604
+[20:03:56] [artwork:crc] taliba13.dff CRC = 0x8299D6CC
+[20:03:56] [artwork:crc] taliba13.txd CRC = 0x85A9998
+[20:03:56] [artwork:crc] taliba14.dff CRC = 0xB115C3F1
+[20:03:56] [artwork:crc] taliba14.txd CRC = 0x8D57DED8
+[20:03:56] [artwork:crc] taliba15.dff CRC = 0x1D04FA75
+[20:03:56] [artwork:crc] taliba15.txd CRC = 0xDECA406A
+[20:03:56] [artwork:crc] seals1.dff CRC = 0x2DD4CA47
+[20:03:56] [artwork:crc] seals1.txd CRC = 0xE07D9D46
+[20:03:56] [artwork:crc] seals2.dff CRC = 0x4B9C0356
+[20:03:56] [artwork:crc] seals2.txd CRC = 0xED3AB6A4
+[20:03:56] [artwork:crc] seals3.dff CRC = 0xE7046D23
+[20:03:57] [artwork:crc] seals3.txd CRC = 0x9E046331
+[20:03:57] [artwork:crc] seals4.dff CRC = 0x493621B6
+[20:03:57] [artwork:crc] seals4.txd CRC = 0x86A22FD
+[20:03:57] [artwork:crc] seals5.dff CRC = 0x9546189A
+[20:03:57] [artwork:crc] seals5.txd CRC = 0x399F00A3
+[20:03:57] [artwork:crc] seals6.dff CRC = 0x10D6EE16
+[20:03:57] [artwork:crc] seals6.txd CRC = 0x3CCB6AA6
+[20:03:57] [artwork:crc] seals7.dff CRC = 0x75507F0D
+[20:03:57] [artwork:crc] seals7.txd CRC = 0x3A627F5F
+[20:03:57] [artwork:crc] seals8.dff CRC = 0x616A75AB
+[20:03:57] [artwork:crc] seals8.txd CRC = 0x80654964
+[20:03:57] [artwork:crc] seals9.dff CRC = 0xD27637A8
+[20:03:57] [artwork:crc] seals9.txd CRC = 0x2EF7BC1
+[20:03:57] [artwork:crc] pet7.dff CRC = 0x723783B7
+[20:03:57] [artwork:crc] pet7.txd CRC = 0x33F08C5C
+[20:03:57] [artwork:crc] pet6.dff CRC = 0x60C6F8E9
+[20:03:57] [artwork:crc] pet6.txd CRC = 0x8EBEA5D0
+[20:03:57] [artwork:crc] pet1.dff CRC = 0x14ABDB74
+[20:03:57] [artwork:crc] pet1.txd CRC = 0xC0D15148
+[20:03:57] [artwork:crc] pet2.dff CRC = 0x871FCAB4
+[20:03:57] [artwork:crc] pet2.txd CRC = 0xF35F8D62
+[20:03:57] [artwork:crc] pet3.dff CRC = 0x223072E5
+[20:03:57] [artwork:crc] pet3.txd CRC = 0x918C9CD0
+[20:03:57] [artwork:crc] pet3.dff CRC = 0x223072E5
+[20:03:57] [artwork:crc] pet3.txd CRC = 0x918C9CD0
+[20:03:57] [artwork:crc] pet4.dff CRC = 0xEF44912D
+[20:03:57] [artwork:crc] pet4.txd CRC = 0xD3839FDF
+[20:03:57] [artwork:crc] pet5.dff CRC = 0x223072E5
+[20:03:57] [artwork:crc] pet5.txd CRC = 0xAECE83C9
+[20:03:57] [artwork:crc] hud.dff CRC = 0x4BC6EDFF
+[20:03:57] [artwork:crc] hud.txd CRC = 0xC1ADFB21
+[20:03:57] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[20:03:57] [artwork:crc] tela.txd CRC = 0xED6A6238
+[20:03:57] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[20:03:57] [artwork:crc] logo.txd CRC = 0xABC0A657
+[20:03:57] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[20:03:57] [artwork:crc] logo.txd CRC = 0xABC0A657
+[20:03:57] [artwork:crc] textdraw_object.dff CRC = 0x0
+[20:03:57] [artwork:error] Bad file: textdraw_object.dff
+[20:03:57] [artwork:crc] aviao1.dff CRC = 0xB93EBAE
+[20:03:57] [artwork:crc] aviao1.txd CRC = 0x99649C5F
+[20:03:57] [artwork:crc] aviao2.dff CRC = 0xD21E09A2
+[20:03:57] [artwork:crc] aviao2.txd CRC = 0xDD6ADD77
+[20:03:57] [artwork:crc] rojao.dff CRC = 0x6F72D6BB
+[20:03:57] [artwork:crc] rojao.txd CRC = 0x19207CDF
+[20:03:57] [artwork:crc] band.dff CRC = 0xD6FE9FF4
+[20:03:57] [artwork:crc] band.txd CRC = 0x7FE6AB15
+[20:03:57] [artwork:crc] cone.dff CRC = 0xF711EDD9
+[20:03:57] [artwork:crc] cone.txd CRC = 0x66D2389E
+[20:03:57] [artwork:crc] cavalete.dff CRC = 0x3A338AFC
+[20:03:57] [artwork:crc] cavalete.txd CRC = 0x85244494
+[20:03:57] [artwork:crc] faixa.dff CRC = 0x7507B9AC
+[20:03:57] [artwork:crc] faixa.txd CRC = 0x8A8138C3
+[20:03:57] [artwork:crc] RadioMotorola.dff CRC = 0x9AAB6A9
+[20:03:57] [artwork:crc] RadioMotorola.txd CRC = 0x22353790
+[20:03:57] [artwork:crc] chapeubope.dff CRC = 0xFD233655
+[20:03:57] [artwork:crc] chapeubope.txd CRC = 0x68298F01
+[20:03:57] [artwork:crc] boneobjeto1.dff CRC = 0xC82233C
+[20:03:57] [artwork:crc] boneobjeto1.txd CRC = 0xB81E24C1
+[20:03:57] [artwork:crc] boneobjeto2.dff CRC = 0xC82233C
+[20:03:57] [artwork:crc] boneobjeto2.txd CRC = 0xB81E24C1
+[20:03:57] [artwork:crc] boneobjeto3.dff CRC = 0xC82233C
+[20:03:57] [artwork:crc] boneobjeto3.txd CRC = 0x25EC71FD
+[20:03:57] [artwork:crc] boneobjeto4.dff CRC = 0xC82233C
+[20:03:57] [artwork:crc] boneobjeto4.txd CRC = 0x3D3821FC
+[20:03:57] [artwork:crc] coletebandido.dff CRC = 0x35333281
+[20:03:57] [artwork:crc] coletebandido.txd CRC = 0x7FCB75F7
+[20:03:57] [artwork:crc] mochila1.dff CRC = 0x7198BBAD
+[20:03:57] [artwork:crc] mochila1.txd CRC = 0xAA488C0D
+[20:03:57] [artwork:crc] mochila2.dff CRC = 0xBA43DBFB
+[20:03:57] [artwork:crc] mochila2.txd CRC = 0xA55E4D43
+[20:03:57] [artwork:crc] mochila3.dff CRC = 0x36D7E922
+[20:03:57] [artwork:crc] mochila3.txd CRC = 0x31D6F73
+[20:03:57] [artwork:crc] mochila4.dff CRC = 0x49A9723A
+[20:03:57] [artwork:crc] mochila4.txd CRC = 0xB888188E
+[20:03:57] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:03:57] [artwork:crc] helmet6.txd CRC = 0x60AE21A9
+[20:03:57] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:03:57] [artwork:crc] helmet7.txd CRC = 0xB8E8641F
+[20:03:57] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:03:57] [artwork:crc] helmet11.txd CRC = 0xAA929E4F
+[20:03:57] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:03:57] [artwork:crc] helmet12.txd CRC = 0x6CA6E0F4
+[20:03:57] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:03:57] [artwork:crc] helmet15.txd CRC = 0x7BB77D7E
+[20:03:57] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:03:57] [artwork:crc] helmet16.txd CRC = 0x5781CAFC
+[20:03:57] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:03:57] [artwork:crc] helmet19.txd CRC = 0x157E14B7
+[20:03:57] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:03:57] [artwork:crc] helmet21.txd CRC = 0x53A928B0
+[20:03:57] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:03:57] [artwork:crc] helmet24.txd CRC = 0xF1A29DA5
+[20:03:57] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:03:57] [artwork:crc] helmet1.txd CRC = 0xFF5E6BB4
+[20:03:57] [artwork:crc] ifood.dff CRC = 0xAD546C14
+[20:03:57] [artwork:crc] ifood.txd CRC = 0xBED788D3
+[20:03:57] [artwork:crc] ubereats.dff CRC = 0xD7C5543C
+[20:03:57] [artwork:crc] ubereats.txd CRC = 0x1A9E171D
+[20:03:57] [artwork:crc] bsimples.dff CRC = 0x246AB514
+[20:03:57] [artwork:crc] bsimples.txd CRC = 0x9D54BD44
+[20:03:57] [artwork:crc] bolsanikelateral.dff CRC = 0x82FA00BC
+[20:03:57] [artwork:crc] bolsanikelateral.txd CRC = 0x9BE9FEF5
+[20:03:57] [artwork:crc] PacoteMcDonalds.dff CRC = 0x7F3872D5
+[20:03:57] [artwork:crc] PacoteMcDonalds.txd CRC = 0xB1587374
+[20:03:57] [artwork:crc] coletemoto.dff CRC = 0xAEF7F9AB
+[20:03:57] [artwork:crc] coletemoto.txd CRC = 0xCEFD3EA6
+[20:03:57] [artwork:crc] barricada.dff CRC = 0xC7D7CD68
+[20:03:57] [artwork:crc] barricada.txd CRC = 0x95DED922
+[20:03:57] [artwork:crc] escudo.dff CRC = 0x434102A8
+[20:03:57] [artwork:crc] escudo.txd CRC = 0xDB8AA769
+[20:03:57] [artwork:crc] morteiro.dff CRC = 0x212ACFDB
+[20:03:57] [artwork:crc] morteiro.txd CRC = 0xE3BEDADE
+[20:03:57] [artwork:crc] munimorteiro.dff CRC = 0xF0EFD884
+[20:03:57] [artwork:crc] munimorteiro.txd CRC = 0xFE95109F
+[20:03:57] [artwork:crc] mina.dff CRC = 0x4A5004C4
+[20:03:57] [artwork:crc] mina.txd CRC = 0xEFEA75E5
+[20:03:57] [artwork:crc] maconhab.dff CRC = 0xBF46F2FF
+[20:03:57] [artwork:crc] maconhab.txd CRC = 0x68419BE
+[20:03:57] [artwork:crc] maconhar.dff CRC = 0xA0906971
+[20:03:57] [artwork:crc] maconhar.txd CRC = 0x13A26228
+[20:03:57] [artwork:crc] cocaina.dff CRC = 0x22B7B621
+[20:03:57] [artwork:crc] cocaina.txd CRC = 0xF84F4DF
+[20:03:57] [artwork:crc] crackr.dff CRC = 0x7260DE97
+[20:03:57] [artwork:crc] crackr.txd CRC = 0xEB7DC1B6
+[20:03:57] [artwork:crc] crackb.dff CRC = 0xAA6EDDA1
+[20:03:57] [artwork:crc] crackb.txd CRC = 0xEB7DC1B6
+[20:03:57] [artwork:crc] lsd.dff CRC = 0x6CB2980D
+[20:03:57] [artwork:crc] lsd.txd CRC = 0xB190FA30
+[20:03:57] [artwork:crc] lancaperfume.dff CRC = 0x8FB92930
+[20:03:57] [artwork:crc] lancaperfume.txd CRC = 0x4205E4C1
+[20:03:57] [artwork:crc] MesaDeDrogas.dff CRC = 0xF6C0A1DF
+[20:03:57] [artwork:crc] MesaDeDrogas.txd CRC = 0x54036B75
+[20:03:57] 
+[20:03:57] Filterscripts
+[20:03:57] ---------------
+[20:03:57]   Loaded 0 filterscripts.
+
+[20:03:58]    Error: Function not registered: 'SSCANF_Init'
+[20:03:58]    Error: Function not registered: 'SSCANF_IsConnected'
+[20:03:58]    Error: Function not registered: 'SSCANF_Join'
+[20:03:58]    Error: Function not registered: 'SSCANF_Leave'
+[20:03:58]    Error: Function not registered: 'IsValidDynamicObject'
+[20:03:58]    Error: Function not registered: 'DestroyDynamicObject'
+[20:03:58]    Error: Function not registered: 'CreateDynamicObject'
+[20:03:58]    Error: Function not registered: 'AttachDynamicObjectToVehicle'
+[20:03:58]    Error: Function not registered: 'CreateDynamicSphere'
+[20:03:58]    Error: Function not registered: 'CreateDynamic3DTextLabel'
+[20:03:58]    Error: Function not registered: 'Streamer_SetArrayData'
+[20:03:58]    Error: Function not registered: 'DestroyDynamicArea'
+[20:03:58]    Error: Function not registered: 'DestroyDynamic3DTextLabel'
+[20:03:58]    Error: Function not registered: 'Streamer_GetArrayData'
+[20:03:58]    Error: Function not registered: 'Streamer_Update'
+[20:03:58]    Error: Function not registered: 'Streamer_GetFloatData'
+[20:03:58]    Error: Function not registered: 'Streamer_SetIntData'
+[20:03:58]    Error: Function not registered: 'Streamer_UpdateEx'
+[20:03:58]    Error: Function not registered: 'CreateDynamicPickup'
+[20:03:58]    Error: Function not registered: 'Streamer_GetDistanceToItem'
+[20:03:58]    Error: Function not registered: 'Streamer_GetIntData'
+[20:03:58]    Error: Function not registered: 'Streamer_GetItemStreamerID'
+[20:03:58]    Error: Function not registered: 'IsValidDynamicPickup'
+[20:03:58]    Error: Function not registered: 'sscanf'
+[20:03:58]    Error: Function not registered: 'GetDynamicObjectPos'
+[20:03:58]    Error: Function not registered: 'MoveDynamicObject'
+[20:03:58]    Error: Function not registered: 'StopDynamicObject'
+[20:03:58]    Error: Function not registered: 'SetDynamicObjectMaterial'
+[20:03:58]    Error: Function not registered: 'SetDynamicObjectMaterialText'
+[20:03:58]    Error: Function not registered: 'CreateDynamicObjectEx'
+[20:03:58]    Error: Function not registered: 'mysql_query'
+[20:03:58]    Error: Function not registered: 'cache_get_row_count'
+[20:03:58]    Error: Function not registered: 'cache_get_field_content'
+[20:03:58]    Error: Function not registered: 'IsValidDynamic3DTextLabel'
+[20:03:58]    Error: Function not registered: 'mysql_connect'
+[20:03:58]    Error: Function not registered: 'mysql_errno'
+[20:03:58]    Error: Function not registered: 'Streamer_VisibleItems'
+[20:03:58]    Error: Function not registered: 'MapAndreas_Init'
+[20:03:58]    Error: Function not registered: 'mysql_tquery'
+[20:03:58]    Error: Function not registered: 'cache_get_data'
+[20:03:58]    Error: Function not registered: 'cache_insert_id'
+[20:03:58]    Error: Function not registered: 'MapAndreas_FindAverageZ'
+[20:03:58]    Error: Function not registered: 'DestroyAllDynamicObjects'
+[20:03:58]    Error: Function not registered: 'DestroyDynamicPickup'
+[20:03:58]    Error: Function not registered: 'mysql_close'
+[20:03:58]    Error: Function not registered: 'IsValidDynamicCP'
+[20:03:58]    Error: Function not registered: 'DestroyDynamicCP'
+[20:03:58]    Error: Function not registered: 'CreateDynamicCP'
+[20:03:58]    Error: Function not registered: 'mysql_escape_string'
+[20:03:58]    Error: Function not registered: 'UpdateDynamic3DTextLabelText'
+[20:03:58]    Error: Function not registered: 'ClearDynamicActorAnimations'
+[20:03:58]    Error: Function not registered: 'GetDynamicActorPos'
+[20:03:58]    Error: Function not registered: 'MapAndreas_FindZ_For2DCoord'
+[20:03:58]    Error: Function not registered: 'EditDynamicObject'
+[20:03:58]    Error: Function not registered: 'WP_Hash'
+[20:03:58]    Error: Function not registered: 'mysql_format'
+[20:03:58]    Error: Function not registered: 'SetDynamicObjectPos'
+[20:03:58]    Error: Function not registered: 'SetDynamicObjectRot'
+[20:03:58]    Error: Function not registered: 'cache_get_field_content_int'
+[20:03:58]    Error: Function not registered: 'cache_get_field_content_float'
+[20:03:58]    Error: Function not registered: 'GetDynamicObjectRot'
+[20:03:58]    Error: Function not registered: 'Streamer_CountItems'
+[20:03:58]  
+[20:03:58]  
+[20:03:58]  
+[20:03:58]  ======================================= 
+[20:03:58]  |                                     | 
+[20:03:58]  |        YSI version 3.09.0684        | 
+[20:03:58]  |        By Alex "Y_Less" Cole        | 
+[20:03:58]  |                                     | 
+[20:03:58]  ======================================= 
+[20:03:58]  
+[20:03:58]  
+[20:03:58]  
+[20:03:58] [ADM] Info: Load EVF v3.2.1 for SA:MP 0.3.7 by Abyss Morgan
+[20:03:58]  
+[20:03:58] --------------------------------------
+[20:03:58]  Anticheat Nex-AC loaded!
+[20:03:58]  Anticheat version: 1.9.49
+[20:03:58]  Author: Nexius
+[20:03:58] --------------------------------------
+
+[20:03:58] --- Custom nametags by Yur$ ---
+[20:03:58] |-- Corrida de Cavalos: Carregado
+[20:04:00] [CARREGADO] Mining Village
+[20:04:00] [CARREGADO] Mapa avião
+[20:04:00] [CARREGADO] Mapa: WH 2
+[20:04:00] [CARREGADO] Mapa: Factory int
+[20:04:00] [CARREGADO] Mapa: Ghetto droga int
+[20:04:00] [CARREGADO] Mapa: Ghetto ammo int
+[20:04:00] [CARREGADO] Mapa Ilegal gunshop int
+[20:04:00] [CARREGADO] Mapa: int lavagem de grana
+[20:04:00] [CARREGADO] Mapa: Hospital interior
+[20:04:00] [CARREGADO] Mapa: Banco interior
+[20:04:00] [LOAD] Mapa: Barzinho
+[20:04:00] [LOAD] Mapa: Barzinho 2
+[20:04:00] [LOAD] Mapa: Barzinho 3
+[20:04:00] [CARREGADO] Mapa: Fight room
+[20:04:00] [CARREGADO] Mapa: Empresa 1
+[20:04:00] [CARREGADO] Mapa: Loja de Eletronicos
+[20:04:00] [CARREGADO] Mapa: Agencia de Empregos
+[20:04:00] [CARREGADO] Mapa: Estudio
+[20:04:00] [LOAD] Mapa: Sony
+[20:04:00] [LOAD] Mapa: Caravan
+[20:04:00] [LOAD] Mapa: Interiores de Casas e Empresas vazios
+[20:04:00] [LOAD] Mapa: Apartamento 1
+[20:04:00] [LOAD] Mapa: Apartamento 2
+[20:04:00] [LOAD] Mapa: Apartamento 3
+[20:04:00] [LOAD] Mapa: DrugHouse 1
+[20:04:00] [LOAD] Mapa: WeaponHouse 1
+[20:04:00] [CARREGADO] Mapa: Complexo 1
+[20:04:00] [CARREGADO] Mapa: Complexo 2
+[20:04:00] [CARREGADO] Mapa: Complexo 3
+[20:04:00] [CARREGADO] Mapa: Complexo 4
+[20:04:00] [CARREGADO] Mapa: Complexo 5
+[20:04:00] [CARREGADO] Mapa: Complexo 7
+[20:04:00] [CARREGADO] Mapa: Complexo 8
+[20:04:00] [CARREGADO] Mapa: Complexo 9
+[20:04:00] [CARREGADO] Sistema de Grafite
+[20:04:00] 
+-------------------------------------------	
+[20:04:00] 	War on Terror Roleplay							
+[20:04:00] 	por Yur$										
+[20:04:00] ----------------------------------
+				
+[20:04:00] Number of vehicle models: 5
+[20:04:00] [CARREGADO] Veiculos criados.
+[20:04:00] [CARREGADO] 0 veiculos carregados.
+[20:04:00] [CARREGADO] Casas: 0
+[20:04:00] [CARREGADO] Garagens: 0
+[20:04:00] [CARREGADO] Complexos: 0
+[20:04:00] [CARREGADO] Empresas: 0
+[20:04:00] ================ [ Pontos de Entrega ]
+[20:04:00] [CARREGADO] FURNITURE: 0 moveis.
+[20:04:00] [CARREGADO] Armas no Servidor: 3 | Armas no Chão: 0 | Armas na Pos 0: 0
+[20:04:00] [CARREGADO] Total de facções: 7
+[20:04:00] [CARREGADO] Total de Portas/Portões [Fac/Casa/empresa]: 0
+[20:04:00] [CARREGADO] Itens no Servidor: 0 | Itens no Chão: 0 | Itens na Pos 0: 0
+[20:04:00] [CARREGADO] Cartuchos no chão do Servidor: 0 
+[20:04:00] [Drug System] Atualmente existem 0 drogas plantadas por SA.
+[20:04:00] [CARREGADO] Drogas no chão do Servidor: 0 | Drogas na Pos 0: 0
+[20:04:00] [CARREGADO] Pixes: 0
+[20:04:00] [CARREGADO] Multas: 0
+[20:04:00] sscanf warning: Format specifier does not match parameter count.
+[20:04:00] [CARREGADO] Cofre do governo: US$24931273
+[20:04:00] SERVER: Carregado com sucesso!
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[20:12:49] password = ""  (string)
+[20:12:49] filterscripts = ""  (string)
+[20:12:49] artpath = "models"  (string)
+[20:12:49] 
+[20:12:49] Server Plugins
+[20:12:49] --------------
+[20:12:49]  Loading plugin: nativechecker
+[20:12:49]   Loaded.
+[20:12:49]  Loading plugin: mysql
+[20:12:49]  >> plugin.mysql: R39-5 successfully loaded.
+[20:12:49]   Loaded.
+[20:12:49]  Loading plugin: streamer
+[20:12:49] 
+
+*** Streamer Plugin v2.9.2 by Incognito loaded ***
+
+[20:12:49]   Loaded.
+[20:12:49]  Loading plugin: sscanf
+[20:12:49] 
+
+[20:12:49]  ===============================
+
+[20:12:49]       sscanf plugin loaded.     
+
+[20:12:49]          Version:  2.8.1        
+
+[20:12:49]    (c) 2012 Alex "Y_Less" Cole  
+
+[20:12:49]  ===============================
+
+[20:12:49]   Loaded.
+[20:12:49]  Loading plugin: Whirlpool
+[20:12:49]  
+[20:12:49]  ==================
+[20:12:49]  
+[20:12:49]   Whirlpool loaded
+[20:12:49]  
+[20:12:49]  ==================
+[20:12:49]  
+[20:12:49]   Loaded.
+[20:12:49]  Loading plugin: mapandreas
+[20:12:49]   Loaded.
+[20:12:49]  Loading plugin: ColAndreas
+[20:12:49] *********************
+[20:12:49] ** Created By:     **
+[20:12:49] ** [uL]Chris42O    **
+[20:12:49] ** [uL]Slice       **
+[20:12:49] ** [uL]Pottus      **
+[20:12:49] *********************
+[20:12:49] No collision data found.
+[20:12:49] *********************
+[20:12:49]   ColAndreas Loaded
+[20:12:49]    v1.4.0
+[20:12:49] *********************
+[20:12:49]   Loaded.
+[20:12:49]  Loading plugin: dns
+[20:12:49] 
+
+*** DNS Plugin v2.4 by Incognito loaded ***
+
+[20:12:49]   Loaded.
+[20:12:49]  Loading plugin: YSF_DL
+[20:12:49] 
+[20:12:49]  ==============================================
+[20:12:49]  YSF 2.2 (compiled Sep 19 2021 13:02:34) loaded
+[20:12:49]   (c) 2008 Alex "Y_Less" Cole
+[20:12:49]   (c) 2010 - 2018 kurta999
+[20:12:49]   (c) 2018 - 2020 IllidanS4
+[20:12:49]  Server version: 0.3.DL R1, Windows
+[20:12:49]  ==============================================
+[20:12:49] 
+[20:12:49]   Loaded.
+[20:12:49]  Loaded 9 plugins.
+
+[20:12:49] [artwork:crc] taliba.dff CRC = 0x59945A80
+[20:12:49] [artwork:crc] taliba.txd CRC = 0x6355B6A
+[20:12:49] [artwork:crc] taliba2.dff CRC = 0xBB63B464
+[20:12:49] [artwork:crc] taliba2.txd CRC = 0x90B27E6E
+[20:12:49] [artwork:crc] taliba3.dff CRC = 0xE2E733E8
+[20:12:49] [artwork:crc] taliba3.txd CRC = 0xBC08005E
+[20:12:49] [artwork:crc] taliba4.dff CRC = 0x6828674B
+[20:12:49] [artwork:crc] taliba4.txd CRC = 0xB491BD51
+[20:12:49] [artwork:crc] taliba5.dff CRC = 0xDF6EC86
+[20:12:49] [artwork:crc] taliba5.txd CRC = 0x68893977
+[20:12:49] [artwork:crc] taliba6.dff CRC = 0xC47278F3
+[20:12:49] [artwork:crc] taliba6.txd CRC = 0x8C65BC30
+[20:12:49] [artwork:crc] taliba7.dff CRC = 0x21ED392D
+[20:12:49] [artwork:crc] taliba7.txd CRC = 0x3C5B484E
+[20:12:49] [artwork:crc] taliba8.dff CRC = 0x4C679CBE
+[20:12:49] [artwork:crc] taliba8.txd CRC = 0x23FF2285
+[20:12:49] [artwork:crc] taliba9.dff CRC = 0xDD1F6BE8
+[20:12:49] [artwork:crc] taliba9.txd CRC = 0x3724AA26
+[20:12:49] [artwork:crc] taliba10.dff CRC = 0x134E2005
+[20:12:49] [artwork:crc] taliba10.txd CRC = 0xD51A0FF9
+[20:12:49] [artwork:crc] taliba11.dff CRC = 0x448A080D
+[20:12:49] [artwork:crc] taliba11.txd CRC = 0x62CFAC9F
+[20:12:49] [artwork:crc] taliba12.dff CRC = 0xE56251EE
+[20:12:49] [artwork:crc] taliba12.txd CRC = 0xFDE64604
+[20:12:49] [artwork:crc] taliba13.dff CRC = 0x8299D6CC
+[20:12:49] [artwork:crc] taliba13.txd CRC = 0x85A9998
+[20:12:49] [artwork:crc] taliba14.dff CRC = 0xB115C3F1
+[20:12:49] [artwork:crc] taliba14.txd CRC = 0x8D57DED8
+[20:12:49] [artwork:crc] taliba15.dff CRC = 0x1D04FA75
+[20:12:49] [artwork:crc] taliba15.txd CRC = 0xDECA406A
+[20:12:49] [artwork:crc] seals1.dff CRC = 0x2DD4CA47
+[20:12:49] [artwork:crc] seals1.txd CRC = 0xE07D9D46
+[20:12:49] [artwork:crc] seals2.dff CRC = 0x4B9C0356
+[20:12:49] [artwork:crc] seals2.txd CRC = 0xED3AB6A4
+[20:12:49] [artwork:crc] seals3.dff CRC = 0xE7046D23
+[20:12:49] [artwork:crc] seals3.txd CRC = 0x9E046331
+[20:12:49] [artwork:crc] seals4.dff CRC = 0x493621B6
+[20:12:49] [artwork:crc] seals4.txd CRC = 0x86A22FD
+[20:12:49] [artwork:crc] seals5.dff CRC = 0x9546189A
+[20:12:49] [artwork:crc] seals5.txd CRC = 0x399F00A3
+[20:12:49] [artwork:crc] seals6.dff CRC = 0x10D6EE16
+[20:12:49] [artwork:crc] seals6.txd CRC = 0x3CCB6AA6
+[20:12:49] [artwork:crc] seals7.dff CRC = 0x75507F0D
+[20:12:49] [artwork:crc] seals7.txd CRC = 0x3A627F5F
+[20:12:49] [artwork:crc] seals8.dff CRC = 0x616A75AB
+[20:12:49] [artwork:crc] seals8.txd CRC = 0x80654964
+[20:12:49] [artwork:crc] seals9.dff CRC = 0xD27637A8
+[20:12:49] [artwork:crc] seals9.txd CRC = 0x2EF7BC1
+[20:12:49] [artwork:crc] pet7.dff CRC = 0x723783B7
+[20:12:49] [artwork:crc] pet7.txd CRC = 0x33F08C5C
+[20:12:49] [artwork:crc] pet6.dff CRC = 0x60C6F8E9
+[20:12:49] [artwork:crc] pet6.txd CRC = 0x8EBEA5D0
+[20:12:49] [artwork:crc] pet1.dff CRC = 0x14ABDB74
+[20:12:49] [artwork:crc] pet1.txd CRC = 0xC0D15148
+[20:12:49] [artwork:crc] pet2.dff CRC = 0x871FCAB4
+[20:12:49] [artwork:crc] pet2.txd CRC = 0xF35F8D62
+[20:12:49] [artwork:crc] pet3.dff CRC = 0x223072E5
+[20:12:49] [artwork:crc] pet3.txd CRC = 0x918C9CD0
+[20:12:49] [artwork:crc] pet3.dff CRC = 0x223072E5
+[20:12:49] [artwork:crc] pet3.txd CRC = 0x918C9CD0
+[20:12:49] [artwork:crc] pet4.dff CRC = 0xEF44912D
+[20:12:49] [artwork:crc] pet4.txd CRC = 0xD3839FDF
+[20:12:49] [artwork:crc] pet5.dff CRC = 0x223072E5
+[20:12:49] [artwork:crc] pet5.txd CRC = 0xAECE83C9
+[20:12:49] [artwork:crc] hud.dff CRC = 0x4BC6EDFF
+[20:12:49] [artwork:crc] hud.txd CRC = 0xC1ADFB21
+[20:12:49] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[20:12:49] [artwork:crc] tela.txd CRC = 0xED6A6238
+[20:12:49] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[20:12:49] [artwork:crc] logo.txd CRC = 0xABC0A657
+[20:12:49] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[20:12:49] [artwork:crc] logo.txd CRC = 0xABC0A657
+[20:12:49] [artwork:crc] textdraw_object.dff CRC = 0x0
+[20:12:49] [artwork:error] Bad file: textdraw_object.dff
+[20:12:49] [artwork:crc] aviao1.dff CRC = 0xB93EBAE
+[20:12:49] [artwork:crc] aviao1.txd CRC = 0x99649C5F
+[20:12:49] [artwork:crc] aviao2.dff CRC = 0xD21E09A2
+[20:12:49] [artwork:crc] aviao2.txd CRC = 0xDD6ADD77
+[20:12:49] [artwork:crc] rojao.dff CRC = 0x6F72D6BB
+[20:12:49] [artwork:crc] rojao.txd CRC = 0x19207CDF
+[20:12:49] [artwork:crc] band.dff CRC = 0xD6FE9FF4
+[20:12:49] [artwork:crc] band.txd CRC = 0x7FE6AB15
+[20:12:49] [artwork:crc] cone.dff CRC = 0xF711EDD9
+[20:12:49] [artwork:crc] cone.txd CRC = 0x66D2389E
+[20:12:49] [artwork:crc] cavalete.dff CRC = 0x3A338AFC
+[20:12:49] [artwork:crc] cavalete.txd CRC = 0x85244494
+[20:12:49] [artwork:crc] faixa.dff CRC = 0x7507B9AC
+[20:12:49] [artwork:crc] faixa.txd CRC = 0x8A8138C3
+[20:12:49] [artwork:crc] RadioMotorola.dff CRC = 0x9AAB6A9
+[20:12:49] [artwork:crc] RadioMotorola.txd CRC = 0x22353790
+[20:12:49] [artwork:crc] chapeubope.dff CRC = 0xFD233655
+[20:12:49] [artwork:crc] chapeubope.txd CRC = 0x68298F01
+[20:12:49] [artwork:crc] boneobjeto1.dff CRC = 0xC82233C
+[20:12:49] [artwork:crc] boneobjeto1.txd CRC = 0xB81E24C1
+[20:12:49] [artwork:crc] boneobjeto2.dff CRC = 0xC82233C
+[20:12:49] [artwork:crc] boneobjeto2.txd CRC = 0xB81E24C1
+[20:12:49] [artwork:crc] boneobjeto3.dff CRC = 0xC82233C
+[20:12:49] [artwork:crc] boneobjeto3.txd CRC = 0x25EC71FD
+[20:12:49] [artwork:crc] boneobjeto4.dff CRC = 0xC82233C
+[20:12:49] [artwork:crc] boneobjeto4.txd CRC = 0x3D3821FC
+[20:12:49] [artwork:crc] coletebandido.dff CRC = 0x35333281
+[20:12:50] [artwork:crc] coletebandido.txd CRC = 0x7FCB75F7
+[20:12:50] [artwork:crc] mochila1.dff CRC = 0x7198BBAD
+[20:12:50] [artwork:crc] mochila1.txd CRC = 0xAA488C0D
+[20:12:50] [artwork:crc] mochila2.dff CRC = 0xBA43DBFB
+[20:12:50] [artwork:crc] mochila2.txd CRC = 0xA55E4D43
+[20:12:50] [artwork:crc] mochila3.dff CRC = 0x36D7E922
+[20:12:50] [artwork:crc] mochila3.txd CRC = 0x31D6F73
+[20:12:50] [artwork:crc] mochila4.dff CRC = 0x49A9723A
+[20:12:50] [artwork:crc] mochila4.txd CRC = 0xB888188E
+[20:12:50] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:12:50] [artwork:crc] helmet6.txd CRC = 0x60AE21A9
+[20:12:50] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:12:50] [artwork:crc] helmet7.txd CRC = 0xB8E8641F
+[20:12:50] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:12:50] [artwork:crc] helmet11.txd CRC = 0xAA929E4F
+[20:12:50] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:12:50] [artwork:crc] helmet12.txd CRC = 0x6CA6E0F4
+[20:12:50] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:12:50] [artwork:crc] helmet15.txd CRC = 0x7BB77D7E
+[20:12:50] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:12:50] [artwork:crc] helmet16.txd CRC = 0x5781CAFC
+[20:12:50] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:12:50] [artwork:crc] helmet19.txd CRC = 0x157E14B7
+[20:12:50] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:12:50] [artwork:crc] helmet21.txd CRC = 0x53A928B0
+[20:12:50] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:12:50] [artwork:crc] helmet24.txd CRC = 0xF1A29DA5
+[20:12:50] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:12:50] [artwork:crc] helmet1.txd CRC = 0xFF5E6BB4
+[20:12:50] [artwork:crc] ifood.dff CRC = 0xAD546C14
+[20:12:50] [artwork:crc] ifood.txd CRC = 0xBED788D3
+[20:12:50] [artwork:crc] ubereats.dff CRC = 0xD7C5543C
+[20:12:50] [artwork:crc] ubereats.txd CRC = 0x1A9E171D
+[20:12:50] [artwork:crc] bsimples.dff CRC = 0x246AB514
+[20:12:50] [artwork:crc] bsimples.txd CRC = 0x9D54BD44
+[20:12:50] [artwork:crc] bolsanikelateral.dff CRC = 0x82FA00BC
+[20:12:50] [artwork:crc] bolsanikelateral.txd CRC = 0x9BE9FEF5
+[20:12:50] [artwork:crc] PacoteMcDonalds.dff CRC = 0x7F3872D5
+[20:12:50] [artwork:crc] PacoteMcDonalds.txd CRC = 0xB1587374
+[20:12:50] [artwork:crc] coletemoto.dff CRC = 0xAEF7F9AB
+[20:12:50] [artwork:crc] coletemoto.txd CRC = 0xCEFD3EA6
+[20:12:50] [artwork:crc] barricada.dff CRC = 0xC7D7CD68
+[20:12:50] [artwork:crc] barricada.txd CRC = 0x95DED922
+[20:12:50] [artwork:crc] escudo.dff CRC = 0x434102A8
+[20:12:50] [artwork:crc] escudo.txd CRC = 0xDB8AA769
+[20:12:50] [artwork:crc] morteiro.dff CRC = 0x212ACFDB
+[20:12:50] [artwork:crc] morteiro.txd CRC = 0xE3BEDADE
+[20:12:50] [artwork:crc] munimorteiro.dff CRC = 0xF0EFD884
+[20:12:50] [artwork:crc] munimorteiro.txd CRC = 0xFE95109F
+[20:12:50] [artwork:crc] mina.dff CRC = 0x4A5004C4
+[20:12:50] [artwork:crc] mina.txd CRC = 0xEFEA75E5
+[20:12:50] [artwork:crc] maconhab.dff CRC = 0xBF46F2FF
+[20:12:50] [artwork:crc] maconhab.txd CRC = 0x68419BE
+[20:12:50] [artwork:crc] maconhar.dff CRC = 0xA0906971
+[20:12:50] [artwork:crc] maconhar.txd CRC = 0x13A26228
+[20:12:50] [artwork:crc] cocaina.dff CRC = 0x22B7B621
+[20:12:50] [artwork:crc] cocaina.txd CRC = 0xF84F4DF
+[20:12:50] [artwork:crc] crackr.dff CRC = 0x7260DE97
+[20:12:50] [artwork:crc] crackr.txd CRC = 0xEB7DC1B6
+[20:12:50] [artwork:crc] crackb.dff CRC = 0xAA6EDDA1
+[20:12:50] [artwork:crc] crackb.txd CRC = 0xEB7DC1B6
+[20:12:50] [artwork:crc] lsd.dff CRC = 0x6CB2980D
+[20:12:50] [artwork:crc] lsd.txd CRC = 0xB190FA30
+[20:12:50] [artwork:crc] lancaperfume.dff CRC = 0x8FB92930
+[20:12:50] [artwork:crc] lancaperfume.txd CRC = 0x4205E4C1
+[20:12:50] [artwork:crc] MesaDeDrogas.dff CRC = 0xF6C0A1DF
+[20:12:50] [artwork:crc] MesaDeDrogas.txd CRC = 0x54036B75
+[20:12:50] 
+[20:12:50] Filterscripts
+[20:12:50] ---------------
+[20:12:50]   Loaded 0 filterscripts.
+
+[20:12:50]    Error: Function not registered: 'SSCANF_Init'
+[20:12:50]    Error: Function not registered: 'SSCANF_IsConnected'
+[20:12:50]    Error: Function not registered: 'SSCANF_Join'
+[20:12:50]    Error: Function not registered: 'SSCANF_Leave'
+[20:12:50]    Error: Function not registered: 'IsValidDynamicObject'
+[20:12:50]    Error: Function not registered: 'DestroyDynamicObject'
+[20:12:50]    Error: Function not registered: 'CreateDynamicObject'
+[20:12:50]    Error: Function not registered: 'AttachDynamicObjectToVehicle'
+[20:12:50]    Error: Function not registered: 'CreateDynamicSphere'
+[20:12:50]    Error: Function not registered: 'CreateDynamic3DTextLabel'
+[20:12:50]    Error: Function not registered: 'Streamer_SetArrayData'
+[20:12:50]    Error: Function not registered: 'DestroyDynamicArea'
+[20:12:50]    Error: Function not registered: 'DestroyDynamic3DTextLabel'
+[20:12:50]    Error: Function not registered: 'Streamer_GetArrayData'
+[20:12:50]    Error: Function not registered: 'Streamer_Update'
+[20:12:50]    Error: Function not registered: 'Streamer_GetFloatData'
+[20:12:50]    Error: Function not registered: 'Streamer_SetIntData'
+[20:12:50]    Error: Function not registered: 'Streamer_UpdateEx'
+[20:12:50]    Error: Function not registered: 'DestroyDynamicPickup'
+[20:12:50]    Error: Function not registered: 'CreateDynamicPickup'
+[20:12:50]    Error: Function not registered: 'Streamer_GetDistanceToItem'
+[20:12:50]    Error: Function not registered: 'Streamer_GetIntData'
+[20:12:50]    Error: Function not registered: 'Streamer_GetItemStreamerID'
+[20:12:50]    Error: Function not registered: 'IsValidDynamicPickup'
+[20:12:50]    Error: Function not registered: 'sscanf'
+[20:12:50]    Error: Function not registered: 'GetDynamicObjectPos'
+[20:12:50]    Error: Function not registered: 'MoveDynamicObject'
+[20:12:50]    Error: Function not registered: 'StopDynamicObject'
+[20:12:50]    Error: Function not registered: 'SetDynamicObjectMaterial'
+[20:12:50]    Error: Function not registered: 'SetDynamicObjectMaterialText'
+[20:12:50]    Error: Function not registered: 'CreateDynamicObjectEx'
+[20:12:50]    Error: Function not registered: 'mysql_query'
+[20:12:50]    Error: Function not registered: 'cache_get_row_count'
+[20:12:50]    Error: Function not registered: 'cache_get_field_content'
+[20:12:50]    Error: Function not registered: 'IsValidDynamic3DTextLabel'
+[20:12:50]    Error: Function not registered: 'mysql_connect'
+[20:12:50]    Error: Function not registered: 'mysql_errno'
+[20:12:50]    Error: Function not registered: 'Streamer_VisibleItems'
+[20:12:50]    Error: Function not registered: 'MapAndreas_Init'
+[20:12:50]    Error: Function not registered: 'mysql_tquery'
+[20:12:50]    Error: Function not registered: 'cache_get_data'
+[20:12:50]    Error: Function not registered: 'cache_insert_id'
+[20:12:50]    Error: Function not registered: 'MapAndreas_FindAverageZ'
+[20:12:50]    Error: Function not registered: 'DestroyAllDynamicObjects'
+[20:12:50]    Error: Function not registered: 'mysql_close'
+[20:12:50]    Error: Function not registered: 'IsValidDynamicCP'
+[20:12:50]    Error: Function not registered: 'DestroyDynamicCP'
+[20:12:50]    Error: Function not registered: 'CreateDynamicCP'
+[20:12:50]    Error: Function not registered: 'mysql_escape_string'
+[20:12:50]    Error: Function not registered: 'UpdateDynamic3DTextLabelText'
+[20:12:50]    Error: Function not registered: 'ClearDynamicActorAnimations'
+[20:12:50]    Error: Function not registered: 'GetDynamicActorPos'
+[20:12:50]    Error: Function not registered: 'MapAndreas_FindZ_For2DCoord'
+[20:12:50]    Error: Function not registered: 'EditDynamicObject'
+[20:12:50]    Error: Function not registered: 'WP_Hash'
+[20:12:50]    Error: Function not registered: 'mysql_format'
+[20:12:50]    Error: Function not registered: 'SetDynamicObjectPos'
+[20:12:50]    Error: Function not registered: 'SetDynamicObjectRot'
+[20:12:50]    Error: Function not registered: 'cache_get_field_content_int'
+[20:12:50]    Error: Function not registered: 'cache_get_field_content_float'
+[20:12:50]    Error: Function not registered: 'GetDynamicObjectRot'
+[20:12:50]    Error: Function not registered: 'Streamer_CountItems'
+[20:12:50]  
+[20:12:50]  
+[20:12:50]  
+[20:12:50]  ======================================= 
+[20:12:50]  |                                     | 
+[20:12:50]  |        YSI version 3.09.0684        | 
+[20:12:50]  |        By Alex "Y_Less" Cole        | 
+[20:12:50]  |                                     | 
+[20:12:50]  ======================================= 
+[20:12:50]  
+[20:12:50]  
+[20:12:50]  
+[20:12:51] [ADM] Info: Load EVF v3.2.1 for SA:MP 0.3.7 by Abyss Morgan
+[20:12:51]  
+[20:12:51] --------------------------------------
+[20:12:51]  Anticheat Nex-AC loaded!
+[20:12:51]  Anticheat version: 1.9.61
+[20:12:51]  Author: Nexius
+[20:12:51] --------------------------------------
+
+[20:12:51] --- Custom nametags by Yur$ ---
+[20:12:55] [ERRO] Falha de conexão com banco de dados!
+[20:12:55] |-- Corrida de Cavalos: Carregado
+[20:12:55] |-- Nenhum cavalo existente
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[20:13:20] password = ""  (string)
+[20:13:20] filterscripts = ""  (string)
+[20:13:20] artpath = "models"  (string)
+[20:13:20] 
+[20:13:20] Server Plugins
+[20:13:20] --------------
+[20:13:20]  Loading plugin: nativechecker
+[20:13:20]   Loaded.
+[20:13:20]  Loading plugin: mysql
+[20:13:20]  >> plugin.mysql: R39-5 successfully loaded.
+[20:13:20]   Loaded.
+[20:13:20]  Loading plugin: streamer
+[20:13:20] 
+
+*** Streamer Plugin v2.9.2 by Incognito loaded ***
+
+[20:13:20]   Loaded.
+[20:13:20]  Loading plugin: sscanf
+[20:13:20] 
+
+[20:13:20]  ===============================
+
+[20:13:20]       sscanf plugin loaded.     
+
+[20:13:20]          Version:  2.8.1        
+
+[20:13:20]    (c) 2012 Alex "Y_Less" Cole  
+
+[20:13:20]  ===============================
+
+[20:13:20]   Loaded.
+[20:13:20]  Loading plugin: Whirlpool
+[20:13:20]  
+[20:13:20]  ==================
+[20:13:20]  
+[20:13:20]   Whirlpool loaded
+[20:13:20]  
+[20:13:20]  ==================
+[20:13:20]  
+[20:13:20]   Loaded.
+[20:13:20]  Loading plugin: mapandreas
+[20:13:20]   Loaded.
+[20:13:20]  Loading plugin: ColAndreas
+[20:13:20] *********************
+[20:13:20] ** Created By:     **
+[20:13:20] ** [uL]Chris42O    **
+[20:13:20] ** [uL]Slice       **
+[20:13:20] ** [uL]Pottus      **
+[20:13:20] *********************
+[20:13:20] No collision data found.
+[20:13:20] *********************
+[20:13:20]   ColAndreas Loaded
+[20:13:20]    v1.4.0
+[20:13:20] *********************
+[20:13:20]   Loaded.
+[20:13:20]  Loading plugin: dns
+[20:13:20] 
+
+*** DNS Plugin v2.4 by Incognito loaded ***
+
+[20:13:20]   Loaded.
+[20:13:20]  Loading plugin: YSF_DL
+[20:13:20] 
+[20:13:20]  ==============================================
+[20:13:20]  YSF 2.2 (compiled Sep 19 2021 13:02:34) loaded
+[20:13:20]   (c) 2008 Alex "Y_Less" Cole
+[20:13:20]   (c) 2010 - 2018 kurta999
+[20:13:20]   (c) 2018 - 2020 IllidanS4
+[20:13:20]  Server version: 0.3.DL R1, Windows
+[20:13:20]  ==============================================
+[20:13:20] 
+[20:13:20]   Loaded.
+[20:13:20]  Loaded 9 plugins.
+
+[20:13:20] [artwork:crc] taliba.dff CRC = 0x59945A80
+[20:13:20] [artwork:crc] taliba.txd CRC = 0x6355B6A
+[20:13:20] [artwork:crc] taliba2.dff CRC = 0xBB63B464
+[20:13:20] [artwork:crc] taliba2.txd CRC = 0x90B27E6E
+[20:13:20] [artwork:crc] taliba3.dff CRC = 0xE2E733E8
+[20:13:20] [artwork:crc] taliba3.txd CRC = 0xBC08005E
+[20:13:21] [artwork:crc] taliba4.dff CRC = 0x6828674B
+[20:13:21] [artwork:crc] taliba4.txd CRC = 0xB491BD51
+[20:13:21] [artwork:crc] taliba5.dff CRC = 0xDF6EC86
+[20:13:21] [artwork:crc] taliba5.txd CRC = 0x68893977
+[20:13:21] [artwork:crc] taliba6.dff CRC = 0xC47278F3
+[20:13:21] [artwork:crc] taliba6.txd CRC = 0x8C65BC30
+[20:13:21] [artwork:crc] taliba7.dff CRC = 0x21ED392D
+[20:13:21] [artwork:crc] taliba7.txd CRC = 0x3C5B484E
+[20:13:21] [artwork:crc] taliba8.dff CRC = 0x4C679CBE
+[20:13:21] [artwork:crc] taliba8.txd CRC = 0x23FF2285
+[20:13:21] [artwork:crc] taliba9.dff CRC = 0xDD1F6BE8
+[20:13:21] [artwork:crc] taliba9.txd CRC = 0x3724AA26
+[20:13:21] [artwork:crc] taliba10.dff CRC = 0x134E2005
+[20:13:21] [artwork:crc] taliba10.txd CRC = 0xD51A0FF9
+[20:13:21] [artwork:crc] taliba11.dff CRC = 0x448A080D
+[20:13:21] [artwork:crc] taliba11.txd CRC = 0x62CFAC9F
+[20:13:21] [artwork:crc] taliba12.dff CRC = 0xE56251EE
+[20:13:21] [artwork:crc] taliba12.txd CRC = 0xFDE64604
+[20:13:21] [artwork:crc] taliba13.dff CRC = 0x8299D6CC
+[20:13:21] [artwork:crc] taliba13.txd CRC = 0x85A9998
+[20:13:21] [artwork:crc] taliba14.dff CRC = 0xB115C3F1
+[20:13:21] [artwork:crc] taliba14.txd CRC = 0x8D57DED8
+[20:13:21] [artwork:crc] taliba15.dff CRC = 0x1D04FA75
+[20:13:21] [artwork:crc] taliba15.txd CRC = 0xDECA406A
+[20:13:21] [artwork:crc] seals1.dff CRC = 0x2DD4CA47
+[20:13:21] [artwork:crc] seals1.txd CRC = 0xE07D9D46
+[20:13:21] [artwork:crc] seals2.dff CRC = 0x4B9C0356
+[20:13:21] [artwork:crc] seals2.txd CRC = 0xED3AB6A4
+[20:13:21] [artwork:crc] seals3.dff CRC = 0xE7046D23
+[20:13:21] [artwork:crc] seals3.txd CRC = 0x9E046331
+[20:13:21] [artwork:crc] seals4.dff CRC = 0x493621B6
+[20:13:21] [artwork:crc] seals4.txd CRC = 0x86A22FD
+[20:13:21] [artwork:crc] seals5.dff CRC = 0x9546189A
+[20:13:21] [artwork:crc] seals5.txd CRC = 0x399F00A3
+[20:13:21] [artwork:crc] seals6.dff CRC = 0x10D6EE16
+[20:13:21] [artwork:crc] seals6.txd CRC = 0x3CCB6AA6
+[20:13:21] [artwork:crc] seals7.dff CRC = 0x75507F0D
+[20:13:21] [artwork:crc] seals7.txd CRC = 0x3A627F5F
+[20:13:21] [artwork:crc] seals8.dff CRC = 0x616A75AB
+[20:13:21] [artwork:crc] seals8.txd CRC = 0x80654964
+[20:13:21] [artwork:crc] seals9.dff CRC = 0xD27637A8
+[20:13:21] [artwork:crc] seals9.txd CRC = 0x2EF7BC1
+[20:13:21] [artwork:crc] pet7.dff CRC = 0x723783B7
+[20:13:21] [artwork:crc] pet7.txd CRC = 0x33F08C5C
+[20:13:21] [artwork:crc] pet6.dff CRC = 0x60C6F8E9
+[20:13:21] [artwork:crc] pet6.txd CRC = 0x8EBEA5D0
+[20:13:21] [artwork:crc] pet1.dff CRC = 0x14ABDB74
+[20:13:21] [artwork:crc] pet1.txd CRC = 0xC0D15148
+[20:13:21] [artwork:crc] pet2.dff CRC = 0x871FCAB4
+[20:13:21] [artwork:crc] pet2.txd CRC = 0xF35F8D62
+[20:13:21] [artwork:crc] pet3.dff CRC = 0x223072E5
+[20:13:21] [artwork:crc] pet3.txd CRC = 0x918C9CD0
+[20:13:21] [artwork:crc] pet3.dff CRC = 0x223072E5
+[20:13:21] [artwork:crc] pet3.txd CRC = 0x918C9CD0
+[20:13:21] [artwork:crc] pet4.dff CRC = 0xEF44912D
+[20:13:21] [artwork:crc] pet4.txd CRC = 0xD3839FDF
+[20:13:21] [artwork:crc] pet5.dff CRC = 0x223072E5
+[20:13:21] [artwork:crc] pet5.txd CRC = 0xAECE83C9
+[20:13:21] [artwork:crc] hud.dff CRC = 0x4BC6EDFF
+[20:13:21] [artwork:crc] hud.txd CRC = 0xC1ADFB21
+[20:13:21] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[20:13:21] [artwork:crc] tela.txd CRC = 0xED6A6238
+[20:13:21] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[20:13:21] [artwork:crc] logo.txd CRC = 0xABC0A657
+[20:13:21] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[20:13:21] [artwork:crc] logo.txd CRC = 0xABC0A657
+[20:13:21] [artwork:crc] textdraw_object.dff CRC = 0x0
+[20:13:21] [artwork:error] Bad file: textdraw_object.dff
+[20:13:21] [artwork:crc] aviao1.dff CRC = 0xB93EBAE
+[20:13:21] [artwork:crc] aviao1.txd CRC = 0x99649C5F
+[20:13:21] [artwork:crc] aviao2.dff CRC = 0xD21E09A2
+[20:13:21] [artwork:crc] aviao2.txd CRC = 0xDD6ADD77
+[20:13:21] [artwork:crc] rojao.dff CRC = 0x6F72D6BB
+[20:13:21] [artwork:crc] rojao.txd CRC = 0x19207CDF
+[20:13:21] [artwork:crc] band.dff CRC = 0xD6FE9FF4
+[20:13:21] [artwork:crc] band.txd CRC = 0x7FE6AB15
+[20:13:21] [artwork:crc] cone.dff CRC = 0xF711EDD9
+[20:13:21] [artwork:crc] cone.txd CRC = 0x66D2389E
+[20:13:21] [artwork:crc] cavalete.dff CRC = 0x3A338AFC
+[20:13:21] [artwork:crc] cavalete.txd CRC = 0x85244494
+[20:13:21] [artwork:crc] faixa.dff CRC = 0x7507B9AC
+[20:13:21] [artwork:crc] faixa.txd CRC = 0x8A8138C3
+[20:13:21] [artwork:crc] RadioMotorola.dff CRC = 0x9AAB6A9
+[20:13:21] [artwork:crc] RadioMotorola.txd CRC = 0x22353790
+[20:13:21] [artwork:crc] chapeubope.dff CRC = 0xFD233655
+[20:13:21] [artwork:crc] chapeubope.txd CRC = 0x68298F01
+[20:13:21] [artwork:crc] boneobjeto1.dff CRC = 0xC82233C
+[20:13:21] [artwork:crc] boneobjeto1.txd CRC = 0xB81E24C1
+[20:13:21] [artwork:crc] boneobjeto2.dff CRC = 0xC82233C
+[20:13:21] [artwork:crc] boneobjeto2.txd CRC = 0xB81E24C1
+[20:13:21] [artwork:crc] boneobjeto3.dff CRC = 0xC82233C
+[20:13:21] [artwork:crc] boneobjeto3.txd CRC = 0x25EC71FD
+[20:13:21] [artwork:crc] boneobjeto4.dff CRC = 0xC82233C
+[20:13:21] [artwork:crc] boneobjeto4.txd CRC = 0x3D3821FC
+[20:13:21] [artwork:crc] coletebandido.dff CRC = 0x35333281
+[20:13:21] [artwork:crc] coletebandido.txd CRC = 0x7FCB75F7
+[20:13:21] [artwork:crc] mochila1.dff CRC = 0x7198BBAD
+[20:13:21] [artwork:crc] mochila1.txd CRC = 0xAA488C0D
+[20:13:21] [artwork:crc] mochila2.dff CRC = 0xBA43DBFB
+[20:13:21] [artwork:crc] mochila2.txd CRC = 0xA55E4D43
+[20:13:21] [artwork:crc] mochila3.dff CRC = 0x36D7E922
+[20:13:21] [artwork:crc] mochila3.txd CRC = 0x31D6F73
+[20:13:21] [artwork:crc] mochila4.dff CRC = 0x49A9723A
+[20:13:21] [artwork:crc] mochila4.txd CRC = 0xB888188E
+[20:13:21] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:13:21] [artwork:crc] helmet6.txd CRC = 0x60AE21A9
+[20:13:21] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:13:21] [artwork:crc] helmet7.txd CRC = 0xB8E8641F
+[20:13:21] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:13:21] [artwork:crc] helmet11.txd CRC = 0xAA929E4F
+[20:13:21] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:13:21] [artwork:crc] helmet12.txd CRC = 0x6CA6E0F4
+[20:13:21] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:13:21] [artwork:crc] helmet15.txd CRC = 0x7BB77D7E
+[20:13:21] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:13:21] [artwork:crc] helmet16.txd CRC = 0x5781CAFC
+[20:13:21] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:13:21] [artwork:crc] helmet19.txd CRC = 0x157E14B7
+[20:13:21] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:13:21] [artwork:crc] helmet21.txd CRC = 0x53A928B0
+[20:13:21] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:13:21] [artwork:crc] helmet24.txd CRC = 0xF1A29DA5
+[20:13:21] [artwork:crc] helmet.dff CRC = 0x9F713AEE
+[20:13:21] [artwork:crc] helmet1.txd CRC = 0xFF5E6BB4
+[20:13:21] [artwork:crc] ifood.dff CRC = 0xAD546C14
+[20:13:21] [artwork:crc] ifood.txd CRC = 0xBED788D3
+[20:13:21] [artwork:crc] ubereats.dff CRC = 0xD7C5543C
+[20:13:21] [artwork:crc] ubereats.txd CRC = 0x1A9E171D
+[20:13:21] [artwork:crc] bsimples.dff CRC = 0x246AB514
+[20:13:21] [artwork:crc] bsimples.txd CRC = 0x9D54BD44
+[20:13:21] [artwork:crc] bolsanikelateral.dff CRC = 0x82FA00BC
+[20:13:21] [artwork:crc] bolsanikelateral.txd CRC = 0x9BE9FEF5
+[20:13:21] [artwork:crc] PacoteMcDonalds.dff CRC = 0x7F3872D5
+[20:13:21] [artwork:crc] PacoteMcDonalds.txd CRC = 0xB1587374
+[20:13:21] [artwork:crc] coletemoto.dff CRC = 0xAEF7F9AB
+[20:13:21] [artwork:crc] coletemoto.txd CRC = 0xCEFD3EA6
+[20:13:21] [artwork:crc] barricada.dff CRC = 0xC7D7CD68
+[20:13:21] [artwork:crc] barricada.txd CRC = 0x95DED922
+[20:13:21] [artwork:crc] escudo.dff CRC = 0x434102A8
+[20:13:21] [artwork:crc] escudo.txd CRC = 0xDB8AA769
+[20:13:21] [artwork:crc] morteiro.dff CRC = 0x212ACFDB
+[20:13:21] [artwork:crc] morteiro.txd CRC = 0xE3BEDADE
+[20:13:21] [artwork:crc] munimorteiro.dff CRC = 0xF0EFD884
+[20:13:21] [artwork:crc] munimorteiro.txd CRC = 0xFE95109F
+[20:13:21] [artwork:crc] mina.dff CRC = 0x4A5004C4
+[20:13:21] [artwork:crc] mina.txd CRC = 0xEFEA75E5
+[20:13:21] [artwork:crc] maconhab.dff CRC = 0xBF46F2FF
+[20:13:21] [artwork:crc] maconhab.txd CRC = 0x68419BE
+[20:13:21] [artwork:crc] maconhar.dff CRC = 0xA0906971
+[20:13:21] [artwork:crc] maconhar.txd CRC = 0x13A26228
+[20:13:21] [artwork:crc] cocaina.dff CRC = 0x22B7B621
+[20:13:21] [artwork:crc] cocaina.txd CRC = 0xF84F4DF
+[20:13:21] [artwork:crc] crackr.dff CRC = 0x7260DE97
+[20:13:21] [artwork:crc] crackr.txd CRC = 0xEB7DC1B6
+[20:13:21] [artwork:crc] crackb.dff CRC = 0xAA6EDDA1
+[20:13:21] [artwork:crc] crackb.txd CRC = 0xEB7DC1B6
+[20:13:21] [artwork:crc] lsd.dff CRC = 0x6CB2980D
+[20:13:21] [artwork:crc] lsd.txd CRC = 0xB190FA30
+[20:13:21] [artwork:crc] lancaperfume.dff CRC = 0x8FB92930
+[20:13:21] [artwork:crc] lancaperfume.txd CRC = 0x4205E4C1
+[20:13:21] [artwork:crc] MesaDeDrogas.dff CRC = 0xF6C0A1DF
+[20:13:21] [artwork:crc] MesaDeDrogas.txd CRC = 0x54036B75
+[20:13:21] 
+[20:13:21] Filterscripts
+[20:13:21] ---------------
+[20:13:21]   Loaded 0 filterscripts.
+
+[20:13:22]    Error: Function not registered: 'SSCANF_Init'
+[20:13:22]    Error: Function not registered: 'SSCANF_IsConnected'
+[20:13:22]    Error: Function not registered: 'SSCANF_Join'
+[20:13:22]    Error: Function not registered: 'SSCANF_Leave'
+[20:13:22]    Error: Function not registered: 'IsValidDynamicObject'
+[20:13:22]    Error: Function not registered: 'DestroyDynamicObject'
+[20:13:22]    Error: Function not registered: 'CreateDynamicObject'
+[20:13:22]    Error: Function not registered: 'AttachDynamicObjectToVehicle'
+[20:13:22]    Error: Function not registered: 'CreateDynamicSphere'
+[20:13:22]    Error: Function not registered: 'CreateDynamic3DTextLabel'
+[20:13:22]    Error: Function not registered: 'Streamer_SetArrayData'
+[20:13:22]    Error: Function not registered: 'DestroyDynamicArea'
+[20:13:22]    Error: Function not registered: 'DestroyDynamic3DTextLabel'
+[20:13:22]    Error: Function not registered: 'Streamer_GetArrayData'
+[20:13:22]    Error: Function not registered: 'Streamer_Update'
+[20:13:22]    Error: Function not registered: 'Streamer_GetFloatData'
+[20:13:22]    Error: Function not registered: 'Streamer_SetIntData'
+[20:13:22]    Error: Function not registered: 'Streamer_UpdateEx'
+[20:13:22]    Error: Function not registered: 'DestroyDynamicPickup'
+[20:13:22]    Error: Function not registered: 'CreateDynamicPickup'
+[20:13:22]    Error: Function not registered: 'Streamer_GetDistanceToItem'
+[20:13:22]    Error: Function not registered: 'Streamer_GetIntData'
+[20:13:22]    Error: Function not registered: 'Streamer_GetItemStreamerID'
+[20:13:22]    Error: Function not registered: 'IsValidDynamicPickup'
+[20:13:22]    Error: Function not registered: 'sscanf'
+[20:13:22]    Error: Function not registered: 'GetDynamicObjectPos'
+[20:13:22]    Error: Function not registered: 'MoveDynamicObject'
+[20:13:22]    Error: Function not registered: 'StopDynamicObject'
+[20:13:22]    Error: Function not registered: 'SetDynamicObjectMaterial'
+[20:13:22]    Error: Function not registered: 'SetDynamicObjectMaterialText'
+[20:13:22]    Error: Function not registered: 'CreateDynamicObjectEx'
+[20:13:22]    Error: Function not registered: 'mysql_query'
+[20:13:22]    Error: Function not registered: 'cache_get_row_count'
+[20:13:22]    Error: Function not registered: 'cache_get_field_content'
+[20:13:22]    Error: Function not registered: 'IsValidDynamic3DTextLabel'
+[20:13:22]    Error: Function not registered: 'mysql_connect'
+[20:13:22]    Error: Function not registered: 'mysql_errno'
+[20:13:22]    Error: Function not registered: 'Streamer_VisibleItems'
+[20:13:22]    Error: Function not registered: 'MapAndreas_Init'
+[20:13:22]    Error: Function not registered: 'mysql_tquery'
+[20:13:22]    Error: Function not registered: 'cache_get_data'
+[20:13:22]    Error: Function not registered: 'cache_insert_id'
+[20:13:22]    Error: Function not registered: 'MapAndreas_FindAverageZ'
+[20:13:22]    Error: Function not registered: 'DestroyAllDynamicObjects'
+[20:13:22]    Error: Function not registered: 'mysql_close'
+[20:13:22]    Error: Function not registered: 'IsValidDynamicCP'
+[20:13:22]    Error: Function not registered: 'DestroyDynamicCP'
+[20:13:22]    Error: Function not registered: 'CreateDynamicCP'
+[20:13:22]    Error: Function not registered: 'mysql_escape_string'
+[20:13:22]    Error: Function not registered: 'UpdateDynamic3DTextLabelText'
+[20:13:22]    Error: Function not registered: 'ClearDynamicActorAnimations'
+[20:13:22]    Error: Function not registered: 'GetDynamicActorPos'
+[20:13:22]    Error: Function not registered: 'MapAndreas_FindZ_For2DCoord'
+[20:13:22]    Error: Function not registered: 'EditDynamicObject'
+[20:13:22]    Error: Function not registered: 'WP_Hash'
+[20:13:22]    Error: Function not registered: 'mysql_format'
+[20:13:22]    Error: Function not registered: 'SetDynamicObjectPos'
+[20:13:22]    Error: Function not registered: 'SetDynamicObjectRot'
+[20:13:22]    Error: Function not registered: 'cache_get_field_content_int'
+[20:13:22]    Error: Function not registered: 'cache_get_field_content_float'
+[20:13:22]    Error: Function not registered: 'GetDynamicObjectRot'
+[20:13:22]    Error: Function not registered: 'Streamer_CountItems'
+[20:13:22]  
+[20:13:22]  
+[20:13:22]  
+[20:13:22]  ======================================= 
+[20:13:22]  |                                     | 
+[20:13:22]  |        YSI version 3.09.0684        | 
+[20:13:22]  |        By Alex "Y_Less" Cole        | 
+[20:13:22]  |                                     | 
+[20:13:22]  ======================================= 
+[20:13:22]  
+[20:13:22]  
+[20:13:22]  
+[20:13:22] [ADM] Info: Load EVF v3.2.1 for SA:MP 0.3.7 by Abyss Morgan
+[20:13:22]  
+[20:13:22] --------------------------------------
+[20:13:22]  Anticheat Nex-AC loaded!
+[20:13:22]  Anticheat version: 1.9.61
+[20:13:22]  Author: Nexius
+[20:13:22] --------------------------------------
+
+[20:13:22] --- Custom nametags by Yur$ ---
+[20:13:22] |-- Corrida de Cavalos: Carregado
+[20:13:23] [CARREGADO] Mining Village
+[20:13:23] [CARREGADO] Mapa avião
+[20:13:23] [CARREGADO] Mapa: WH 2
+[20:13:23] [CARREGADO] Mapa: Factory int
+[20:13:23] [CARREGADO] Mapa: Ghetto droga int
+[20:13:23] [CARREGADO] Mapa: Ghetto ammo int
+[20:13:23] [CARREGADO] Mapa Ilegal gunshop int
+[20:13:23] [CARREGADO] Mapa: int lavagem de grana
+[20:13:23] [CARREGADO] Mapa: Hospital interior
+[20:13:23] [CARREGADO] Mapa: Banco interior
+[20:13:23] [LOAD] Mapa: Barzinho
+[20:13:23] [LOAD] Mapa: Barzinho 2
+[20:13:23] [LOAD] Mapa: Barzinho 3
+[20:13:23] [CARREGADO] Mapa: Fight room
+[20:13:23] [CARREGADO] Mapa: Empresa 1
+[20:13:23] [CARREGADO] Mapa: Loja de Eletronicos
+[20:13:23] [CARREGADO] Mapa: Agencia de Empregos
+[20:13:23] [CARREGADO] Mapa: Estudio
+[20:13:23] [LOAD] Mapa: Sony
+[20:13:23] [LOAD] Mapa: Caravan
+[20:13:23] [LOAD] Mapa: Interiores de Casas e Empresas vazios
+[20:13:23] [LOAD] Mapa: Apartamento 1
+[20:13:23] [LOAD] Mapa: Apartamento 2
+[20:13:23] [LOAD] Mapa: Apartamento 3
+[20:13:23] [LOAD] Mapa: DrugHouse 1
+[20:13:23] [LOAD] Mapa: WeaponHouse 1
+[20:13:23] [CARREGADO] Mapa: Complexo 1
+[20:13:23] [CARREGADO] Mapa: Complexo 2
+[20:13:23] [CARREGADO] Mapa: Complexo 3
+[20:13:23] [CARREGADO] Mapa: Complexo 4
+[20:13:23] [CARREGADO] Mapa: Complexo 5
+[20:13:23] [CARREGADO] Mapa: Complexo 7
+[20:13:23] [CARREGADO] Mapa: Complexo 8
+[20:13:23] [CARREGADO] Mapa: Complexo 9
+[20:13:23] [CARREGADO] Sistema de Grafite
+[20:13:23] 
+-------------------------------------------	
+[20:13:23] 	War on Terror Roleplay							
+[20:13:23] 	por Yur$										
+[20:13:23] ----------------------------------
+				
+[20:13:23] Number of vehicle models: 5
+[20:13:23] [CARREGADO] Veiculos criados.
+[20:13:23] [CARREGADO] 0 veiculos carregados.
+[20:13:23] [CARREGADO] Casas: 0
+[20:13:23] [CARREGADO] Garagens: 0
+[20:13:23] [CARREGADO] Complexos: 0
+[20:13:23] [CARREGADO] Empresas: 0
+[20:13:23] ================ [ Pontos de Entrega ]
+[20:13:23] [CARREGADO] FURNITURE: 0 moveis.
+[20:13:23] [CARREGADO] Armas no Servidor: 3 | Armas no Chão: 0 | Armas na Pos 0: 0
+[20:13:23] [CARREGADO] Total de facções: 7
+[20:13:23] [CARREGADO] Total de Portas/Portões [Fac/Casa/empresa]: 0
+[20:13:23] [CARREGADO] Itens no Servidor: 0 | Itens no Chão: 0 | Itens na Pos 0: 0
+[20:13:23] [CARREGADO] Cartuchos no chão do Servidor: 0 
+[20:13:23] [Drug System] Atualmente existem 0 drogas plantadas por SA.
+[20:13:23] [CARREGADO] Drogas no chão do Servidor: 0 | Drogas na Pos 0: 0
+[20:13:23] [CARREGADO] Pixes: 0
+[20:13:23] [CARREGADO] Multas: 0
+[20:13:23] sscanf warning: Format specifier does not match parameter count.
+[20:13:23] [CARREGADO] Cofre do governo: US$24931273
+[20:13:23] SERVER: Carregado com sucesso!
+[20:13:56] [connection] incoming connection: 25.46.230.252:63615 id: 0
+[20:13:56] proxy.conexao-roleplay.site/api-ip.php?ip=25.46.230.252
+[20:13:56] [join] Jason_Hayes has joined the server (0:25.46.230.252)
+[20:13:56] ERRO NO CheckIP: 1, 
+[20:14:05] 
+[20:16:05] 
+[20:16:05] Jogador Jason_Hayes - Personagem salvo com sucesso.
+[20:16:05] [part] Jason_Hayes has left the server (0:1)
+[20:38:02] [connection] incoming connection: 25.47.33.203:64366 id: 0
+[20:38:02] proxy.conexao-roleplay.site/api-ip.php?ip=25.47.33.203
+[20:38:02] ERRO NO CheckIP: 1, 
+[20:38:02] [join] Chris_Kyle has joined the server (0:25.47.33.203)

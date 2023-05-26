@@ -24,16 +24,14 @@
 #include <trap>
 #include <explosive>
 #include <mapandreas>
-//#include <nex-ac>
+//Tunning
+#include <YSI\y_ini>
+#include <nex-ac>
 
 // --------- [ INCLUDES ] ---------
 
-
 //Streamer
 #define VISIBLE_ITEMS 3000
-
-//Tunning
-#include <YSI\y_ini>
 
 native WP_Hash(_buffer[], len, const str[]);
 // --------- [ INCLUDES ] ---------

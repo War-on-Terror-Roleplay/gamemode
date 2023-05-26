@@ -52,7 +52,7 @@ native WP_Hash(_buffer[], len, const str[]);
 new PayDayDuplo = 0;
 
 // Vehicle Rental
-new CarRent[10];
+new CarRent[8];
 new RentCarKey[MAX_PLAYERS];
 
 //New Blindagem system
@@ -6086,16 +6086,14 @@ public OnGameModeInit()
     garbage_vehicles[2] = AddStaticVehicle(408,2186.2073,-1991.3400,14.1957,358.8047,1,1);  // Lixeiro 1
     garbage_vehicles[3] = AddStaticVehicle(408,2190.6982,-1991.1963,14.1343,359.5683,1,1); // Lixeiro 1
 
-    CarRent[0] = AddStaticVehicle(492,1664.2168,-2248.0488,-2.9842,90.2306,1,1); // Green 1
-    CarRent[1] = AddStaticVehicle(492,1653.5485,-2313.4810,-2.9741,269.5144,1,1); // Green 2
-	CarRent[2] = AddStaticVehicle(492,1560.7415,-2308.8511,13.3286,269.5454,1,1); // 1
-	CarRent[3] = AddStaticVehicle(492,1560.7153,-2312.1589,13.3285,269.5454,1,1); // 2
-	CarRent[4] = AddStaticVehicle(492,1560.6952,-2315.5034,13.3498,269.5466,1,1); // 3
-	CarRent[5] = AddStaticVehicle(422,1560.6693,-2318.7683,13.3567,269.5466,1,1); // 4
-	CarRent[6] = AddStaticVehicle(422,1560.6440,-2321.9934,13.3636,269.5466,1,1); // 5
-	CarRent[7] = AddStaticVehicle(422,1560.6185,-2325.2891,13.3706,269.5466,1,1); // 6
-	CarRent[8] = AddStaticVehicle(492,1560.5928,-2328.5264,13.3775,269.5466,1,1); // 7
-	CarRent[9] = AddStaticVehicle(492,1560.5668,-2331.8062,13.3845,269.5466,1,1); // 8
+    CarRent[0] = AddStaticVehicle(445,1664.2168,-2248.0488,-2.9842,90.2306,1,1); // Green 1
+    CarRent[1] = AddStaticVehicle(445,1653.5485,-2313.4810,-2.9741,269.5144,1,1); // Green 2
+	CarRent[2] = AddStaticVehicle(426,1560.7415,-2308.8511,13.3286,269.5454,1,1); // 1
+	CarRent[3] = AddStaticVehicle(426,1560.7153,-2312.1589,13.3285,269.5454,1,1); // 2
+	CarRent[4] = AddStaticVehicle(405,1560.6952,-2315.5034,13.3498,269.5466,1,1); // 3
+	CarRent[5] = AddStaticVehicle(405,1560.6693,-2318.7683,13.3567,269.5466,1,1); // 4
+	CarRent[6] = AddStaticVehicle(401,1560.6440,-2321.9934,13.3636,269.5466,1,1); // 5
+	CarRent[7] = AddStaticVehicle(401,1560.6185,-2325.2891,13.3706,269.5466,1,1); // 6
     for(new c=0;c<sizeof(CarRent);c++)
     {
 		SetVehicleNumberPlate(CarRent[c], "ALUGADO");
@@ -6178,14 +6176,14 @@ public OnGameModeInit()
     //PortoTrucker_ModeInit();
 
     //============ Pickup / TextLabel - Anuncio
-	CreateDynamic3DTextLabel("[Seals Team]\n/entrar", 0xffffffff, 1728.8789,-1565.1876,14.5625, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
+	/*CreateDynamic3DTextLabel("[Seals Team]\n/entrar", 0xffffffff, 1728.8789,-1565.1876,14.5625, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
 	CreatePickup(1239, 1, 1728.8789,-1565.1876,14.5625, 0); 
 
 	CreateDynamic3DTextLabel("[Seals Team]\n/entrar", 0xffffffff, 1400.2490,-12.1037,1001.0098, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
 	CreatePickup(1239, 1, 1400.2490,-12.1037,1001.0098, 0); 
 
 	CreateDynamic3DTextLabel("[USMC]\n/entrar", 0xffffffff, 2514.5640,-1525.5608,24.0324, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
-	CreatePickup(1239, 1, 2514.5640,-1525.5608,24.0324, 0); 
+	CreatePickup(1239, 1, 2514.5640,-1525.5608,24.0324, 0); */
 
     CreateDynamic3DTextLabel("[CENTRO DE EMPREGOS]\nUse '/pegaremprego'", 0x008080FF, 1414.9390,-1576.9739,20.0859, 40.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
     CreatePickup(1239, 1, 1414.9390,-1576.9739,20.0859, -1);
@@ -6201,15 +6199,16 @@ public OnGameModeInit()
 
 	CreateDynamic3DTextLabel("[Seals Team]\n/reparar", 0xffffffff, 1720.7937,-1578.8098,13.5547, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
     CreatePickup(1239, 1, 1720.7937,-1578.8098,13.5547, 0);
+	
+	CreateDynamic3DTextLabel("[P. ONIBUS]\n/iniciarviagem", 0xffffffff, 1737.5643,-1859.1648,13.4141, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
+	CreatePickup(1239, 1, 1737.5643,-1859.1648,13.4141, 0); 
 
-	CreateDynamic3DTextLabel("[GARAGEM]\n/entrar", 0xffffffff, 1742.7393,-1551.3011,7.9609, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
+	/*CreateDynamic3DTextLabel("[GARAGEM]\n/entrar", 0xffffffff, 1742.7393,-1551.3011,7.9609, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
     CreatePickup(1239, 1, 1742.7393,-1551.3011,7.9609, 0); 
 
 	CreateDynamic3DTextLabel("[Seals Team]\n/sair", 0xffffffff, -1628.0112,690.6479,7.1875, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
 	CreatePickup(1239, 1, -1628.0112,690.6479,7.1875, 0); 
 
-	CreateDynamic3DTextLabel("[P. ONIBUS]\n/iniciarviagem", 0xffffffff, 1737.5643,-1859.1648,13.4141, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
-	CreatePickup(1239, 1, 1737.5643,-1859.1648,13.4141, 0); 
 
 	CreateDynamic3DTextLabel("[GARAGEM]\n/entrar", 0xffffffff, 954.6230,-1467.4749,13.5547, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
 	CreatePickup(1239, 1, 954.6230,-1467.4749,13.5547, 0);
@@ -6218,7 +6217,7 @@ public OnGameModeInit()
     CreatePickup(1239, 1, 2501.8635,-1564.3923,24.0324, 0);
 	//BRINKS
 	CreateDynamic3DTextLabel("[GARAGEM]\n/entrar", 0xffffffff, 1772.9445,-1543.1234,13.6688, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
-	CreatePickup(1239, 1, 1772.9445,-1543.1234,13.6688, 0);
+	CreatePickup(1239, 1, 1772.9445,-1543.1234,13.6688, 0);*/
 
     //MULTAS
     CreateDynamic3DTextLabel("{FFFFFF}[DETRAN]\nUse '/Multas'\nPara pagar suas multas", 0xffffffff,-501.2948,293.6831,2001.0950, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
@@ -6240,14 +6239,14 @@ public OnGameModeInit()
     CreatePickup(1239, 1, 1396.2954,-10.2383,1000.9221, 0);
 
     //ENTRADA HOSPITAL
-    CreateDynamic3DTextLabel("{FFFFFF}[UPA]\n/entrar",0xffffffff, 2027.3602,-1386.4576,17.2108, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
+    CreateDynamic3DTextLabel("{FFFFFF}[HOSPITAL]\n/entrar",0xffffffff, 2027.3602,-1386.4576,17.2108, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
     CreatePickup(1239, 1, 2027.3602,-1386.4576,17.2108, 0);
 
     //HOSPITAL
-    CreateDynamic3DTextLabel("{FFFFFF}[UPA]\n/tratar\n/convenio",0xffffffff, 174.4834,2784.5520,767.7469, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
+    CreateDynamic3DTextLabel("{FFFFFF}[HOSPITAL]\n/tratar\n/convenio",0xffffffff, 174.4834,2784.5520,767.7469, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
     CreatePickup(1239, 1, 1177.7151,-1321.4143,2015.4130, 0);
 
-    CreateDynamic3DTextLabel("{FFFFFF}[UPA]]\n/deixarferido\nPara deixar o ferido",0xffffffff, 2043.6692,-1383.1019,17.1479, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
+    CreateDynamic3DTextLabel("{FFFFFF}[HOSPITAL]\n/deixarferido\nPara deixar o ferido",0xffffffff, 2043.6692,-1383.1019,17.1479, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
     CreatePickup(1239, 1, 2043.6692,-1383.1019,17.1479, 0);
 
 	//COMPRAR PEÇAS
@@ -15387,8 +15386,10 @@ stock GetVehicleRentalPrice(model)
 {
 	switch(model)
 	{
-	    case 492: return 150;
-	    case 422: return 150;
+		case 445: return 150;
+		case 426: return 180;
+		case 405: return 200;
+		case 401: return 220;
 	}
 	return 0;
 }
@@ -54981,7 +54982,7 @@ CMD:sair(playerid, params[])
 	    SetPlayerPosFreeze(playerid, 2027.3602,-1386.4576,17.2108, 1);
 	}
 
-	else if(IsPlayerInRangeOfPoint(playerid, 5, 1410.2965,-10.9775,1001.0098))//CIA 1 andar
+	/*else if(IsPlayerInRangeOfPoint(playerid, 5, 1410.2965,-10.9775,1001.0098))//CIA 1 andar
 	{
 	    SetPlayerInterior(playerid, 0);
 	    SetPlayerVirtualWorld(playerid, 0);
@@ -55255,7 +55256,7 @@ CMD:sair(playerid, params[])
 		PlayerInfo[playerid][pInterior] = 0;
 		PlayerInfo[playerid][pWorld] = 0;
 
-	}
+	}*/
 
 	return 1;
 }
@@ -76503,7 +76504,7 @@ stock gerarArmario(facid){
     FacInfo[facid][fArmarioPickup] = CreateDynamicPickup(1239,  1, FacInfo[facid][fArmarioPosX], FacInfo[facid][fArmarioPosY], FacInfo[facid][fArmarioPosZ], FacInfo[facid][fArmarioVw]);
 }
 //=========================================================================================================================================================
-//                      										ATM SYSTEM / Freeze
+//                      										ATM SYSTEM / Yur$
 //=========================================================================================================================================================
 COMMAND:criaratm(playerid, params[])
 {

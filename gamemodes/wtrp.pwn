@@ -20894,7 +20894,7 @@ public SalvarPlayer(playerid)
 		);
 		mysql_function_query(Pipeline, query, false, "", "");
 
-    	format(query, sizeof(query), "UPDATE `accounts` SET `pArmario6` = '%d', `pArmario7` = '%d', `pArmario8` = '%d', `pArmario9` = '%d', `pArmario10` = '%d', `baterias` = '%d', `KitMedico` =, `Peixes` = '%d' WHERE `ID` = '%d'",
+    	format(query, sizeof(query), "UPDATE `accounts` SET `pArmario6` = '%d', `pArmario7` = '%d', `pArmario8` = '%d', `pArmario9` = '%d', `pArmario10` = '%d', `baterias` = '%d', `KitMedico` = '%d', `Peixes` = '%d' WHERE `ID` = '%d'",
 			PlayerInfo[playerid][pArmario6],
 			PlayerInfo[playerid][pArmario7],
 			PlayerInfo[playerid][pArmario8],
@@ -35673,7 +35673,7 @@ CMD:trabalho(playerid, params[])
 	  					SendFacMessage(0x6666CCFF,FacId,StrMsg);
 	  					PlayerInfo[playerid][pEmServico] = 1;
 	  					SetPlayerSkin(playerid, PlayerInfo[playerid][pDutySkin]);
-	  					SetPlayerColor(playerid,0x8d8dff00);
+	  					//SetPlayerColor(playerid,0x8d8dff00);
 					}
 					case 1:
 					{
@@ -36101,7 +36101,7 @@ CMD:trabalho(playerid, params[])
 	  					SendFacMessage(0x6666CCFF,FacId,StrMsg);
 	  					PlayerInfo[playerid][pEmServico] = 1;
 	  					SetPlayerSkin(playerid, PlayerInfo[playerid][pDutySkin]);
-	  					SetPlayerColor(playerid,0x8d8dff00);
+	  					//SetPlayerColor(playerid,0x8d8dff00);
 					}
 					case 1:
 					{
@@ -36728,7 +36728,7 @@ CMD:trabalhar(playerid, params[])
 	  					SendFacMessage(0x6666CCFF,FacId,StrMsg);
 	  					PlayerInfo[playerid][pEmServico] = 1;
 	  					SetPlayerSkin(playerid, PlayerInfo[playerid][pDutySkin]);
-	  					SetPlayerColor(playerid,0x8d8dff00);
+	  					//SetPlayerColor(playerid,0x8d8dff00);
 					}
 					case 1:
 					{
@@ -75797,7 +75797,7 @@ public AdicionarAviso(playerid,novatrans[])
 
     if(PlayerInfo[playerid][pAvisos] == 3)
     {
-        format(_string, sizeof(_string),"3 Avisos");
+        format(_string, sizeof(_string),"Recebeu 3 avisos no personagem!");
 		PlayerInfo[playerid][pBanAll]++;
 		BanExtra(playerid,_string,_string);
     }
@@ -80306,7 +80306,6 @@ CMD:criartunador( playerid, params[] ) {
     SaveTGarage( i );
     return true;
 }
-//==============================================================================
 CMD:deletartunador( playerid, params[] ) {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 3000 ) return true;
@@ -80375,7 +80374,7 @@ stock SetTune( veiculo, ocasiao, vehicleid)
 	}
 }
 //==============================================================================
-CMD:criarcarro2(playerid, params[])
+CMD:criarcarro(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pAdmin] < 5) return 1;
@@ -80394,7 +80393,7 @@ CMD:criarcarro2(playerid, params[])
     return 1;
 }
 
-CMD:destruircarro2(playerid, params[])
+CMD:destruircarro(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pAdmin] < 5) return 1;
@@ -80422,60 +80421,6 @@ stock FindFreeObjectSlotInCar(vehid)
         	if(!IsValidObject(AttachedObjects[vehid][i])) return i;
         }
         return -1;
-}
-
-COMMAND:aobj(playerid, params[])
-{
-    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-    if(PlayerInfo[playerid][pAdmin] < 3000) return 1;
-	new objectmodel, car;
- 	if(sscanf(params, "ii", objectmodel, car))
-  	{
-   		SendClientMessage(playerid, 0xfce80cFF, "Use: /attachobject [object model] [SAMP Car ID]");
-     	return 1;
-	}
-    if(0 < car < MAX_VEHICLES)
-    {
-    	new Float:px, Float:py, Float:pz;
-     	GetPlayerPos(playerid, px, py, pz);
-	    AttachingObjects[playerid] = CreateObject(objectmodel, px, py, pz, 0.0, 0.0, 0.0);
-	    SendClientMessage(playerid, 0xfce80cFF, "Object created. Editing...");
-	    EditObject(playerid, AttachingObjects[playerid]);
-	    SetPVarInt(playerid, "AttachingTo", car);
-	}
-	else
-	{
-		SendClientMessage(playerid, 0xfce80cFF, "Invalid vehicle");
-	}
-	return 1;
-}
-
-COMMAND:dobj(playerid, params[])
-{
-    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-    if(PlayerInfo[playerid][pAdmin] < 3000) return 1;
-	new arrayid, car;
- 	if(sscanf(params, "ii", arrayid, car))
-  	{
-   		SendClientMessage(playerid, 0xfce80cFF, "Use: /deleteobject [arrayid] [SAMP Car ID]");
-     	return 1;
-	}
-	if(0 <= arrayid < 20)
-	{
-		if(0 < car < MAX_VEHICLES)
-		{
-			if(!IsValidObject(AttachedObjects[car][arrayid]))
-			{
-				SendClientMessage(playerid, 0xfce80cFF, "No object found at position");
-				return 1;
-			}
-			DestroyObject(AttachedObjects[car][arrayid]);
-			SendClientMessage(playerid, 0xfce80cFF, "Object removed");
-			return 1;
-		}
-		else return SendClientMessage(playerid, 0xfce80cFF, "Invalid vehicle");
-	}
-	else return SendClientMessage(playerid, 0xfce80cFF, "No object found at position");
 }
 
 COMMAND:nickbranco(playerid, params[])
@@ -80513,7 +80458,6 @@ COMMAND:nickgb(playerid, params[])
 COMMAND:lancargranada(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-    //if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] != FAC_TIPO_PMERJ && FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] != FAC_TIPO_PCERJ && FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] != FAC_TIPO_EB) return SendClientMessage(playerid, COLOR_WHITE, "Você deve ser um policial para usar este comando.");
 	if(PlayerInfo[playerid][pEmServico] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
     for(new h = 0; h < MAX_HOUSES; h++)
 	{

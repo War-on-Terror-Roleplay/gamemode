@@ -262,7 +262,7 @@ static bool:ac_ACAllow[] =
 	true,	//21 Anti-Invisible hack
 	true,	//22 Anti-lagcomp-spoof
 	true,	//23 Anti-Tuning hack
-	false,	//24 Anti-Parkour mod
+	true,	//24 Anti-Parkour mod
 	true,	//25 Anti-Quick turn
 	true,	//26 Anti-Rapid fire
 	true,	//27 Anti-FakeSpawn
@@ -271,11 +271,11 @@ static bool:ac_ACAllow[] =
 	true,	//30 Anti-CJ run
 	true,	//31 Anti-CarShot
 	true,	//32 Anti-CarJack
-	false,	//33 Anti-UnFreeze
+	true,	//33 Anti-UnFreeze
 	true,	//34 Anti-AFK Ghost
 	true,	//35 Anti-Full Aiming
 
-	false,	//36 Anti-Fake NPC
+	true,	//36 Anti-Fake NPC
 	true,	//37 Anti-Reconnect
 	true,	//38 Anti-High ping
 	true,	//39 Anti-Dialog hack

@@ -17376,7 +17376,7 @@ public OnPlayerUpdate_Timer()
       					format(sspeed, sizeof(sspeed), "%.0f km/h", final_speed);
      					PlayerTextDrawSetString(playerid, Speedo[playerid], sspeed);
 					}
-					if(final_speed > 300.0)
+					if(final_speed > 220.0)
 				   	{
 				  		TogglePlayerControllable(playerid, false);
 					   	format(string, sizeof(string), "AdmWarn: O ANTI-CHEAT detectou que %s(%d) pode estar de Speed Hack.", PlayerName(playerid,0), playerid);
@@ -17837,7 +17837,7 @@ public OnPlayerUpdate_Timer()
 				   	new surf = GetPlayerSurfingVehicleID(playerid);
 					if(surf == INVALID_VEHICLE_ID)
 					{
-				  		if(GetPlayerSpeed_HACK(playerid) > 300.0)
+				  		if(GetPlayerSpeed_HACK(playerid) > 220.0)
 				   		{
 				     	    if(AvisoDeSpeed[playerid] == 0)
 				     	    {
@@ -78611,12 +78611,12 @@ public OnPlayerSuspectedForAimbot(playerid,hitid,weaponid,warnings)
 		format(str,256,"Random Aim Offsets: 1)%f 2)%f 3)%f",Wstats[0],Wstats[1],Wstats[2]);
 		SendAdminMessage(-1,str);
 	}
-	if(warnings & WARNING_BACKWARD_SHOT)
+	/*if(warnings & WARNING_BACKWARD_SHOT)
 	{
 	    TogglePlayerControllable(playerid, false);
 	    format(str,256,"O ANTI-CHEAT[%d]%s(%d) atirou em um jogador atrás dele com %s.",ids[playerid],nme,playerid,wname);
 		SendAdminMessage(-1,str);
-	}
+	}*/
 	if(warnings & WARNING_CONTINOUS_SHOTS)
 	{
 	    TogglePlayerControllable(playerid, false);

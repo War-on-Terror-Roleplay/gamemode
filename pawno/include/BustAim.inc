@@ -36,10 +36,10 @@
 #define BustAim:: BS_
 
 #if !defined BUSTAIM_MAX_PL_PERCENTAGE
-	#define BUSTAIM_MAX_PL_PERCENTAGE 5
+	#define BUSTAIM_MAX_PL_PERCENTAGE 2.5
 #endif
 #if !defined BUSTAIM_MAX_PING
-	#define BUSTAIM_MAX_PING 600
+	#define BUSTAIM_MAX_PING 400
 #endif
 #if !defined BUSTAIM_SKIP_WEAPON_IDS
 	#define BUSTAIM_SKIP_WEAPON_IDS 38

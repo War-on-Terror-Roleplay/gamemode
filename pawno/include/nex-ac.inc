@@ -23,7 +23,7 @@
 #endif
 
 #if !defined _nex_ac_lang_included
-	#include <nex-ac_en.lang>	//Localization
+	#include <nex-ac_pt_br.lang>	//Localization
 #endif
 
 #define	NEX_AC_VERSION				"1.9.61"
@@ -119,7 +119,7 @@
 #endif
 
 #if !defined AC_MAX_CONNECTS_FROM_IP
-	#define AC_MAX_CONNECTS_FROM_IP			1
+	#define AC_MAX_CONNECTS_FROM_IP			2
 #endif
 
 #if !defined AC_MAX_RCON_LOGIN_ATTEMPT
@@ -215,7 +215,7 @@
 #endif
 
 #if !defined AC_MAX_RAPID_FIRE_WARNINGS
-	#define AC_MAX_RAPID_FIRE_WARNINGS		16
+	#define AC_MAX_RAPID_FIRE_WARNINGS		3
 #endif
 
 #if !defined AC_MAX_AUTO_C_WARNINGS
@@ -278,18 +278,18 @@ static bool:ac_ACAllow[] =
 	true,	//36 Anti-Fake NPC
 	true,	//37 Anti-Reconnect
 	true,	//38 Anti-High ping
-	true,	//39 Anti-Dialog hack
+	false,	//39 Anti-Dialog hack
 	true,	//40 Protection from sandbox
 	true,	//41 Protection from invalid version
 	true,	//42 Anti-Rcon hack
 
 	true,	//43 Anti-Tuning crasher
 	true,	//44 Anti-Invalid seat crasher
-	true,	//45 Anti-Dialog crasher
+	false,	//45 Anti-Dialog crasher
 	true,	//46 Anti-Attached object crasher
 	true,	//47 Anti-Weapon Crasher
 
-	true,	//48 Protection from connection flood in one slot
+	false,	//48 Protection from connection flood in one slot
 	true,	//49 Anti-callback functions flood
 	true,	//50 Anti-flood by seat changing
 

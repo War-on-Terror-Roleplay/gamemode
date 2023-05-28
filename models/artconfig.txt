@@ -1,39 +1,51 @@
 //Insurgentes
-AddCharModel(287, 20001, "taliba/taliba.dff", "taliba.txd"); 
-AddCharModel(287, 20002, "taliba/taliba2.dff", "taliba2.txd"); 
-AddCharModel(287, 20003, "taliba/taliba3.dff", "taliba3.txd"); 
-AddCharModel(287, 20004, "taliba/taliba4.dff", "taliba4.txd"); 
-AddCharModel(287, 20005, "taliba/taliba5.dff", "taliba5.txd"); 
-AddCharModel(287, 20006, "taliba/taliba6.dff", "taliba6.txd"); 
-AddCharModel(287, 20007, "taliba/taliba7.dff", "taliba7.txd"); 
-AddCharModel(287, 20008, "taliba/taliba8.dff", "taliba8.txd"); 
-AddCharModel(287, 20009, "taliba/taliba9.dff", "taliba9.txd"); 
-AddCharModel(287, 20010, "taliba/taliba10.dff", "taliba10.txd"); 
-AddCharModel(287, 20011, "taliba/taliba11.dff", "taliba11.txd"); 
-AddCharModel(287, 20012, "taliba/taliba12.dff", "taliba12.txd"); 
-AddCharModel(287, 20013, "taliba/taliba13.dff", "taliba13.txd"); 
-AddCharModel(287, 20014, "taliba/taliba14.dff", "taliba14.txd"); 
-AddCharModel(287, 20015, "taliba/taliba15.dff", "taliba15.txd"); 
-AddCharModel(287, 20016, "pmc/pmc1.dff", "pmc1.txd"); 
-AddCharModel(287, 20017, "pmc/pmc2.dff", "pmc2.txd"); 
-AddCharModel(287, 20018, "pmc/pmc3.dff", "pmc3.txd"); 
-AddCharModel(287, 20019, "pmc/pmc4.dff", "pmc4.txd"); 
-AddCharModel(287, 20020, "pmc/pmc5.dff", "pmc5.txd"); 
-AddCharModel(287, 20021, "pmc/pmc6.dff", "pmc6.txd"); 
-AddCharModel(287, 20022, "pmc/pmc7.dff", "pmc7.txd"); 
-AddCharModel(287, 20023, "pmc/pmc8.dff", "pmc8.txd"); 
-AddCharModel(287, 20024, "pmc/pmc9.dff", "pmc9.txd"); 
+AddCharModel(287, 20001, "taliba/taliba.dff", "taliba/taliba.txd"); 
+AddCharModel(287, 20002, "taliba/taliba2.dff", "taliba/taliba2.txd"); 
+AddCharModel(287, 20003, "taliba/taliba3.dff", "taliba/taliba3.txd"); 
+AddCharModel(287, 20004, "taliba/taliba4.dff", "taliba/taliba4.txd"); 
+AddCharModel(287, 20005, "taliba/taliba5.dff", "taliba/taliba5.txd"); 
+AddCharModel(287, 20006, "taliba/taliba6.dff", "taliba/taliba6.txd"); 
+AddCharModel(287, 20007, "taliba/taliba7.dff", "taliba/taliba7.txd"); 
+AddCharModel(287, 20008, "taliba/taliba8.dff", "taliba/taliba8.txd"); 
+AddCharModel(287, 20009, "taliba/taliba9.dff", "taliba/taliba9.txd"); 
+AddCharModel(287, 20010, "taliba/taliba10.dff", "taliba/taliba10.txd"); 
+AddCharModel(287, 20011, "taliba/taliba11.dff", "taliba/taliba11.txd"); 
+AddCharModel(287, 20012, "taliba/taliba12.dff", "taliba/taliba12.txd"); 
+AddCharModel(287, 20013, "taliba/taliba13.dff", "taliba/taliba13.txd"); 
+AddCharModel(287, 20014, "taliba/taliba14.dff", "taliba/taliba14.txd"); 
+AddCharModel(287, 20015, "taliba/taliba15.dff", "taliba/taliba15.txd"); 
+AddCharModel(287, 20016, "pmc/pmc1.dff", "pmc/pmc1.txd"); 
+AddCharModel(287, 20017, "pmc/pmc2.dff", "pmc/pmc2.txd"); 
+AddCharModel(287, 20018, "pmc/pmc3.dff", "pmc/pmc3.txd"); 
+AddCharModel(287, 20019, "pmc/pmc4.dff", "pmc/pmc4.txd"); 
+AddCharModel(287, 20020, "pmc/pmc5.dff", "pmc/pmc5.txd"); 
+AddCharModel(287, 20021, "pmc/pmc6.dff", "pmc/pmc6.txd"); 
+AddCharModel(287, 20022, "pmc/pmc7.dff", "pmc/pmc7.txd"); 
+AddCharModel(287, 20023, "pmc/pmc8.dff", "pmc/pmc8.txd"); 
+AddCharModel(287, 20024, "pmc/pmc9.dff", "pmc/pmc9.txd"); 
+AddCharModel(287, 20025, "isis/isis1.dff", "isis/isis1.txd"); 
+AddCharModel(287, 20026, "isis/isis2.dff", "isis/isis2.txd"); 
+AddCharModel(287, 20027, "isis/isis3.dff", "isis/isis3.txd"); 
+AddCharModel(287, 20028, "isis/isis4.dff", "isis/isis4.txd"); 
+AddCharModel(287, 20029, "isis/isis5.dff", "isis/isis5.txd"); 
+AddCharModel(287, 20030, "russo/russia1.dff", "russo/russia1.txd"); 
+AddCharModel(287, 20031, "russo/russia2.dff", "russo/russia2.txd"); 
+AddCharModel(287, 20032, "russo/russia3.dff", "russo/russia3.txd"); 
+AddCharModel(287, 20033, "russo/russia4.dff", "russo/russia4.txd"); 
+AddCharModel(287, 20034, "russo/russia5.dff", "russo/russia5.txd"); 
+AddCharModel(287, 20035, "russo/russia6.dff", "russo/russia6.txd"); 
+AddCharModel(287, 20036, "russo/russia7.dff", "russo/russia7.txd"); 
 
 
 //Pet System
-AddCharModel(13, 20069, "dogs/pet7.dff", "pet7.txd"); 
-AddCharModel(252, 20070, "dogs/pet6.dff", "pet6.txd");
-AddCharModel(252, 20071, "dogs/pet1.dff", "pet1.txd");
-AddCharModel(252, 20072, "dogs/pet2.dff", "pet2.txd");
-AddCharModel(252, 20073, "dogs/pet3.dff", "pet3.txd");
-AddCharModel(252, 20074, "dogs/pet3.dff", "pet3.txd");
-AddCharModel(252, 20075, "dogs/pet4.dff", "pet4.txd");
-AddCharModel(252, 20076, "dogs/pet5.dff", "pet5.txd");
+AddCharModel(13, 20069, "dogs/pet7.dff", "dogs/pet7.txd"); 
+AddCharModel(252, 20070, "dogs/pet6.dff", "dogs/pet6.txd");
+AddCharModel(252, 20071, "dogs/pet1.dff", "dogs/pet1.txd");
+AddCharModel(252, 20072, "dogs/pet2.dff", "dogs/pet2.txd");
+AddCharModel(252, 20073, "dogs/pet3.dff", "dogs/pet3.txd");
+AddCharModel(252, 20074, "dogs/pet3.dff", "dogs/pet3.txd");
+AddCharModel(252, 20075, "dogs/pet4.dff", "dogs/pet4.txd");
+AddCharModel(252, 20076, "dogs/pet5.dff", "dogs/pet5.txd");
 
 
 //textdraw
@@ -44,8 +56,8 @@ AddSimpleModel(-1, 19379, -2007, "login.dff", "logo.txd");
 AddSimpleModel(-1, 19315, -1095, "textdraw_object.dff", "textdraw_ui.txd");
 
 //objetos mapas
-AddSimpleModel(-1, 19142, -1003, "aviao/aviao1.dff", "aviao1.txd");
-AddSimpleModel(-1, 19142, -1004, "aviao/aviao2.dff", "aviao2.txd");
+AddSimpleModel(-1, 19142, -1003, "aviao/aviao1.dff", "aviao/aviao1.txd");
+AddSimpleModel(-1, 19142, -1004, "aviao/aviao2.dff", "aviao/aviao2.txd");
 AddSimpleModel(-1, 2262, -20051, "a51/A51Part01.dff", "a51/A51Texture.txd");
 AddSimpleModel(-1, 2262, -20052, "a51/A51Part02.dff", "a51/A51Texture.txd");
 AddSimpleModel(-1, 2262, -20053, "a51/A51Part03.dff", "a51/A51Texture.txd");
@@ -62,55 +74,55 @@ AddSimpleModel(-1, 2262, -20070, "a51/A51Part10.dff", "a51/A51Texture.txd");
 AddSimpleModel(-1, 800, -20080, "a51/A51Veg.dff", "a51/A51Veg.txd");
 
 //objetos binco
-AddSimpleModel(-1, 19142, -2063, "itens/rojao.dff", "rojao.txd");
-AddSimpleModel(-1,19142, -2100, "itens/band.dff", "band.txd");
-AddSimpleModel(-1,19141, -2101, "itens/cone.dff", "cone.txd");
-AddSimpleModel(-1,19141, -2102, "itens/cavalete.dff", "cavalete.txd");
-AddSimpleModel(-1,19141, -2103, "itens/faixa.dff", "faixa.txd");
-AddSimpleModel(-1,19942, -2104, "itens/RadioMotorola.dff", "RadioMotorola.txd");
-AddSimpleModel(-1,18933, -2105, "itens/chapeubope.dff", "chapeubope.txd");
-AddSimpleModel(-1,18636, -2106, "itens/boneobjeto1.dff", "boneobjeto1.txd");
-AddSimpleModel(-1,18636, -2107, "itens/boneobjeto2.dff", "boneobjeto2.txd");
-AddSimpleModel(-1,18636, -2108, "itens/boneobjeto3.dff", "boneobjeto3.txd");
-AddSimpleModel(-1,18636, -2109, "itens/boneobjeto4.dff", "boneobjeto4.txd");
-AddSimpleModel(-1,19142, -2110, "itens/coletebandido.dff", "coletebandido.txd");
-AddSimpleModel(-1,3026, -2111, "itens/mochila1.dff", "mochila1.txd");
-AddSimpleModel(-1,3026, -2112, "itens/mochila2.dff", "mochila2.txd");
-AddSimpleModel(-1,3026, -2113, "itens/mochila3.dff", "mochila3.txd");
-AddSimpleModel(-1,3026, -2114, "itens/mochila4.dff", "mochila4.txd");
-AddSimpleModel(-1,18645, -2115, "itens/helmet.dff", "helmet6.txd");
-AddSimpleModel(-1,18645, -2116, "itens/helmet.dff", "helmet7.txd");
-AddSimpleModel(-1,18645, -2117, "itens/helmet.dff", "helmet11.txd");
-AddSimpleModel(-1,18645, -2118, "itens/helmet.dff", "helmet12.txd");
-AddSimpleModel(-1,18645, -2119, "itens/helmet.dff", "helmet15.txd");
-AddSimpleModel(-1,18645, -2120, "itens/helmet.dff", "helmet16.txd");
-AddSimpleModel(-1,18645, -2121, "itens/helmet.dff", "helmet19.txd");
-AddSimpleModel(-1,18645, -2122, "itens/helmet.dff", "helmet21.txd");
-AddSimpleModel(-1,18645, -2123, "itens/helmet.dff", "helmet24.txd");
-AddSimpleModel(-1,18645, -2124, "itens/helmet.dff", "helmet1.txd");
-AddSimpleModel(-1,3634, -2125, "itens/ifood.dff", "ifood.txd");
-AddSimpleModel(-1,3634, -2127, "itens/ubereats.dff", "ubereats.txd");
-AddSimpleModel(-1,3634, -2128, "itens/bsimples.dff", "bsimples.txd");
-AddSimpleModel(-1,3634, -2129, "itens/bolsanikelateral.dff", "bolsanikelateral.txd");
-AddSimpleModel(-1,3634, -2130, "itens/PacoteMcDonalds.dff", "PacoteMcDonalds.txd");
-AddSimpleModel(-1,19142, -2131, "itens/coletemoto.dff", "coletemoto.txd");
-AddSimpleModel(-1,3634, -2132, "itens/barricada.dff", "barricada.txd");
+AddSimpleModel(-1, 19142, -2063, "itens/rojao.dff", "itens/rojao.txd");
+AddSimpleModel(-1,19142, -2100, "itens/band.dff", "itens/band.txd");
+AddSimpleModel(-1,19141, -2101, "itens/cone.dff", "itens/cone.txd");
+AddSimpleModel(-1,19141, -2102, "itens/cavalete.dff", "itens/cavalete.txd");
+AddSimpleModel(-1,19141, -2103, "itens/faixa.dff", "itens/faixa.txd");
+AddSimpleModel(-1,19942, -2104, "itens/RadioMotorola.dff", "itens/RadioMotorola.txd");
+AddSimpleModel(-1,18933, -2105, "itens/chapeubope.dff", "itens/chapeubope.txd");
+AddSimpleModel(-1,18636, -2106, "itens/boneobjeto1.dff", "itens/boneobjeto1.txd");
+AddSimpleModel(-1,18636, -2107, "itens/boneobjeto2.dff", "itens/boneobjeto2.txd");
+AddSimpleModel(-1,18636, -2108, "itens/boneobjeto3.dff", "itens/boneobjeto3.txd");
+AddSimpleModel(-1,18636, -2109, "itens/boneobjeto4.dff", "itens/boneobjeto4.txd");
+AddSimpleModel(-1,19142, -2110, "itens/coletebandido.dff", "itens/coletebandido.txd");
+AddSimpleModel(-1,3026, -2111, "itens/mochila1.dff", "itens/mochila1.txd");
+AddSimpleModel(-1,3026, -2112, "itens/mochila2.dff", "itens/mochila2.txd");
+AddSimpleModel(-1,3026, -2113, "itens/mochila3.dff", "itens/mochila3.txd");
+AddSimpleModel(-1,3026, -2114, "itens/mochila4.dff", "itens/mochila4.txd");
+AddSimpleModel(-1,18645, -2115, "itens/helmet.dff", "itens/helmet6.txd");
+AddSimpleModel(-1,18645, -2116, "itens/helmet.dff", "itens/helmet7.txd");
+AddSimpleModel(-1,18645, -2117, "itens/helmet.dff", "itens/helmet11.txd");
+AddSimpleModel(-1,18645, -2118, "itens/helmet.dff", "itens/helmet12.txd");
+AddSimpleModel(-1,18645, -2119, "itens/helmet.dff", "itens/helmet15.txd");
+AddSimpleModel(-1,18645, -2120, "itens/helmet.dff", "itens/helmet16.txd");
+AddSimpleModel(-1,18645, -2121, "itens/helmet.dff", "itens/helmet19.txd");
+AddSimpleModel(-1,18645, -2122, "itens/helmet.dff", "itens/helmet21.txd");
+AddSimpleModel(-1,18645, -2123, "itens/helmet.dff", "itens/helmet24.txd");
+AddSimpleModel(-1,18645, -2124, "itens/helmet.dff", "itens/helmet1.txd");
+AddSimpleModel(-1,3634, -2125, "itens/ifood.dff", "itens/ifood.txd");
+AddSimpleModel(-1,3634, -2127, "itens/ubereats.dff", "itens/ubereats.txd");
+AddSimpleModel(-1,3634, -2128, "itens/bsimples.dff", "itens/bsimples.txd");
+AddSimpleModel(-1,3634, -2129, "itens/bolsanikelateral.dff", "itens/bolsanikelateral.txd");
+AddSimpleModel(-1,3634, -2130, "itens/PacoteMcDonalds.dff", "itens/PacoteMcDonalds.txd");
+AddSimpleModel(-1,19142, -2131, "itens/coletemoto.dff", "itens/coletemoto.txd");
+AddSimpleModel(-1,3634, -2132, "itens/barricada.dff", "itens/barricada.txd");
 
 
 //Objetos GOV US
-AddSimpleModel(-1,3634, -2200, "itens/escudo.dff", "escudo.txd");
-AddSimpleModel(-1,3634, -2201, "itens/morteiro.dff", "morteiro.txd");
-AddSimpleModel(-1,1636, -2202, "itens/munimorteiro.dff", "munimorteiro.txd");
-AddSimpleModel(-1,1636, -2203, "itens/mina.dff", "mina.txd");
+AddSimpleModel(-1,3634, -2200, "itens/escudo.dff", "itens/escudo.txd");
+AddSimpleModel(-1,3634, -2201, "itens/morteiro.dff", "itens/morteiro.txd");
+AddSimpleModel(-1,1636, -2202, "itens/munimorteiro.dff", "itens/munimorteiro.txd");
+AddSimpleModel(-1,1636, -2203, "itens/mina.dff", "itens/mina.txd");
 
 
 //Drogas
-AddSimpleModel(-1,19141, -2300, "itens/maconhab.dff", "maconhab.txd");
-AddSimpleModel(-1,19141, -2301, "itens/maconhar.dff", "maconhar.txd");
-AddSimpleModel(-1,19141, -2302, "itens/cocaina.dff", "cocaina.txd");
-AddSimpleModel(-1,19141, -2303, "itens/crackr.dff", "crackr.txd");
-AddSimpleModel(-1,19141, -2304, "itens/crackb.dff", "crackb.txd");
-AddSimpleModel(-1,19141, -2305, "itens/lsd.dff", "lsd.txd");
-AddSimpleModel(-1,19141, -2306, "itens/lancaperfume.dff", "lancaperfume.txd");
-AddSimpleModel(-1,19141, -2307, "itens/MesaDeDrogas.dff", "MesaDeDrogas.txd");
+AddSimpleModel(-1,19141, -2300, "itens/maconhab.dff", "itens/maconhab.txd");
+AddSimpleModel(-1,19141, -2301, "itens/maconhar.dff", "itens/maconhar.txd");
+AddSimpleModel(-1,19141, -2302, "itens/cocaina.dff", "itens/cocaina.txd");
+AddSimpleModel(-1,19141, -2303, "itens/crackr.dff", "itens/crackr.txd");
+AddSimpleModel(-1,19141, -2304, "itens/crackb.dff", "itens/crackb.txd");
+AddSimpleModel(-1,19141, -2305, "itens/lsd.dff", "itens/lsd.txd");
+AddSimpleModel(-1,19141, -2306, "itens/lancaperfume.dff", "itens/lancaperfume.txd");
+AddSimpleModel(-1,19141, -2307, "itens/MesaDeDrogas.dff", "itens/MesaDeDrogas.txd");
 

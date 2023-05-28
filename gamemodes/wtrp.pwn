@@ -39367,11 +39367,11 @@ CMD:ajudaadmin(playerid, params[])
 		SendClientMessage(playerid, COLOR_LIGHTGREEN, "[INFORMAÇÕES]{FFFFFF} Utilize com moderação;");
 
         if(PlayerInfo[playerid][pTester] >= 1){
-			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Tester] /kick /tapa /congelar /descongelar /ajail /mandarls /trazer /ir /spec /irveiculo /trazerveiculo ");
+			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Tester] /kick /tapa /congelar /descongelar /ajail /mandarlv /trazer /ir /spec /irveiculo /trazerveiculo ");
 			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Tester] /tirartmorte /desbugarskill /ajailoff /mascarados /ajudateam /checaratirador");
 		}
     	if(PlayerInfo[playerid][pAdmin] >= 1){
-			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Game Admin 1]{FFFFFF} /aj /rj /aduty /kick /ban /ooc /ir /trazer /irls /mandarls /listaspec /setarvw /spec");
+			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Game Admin 1]{FFFFFF} /aj /rj /aduty /kick /ban /ooc /ir /trazer /irls /mandarlv /listaspec /setarvw /spec");
 			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Game Admin 1]{FFFFFF} /irveiculo /trazerveiculo /curar /setarvida /tirartmorte /enviarjogador /tapa");
 			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Game Admin 1]{FFFFFF} /setarint /setarskin /ajail /ajailoff /daraviso /verip /checaravisos /removeraviso");
 			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Game Admin 1]{FFFFFF} /apagarpixe /congelar /descongelar /unbugc /desbugarskill /mascarados");
@@ -41023,18 +41023,19 @@ CMD:areparartodos(playerid,params[])
 	else format(admnome, sizeof(admnome), "%s", PlayerName(playerid, 0));
 
 	format(string, sizeof(string), "AdmCmd: O Administrador %s consertou todos veículos do servidor.", admnome);
-	SendAdminMessage(COLOR_LIGHTRED,string);
+	//SendAdminMessage(COLOR_LIGHTRED,string);
+	SendClientMessageToAll(COLOR_LIGHTRED, string);
 
 	return 1;
 }
 
-CMD:mandarls(playerid,params[])
+CMD:mandarlv(playerid,params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
     if(PlayerInfo[playerid][pAdmin] < 1  && PlayerInfo[playerid][pTester] < 1) return 1;
     if((!OutrasInfos[playerid][oAdminOnDuty] && !OutrasInfos[playerid][oTesterOnDuty]) && PlayerInfo[playerid][pAdmin] < 3000) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar em modo de trabalho para utilizar este comando. '/aduty'.");
     new type;
-	if(sscanf(params, "i", type)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /mandarls [playerid]");
+	if(sscanf(params, "i", type)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /mandarlv [playerid]");
 	else
 	{
 	    new admnome[24];
@@ -41139,8 +41140,8 @@ CMD:mandarls(playerid,params[])
 
 		    TogglePlayerControllable(type, 1);
 
-		    if(PlayerInfo[playerid][pAdmin] > 0) format(string, sizeof(string), "{FF6347}AdmCmd: O Administrador %s mandou %s [%d] para Los Santos.", admnome, PlayerName(type, 0), type);
-		    else format(string, sizeof(string), "AdmCmd: O Tester %s[%d] mandou %s[%d] para Los Santos.", PlayerName(playerid, 0), playerid, PlayerName(type, 0), type);
+		    if(PlayerInfo[playerid][pAdmin] > 0) format(string, sizeof(string), "{FF6347}AdmCmd: O Administrador %s mandou %s [%d] para Las Venturas.", admnome, PlayerName(type, 0), type);
+		    else format(string, sizeof(string), "AdmCmd: O Tester %s[%d] mandou %s[%d] para Las Venturas.", PlayerName(playerid, 0), playerid, PlayerName(type, 0), type);
 			SendAdminMessage(COLOR_LIGHTRED,string);
 
 			if(ouvindoxmradio[type] > 0)
@@ -41151,7 +41152,7 @@ CMD:mandarls(playerid,params[])
 			}
 
 			new strl[126];
-			format(strl, 126, "%s mandou o jogador %s para Los Santos. [/mandarls]", PlayerName(playerid, 0), PlayerName(type, 0));
+			format(strl, 126, "%s mandou o jogador %s para Las Venturas. [/mandarlv]", PlayerName(playerid, 0), PlayerName(type, 0));
 			LogCMD_A(playerid, strl);
 		}
 	}
@@ -85883,7 +85884,7 @@ public TempoParaAtenderem(playerid,tipo) //Tipo 1: Celular | Tipo 2: Orelhão
 			else format(strr, 24, "Boa noite");
 
 	        CelularData[playerid][LigandoParaNumAtendido] = 1;
-	        format(str,sizeof(str),"%s Atendente diz: Los Santos Serviço %s, qual a sua localização por favor?", strop, strr);
+	        format(str,sizeof(str),"%s Atendente diz: Afeganistão Serviço %s, qual a sua localização por favor?", strop, strr);
 	        SendClientMessage(playerid, COLOR_LINHATELEFONICA, str);
 
 			format(str,sizeof(str),"Em_chamada~n~(%d)~n~00:00:00", CelularData[playerid][LigandoParaNum]);
@@ -85913,7 +85914,7 @@ public TempoParaAtenderem(playerid,tipo) //Tipo 1: Celular | Tipo 2: Orelhão
 			else format(strr, 24, "Boa noite");
 
 	        CelularData[playerid][LigandoParaNumAtendido] = 1;
-	        format(str,sizeof(str),"%s Atendente diz: Los Santos serviço %s, qual a sua localização por favor?", strop, strr);
+	        format(str,sizeof(str),"%s Atendente diz: Afeganistão serviço %s, qual a sua localização por favor?", strop, strr);
 	        SendClientMessage(playerid, COLOR_LINHATELEFONICA, str);
 
 			format(str,sizeof(str),"Em_chamada~n~(%d)~n~00:00:00", CelularData[playerid][LigandoParaNum]);

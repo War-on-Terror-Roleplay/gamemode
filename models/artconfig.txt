@@ -36,6 +36,24 @@ AddCharModel(287, 20034, "russo/russia5.dff", "russo/russia5.txd");
 AddCharModel(287, 20035, "russo/russia6.dff", "russo/russia6.txd"); 
 AddCharModel(287, 20036, "russo/russia7.dff", "russo/russia7.txd"); 
 
+//Navy Seal Team Six
+AddCharModel(287, 20101, "seals/seal1.dff", "seals/seal1.txd"); 
+AddCharModel(287, 20102, "seals/seal2.dff", "seals/seal2.txd"); 
+AddCharModel(287, 20103, "seals/seal3.dff", "seals/seal3.txd"); 
+AddCharModel(287, 20104, "seals/seal4.dff", "seals/seal4.txd"); 
+AddCharModel(287, 20105, "seals/seal5.dff", "seals/seal5.txd"); 
+AddCharModel(287, 20106, "seals/seal6.dff", "seals/seal6.txd"); 
+AddCharModel(287, 20107, "seals/seal7.dff", "seals/seal7.txd"); 
+AddCharModel(287, 20108, "seals/seal8.dff", "seals/seal8.txd"); 
+AddCharModel(287, 20109, "seals/seal9.dff", "seals/seal9.txd"); 
+AddCharModel(287, 20110, "seals/seal10.dff", "seals/seal10.txd"); 
+AddCharModel(287, 20111, "seals/seal11.dff", "seals/seal11.txd"); 
+AddCharModel(287, 20112, "seals/seal12.dff", "seals/seal12.txd"); 
+AddCharModel(287, 20113, "seals/seal13.dff", "seals/seal13.txd"); 
+AddCharModel(287, 20114, "seals/seal14.dff", "seals/seal14.txd"); 
+AddCharModel(287, 20115, "seals/seal15.dff", "seals/seal15.txd"); 
+AddCharModel(287, 20116, "seals/seal16.dff", "seals/seal16.txd"); 
+AddCharModel(287, 20117, "seals/seal17.dff", "seals/seal17.txd"); 
 
 //Pet System
 AddCharModel(13, 20069, "dogs/pet7.dff", "dogs/pet7.txd"); 
@@ -107,6 +125,14 @@ AddSimpleModel(-1,3634, -2129, "itens/bolsanikelateral.dff", "itens/bolsanikelat
 AddSimpleModel(-1,3634, -2130, "itens/PacoteMcDonalds.dff", "itens/PacoteMcDonalds.txd");
 AddSimpleModel(-1,19142, -2131, "itens/coletemoto.dff", "itens/coletemoto.txd");
 AddSimpleModel(-1,3634, -2132, "itens/barricada.dff", "itens/barricada.txd");
+
+//objewtos seals
+AddSimpleModel(-1,18645, -2300, "itens_seals/bone.dff", "itens_seals/bone.txd");
+AddSimpleModel(-1,18645, -2301, "itens_seals/capacete.dff", "itens_seals/capacete.txd");
+AddSimpleModel(-1,18645, -2302, "itens_seals/capacete2.dff", "itens_seals/capacete2.txd");
+AddSimpleModel(-1,19142, -2303, "itens_seals/coleteleve.dff", "itens_seals/coleteleve.txd");
+AddSimpleModel(-1,19142, -2304, "itens_seals/coletepesado.dff", "itens_seals/coletepesado.txd");
+AddSimpleModel(-1,18645, -2305, "itens_seals/gorro.dff", "itens_seals/gorro.txd");
 
 
 //Objetos GOV US

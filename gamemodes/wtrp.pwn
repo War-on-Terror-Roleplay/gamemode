@@ -21879,7 +21879,7 @@ CMD:guardararma(playerid, params[])
 	}
 	else
 	{
-	    if(modelo == 1 || modelo == 3 || modelo == 4 || modelo == 16 || modelo == 17 || modelo == 22|| modelo == 22 || modelo == 23 || modelo == 24 || modelo == 28 || modelo == 41 || modelo == 43)
+	    if(modelo == 1 || modelo == 3 || modelo == 4 || modelo == 16 || modelo == 17 || modelo == 22|| modelo == 22 || modelo == 23 || modelo == 24 || modelo == 28 || modelo == 41 || modelo == 43 || modelo == 46)
 	    {
 	        if(InvId == 1)
 	        {
@@ -37626,7 +37626,7 @@ Dialog:Equipar_PCERJ(playerid, response, listitem, inputtext[])
         {
             case 0:
 			{
-				Dialog_Show(playerid, Equipar_PCERJ1, DIALOG_STYLE_TABLIST_HEADERS, "[Seals Team] Equipamentos", "Arma:\tCargo nescessário:\nCassetete\t1\nGranada de Fumaça\t1\nColt 45\t1\nDesert Eagle\t1\nShotgun\t1\nMP5\t1\nM4\t1\nParaquedas\t1\nSniper\t5", "Pegar", "Fechar");
+				Dialog_Show(playerid, Equipar_PCERJ1, DIALOG_STYLE_TABLIST_HEADERS, "[Seals Team] Equipamentos", "Arma:\tCargo nescessário:\nCassetete\t1\nGranada de Fumaça\t1\nColt 45\t1\nDesert Eagle\t1\nShotgun\t1\nMP5\t1\nM4\t1\nParaquedas\t1\nSniper\t5\nParaquedas\n1\nGranada\t1", "Pegar", "Fechar");
 			}
 			case 1: Dialog_Show(playerid, Equipar_PCERJ2, DIALOG_STYLE_TABLIST_HEADERS, "[Seals Team] Equipamentos", "Tipo de Munição:\tQuantidade:\n9mm\t60\nCartuchos\t60\n5.56mm\t120\n12.7x106mm\t60", "Pegar", "Fechar");
             case 2: { P_Armour[playerid] = 100; SetPlayerArmour_CA(playerid, 100); }
@@ -37680,7 +37680,6 @@ Dialog:Equipar_PCERJ1(playerid, response, listitem, inputtext[])
 			{
 			    if(PlayerInfo[playerid][pArmaMao] > 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já tem uma arma em mãos, guarde-a antes.");
 			    EntregandoArmaSQL(playerid, 17, 0, 10, 0);
-			    PlayerInfo[playerid][pMun9mm] += 320;
 			    SendClientMessage(playerid,COLOR_LIGHTGREEN,"Você recebeu algumas granadas de fumaça.");
 			   	format(strl, sizeof(strl), "%s equipou algumas granadas de fumaça.", PlayerName(playerid,0));
 			  	LogEquipar_P(playerid,strl);
@@ -37755,6 +37754,24 @@ Dialog:Equipar_PCERJ1(playerid, response, listitem, inputtext[])
 			    PlayerInfo[playerid][pMun127] += 60;
 			    SendClientMessage(playerid,COLOR_LIGHTGREEN,"Você recebeu uma sniper e 60 munições.");
 			   	format(strl, sizeof(strl), "%s equipou uma sniper e 60 munições.", PlayerName(playerid,0));
+			  	LogEquipar_P(playerid,strl);
+			    return 1;
+			}
+			case 9:
+			{
+			    if(PlayerInfo[playerid][pArmaMao] > 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já tem uma arma em mãos, guarde-a antes.");
+			    EntregandoArmaSQL(playerid, 46, 0, 1, 0);
+			    SendClientMessage(playerid,COLOR_LIGHTGREEN,"Você recebeu um paraquedas.");
+			   	format(strl, sizeof(strl), "%s equipou um paraquedas.", PlayerName(playerid,0));
+			  	LogEquipar_P(playerid,strl);
+			    return 1;
+			}
+			case 10:
+			{
+			    if(PlayerInfo[playerid][pArmaMao] > 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já tem uma arma em mãos, guarde-a antes.");
+			    EntregandoArmaSQL(playerid, 16, 0, 10, 0);
+			    SendClientMessage(playerid,COLOR_LIGHTGREEN,"Você recebeu algumas granadas.");
+			   	format(strl, sizeof(strl), "%s equipou algumas granadas.", PlayerName(playerid,0));
 			  	LogEquipar_P(playerid,strl);
 			    return 1;
 			}

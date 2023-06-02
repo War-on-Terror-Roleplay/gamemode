@@ -79,7 +79,8 @@ new PlayerText:TelaLogin[MAX_PLAYERS][6];
 //Hud Radio
 new PlayerText:RadioComunicador[MAX_PLAYERS][2];
 
-
+//Drone
+new pVeh[MAX_PLAYERS];
 
 //Painel adm
 #define DIALOG_PAINELNOME		1444
@@ -89900,4 +89901,38 @@ CMD:checaratirador(playerid, params[]){
 	format(string,sizeof(string),"O ultimo player a atirar em %s foi %s.",PlayerName(otherid, 0), PlayerName(shooterid, 0));
 	SendClientMessage(playerid, COLOR_LIGHTRED, string);
 	return 1;
+}
+//Drone System YurS
+CMD:ldrone(playerid, params[])
+{
+    new Float:Pos[4];
+	/*new Modelo;
+    if(sscanf(params, "ddd", Modelo))
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "USE: /ldrone 501");
+
+    if(Modelo < 464 || Modelo > 501)
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Modelo de drone inválido.");*/
+
+ 	GetPlayerPos(playerid, Pos[0], Pos[1], Pos[2]);
+    GetPlayerFacingAngle(playerid, Pos[3]);
+
+	format(string,sizeof(string),"* %s posiciona seu drone, liga o controle remoto e começa a manusear o drone.", PlayerName(playerid,1));
+	ProxDetector(15.0, playerid, string,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
+	SendClientMessage(playerid, COLOR_LIGHTRED, "Drone System:{FFFFFF} Para desligar o drone use /desdrone.");
+
+    pVeh[playerid] = CreateVehicle(501, Pos[0], Pos[1], Pos[2], Pos[3], -1, -1, 60);
+    PutPlayerInVehicle(playerid, pVeh[playerid], 0);
+    StartEngine(GetPlayerVehicleID(playerid));
+    return 1;
+}
+CMD:desdrone(playerid, params[])
+{
+    if(!PlayerInfo[playerid][pLogado]) return SCM(playerid, COLOR_LIGHTRED, "Você precisa está logado para usar este comando.");
+
+	DestroyVehicle(pVeh[playerid]);
+
+	format(string,sizeof(string),"** %s controla o drone até o ponto de pouso, desliga-o em seguida.", PlayerName(playerid,1));
+	ProxDetector(15.0, playerid, string,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
+	StopEngine(GetPlayerVehicleID(playerid));
+    return 1;
 }

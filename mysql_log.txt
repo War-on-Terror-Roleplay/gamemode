@@ -1,1 +1,2 @@
 [14:19:57] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[19:10:07] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")

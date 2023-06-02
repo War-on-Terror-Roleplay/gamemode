@@ -14025,7 +14025,7 @@ COMMAND:darpet(playerid, params[])
         return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: /darpet [playerid] [petmodel]");
 
     if(!IsValidPetModel(petmodel))
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Modelo de cachorro invalido!");   
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Modelo de pet invalido!");   
 
     PetData[targetid][petModelID] = petmodel;
     format(petzin, sizeof(petzin), PetData[targetid][petName], 128, "Jack");
@@ -14068,8 +14068,8 @@ IsPetSpawned(playerid)
 
 ShowPetMenu(playerid)
 {
-    new stringpet[255];
-    format(stringpet, sizeof(stringpet), "Spawnar cachorro\nGuardar cachorro\nNome\nCasa do cachorro\nCachorro seguir\nCachorro sentar\nCachorro deitar\nCachorro pular");
+    new stringpet[256];
+	format(stringpet, sizeof(stringpet), "Ação: Spawnar\n{FF0000}Despawnar\nNome\nAção: Fica\nAção: Segue\nAção: Sentar\nAção: Deitar\nAção: Pular");
     Dialog_Show(playerid, PETMENU, DIALOG_STYLE_LIST, "Pet Menu", stringpet, "Escolher", "Fechar");
     
 	return 1;
@@ -14078,10 +14078,10 @@ ShowPetMenu(playerid)
 PetSpawn(playerid)
 {
     if(PetData[playerid][petSpawn])
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você já tem um cachorro spawnado.");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você já tem um pet spawnado.");
 
     if(GetPlayerVirtualWorld(playerid) != 0)
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não pode spawnar um cachorro em outro VW.");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não pode spawnar um pet em outro VW.");
 
     new petmodelid = PetData[playerid][petModelID], stringpet[256];
 
@@ -14099,7 +14099,7 @@ PetSpawn(playerid)
 
     PetData[playerid][petSpawn] = true;
     PetData[playerid][petStatus] = PET_FOLLOW;
-    SendClientMessage(playerid, COLOR_WHITE, "Você spawnou seu cachorro.");
+    SendClientMessage(playerid, COLOR_WHITE, "Você spawnou seu pet.");
     PetData[playerid][petTimer] = repeat Pet_Update(playerid, playerid);
     return 1;
 }
@@ -14121,7 +14121,7 @@ PetDespawn(playerid)
         PetData[playerid][petSpawn] = false;
         stop PetData[playerid][petTimer];
 
-        SendClientMessage(playerid, COLOR_WHITE, "Cachorro guardado.");
+        SendClientMessage(playerid, COLOR_WHITE, "Pet guardado.");
     }
     return 1;
 }
@@ -14129,7 +14129,7 @@ PetDespawn(playerid)
 PetSit(playerid)
 {
     if(!IsPetSpawned(playerid))
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Seu cachorro não está spawnado.");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Seu pet não está spawnado.");
 
     if(IsValidActor(PetData[playerid][petModel]))
     {
@@ -14137,7 +14137,7 @@ PetSit(playerid)
         stop PetData[playerid][petTimer];
         ClearDynamicActorAnimations(PetData[playerid][petModel]);
         ApplyActorAnimation(PetData[playerid][petModel], "ped", "SEAT_down", 4.1, 0, 0, 0, 1, 0);
-        SendClientMessage(playerid, COLOR_WHITE, "O cachorro está sentado.");
+        SendClientMessage(playerid, COLOR_WHITE, "O pet está sentado.");
     }
     return 1;
 }
@@ -14145,7 +14145,7 @@ PetSit(playerid)
 PetLay(playerid)
 {
     if(!IsPetSpawned(playerid))
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Seu cachorro não está spawnado.");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Seu pet não está spawnado.");
 
     if(IsValidActor(PetData[playerid][petModel]))
     {
@@ -14153,7 +14153,7 @@ PetLay(playerid)
         stop PetData[playerid][petTimer];
         ClearDynamicActorAnimations(PetData[playerid][petModel]);
         ApplyActorAnimation(PetData[playerid][petModel], "CRACK", "crckidle2", 4.1, 0, 0, 0, 1, 0);
-        SendClientMessage(playerid, COLOR_WHITE, "O cachorro está deitado.");
+        SendClientMessage(playerid, COLOR_WHITE, "O pet está deitado.");
     }
     return 1;
 }
@@ -14162,7 +14162,7 @@ PetLay(playerid)
 PetJump(playerid)
 {
     if(!IsPetSpawned(playerid))
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Seu cachorro não está spawnado.");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Seu pet não está spawnado.");
 
     if(IsValidActor(PetData[playerid][petModel]))
     {
@@ -14170,7 +14170,7 @@ PetJump(playerid)
         stop PetData[playerid][petTimer];
         ClearDynamicActorAnimations(PetData[playerid][petModel]);
         ApplyActorAnimation(PetData[playerid][petModel], "BSKTBALL", "BBALL_DEF_JUMP_SHOT", 4.1, 1, 0, 0, 0, 0);
-        SendClientMessage(playerid, COLOR_WHITE, "O seu cachorro está pulando!");
+        SendClientMessage(playerid, COLOR_WHITE, "O seu pet está pulando!");
     }
     return 1;
 }
@@ -14178,7 +14178,7 @@ PetJump(playerid)
 PetStay(playerid)
 {
     if(!IsPetSpawned(playerid))
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Seu cachorro não está spawnado.");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Seu pet não está spawnado.");
 
     if(IsValidActor(PetData[playerid][petModel]))
     {
@@ -14194,7 +14194,7 @@ PetStay(playerid)
 PetFollow(playerid, targetid)
 {
     if(!IsPetSpawned(playerid))
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "Seu animal de estimação não está spawnado.");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "Seu pet não está spawnado.");
 
     if(IsValidActor(PetData[playerid][petModel]))
     {
@@ -14205,7 +14205,7 @@ PetFollow(playerid, targetid)
         PetData[playerid][petStatus] = PET_FOLLOW;
         ClearActorAnimations(PetData[playerid][petModel]);
         PetData[playerid][petTimer] = repeat Pet_Update(playerid, targetid);
-        SendClientMessage(playerid, COLOR_LIGHTRED, "Seu animal de estimação agora está acompanhando.");
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Seu pet agora está acompanhando.");
     }
     return 1;
 }
@@ -14213,10 +14213,10 @@ PetFollow(playerid, targetid)
 PetName(playerid)
 {
     if(PetData[playerid][petSpawn])
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "Guarde seu cachorro primeiro!");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "Guarde seu pet primeiro!");
 
     if(strcmp(PetData[playerid][petName], "Jack", true))
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "O nome do seu animal de estimação não pode mais ser alterado!");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "O nome do seu pet não pode mais ser alterado!");
 
     Dialog_Show(playerid, PET_NAME, DIALOG_STYLE_INPUT, "Nome", "AVISO: Você só pode alterar os nomes dos animais de estimação uma vez\n\nInsira o Nome:", "Insirir nome", "Cancelar");
     return 1;
@@ -14250,7 +14250,7 @@ Dialog:PETMENU(playerid, response, listitem, inputtext[])
             case 1: PetDespawn(playerid);
             case 2: PetName(playerid);
             case 3: PetStay(playerid);
-            case 4: Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Cachorro seguir", "Insira o ID do jogador que você queria que seu animal de estimação segue\nPreencha vazio se você quiser seguir a si mesmo!", "Seguir", "Cancelar");
+            case 4: Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Seguir", "Insira o ID do jogador que você queria que seu pet segue\nPreencha vazio se você quiser seguir a si mesmo!", "Seguir", "Cancelar");
             case 5: PetSit(playerid);
             case 6: PetLay(playerid);
             case 7: PetJump(playerid);
@@ -14265,19 +14265,19 @@ Dialog:PET_MENU_FOLLOW(playerid, response, listitem, inputtext[]) {
             return PetFollow(playerid, playerid);
 
         if(!IsNumeric(inputtext))
-            return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Seguir", "{FFFFFF}Insira o ID do jogador que você deseja que seu animal de estimação siga:", "Seguir", "Cancelar");
+            return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Seguir", "{FFFFFF}Insira o ID do jogador que você deseja que seu pet siga:", "Seguir", "Cancelar");
 
         if(sscanf(inputtext, "u", targetid))
-            return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Seguir", "{FF0000}ERRO: O ID inserido é inválido.\n\n{FFFFFF}Insira o ID do jogador que você deseja que seu animal de estimação siga:", "Seguir", "Cancelar");
+            return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Seguir", "{FF0000}ERRO: O ID inserido é inválido.\n\n{FFFFFF}Insira o ID do jogador que você deseja que seu pet siga:", "Seguir", "Cancelar");
 
         if(targetid == INVALID_PLAYER_ID)
-            return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Seguir", "{FF0000}ERRO: O jogador especificado é inválido.\n\n{FFFFFF}Insira o ID do jogador que você deseja que seu animal de estimação siga:", "Seguir", "Cancelar");
+            return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Seguir", "{FF0000}ERRO: O jogador especificado é inválido.\n\n{FFFFFF}Insira o ID do jogador que você deseja que seu pet siga:", "Seguir", "Cancelar");
         
-        if(!IsPlayerNearPlayer(playerid, targetid, 10.0)) return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Seguir", "{FF0000}ERRO: O jogador especificado não está perto o suficiente.\n\n{FFFFFF}Insira o ID do jogador que você deseja que seu animal de estimação siga:", "Seguir", "Cancelar");
+        if(!IsPlayerNearPlayer(playerid, targetid, 10.0)) return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Seguir", "{FF0000}ERRO: O jogador especificado não está perto o suficiente.\n\n{FFFFFF}Insira o ID do jogador que você deseja que seu pet siga:", "Seguir", "Cancelar");
         
         PetFollow(playerid, targetid);
 		/*new petsegue[256];
-		format(petsegue,sizeof(petsegue), "Seu animal de estimação agora está seguindo %s.", PlayerName(targetid));
+		format(petsegue,sizeof(petsegue), "Seu pet agora está seguindo %s.", PlayerName(targetid));
 		SendClientMessage(COLOR_WHITE, petsegue);*/
     }
     return true;

@@ -14093,7 +14093,7 @@ PetSpawn(playerid)
 
     PetData[playerid][petModel] = CreateActor(petmodelid, fX, fY+2, fZ, fAngle);
 
-    format(stringpet, sizeof(stringpet), "Dono: %s\nNome: %s", ReturnName(playerid), PetData[playerid][petName]);
+    format(stringpet, sizeof(stringpet), "Dono: %s", ReturnName(playerid));
     PetData[playerid][petText] = CreateDynamic3DTextLabel(stringpet, COLOR_WHITE, fX, fY+2, fZ, 15.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
 
 
@@ -21310,7 +21310,7 @@ public SalvarPlayer(playerid)
 			PlayerInfo[playerid][pID]);
 	    mysql_function_query(Pipeline, query, false, "", "");
 
-		format(query,sizeof(query),"UPDATE `accounts` SET `pHabDrug`='%d',`pArmasResetadas`='%d', `AjudaInicial`='%d', `pTomouAlgumTiro`='%d', `pTomouTiroPesado`='%d', `pTomouTiroBrancas`='%d', `pConvenio`='%d', `pTempoMorto`='%d', `tempodesman`='%d',`pAjudaInicialDim`='%d', `FabricouDroga`='%d' WHERE `ID` = '%d'",
+		format(query,sizeof(query),"UPDATE `accounts` SET `pHabDrug`='%d',`pArmasResetadas`='%d', `AjudaInicial`='%d', `pTomouAlgumTiro`='%d', `pTomouTiroPesado`='%d', `pTomouTiroBrancas`='%d', `pConvenio`='%d', `pTempoMorto`='%d', `tempodesman`='%d',`pAjudaInicialDim`='%d', `FabricouDroga`='%d', `petName`='%d' WHERE `ID` = '%d'",
 			PlayerInfo[playerid][pHabDrug],
 			PlayerInfo[playerid][pArmasResetadas],
 			PlayerInfo[playerid][pAjudaInicial],
@@ -21322,6 +21322,7 @@ public SalvarPlayer(playerid)
 			OutrasInfos[playerid][oDesmancheTime],
 			PlayerInfo[playerid][pAjudaInicialDim],
 			PlayerInfo[playerid][pFabricouD],
+			PetData[playerid][petName],
 			PlayerInfo[playerid][pID]);
 		mysql_function_query(Pipeline, query, false, "", "");
 
@@ -43895,6 +43896,7 @@ public LoadAccountInfo(extraid)
         cache_get_field_content(0, "RefundTeam", tmp);  PlayerInfo[extraid][pRefundTeam] = strval(tmp);
         cache_get_field_content(0, "PropertyTeam", tmp);  PlayerInfo[extraid][pPropertyTeam] = strval(tmp);
         cache_get_field_content(0, "dog", tmp);  PetData[extraid][petModelID] = strval(tmp);
+        cache_get_field_content(0, "petName", tmp);  PetData[extraid][petName] = strval(tmp);
 
 
         cache_get_field_content(0, "desmanx", tmp);  OutrasInfos[extraid][oDesmancheX] = floatstr(tmp);
@@ -67150,7 +67152,7 @@ public CarregarPontoEntrega()
 	cache_get_data(rows, fields, Pipeline);
 
     new temp[130];
-    printf("================ [ Pontos de Entrega ]");
+    printf("[CARREGADO] Pontos de entrega.");
 	for (new i = 0; i < rows; i ++)
 	{
 	    if (i < MAX_EMPCARGA)
@@ -75962,7 +75964,7 @@ public OnIncomingConnection(playerid, ip_address[], port)
 	IncomingConnection[IncomingTempo] = gettime()+2;
 
     new url[255];
-    format(url, sizeof(url), "localhost/api-ip.php?ip=%s", ip_address);
+    format(url, sizeof(url), "localhost/api-ip2.php?ip=%s", ip_address);
     printf("%s", url);
     HTTP(playerid, HTTP_GET, url, "", "OnPlayerCheckIP");
 
@@ -78875,7 +78877,7 @@ public QUERY_LOAD_DRUGPLAN()
             total++;
 		}
 	}
-	printf("[Drug System] Atualmente existem %d drogas plantadas por SA.",total);
+	printf("[CARREGADO] Atualmente existem %d drogas plantadas por SA.",total);
 	return 1;
 }
 //==============================================================================

@@ -45522,7 +45522,7 @@ public CarregandoGoverno()
 	cache_get_data(Rows, Fields);
 	if(Rows)
  	{
-  		new tmp[255];
+  		new tmp[512];
 
 		for(new i ; i < Rows; i++)
 		{

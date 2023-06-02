@@ -56,14 +56,14 @@ AddCharModel(287, 20116, "seals/seal16.dff", "seals/seal16.txd");
 AddCharModel(287, 20117, "seals/seal17.dff", "seals/seal17.txd"); 
 
 //Pet System
-AddCharModel(13, 20069, "dogs/pet7.dff", "dogs/pet7.txd"); 
-AddCharModel(252, 20070, "dogs/pet6.dff", "dogs/pet6.txd");
-AddCharModel(252, 20071, "dogs/pet1.dff", "dogs/pet1.txd");
-AddCharModel(252, 20072, "dogs/pet2.dff", "dogs/pet2.txd");
-AddCharModel(252, 20073, "dogs/pet3.dff", "dogs/pet3.txd");
-AddCharModel(252, 20074, "dogs/pet3.dff", "dogs/pet3.txd");
-AddCharModel(252, 20075, "dogs/pet4.dff", "dogs/pet4.txd");
-AddCharModel(252, 20076, "dogs/pet5.dff", "dogs/pet5.txd");
+AddCharModel(13, 20069, "dogs/pet1.dff", "dogs/pet1.txd"); 
+AddCharModel(252, 20070, "dogs/pet2.dff", "dogs/pet2.txd");
+AddCharModel(252, 20071, "dogs/pet3.dff", "dogs/pet3.txd");
+AddCharModel(252, 20072, "dogs/pet4.dff", "dogs/pet4.txd");
+AddCharModel(252, 20073, "dogs/pet5.dff", "dogs/pet5.txd");
+AddCharModel(252, 20074, "dogs/pet6.dff", "dogs/pet6.txd");
+AddCharModel(252, 20075, "dogs/pet7.dff", "dogs/pet7.txd");
+AddCharModel(252, 20076, "dogs/pet8.dff", "dogs/pet8.txd");
 
 
 //textdraw

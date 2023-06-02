@@ -428,7 +428,6 @@ forward CarregarContatosCel(playerid);
 forward SalvarContatos(playerid);
 //==============================================================================
 new Text:InterruptorDraw;
-new Trem;
 
 //Taser
 new TazerPlayer[MAX_PLAYERS];
@@ -2260,29 +2259,6 @@ new Float:garbage_profiles[4][14][3] = {
 	}
 };
 new garbage_vehicles[4];
-//==============================================================================//
-/*new Noia_1,
-    Noia_2,
-    Noia_3,
-    Noia_4,
-    Noia_5,
-    Noia_6,
-    Noia_7,
-    Noia_8,
-    Noia_9,
-    Noia_10,
-    Noia_11,
-    Noia_12,
-    Noia_13,
-    Noia_14,
-    Noia_15,
-    Noia_16,
-    Noia_17,
-    Noia_18,
-    Noia_19,
-    Noia_20,
-    Noia_21,
-    Noia_22;*/
 //==============================================================================//
 new Float:estacionamento_vagas[19][3] = {
 {1627.2080, -1046.3242, 23.5516},
@@ -6081,10 +6057,6 @@ public OnGameModeInit()
 
 	MapAndreas_Init(MAP_ANDREAS_MODE_MINIMAL);
 
-	//==========================================================================
-    //Trem = AddStaticVehicleEx(538,-1942.0443,183.1388,25.5979,280.0056, -1, -1, 9999999);
-    //ConnectNPC("Trainbot","train_carp");
-	//==========================================================================
 	//================================================
 	//Caixas de Força - Apagão
 	CaixaDeForca[0][CaixaObj] = CreateDynamicObject(3387, 2280.06250, -1695.46216, 12.42650,   0.00000, 0.00000, 270.00000);
@@ -6114,72 +6086,6 @@ public OnGameModeInit()
 		new slot = GetVehicleSlot(veh);
 		VehicleInfo[slot][vBateria] = 10000.0;
     }
-    /*Noia_1 = CreateActor(20001,2573.5181,-1124.5466,65.3464,63.5828); 
-    Noia_2 = CreateActor(20002,2577.3850,-1130.1652,65.1935,237.8145); 
-    Noia_3 = CreateActor(20003,2595.5320,-1111.5963,67.4365,135.0617); 
-    Noia_4 = CreateActor(20004,2589.0232,-1112.6173,66.9152,225.2634); 
-    Noia_5 = CreateActor(20005,2595.9336,-962.2279,81.1852,131.2234); 
-    Noia_6 = CreateActor(20006,2585.7937,-955.1824,81.3715,167.7262); 
-    Noia_7 = CreateActor(20007,2557.9902,-956.3238,82.7591,208.9504); 
-    Noia_8 = CreateActor(20008,1850.6703,-2000.5491,14.1094,86.9080); 
-    Noia_9 = CreateActor(20009,1846.1360,-2004.2552,13.5469,164.7114); 
-    Noia_10 = CreateActor(20010,1841.3813,-2008.3091,13.5469,252.2360); 
-    Noia_11 = CreateActor(20011,1731.6779,-2123.5327,12.7954,6.4656); 
-    Noia_12 = CreateActor(20012,1727.1029,-2127.2014,12.7933,359.5086); 
-    Noia_13 = CreateActor(20013,1726.0736,-2122.7458,12.7933,275.6207); 
-    Noia_14 = CreateActor(20014,2226.6240,-1458.6040,24.0754,32.3747); 
-    Noia_15 = CreateActor(20015,2222.3228,-1457.7727,24.0000,3.9032); 
-    Noia_16 = CreateActor(20016,2669.5825,-1460.8533,30.5523,249.9516); 
-    Noia_17 = CreateActor(20017,2671.0518,-1468.1061,30.5604,267.7805); 
-    Noia_18 = CreateActor(20018,2683.7068,-1471.5103,30.5612,86.4176); 
-    Noia_19 = CreateActor(20019,2687.3025,-1459.4653,30.6193,86.8974); 
-    Noia_20 = CreateActor(20020,2709.9211,-1447.3977,30.6297,285.2825); 
-    Noia_21 = CreateActor(20021,2056.5154,-1821.0952,13.5469,359.7273); 
-    Noia_22 = CreateActor(20022,1891.0433,-1785.9810,13.5544,272.8079); 
-    SetActorInvulnerable(Noia_1, true);
-    SetActorVirtualWorld(Noia_1, 0);
-    SetActorInvulnerable(Noia_2, true);
-    SetActorVirtualWorld(Noia_2, 0); 
-    SetActorInvulnerable(Noia_3, true);
-    SetActorVirtualWorld(Noia_3, 0);  
-    SetActorInvulnerable(Noia_4, true);
-    SetActorVirtualWorld(Noia_4, 0);     
-    SetActorInvulnerable(Noia_5, true);
-    SetActorVirtualWorld(Noia_5, 0);     
-    SetActorInvulnerable(Noia_6, true);
-    SetActorVirtualWorld(Noia_6, 0);     
-    SetActorInvulnerable(Noia_7, true);
-    SetActorVirtualWorld(Noia_7, 0);     
-    SetActorInvulnerable(Noia_8, true);
-    SetActorVirtualWorld(Noia_8, 0);    
-    SetActorInvulnerable(Noia_9, true);
-    SetActorVirtualWorld(Noia_9, 0);     
-    SetActorInvulnerable(Noia_10, true);
-    SetActorVirtualWorld(Noia_10, 0);     
-    SetActorInvulnerable(Noia_11, true);
-    SetActorVirtualWorld(Noia_11, 0);     
-    SetActorInvulnerable(Noia_12, true);
-    SetActorVirtualWorld(Noia_12, 0);     
-    SetActorInvulnerable(Noia_13, true);
-    SetActorVirtualWorld(Noia_13, 0);     
-    SetActorInvulnerable(Noia_14, true);
-    SetActorVirtualWorld(Noia_14, 0);     
-    SetActorInvulnerable(Noia_15, true);
-    SetActorVirtualWorld(Noia_15, 0);     
-    SetActorInvulnerable(Noia_16, true);
-    SetActorVirtualWorld(Noia_16, 0);     
-    SetActorInvulnerable(Noia_17, true);
-    SetActorVirtualWorld(Noia_17, 0);     
-    SetActorInvulnerable(Noia_18, true);
-    SetActorVirtualWorld(Noia_18, 0);     
-    SetActorInvulnerable(Noia_19, true);
-    SetActorVirtualWorld(Noia_19, 0);   
-    SetActorInvulnerable(Noia_20, true);
-    SetActorVirtualWorld(Noia_20, 0);     
-    SetActorInvulnerable(Noia_21, true);
-    SetActorVirtualWorld(Noia_21, 0);     
-    SetActorInvulnerable(Noia_22, true);
-    SetActorVirtualWorld(Noia_22, 0);*/
 
 
     //Basket
@@ -6188,14 +6094,6 @@ public OnGameModeInit()
     //PortoTrucker_ModeInit();
 
     //============ Pickup / TextLabel - Anuncio
-	/*CreateDynamic3DTextLabel("[Seals Team]\n/entrar", 0xffffffff, 1728.8789,-1565.1876,14.5625, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
-	CreatePickup(1239, 1, 1728.8789,-1565.1876,14.5625, 0); 
-
-	CreateDynamic3DTextLabel("[Seals Team]\n/entrar", 0xffffffff, 1400.2490,-12.1037,1001.0098, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
-	CreatePickup(1239, 1, 1400.2490,-12.1037,1001.0098, 0); 
-
-	CreateDynamic3DTextLabel("[USMC]\n/entrar", 0xffffffff, 2514.5640,-1525.5608,24.0324, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
-	CreatePickup(1239, 1, 2514.5640,-1525.5608,24.0324, 0); */
 
     CreateDynamic3DTextLabel("[CENTRO DE EMPREGOS]\nUse '/pegaremprego'", 0x008080FF, 1414.9390,-1576.9739,20.0859, 40.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
     CreatePickup(1239, 1, 1414.9390,-1576.9739,20.0859, -1);
@@ -6214,22 +6112,6 @@ public OnGameModeInit()
 	
 	CreateDynamic3DTextLabel("[P. ONIBUS]\n/iniciarviagem", 0xffffffff, 1737.5643,-1859.1648,13.4141, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
 	CreatePickup(1239, 1, 1737.5643,-1859.1648,13.4141, 0); 
-
-	/*CreateDynamic3DTextLabel("[GARAGEM]\n/entrar", 0xffffffff, 1742.7393,-1551.3011,7.9609, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
-    CreatePickup(1239, 1, 1742.7393,-1551.3011,7.9609, 0); 
-
-	CreateDynamic3DTextLabel("[Seals Team]\n/sair", 0xffffffff, -1628.0112,690.6479,7.1875, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
-	CreatePickup(1239, 1, -1628.0112,690.6479,7.1875, 0); 
-
-
-	CreateDynamic3DTextLabel("[GARAGEM]\n/entrar", 0xffffffff, 954.6230,-1467.4749,13.5547, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
-	CreatePickup(1239, 1, 954.6230,-1467.4749,13.5547, 0);
-
-	CreateDynamic3DTextLabel("[GARAGEM]\n/entrar", 0xffffffff, 2501.8635,-1564.3923,24.0324, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
-    CreatePickup(1239, 1, 2501.8635,-1564.3923,24.0324, 0);
-	//BRINKS
-	CreateDynamic3DTextLabel("[GARAGEM]\n/entrar", 0xffffffff, 1772.9445,-1543.1234,13.6688, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
-	CreatePickup(1239, 1, 1772.9445,-1543.1234,13.6688, 0);*/
 
     //MULTAS
     CreateDynamic3DTextLabel("{FFFFFF}[DETRAN]\nUse '/Multas'\nPara pagar suas multas", 0xffffffff,-501.2948,293.6831,2001.0950, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
@@ -7410,8 +7292,6 @@ CMD:criarmorteiro(playerid, params[])
 	{
 		PlayerInfo[playerid][pMorteiro]--;
 
-        /*Missil[0][playerid] = CreateObject(-2201,x,y,z+3,0.0000000,0.0000000,44.9950000);
-		Missil[1][playerid] = CreateObject(-2201,x,y,z+8,0.0000000,0.0000000,44.9950000);*/
 		MorteiroPrincipal[0][playerid] = CreateObject(-2201,x,y,z-1,0.0000000,0.0000000,0.0000000);
 		SetPlayerPos(playerid, x, y, z);
 		MissilCriado[playerid] = true;
@@ -14277,9 +14157,6 @@ Dialog:PET_MENU_FOLLOW(playerid, response, listitem, inputtext[]) {
         if(!IsPlayerNearPlayer(playerid, targetid, 10.0)) return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Seguir", "{FF0000}ERRO: O jogador especificado não está perto o suficiente.\n\n{FFFFFF}Insira o ID do jogador que você deseja que seu pet siga:", "Seguir", "Cancelar");
         
         PetFollow(playerid, targetid);
-		/*new petsegue[256];
-		format(petsegue,sizeof(petsegue), "Seu pet agora está seguindo %s.", PlayerName(targetid));
-		SendClientMessage(COLOR_WHITE, petsegue);*/
     }
     return true;
 }
@@ -15582,12 +15459,7 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 	if(newstate == PLAYER_STATE_DRIVER) // PlAYER_STATE_DRIVER = 2
     {
         new idcar = GetPlayerVehicleID(playerid);
-        if(idcar == Trem && !IsPlayerNPC(playerid))
-    	/*{
-			RemovePlayerFromVehicle(playerid);
-			RemovePlayerFromVehicle(IsBot("Trainbot"));
-			return PutPlayerInVehicle(IsBot("Trainbot"),Trem,0);
-  		}*/
+
         if(PlayerInfo[playerid][pMorto] > 0)
         {
             SendClientMessage(playerid, COLOR_LIGHTRED,"Você está ferido demais para dirigir um veículo.");
@@ -16008,20 +15880,6 @@ CMD:taxi(playerid, params[])
 	else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este veículo não pode ser usado neste emprego.");
 
 	return 1;
-}
-
-stock IsBot(name[])
-{
-	new sendername[MAX_PLAYER_NAME];
-    for(new i=0; i<MAX_PLAYERS; i++)
-    {
-	    if(IsPlayerNPC(i))
-        {
-            format(sendername, sizeof(sendername), "%s", PlayerName(i,0));
-            if(strcmp(sendername,name,true) == 0) return i;
-        }
-    }
-    return INVALID_PLAYER_ID;
 }
 
 stock static removeDriveBy(playerid)
@@ -20337,8 +20195,6 @@ stock MostrarConce2(playerid,carid,conce)
 {
 	new PriceReal = GetVehiclePrice(carid);
  	new Price = PriceReal;
-	/*new PriceDesconto = (PriceReal/10)*3;
-	new Price = PriceReal-PriceDesconto;*/
 
     ComprandoCarro[playerid][0] = carid;
     ComprandoCarro[playerid][1] = Price;
@@ -21399,13 +21255,6 @@ CMD:verstats(playerid, params[])
     	return 1;
 	}
 }
-
-/*CMD:fomesede(playerid, params[])
-{
-    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-    VerFome(playerid, playerid);
-    return 1;
-}*/
 
 CMD:stats(playerid, params[])
 {
@@ -35704,8 +35553,7 @@ COMMAND:barricada(playerid, params[])
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pLevel] < 10) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de TC 10 ou mais para colocar barricada");
     if(PlayerInfo[playerid][pEditandoBareira] != -1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já está colocando uma barreira.");
-	/*new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
-	if(10 < FacInfo[FacId][fTipo] < 18) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você mão faz parte de uma facção ilegal.");*/
+
 	{
         new strl[256];
 		ShowModelSelectionMenu(playerid, "[CRIME] Barreiras", MODEL_PMERJ_BARREIRAS, TRAF_Barreiras, sizeof(TRAF_Barreiras), -16.0, 0.0, -55.0);
@@ -35738,8 +35586,7 @@ CMD:rbarricada(playerid, params[])
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pLevel] < 10) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de TC 10 ou mais para retirar barricada");
     if(PlayerInfo[playerid][pEditandoBareira] != -1) return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Termine de editar a barricada atual antes de deletar alguma.");
-	/*new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]), alguma = 0;
-	if(10 < FacInfo[FacId][fTipo] < 18) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você mão faz parte de uma facção ilegal.");*/
+
 	new alguma = 0;
 	{
 	    for(new id; id < MAX_PMERJ_BARREIRAS; id++)
@@ -42221,23 +42068,6 @@ COMMAND:rejeitarajuda(playerid, params[])
 	return 1;
 }
 
-/*COMMAND:n(playerid, params[])
-{
-	new text[128];
-	if(sscanf(params, "s[128]", text)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /n [duvida]");
-
-	if (strlen(params) > 64) 
-	{
-		SendClientMessageToAll(COLOR_BLUE, "[Canal de Ajuda] %s: %.64s **", PlayerName(playerid, 0), params);
-		SendClientMessageToAll(COLOR_BLUE, "...%s **", params[64]);
-	}
-	else 
-	{
-		SendClientMessageToAll(COLOR_BLUE, "[Canal de Ajuda] %s: %s **", PlayerName(playerid, 0), params);
-	}
-	return 1;
-}*/
-
 COMMAND:aooc(playerid, params[])
 {
     if (PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
@@ -42324,28 +42154,6 @@ COMMAND:anrp(playerid, params[])
 	return 1;
 }
 
-/*CMD:restaurarfs(playerid, params[])
-{
-	static
-	    userid;
-
-    if (PlayerInfo[playerid][pAdmin] < 2)
-	    return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Voce nao tem permissao para usar este comando.");
-
-	if (sscanf(params, "u", userid))
-	    return SendClientMessage(playerid, COLOR_LIGHTRED,"USE: /restaurarfs [playerid/nome]");
-
-    if (userid == INVALID_PLAYER_ID)
-	    return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Voce especificou um jogador invalido.");
-
-	PlayerInfo[userid][pFome] = 100;
-	PlayerInfo[userid][pSede] = 100;
-
-	SendClientMessage(playerid, COLOR_LIGHTGREEN, "INFO: Voce encheu a fome e sede de %s.", PlayerName(userid, 0));
-	SendClientMessage(userid, COLOR_LIGHTGREEN, "INFO: O Administrador %s encheu sua fome e sede.", PlayerName(playerid, 0));
-
-	return 1;
-}*/
 COMMAND:setartc(playerid, params[])
 {
     if (PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
@@ -55288,283 +55096,6 @@ CMD:sair(playerid, params[])
 	    EntrouInt[playerid] = -1;
 	    SetPlayerPosFreeze(playerid, 2027.3602,-1386.4576,17.2108, 1);
 	}
-
-	/*else if(IsPlayerInRangeOfPoint(playerid, 5, 1410.2965,-10.9775,1001.0098))//CIA 1 andar
-	{
-	    SetPlayerInterior(playerid, 0);
-	    SetPlayerVirtualWorld(playerid, 0);
-
-	    PlayerInfo[playerid][pEntrouCasa] = -1;
-   		PlayerInfo[playerid][pEntrouComplexo] = -1;
-	    PlayerInfo[playerid][pEntrouEmpresa] = -1;
-	    PlayerInfo[playerid][pEntrouGaragem] = -1;
-	    EntrouInt[playerid] = -1;
-
-	    SetPlayerPosFreeze(playerid, 1728.8789,-1565.1876,14.5625, 1);
-	}
-	else if(IsPlayerInRangeOfPoint(playerid, 5, 1390.2905,-30.3338,1000.9183))//CIA 2 andar
-	{
-	    SetPlayerInterior(playerid, 0);
-	    SetPlayerVirtualWorld(playerid, 0);
-
-	    SetPlayerPosFreeze(playerid, 1400.2490,-12.1037,1001.0098, 1);
-	}
-
-
-	else if(IsPlayerInRangeOfPoint(playerid, 5, 1513.2678,-1623.1249,774.0040))//USMC
-	{
-	    SetPlayerInterior(playerid, 0);
-	    SetPlayerVirtualWorld(playerid, 0);
-
-	    PlayerInfo[playerid][pEntrouCasa] = -1;
-   		PlayerInfo[playerid][pEntrouComplexo] = -1;
-	    PlayerInfo[playerid][pEntrouEmpresa] = -1;
-	    PlayerInfo[playerid][pEntrouGaragem] = -1;
-	    EntrouInt[playerid] = -1;
-
-	    SetPlayerPosFreeze(playerid, 2514.5640,-1525.5608,24.0324, 1);
-	}
-
-	else if (IsPlayerInRangeOfPoint(playerid, 5.0, 2296.9138,2498.3650,-7.4531)) // MEDIC GARAGEM
-	{
-
-		new PlayerNoCarro[4];
-		new PlayerNoCarroL[4];
-		new count = 0;
-		new vehi = GetPlayerVehicleID(playerid);
-
-		PlayerNoCarro[0] = 999;
-		PlayerNoCarro[1] = 999;
-		PlayerNoCarro[2] = 999;
-		PlayerNoCarro[3] = 999;
-
-		if(IsPlayerInAnyVehicle(playerid))
-		{
-			if(GetPlayerVehicleSeat(playerid) != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO:{FFFFFF} Apenas o motorista do veiculo pode utilizar o comando.");
-			foreach(new pp : Player)
-			{
-				if(count < 4)
-				{
-					if(GetPlayerVehicleID(pp) == vehi)
-					{
-						PlayerNoCarro[count] = pp;
-						PlayerNoCarroL[count] = GetPlayerVehicleSeat(pp);
-
-						count++;
-					}
-				}
-			}
-
-			SetVehiclePos(vehi, 954.6230,-1467.4749,13.5547);
-			LinkVehicleToInterior(vehi, 0);
-			SetVehicleVirtualWorld(vehi, 0);
-			SetVehicleZAngle(vehi, 180);
-
-			SetPlayerVirtualWorld(playerid, 0);
-			SetPlayerInterior(playerid, 0);
-			PutPlayerInVehicle(playerid, vehi, 0);
-
-			for(new lug = 0; lug < 4; lug++)
-			{
-				if(PlayerNoCarro[lug] != 999)
-				{
-					if(IsPlayerConnected(PlayerNoCarro[lug])) {
-						SetPlayerVirtualWorld(PlayerNoCarro[lug], 0);
-						SetPlayerInterior(PlayerNoCarro[lug], 0);
-						PutPlayerInVehicle(PlayerNoCarro[lug], vehi, PlayerNoCarroL[lug]);
-					}
-				}
-			}
-			PlayerInfo[playerid][pInterior] = 0;
-			PlayerInfo[playerid][pWorld] = 0;
-		}else{
-			SetPlayerVirtualWorld(playerid, 0);
-			SetPlayerInterior(playerid, 0);
-			SetPlayerPos(playerid, 954.6230,-1467.4749,13.5547);
-			SetPlayerFacingAngle(playerid, 180);
-		}
-	}
-	else if (IsPlayerInRangeOfPoint(playerid, 20.0,2481.5627,2513.5317,10.8203)) // BRINKS GARAGEM
-	{
-
-		new PlayerNoCarro[4];
-		new PlayerNoCarroL[4];
-		new count = 0;
-		new vehi = GetPlayerVehicleID(playerid);
-
-		PlayerNoCarro[0] = 999;
-		PlayerNoCarro[1] = 999;
-		PlayerNoCarro[2] = 999;
-		PlayerNoCarro[3] = 999;
-
-		if(IsPlayerInAnyVehicle(playerid))
-		{
-			if(GetPlayerVehicleSeat(playerid) != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO:{FFFFFF} Apenas o motorista do veiculo pode utilizar o comando.");
-			foreach(new pp : Player)
-			{
-				if(count < 4)
-				{
-					if(GetPlayerVehicleID(pp) == vehi)
-					{
-						PlayerNoCarro[count] = pp;
-						PlayerNoCarroL[count] = GetPlayerVehicleSeat(pp);
-
-						count++;
-					}
-				}
-			}
-
-			SetVehiclePos(vehi, 1828.8881,-1541.7632,13.3828);
-			LinkVehicleToInterior(vehi, 0);
-			SetVehicleVirtualWorld(vehi, 0);
-			SetVehicleZAngle(vehi, 180);
-
-			SetPlayerVirtualWorld(playerid, 0);
-			SetPlayerInterior(playerid, 0);
-			PutPlayerInVehicle(playerid, vehi, 0);
-
-			for(new lug = 0; lug < 4; lug++)
-			{
-				if(PlayerNoCarro[lug] != 999)
-				{
-					if(IsPlayerConnected(PlayerNoCarro[lug])) {
-						SetPlayerVirtualWorld(PlayerNoCarro[lug], 0);
-						SetPlayerInterior(PlayerNoCarro[lug], 0);
-						PutPlayerInVehicle(PlayerNoCarro[lug], vehi, PlayerNoCarroL[lug]);
-					}
-				}
-			}
-			PlayerInfo[playerid][pInterior] = 0;
-			PlayerInfo[playerid][pWorld] = 0;
-		}else{
-			SetPlayerVirtualWorld(playerid, 0);
-			SetPlayerInterior(playerid, 0);
-			SetPlayerPosFreeze(playerid, 1828.8881,-1541.7632,13.3828, 1);
-			SetPlayerFacingAngle(playerid, 180);
-		}
-	}
-	else if (IsPlayerInRangeOfPoint(playerid, 20.0, -1628.0112,690.6479,7.1875)) // CIA GARAGEM
-	{
-
-		new PlayerNoCarro[4];
-		new PlayerNoCarroL[4];
-		new count = 0;
-		new vehi = GetPlayerVehicleID(playerid);
-
-		PlayerNoCarro[0] = 999;
-		PlayerNoCarro[1] = 999;
-		PlayerNoCarro[2] = 999;
-		PlayerNoCarro[3] = 999;
-
-		if(IsPlayerInAnyVehicle(playerid))
-		{
-			if(GetPlayerVehicleSeat(playerid) != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO:{FFFFFF} Apenas o motorista do veiculo pode utilizar o comando.");
-			foreach(new pp : Player)
-			{
-				if(count < 4)
-				{
-					if(GetPlayerVehicleID(pp) == vehi)
-					{
-						PlayerNoCarro[count] = pp;
-						PlayerNoCarroL[count] = GetPlayerVehicleSeat(pp);
-
-						count++;
-					}
-				}
-			}
-
-			SetVehiclePos(vehi, 1734.4939,-1594.2455,13.3750);
-			LinkVehicleToInterior(vehi, 0);
-			SetVehicleVirtualWorld(vehi, 0);
-			SetVehicleZAngle(vehi, 180);
-
-			SetPlayerVirtualWorld(playerid, 0);
-			SetPlayerInterior(playerid, 0);
-			PutPlayerInVehicle(playerid, vehi, 0);
-
-			for(new lug = 0; lug < 4; lug++)
-			{
-				if(PlayerNoCarro[lug] != 999)
-				{
-					if(IsPlayerConnected(PlayerNoCarro[lug])) {
-						SetPlayerVirtualWorld(PlayerNoCarro[lug], 0);
-						SetPlayerInterior(PlayerNoCarro[lug], 0);
-						PutPlayerInVehicle(PlayerNoCarro[lug], vehi, PlayerNoCarroL[lug]);
-					}
-				}
-			}
-			PlayerInfo[playerid][pInterior] = 0;
-			PlayerInfo[playerid][pWorld] = 0;
-		}else{
-			SetPlayerVirtualWorld(playerid, 0);
-			SetPlayerInterior(playerid, 0);
-			SetPlayerPosFreeze(playerid, 1734.4939,-1594.2455,13.3750, 1);
-			SetPlayerFacingAngle(playerid, 180);
-		}
-	}
-	else if (IsPlayerInRangeOfPoint(playerid, 20.0, 2318.3911,2446.4016,3.2734)) // USMC GARAGEM
-	{
-		new PlayerNoCarro[4];
-		new PlayerNoCarroL[4];
-		new count = 0;
-		new vehi = GetPlayerVehicleID(playerid);
-
-		PlayerNoCarro[0] = 999;
-		PlayerNoCarro[1] = 999;
-		PlayerNoCarro[2] = 999;
-		PlayerNoCarro[3] = 999;
-
-		if(IsPlayerInAnyVehicle(playerid))
-		{
-			if(GetPlayerVehicleSeat(playerid) != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO:{FFFFFF} Apenas o motorista do veiculo pode utilizar o comando.");
-			foreach(new pp : Player)
-			{
-				if(count < 4)
-				{
-					if(GetPlayerVehicleID(pp) == vehi)
-					{
-						PlayerNoCarro[count] = pp;
-						PlayerNoCarroL[count] = GetPlayerVehicleSeat(pp);
-
-						count++;
-					}
-				}
-			}
-
-			SetVehiclePos(vehi, 2501.8445,-1564.4512,24.0324);
-			LinkVehicleToInterior(vehi, 0);
-			SetVehicleVirtualWorld(vehi, 0);
-			SetVehicleZAngle(vehi, 180);
-
-			SetPlayerVirtualWorld(playerid, 0);
-			SetPlayerInterior(playerid, 0);
-			PutPlayerInVehicle(playerid, vehi, 180);
-
-			for(new lug = 0; lug < 4; lug++)
-			{
-				if(PlayerNoCarro[lug] != 999)
-				{
-					if(IsPlayerConnected(PlayerNoCarro[lug])) {
-						SetPlayerVirtualWorld(PlayerNoCarro[lug], 0);
-						SetPlayerInterior(PlayerNoCarro[lug], 0);
-						PutPlayerInVehicle(PlayerNoCarro[lug], vehi, PlayerNoCarroL[lug]);
-					}
-				}
-			}
-			PlayerInfo[playerid][pInterior] = 0;
-			PlayerInfo[playerid][pWorld] = 0;
-		}else{
-			SetPlayerVirtualWorld(playerid, 0);
-			SetPlayerInterior(playerid, 0);
-			SetPlayerPosFreeze(playerid, 2501.8445,-1564.4512,24.0324, 1);
-			
-			SetPlayerFacingAngle(playerid, 180);
-		}
-		PlayerInfo[playerid][pInterior] = 0;
-		PlayerInfo[playerid][pWorld] = 0;
-
-	}*/
-
 	return 1;
 }
 //=====================================================================================================================================//
@@ -66299,11 +65830,6 @@ COMMAND:arrombar(playerid,params[])
 								GameTextForPlayer(playerid,"~r~ATORDOADO!!!!",5000,5);
 								StartAlarm(veh);
 
-									/*new zone[128];
-							    	new cstr[128];
-						            GetZone(X, Y, zone, sizeof(zone));
-							        format(cstr,sizeof(cstr),"[Alarme Veicular] %s",zone);
-							        SendCopMsg(cstr);*/
 			    	    	}
 				    	    case 4:
 				    	    {
@@ -66319,12 +65845,7 @@ COMMAND:arrombar(playerid,params[])
 								format(str2,sizeof(str2),"{FFE900}[Alarme Veicular] Alguém tentou arrombar o seu %s.",vname);
 								SendClientMessage(other,COLOR_YELLOW,str2);
 								PlayerPlaySound(other,1149,0.0,0.0,0.0);
-
-								/*new zone[128];
-							   	new cstr[128];
-     							GetZone(X, Y, zone, sizeof(zone));
-						      	format(cstr,sizeof(cstr),"[Alarme Veicular] %s",zone);
-					        	SendCopMsg(cstr);*/
+								
 	    	    			}
 				    	}
 				    	PlayerInfo[playerid][pArrombarDNV] = 100;
@@ -77650,8 +77171,6 @@ public UsarDroga(playerid,DrogaID, qualidade)
 			PlayerInfo[playerid][pMenosDanoTiro] = 2.0;
 			PlayerInfo[playerid][pDrogaTime] = tempo;
 			PlayerInfo[playerid][pUsouDroga] = 11;
-			//SetPlayerWeather(playerid, -22);
-			//SetPlayerTime( playerid, 10, 0);
 			PlayerInfo[playerid][pTremorAtirar] = PlayerInfo[playerid][pSkillTiro]-300;
 			if(PlayerInfo[playerid][pTremorAtirar] < 0) PlayerInfo[playerid][pTremorAtirar] = 0;
 			SendClientMessage(playerid,COLOR_LIGHTGREEN,"|_____ Beneficios: _____|");
@@ -77669,8 +77188,6 @@ public UsarDroga(playerid,DrogaID, qualidade)
 			PlayerInfo[playerid][pMenosDanoTiro] = 4.0;
 			PlayerInfo[playerid][pDrogaTime] = tempo;
 			PlayerInfo[playerid][pUsouDroga] = 12;
-			//SetPlayerWeather(playerid, -22);
-			//SetPlayerTime( playerid, 10, 0);
 			PlayerInfo[playerid][pTremorAtirar] = PlayerInfo[playerid][pSkillTiro]-500;
 			if(PlayerInfo[playerid][pTremorAtirar] < 0) PlayerInfo[playerid][pTremorAtirar] = 0;
 			SendClientMessage(playerid,COLOR_LIGHTGREEN,"|_____ Beneficios: _____|");
@@ -77688,8 +77205,6 @@ public UsarDroga(playerid,DrogaID, qualidade)
 			PlayerInfo[playerid][pMenosDanoTiro] = 6.0;
 			PlayerInfo[playerid][pDrogaTime] = tempo;
 			PlayerInfo[playerid][pUsouDroga] = 13;
-			//SetPlayerWeather(playerid, -22);
-			//SetPlayerTime( playerid, 10, 0);
 			PlayerInfo[playerid][pTremorAtirar] = PlayerInfo[playerid][pSkillTiro]-800;
 			if(PlayerInfo[playerid][pTremorAtirar] < 0) PlayerInfo[playerid][pTremorAtirar] = 0;
 			SendClientMessage(playerid,COLOR_LIGHTGREEN,"|_____ Beneficios: _____|");
@@ -77710,8 +77225,6 @@ public UsarDroga(playerid,DrogaID, qualidade)
 			PlayerInfo[playerid][pMenosDanoTiro] = 4.0;
 			PlayerInfo[playerid][pDrogaTime] = tempo;
 			PlayerInfo[playerid][pUsouDroga] = 21;
-			//SetPlayerWeather(playerid, -89);
-			//SetPlayerTime( playerid, 10, 0);
 			PlayerInfo[playerid][pTremorAtirar] = PlayerInfo[playerid][pSkillTiro]-500;
 			if(PlayerInfo[playerid][pTremorAtirar] < 0) PlayerInfo[playerid][pTremorAtirar] = 0;
 			PlayerInfo[playerid][pHealthMax] = PlayerInfo[playerid][pHealthMax]+40;
@@ -77725,8 +77238,6 @@ public UsarDroga(playerid,DrogaID, qualidade)
 			PlayerInfo[playerid][pMenosDanoTiro] = 6.0;
 			PlayerInfo[playerid][pDrogaTime] = tempo;
 			PlayerInfo[playerid][pUsouDroga] = 22;
-			//SetPlayerWeather(playerid, -89);
-			//SetPlayerTime( playerid, 10, 0);
 			PlayerInfo[playerid][pTremorAtirar] = PlayerInfo[playerid][pSkillTiro]-800;
 			if(PlayerInfo[playerid][pTremorAtirar] < 0) PlayerInfo[playerid][pTremorAtirar] = 0;
 			PlayerInfo[playerid][pHealthMax] = PlayerInfo[playerid][pHealthMax]+50;
@@ -77740,8 +77251,6 @@ public UsarDroga(playerid,DrogaID, qualidade)
 			PlayerInfo[playerid][pMenosDanoTiro] = 8.0;
 			PlayerInfo[playerid][pDrogaTime] = tempo;
 			PlayerInfo[playerid][pUsouDroga] = 23;
-			//SetPlayerWeather(playerid, -89);
-			//SetPlayerTime( playerid, 10, 0);
 			PlayerInfo[playerid][pTremorAtirar] = PlayerInfo[playerid][pSkillTiro]-1000;
 			if(PlayerInfo[playerid][pTremorAtirar] < 0) PlayerInfo[playerid][pTremorAtirar] = 0;
 			PlayerInfo[playerid][pHealthMax] = PlayerInfo[playerid][pHealthMax]+60;
@@ -77758,8 +77267,6 @@ public UsarDroga(playerid,DrogaID, qualidade)
 			PlayerInfo[playerid][pMenosDanoTiro] = 5.0;
 			PlayerInfo[playerid][pDrogaTime] = tempo;
 			PlayerInfo[playerid][pUsouDroga] = 31;
-			//SetPlayerWeather(playerid, -73);
-			//SetPlayerTime( playerid, 10, 0);
 			PlayerInfo[playerid][pTremorAtirar] = PlayerInfo[playerid][pSkillTiro]-1000;
 			if(PlayerInfo[playerid][pTremorAtirar] < 0) PlayerInfo[playerid][pTremorAtirar] = 0;
 			PlayerInfo[playerid][pHealthMax] = PlayerInfo[playerid][pHealthMax]+50;
@@ -77773,8 +77280,6 @@ public UsarDroga(playerid,DrogaID, qualidade)
 			PlayerInfo[playerid][pMenosDanoTiro] = 7.0;
 			PlayerInfo[playerid][pDrogaTime] = tempo;
 			PlayerInfo[playerid][pUsouDroga] = 32;
-			//SetPlayerWeather(playerid, -73);
-			//SetPlayerTime( playerid, 10, 0);
 			PlayerInfo[playerid][pTremorAtirar] = PlayerInfo[playerid][pSkillTiro]-1500;
 			if(PlayerInfo[playerid][pTremorAtirar] < 0) PlayerInfo[playerid][pTremorAtirar] = 0;
 			PlayerInfo[playerid][pHealthMax] = PlayerInfo[playerid][pHealthMax]+70;
@@ -77788,8 +77293,6 @@ public UsarDroga(playerid,DrogaID, qualidade)
 			PlayerInfo[playerid][pMenosDanoTiro] = 9.0;
 			PlayerInfo[playerid][pDrogaTime] = tempo;
 			PlayerInfo[playerid][pUsouDroga] = 33;
-			//SetPlayerWeather(playerid, -73);
-			//SetPlayerTime( playerid, 10, 0);
 			PlayerInfo[playerid][pTremorAtirar] = PlayerInfo[playerid][pSkillTiro]-2000;
 			if(PlayerInfo[playerid][pTremorAtirar] < 0) PlayerInfo[playerid][pTremorAtirar] = 0;
 			PlayerInfo[playerid][pHealthMax] = PlayerInfo[playerid][pHealthMax]+100;
@@ -77806,8 +77309,6 @@ public UsarDroga(playerid,DrogaID, qualidade)
 			PlayerInfo[playerid][pMenosDanoTiro] = 6.0;
 			PlayerInfo[playerid][pDrogaTime] = tempo;
 			PlayerInfo[playerid][pUsouDroga] = 41;
-			//SetPlayerWeather(playerid, -66);
-			//SetPlayerTime( playerid, 10, 0);
 			PlayerInfo[playerid][pTremorAtirar] = PlayerInfo[playerid][pSkillTiro]-2000;
 			if(PlayerInfo[playerid][pTremorAtirar] < 0) PlayerInfo[playerid][pTremorAtirar] = 0;
 			PlayerInfo[playerid][pHealthMax] = PlayerInfo[playerid][pHealthMax]+20;
@@ -77821,8 +77322,6 @@ public UsarDroga(playerid,DrogaID, qualidade)
 			PlayerInfo[playerid][pMenosDanoTiro] = 8.0;
 			PlayerInfo[playerid][pDrogaTime] = tempo;
 			PlayerInfo[playerid][pUsouDroga] = 42;
-			//SetPlayerWeather(playerid, -66);
-			//SetPlayerTime( playerid, 10, 0);
 			PlayerInfo[playerid][pTremorAtirar] = PlayerInfo[playerid][pSkillTiro]-4000;
 			if(PlayerInfo[playerid][pTremorAtirar] < 0) PlayerInfo[playerid][pTremorAtirar] = 0;
 			PlayerInfo[playerid][pHealthMax] = PlayerInfo[playerid][pHealthMax]+30;
@@ -89906,12 +89405,6 @@ CMD:checaratirador(playerid, params[]){
 CMD:ldrone(playerid, params[])
 {
     new Float:Pos[4];
-	/*new Modelo;
-    if(sscanf(params, "ddd", Modelo))
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "USE: /ldrone 501");
-
-    if(Modelo < 464 || Modelo > 501)
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Modelo de drone inválido.");*/
 
  	GetPlayerPos(playerid, Pos[0], Pos[1], Pos[2]);
     GetPlayerFacingAngle(playerid, Pos[3]);

@@ -14,6 +14,10 @@
 #include <dini>
 #include <YSI\y_bit>
 #include <YSI\y_hooks>
+/*#include <YSI_Coding\y_va>
+#include <YSI_Data\y_foreach>
+#include <YSI_Data\y_iterate>*/
+#include <YSI\y_timers>
 #include "../include/gl_common.inc"
 #include <progress>
 #include <callbacks>
@@ -26,7 +30,12 @@
 #include <mapandreas>
 //Tunning
 #include <YSI\y_ini>
+//anticheater
 #include <nex-ac>
+//pet
+/*#define YSI_NO_VERSION_CHECK
+#define YSI_NO_HEAP_MALLOC
+#include <YSI_Coding\y_malloc>*/
 
 // --------- [ INCLUDES ] ---------
 

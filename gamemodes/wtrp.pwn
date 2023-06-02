@@ -14,9 +14,9 @@
 #include <dini>
 #include <YSI\y_bit>
 #include <YSI\y_hooks> //
-/*#include <YSI_Coding\y_va>
-#include <YSI_Data\y_foreach>
-#include <YSI_Data\y_iterate>*/
+#include <YSI\y_va>
+#include <YSI\y_foreach>
+#include <YSI\y_iterate>
 #include <YSI\y_timers>
 #include "../include/gl_common.inc"
 #include <progress>
@@ -33,9 +33,9 @@
 //anticheater
 #include <nex-ac>
 //pet
-/*#define YSI_NO_VERSION_CHECK
+#define YSI_NO_VERSION_CHECK
 #define YSI_NO_HEAP_MALLOC
-#include <YSI_Coding\y_malloc>*/
+#include <YSI\y_malloc>
 
 // --------- [ INCLUDES ] ---------
 
@@ -12986,7 +12986,7 @@ public OnPlayerDisconnect(playerid, reason)
     PlayersOnline--;
     PlayerDisconectDelTexts(playerid);
 	TelaLoginDel(playerid);
-	//PetDespawn(playerid);
+	PetDespawn(playerid);
     if(IsValidDynamic3DTextLabel(cNametag[playerid]))
               DestroyDynamic3DTextLabel(cNametag[playerid]);
 
@@ -14047,6 +14047,16 @@ COMMAND:petmenu(playerid, params[])
     return 1;
 }
 
+UpdatePetText3D(playerid, Float:x, Float:y, Float:z)
+{
+    if(IsValidDynamic3DTextLabel(PetData[playerid][petText]))
+    {
+        Streamer_SetFloatData(STREAMER_TYPE_3D_TEXT_LABEL, PetData[playerid][petText], E_STREAMER_X, x);
+        Streamer_SetFloatData(STREAMER_TYPE_3D_TEXT_LABEL, PetData[playerid][petText], E_STREAMER_Y, y);
+        Streamer_SetFloatData(STREAMER_TYPE_3D_TEXT_LABEL, PetData[playerid][petText], E_STREAMER_Z, z);
+    }
+    return 1;
+}
 
 IsPetSpawned(playerid)
 {
@@ -14073,7 +14083,7 @@ PetSpawn(playerid)
     if(GetPlayerVirtualWorld(playerid) != 0)
         return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não pode spawnar um cachorro em outro VW.");
 
-    new petmodelid = PetData[playerid][petModelID]; //stringpet[255];
+    new petmodelid = PetData[playerid][petModelID], stringpet[256];
 
     new Float:fX, Float:fY, Float:fZ, Float:fAngle;
 
@@ -14082,6 +14092,10 @@ PetSpawn(playerid)
     GetPlayerFacingAngle(playerid, fAngle);
 
     PetData[playerid][petModel] = CreateActor(petmodelid, fX, fY+2, fZ, fAngle);
+
+    format(stringpet, sizeof(stringpet), "Dono: %s\nNome: %s", ReturnName(playerid), PetData[playerid][petName]);
+    PetData[playerid][petText] = CreateDynamic3DTextLabel(stringpet, COLOR_WHITE, fX, fY+2, fZ, 15.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
+
 
     PetData[playerid][petSpawn] = true;
     PetData[playerid][petStatus] = PET_FOLLOW;
@@ -14177,11 +14191,13 @@ PetStay(playerid)
 }
 
 
-PetFollow(playerid, targetid) {
+PetFollow(playerid, targetid)
+{
     if(!IsPetSpawned(playerid))
         return SendClientMessage(playerid, COLOR_LIGHTRED, "Seu animal de estimação não está spawnado.");
 
-    if(IsValidActor(PetData[playerid][petModel])) {
+    if(IsValidActor(PetData[playerid][petModel]))
+    {
         if(PetData[playerid][petStatus] == PET_FOLLOW)
         {
             stop PetData[playerid][petTimer];
@@ -14191,7 +14207,7 @@ PetFollow(playerid, targetid) {
         PetData[playerid][petTimer] = repeat Pet_Update(playerid, targetid);
         SendClientMessage(playerid, COLOR_LIGHTRED, "Seu animal de estimação agora está acompanhando.");
     }
-    return true;
+    return 1;
 }
 
 PetName(playerid)
@@ -14267,14 +14283,14 @@ Dialog:PET_MENU_FOLLOW(playerid, response, listitem, inputtext[]) {
     return true;
 }
 
-Float:GetDistance2D(Float:x1, Float:y1, Float:x2, Float:y2) {
+stock Float:GetDistance2D(Float:x1, Float:y1, Float:x2, Float:y2) {
 	return floatsqroot(
 		((x1 - x2) * (x1 - x2)) +
 		((y1 - y2) * (y1 - y2))
 	);
 }
 
-Float:GetAbsoluteAngle(Float:angle) {
+stock Float:GetAbsoluteAngle(Float:angle) {
 	while(angle < 0.0) {
 		angle += 360.0;
 	}
@@ -14296,7 +14312,7 @@ stock Float:GetAngleToPoint(Float:fPointX, Float:fPointY, Float:fDestX, Float:fD
 	));
 }
 
-stock GetXYFromAngle(Float:x, Float:y, Float:a, Float:distance) 
+stock GetXYFromAngle(&Float:x, &Float:y, Float:a, Float:distance) 
 {
     x += (distance*floatsin(-a,degrees));
     y += (distance*floatcos(-a,degrees));
@@ -14315,7 +14331,7 @@ stock SetFacingPoint(actorid, Float:x, Float:y)
 {
 
     new Float:pX, Float:pY, Float:pZ;
-    GetDynamicActorPos(actorid, pX, pY, pZ);
+    GetActorPos(actorid, pX, pY, pZ);
 
     new Float:angle;
 
@@ -14329,6 +14345,7 @@ stock SetFacingPoint(actorid, Float:x, Float:y)
     return SetActorFacingAngle(actorid, angle);
 }
 
+
 IsValidPetModel(skinid)
 {
     switch(skinid)
@@ -14339,13 +14356,13 @@ IsValidPetModel(skinid)
     return 0;
 }
 
-forward Float:GetDistance2D(Float:x1, Float:y1, Float:x2, Float:y2);
-forward Float:GetAngleToPoint(Float:fPointX, Float:fPointY, Float:fDestX, Float:fDestY);
+timer Pet_Update[100](playerid, targetid)
+{
+    if(PetData[playerid][petModelID] != 0 && PetData[playerid][petSpawn] && PetData[playerid][petStatus] == PET_FOLLOW)
+    {
 
-timer Pet_Update[100](playerid, targetid) {
-    if(PetData[playerid][petModelID] != 0 && PetData[playerid][petSpawn] && PetData[playerid][petStatus] == PET_FOLLOW) {
-
-        if(!IsPlayerConnected(targetid) || GetActorVirtualWorld(PetData[playerid][petModel]) != GetPlayerVirtualWorld(targetid)) {
+        if(!IsPlayerConnected(targetid) || GetActorVirtualWorld(PetData[playerid][petModel]) != GetPlayerVirtualWorld(targetid))
+        {
             PetData[playerid][petStatus] = PET_STAY;
             stop PetData[playerid][petTimer];
             ClearActorAnimations(PetData[playerid][petModel]);
@@ -14364,47 +14381,67 @@ timer Pet_Update[100](playerid, targetid) {
         actorAngle = (GetAngleToPoint(actorX, actorY, plrX, plrY));
 
         animIndex = GetPlayerAnimationIndex(targetid);
-        switch(animIndex) {
-            case 1222..1236, 1246..1250: {
+        switch(animIndex)
+        {
+            case 1222..1236, 1246..1250:
+            {
                 
-                if(GetDistance2D(plrX, plrY, actorX, actorY) > 2.0 && GetDistance2D(plrX, plrY, actorX, actorY) < 5.0) {
+                if(GetDistance2D(plrX, plrY, actorX, actorY) > 3.0 && GetDistance2D(plrX, plrY, actorX, actorY) < 5.0)
+                {
                     GetXYFromAngle(actorX, actorY, actorAngle, 0.1);
-                    ApplyActorAnimation(PetData[playerid][petModel], "ped", "WALK_civi", 4.1, true, true, true, true, 0);
+                    ApplyActorAnimation(PetData[playerid][petModel], "ped", "WALK_civi", 4.1, 1, 1, 1, 1, 0);
                     MapAndreas_FindZ_For2DCoord(actorX, actorY, actorZ);
                     SetFacingPlayer(PetData[playerid][petModel], targetid);
-                    SetActorPos(PetData[playerid][petModel], actorX, actorY, actorZ+1);
+                    if(PetData[playerid][petModelID] == 20063) SetActorPos(PetData[playerid][petModel], actorX, actorY, actorZ+0.5);
+                    else SetActorPos(PetData[playerid][petModel], actorX, actorY, actorZ+1);
+
+                    UpdatePetText3D(playerid, actorX, actorY, actorZ+1.5);
                 }
-                else if(GetDistance2D(plrX, plrY, actorX, actorY) >= 5.0) {
+                else if(GetDistance2D(plrX, plrY, actorX, actorY) >= 5.0)
+                {
                     GetXYFromAngle(actorX, actorY, actorAngle, 0.3);
-                    ApplyActorAnimation(PetData[playerid][petModel], "ped", "run_civi", 4.1, true, true, true, true, 0);
+                    ApplyActorAnimation(PetData[playerid][petModel], "ped", "run_civi", 4.1, 1, 1, 1, 1, 0);
                     MapAndreas_FindZ_For2DCoord(actorX, actorY, actorZ);
                     SetFacingPlayer(PetData[playerid][petModel], targetid);
-                    SetActorPos(PetData[playerid][petModel], actorX, actorY, actorZ+1);
+                    if(PetData[playerid][petModelID] == 20063) SetActorPos(PetData[playerid][petModel], actorX, actorY, actorZ+0.5);
+                    else SetActorPos(PetData[playerid][petModel], actorX, actorY, actorZ+1);
+
+                    UpdatePetText3D(playerid, actorX, actorY, actorZ+1.5);
                 }
             }
             default:
             {
-                if (GetDistance2D(plrX, plrY, actorX, actorY) > 2.0 && GetDistance2D(plrX, plrY, actorX, actorY) < 5.0) {
+                if (GetDistance2D(plrX, plrY, actorX, actorY) > 3.0 && GetDistance2D(plrX, plrY, actorX, actorY) < 5.0)
+                {
                     GetXYFromAngle(actorX, actorY, actorAngle, 0.1);
-                    ApplyActorAnimation(PetData[playerid][petModel], "ped", "WALK_civi", 4.1, true, true, true, true, 0);
+                    ApplyActorAnimation(PetData[playerid][petModel], "ped", "WALK_civi", 4.1, 1, 1, 1, 1, 0);
                     MapAndreas_FindZ_For2DCoord(actorX, actorY, actorZ);
                     SetFacingPlayer(PetData[playerid][petModel], targetid);
-                    SetActorPos(PetData[playerid][petModel], actorX, actorY, actorZ+1);
+                    if(PetData[playerid][petModelID] == 20063) SetActorPos(PetData[playerid][petModel], actorX, actorY, actorZ+0.5);
+                    else SetActorPos(PetData[playerid][petModel], actorX, actorY, actorZ+1);
+
+                    UpdatePetText3D(playerid, actorX, actorY, actorZ+1.5);
                 }
-                else if(GetDistance2D(plrX, plrY, actorX, actorY) >= 5.0) {
+                else if(GetDistance2D(plrX, plrY, actorX, actorY) >= 5.0)
+                {
                     GetXYFromAngle(actorX, actorY, actorAngle, 0.3);
-                    ApplyActorAnimation(PetData[playerid][petModel], "ped", "run_civi", 4.1, true, true, true, true, 0);
+                    ApplyActorAnimation(PetData[playerid][petModel], "ped", "run_civi", 4.1, 1, 1, 1, 1, 0);
                     MapAndreas_FindZ_For2DCoord(actorX, actorY, actorZ);
                     SetFacingPlayer(PetData[playerid][petModel], targetid);
-                    SetActorPos(PetData[playerid][petModel], actorX, actorY, actorZ+1);
+                    if(PetData[playerid][petModelID] == 20063) SetActorPos(PetData[playerid][petModel], actorX, actorY, actorZ+0.5);
+                    else SetActorPos(PetData[playerid][petModel], actorX, actorY, actorZ+1);
+
+                    UpdatePetText3D(playerid, actorX, actorY, actorZ+1.5);
                 }
-                else if(GetDistance2D(plrX, plrY, actorX, actorY) <= 2.0) {
+                else if(GetDistance2D(plrX, plrY, actorX, actorY) <= 3.0)
+                {
                     ClearActorAnimations(PetData[playerid][petModel]);
+                    UpdatePetText3D(playerid, actorX, actorY, actorZ+0.5);
                 }
             }
         }
     }
-    return true;
+    return 1;
 }
 
 COMMAND:aceitarcobranca(playerid,params[])

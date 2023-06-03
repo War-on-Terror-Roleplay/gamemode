@@ -15467,7 +15467,7 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 
 	if(newstate == PLAYER_STATE_DRIVER) // PlAYER_STATE_DRIVER = 2
     {
-        new idcar = GetPlayerVehicleID(playerid);
+        //new idcar = GetPlayerVehicleID(playerid);
 
         if(PlayerInfo[playerid][pMorto] > 0)
         {
@@ -23439,7 +23439,7 @@ Dialog:Dialog_My_Armas(playerid, response, listitem, inputtext[])
 				format(StrArm, sizeof(StrArm), "%s\n[ 2. 5x56mm: (%d) ]",StrArm,PlayerInfo[playerid][pMun556]);
 				format(StrArm, sizeof(StrArm), "%s\n[ 3. Cartucho: (%d) ]",StrArm,PlayerInfo[playerid][pMunCart]);
 				format(StrArm, sizeof(StrArm), "%s\n[ 4. 12.7x106mm: (%d) ]",StrArm,PlayerInfo[playerid][pMun127]);
-				Format(StrArm, sizeof(StrArm), "%s\n[5. 20x110mm: (%d)]",StrArm,PlayerInfo[playerid][pMunBzk]);
+				format(StrArm, sizeof(StrArm), "%s\n[5. 20x110mm: (%d)]",StrArm,PlayerInfo[playerid][pMunBzk]);
 				Dialog_Show(playerid, Dialog_My_Ammos, DIALOG_STYLE_LIST, "Minhas Munições", StrArm, "Selecionar", "Cancelar");
 	        }
 	        case 1:
@@ -70020,7 +70020,7 @@ CreatePokerGUI(playerid)
         PlayerTextDrawBoxColor(playerid, PlayerPokerUI[playerid][36], 50);
         PlayerTextDrawTextSize(playerid, PlayerPokerUI[playerid][36], 390.000000, 110.000000);
 
-        PlayerPokerUI[playerid][37] = CreatePlayerTextDraw(playerid, 318.000000, 191.000000, "RJ Holden");
+        PlayerPokerUI[playerid][37] = CreatePlayerTextDraw(playerid, 318.000000, 191.000000, "Texas Holden");
         PlayerTextDrawAlignment(playerid, PlayerPokerUI[playerid][37], 2);
         PlayerTextDrawBackgroundColor(playerid, PlayerPokerUI[playerid][37], -1);
         PlayerTextDrawFont(playerid, PlayerPokerUI[playerid][37], 2);
@@ -70082,7 +70082,7 @@ CreatePokerGUI(playerid)
         PlayerTextDrawTextSize(playerid, PlayerPokerUI[playerid][41], 10.000000, 36.000000);
         PlayerTextDrawSetSelectable(playerid, PlayerPokerUI[playerid][41], 1);
 
-        PlayerPokerUI[playerid][42] = CreatePlayerTextDraw(playerid, 590.000000, 400.000000, "2022");
+        PlayerPokerUI[playerid][42] = CreatePlayerTextDraw(playerid, 590.000000, 400.000000, "2023");
         PlayerTextDrawAlignment(playerid, PlayerPokerUI[playerid][42], 2);
         PlayerTextDrawBackgroundColor(playerid, PlayerPokerUI[playerid][42], 255);
         PlayerTextDrawFont(playerid, PlayerPokerUI[playerid][42], 2);
@@ -70091,7 +70091,7 @@ CreatePokerGUI(playerid)
         PlayerTextDrawSetOutline(playerid, PlayerPokerUI[playerid][42], 1);
         PlayerTextDrawSetProportional(playerid, PlayerPokerUI[playerid][42], 1);
 
-        PlayerPokerUI[playerid][43] = CreatePlayerTextDraw(playerid, 569.000000, 396.000000, "Rio_De_Janeiro");
+        PlayerPokerUI[playerid][43] = CreatePlayerTextDraw(playerid, 569.000000, 396.000000, "Afeganistão");
         PlayerTextDrawAlignment(playerid, PlayerPokerUI[playerid][43], 2);
         PlayerTextDrawBackgroundColor(playerid, PlayerPokerUI[playerid][43], 255);
         PlayerTextDrawFont(playerid, PlayerPokerUI[playerid][43], 2);

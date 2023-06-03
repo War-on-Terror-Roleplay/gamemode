@@ -89589,7 +89589,6 @@ CMD:checaratirador(playerid, params[]){
 //Drone System YurS
 CMD:ldrone(playerid, params[])
 {
-
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
 	

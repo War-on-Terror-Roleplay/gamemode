@@ -89589,28 +89589,48 @@ CMD:checaratirador(playerid, params[]){
 //Drone System YurS
 CMD:ldrone(playerid, params[])
 {
-    new Float:Pos[4];
 
- 	GetPlayerPos(playerid, Pos[0], Pos[1], Pos[2]);
-    GetPlayerFacingAngle(playerid, Pos[3]);
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
+	new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
+	
+    if(FacInfo[FacId][fTipo] == FAC_TIPO_PMERJ || FacInfo[FacId][fTipo] == FAC_TIPO_PCERJ)
+	{
+		if(PlayerInfo[playerid][pEmServico] == 1)
+		{
+			new Float:Pos[4];
 
-	format(string,sizeof(string),"* %s posiciona seu drone, liga o controle remoto e começa a manusear o drone.", PlayerName(playerid,1));
-	ProxDetector(15.0, playerid, string,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-	SendClientMessage(playerid, COLOR_LIGHTRED, "Drone System:{FFFFFF} Para desligar o drone use /desdrone.");
+			GetPlayerPos(playerid, Pos[0], Pos[1], Pos[2]);
+			GetPlayerFacingAngle(playerid, Pos[3]);
 
-    pVeh[playerid] = CreateVehicle(501, Pos[0], Pos[1], Pos[2], Pos[3], -1, -1, 60);
-    PutPlayerInVehicle(playerid, pVeh[playerid], 0);
-    StartEngine(GetPlayerVehicleID(playerid));
+			format(string,sizeof(string),"* %s posiciona seu drone, liga o controle remoto e começa a manusear o drone.", PlayerName(playerid,1));
+			ProxDetector(15.0, playerid, string,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
+			SendClientMessage(playerid, COLOR_LIGHTRED, "Drone System:{FFFFFF} Para desligar o drone use /desdrone.");
+
+			pVeh[playerid] = CreateVehicle(501, Pos[0], Pos[1], Pos[2], Pos[3], -1, -1, 60);
+			PutPlayerInVehicle(playerid, pVeh[playerid], 0);
+			StartEngine(GetPlayerVehicleID(playerid));
+		}
+		else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
+	}
     return 1;
 }
 CMD:desdrone(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return SCM(playerid, COLOR_LIGHTRED, "Você precisa está logado para usar este comando.");
 
-	DestroyVehicle(pVeh[playerid]);
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
+	new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
+	
+    if(FacInfo[FacId][fTipo] == FAC_TIPO_PMERJ || FacInfo[FacId][fTipo] == FAC_TIPO_PCERJ)
+	{
+		if(PlayerInfo[playerid][pEmServico] == 1)
+		{
+			DestroyVehicle(pVeh[playerid]);
 
-	format(string,sizeof(string),"** %s controla o drone até o ponto de pouso, desliga-o em seguida.", PlayerName(playerid,1));
-	ProxDetector(15.0, playerid, string,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-	StopEngine(GetPlayerVehicleID(playerid));
+			format(string,sizeof(string),"** %s controla o drone até o ponto de pouso, desliga-o em seguida.", PlayerName(playerid,1));
+			ProxDetector(15.0, playerid, string,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
+			StopEngine(GetPlayerVehicleID(playerid));
+		}
+		else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
+	}
     return 1;
 }

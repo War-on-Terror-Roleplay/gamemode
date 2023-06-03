@@ -1,2 +1,6 @@
 [14:19:57] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
 [19:10:07] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[23:39:40] [WARNING] CMySQLResult::GetRowDataByName - field not found ("MunBzk")
+[23:39:40] [WARNING] CMySQLResult::GetRowDataByName - field not found ("pArmBzk")
+[23:40:37] [ERROR] CMySQLQuery::Execute[] - (error #1054) Unknown column 'MunBzk' in 'field list'
+[23:40:37] [ERROR] CMySQLQuery::Execute[] - (error #1054) Unknown column 'pArmBzk' in 'field list'

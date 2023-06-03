@@ -79,7 +79,7 @@ new PlayerText:TelaLogin[MAX_PLAYERS][6];
 //Hud Radio
 new PlayerText:RadioComunicador[MAX_PLAYERS][2];
 
-//Drone
+//Drone System — Yur$
 new pVeh[MAX_PLAYERS];
 
 //Painel adm

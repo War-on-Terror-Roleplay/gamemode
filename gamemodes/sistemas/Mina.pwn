@@ -1,6 +1,4 @@
-/*SISTEMA DE MINA TERRESTRE CRIADO DO 0 POR HIPEX YT!*/
-/*CASO FOR REPOSTAR DEIXE OS CREDITOS*/
-/*CREDITOS: HIPEX YT*/
+
 
 //INCLUDES
 #include <a_samp>
@@ -15,9 +13,7 @@ new Mina[MAX_PLAYERS];
 
 main()
 {
-	print("\n----------------------------------");
-	print("SISTEMA DE MINA TERRESTRE BY HIPEX YT");
-	print("----------------------------------\n");
+
 }
 
 public OnGameModeInit()
@@ -74,12 +70,7 @@ CMD:mina(playerid)
 	Mina[playerid] = 1;
 	return 1;
 }
-CMD:creditos(playerid)
-{
-	SendClientMessage(playerid, -1, "{00cc00}Sistema de mina terrestre criado do 0 por hipex yt");
-	SendClientMessage(playerid, -1, "{00cc00}Caso for repostar deixe os creditos!!!");
-	return 1;
-}
+
 forward Depois(playerid);
 public Depois(playerid)
 {

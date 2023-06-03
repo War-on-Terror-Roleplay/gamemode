@@ -2356,6 +2356,7 @@ enum e_Account
 	pArmaMao,
 	pMun9mm,
 	pMun556,
+	pMunBzk,
 	PlayerText:pTextdraws,
 	pMunCart,
 	pMun127,
@@ -2395,6 +2396,7 @@ enum e_Account
     pArmario10,
 	pArm9mm,
 	pArm556,
+	pArmBzk,
 	pArmCart,
 	pArm127,
 	pPrisao,
@@ -11124,6 +11126,7 @@ public ResetVarsPlayerInfo(extraid)
 	PlayerInfo[extraid][pArmaMao] = 0;
 	PlayerInfo[extraid][pMun9mm] = 0;
 	PlayerInfo[extraid][pMun556] = 0;
+	PlayerInfo[extraid][pMunBzk] = 0;
 	PlayerInfo[extraid][pMunCart] = 0;
 	PlayerInfo[extraid][pMun127] = 0;
 	PlayerInfo[extraid][pSlot1] = 0;
@@ -11155,6 +11158,7 @@ public ResetVarsPlayerInfo(extraid)
 
 	PlayerInfo[extraid][pArm9mm] = 0;
 	PlayerInfo[extraid][pArm556] = 0;
+	PlayerInfo[extraid][pArmBzk] = 0;
 	PlayerInfo[extraid][pArmCart] = 0;
 	PlayerInfo[extraid][pArm127] = 0;
  	PlayerInfo[extraid][pPrisao] = 0;
@@ -11564,6 +11568,7 @@ public OnPlayerConnect(playerid)
 	PlayerInfo[playerid][pArmaMao] = 0;
 	PlayerInfo[playerid][pMun9mm] = 0;
 	PlayerInfo[playerid][pMun556] = 0;
+	PlayerInfo[playerid][pMunBzk] = 0;
 	PlayerInfo[playerid][pMunCart] = 0;
 	PlayerInfo[playerid][pMun127] = 0;
 	PlayerInfo[playerid][pEditPump] = -1;
@@ -11589,6 +11594,7 @@ public OnPlayerConnect(playerid)
 	PlayerInfo[playerid][pArmario10] = 0;
 	PlayerInfo[playerid][pArm9mm] = 0;
 	PlayerInfo[playerid][pArm556] = 0;
+	PlayerInfo[playerid][pArmBzk] = 0;
 	PlayerInfo[playerid][pArmCart] = 0;
 	PlayerInfo[playerid][pArm127] = 0;
 	PlayerInfo[playerid][pPrisao] = 0;
@@ -13384,6 +13390,7 @@ public OnPlayerSpawn(playerid){
 
                         if(PlayerInfo[playerid][pArm9mm] != 0) PlayerInfo[playerid][pArm9mm] = 0;
                         if(PlayerInfo[playerid][pArm556] != 0) PlayerInfo[playerid][pArm556] = 0;
+                        if(PlayerInfo[playerid][pArmBzk] != 0) PlayerInfo[playerid][pArmBzk] = 0;
                         if(PlayerInfo[playerid][pArmCart] != 0) PlayerInfo[playerid][pArmCart] = 0;
                         if(PlayerInfo[playerid][pArm127] != 0) PlayerInfo[playerid][pArm127] = 0;
 
@@ -13400,12 +13407,14 @@ public OnPlayerSpawn(playerid){
                             PlayerInfo[playerid][pArmaMao] = 0;
                             RemovePlayerAttachedObject(playerid, 0);
                         }
-                        if(PlayerInfo[playerid][pMun9mm] > 0 || PlayerInfo[playerid][pMunCart] > 0 || PlayerInfo[playerid][pMun556] > 0 || PlayerInfo[playerid][pMun127] > 0)
+                        if(PlayerInfo[playerid][pMun9mm] > 0 || PlayerInfo[playerid][pMunCart] > 0 || PlayerInfo[playerid][pMun556] > 0 || PlayerInfo[playerid][pMun127] > 0 || PlayerInfo[playerid][pMunBzk] > 0)
                         {
                             PlayerInfo[playerid][pMun9mm] = 0;
                             PlayerInfo[playerid][pMunCart] = 0;
                             PlayerInfo[playerid][pMun556] = 0;
                             PlayerInfo[playerid][pMun127] = 0;
+                            PlayerInfo[playerid][pMunBzk] = 0;
+							
                         }
                         SendClientMessage(playerid,COLOR_LIGHTRED,"[RESET-ARMAS] As suas armas do inventário foram retiradas devido a um reset de armas do servidor.");
                         PlayerInfo[playerid][pArmasResetadas] = 1;
@@ -17246,6 +17255,48 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys) {
 				}
 				else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você está sem munição.");
 			}
+			if(Arma == 36)
+			{
+			    if(GetPlayerAmmo(playerid) >= 2) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode jogar um pente cheio fora, gaste algumas balas antes.");
+				if(PlayerInfo[playerid][pMunBzk] >= 12)
+				{
+				    MuniArma = 30;
+			    	if(GetPlayerInterior(playerid) > 0)
+						BalasFaltam = (MuniArma-GetPlayerAmmo(playerid));
+				    else
+			    		BalasFaltam = (MuniArma-ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaAmmo]);
+					if(BalasFaltam < 0) { ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaAmmo] = 0; BalasFaltam = MuniArma; }
+			    	if(BalasFaltam == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Sua arma já está carregada.");
+
+				    if(PlayerInfo[playerid][pMunBzk] >= BalasFaltam)
+				    {
+					    PlayerInfo[playerid][pMunBzk] = PlayerInfo[playerid][pMunBzk]-BalasFaltam;
+					    ResetPlayerWeapons(playerid);
+					    GivePlayerWeapon(playerid,30,MuniArma);
+					    ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaAmmo] = MuniArma;
+					    if(!IsPlayerInAnyVehicle(playerid))
+						{
+							ApplyAnimation(playerid, "COLT45", "colt45_reload", 4.1, 0, 1, 1, 1, 1, 1);
+							SetTimerEx("StopTalk", 1000, false, "i", playerid);
+						}
+					}
+					else
+					{
+					    ResetPlayerWeapons(playerid);
+					    GivePlayerWeapon(playerid,30,PlayerInfo[playerid][pMunBzk]+ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaAmmo]);
+					    ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaAmmo] = PlayerInfo[playerid][pMunBzk];
+
+					    PlayerInfo[playerid][pMunBzk] = 0;
+					    if(!IsPlayerInAnyVehicle(playerid))
+						{
+							ApplyAnimation(playerid, "COLT45", "colt45_reload", 4.1, 0, 1, 1, 1, 1, 1);
+							SetTimerEx("StopTalk", 1000, false, "i", playerid);
+						}
+					}
+					PlayerPlaySoundEx(playerid, 36401);
+				}
+				else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você está sem munição.");
+			}
 			if(Arma == 43)
 			{
    				ResetPlayerWeapons(playerid);
@@ -17260,9 +17311,9 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys) {
 
 stock MaxAmmoWep(Arma){
 	new MuniArma = 0;
-    if(Arma == 22) MuniArma = 15;
-	else if(Arma == 23) MuniArma = 15;
-	else if(Arma == 24) MuniArma = 15;
+    if(Arma == 22) MuniArma = 14;
+	else if(Arma == 23) MuniArma = 14;
+	else if(Arma == 24) MuniArma = 14;
 	else if(Arma == 25) MuniArma = 25;
 	else if(Arma == 28) MuniArma = 30;
 	else if(Arma == 29) MuniArma = 30;
@@ -17271,6 +17322,7 @@ stock MaxAmmoWep(Arma){
 	else if(Arma == 32) MuniArma = 35;
 	else if(Arma == 33) MuniArma = 10;
 	else if(Arma == 34) MuniArma = 10;
+	else if(Arma == 36) MuniArma = 2;
 	else MuniArma = 0;
 	return MuniArma;
 }
@@ -20993,12 +21045,13 @@ public SalvarPlayer(playerid)
 		);
 		mysql_function_query(Pipeline, query, false, "", "");
 
-		format(query, sizeof(query), "UPDATE `accounts` SET `Mun9mm`='%d', `Bomba`='%d', `C4`='%d', `TNT`='%d', `Mun556`='%d', `MunCart`='%d', `Mun127`='%d', `pSlot1`='%d', `pSlot2`='%d', `pSlot3`='%d', `pSlot4`='%d', `pSlot5`='%d', `pSlot1a`='%d', `pSlot2a`='%d', `pSlot3a`='%d', `pSlot4a`='%d', `pSlot5a`='%d', `FacCargo`='%d', `pEmServico`='%d', `pBanAll`='%d', `pBanido`='%d', `pWalkStyle`='%d', `pDoador`='%d' WHERE `ID` = '%d'",
+		format(query, sizeof(query), "UPDATE `accounts` SET `Mun9mm`='%d', `Bomba`='%d', `C4`='%d', `TNT`='%d', `Mun556`='%d', `MunBzk`='%d', `MunCart`='%d', `Mun127`='%d', `pSlot1`='%d', `pSlot2`='%d', `pSlot3`='%d', `pSlot4`='%d', `pSlot5`='%d', `pSlot1a`='%d', `pSlot2a`='%d', `pSlot3a`='%d', `pSlot4a`='%d', `pSlot5a`='%d', `FacCargo`='%d', `pEmServico`='%d', `pBanAll`='%d', `pBanido`='%d', `pWalkStyle`='%d', `pDoador`='%d' WHERE `ID` = '%d'",
             PlayerInfo[playerid][pMun9mm],
 			PlayerInfo[playerid][pBomba],
 			PlayerInfo[playerid][pC4],
 			PlayerInfo[playerid][pTNT],
 			PlayerInfo[playerid][pMun556],
+			PlayerInfo[playerid][pMunBzk],
 			PlayerInfo[playerid][pMunCart],
 			PlayerInfo[playerid][pMun127],
 			PlayerInfo[playerid][pSlot1],
@@ -21051,9 +21104,10 @@ public SalvarPlayer(playerid)
 		);
 		mysql_function_query(Pipeline, query, false, "", "");
 
-		format(query, sizeof(query), "UPDATE `accounts` SET `pArm9mm` = '%d', `pArm556` = '%d', `pArmCart` = '%d', `pArm127` = '%d', `pPrisao` = '%d', `pTemPreso` = '%d', `pTester` = '%d', `pAceitoSos` = '%d', `pNomeOOC` = '%s', `pSalarios` = '%d' WHERE `ID` = '%d'",
+		format(query, sizeof(query), "UPDATE `accounts` SET `pArm9mm` = '%d', `pArm556` = '%d', `pArmBzk` = '%d', `pArmCart` = '%d', `pArm127` = '%d', `pPrisao` = '%d', `pTemPreso` = '%d', `pTester` = '%d', `pAceitoSos` = '%d', `pNomeOOC` = '%s', `pSalarios` = '%d' WHERE `ID` = '%d'",
    			PlayerInfo[playerid][pArm9mm],
 			PlayerInfo[playerid][pArm556],
+			PlayerInfo[playerid][pArmBzk],
 			PlayerInfo[playerid][pArmCart],
 			PlayerInfo[playerid][pArm127],
 			PlayerInfo[playerid][pPrisao],
@@ -22075,6 +22129,7 @@ COMMAND:dropar(playerid, params[])
 		format(StrArm, sizeof(StrArm), "%s\n5x56mm: %d",StrArm,PlayerInfo[playerid][pMun556]);
 		format(StrArm, sizeof(StrArm), "%s\nCartucho: %d",StrArm,PlayerInfo[playerid][pMunCart]);
 		format(StrArm, sizeof(StrArm), "%s\n12.7x106mm: %d",StrArm,PlayerInfo[playerid][pMun127]);
+		format(StrArm, sizeof(StrArm), "%s\n20x110mm: %d",StrArm,PlayerInfo[playerid][pMunBzk]);
 		Dialog_Show(playerid, Dialog_DropAmmo, DIALOG_STYLE_LIST, "Dropar Munições", StrArm, "Selecionar", "Cancelar");
 	}
 	else if(strcmp(option, "droga", true) == 0)
@@ -22178,6 +22233,7 @@ COMMAND:dropare(playerid, params[])
 		format(StrArm, sizeof(StrArm), "%s\n5x56mm: %d",StrArm,PlayerInfo[playerid][pMun556]);
 		format(StrArm, sizeof(StrArm), "%s\nCartucho: %d",StrArm,PlayerInfo[playerid][pMunCart]);
 		format(StrArm, sizeof(StrArm), "%s\n12.7x106mm: %d",StrArm,PlayerInfo[playerid][pMun127]);
+		format(StrArm, sizeof(StrArm), "%s\n20x110mm: %d",StrArm,PlayerInfo[playerid][pMunBzk]);
 		Dialog_Show(playerid, Dialog_DropAmmo, DIALOG_STYLE_LIST, "Dropar Munições", StrArm, "Selecionar", "Cancelar");
 	}
 	else if(strcmp(option, "droga", true) == 0)
@@ -22620,6 +22676,15 @@ Dialog:Dialog_DropAmmo2(playerid, response, listitem, inputtext[])
 			    }
 			    else return SCM(playerid, COLOR_LIGHTRED, "Você não tem munições de 127.7x106mm o suficiente.");
 			}
+			case 4:
+			{
+			    if(PlayerInfo[playerid][pMunBzk] >= Ammo)
+			    {
+					format(str2,sizeof(str2),"INSERT INTO cartuxo (CartuxoTipo) VALUES ('%d')", Tipp);
+					mysql_function_query(Pipeline, str2, true, "DropandoCartuxo", "dd",playerid,Ammo);
+			    }
+			    else return SCM(playerid, COLOR_LIGHTRED, "Você não tem munições de 20x110mm o suficiente.");
+			}
 		}
 	}
 	else
@@ -22676,6 +22741,11 @@ public DropandoCartuxo(playerid,Ammo)
 	{
 		format(NomeAmmo, sizeof(NomeAmmo), "12.7x106mm");
 		PlayerInfo[playerid][pMun127] = PlayerInfo[playerid][pMun127]-Ammo;
+	}
+	else if(CartuxoData[i][CartuxoTipo] == 5)
+	{
+		format(NomeAmmo, sizeof(NomeAmmo), "20x110mm");
+		PlayerInfo[playerid][pMunBzk] = PlayerInfo[playerid][pMunBzk]-Ammo;
 	}
     format(string, sizeof(string), "[Munições] Você jogou uma caixa com %d balas de %s no chão.", Ammo, NomeAmmo);
 	SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
@@ -22967,6 +23037,11 @@ CMD:pegar(playerid, params[])
 			format(NomeAmmo, sizeof(NomeAmmo), "12.7x106mm");
 			PlayerInfo[playerid][pMun127] += CartuxoData[i][cartuxoQnt];
 		}
+		else if(CartuxoData[i][CartuxoTipo] == 5)
+		{
+			format(NomeAmmo, sizeof(NomeAmmo), "20x110mm");
+			PlayerInfo[playerid][pMunBzk] += CartuxoData[i][cartuxoQnt];
+		}
 	    format(string, sizeof(string), "[Munição] Você pegou uma caixa com %d balas de %s no chão.", CartuxoData[i][cartuxoQnt], NomeAmmo);
 		SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 
@@ -23158,6 +23233,11 @@ Dialog:Dialog_PegarItem(playerid, response, listitem, inputtext[])
 				format(NomeAmmo, sizeof(NomeAmmo), "12.7x106mm");
 				PlayerInfo[playerid][pMun127] += CartuxoData[i][cartuxoQnt];
 			}
+			else if(CartuxoData[i][CartuxoTipo] == 4)
+			{
+				format(NomeAmmo, sizeof(NomeAmmo), "20x110mm");
+				PlayerInfo[playerid][pMunBzk] += CartuxoData[i][cartuxoQnt];
+			}
 		    format(string, sizeof(string), "[Munição] Você pegou uma caixa com %d balas de %s no chão.", CartuxoData[i][cartuxoQnt], NomeAmmo);
 			SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 
@@ -23336,6 +23416,7 @@ Dialog:Dialog_My_Ammos(playerid, response, listitem, inputtext[])
 				format(StrArm, sizeof(StrArm), "%s\n[2. 5x56mm: (%d)]",StrArm,PlayerInfo[playerid][pMun556]);
 				format(StrArm, sizeof(StrArm), "%s\n[3. Cartucho: (%d)]",StrArm,PlayerInfo[playerid][pMunCart]);
 				format(StrArm, sizeof(StrArm), "%s\n[4. 12.7x106mm: (%d)]",StrArm,PlayerInfo[playerid][pMun127]);
+				format(StrArm, sizeof(StrArm), "%s\n[5. 20x110mm: (%d)]",StrArm,PlayerInfo[playerid][pMunBzk]);
 				Dialog_Show(playerid, Dialog_My_Ammos, DIALOG_STYLE_LIST, "Minhas Munições", StrArm, "Selecionar", "Cancelar");
 			}
 			default: return 1;
@@ -23358,6 +23439,7 @@ Dialog:Dialog_My_Armas(playerid, response, listitem, inputtext[])
 				format(StrArm, sizeof(StrArm), "%s\n[ 2. 5x56mm: (%d) ]",StrArm,PlayerInfo[playerid][pMun556]);
 				format(StrArm, sizeof(StrArm), "%s\n[ 3. Cartucho: (%d) ]",StrArm,PlayerInfo[playerid][pMunCart]);
 				format(StrArm, sizeof(StrArm), "%s\n[ 4. 12.7x106mm: (%d) ]",StrArm,PlayerInfo[playerid][pMun127]);
+				Format(StrArm, sizeof(StrArm), "%s\n[5. 20x110mm: (%d)]",StrArm,PlayerInfo[playerid][pMunBzk]);
 				Dialog_Show(playerid, Dialog_My_Ammos, DIALOG_STYLE_LIST, "Minhas Munições", StrArm, "Selecionar", "Cancelar");
 	        }
 	        case 1:
@@ -23847,6 +23929,14 @@ public ChecandoRefundo(playerid)
 					{
 						PlayerInfo[playerid][pMun127] += refundoDrugQnt;
 						format(strref, 128, "[REFUNDO]: {FFFFFF}Você recebeu %d munições 12.7x106mm referente a seu refundo, estão em seu /inv.",refundoDrugQnt);
+			    		SCM(playerid, COLOR_LIGHTGREEN, strref);
+			    		format(strRefundo, 256, "UPDATE `refundo` SET `rUsado` = '1' WHERE `rID`='%d'",refundoID);
+						mysql_function_query(Pipeline, strRefundo, true, "OnQueryFinish", "ii", THREAD_NO_RESULT, playerid);
+					}
+					case 5:
+					{
+						PlayerInfo[playerid][pMunBzk] += refundoDrugQnt;
+						format(strref, 128, "[REFUNDO]: {FFFFFF}Você recebeu %d munições 20x110mm referente a seu refundo, estão em seu /inv.",refundoDrugQnt);
 			    		SCM(playerid, COLOR_LIGHTGREEN, strref);
 			    		format(strRefundo, 256, "UPDATE `refundo` SET `rUsado` = '1' WHERE `rID`='%d'",refundoID);
 						mysql_function_query(Pipeline, strRefundo, true, "OnQueryFinish", "ii", THREAD_NO_RESULT, playerid);
@@ -24764,6 +24854,22 @@ COMMAND:recarregar(playerid, params[])
 		}
 		else return SendClientMessage(playerid, COLOR_LIGHTRED, "Você está sem munição!");
 	}
+	if(Arma == 36)
+	{
+		if(PlayerInfo[playerid][pMunBzk] >= 2)
+		{
+	   		PlayerInfo[playerid][pMunBzk] = PlayerInfo[playerid][pMunBzk]-2;
+		    ResetPlayerWeapons(playerid);
+  			GivePlayerWeapon(playerid,36,1);
+		   	ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaAmmo] = 1;
+		    if(!IsPlayerInAnyVehicle(playerid))
+			{
+				ApplyAnimation(playerid, "BUDDY", "buddy_reload", 4.1, 0, 1, 1, 1, 1, 1);
+				SetTimerEx("StopTalk", 1000, false, "i", playerid);
+			}
+		}
+		else return SendClientMessage(playerid, COLOR_LIGHTRED, "Você está sem munição!");
+	}
 	FloodCMD[playerid] = gettime()+2;
 	return 1;
 }
@@ -25598,6 +25704,7 @@ public PlayerDeslogouEditandoAlgo(playerid) {
 		else if(CartuxoData[id][CartuxoTipo] == 2) PlayerInfo[playerid][pMun556] = PlayerInfo[playerid][pMun556]+CartuxoData[id][cartuxoQnt];
 		else if(CartuxoData[id][CartuxoTipo] == 3) PlayerInfo[playerid][pMunCart] = PlayerInfo[playerid][pMunCart]+CartuxoData[id][cartuxoQnt];
 		else if(CartuxoData[id][CartuxoTipo] == 4) PlayerInfo[playerid][pMun127] = PlayerInfo[playerid][pMun127]+CartuxoData[id][cartuxoQnt];
+		else if(CartuxoData[id][CartuxoTipo] == 5) PlayerInfo[playerid][pMunBzk] = PlayerInfo[playerid][pMunBzk]+CartuxoData[id][cartuxoQnt];
   		CartuxoData[id][cartuxoEditando] = 0;
 
 		CartuxoData[id][cartuxoX] = 0.0;
@@ -26032,6 +26139,46 @@ CMD:entregar(playerid, params[])
 
 						new strl[126];
 	   					format(strl, sizeof(strl), "[Munições] %s entregou à %s %d balas de calibre 12.7x106mm.", PlayerName(playerid,0), PlayerName(playa,0), ammo);
+	   					LogCMD_EntregarA(strl);
+						return 1;
+					}
+				}
+				return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está próximo a este player.");
+			}
+		}
+		else if(strcmp(opt, "110", true) == 0)
+		{
+		    if(PlayerInfo[playerid][pEmServico] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando estando em serviço.");
+
+		    new tmp4[256];
+			tmp4 = strtok(params,idx);
+			if(!strlen(tmp4)) return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} /entregar 110 [PlayerID] [Quantidade]");
+			else
+			{
+				new playa = strval(tmp4);
+			    if(GetDistanceBetweenPlayers(playerid,playa) < 7.5)
+		        {
+		            new tmp5[256];
+					tmp5 = strtok(params,idx);
+					if(!strlen(tmp5)) return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} /entregar 110 [PlayerID] [Quantidade]");
+					else
+					{
+						new ammo = strval(tmp5);
+						if(PlayerInfo[playerid][pFac] > 0 && PlayerInfo[playerid][pEmServico] == 1)
+					    {
+					        if(FacInfo[PlayerInfo[playa][pFac]][fTipo] != FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo]) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode entregar uma arma estando em serviço, para uma pessoa de outra fac.");
+							if(FacInfo[PlayerInfo[playa][pFac]][fTipo] == FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] && PlayerInfo[playa][pEmServico] != 1) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode entregar uma arma a um oficial fora de serviço.");
+					    }
+						if(PlayerInfo[playerid][pMunBzk] < ammo) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem tudo isso de munição calibre 12.7x106mm.");
+
+			   			format(string,sizeof(string),"[Munições]Você entregou à %s %d balas de calibre 20x110mm.",PlayerName(playa,1), ammo); SendClientMessage(playerid, COLOR_LIGHTGREEN,string);
+			   			format(string,sizeof(string),"[Munições]%s entregou à você %d balas de calibre 20x110mm.",PlayerName(playerid,1), ammo); SendClientMessage(playa, COLOR_LIGHTGREEN,string);
+			   			PlayerInfo[playerid][pMunBzk] = PlayerInfo[playerid][pMunBzk]-ammo;
+			   			PlayerInfo[playa][pMunBzk] += ammo;
+						ApplyAnimation(playerid,"DEALER","shop_pay",3.0,0,0,0,0,0,1);
+
+						new strl[126];
+	   					format(strl, sizeof(strl), "[Munições] %s entregou à %s %d balas de calibre 20x110mm.", PlayerName(playerid,0), PlayerName(playa,0), ammo);
 	   					LogCMD_EntregarA(strl);
 						return 1;
 					}
@@ -31864,6 +32011,7 @@ COMMAND:retirar(playerid,params[])
 						PlayerInfo[other][pMun556] = 0;
 						PlayerInfo[other][pMunCart] = 0;
 						PlayerInfo[other][pMun127] = 0;
+						PlayerInfo[other][pMunBzk] = 0;
 
 						format(str,sizeof(str),"* %s retirou as munições de %s.", PlayerName(playerid, 1), PlayerName(other, 1));
 						ProxDetector(10.0, playerid, str,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
@@ -31966,6 +32114,7 @@ COMMAND:aretirar(playerid,params[])
 						PlayerInfo[other][pMun556] = 0;
 						PlayerInfo[other][pMunCart] = 0;
 						PlayerInfo[other][pMun127] = 0;
+						PlayerInfo[other][pMunBzk] = 0;
 
 						format(str,sizeof(str),"* Você retirou as munições de %s.", PlayerName(other, 1));
       					SendClientMessage(playerid,COLOR_LIGHTRED, str);
@@ -32679,6 +32828,7 @@ Dialog:RefundoItem(playerid, response, listitem, inputtext[])
 			case 20: { etnia = "Lança Perfume"; PlayerDroga[playerid][LancaPer] += Refundo[playerid][2];}
 			case 21: { etnia = "Pasta base"; PlayerDroga[playerid][PBC] += Refundo[playerid][2];}
 			case 22: { etnia = "Sementes"; PlayerDroga[playerid][Sementes] += Refundo[playerid][2];}
+			case 23: { etnia = "Munição 20x110mm"; PlayerInfo[playerid][pMunBzk] += Refundo[playerid][2];}
  		}
  		format(string, sizeof(string),"SERVER: Você recebeu o refundo de um de %s [%d unidades].", etnia,Refundo[playerid][2]);
 		SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
@@ -33435,6 +33585,7 @@ COMMAND:aceitar(playerid, params[])
 					if(PlayerInfo[playerid][pMun556] > 0) format(Ammo2, sizeof(Ammo2), "2. 5x56mm [%d balas]", PlayerInfo[playerid][pMun556]); else format(Ammo2, sizeof(Ammo2), "2. 5x56mm [Munição:0]");
 					if(PlayerInfo[playerid][pMunCart] > 0) format(Ammo3, sizeof(Ammo3), "3. Cartucho [%d cartuchos]", PlayerInfo[playerid][pMunCart]); else format(Ammo3, sizeof(Ammo3), "3. Cartucho [0 cartuchos]");
 					if(PlayerInfo[playerid][pMun127] > 0) format(Ammo4, sizeof(Ammo4), "4. 12.7x106mm [%d balas]", PlayerInfo[playerid][pMun127]); else format(Ammo4, sizeof(Ammo4), "4. 12.7x106mm [%d balas]");
+					if(PlayerInfo[playerid][pMunBzk] > 0) format(Ammo4, sizeof(Ammo4), "5. 20x110mm [%d balas]", PlayerInfo[playerid][pMunBzk]); else format(Ammo4, sizeof(Ammo4), "5. 20x110mm [%d balas]");
 
                     SendClientMessage(IdQVaiVer, COLOR_LIGHTGREEN, "_______Inventário de munições:_______");
 					format(Ammos, sizeof(Ammos), "%s %s", Ammo1, Ammo2); SendClientMessage(IdQVaiVer, COLOR_WHITE, Ammos);
@@ -34002,6 +34153,7 @@ Dialog:Armario_House(playerid, response, listitem, inputtext[])
 				format(StrArm, sizeof(StrArm), "%s\n5x56mm: %d",StrArm,PlayerInfo[playerid][pArm556]);
 				format(StrArm, sizeof(StrArm), "%s\nCartucho: %d",StrArm,PlayerInfo[playerid][pArmCart]);
 				format(StrArm, sizeof(StrArm), "%s\n12.7x106mm: %d",StrArm,PlayerInfo[playerid][pArm127]);
+				format(StrArm, sizeof(StrArm), "%s\n20x110mm: %d",StrArm,PlayerInfo[playerid][pArmBzk]);
 				Dialog_Show(playerid, Municoes_House, DIALOG_STYLE_LIST, "Minhas Munições", StrArm, "Selecionar", "Cancelar");
 	        }
 	        case 1:
@@ -34572,6 +34724,7 @@ Dialog:Municoes_House(playerid, response, listitem, inputtext[])
 				format(StrArm, sizeof(StrArm), "%s\n5x56mm: %d",StrArm,PlayerInfo[playerid][pArm556]);
 				format(StrArm, sizeof(StrArm), "%s\nCartucho: %d",StrArm,PlayerInfo[playerid][pArmCart]);
 				format(StrArm, sizeof(StrArm), "%s\n12.7x106mm: %d",StrArm,PlayerInfo[playerid][pArm127]);
+				format(StrArm, sizeof(StrArm), "%s\n20x110mm: %d",StrArm,PlayerInfo[playerid][pArmBzk]);
 				Dialog_Show(playerid, Municoes_House, DIALOG_STYLE_LIST, "[HOUSE] Munições", StrArm, "Selecionar", "Cancelar");
 			}
 			case 2:
@@ -34674,6 +34827,19 @@ Dialog:Municoes_House3(playerid, response, listitem, inputtext[])
 			    }
 			    else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem tudo isso.");
 			}
+			case 5:
+			{
+				new Input = strval(inputtext);
+				if(Input < 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Valor inválido.");
+				if(Input <= PlayerInfo[playerid][pMunBzk])
+	 			{
+ 					PlayerInfo[playerid][pMunBzk] = PlayerInfo[playerid][pMunBzk]-Input;
+     				PlayerInfo[playerid][pArmBzk] += Input;
+     				format(StrMsg, sizeof(StrMsg), "[Armário HOUSE] Você guardou %d balas 20x110mm em seu armário.", Input);
+     				SendClientMessage(playerid, COLOR_LIGHTGREEN, StrMsg);
+			    }
+			    else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem tudo isso.");
+			}
 		}
 	}
 	return 1;
@@ -34738,6 +34904,19 @@ Dialog:Municoes_House4(playerid, response, listitem, inputtext[])
 	                SendClientMessage(playerid, COLOR_LIGHTGREEN, StrMsg);
 			    }
 			    else return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Seu armário não tem tudo isso.");
+			}
+			case 5:
+			{
+				new Input = strval(inputtext);
+				if(Input < 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Valor inválido.");
+				if(Input <= PlayerInfo[playerid][pMunBzk])
+	 			{
+ 					PlayerInfo[playerid][pMunBzk] = PlayerInfo[playerid][pMunBzk]-Input;
+     				PlayerInfo[playerid][pArmBzk] += Input;
+     				format(StrMsg, sizeof(StrMsg), "[Armário HOUSE] Você guardou %d balas 20x110mm em seu armário.", Input);
+     				SendClientMessage(playerid, COLOR_LIGHTGREEN, StrMsg);
+			    }
+			    else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem tudo isso.");
 			}
 		}
 	}
@@ -35929,12 +36108,13 @@ CMD:trabalho(playerid, params[])
 						}
 						if(ArmasInv > 0) SendClientMessage(playerid,COLOR_LIGHTRED,"[USMC] As suas armas do inventário foram retiradas.");
 
-					    if(PlayerInfo[playerid][pMun9mm] > 0 || PlayerInfo[playerid][pMunCart] > 0 || PlayerInfo[playerid][pMun556] > 0 || PlayerInfo[playerid][pMun127] > 0)
+					    if(PlayerInfo[playerid][pMun9mm] > 0 || PlayerInfo[playerid][pMunCart] > 0 || PlayerInfo[playerid][pMun556] > 0 || PlayerInfo[playerid][pMun127] > 0 || PlayerInfo[playerid][pMunBzk] > 0)
 				        {
 				            PlayerInfo[playerid][pMun9mm] = 0;
 							PlayerInfo[playerid][pMunCart] = 0;
 							PlayerInfo[playerid][pMun556] = 0;
 							PlayerInfo[playerid][pMun127] = 0;
+							PlayerInfo[playerid][pMunBzk] = 0;
 							SendClientMessage(playerid,COLOR_LIGHTRED,"[USMC] As suas munições do inventário foram retiradas.");
 				        }
 					}
@@ -43029,12 +43209,14 @@ CMD:setarammo(playerid, params[])
 		SendClientMessage(playerid,COLOR_LIGHTRED,"{FF6347}[Ammo ID]:{FFFFFF} 2 - Cartucho 	 [Shotgun]");
 		SendClientMessage(playerid,COLOR_LIGHTRED,"{FF6347}[Ammo ID]:{FFFFFF} 3 - 5.56mm 	 [AK47/M4/County Rifle]");
 		SendClientMessage(playerid,COLOR_LIGHTRED,"{FF6347}[Ammo ID]:{FFFFFF} 4 - 12.7x106mm [Sniper]");
+		SendClientMessage(playerid,COLOR_LIGHTRED,"{FF6347}[Ammo ID]:{FFFFFF} 5 - 20x110mm [Bazuca]");
 	    return 1;
 	}
     if(Arma == 1) PlayerInfo[other][pMun9mm] += Ammo;
 	else if(Arma == 2) PlayerInfo[other][pMunCart] += Ammo;
 	else if(Arma == 3) PlayerInfo[other][pMun556] += Ammo;
 	else if(Arma == 4) PlayerInfo[other][pMun127] += Ammo;
+	else if(Arma == 5) PlayerInfo[other][pMunBzk] += Ammo;
 
     new admnome[24];
 	if(PlayerInfo[playerid][pAdmin] > 3001) format(admnome, sizeof(admnome), "%s", PlayerInfo[playerid][pNomeOOC]);
@@ -43555,6 +43737,7 @@ public LoadAccountInfo(extraid)
 		cache_get_field_content(0, "ArmaMao", tmp); PlayerInfo[extraid][pArmaMao] = strval(tmp);
 		cache_get_field_content(0, "Mun9mm", tmp); PlayerInfo[extraid][pMun9mm] = strval(tmp);
 		cache_get_field_content(0, "Mun556", tmp); PlayerInfo[extraid][pMun556] = strval(tmp);
+		cache_get_field_content(0, "MunBzk", tmp); PlayerInfo[extraid][pMunBzk] = strval(tmp);
 		cache_get_field_content(0, "MunCart", tmp); PlayerInfo[extraid][pMunCart] = strval(tmp);
 		cache_get_field_content(0, "Mun127", tmp); PlayerInfo[extraid][pMun127] = strval(tmp);
 		cache_get_field_content(0, "pSlot1", tmp); PlayerInfo[extraid][pSlot1] = strval(tmp);
@@ -43586,6 +43769,7 @@ public LoadAccountInfo(extraid)
 
 		cache_get_field_content(0, "pArm9mm", tmp); PlayerInfo[extraid][pArm9mm] = strval(tmp);
 		cache_get_field_content(0, "pArm556", tmp); PlayerInfo[extraid][pArm556] = strval(tmp);
+		cache_get_field_content(0, "pArmBzk", tmp); PlayerInfo[extraid][pArmBzk] = strval(tmp);
 		cache_get_field_content(0, "pArmCart", tmp); PlayerInfo[extraid][pArmCart] = strval(tmp);
 		cache_get_field_content(0, "pArm127", tmp); PlayerInfo[extraid][pArm127] = strval(tmp);
 	  	cache_get_field_content(0, "pPrisao", tmp); PlayerInfo[extraid][pPrisao] = strval(tmp);
@@ -44907,6 +45091,7 @@ public OnPlayerEditDynamicObject(playerid, objectid, response, Float:x, Float:y,
 			else if(CartuxoData[id][CartuxoTipo] == 2) PlayerInfo[playerid][pMun556] = PlayerInfo[playerid][pMun556]+CartuxoData[id][cartuxoQnt];
 			else if(CartuxoData[id][CartuxoTipo] == 3) PlayerInfo[playerid][pMunCart] = PlayerInfo[playerid][pMunCart]+CartuxoData[id][cartuxoQnt];
 			else if(CartuxoData[id][CartuxoTipo] == 4) PlayerInfo[playerid][pMun127] = PlayerInfo[playerid][pMun127]+CartuxoData[id][cartuxoQnt];
+			else if(CartuxoData[id][CartuxoTipo] == 5) PlayerInfo[playerid][pMunBzk] = PlayerInfo[playerid][pMunBzk]+CartuxoData[id][cartuxoQnt];
 		    CartuxoData[id][cartuxoEditando] = 0;
 
  	    	CartuxoData[id][cartuxoX] = 0.0;

@@ -64,6 +64,7 @@ AddCharModel(252, 20073, "dogs/pet5.dff", "dogs/pet5.txd");
 AddCharModel(252, 20074, "dogs/pet6.dff", "dogs/pet6.txd");
 AddCharModel(252, 20075, "dogs/pet7.dff", "dogs/pet7.txd");
 AddCharModel(252, 20076, "dogs/pet8.dff", "dogs/pet8.txd");
+AddCharModel(252, 20077, "dogs/canmel.dff", "dogs/canmel.txd");
 
 
 //textdraw
@@ -74,22 +75,7 @@ AddSimpleModel(-1, 19379, -2007, "login.dff", "logo.txd");
 AddSimpleModel(-1, 19315, -1095, "textdraw_object.dff", "textdraw_ui.txd");
 
 //objetos mapas
-AddSimpleModel(-1, 19142, -1003, "aviao/aviao1.dff", "aviao/aviao1.txd");
-AddSimpleModel(-1, 19142, -1004, "aviao/aviao2.dff", "aviao/aviao2.txd");
-AddSimpleModel(-1, 2262, -20051, "a51/A51Part01.dff", "a51/A51Texture.txd");
-AddSimpleModel(-1, 2262, -20052, "a51/A51Part02.dff", "a51/A51Texture.txd");
-AddSimpleModel(-1, 2262, -20053, "a51/A51Part03.dff", "a51/A51Texture.txd");
-AddSimpleModel(-1, 2262, -20054, "a51/A51Part04.dff", "a51/A51Texture.txd");
-AddSimpleModel(-1, 2262, -20055, "a51/A51Part05.dff", "a51/A51Texture.txd");
-AddSimpleModel(-1, 2262, -20056, "a51/A51Part06.dff", "a51/A51Texture.txd");
-AddSimpleModel(-1, 2262, -20057, "a51/A51Part07.dff", "a51/A51Texture.txd");
-AddSimpleModel(-1, 2262, -20058, "a51/A51Part08.dff", "a51/A51Texture.txd");
-AddSimpleModel(-1, 2262, -20059, "a51/A51Part09.dff", "a51/A51Texture.txd");
-AddSimpleModel(-1, 2262, -20060, "a51/A51Houses01.dff", "a51/A51Houses.txd");
-AddSimpleModel(-1, 2262, -20061, "a51/A51Houses02.dff", "a51/A51Houses.txd");
-AddSimpleModel(-1, 2262, -20063, "a51/A51Props.dff", "a51/A51Houses.txd");
-AddSimpleModel(-1, 2262, -20070, "a51/A51Part10.dff", "a51/A51Texture.txd");
-AddSimpleModel(-1, 800, -20080, "a51/A51Veg.dff", "a51/A51Veg.txd");
+
 
 //objetos binco
 AddSimpleModel(-1, 19142, -2063, "itens/rojao.dff", "itens/rojao.txd");
@@ -151,4 +137,22 @@ AddSimpleModel(-1,19141, -2304, "itens/crackb.dff", "itens/crackb.txd");
 AddSimpleModel(-1,19141, -2305, "itens/lsd.dff", "itens/lsd.txd");
 AddSimpleModel(-1,19141, -2306, "itens/lancaperfume.dff", "itens/lancaperfume.txd");
 AddSimpleModel(-1,19141, -2307, "itens/MesaDeDrogas.dff", "itens/MesaDeDrogas.txd");
+
+//Aeroporto abandonado
+AddSimpleModel(-1, 2262, -20500, "AB/ABPart01.dff", "AB/ABTexture.txd");
+AddSimpleModel(-1, 2262, -20501, "AB/ABPart02.dff", "AB/ABTexture.txd");
+AddSimpleModel(-1, 2262, -20502, "AB/ABPart03.dff", "AB/ABTexture.txd");
+AddSimpleModel(-1, 2262, -20503, "AB/ABPart04.dff", "AB/ABTexture.txd");
+AddSimpleModel(-1, 2262, -20504, "AB/ABPart05.dff", "AB/ABTexture.txd");
+AddSimpleModel(-1, 2262, -20505, "AB/ABPart06.dff", "AB/ABTexture.txd");
+AddSimpleModel(-1, 2262, -20506, "AB/ABPart07.dff", "AB/ABTexture.txd");
+AddSimpleModel(-1, 2262, -20507, "AB/ABHouse01.dff", "AB/ABHouse.txd");
+AddSimpleModel(-1, 2262, -20508, "AB/ABHouse02.dff", "AB/ABHouse.txd");
+AddSimpleModel(-1, 2262, -20509, "AB/ABProps.dff", "AB/ABHouse.txd");
+AddSimpleModel(-1, 800, -20510, "AB/ABVeg.dff", "AB/ABVeg.txd");
+AddSimpleModel(-1, 2262, -20511, "AB/ABProp01.dff", "AB/ABProp01.txd");
+AddSimpleModel(-1, 2262, -20512, "AB/ABProp02.dff", "AB/ABProp02.txd");
+AddSimpleModel(-1, 2262, -20513, "AB/ABProp03.dff", "AB/ABProp03.txd");
+AddSimpleModel(-1, 2262, -20514, "AB/ABProp04.dff", "AB/ABProp04.txd");
+AddSimpleModel(-1, 2262, -20515, "AB/ABProp05.dff", "AB/ABProp05.txd");
 

@@ -11845,245 +11845,6 @@ public OnPlayerConnect(playerid)
 
 
 	TextDrawHideForPlayer(playerid, HitMark);
-	//Village area 51
-	RemoveBuildingForPlayer(playerid, 3279, 103.890, 1901.099, 16.820, 0.250);
-	RemoveBuildingForPlayer(playerid, 16094, 191.141, 1870.040, 21.476, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 264.304, 1822.959, 4.421, 0.250);
-	RemoveBuildingForPlayer(playerid, 3279, 161.906, 1933.089, 16.820, 0.250);
-	RemoveBuildingForPlayer(playerid, 3279, 165.953, 1849.989, 16.820, 0.250);
-	RemoveBuildingForPlayer(playerid, 3279, 113.383, 1814.449, 16.820, 0.250);
-	RemoveBuildingForPlayer(playerid, 16638, 211.727, 1809.189, 18.984, 0.250);
-	RemoveBuildingForPlayer(playerid, 16093, 211.647, 1810.160, 20.734, 0.250);
-	RemoveBuildingForPlayer(playerid, 3279, 262.093, 1807.670, 16.820, 0.250);
-	RemoveBuildingForPlayer(playerid, 16095, 279.132, 1829.780, 16.632, 0.250);
-	RemoveBuildingForPlayer(playerid, 16670, 330.789, 1813.219, 17.828, 0.250);
-	RemoveBuildingForPlayer(playerid, 1411, 342.937, 1796.290, 18.757, 0.250);
-	RemoveBuildingForPlayer(playerid, 1411, 347.195, 1799.270, 18.757, 0.250);
-	RemoveBuildingForPlayer(playerid, 16669, 380.257, 1914.959, 17.429, 0.250);
-	RemoveBuildingForPlayer(playerid, 3277, 354.414, 2028.500, 22.375, 0.250);
-	RemoveBuildingForPlayer(playerid, 3267, 354.429, 2028.489, 22.414, 0.250);
-	RemoveBuildingForPlayer(playerid, 16668, 357.937, 2049.419, 16.843, 0.250);
-	RemoveBuildingForPlayer(playerid, 3268, 276.656, 2023.760, 16.632, 0.250);
-	RemoveBuildingForPlayer(playerid, 3366, 276.656, 2023.760, 16.632, 0.250);
-	RemoveBuildingForPlayer(playerid, 3268, 276.656, 1989.550, 16.632, 0.250);
-	RemoveBuildingForPlayer(playerid, 3366, 276.656, 1989.550, 16.632, 0.250);
-	RemoveBuildingForPlayer(playerid, 3268, 276.656, 1955.770, 16.632, 0.250);
-	RemoveBuildingForPlayer(playerid, 3366, 276.656, 1955.770, 16.632, 0.250);
-	RemoveBuildingForPlayer(playerid, 3279, 267.062, 1895.300, 16.820, 0.250);
-	RemoveBuildingForPlayer(playerid, 3279, 233.429, 1934.839, 16.820, 0.250);
-	RemoveBuildingForPlayer(playerid, 16323, 199.335, 1943.880, 18.203, 0.250);
-	RemoveBuildingForPlayer(playerid, 16619, 199.335, 1943.880, 18.203, 0.250);
-	RemoveBuildingForPlayer(playerid, 16096, 120.508, 1934.030, 19.828, 0.250);
-	RemoveBuildingForPlayer(playerid, 3277, 15.601, 1719.170, 22.375, 0.250);
-	RemoveBuildingForPlayer(playerid, 3267, 15.617, 1719.160, 22.414, 0.250);
-	RemoveBuildingForPlayer(playerid, 16294, 15.179, 1719.390, 21.617, 0.250);
-	RemoveBuildingForPlayer(playerid, 16293, 238.070, 1697.550, 21.632, 0.250);
-	RemoveBuildingForPlayer(playerid, 3267, 237.695, 1696.880, 22.414, 0.250);
-	RemoveBuildingForPlayer(playerid, 3277, 237.679, 1696.880, 22.375, 0.250);
-	RemoveBuildingForPlayer(playerid, 1697, 236.992, 1835.339, 23.234, 0.250);
-	RemoveBuildingForPlayer(playerid, 1697, 228.796, 1835.339, 23.234, 0.250);
-	RemoveBuildingForPlayer(playerid, 1697, 220.382, 1835.339, 23.234, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 245.375, 1862.369, 20.132, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 246.617, 1863.380, 20.132, 0.250);
-	RemoveBuildingForPlayer(playerid, 3277, 188.242, 2081.649, 22.406, 0.250);
-	RemoveBuildingForPlayer(playerid, 3267, 188.242, 2081.649, 22.445, 0.250);
-	RemoveBuildingForPlayer(playerid, 16671, 193.953, 2051.800, 20.179, 0.250);
-	RemoveBuildingForPlayer(playerid, 3337, -92.046, 2072.030, 16.671, 0.250);
-	RemoveBuildingForPlayer(playerid, 16649, 231.477, 1872.359, 11.960, 0.250);
-	RemoveBuildingForPlayer(playerid, 16643, 248.727, 1869.979, 11.851, 0.250);
-	RemoveBuildingForPlayer(playerid, 16653, 245.585, 1903.729, 13.718, 0.250);
-	RemoveBuildingForPlayer(playerid, 16648, 244.703, 1905.209, 9.906, 0.250);
-	RemoveBuildingForPlayer(playerid, 16682, 268.992, 1882.829, 10.484, 0.250);
-	RemoveBuildingForPlayer(playerid, 16680, 268.992, 1882.829, 10.484, 0.250);
-	RemoveBuildingForPlayer(playerid, 16660, 215.921, 1865.180, 13.023, 0.250);
-	RemoveBuildingForPlayer(playerid, 16732, 226.593, 1859.170, 14.554, 0.250);
-	RemoveBuildingForPlayer(playerid, 16646, 245.960, 1865.589, 10.828, 0.250);
-	RemoveBuildingForPlayer(playerid, 16647, 249.156, 1860.949, 10.367, 0.250);
-	RemoveBuildingForPlayer(playerid, 16322, 248.727, 1869.979, 11.851, 0.250);
-	RemoveBuildingForPlayer(playerid, 16641, 251.445, 1866.300, 9.289, 0.250);
-	RemoveBuildingForPlayer(playerid, 3383, 269.093, 1858.319, 7.757, 0.250);
-	RemoveBuildingForPlayer(playerid, 3383, 275.375, 1859.150, 7.757, 0.250);
-	RemoveBuildingForPlayer(playerid, 3389, 266.867, 1852.910, 7.757, 0.250);
-	RemoveBuildingForPlayer(playerid, 3394, 271.789, 1852.949, 7.750, 0.250);
-	RemoveBuildingForPlayer(playerid, 3395, 276.273, 1852.939, 7.750, 0.250);
-	RemoveBuildingForPlayer(playerid, 3397, 280.656, 1855.520, 7.750, 0.250);
-	RemoveBuildingForPlayer(playerid, 3260, 258.078, 1862.949, 8.757, 0.250);
-	RemoveBuildingForPlayer(playerid, 3260, 258.078, 1866.920, 8.757, 0.250);
-	RemoveBuildingForPlayer(playerid, 3260, 259.023, 1861.910, 8.757, 0.250);
-	RemoveBuildingForPlayer(playerid, 3260, 259.968, 1866.920, 8.757, 0.250);
-	RemoveBuildingForPlayer(playerid, 3260, 259.968, 1864.939, 8.757, 0.250);
-	RemoveBuildingForPlayer(playerid, 16640, 263.429, 1840.790, 7.109, 0.250);
-	RemoveBuildingForPlayer(playerid, 16665, 223.429, 1822.739, 6.406, 0.250);
-	RemoveBuildingForPlayer(playerid, 16782, 210.367, 1822.739, 7.601, 0.250);
-	RemoveBuildingForPlayer(playerid, 16662, 212.108, 1823.300, 6.609, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 235.531, 1819.510, 6.406, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 235.531, 1813.050, 6.406, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 235.531, 1825.969, 6.406, 0.250);
-	RemoveBuildingForPlayer(playerid, 16652, 246.608, 1783.520, 8.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 16654, 248.358, 1782.770, 6.820, 0.250);
-	RemoveBuildingForPlayer(playerid, 16642, 247.242, 1823.900, 8.843, 0.250);
-	RemoveBuildingForPlayer(playerid, 16650, 247.703, 1823.839, 6.554, 0.250);
-	RemoveBuildingForPlayer(playerid, 16651, 247.906, 1825.630, 5.562, 0.250);
-	RemoveBuildingForPlayer(playerid, 16666, 246.328, 1827.650, 3.804, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 257.906, 1818.589, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 259.507, 1818.589, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 261.109, 1818.589, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 257.906, 1814.369, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 259.507, 1814.380, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 261.109, 1814.380, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 16644, 264.687, 1816.880, 3.679, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 263.710, 1814.380, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 265.843, 1814.380, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 269.039, 1814.380, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 270.640, 1814.380, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 272.242, 1814.380, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 267.437, 1814.380, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 273.843, 1814.380, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 275.937, 1814.380, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 277.531, 1814.380, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 279.132, 1814.380, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 280.734, 1814.380, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 282.335, 1814.380, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 283.937, 1814.380, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 285.531, 1814.380, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 287.132, 1814.380, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 288.734, 1814.380, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 290.335, 1814.380, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 291.937, 1814.380, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 293.531, 1814.380, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 263.710, 1822.640, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 263.710, 1821.040, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 263.710, 1818.589, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 265.843, 1818.589, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 267.437, 1818.589, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 269.039, 1818.589, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 270.640, 1818.589, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 272.242, 1818.589, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 273.843, 1818.589, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 275.937, 1818.589, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 277.531, 1818.589, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 279.132, 1818.589, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 280.734, 1818.589, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 282.335, 1818.589, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 291.937, 1818.589, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 293.531, 1818.589, 3.703, 0.250);
-	RemoveBuildingForPlayer(playerid, 3280, 299.468, 1819.780, 4.492, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 275.601, 1828.500, 6.726, 0.250);
-	RemoveBuildingForPlayer(playerid, 16658, 283.406, 1818.579, 5.992, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 282.015, 1822.459, 6.726, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 293.125, 1822.459, 6.726, 0.250);
-	RemoveBuildingForPlayer(playerid, 3389, 284.882, 1831.729, 7.039, 0.250);
-	RemoveBuildingForPlayer(playerid, 3387, 284.882, 1834.479, 7.039, 0.250);
-	RemoveBuildingForPlayer(playerid, 3383, 289.859, 1830.699, 7.039, 0.250);
-	RemoveBuildingForPlayer(playerid, 3393, 291.726, 1835.439, 7.031, 0.250);
-	RemoveBuildingForPlayer(playerid, 3383, 306.492, 1832.160, 4.835, 0.250);
-	RemoveBuildingForPlayer(playerid, 3391, 306.789, 1827.189, 4.835, 0.250);
-	RemoveBuildingForPlayer(playerid, 3390, 311.578, 1827.189, 4.835, 0.250);
-	RemoveBuildingForPlayer(playerid, 3383, 314.078, 1832.160, 4.835, 0.250);
-	RemoveBuildingForPlayer(playerid, 3392, 319.453, 1827.180, 4.835, 0.250);
-	RemoveBuildingForPlayer(playerid, 3383, 321.804, 1832.160, 4.835, 0.250);
-	RemoveBuildingForPlayer(playerid, 3393, 326.460, 1827.180, 4.835, 0.250);
-	RemoveBuildingForPlayer(playerid, 16639, 296.531, 1834.939, 8.140, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 293.273, 1841.550, 6.726, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 301.968, 1841.569, 6.726, 0.250);
-	RemoveBuildingForPlayer(playerid, 16655, 307.039, 1837.780, 8.625, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 309.445, 1841.569, 6.726, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 317.789, 1841.569, 6.726, 0.250);
-	RemoveBuildingForPlayer(playerid, 3384, 319.523, 1844.859, 6.281, 0.250);
-	RemoveBuildingForPlayer(playerid, 3384, 320.757, 1844.859, 6.281, 0.250);
-	RemoveBuildingForPlayer(playerid, 3387, 324.179, 1847.739, 4.835, 0.250);
-	RemoveBuildingForPlayer(playerid, 3388, 324.179, 1846.380, 4.835, 0.250);
-	RemoveBuildingForPlayer(playerid, 3389, 324.179, 1850.489, 4.835, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 326.265, 1857.209, 6.726, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 317.382, 1857.209, 6.726, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 310.085, 1857.209, 6.726, 0.250);
-	RemoveBuildingForPlayer(playerid, 16657, 309.828, 1854.180, 7.960, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 295.781, 1850.969, 6.726, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 302.117, 1857.209, 6.726, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 295.781, 1859.630, 6.859, 0.250);
-	RemoveBuildingForPlayer(playerid, 16656, 272.625, 1862.880, 10.757, 0.250);
-	RemoveBuildingForPlayer(playerid, 3386, 271.265, 1868.189, 7.757, 0.250);
-	RemoveBuildingForPlayer(playerid, 3387, 271.250, 1869.699, 7.757, 0.250);
-	RemoveBuildingForPlayer(playerid, 3388, 271.226, 1870.930, 7.757, 0.250);
-	RemoveBuildingForPlayer(playerid, 3384, 278.093, 1869.099, 9.179, 0.250);
-	RemoveBuildingForPlayer(playerid, 3384, 278.093, 1870.339, 9.179, 0.250);
-	RemoveBuildingForPlayer(playerid, 3384, 276.593, 1870.199, 9.179, 0.250);
-	RemoveBuildingForPlayer(playerid, 3384, 276.593, 1868.959, 9.179, 0.250);
-	RemoveBuildingForPlayer(playerid, 3396, 275.312, 1874.239, 7.750, 0.250);
-	RemoveBuildingForPlayer(playerid, 3395, 280.328, 1874.229, 7.750, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 290.039, 1871.060, 7.742, 0.250);
-	RemoveBuildingForPlayer(playerid, 16664, 268.664, 1885.430, 7.882, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 275.023, 1890.160, 4.742, 0.250);
-	RemoveBuildingForPlayer(playerid, 3399, 268.703, 1889.520, 4.843, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 262.296, 1890.160, 4.742, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 262.304, 1877.949, 4.742, 0.250);
-	RemoveBuildingForPlayer(playerid, 3400, 268.656, 1884.050, 4.773, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 262.296, 1890.160, 0.070, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 275.023, 1890.160, 0.070, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 262.304, 1877.949, 0.070, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 275.031, 1877.949, 4.742, 0.250);
-	RemoveBuildingForPlayer(playerid, 3401, 268.640, 1884.040, 0.078, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 262.304, 1877.949, -4.570, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 275.031, 1877.949, 0.070, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 262.296, 1890.160, -4.570, 0.250);
-	RemoveBuildingForPlayer(playerid, 3399, 274.390, 1883.750, 0.148, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 275.023, 1890.160, -4.570, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 275.031, 1877.949, -4.570, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 275.023, 1890.160, -8.125, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 262.296, 1890.160, -8.125, 0.250);
-	RemoveBuildingForPlayer(playerid, 3400, 268.656, 1884.050, -4.609, 0.250);
-	RemoveBuildingForPlayer(playerid, 3399, 268.617, 1878.069, -4.539, 0.250);
-	RemoveBuildingForPlayer(playerid, 3399, 262.929, 1883.839, -9.234, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 262.304, 1877.949, -8.125, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 275.031, 1877.949, -8.125, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 275.023, 1890.160, -12.820, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 275.031, 1877.949, -12.820, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 262.304, 1877.949, -12.820, 0.250);
-	RemoveBuildingForPlayer(playerid, 3401, 268.656, 1884.050, -9.304, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 275.031, 1877.949, -17.507, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 262.304, 1877.949, -17.507, 0.250);
-	RemoveBuildingForPlayer(playerid, 3399, 268.703, 1889.520, -13.929, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 262.296, 1890.160, -12.820, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 262.296, 1890.160, -17.507, 0.250);
-	RemoveBuildingForPlayer(playerid, 3400, 268.656, 1884.050, -14.000, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 262.296, 1890.160, -22.203, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 275.023, 1890.160, -17.507, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 262.304, 1877.949, -22.203, 0.250);
-	RemoveBuildingForPlayer(playerid, 3401, 268.640, 1884.040, -18.687, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 275.023, 1890.160, -22.203, 0.250);
-	RemoveBuildingForPlayer(playerid, 3399, 274.382, 1883.729, -18.617, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 275.031, 1877.949, -22.203, 0.250);
-	RemoveBuildingForPlayer(playerid, 3399, 268.617, 1878.050, -23.312, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 262.539, 1889.920, -30.445, 0.250);
-	RemoveBuildingForPlayer(playerid, 3400, 268.656, 1884.050, -23.382, 0.250);
-	RemoveBuildingForPlayer(playerid, 3399, 262.929, 1883.819, -28.007, 0.250);
-	RemoveBuildingForPlayer(playerid, 3385, 274.804, 1889.920, -30.445, 0.250);
-	RemoveBuildingForPlayer(playerid, 3397, 274.898, 1882.199, -31.398, 0.250);
-	RemoveBuildingForPlayer(playerid, 16663, 269.007, 1882.420, -26.890, 0.250);
-	RemoveBuildingForPlayer(playerid, 3395, 270.695, 1878.069, -31.398, 0.250);
-	RemoveBuildingForPlayer(playerid, 3394, 265.906, 1878.069, -31.398, 0.250);
-	RemoveBuildingForPlayer(playerid, 16681, 268.664, 1884.050, -28.078, 0.250);
-	RemoveBuildingForPlayer(playerid, 3383, 262.710, 1882.250, -31.398, 0.250);
-	RemoveBuildingForPlayer(playerid, 16203, 199.343, 1943.790, 18.203, 0.250);
-	RemoveBuildingForPlayer(playerid, 16590, 199.343, 1943.790, 18.203, 0.250);
-	RemoveBuildingForPlayer(playerid, 16261, -25.398, 1868.180, 20.007, 0.250);
-	RemoveBuildingForPlayer(playerid, 16587, -25.398, 1868.180, 20.007, 0.250);
-	RemoveBuildingForPlayer(playerid, 16208, -36.531, 1721.219, 26.195, 0.250);
-	RemoveBuildingForPlayer(playerid, 16589, -36.531, 1721.219, 26.195, 0.250);
-	RemoveBuildingForPlayer(playerid, 16202, -21.453, 1991.380, 21.320, 0.250);
-	RemoveBuildingForPlayer(playerid, 16586, -21.453, 1991.380, 21.320, 0.250);
-	RemoveBuildingForPlayer(playerid, 16197, 94.546, 2165.419, 70.015, 0.250);
-	RemoveBuildingForPlayer(playerid, 16461, 94.546, 2165.419, 70.015, 0.250);
-	RemoveBuildingForPlayer(playerid, 16259, 312.085, 2081.409, 18.851, 0.250);
-	RemoveBuildingForPlayer(playerid, 16577, 312.085, 2081.409, 18.851, 0.250);
-	RemoveBuildingForPlayer(playerid, 16204, 406.171, 1931.150, 35.843, 0.250);
-	RemoveBuildingForPlayer(playerid, 16557, 406.171, 1931.150, 35.843, 0.250);
-	RemoveBuildingForPlayer(playerid, 16210, 362.710, 1730.349, 25.992, 0.250);
-	RemoveBuildingForPlayer(playerid, 16559, 362.710, 1730.349, 25.992, 0.250);
-	RemoveBuildingForPlayer(playerid, 16209, 205.492, 1730.349, 17.828, 0.250);
-	RemoveBuildingForPlayer(playerid, 16591, 205.492, 1730.349, 17.828, 0.250);
-	RemoveBuildingForPlayer(playerid, 16196, -120.585, 2152.229, 61.398, 0.250);
-	RemoveBuildingForPlayer(playerid, 16576, -120.585, 2152.229, 61.398, 0.250);
 	//Mining Village
 	RemoveBuildingForPlayer(playerid, 3350, -773.039, 2419.649, 155.968, 0.250);
 	RemoveBuildingForPlayer(playerid, 3302, -808.546, 2428.939, 159.210, 0.250);
@@ -14240,7 +14001,7 @@ IsValidPetModel(skinid)
 {
     switch(skinid)
     {
-        case 20069..20076:
+        case 20069..20077:
             return 1;
     }
     return 0;
@@ -42360,14 +42121,7 @@ COMMAND:setartc(playerid, params[])
 	}
 	return 1;
 }
-COMMAND:pegardev(playerid, params[])
-{
-    if (PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
 
-	PlayerInfo[playerid][pAdmin] == 3002;
-	
-	return 1;
-}
 
 COMMAND:setaradmin(playerid, params[])
 {
@@ -71176,6 +70930,147 @@ CMD:comprarplaca(playerid,params[])
 	}
 	else return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não é um falsificador.");
     return 1;
+}
+
+CMD:comprarpet(playerid,params[])
+{
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
+
+	if(PlayerInfo[playerid][pDoador] <= 2)
+		return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não possui premium ouro ativo.");
+
+	{
+	   	if (IsPlayerInRangeOfPoint(playerid, 5, 1096.8484,-1528.9009,22.7434))
+			Dialog_Show(playerid, Dialog_PETSHOP, DIALOG_STYLE_TABLIST_HEADERS, "PETSHOP", "Produto\tPreço\nDOGUINHO 01\tUS$3870\nDOGUINHO 02\tUS$3870\nDOGUINHO 03\tUS$3870\n \
+            \nDOGUINHO 04\tUS$3870\nDOGUINHO 05\tUS$3870\nDOGUINHO 06\tUS$3870\nDOGUINHO 07\tUS$3870\nCamelo\tUS$8000", "Selecionar", "Voltar");
+		else {
+  			SetPlayerCheckpoint(playerid, 1096.8484,-1528.9009,22.7434, 5.0);
+			cp_target[playerid] = 1;
+			SendClientMessage(playerid, COLOR_LIGHTRED, "Você não está no petshop.");
+			return 1;
+		}
+	}
+    return 1;
+}
+
+Dialog:Dialog_PETSHOP(playerid, response, listitem, inputtext[])
+{
+	if(!response) return 1;
+	else
+	{
+		switch(listitem)
+		{
+		    case 0:
+		    {
+		        if(PlayerInfo[playerid][pGrana] >= 3870)
+				{
+					PlayerInfo[playerid][pPecasMecanicas][0]++;
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[PETSHOP] Você comprou um DOG X por US$3870.");
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[PETSHOP] Use /petmenu.");
+					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-3870;
+                    PetData[playerid][petModelID] = 20069;
+				}
+				else SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem dinheiro o suficiente.");
+			}
+		    case 1:
+		    {
+		        if(PlayerInfo[playerid][pGrana] >= 3870)
+				{
+					PlayerInfo[playerid][pPecasMecanicas][0]++;
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[PETSHOP] Você comprou um DOG X por US$3870.");
+                    SendClientMessage(playerid, COLOR_LIGHTGREEN, "[PETSHOP] Use /petmenu.");
+					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-3870;
+                    PetData[playerid][petModelID] = 20070;
+				}
+				else SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem dinheiro o suficiente.");
+			}
+		    case 2:
+		    {
+		        if(PlayerInfo[playerid][pGrana] >= 3870)
+				{
+					PlayerInfo[playerid][pPecasMecanicas][0]++;
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[PETSHOP] Você comprou um DOG X por US$3870.");
+                    SendClientMessage(playerid, COLOR_LIGHTGREEN, "[PETSHOP] Use /petmenu.");
+					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-3870;
+                    PetData[playerid][petModelID] = 20071;
+				}
+				else SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem dinheiro o suficiente.");
+			}
+		    case 3:
+		    {
+		        if(PlayerInfo[playerid][pGrana] >= 3870)
+				{
+					PlayerInfo[playerid][pPecasMecanicas][0]++;
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[PETSHOP] Você comprou um DOG X por US$3870.");
+                    SendClientMessage(playerid, COLOR_LIGHTGREEN, "[PETSHOP] Use /petmenu.");
+					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-3870;
+                    PetData[playerid][petModelID] = 20072;
+				}
+				else SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem dinheiro o suficiente.");
+			}
+		    case 4:
+		    {
+		        if(PlayerInfo[playerid][pGrana] >= 3870)
+				{
+					PlayerInfo[playerid][pPecasMecanicas][0]++;
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[PETSHOP] Você comprou um DOG X por US$3870.");
+                    SendClientMessage(playerid, COLOR_LIGHTGREEN, "[PETSHOP] Use /petmenu.");
+					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-3870;
+                    PetData[playerid][petModelID] = 20073;
+				}
+				else SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem dinheiro o suficiente.");
+			}
+		    case 5:
+		    {
+		        if(PlayerInfo[playerid][pGrana] >= 3870)
+				{
+					PlayerInfo[playerid][pPecasMecanicas][0]++;
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[PETSHOP] Você comprou um DOG X por US$3870.");
+                    SendClientMessage(playerid, COLOR_LIGHTGREEN, "[PETSHOP] Use /petmenu.");
+					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-3870;
+                    PetData[playerid][petModelID] = 20074;
+				}
+				else SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem dinheiro o suficiente.");
+			}
+		    case 6:
+		    {
+		        if(PlayerInfo[playerid][pGrana] >= 3870)
+				{
+					PlayerInfo[playerid][pPecasMecanicas][0]++;
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[PETSHOP] Você comprou um DOG X por US$3870.");
+                    SendClientMessage(playerid, COLOR_LIGHTGREEN, "[PETSHOP] Use /petmenu.");
+					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-3870;
+                    PetData[playerid][petModelID] = 20075;
+				}
+				else SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem dinheiro o suficiente.");
+			}
+		    case 7:
+		    {
+		        if(PlayerInfo[playerid][pGrana] >= 3870)
+				{
+					PlayerInfo[playerid][pPecasMecanicas][0]++;
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[PETSHOP] Você comprou um DOG X por US$3870.");
+                    SendClientMessage(playerid, COLOR_LIGHTGREEN, "[PETSHOP] Use /petmenu.");
+					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-3870;
+                    PetData[playerid][petModelID] = 20076;
+				}
+				else SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem dinheiro o suficiente.");
+			}
+		    case 8:
+		    {
+		        if(PlayerInfo[playerid][pGrana] >= 8000)
+				{
+					PlayerInfo[playerid][pPecasMecanicas][0]++;
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[PETSHOP] Você comprou um camelo por US$8000.");
+                    SendClientMessage(playerid, COLOR_LIGHTGREEN, "[PETSHOP] Use /petmenu.");
+					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-8000;
+                    PetData[playerid][petModelID] = 20077;
+				}
+				else SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem dinheiro o suficiente.");
+			}
+		}
+	}
+	return 1;
 }
 
 Dialog:Dialog_CPlacas(playerid, response, listitem, inputtext[])

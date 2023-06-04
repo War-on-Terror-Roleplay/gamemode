@@ -3492,7 +3492,7 @@ new EmpInfo[MAX_EMPRESAS][e_Info];
 //==============================================================================
 //                      VEHICLE SYSTEM - by Yur$
 //==============================================================================
-#define MAX_CA_VEHICLES 50000
+#define MAX_CA_VEHICLES 10000
 new purchasing_vehicle[MAX_PLAYERS],
 	sync_attribs[MAX_VEHICLES],
 	sync_engine_off[MAX_VEHICLES],
@@ -5935,10 +5935,10 @@ static const g_aPreloadLibs[][] =
 
 main()
 {
-	print("\n-------------------------------------------	");
-	print("	War on Terror Roleplay							");
-	print("	por Yur$										");
-	print("----------------------------------\n				");
+	print("\n-------------------------------------------");
+	print("War on Terror Roleplay — 2023				");
+	print("Desenvolvido por Yuri Braga					");
+	print("------------------------------------------\n ");
 }
 
 public OnPlayerPause(playerid)
@@ -5979,13 +5979,13 @@ public Tempo_Clima()
 	}
 	switch(novoclima_LV)
 	{
-	    case 0: Clima_LV = 2;
+	    case 0: Clima_LV = 42;
 	    case 1: Clima_LV = 2;
-     	case 2: Clima_LV = 7;
+     	case 2: Clima_LV = 42;
    		case 3: Clima_LV = 8;
    		case 4: Clima_LV = 2;
    		case 5: Clima_LV = 2;
-   		default: Clima_LV = 2;
+   		default: Clima_LV = 42;
 	}
 	switch(novoclima_SF)
 	{
@@ -6023,10 +6023,9 @@ public OnPlayerRequestDownload(playerid, type, crc)
 public OnGameModeInit()
 {
     ShowNameTags(0);
-    print("--- Custom nametags by Yur$ ---");
-    // OnPlayerUpdate causes lag and OnPlayer(Take/Give)Damage doesn't work with it
-    SetTimer("UpdateNametag", 1000, true); // So we're using a timer, change the interval to what you want
-    //SendRconCommand("password 324rewr432er");
+    print("[CARREGADO] Custom nametags by Yur$");
+    // OnPlayerUpdate causa lag e OnPlayer(Take/Give)Damage não funciona com ele
+    SetTimer("UpdateNametag", 1000, true); // Então, estamos usando um cronômetro, altere o intervalo para o que você deseja
 	if (ambiente == 1){
 		Pipeline = mysql_connect(sz_Connection, sz_User, sz_DB, sz_Password);
 	}else{
@@ -6034,7 +6033,7 @@ public OnGameModeInit()
 	}
 
 	if(mysql_errno() != 0){
-		print("[ERRO] Falha de conexão com banco de dados!");
+		print("[ERRO] Falha de conexão com banco de dados! Verifique o mysql_log.txt");
 		GameModeExit();
 	}
 	
@@ -6507,7 +6506,7 @@ public CarregarFacs()
 	}
 	//AtualizarMembrosFacs();
 
-	printf("[CARREGADO] Total de facções: %d", totalfacs);
+	printf("[CARREGADO] Facções: %d", totalfacs);
 	return 1;
 }
 
@@ -6624,7 +6623,7 @@ public CarregarPortoes()
 			}
 		}
 	}
-	printf("[CARREGADO] Total de Portas/Portões [Fac/Casa/empresa]: %d", totalfacs);
+	printf("[CARREGADO] Total de Portas/Portões: %d", totalfacs);
 	return 1;
 }
 
@@ -6730,7 +6729,9 @@ public LoadItens()
 			}
 		}
 	}
-	printf("[CARREGADO] Itens no Servidor: %d | Itens no Chão: %d | Itens na Pos 0: %d",totalitens, totalitensChao, ItemNaPos0);
+	printf("[CARREGADO] Itens no Servidor: %d", totalitens);
+	printf("[CARREGADO] Itens no Chão: %d ", totalitensChao);
+	printf("[CARREGADO] Itens na Pos 0: %d", ItemNaPos0);
 	return 1;
 }
 
@@ -6802,7 +6803,7 @@ public LoadAmmos()
 			}
 		}
 	}
-	printf("[CARREGADO] Cartuchos no chão do Servidor: %d ", totalarmasChao);
+	printf("[CARREGADO] Munições no chão do Servidor: %d ", totalarmasChao);
 	return 1;
 }
 
@@ -6900,7 +6901,8 @@ public LoadDrugs()
 			}
 		}
 	}
-	printf("[CARREGADO] Drogas no chão do Servidor: %d | Drogas na Pos 0: %d",totalarmas, ArmasNaPos0);
+	printf("[CARREGADO] Drogas no chão do Servidor: %d",totalarmas);
+	printf("[CARREGADO] Drogas na Pos 0: %d", ArmasNaPos0);
 	return 1;
 }
 
@@ -6966,7 +6968,9 @@ public LoadArmas()
 			}
 		}
 	}
-	printf("[CARREGADO] Armas no Servidor: %d | Armas no Chão: %d | Armas na Pos 0: %d",totalarmas, totalarmasChao, ArmasNaPos0);
+	printf("[CARREGADO] Armas no Servidor: %d", totalarmas);
+	printf("[CARREGADO] Armas no Chão: %d", totalarmasChao);
+	printf("[CARREGADO] Armas na Pos 0: %d", ArmasNaPos0);
 	return 1;
 }
 
@@ -7466,7 +7470,6 @@ public ResultadoBicho(playerid)
 	SendClientMessage(playerid, COLOR_LIGHTRED, Msg);
 	format(Msg, sizeof(Msg), "[Jogo Do Bicho] {ffffff}Animal: %s (Grupo %d) - Dezena %d!", TabelaBichos[animal][Bicho], animal, resultado_dez);
 	SendClientMessage(playerid, COLOR_LIGHTRED, Msg);
-	printf("Número: %d%d | Animal: %s (dezena %d)", resultado_mil, resultado_dez, TabelaBichos[animal][Bicho], resultado_dez);
 	for(new i;i < sizeof(Apostadores);i++) 
 	{
 		if(Apostadores[i][Animal] == animal) 
@@ -8259,7 +8262,7 @@ public Timer_Minutos()
 	//Leasing System
 	if((hour == 21 && mins == 00) && !strcmp(GetWeekDay(), "Domingo", false))
 	{
-	        print("|- Cobrando Leasing das empresas -|");
+	        print("[LEASING] Cobrando Leasing das empresas");
 			for(new i; i < MAX_EMPRESAS; i++)
 		    {
 		        if(EmpInfo[i][eCriada]){
@@ -8268,7 +8271,7 @@ public Timer_Minutos()
 				            EmpInfo[i][eBank] -= EmpInfo[i][eLeasing];
 				        }
 				        else {
-				            printf("|- Empresa: [%d] %s - Vendida por falta de dinheiro no cofre. -|", EmpInfo[i][eID], EmpInfo[i][eNome]);
+				            printf("[LEASING] Empresa: [ID %d] %s - Vendida por falta de dinheiro no cofre.", EmpInfo[i][eID], EmpInfo[i][eNome]);
 
 							EmpInfo[i][eDono] = 0;
 							EmpInfo[i][eAVenda] = 1;
@@ -8294,12 +8297,12 @@ public Timer_Minutos()
 forward FecharServidor();
 public FecharServidor(){
     new panels, doors, lights, tires;
-    print("  |--  Desligando Servidor --|");
+    print("[INFO-SERVER] Desligando servidor!");
 
 	for( new i; i < MAX_PORTOES; i++)
 		if(PortaoInfo[i][ptCriado] != 0) SalvarPortao(i);
 
-	print("  |--  Portões Salvos --|");
+	print("[INFO-SERVER] Portões salvos");
     if (IsValidObject(LSApartments1Object)) DestroyObject(LSApartments1Object);
 	if (IsValidObject(LSApartments1CPObject)) DestroyObject(LSApartments1CPObject);
     for(new i=0; i<GetVehiclePoolSize(); i++)
@@ -8321,7 +8324,7 @@ public FecharServidor(){
     Elevator_Destroy2();
     Elevator_Destroy3();
     DestroyAllDynamicObjects();
-    print("  |--  Objetos Dynamics destruidos --|");
+    print("[INFO-SERVER] Objetos dynamics destruidos");
     SaveVehicles();
     SalvarCasas();
     SalvarGoverno();
@@ -8334,7 +8337,7 @@ public FecharServidor(){
 	Horse_OnGameModeExit();
 
 	//==========================================================================
-   	print("  |--  Servidor desligado com sucesso --|");
+   	print("[INFO-SERVER] Servidor desligado com sucesso");
 
    	SetTimer("FecharServidor1", 100, 0);
 	return 1;
@@ -10518,7 +10521,7 @@ stock CriarTraficantes(playerid, tipo)
 
 			if(tipo == 1){
 				MenuCompraArma(playerid, 1);
-				print("Chegou 1");
+				print("[NPC-ARMAS] Chegou ao destino.");
 			}
 			else if(tipo == 2)
 			{
@@ -19959,7 +19962,7 @@ forward CreateUser(playerid);
 public CreateUser(playerid)
 {
     PlayerInfo[playerid][pID] = cache_insert_id();
-    printf("[NEW] Novo player registrado: %s (%d) | DB ID: %d", PlayerName(playerid,0), playerid, PlayerInfo[playerid][pID]);
+    printf("[SERVER-INFO] Novo jogador foi registrado como: %s (%d) | DB ID: %d", PlayerName(playerid,0), playerid, PlayerInfo[playerid][pID]);
 
 	new strl[126];
 	format(strl, sizeof(strl), "%s registrou-se no servidor. [DB: %d]", PlayerName(playerid,0), PlayerInfo[playerid][pID]);
@@ -20546,7 +20549,7 @@ Terminar_Compra(playerid,vehicle_model, price, parafac)
 							VehicleInfo[slot][vHealth],
 							VehicleInfo[slot][vFaction],
 							VehicleInfo[slot][vPlate]);
-							printf("Query: %s", str);
+							printf("[CONCE] Query: %s", str);
 							mysql_function_query(Pipeline, str, true, "QUERY_PURCHASE_VEHICLE", "d", playerid);
 						}
 							else return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem todo este dinheiro.");
@@ -21262,7 +21265,7 @@ public SalvarPlayer(playerid)
 
 		TempoParaSalvar[playerid] = 0;
   		SalvandoConta[playerid] = 0;
-  		printf("Jogador %s - Personagem salvo com sucesso.", GetName(playerid));
+  		printf("[SAVE-PJ] Jogador %s - Personagem salvo com sucesso.", GetName(playerid));
 	}
 	else {
 
@@ -32545,7 +32548,7 @@ Dialog:Dialog_MDC(playerid, response, listitem, inputtext[])
 				    VendoMDCP[playerid][i] = -1;
 				}
 			    new LinhaAtt[126], Linha1[1024], vname[64], count = 0;
-				print("ok1");
+				print("[MDC-DEBUG] Ok!");
 			    for(new cc = 0; cc < MAX_CA_VEHICLES; cc++)
 				{
 					if(VehicleInfo[cc][vVehicle] != -1)
@@ -39031,9 +39034,9 @@ COMMAND:reportar(playerid, params[])
 	if(sscanf(params, "ds[128]", targetid, text)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /reportar [Playerid/Mascarada ID] [Texto]");
 	else
 	{
-        format(string, sizeof(string), "[REPORT: %d]{B1C8FB} %s (%d) reportou o jogador %s(id: %d), %s.", playerid, PlayerName(playerid, 0), playerid, PlayerName(targetid, 0), targetid, text);
+        format(string, sizeof(string), "[REPORT %d]{B1C8FB} %s (%d) reportou o jogador %s(id: %d), %s.", playerid, PlayerName(playerid, 0), playerid, PlayerName(targetid, 0), targetid, text);
 	    SendAdminAndRegMessage(COLOR_LIGHTRED,string);
-		SendClientMessage(playerid, COLOR_LIGHTGREEN,"Seu pedido de ajuda foi enviado para todos Admins/Testers online.");
+		SendClientMessage(playerid, COLOR_LIGHTGREEN,"Seu pedido de ajuda foi enviado para todos Administradores/Testers online.");
 		SetPVarInt(playerid, "HelpMe", gettime()+180);
 	}
 	return 1;
@@ -39057,15 +39060,15 @@ COMMAND:sos(playerid, params[])
             	found++;
         }
         if(found == 0) {
-            format(string, sizeof(string), "[SOS: %d]{B1C8FB} %s (%d): %s.", playerid, PlayerName(playerid, 0), playerid, text);
+            format(string, sizeof(string), "[SOS %d]{B1C8FB} %s (%d): %s.", playerid, PlayerName(playerid, 0), playerid, text);
 		    SendAdminAndRegMessage(COLOR_LIGHTRED,string);
-		    SendClientMessage(playerid, COLOR_LIGHTGREEN,"Seu pedido de ajuda foi enviado para todos Admins/Testers online.");
+		    SendClientMessage(playerid, COLOR_LIGHTGREEN,"Seu pedido de ajuda foi enviado para todos Administradores/Testers online.");
 		    SetPVarInt(playerid, "HelpMe", gettime()+180);
 			return 1;
         }
-        format(string, sizeof(string), "[SOS: %d]{B1C8FB} %s (%d): %s.", playerid, PlayerName(playerid, 0), playerid, text);
+        format(string, sizeof(string), "[SOS %d]{B1C8FB} %s (%d): %s.", playerid, PlayerName(playerid, 0), playerid, text);
 	    SendAdminAndRegMessage(COLOR_LIGHTRED,string);
-		SendClientMessage(playerid, COLOR_LIGHTGREEN,"Seu pedido de ajuda foi enviado para todos Admins/Testers online.");
+		SendClientMessage(playerid, COLOR_LIGHTGREEN,"Seu pedido de ajuda foi enviado para todos Administradores/Testers online.");
 		SetPVarInt(playerid, "HelpMe", gettime()+180);
 	}
 
@@ -42192,7 +42195,7 @@ COMMAND:aceitarajuda(playerid, params[])
 	    if(GetPVarInt(targetid, "HelpMe") == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O tempo de resposta deste pedido já se esgotou.");
 		if(PlayerInfo[playerid][pTester] >= 1)
 		{
-      		format(string, sizeof(string), "[SOS/REPORT: %d] O Tester %s aceitou o pedido de ajuda de %s.", targetid, PlayerName(playerid, 0), PlayerName(targetid, 0));
+      		format(string, sizeof(string), "[SOS/REPORT %d] O Tester %s aceitou o pedido de ajuda de %s.", targetid, PlayerName(playerid, 0), PlayerName(targetid, 0));
       		SendAdminAndRegMessage(COLOR_ORANGE,string);
 
       		format(string, sizeof(string), "O Tester %s aceitou seu pedido de ajuda.", PlayerName(playerid, 0));
@@ -42207,7 +42210,7 @@ COMMAND:aceitarajuda(playerid, params[])
 			if(PlayerInfo[playerid][pAdmin] > 3001) format(admnome, sizeof(admnome), "%s", PlayerInfo[playerid][pNomeOOC]);
 			else format(admnome, sizeof(admnome), "%s", PlayerName(playerid, 0));
 
-      		format(string, sizeof(string), "[SOS/REPORT: %d] O Administrador %s aceitou o pedido de ajuda de %s.", targetid, admnome, PlayerName(targetid, 0));
+      		format(string, sizeof(string), "[SOS/REPORT %d] O Administrador %s aceitou o pedido de ajuda de %s.", targetid, admnome, PlayerName(targetid, 0));
       		SendAdminAndRegMessage(COLOR_ORANGE,string);
 
       		format(string, sizeof(string), "O Administrador %s aceitou seu pedido de ajuda.", admnome);
@@ -42237,7 +42240,7 @@ COMMAND:rejeitarajuda(playerid, params[])
 			if(PlayerInfo[playerid][pAdmin] > 3001) format(admnome, sizeof(admnome), "%s", PlayerInfo[playerid][pNomeOOC]);
 			else format(admnome, sizeof(admnome), "%s", PlayerName(playerid, 0));
 
-            format(string, sizeof(string), "[SOS/REPORT: %d] {FA6900}O Admin/Tester %s rejeitou o pedido de ajuda de %s.", targetid, admnome, PlayerName(targetid, 0));
+            format(string, sizeof(string), "[SOS/REPORT %d] {FA6900}O Admin/Tester %s rejeitou o pedido de ajuda de %s.", targetid, admnome, PlayerName(targetid, 0));
       		SendAdminAndRegMessage(COLOR_ORANGE,string);
 
       		format(string, sizeof(string), "O Tester/Admin %s rejeitou o seu pedido de ajuda.", admnome);
@@ -42612,6 +42615,7 @@ COMMAND:finalizartratamento(playerid, params[])
 	}
 	return 1;
 }
+ALTCOMMAND:bandagem->kitmedico;
 COMMAND:kitmedico(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
@@ -42629,13 +42633,13 @@ COMMAND:kitmedico(playerid, params[])
 		{
   			if(GetDistanceBetweenPlayers(playerid,targetid) <= 5.0)
 	    	{
-		    	format(string, sizeof(string), "* %s utiliza seu kit médico em %s.", PlayerName(playerid,1), PlayerName(targetid,1));
+		    	format(string, sizeof(string), "* %s pega sua bag de primeiro socorros, abre e retira sua bandagem, em seguida utiliza em %s.", PlayerName(playerid,1), PlayerName(targetid,1));
        			ProxDetector(20.0, playerid, string,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
 
 				if(PlayerInfo[targetid][pTomouAlgumTiro] > 0)
 				{
        				SendClientMessage(playerid, COLOR_LIGHTRED, "INFO: Este jogador levou algum tiro e precisa ser internado, caso contrário ele morrerá sangrando.");
-       				SendClientMessage(targetid, COLOR_LIGHTRED, "((Um médico lhe reviveu, porém você precisa ser internado para curar seus ferimentos a bala, caso contrário você morrerá sangrando.))");
+       				SendClientMessage(targetid, COLOR_LIGHTRED, "((Um operador médico lhe reviveu, porém você precisa ser internado para curar seus ferimentos a bala, caso contrário você morrerá sangrando.))");
 				}
 				else
 				{
@@ -42644,8 +42648,8 @@ COMMAND:kitmedico(playerid, params[])
 				PlayerInfo[playerid][pKitMedico] = PlayerInfo[playerid][pKitMedico]-1;
     		    PlayerInfo[targetid][pMorto] = 0;
 				TogglePlayerControllable(targetid,true);
-    			SetPlayerHealth(targetid, 150);
-				P_Health[targetid] = 150;
+    			SetPlayerHealth(targetid, 20);
+				P_Health[targetid] = 20;
 				God_Aviso2[targetid] = 0;
 				God_VidaAnterior2[targetid] = 50;
  		    	PlayerPlaySound(targetid,1150, 0.0, 0.0, 0.0);
@@ -42660,7 +42664,6 @@ COMMAND:kitmedico(playerid, params[])
 	}
 	return 1;
 }
-
 
 ALTCOMMAND:desf->desfibrilador;
 COMMAND:desfibrilador(playerid, params[])
@@ -45561,7 +45564,7 @@ public CarregandoGoverno()
 	printf("[CARREGADO] Cofre do governo: US$%d", GovInfo[gCofres]);
 
 
-	print("SERVER: Carregado com sucesso!");
+	print("[SERVER-INFO] Carregado com sucesso!");
 	return 1;
 }
 //============================================================================================================//
@@ -50112,8 +50115,6 @@ public ComprandoItemSQL(playerid, itemid, index, bone, itipo)
 			new str2[520];
     		format(str2,sizeof(str2),"INSERT INTO itens (iObj) VALUES ('%d')", ItemInfo[ItemEncontrado][iObj]);
     		mysql_function_query(Pipeline, str2, true, "ItemCompradoComSucesso", "dddd",playerid,itemid,index,index);
-    		//printf("SetPlayerAttachedObject(playerid %d, itemid %d, slot %d, tipo %d);", playerid,itemid,slot,tipo);
-    		//printf("Criado 2");
 		}
 		else
 		{
@@ -50310,7 +50311,6 @@ Dialog:DIALOG_ITENS2(playerid, response, listitem, inputtext[])
 					if(ItemInfo[ItemID][iBone] == 0) ItemInfo[ItemID][iBone] = 1;
                     ItemInfo[ItemID][iUsando] = 1;
 					SetPlayerAttachedObject(playerid, slot, ItemInfo[ItemID][iObj], ItemInfo[ItemID][iBone], ItemInfo[ItemID][iX], ItemInfo[ItemID][iY], ItemInfo[ItemID][iZ], ItemInfo[ItemID][iRX], ItemInfo[ItemID][iRY], ItemInfo[ItemID][iRZ], ItemInfo[ItemID][iSX], ItemInfo[ItemID][iSY], ItemInfo[ItemID][iSZ]);
-					//printf("playerid, %d, %d, %d, %f, %f, %f, %f, %f, %f, %f, %f, %f", slot, ItemInfo[ItemID][iObj], bone, ItemInfo[ItemID][iX], ItemInfo[ItemID][iY], ItemInfo[ItemID][iZ], ItemInfo[ItemID][iRX], ItemInfo[ItemID][iRY], ItemInfo[ItemID][iRZ], ItemInfo[ItemID][iSX], ItemInfo[ItemID][iSY], ItemInfo[ItemID][iSZ]);
 					SalvarItem(ItemID);
 				}
 				else // Retirar
@@ -56706,7 +56706,7 @@ public SaveVehicles()
 
 		SaveVehicle(i);
 	}
-	print("[SALVADO] Todos os veículos foram salvos.");
+	print("[SERVER-SALVANDO] Todos os veículos foram salvos.");
 	return 1;
 }
 
@@ -56718,7 +56718,7 @@ public SalvarCasas()
 	    if(HouseInfo[i][hCriada] > 0)
             SalvarCasa(i);
 	}
-	print("[SALVADO] Todas as casas foram salvas.");
+	print("[SERVER-SALVANDO] Todas as casas foram salvas.");
 	return 1;
 }
 
@@ -72931,7 +72931,6 @@ public ProxDetectorS(Float:radi, playerid, targetid)
 		tempposy = (oldposy -posy);
 		tempposz = (oldposz -posz);
 		new Float:radiz = 3.0;
-		//printf("DEBUG: X:%f Y:%f Z:%f",posx,posy,posz);
 		if (((tempposx < radi) && (tempposx > -radi)) && ((tempposy < radi) && (tempposy > -radi)) && ((tempposz < radiz) && (tempposz > -radiz)))
 		{
 		    if(GetPlayerVirtualWorld(playerid) == GetPlayerVirtualWorld(targetid))
@@ -75212,7 +75211,6 @@ stock ViewFactions(playerid)
 	{
 	    new i = ordem;
 	    if(FacInfo[i][fCriada] == 1 && FacInfo[i][fID] > 0){
-			//printf("%i\t%s\t{008C00}%i{FFFFFF}/%d\n", i, FacInfo[i][fNome], counter, FacInfo[i][fMembros]);
 		    VendoTPDA[playerid][count_list] = i;
 		    counter = 0;
 		    counter2 = 0;
@@ -75696,7 +75694,7 @@ public OnPlayerCheckIP(playerid, response_code, data[])
         }
         return 1;
     } else {
-        printf("ERRO NO CheckIP: %d, %s", response_code, data);
+        printf("[ERRO] CHECK-IP COM FALHA! Code: %d, Data: %s", response_code, data);
     }
     return 0;
 }
@@ -76339,7 +76337,7 @@ public OnPlayerClickTextDraw(playerid, Text:clickedid)
 			}
 			new parafac = 0;
 			if (ComprandoCarro[playerid][3] == MODEL_SELECTION_CONCE_5) parafac = 1;
-			printf("parafac: %d", parafac);
+			printf("Comprando carro parafac: %d", parafac);
 			Terminar_Compra(playerid, ComprandoCarro[playerid][0], ComprandoCarro[playerid][1], parafac);
 		}
 	}
@@ -79025,7 +79023,7 @@ stock MenuCompraArma(playerid, pag)
 {
 	if(pag == 1)
 	{
-		print("Chegou arma");
+		print("[NPC-ARMA] Chegou a arma.");
 	    new traficid = OutrasInfos[playerid][oTraficanteID];
 
 	    new stringw[526], _string[126];
@@ -79046,7 +79044,7 @@ stock MenuCompraArma(playerid, pag)
 			}
 		    strcat(stringw, _string);
 	    }
-		print("Chegou droga");
+		print("[NPC-DROGAS] Chegou a droga.");
 	    format(_string, sizeof(_string), "\nCancelar Pedido\n\n---------------------\nValor: US$%d", TraficInfo[traficid][traPedPrec]);
 	    strcat(stringw, _string);
 	    Dialog_Show(playerid, DIALOG_VPEDIDO, DIALOG_STYLE_TABLIST_HEADERS, "Seu Pedido", stringw, "Selecionar", "Finalizar Pedido");

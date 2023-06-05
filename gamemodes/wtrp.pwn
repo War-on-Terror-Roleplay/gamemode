@@ -12015,7 +12015,7 @@ public OnPlayerConnect(playerid)
 
 	PlayerInfo[playerid][pLogado] = 0;
 	//SetPlayerColor(playerid, 0xFFFFFFFF);
-	SetPlayerColor(playerid, 0x0000001D); original
+	SetPlayerColor(playerid, 0x0000001D); 
 
 	new query[256], name[MAX_PLAYER_NAME];
 	TogglePlayerSpectating(playerid, 1);

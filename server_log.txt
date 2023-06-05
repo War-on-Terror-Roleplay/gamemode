@@ -5900,3 +5900,99 @@ the <a href="mailto:postmaster@localhost">webmaster</a>.
 [23:38:39] 
 [23:39:44] [SAVE-PJ] Jogador Mac_Miller - Personagem salvo com sucesso.
 [23:39:50] [chat] [Mac_Miller]: s
+[23:44:01] [chat] [Mac_Miller]: kkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+[23:44:02] [chat] [Mac_Miller]: mentira
+[23:44:56] [chat] [Yuri_Braga]: mouse
+[23:45:24] [chat] [Yuri_Braga]: eh imprenssao
+[23:45:26] [chat] [Yuri_Braga]: dropei
+[23:45:58] sscanf warning: Format specifier does not match parameter count.
+[23:46:11] [chat] [Mac_Miller]:  
+[23:46:14] [chat] [Yuri_Braga]: costa
+[23:47:51] [kill] Gabriel_Monteiro killed Mac_Miller 
+[23:47:51] [Nex-AC debug] AC health: 20, health: 100
+[23:47:51] [Nex-AC] Suspeita no ID 2. Código de motivo: 012
+[23:47:52] 
+[23:47:52] [SAVE-PJ] Jogador Mac_Miller - Personagem salvo com sucesso.
+[23:47:52] [part] Mac_Miller has left the server (2:2)
+[23:48:40] [connection] incoming connection: 25.5.168.18:65331 id: 2
+[23:48:40] localhost/api-ip2.php?ip=25.5.168.18
+[23:48:40] [ERRO] CHECK-IP COM FALHA! Code: 404, Data: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Object not found!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Object not found!</h1>
+<p>
+
+
+    The requested URL was not found on this server.
+
+  
+
+    The link on the
+    <a href="http://sa-mp.com">referring
+    page</a> seems to be wrong or outdated. Please inform the author of
+    <a href="http://sa-mp.com">that page</a>
+    about the error.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:postmaster@localhost">webmaster</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.38 (Win64) OpenSSL/1.0.2q PHP/5.6.40</span>
+</address>
+</body>
+</html>
+
+
+[23:48:41] [join] Mac_Miller has joined the server (2:25.5.168.18)
+[23:49:32] [chat] [Yuri_Braga]: 10 flexoes pq vc morreu
+[23:49:53] [chat] [Yuri_Braga]: to com anim de flexão
+[23:49:53] [chat] [Yuri_Braga]: pqp
+[23:49:57] [chat] [Yuri_Braga]: lindo dms
+[23:50:10] [chat] [Mac_Miller]: efeito do crack
+[23:50:13] [chat] [Yuri_Braga]: s
+[23:51:24] [chat] [Yuri_Braga]: o n
+[23:52:26] [chat] [Mac_Miller]: onde
+[23:53:58] [chat] [Mac_Miller]: macaco
+[23:54:46] [SAVE-PJ] Jogador Gabriel_Monteiro - Personagem salvo com sucesso.
+[23:54:53] [chat] [Mac_Miller]: so crime d guerra
+[23:54:57] [chat] [Mac_Miller]: so crime d guerra
+[23:55:33] [chat] [Yuri_Braga]: atira agr
+[23:55:36] [chat] [Yuri_Braga]: demonio
+[23:55:44] [chat] [Mac_Miller]: preso
+[23:55:50] [SAVE-PJ] Jogador Yuri_Braga - Personagem salvo com sucesso.
+[23:55:50] 
+[23:56:07] [kill] Yuri_Braga killed Mac_Miller 
+[23:56:08] [death] Mac_Miller died 255
+[23:56:11] [Nex-AC debug] ID 2 usando NOP SpawnPlayer
+[23:56:11] [Nex-AC debug] acSet[6]: 5
+[23:56:11] [Nex-AC] Suspeita no ID 2. Código de motivo: 052 (7)
+[23:56:11] 
+[23:56:11] [SAVE-PJ] Jogador Mac_Miller - Personagem salvo com sucesso.
+[23:56:11] [part] Mac_Miller has left the server (2:2)
+[23:56:21] 
+[23:56:21] [SAVE-PJ] Jogador Yuri_Braga - Personagem salvo com sucesso.
+[23:56:21] [part] Yuri_Braga has left the server (0:1)
+[23:56:49] 
+[23:56:49] [SAVE-PJ] Jogador Gabriel_Monteiro - Personagem salvo com sucesso.
+[23:56:49] [part] Gabriel_Monteiro has left the server (1:1)

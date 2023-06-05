@@ -289,7 +289,7 @@ static bool:ac_ACAllow[] =
 	true,	//46 Anti-Attached object crasher
 	true,	//47 Anti-Weapon Crasher
 
-	false,	//48 Protection from connection flood in one slot
+	true,	//48 Protection from connection flood in one slot
 	true,	//49 Anti-callback functions flood
 	true,	//50 Anti-flood by seat changing
 
@@ -316,7 +316,7 @@ bool:ac_NOPAllow[] =
 
 static const ac_Mtfc[][] =
 {
-	{120, 8},	//0 OnDialogResponse
+	{120, 8},	//0 OlnDialogResponse
 	{800, 2},	//1 OnEnterExitModShop
 	{250, 8},	//2 OnPlayerClickMap
 	{400, 5},	//3 OnPlayerClickPlayer
@@ -329,7 +329,7 @@ static const ac_Mtfc[][] =
 	{120, 8},	//10 OnPlayerSelectedMenuRow
 	{600, 8},	//11 OnPlayerStateChange
 	{450, 2},	//12 OnVehicleMod
-	{450, 2},	//13 OnVehiclePaintjob
+	{450, 2},	//13 OnVehicePaintjob
 	{450, 2},	//14 OnVehicleRespray
 	{300, 1},	//15 OnVehicleDeath
 	{450, 8},	//16 OnPlayerText

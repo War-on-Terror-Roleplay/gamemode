@@ -2549,3 +2549,3354 @@ v0.3.DL-R1, (C)2005-2018 SA-MP Team
 [23:40:36] [part] Yuri_Braga has left the server (0:1)
 [23:40:37] [ERROR]: ID: 1054 - Error: Unknown column 'MunBzk' in 'field list' - Callback:  - Query: UPDATE `accounts` SET `Mun9mm`='0', `Bomba`='0', `C4`='0', `TNT`='5', `Mun556`='4166', `MunBzk`='0', `MunCart`='0', `Mun127`='83', `pSlot1`='0', `pSlot2`='0', `pSlot3`='0', `pSlot4`='0', `pSlot5`='0', `pSlot1a`='0', `pSlot2a`='0', `pSlot3a`='0', `pSlot4a`='0', `pSlot5a`='0', `FacCargo`='12', `pEmServico`='0', `pBanAll`='0', `pBanido`='0', `pWalkStyle`='8', `pDoador`='3' WHERE `ID` = '1' - Connection: 1
 [23:40:37] [ERROR]: ID: 1054 - Error: Unknown column 'pArmBzk' in 'field list' - Callback:  - Query: UPDATE `accounts` SET `pArm9mm` = '0', `pArm556` = '0', `pArmBzk` = '0', `pArmCart` = '0', `pArm127` = '0', `pPrisao` = '0', `pTemPreso` = '0', `pTester` = '0', `pAceitoSos` = '0', `pNomeOOC` = 'YurS', `pSalarios` = '0' WHERE `ID` = '1' - Connection: 1
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[22:37:42] password = ""  (string)
+[22:37:42] filterscripts = ""  (string)
+[22:37:42] artpath = "models"  (string)
+[22:37:42] 
+[22:37:42] Server Plugins
+[22:37:42] --------------
+[22:37:42]  Loading plugin: nativechecker
+[22:37:42]   Loaded.
+[22:37:42]  Loading plugin: mysql
+[22:37:42]  >> plugin.mysql: R39-5 successfully loaded.
+[22:37:42]   Loaded.
+[22:37:42]  Loading plugin: streamer
+[22:37:42] 
+
+*** Streamer Plugin v2.9.2 by Incognito loaded ***
+
+[22:37:42]   Loaded.
+[22:37:42]  Loading plugin: sscanf
+[22:37:42] 
+
+[22:37:42]  ===============================
+
+[22:37:42]       sscanf plugin loaded.     
+
+[22:37:42]          Version:  2.8.1        
+
+[22:37:42]    (c) 2012 Alex "Y_Less" Cole  
+
+[22:37:42]  ===============================
+
+[22:37:42]   Loaded.
+[22:37:42]  Loading plugin: Whirlpool
+[22:37:42]  
+[22:37:42]  ==================
+[22:37:42]  
+[22:37:42]   Whirlpool loaded
+[22:37:42]  
+[22:37:42]  ==================
+[22:37:42]  
+[22:37:42]   Loaded.
+[22:37:42]  Loading plugin: mapandreas
+[22:37:42]   Loaded.
+[22:37:42]  Loading plugin: ColAndreas
+[22:37:42] *********************
+[22:37:42] ** Created By:     **
+[22:37:42] ** [uL]Chris42O    **
+[22:37:42] ** [uL]Slice       **
+[22:37:42] ** [uL]Pottus      **
+[22:37:42] *********************
+[22:37:42] No collision data found.
+[22:37:42] *********************
+[22:37:42]   ColAndreas Loaded
+[22:37:42]    v1.4.0
+[22:37:42] *********************
+[22:37:42]   Loaded.
+[22:37:42]  Loading plugin: dns
+[22:37:42] 
+
+*** DNS Plugin v2.4 by Incognito loaded ***
+
+[22:37:42]   Loaded.
+[22:37:42]  Loading plugin: YSF_DL
+[22:37:42] 
+[22:37:42]  ==============================================
+[22:37:42]  YSF 2.2 (compiled Sep 19 2021 13:02:34) loaded
+[22:37:42]   (c) 2008 Alex "Y_Less" Cole
+[22:37:42]   (c) 2010 - 2018 kurta999
+[22:37:42]   (c) 2018 - 2020 IllidanS4
+[22:37:42]  Server version: 0.3.DL R1, Windows
+[22:37:42]  ==============================================
+[22:37:42] 
+[22:37:42]   Loaded.
+[22:37:42]  Loaded 9 plugins.
+
+[22:37:42] [artwork:crc] taliba/taliba.dff CRC = 0x59945A80
+[22:37:42] [artwork:crc] taliba/taliba.txd CRC = 0x6355B6A
+[22:37:42] [artwork:crc] taliba/taliba2.dff CRC = 0xBB63B464
+[22:37:42] [artwork:crc] taliba/taliba2.txd CRC = 0x90B27E6E
+[22:37:42] [artwork:crc] taliba/taliba3.dff CRC = 0xE2E733E8
+[22:37:42] [artwork:crc] taliba/taliba3.txd CRC = 0xBC08005E
+[22:37:42] [artwork:crc] taliba/taliba4.dff CRC = 0x6828674B
+[22:37:42] [artwork:crc] taliba/taliba4.txd CRC = 0xB491BD51
+[22:37:42] [artwork:crc] taliba/taliba5.dff CRC = 0xDF6EC86
+[22:37:42] [artwork:crc] taliba/taliba5.txd CRC = 0x68893977
+[22:37:42] [artwork:crc] taliba/taliba6.dff CRC = 0xC47278F3
+[22:37:42] [artwork:crc] taliba/taliba6.txd CRC = 0x8C65BC30
+[22:37:42] [artwork:crc] taliba/taliba7.dff CRC = 0x21ED392D
+[22:37:42] [artwork:crc] taliba/taliba7.txd CRC = 0x3C5B484E
+[22:37:42] [artwork:crc] taliba/taliba8.dff CRC = 0x4C679CBE
+[22:37:42] [artwork:crc] taliba/taliba8.txd CRC = 0x23FF2285
+[22:37:42] [artwork:crc] taliba/taliba9.dff CRC = 0xDD1F6BE8
+[22:37:42] [artwork:crc] taliba/taliba9.txd CRC = 0x3724AA26
+[22:37:42] [artwork:crc] taliba/taliba10.dff CRC = 0x134E2005
+[22:37:42] [artwork:crc] taliba/taliba10.txd CRC = 0xD51A0FF9
+[22:37:42] [artwork:crc] taliba/taliba11.dff CRC = 0x448A080D
+[22:37:42] [artwork:crc] taliba/taliba11.txd CRC = 0x62CFAC9F
+[22:37:42] [artwork:crc] taliba/taliba12.dff CRC = 0xE56251EE
+[22:37:42] [artwork:crc] taliba/taliba12.txd CRC = 0xFDE64604
+[22:37:42] [artwork:crc] taliba/taliba13.dff CRC = 0x8299D6CC
+[22:37:42] [artwork:crc] taliba/taliba13.txd CRC = 0x85A9998
+[22:37:42] [artwork:crc] taliba/taliba14.dff CRC = 0xB115C3F1
+[22:37:42] [artwork:crc] taliba/taliba14.txd CRC = 0x8D57DED8
+[22:37:42] [artwork:crc] taliba/taliba15.dff CRC = 0x1D04FA75
+[22:37:42] [artwork:crc] taliba/taliba15.txd CRC = 0xDECA406A
+[22:37:42] [artwork:crc] pmc/pmc1.dff CRC = 0x2DD4CA47
+[22:37:42] [artwork:crc] pmc/pmc1.txd CRC = 0xE07D9D46
+[22:37:42] [artwork:crc] pmc/pmc2.dff CRC = 0x4B9C0356
+[22:37:42] [artwork:crc] pmc/pmc2.txd CRC = 0xED3AB6A4
+[22:37:42] [artwork:crc] pmc/pmc3.dff CRC = 0xE7046D23
+[22:37:42] [artwork:crc] pmc/pmc3.txd CRC = 0x9E046331
+[22:37:42] [artwork:crc] pmc/pmc4.dff CRC = 0x9546189A
+[22:37:42] [artwork:crc] pmc/pmc4.txd CRC = 0x399F00A3
+[22:37:42] [artwork:crc] pmc/pmc5.dff CRC = 0x493621B6
+[22:37:42] [artwork:crc] pmc/pmc5.txd CRC = 0x86A22FD
+[22:37:42] [artwork:crc] pmc/pmc6.dff CRC = 0x616A75AB
+[22:37:42] [artwork:crc] pmc/pmc6.txd CRC = 0x80654964
+[22:37:42] [artwork:crc] pmc/pmc7.dff CRC = 0x10D6EE16
+[22:37:42] [artwork:crc] pmc/pmc7.txd CRC = 0x3CCB6AA6
+[22:37:42] [artwork:crc] pmc/pmc8.dff CRC = 0xD27637A8
+[22:37:42] [artwork:crc] pmc/pmc8.txd CRC = 0x2EF7BC1
+[22:37:42] [artwork:crc] pmc/pmc9.dff CRC = 0x75507F0D
+[22:37:42] [artwork:crc] pmc/pmc9.txd CRC = 0x3A627F5F
+[22:37:42] [artwork:crc] isis/isis1.dff CRC = 0xA107A44C
+[22:37:42] [artwork:crc] isis/isis1.txd CRC = 0x8547D9E6
+[22:37:42] [artwork:crc] isis/isis2.dff CRC = 0xC029C75B
+[22:37:42] [artwork:crc] isis/isis2.txd CRC = 0x77C900E8
+[22:37:42] [artwork:crc] isis/isis3.dff CRC = 0xD5FF099B
+[22:37:42] [artwork:crc] isis/isis3.txd CRC = 0x586260F2
+[22:37:42] [artwork:crc] isis/isis4.dff CRC = 0xC029C75B
+[22:37:43] [artwork:crc] isis/isis4.txd CRC = 0x52486C98
+[22:37:43] [artwork:crc] isis/isis5.dff CRC = 0x3C88572C
+[22:37:43] [artwork:crc] isis/isis5.txd CRC = 0x686CAA15
+[22:37:43] [artwork:crc] russo/russia1.dff CRC = 0x8855C1F1
+[22:37:43] [artwork:crc] russo/russia1.txd CRC = 0xFC8E21E6
+[22:37:43] [artwork:crc] russo/russia2.dff CRC = 0xCB8A1129
+[22:37:43] [artwork:crc] russo/russia2.txd CRC = 0x83AC881E
+[22:37:43] [artwork:crc] russo/russia3.dff CRC = 0x871A42CA
+[22:37:43] [artwork:crc] russo/russia3.txd CRC = 0xC6E1DF4B
+[22:37:43] [artwork:crc] russo/russia4.dff CRC = 0xB2D466D
+[22:37:43] [artwork:crc] russo/russia4.txd CRC = 0x2F9F7341
+[22:37:43] [artwork:crc] russo/russia5.dff CRC = 0x81309CA2
+[22:37:43] [artwork:crc] russo/russia5.txd CRC = 0x3269522E
+[22:37:43] [artwork:crc] russo/russia6.dff CRC = 0x264C07E8
+[22:37:43] [artwork:crc] russo/russia6.txd CRC = 0x43734C43
+[22:37:43] [artwork:crc] russo/russia7.dff CRC = 0x415C9DE3
+[22:37:43] [artwork:crc] russo/russia7.txd CRC = 0xF1B100BB
+[22:37:43] [artwork:crc] seals/seal1.dff CRC = 0x35B276D4
+[22:37:43] [artwork:crc] seals/seal1.txd CRC = 0x9339AF93
+[22:37:43] [artwork:crc] seals/seal2.dff CRC = 0x1B7364B6
+[22:37:43] [artwork:crc] seals/seal2.txd CRC = 0xEB6C1EBB
+[22:37:43] [artwork:crc] seals/seal3.dff CRC = 0x403AD120
+[22:37:43] [artwork:crc] seals/seal3.txd CRC = 0x9B1DC1A4
+[22:37:43] [artwork:crc] seals/seal4.dff CRC = 0xF13470B5
+[22:37:43] [artwork:crc] seals/seal4.txd CRC = 0x19C7B0F0
+[22:37:43] [artwork:crc] seals/seal5.dff CRC = 0x51B5E899
+[22:37:43] [artwork:crc] seals/seal5.txd CRC = 0x5E1CD488
+[22:37:43] [artwork:crc] seals/seal6.dff CRC = 0xF9FBD5A7
+[22:37:43] [artwork:crc] seals/seal6.txd CRC = 0xB8DA2980
+[22:37:43] [artwork:crc] seals/seal7.dff CRC = 0xC12D0388
+[22:37:43] [artwork:crc] seals/seal7.txd CRC = 0x4AA35C9E
+[22:37:43] [artwork:crc] seals/seal8.dff CRC = 0xBEAF3085
+[22:37:43] [artwork:crc] seals/seal8.txd CRC = 0xA4C2C97A
+[22:37:43] [artwork:crc] seals/seal9.dff CRC = 0xAE273045
+[22:37:43] [artwork:crc] seals/seal9.txd CRC = 0x7B8EE53
+[22:37:43] [artwork:crc] seals/seal10.dff CRC = 0x43FE5B13
+[22:37:43] [artwork:crc] seals/seal10.txd CRC = 0x6C3715BD
+[22:37:43] [artwork:crc] seals/seal11.dff CRC = 0x8486662B
+[22:37:43] [artwork:crc] seals/seal11.txd CRC = 0x3F9CA9
+[22:37:43] [artwork:crc] seals/seal12.dff CRC = 0x34C39C5C
+[22:37:43] [artwork:crc] seals/seal12.txd CRC = 0xD89C2D5C
+[22:37:43] [artwork:crc] seals/seal13.dff CRC = 0xE913DA0B
+[22:37:43] [artwork:crc] seals/seal13.txd CRC = 0x369CC349
+[22:37:43] [artwork:crc] seals/seal14.dff CRC = 0x8D06D38A
+[22:37:43] [artwork:crc] seals/seal14.txd CRC = 0xF32FAC77
+[22:37:43] [artwork:crc] seals/seal15.dff CRC = 0x93FD3C0C
+[22:37:43] [artwork:crc] seals/seal15.txd CRC = 0x75D1421B
+[22:37:43] [artwork:crc] seals/seal16.dff CRC = 0xAA739E12
+[22:37:43] [artwork:crc] seals/seal16.txd CRC = 0x44283298
+[22:37:43] [artwork:crc] seals/seal17.dff CRC = 0xDED343C6
+[22:37:43] [artwork:crc] seals/seal17.txd CRC = 0xAF16CF6
+[22:37:43] [artwork:crc] dogs/pet1.dff CRC = 0x14ABDB74
+[22:37:43] [artwork:crc] dogs/pet1.txd CRC = 0xC0D15148
+[22:37:43] [artwork:crc] dogs/pet2.dff CRC = 0x871FCAB4
+[22:37:43] [artwork:crc] dogs/pet2.txd CRC = 0xF35F8D62
+[22:37:43] [artwork:crc] dogs/pet3.dff CRC = 0x223072E5
+[22:37:43] [artwork:crc] dogs/pet3.txd CRC = 0x918C9CD0
+[22:37:43] [artwork:crc] dogs/pet4.dff CRC = 0xEF44912D
+[22:37:43] [artwork:crc] dogs/pet4.txd CRC = 0xD3839FDF
+[22:37:43] [artwork:crc] dogs/pet5.dff CRC = 0x223072E5
+[22:37:43] [artwork:crc] dogs/pet5.txd CRC = 0xAECE83C9
+[22:37:43] [artwork:crc] dogs/pet6.dff CRC = 0x60C6F8E9
+[22:37:43] [artwork:crc] dogs/pet6.txd CRC = 0x8EBEA5D0
+[22:37:43] [artwork:crc] dogs/pet7.dff CRC = 0x723783B7
+[22:37:43] [artwork:crc] dogs/pet7.txd CRC = 0x33F08C5C
+[22:37:43] [artwork:crc] dogs/pet8.dff CRC = 0x0
+[22:37:43] [artwork:error] Bad file: dogs/pet8.dff
+[22:37:43] [artwork:crc] dogs/canmel.dff CRC = 0x0
+[22:37:43] [artwork:error] Bad file: dogs/canmel.dff
+[22:37:43] [artwork:crc] hud.dff CRC = 0x4BC6EDFF
+[22:37:43] [artwork:crc] hud.txd CRC = 0xC1ADFB21
+[22:37:43] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[22:37:43] [artwork:crc] tela.txd CRC = 0xED6A6238
+[22:37:43] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[22:37:43] [artwork:crc] logo.txd CRC = 0xABC0A657
+[22:37:43] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[22:37:43] [artwork:crc] logo.txd CRC = 0xABC0A657
+[22:37:43] [artwork:crc] textdraw_object.dff CRC = 0x0
+[22:37:43] [artwork:error] Bad file: textdraw_object.dff
+[22:37:43] [artwork:crc] itens/rojao.dff CRC = 0x6F72D6BB
+[22:37:43] [artwork:crc] itens/rojao.txd CRC = 0x19207CDF
+[22:37:43] [artwork:crc] itens/band.dff CRC = 0xD6FE9FF4
+[22:37:43] [artwork:crc] itens/band.txd CRC = 0x7FE6AB15
+[22:37:43] [artwork:crc] itens/cone.dff CRC = 0xF711EDD9
+[22:37:43] [artwork:crc] itens/cone.txd CRC = 0x66D2389E
+[22:37:43] [artwork:crc] itens/cavalete.dff CRC = 0x3A338AFC
+[22:37:43] [artwork:crc] itens/cavalete.txd CRC = 0x85244494
+[22:37:43] [artwork:crc] itens/faixa.dff CRC = 0x7507B9AC
+[22:37:43] [artwork:crc] itens/faixa.txd CRC = 0x8A8138C3
+[22:37:43] [artwork:crc] itens/RadioMotorola.dff CRC = 0x9AAB6A9
+[22:37:43] [artwork:crc] itens/RadioMotorola.txd CRC = 0x22353790
+[22:37:43] [artwork:crc] itens/chapeubope.dff CRC = 0xFD233655
+[22:37:43] [artwork:crc] itens/chapeubope.txd CRC = 0x68298F01
+[22:37:43] [artwork:crc] itens/boneobjeto1.dff CRC = 0xC82233C
+[22:37:43] [artwork:crc] itens/boneobjeto1.txd CRC = 0xB81E24C1
+[22:37:43] [artwork:crc] itens/boneobjeto2.dff CRC = 0xC82233C
+[22:37:43] [artwork:crc] itens/boneobjeto2.txd CRC = 0xB81E24C1
+[22:37:43] [artwork:crc] itens/boneobjeto3.dff CRC = 0xC82233C
+[22:37:43] [artwork:crc] itens/boneobjeto3.txd CRC = 0x25EC71FD
+[22:37:43] [artwork:crc] itens/boneobjeto4.dff CRC = 0xC82233C
+[22:37:43] [artwork:crc] itens/boneobjeto4.txd CRC = 0x3D3821FC
+[22:37:43] [artwork:crc] itens/coletebandido.dff CRC = 0x35333281
+[22:37:43] [artwork:crc] itens/coletebandido.txd CRC = 0x7FCB75F7
+[22:37:43] [artwork:crc] itens/mochila1.dff CRC = 0x7198BBAD
+[22:37:43] [artwork:crc] itens/mochila1.txd CRC = 0xAA488C0D
+[22:37:43] [artwork:crc] itens/mochila2.dff CRC = 0xBA43DBFB
+[22:37:43] [artwork:crc] itens/mochila2.txd CRC = 0xA55E4D43
+[22:37:43] [artwork:crc] itens/mochila3.dff CRC = 0x36D7E922
+[22:37:43] [artwork:crc] itens/mochila3.txd CRC = 0x31D6F73
+[22:37:43] [artwork:crc] itens/mochila4.dff CRC = 0x49A9723A
+[22:37:43] [artwork:crc] itens/mochila4.txd CRC = 0xB888188E
+[22:37:43] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[22:37:43] [artwork:crc] itens/helmet6.txd CRC = 0x60AE21A9
+[22:37:43] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[22:37:43] [artwork:crc] itens/helmet7.txd CRC = 0xB8E8641F
+[22:37:43] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[22:37:43] [artwork:crc] itens/helmet11.txd CRC = 0xAA929E4F
+[22:37:43] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[22:37:43] [artwork:crc] itens/helmet12.txd CRC = 0x6CA6E0F4
+[22:37:43] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[22:37:43] [artwork:crc] itens/helmet15.txd CRC = 0x7BB77D7E
+[22:37:43] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[22:37:43] [artwork:crc] itens/helmet16.txd CRC = 0x5781CAFC
+[22:37:43] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[22:37:43] [artwork:crc] itens/helmet19.txd CRC = 0x157E14B7
+[22:37:43] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[22:37:43] [artwork:crc] itens/helmet21.txd CRC = 0x53A928B0
+[22:37:43] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[22:37:43] [artwork:crc] itens/helmet24.txd CRC = 0xF1A29DA5
+[22:37:43] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[22:37:43] [artwork:crc] itens/helmet1.txd CRC = 0xFF5E6BB4
+[22:37:43] [artwork:crc] itens/ifood.dff CRC = 0xAD546C14
+[22:37:43] [artwork:crc] itens/ifood.txd CRC = 0xBED788D3
+[22:37:43] [artwork:crc] itens/ubereats.dff CRC = 0xD7C5543C
+[22:37:43] [artwork:crc] itens/ubereats.txd CRC = 0x1A9E171D
+[22:37:43] [artwork:crc] itens/bsimples.dff CRC = 0x246AB514
+[22:37:43] [artwork:crc] itens/bsimples.txd CRC = 0x9D54BD44
+[22:37:43] [artwork:crc] itens/bolsanikelateral.dff CRC = 0x82FA00BC
+[22:37:43] [artwork:crc] itens/bolsanikelateral.txd CRC = 0x9BE9FEF5
+[22:37:43] [artwork:crc] itens/PacoteMcDonalds.dff CRC = 0x7F3872D5
+[22:37:43] [artwork:crc] itens/PacoteMcDonalds.txd CRC = 0xB1587374
+[22:37:43] [artwork:crc] itens/coletemoto.dff CRC = 0xAEF7F9AB
+[22:37:43] [artwork:crc] itens/coletemoto.txd CRC = 0xCEFD3EA6
+[22:37:43] [artwork:crc] itens/barricada.dff CRC = 0xC7D7CD68
+[22:37:43] [artwork:crc] itens/barricada.txd CRC = 0x95DED922
+[22:37:43] [artwork:crc] itens_seals/bone.dff CRC = 0x98550AB1
+[22:37:43] [artwork:crc] itens_seals/bone.txd CRC = 0x233FCCF
+[22:37:43] [artwork:crc] itens_seals/capacete.dff CRC = 0xC715FAC0
+[22:37:43] [artwork:crc] itens_seals/capacete.txd CRC = 0xB1780A1A
+[22:37:43] [artwork:crc] itens_seals/capacete2.dff CRC = 0x3C0F5E9E
+[22:37:43] [artwork:crc] itens_seals/capacete2.txd CRC = 0x42DBE476
+[22:37:43] [artwork:crc] itens_seals/coleteleve.dff CRC = 0x7BA58D1D
+[22:37:43] [artwork:crc] itens_seals/coleteleve.txd CRC = 0x65C63F9C
+[22:37:43] [artwork:crc] itens_seals/coletepesado.dff CRC = 0xE9F699DF
+[22:37:43] [artwork:crc] itens_seals/coletepesado.txd CRC = 0xD3E48D2F
+[22:37:43] [artwork:crc] itens_seals/gorro.dff CRC = 0x80819053
+[22:37:43] [artwork:crc] itens_seals/gorro.txd CRC = 0xAED9F61A
+[22:37:43] [artwork:crc] itens/escudo.dff CRC = 0x434102A8
+[22:37:43] [artwork:crc] itens/escudo.txd CRC = 0xDB8AA769
+[22:37:43] [artwork:crc] itens/morteiro.dff CRC = 0x212ACFDB
+[22:37:43] [artwork:crc] itens/morteiro.txd CRC = 0xE3BEDADE
+[22:37:43] [artwork:crc] itens/munimorteiro.dff CRC = 0xF0EFD884
+[22:37:43] [artwork:crc] itens/munimorteiro.txd CRC = 0xFE95109F
+[22:37:43] [artwork:crc] itens/mina.dff CRC = 0x4A5004C4
+[22:37:43] [artwork:crc] itens/mina.txd CRC = 0xEFEA75E5
+[22:37:43] [artwork:crc] itens/maconhab.dff CRC = 0xBF46F2FF
+[22:37:43] [artwork:crc] itens/maconhab.txd CRC = 0x68419BE
+[22:37:43] [artwork:crc] itens/maconhar.dff CRC = 0xA0906971
+[22:37:43] [artwork:crc] itens/maconhar.txd CRC = 0x13A26228
+[22:37:43] [artwork:crc] itens/cocaina.dff CRC = 0x22B7B621
+[22:37:43] [artwork:crc] itens/cocaina.txd CRC = 0xF84F4DF
+[22:37:43] [artwork:crc] itens/crackr.dff CRC = 0x7260DE97
+[22:37:43] [artwork:crc] itens/crackr.txd CRC = 0xEB7DC1B6
+[22:37:43] [artwork:crc] itens/crackb.dff CRC = 0xAA6EDDA1
+[22:37:43] [artwork:crc] itens/crackb.txd CRC = 0xEB7DC1B6
+[22:37:43] [artwork:crc] itens/lsd.dff CRC = 0x6CB2980D
+[22:37:43] [artwork:crc] itens/lsd.txd CRC = 0xB190FA30
+[22:37:43] [artwork:crc] itens/lancaperfume.dff CRC = 0x8FB92930
+[22:37:43] [artwork:crc] itens/lancaperfume.txd CRC = 0x4205E4C1
+[22:37:43] [artwork:crc] itens/MesaDeDrogas.dff CRC = 0xF6C0A1DF
+[22:37:43] [artwork:crc] itens/MesaDeDrogas.txd CRC = 0x54036B75
+[22:37:43] [artwork:crc] AB/ABPart01.dff CRC = 0x662FD82C
+[22:37:43] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[22:37:43] [artwork:crc] AB/ABPart02.dff CRC = 0xC595C830
+[22:37:43] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[22:37:43] [artwork:crc] AB/ABPart03.dff CRC = 0xBE418106
+[22:37:43] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[22:37:43] [artwork:crc] AB/ABPart04.dff CRC = 0x2333EC80
+[22:37:43] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[22:37:43] [artwork:crc] AB/ABPart05.dff CRC = 0x63FAA3EB
+[22:37:43] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[22:37:43] [artwork:crc] AB/ABPart06.dff CRC = 0xC8D54C9B
+[22:37:43] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[22:37:43] [artwork:crc] AB/ABPart07.dff CRC = 0x31CFC7E6
+[22:37:43] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[22:37:43] [artwork:crc] AB/ABHouse01.dff CRC = 0x14234EEA
+[22:37:43] [artwork:crc] AB/ABHouse.txd CRC = 0x1B70AE5E
+[22:37:43] [artwork:crc] AB/ABHouse02.dff CRC = 0x50BF0743
+[22:37:43] [artwork:crc] AB/ABHouse.txd CRC = 0x1B70AE5E
+[22:37:43] [artwork:crc] AB/ABProps.dff CRC = 0x319313A
+[22:37:43] [artwork:crc] AB/ABHouse.txd CRC = 0x1B70AE5E
+[22:37:43] [artwork:crc] AB/ABVeg.dff CRC = 0x6873DFBA
+[22:37:43] [artwork:crc] AB/ABVeg.txd CRC = 0x8435FADA
+[22:37:44] [artwork:crc] AB/ABProp01.dff CRC = 0x51233E10
+[22:37:44] [artwork:crc] AB/ABProp01.txd CRC = 0x98DEDDFB
+[22:37:44] [artwork:crc] AB/ABProp02.dff CRC = 0x418A3779
+[22:37:44] [artwork:crc] AB/ABProp02.txd CRC = 0xC2E53317
+[22:37:44] [artwork:crc] AB/ABProp03.dff CRC = 0xFF96C6A5
+[22:37:44] [artwork:crc] AB/ABProp03.txd CRC = 0x3A3C8286
+[22:37:44] [artwork:crc] AB/ABProp04.dff CRC = 0x32B1EE03
+[22:37:44] [artwork:crc] AB/ABProp04.txd CRC = 0x9FEACA8C
+[22:37:44] [artwork:crc] AB/ABProp05.dff CRC = 0x6C76CBD2
+[22:37:44] [artwork:crc] AB/ABProp05.txd CRC = 0xFB0719C4
+[22:37:44] 
+[22:37:44] Filterscripts
+[22:37:44] ---------------
+[22:37:44]   Loaded 0 filterscripts.
+
+[22:37:44]    Error: Function not registered: 'SSCANF_Init'
+[22:37:44]    Error: Function not registered: 'SSCANF_IsConnected'
+[22:37:44]    Error: Function not registered: 'SSCANF_Join'
+[22:37:44]    Error: Function not registered: 'SSCANF_Leave'
+[22:37:44]    Error: Function not registered: 'IsValidDynamicObject'
+[22:37:44]    Error: Function not registered: 'DestroyDynamicObject'
+[22:37:44]    Error: Function not registered: 'CreateDynamicObject'
+[22:37:44]    Error: Function not registered: 'AttachDynamicObjectToVehicle'
+[22:37:44]    Error: Function not registered: 'CreateDynamicSphere'
+[22:37:44]    Error: Function not registered: 'CreateDynamic3DTextLabel'
+[22:37:44]    Error: Function not registered: 'Streamer_SetArrayData'
+[22:37:44]    Error: Function not registered: 'DestroyDynamicArea'
+[22:37:44]    Error: Function not registered: 'DestroyDynamic3DTextLabel'
+[22:37:44]    Error: Function not registered: 'Streamer_GetArrayData'
+[22:37:44]    Error: Function not registered: 'Streamer_Update'
+[22:37:44]    Error: Function not registered: 'Streamer_GetFloatData'
+[22:37:44]    Error: Function not registered: 'Streamer_SetIntData'
+[22:37:44]    Error: Function not registered: 'Streamer_UpdateEx'
+[22:37:44]    Error: Function not registered: 'DestroyDynamicPickup'
+[22:37:44]    Error: Function not registered: 'CreateDynamicPickup'
+[22:37:44]    Error: Function not registered: 'Streamer_GetDistanceToItem'
+[22:37:44]    Error: Function not registered: 'Streamer_GetIntData'
+[22:37:44]    Error: Function not registered: 'Streamer_GetItemStreamerID'
+[22:37:44]    Error: Function not registered: 'IsValidDynamicPickup'
+[22:37:44]    Error: Function not registered: 'sscanf'
+[22:37:44]    Error: Function not registered: 'GetDynamicObjectPos'
+[22:37:44]    Error: Function not registered: 'MoveDynamicObject'
+[22:37:44]    Error: Function not registered: 'StopDynamicObject'
+[22:37:44]    Error: Function not registered: 'SetDynamicObjectMaterial'
+[22:37:44]    Error: Function not registered: 'SetDynamicObjectMaterialText'
+[22:37:44]    Error: Function not registered: 'CreateDynamicObjectEx'
+[22:37:44]    Error: Function not registered: 'mysql_query'
+[22:37:44]    Error: Function not registered: 'cache_get_row_count'
+[22:37:44]    Error: Function not registered: 'cache_get_field_content'
+[22:37:44]    Error: Function not registered: 'IsValidDynamic3DTextLabel'
+[22:37:44]    Error: Function not registered: 'mysql_connect'
+[22:37:44]    Error: Function not registered: 'mysql_errno'
+[22:37:44]    Error: Function not registered: 'Streamer_VisibleItems'
+[22:37:44]    Error: Function not registered: 'MapAndreas_Init'
+[22:37:44]    Error: Function not registered: 'mysql_tquery'
+[22:37:44]    Error: Function not registered: 'cache_get_data'
+[22:37:44]    Error: Function not registered: 'cache_insert_id'
+[22:37:44]    Error: Function not registered: 'MapAndreas_FindAverageZ'
+[22:37:44]    Error: Function not registered: 'DestroyAllDynamicObjects'
+[22:37:44]    Error: Function not registered: 'mysql_close'
+[22:37:44]    Error: Function not registered: 'IsValidDynamicCP'
+[22:37:44]    Error: Function not registered: 'DestroyDynamicCP'
+[22:37:44]    Error: Function not registered: 'CreateDynamicCP'
+[22:37:44]    Error: Function not registered: 'mysql_escape_string'
+[22:37:44]    Error: Function not registered: 'UpdateDynamic3DTextLabelText'
+[22:37:44]    Error: Function not registered: 'Streamer_SetFloatData'
+[22:37:44]    Error: Function not registered: 'ClearDynamicActorAnimations'
+[22:37:44]    Error: Function not registered: 'MapAndreas_FindZ_For2DCoord'
+[22:37:44]    Error: Function not registered: 'EditDynamicObject'
+[22:37:44]    Error: Function not registered: 'WP_Hash'
+[22:37:44]    Error: Function not registered: 'mysql_format'
+[22:37:44]    Error: Function not registered: 'SetDynamicObjectPos'
+[22:37:44]    Error: Function not registered: 'SetDynamicObjectRot'
+[22:37:44]    Error: Function not registered: 'cache_get_field_content_int'
+[22:37:44]    Error: Function not registered: 'cache_get_field_content_float'
+[22:37:44]    Error: Function not registered: 'GetDynamicObjectRot'
+[22:37:44]    Error: Function not registered: 'Streamer_CountItems'
+[22:37:44]  
+[22:37:44]  
+[22:37:44]  
+[22:37:44]  ======================================= 
+[22:37:44]  |                                     | 
+[22:37:44]  |        YSI version 3.09.0684        | 
+[22:37:44]  |        By Alex "Y_Less" Cole        | 
+[22:37:44]  |                                     | 
+[22:37:44]  ======================================= 
+[22:37:44]  
+[22:37:44]  
+[22:37:44]  
+[22:37:45] [ADM] Info: Load EVF v3.2.1 for SA:MP 0.3.7 by Abyss Morgan
+[22:37:45]  
+[22:37:45] --------------------------------------
+[22:37:45]  Anticheat Nex-AC carregado!
+[22:37:45]  Anticheat versão: 1.9.61
+[22:37:45]  Autor: Nexius (PT-BR by NicK_)
+[22:37:45] --------------------------------------
+
+[22:37:45] [CARREGADO] Custom nametags by Yur$
+[22:37:45] |-- Corrida de Cavalos: Carregado
+[22:37:46] [CARREGADO] Mining Village
+[22:37:46] [CARREGADO] Mapa avião
+[22:37:46] [CARREGADO] Mapa: Aeroporto abandonado Village
+[22:37:46] [CARREGADO] Mapa: WH 2
+[22:37:46] [CARREGADO] Mapa: Factory int
+[22:37:46] [CARREGADO] Mapa: Ghetto droga int
+[22:37:46] [CARREGADO] Mapa: Ghetto ammo int
+[22:37:46] [CARREGADO] Mapa Ilegal gunshop int
+[22:37:46] [CARREGADO] Mapa: int lavagem de grana
+[22:37:46] [CARREGADO] Mapa: Hospital interior
+[22:37:46] [CARREGADO] Mapa: Banco interior
+[22:37:46] [LOAD] Mapa: Barzinho
+[22:37:46] [LOAD] Mapa: Barzinho 2
+[22:37:46] [LOAD] Mapa: Barzinho 3
+[22:37:46] [CARREGADO] Mapa: Fight room
+[22:37:46] [CARREGADO] Mapa: Empresa 1
+[22:37:46] [CARREGADO] Mapa: Loja de Eletronicos
+[22:37:46] [CARREGADO] Mapa: Agencia de Empregos
+[22:37:46] [CARREGADO] Mapa: Estudio
+[22:37:46] [LOAD] Mapa: Sony
+[22:37:46] [LOAD] Mapa: Caravan
+[22:37:46] [LOAD] Mapa: Interiores de Casas e Empresas vazios
+[22:37:46] [LOAD] Mapa: Apartamento 1
+[22:37:46] [LOAD] Mapa: Apartamento 2
+[22:37:46] [LOAD] Mapa: Apartamento 3
+[22:37:46] [LOAD] Mapa: DrugHouse 1
+[22:37:46] [LOAD] Mapa: WeaponHouse 1
+[22:37:46] [CARREGADO] Mapa: Complexo 1
+[22:37:46] [CARREGADO] Mapa: Complexo 2
+[22:37:46] [CARREGADO] Mapa: Complexo 3
+[22:37:46] [CARREGADO] Mapa: Complexo 4
+[22:37:46] [CARREGADO] Mapa: Complexo 5
+[22:37:46] [CARREGADO] Mapa: Complexo 7
+[22:37:46] [CARREGADO] Mapa: Complexo 8
+[22:37:46] [CARREGADO] Mapa: Complexo 9
+[22:37:46] [CARREGADO] Sistema de Grafite
+[22:37:46] 
+-------------------------------------------
+[22:37:46] War on Terror Roleplay — 2023				
+[22:37:46] Desenvolvido por Yuri Braga					
+[22:37:46] ------------------------------------------
+ 
+[22:37:46] Number of vehicle models: 5
+[22:37:46] [CARREGADO] Veiculos criados.
+[22:37:46] [CARREGADO] 0 veiculos carregados.
+[22:37:46] [CARREGADO] Casas: 0
+[22:37:46] [CARREGADO] Garagens: 0
+[22:37:46] [CARREGADO] Complexos: 0
+[22:37:46] [CARREGADO] Empresas: 0
+[22:37:46] [CARREGADO] Pontos de entrega.
+[22:37:46] [CARREGADO] FURNITURE: 0 moveis.
+[22:37:46] [CARREGADO] Armas no Servidor: 3
+[22:37:46] [CARREGADO] Armas no Chão: 0
+[22:37:46] [CARREGADO] Armas na Pos 0: 0
+[22:37:46] [CARREGADO] Facções: 7
+[22:37:46] [CARREGADO] Total de Portas/Portões: 0
+[22:37:46] [CARREGADO] Itens no Servidor: 0
+[22:37:46] [CARREGADO] Itens no Chão: 0 
+[22:37:46] [CARREGADO] Itens na Pos 0: 0
+[22:37:46] [CARREGADO] Munições no chão do Servidor: 0 
+[22:37:46] [CARREGADO] Atualmente existem 0 drogas plantadas por SA.
+[22:37:46] [CARREGADO] Drogas no chão do Servidor: 0
+[22:37:46] [CARREGADO] Drogas na Pos 0: 0
+[22:37:46] [CARREGADO] Pixes: 0
+[22:37:46] [CARREGADO] Multas: 0
+[22:37:46] sscanf warning: Format specifier does not match parameter count.
+[22:37:46] [CARREGADO] Cofre do governo: US$24931273
+[22:37:46] [SERVER-INFO] Carregado com sucesso!
+[22:38:09] [connection] incoming connection: 25.5.149.43:50603 id: 0
+[22:38:09] localhost/api-ip2.php?ip=25.5.149.43
+[22:38:09] [ERRO] CHECK-IP COM FALHA! Code: 404, Data: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Object not found!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Object not found!</h1>
+<p>
+
+
+    The requested URL was not found on this server.
+
+  
+
+    The link on the
+    <a href="http://sa-mp.com">referring
+    page</a> seems to be wrong or outdated. Please inform the author of
+    <a href="http://sa-mp.com">that page</a>
+    about the error.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:postmaster@localhost">webmaster</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.38 (Win64) OpenSSL/1.0.2q PHP/5.6.40</span>
+</address>
+</body>
+</html>
+
+
+[22:38:09] [join] Yuri_Braga has joined the server (0:25.5.149.43)
+[22:39:08] [part] Yuri_Braga has left the server (0:1)
+[22:39:15] [connection] incoming connection: 25.5.149.43:53988 id: 0
+[22:39:15] localhost/api-ip2.php?ip=25.5.149.43
+[22:39:15] [ERRO] CHECK-IP COM FALHA! Code: 404, Data: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Object not found!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Object not found!</h1>
+<p>
+
+
+    The requested URL was not found on this server.
+
+  
+
+    The link on the
+    <a href="http://sa-mp.com">referring
+    page</a> seems to be wrong or outdated. Please inform the author of
+    <a href="http://sa-mp.com">that page</a>
+    about the error.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:postmaster@localhost">webmaster</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.38 (Win64) OpenSSL/1.0.2q PHP/5.6.40</span>
+</address>
+</body>
+</html>
+
+
+[22:39:15] [join] Yuri_Braga has joined the server (0:25.5.149.43)
+[22:39:22] [part] Yuri_Braga has left the server (0:1)
+[22:43:17] [connection] incoming connection: 25.5.149.43:52216 id: 0
+[22:43:17] localhost/api-ip2.php?ip=25.5.149.43
+[22:43:17] [ERRO] CHECK-IP COM FALHA! Code: 404, Data: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Object not found!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Object not found!</h1>
+<p>
+
+
+    The requested URL was not found on this server.
+
+  
+
+    The link on the
+    <a href="http://sa-mp.com">referring
+    page</a> seems to be wrong or outdated. Please inform the author of
+    <a href="http://sa-mp.com">that page</a>
+    about the error.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:postmaster@localhost">webmaster</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.38 (Win64) OpenSSL/1.0.2q PHP/5.6.40</span>
+</address>
+</body>
+</html>
+
+
+[22:43:17] [join] Yuri_Braga has joined the server (0:25.5.149.43)
+[22:43:25] 
+[22:44:13] [connection] incoming connection: 25.47.33.203:57393 id: 1
+[22:44:13] localhost/api-ip2.php?ip=25.47.33.203
+[22:44:13] [ERRO] CHECK-IP COM FALHA! Code: 404, Data: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Object not found!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Object not found!</h1>
+<p>
+
+
+    The requested URL was not found on this server.
+
+  
+
+    The link on the
+    <a href="http://sa-mp.com">referring
+    page</a> seems to be wrong or outdated. Please inform the author of
+    <a href="http://sa-mp.com">that page</a>
+    about the error.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:postmaster@localhost">webmaster</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.38 (Win64) OpenSSL/1.0.2q PHP/5.6.40</span>
+</address>
+</body>
+</html>
+
+
+[22:44:13] [join] Gabriel_Monteiro has joined the server (1:25.47.33.203)
+[22:44:24] [SERVER-INFO] Novo jogador foi registrado como: Gabriel Monteiro (1) | DB ID: 3
+[22:44:38] [Personagem] Seu nome OOC é meupau.
+[22:45:11] [chat] [Gabriel_Monteiro]: qir 0
+[22:45:19] sscanf warning: Strings without a length are deprecated, please add a destination size.
+[22:45:19] sscanf warning: Format specifier does not match parameter count.
+[22:45:20] [chat] [Gabriel_Monteiro]: q skin feia da desgraça
+[22:45:21] [chat] [Gabriel_Monteiro]: é essa
+[22:51:10] [Personagem] Seu nome OOC é meupau.
+[22:51:10] [SAVE-PJ] Jogador Yuri_Braga - Personagem salvo com sucesso.
+[22:51:10] [part] Yuri_Braga has left the server (0:1)
+[22:53:28] [connection] incoming connection: 25.5.168.18:50525 id: 0
+[22:53:28] localhost/api-ip2.php?ip=25.5.168.18
+[22:53:28] [ERRO] CHECK-IP COM FALHA! Code: 404, Data: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Object not found!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Object not found!</h1>
+<p>
+
+
+    The requested URL was not found on this server.
+
+  
+
+    The link on the
+    <a href="http://sa-mp.com">referring
+    page</a> seems to be wrong or outdated. Please inform the author of
+    <a href="http://sa-mp.com">that page</a>
+    about the error.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:postmaster@localhost">webmaster</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.38 (Win64) OpenSSL/1.0.2q PHP/5.6.40</span>
+</address>
+</body>
+</html>
+
+
+[22:53:31] [join] Saleiro has joined the server (0:25.5.168.18)
+[22:53:32] [part] Saleiro has left the server (0:2)
+[22:54:24] [connection] incoming connection: 25.5.168.18:60228 id: 0
+[22:54:24] localhost/api-ip2.php?ip=25.5.168.18
+[22:54:24] [ERRO] CHECK-IP COM FALHA! Code: 404, Data: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Object not found!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Object not found!</h1>
+<p>
+
+
+    The requested URL was not found on this server.
+
+  
+
+    The link on the
+    <a href="http://sa-mp.com">referring
+    page</a> seems to be wrong or outdated. Please inform the author of
+    <a href="http://sa-mp.com">that page</a>
+    about the error.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:postmaster@localhost">webmaster</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.38 (Win64) OpenSSL/1.0.2q PHP/5.6.40</span>
+</address>
+</body>
+</html>
+
+
+[22:54:25] [join] Mac_Miller has joined the server (0:25.5.168.18)
+[22:54:34] [SERVER-INFO] Novo jogador foi registrado como: Mac Miller (0) | DB ID: 4
+[22:54:44] [connection] incoming connection: 25.5.149.43:64291 id: 2
+[22:54:44] localhost/api-ip2.php?ip=25.5.149.43
+[22:54:44] [ERRO] CHECK-IP COM FALHA! Code: 404, Data: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Object not found!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Object not found!</h1>
+<p>
+
+
+    The requested URL was not found on this server.
+
+  
+
+    The link on the
+    <a href="http://sa-mp.com">referring
+    page</a> seems to be wrong or outdated. Please inform the author of
+    <a href="http://sa-mp.com">that page</a>
+    about the error.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:postmaster@localhost">webmaster</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.38 (Win64) OpenSSL/1.0.2q PHP/5.6.40</span>
+</address>
+</body>
+</html>
+
+
+[22:54:44] [join] Yuri_Braga has joined the server (2:25.5.149.43)
+[22:54:49] [Personagem] Seu nome OOC é Salseiro.
+[22:55:05] [chat] [Gabriel_Monteiro]: ;
+[22:55:22] [Personagem] Seu nome OOC é Salseiro.
+[22:55:22] [SAVE-PJ] Jogador Gabriel_Monteiro - Personagem salvo com sucesso.
+[22:55:22] [part] Gabriel_Monteiro has left the server (1:1)
+[22:55:36] [Personagem] Seu nome OOC é Salseiro.
+[22:57:43] [connection] incoming connection: 25.47.33.203:61855 id: 1
+[22:57:43] localhost/api-ip2.php?ip=25.47.33.203
+[22:57:43] [ERRO] CHECK-IP COM FALHA! Code: 404, Data: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Object not found!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Object not found!</h1>
+<p>
+
+
+    The requested URL was not found on this server.
+
+  
+
+    The link on the
+    <a href="http://sa-mp.com">referring
+    page</a> seems to be wrong or outdated. Please inform the author of
+    <a href="http://sa-mp.com">that page</a>
+    about the error.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:postmaster@localhost">webmaster</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.38 (Win64) OpenSSL/1.0.2q PHP/5.6.40</span>
+</address>
+</body>
+</html>
+
+
+[22:57:43] [join] Gabriel_Monteiro has joined the server (1:25.47.33.203)
+[22:57:44] [chat] [Yuri_Braga]: slg
+[22:57:49] [chat] [Yuri_Braga]: a vida só fica cheia na barrinha
+[22:57:51] [Personagem] Seu nome OOC é Salseiro.
+[22:57:52] [chat] [Yuri_Braga]: se tu tiver full upgrade
+[22:57:54] [chat] [Mac_Miller]: eita
+[22:57:55] [chat] [Yuri_Braga]: ou seja, 160 de vida
+[22:58:14] [chat] [Yuri_Braga]: uhu
+[22:58:16] [chat] [Gabriel_Monteiro]: bora pro vilarejo
+[22:58:17] [chat] [Mac_Miller]: como pega
+[22:58:18] [chat] [Yuri_Braga]: tag n tá bugando
+[22:58:18] [chat] [Gabriel_Monteiro]: lá dps
+[22:58:18] [chat] [Mac_Miller]: como pega
+[22:58:20] [chat] [Mac_Miller]: como pega
+[22:58:23] [chat] [Yuri_Braga]:  /trabalho
+[22:58:31] [chat] [Mac_Miller]: ui delegado
+[22:58:39] [chat] [Yuri_Braga]: to compilando o gm
+[22:58:39] [chat] [Gabriel_Monteiro]: to c askin da usmc aq
+[22:58:43] [chat] [Yuri_Braga]: com correção 
+[22:58:45] [chat] [Yuri_Braga]: dos coletes
+[22:59:00] [chat] [Yuri_Braga]: botei id errado no armario kkk
+[22:59:13] [chat] [Yuri_Braga]: achei um bug na tag
+[22:59:47] [chat] [Gabriel_Monteiro]: vou lá pro vilarejo
+[22:59:52] [chat] [Gabriel_Monteiro]: puxa vcs?
+[22:59:55] [chat] [Yuri_Braga]: calma
+[23:00:03] [chat] [Mac_Miller]: va la
+[23:00:14] [chat] [Mac_Miller]: como cata um carro aki
+[23:00:20] [chat] [Yuri_Braga]: pega id do patriot ai
+[23:00:28] [chat] [Gabriel_Monteiro]: saleiro
+[23:00:31] [chat] [Mac_Miller]: q e
+[23:00:34] [chat] [Gabriel_Monteiro]: me manda print do teu patriot
+[23:00:34] [chat] [Gabriel_Monteiro]: dps
+[23:00:42] [chat] [Mac_Miller]: spawna ai
+[23:00:42] [chat] [Gabriel_Monteiro]: jae
+[23:00:48] [chat] [Gabriel_Monteiro]: vou ver o id aq
+[23:00:49] [chat] [Yuri_Braga]: tá me dando tiro nathan?
+[23:00:51] [chat] [Gabriel_Monteiro]: n
+[23:00:57] [chat] [Yuri_Braga]: so vou da um gmx
+[23:00:58] [SAVE-PJ] Jogador Mac_Miller - Personagem salvo com sucesso.
+[23:00:58] [SAVE-PJ] Jogador Gabriel_Monteiro - Personagem salvo com sucesso.
+[23:00:58] [SAVE-PJ] Jogador Yuri_Braga - Personagem salvo com sucesso.
+[23:00:58] [SAVE-PJ] Jogador Mac_Miller - Personagem salvo com sucesso.
+[23:00:59] [SERVER-SALVANDO] Todos os veículos foram salvos.
+[23:00:59] [SERVER-SALVANDO] Todas as casas foram salvas.
+[23:00:59] [SAVE-PJ] Jogador Gabriel_Monteiro - Personagem salvo com sucesso.
+[23:01:00] [SERVER-SALVANDO] Todos os veículos foram salvos.
+[23:01:00] [SERVER-SALVANDO] Todas as casas foram salvas.
+[23:01:00] [SAVE-PJ] Jogador Yuri_Braga - Personagem salvo com sucesso.
+[23:01:01] [SERVER-SALVANDO] Todos os veículos foram salvos.
+[23:01:01] [SERVER-SALVANDO] Todas as casas foram salvas.
+[23:01:01] [Personagem] Seu nome OOC é Salseiro.
+[23:01:01] [SAVE-PJ] Jogador Yuri_Braga - Personagem salvo com sucesso.
+[23:01:01] [part] Yuri_Braga has left the server (2:1)
+[23:01:01] [Personagem] Seu nome OOC é Salseiro.
+[23:01:01] [SAVE-PJ] Jogador Mac_Miller - Personagem salvo com sucesso.
+[23:01:01] [part] Mac_Miller has left the server (0:2)
+[23:01:01] [Personagem] Seu nome OOC é Salseiro.
+[23:01:01] [SAVE-PJ] Jogador Gabriel_Monteiro - Personagem salvo com sucesso.
+[23:01:01] [part] Gabriel_Monteiro has left the server (1:2)
+[23:01:04] [ADM] Info: Unload EVF v3.2.1 for SA:MP 0.3.7 by Abyss Morgan
+[23:01:04]  
+[23:01:04] --------------------------------------
+[23:01:04]  Estatísticas do anticheat Nex-AC
+[23:01:04]  Detectando e previnindo:
+[23:01:04]   0 tentativas de cheating
+[23:01:04]   0 tentativas de hacking
+[23:01:04]   0 tentativas de crashing
+[23:01:04]   0 tentativas de flooding
+[23:01:04]   0 attaques
+[23:01:04]  Total de detecções e punições em 0 cheaters
+[23:01:04] --------------------------------------
+
+[23:01:17]    Error: Function not registered: 'SSCANF_Init'
+[23:01:17]    Error: Function not registered: 'SSCANF_IsConnected'
+[23:01:17]    Error: Function not registered: 'SSCANF_Join'
+[23:01:17]    Error: Function not registered: 'SSCANF_Leave'
+[23:01:17]    Error: Function not registered: 'IsValidDynamicObject'
+[23:01:17]    Error: Function not registered: 'DestroyDynamicObject'
+[23:01:17]    Error: Function not registered: 'CreateDynamicObject'
+[23:01:17]    Error: Function not registered: 'AttachDynamicObjectToVehicle'
+[23:01:17]    Error: Function not registered: 'CreateDynamicSphere'
+[23:01:17]    Error: Function not registered: 'CreateDynamic3DTextLabel'
+[23:01:17]    Error: Function not registered: 'Streamer_SetArrayData'
+[23:01:17]    Error: Function not registered: 'DestroyDynamicArea'
+[23:01:17]    Error: Function not registered: 'DestroyDynamic3DTextLabel'
+[23:01:17]    Error: Function not registered: 'Streamer_GetArrayData'
+[23:01:17]    Error: Function not registered: 'Streamer_Update'
+[23:01:17]    Error: Function not registered: 'Streamer_GetFloatData'
+[23:01:17]    Error: Function not registered: 'Streamer_SetIntData'
+[23:01:17]    Error: Function not registered: 'Streamer_UpdateEx'
+[23:01:17]    Error: Function not registered: 'DestroyDynamicPickup'
+[23:01:17]    Error: Function not registered: 'CreateDynamicPickup'
+[23:01:17]    Error: Function not registered: 'Streamer_GetDistanceToItem'
+[23:01:17]    Error: Function not registered: 'Streamer_GetIntData'
+[23:01:17]    Error: Function not registered: 'Streamer_GetItemStreamerID'
+[23:01:17]    Error: Function not registered: 'IsValidDynamicPickup'
+[23:01:17]    Error: Function not registered: 'sscanf'
+[23:01:17]    Error: Function not registered: 'GetDynamicObjectPos'
+[23:01:17]    Error: Function not registered: 'MoveDynamicObject'
+[23:01:17]    Error: Function not registered: 'StopDynamicObject'
+[23:01:17]    Error: Function not registered: 'SetDynamicObjectMaterial'
+[23:01:17]    Error: Function not registered: 'SetDynamicObjectMaterialText'
+[23:01:17]    Error: Function not registered: 'CreateDynamicObjectEx'
+[23:01:17]    Error: Function not registered: 'mysql_query'
+[23:01:17]    Error: Function not registered: 'cache_get_row_count'
+[23:01:17]    Error: Function not registered: 'cache_get_field_content'
+[23:01:17]    Error: Function not registered: 'IsValidDynamic3DTextLabel'
+[23:01:17]    Error: Function not registered: 'mysql_connect'
+[23:01:17]    Error: Function not registered: 'mysql_errno'
+[23:01:17]    Error: Function not registered: 'Streamer_VisibleItems'
+[23:01:17]    Error: Function not registered: 'MapAndreas_Init'
+[23:01:17]    Error: Function not registered: 'mysql_tquery'
+[23:01:17]    Error: Function not registered: 'cache_get_data'
+[23:01:17]    Error: Function not registered: 'cache_insert_id'
+[23:01:17]    Error: Function not registered: 'MapAndreas_FindAverageZ'
+[23:01:17]    Error: Function not registered: 'DestroyAllDynamicObjects'
+[23:01:17]    Error: Function not registered: 'mysql_close'
+[23:01:17]    Error: Function not registered: 'IsValidDynamicCP'
+[23:01:17]    Error: Function not registered: 'DestroyDynamicCP'
+[23:01:17]    Error: Function not registered: 'CreateDynamicCP'
+[23:01:17]    Error: Function not registered: 'mysql_escape_string'
+[23:01:17]    Error: Function not registered: 'UpdateDynamic3DTextLabelText'
+[23:01:17]    Error: Function not registered: 'Streamer_SetFloatData'
+[23:01:17]    Error: Function not registered: 'ClearDynamicActorAnimations'
+[23:01:17]    Error: Function not registered: 'MapAndreas_FindZ_For2DCoord'
+[23:01:17]    Error: Function not registered: 'EditDynamicObject'
+[23:01:17]    Error: Function not registered: 'WP_Hash'
+[23:01:17]    Error: Function not registered: 'mysql_format'
+[23:01:17]    Error: Function not registered: 'SetDynamicObjectPos'
+[23:01:17]    Error: Function not registered: 'SetDynamicObjectRot'
+[23:01:17]    Error: Function not registered: 'cache_get_field_content_int'
+[23:01:17]    Error: Function not registered: 'cache_get_field_content_float'
+[23:01:17]    Error: Function not registered: 'GetDynamicObjectRot'
+[23:01:17]    Error: Function not registered: 'Streamer_CountItems'
+[23:01:17]  
+[23:01:17]  
+[23:01:17]  
+[23:01:17]  ======================================= 
+[23:01:17]  |                                     | 
+[23:01:17]  |        YSI version 3.09.0684        | 
+[23:01:17]  |        By Alex "Y_Less" Cole        | 
+[23:01:17]  |                                     | 
+[23:01:17]  ======================================= 
+[23:01:17]  
+[23:01:17]  
+[23:01:17]  
+[23:01:17] [ADM] Info: Load EVF v3.2.1 for SA:MP 0.3.7 by Abyss Morgan
+[23:01:17]  
+[23:01:17] --------------------------------------
+[23:01:17]  Anticheat Nex-AC carregado!
+[23:01:17]  Anticheat versão: 1.9.61
+[23:01:17]  Autor: Nexius (PT-BR by NicK_)
+[23:01:17] --------------------------------------
+
+[23:01:17] [CARREGADO] Custom nametags by Yur$
+[23:01:17] |-- Corrida de Cavalos: Carregado
+[23:01:18] [CARREGADO] Mining Village
+[23:01:18] [CARREGADO] Mapa avião
+[23:01:18] [CARREGADO] Mapa: Aeroporto abandonado Village
+[23:01:18] [CARREGADO] Mapa: WH 2
+[23:01:18] [CARREGADO] Mapa: Factory int
+[23:01:18] [CARREGADO] Mapa: Ghetto droga int
+[23:01:18] [CARREGADO] Mapa: Ghetto ammo int
+[23:01:18] [CARREGADO] Mapa Ilegal gunshop int
+[23:01:18] [CARREGADO] Mapa: int lavagem de grana
+[23:01:18] [CARREGADO] Mapa: Hospital interior
+[23:01:18] [CARREGADO] Mapa: Banco interior
+[23:01:18] [LOAD] Mapa: Barzinho
+[23:01:18] [LOAD] Mapa: Barzinho 2
+[23:01:18] [LOAD] Mapa: Barzinho 3
+[23:01:18] [CARREGADO] Mapa: Fight room
+[23:01:18] [CARREGADO] Mapa: Empresa 1
+[23:01:18] [CARREGADO] Mapa: Loja de Eletronicos
+[23:01:18] [CARREGADO] Mapa: Agencia de Empregos
+[23:01:18] [CARREGADO] Mapa: Estudio
+[23:01:18] [LOAD] Mapa: Sony
+[23:01:18] [LOAD] Mapa: Caravan
+[23:01:18] [LOAD] Mapa: Interiores de Casas e Empresas vazios
+[23:01:18] [LOAD] Mapa: Apartamento 1
+[23:01:18] [LOAD] Mapa: Apartamento 2
+[23:01:18] [LOAD] Mapa: Apartamento 3
+[23:01:18] [LOAD] Mapa: DrugHouse 1
+[23:01:18] [LOAD] Mapa: WeaponHouse 1
+[23:01:18] [CARREGADO] Mapa: Complexo 1
+[23:01:18] [CARREGADO] Mapa: Complexo 2
+[23:01:18] [CARREGADO] Mapa: Complexo 3
+[23:01:18] [CARREGADO] Mapa: Complexo 4
+[23:01:18] [CARREGADO] Mapa: Complexo 5
+[23:01:18] [CARREGADO] Mapa: Complexo 7
+[23:01:18] [CARREGADO] Mapa: Complexo 8
+[23:01:18] [CARREGADO] Mapa: Complexo 9
+[23:01:18] [CARREGADO] Sistema de Grafite
+[23:01:18] 
+-------------------------------------------
+[23:01:18] War on Terror Roleplay — 2023				
+[23:01:18] Desenvolvido por Yuri Braga					
+[23:01:18] ------------------------------------------
+ 
+[23:01:18] Number of vehicle models: 5
+[23:01:18] [CARREGADO] Veiculos criados.
+[23:01:18] [CARREGADO] 0 veiculos carregados.
+[23:01:18] [CARREGADO] Casas: 0
+[23:01:18] [CARREGADO] Garagens: 0
+[23:01:18] [CARREGADO] Complexos: 0
+[23:01:18] [CARREGADO] Empresas: 0
+[23:01:18] [CARREGADO] Pontos de entrega.
+[23:01:18] [CARREGADO] FURNITURE: 0 moveis.
+[23:01:18] [CARREGADO] Armas no Servidor: 4
+[23:01:18] [CARREGADO] Armas no Chão: 0
+[23:01:18] [CARREGADO] Armas na Pos 0: 0
+[23:01:18] [CARREGADO] Facções: 4
+[23:01:18] [CARREGADO] Total de Portas/Portões: 0
+[23:01:18] [CARREGADO] Itens no Servidor: 1
+[23:01:18] [CARREGADO] Itens no Chão: 0 
+[23:01:18] [CARREGADO] Itens na Pos 0: 0
+[23:01:18] [CARREGADO] Munições no chão do Servidor: 0 
+[23:01:18] [CARREGADO] Atualmente existem 0 drogas plantadas por SA.
+[23:01:18] [CARREGADO] Drogas no chão do Servidor: 0
+[23:01:18] [CARREGADO] Drogas na Pos 0: 0
+[23:01:18] [CARREGADO] Pixes: 0
+[23:01:18] [CARREGADO] Multas: 0
+[23:01:18] sscanf warning: Format specifier does not match parameter count.
+[23:01:18] [CARREGADO] Cofre do governo: US$24931273
+[23:01:18] [SERVER-INFO] Carregado com sucesso!
+[23:02:04] [connection] incoming connection: 25.5.168.18:65181 id: 0
+[23:02:04] localhost/api-ip2.php?ip=25.5.168.18
+[23:02:04] [ERRO] CHECK-IP COM FALHA! Code: 404, Data: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Object not found!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Object not found!</h1>
+<p>
+
+
+    The requested URL was not found on this server.
+
+  
+
+    The link on the
+    <a href="http://sa-mp.com">referring
+    page</a> seems to be wrong or outdated. Please inform the author of
+    <a href="http://sa-mp.com">that page</a>
+    about the error.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:postmaster@localhost">webmaster</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.38 (Win64) OpenSSL/1.0.2q PHP/5.6.40</span>
+</address>
+</body>
+</html>
+
+
+[23:02:04] [join] Mac_Miller has joined the server (0:25.5.168.18)
+[23:02:11] 
+[23:03:01] [connection] incoming connection: 25.5.149.43:51964 id: 1
+[23:03:01] localhost/api-ip2.php?ip=25.5.149.43
+[23:03:01] [ERRO] CHECK-IP COM FALHA! Code: 404, Data: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Object not found!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Object not found!</h1>
+<p>
+
+
+    The requested URL was not found on this server.
+
+  
+
+    The link on the
+    <a href="http://sa-mp.com">referring
+    page</a> seems to be wrong or outdated. Please inform the author of
+    <a href="http://sa-mp.com">that page</a>
+    about the error.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:postmaster@localhost">webmaster</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.38 (Win64) OpenSSL/1.0.2q PHP/5.6.40</span>
+</address>
+</body>
+</html>
+
+
+[23:03:01] [join] Yuri_Braga has joined the server (1:25.5.149.43)
+[23:03:06] 
+[23:03:10] [chat] [Yuri_Braga]: agr o colete tá certo na base
+[23:04:26] [chat] [Yuri_Braga]: bora
+[23:05:07] [chat] [Mac_Miller]: onde q fica
+[23:05:08] [chat] [Yuri_Braga]: q mod ce tá usando
+[23:05:15] [chat] [Yuri_Braga]: carro tá quicando igual puta
+[23:06:01] [chat] [Yuri_Braga]:  /luzes
+[23:06:03] [chat] [Yuri_Braga]: rapidin ai
+[23:06:18] [chat] [Mac_Miller]: e na area 51 a vila?
+[23:06:25] [chat] [Yuri_Braga]: calma ai, vo tenta blindar o carro
+[23:06:28] [chat] [Yuri_Braga]: fica parado
+[23:06:34] *** YSI Error: INI_Open could not find or create file TGarage/1.ini
+[23:06:42] [chat] [Yuri_Braga]:  /dl
+[23:06:55] [chat] [Yuri_Braga]: tenta da tiro nele
+[23:06:56] [connection] incoming connection: 25.47.33.203:57647 id: 2
+[23:06:56] localhost/api-ip2.php?ip=25.47.33.203
+[23:06:56] [ERRO] CHECK-IP COM FALHA! Code: 404, Data: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Object not found!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Object not found!</h1>
+<p>
+
+
+    The requested URL was not found on this server.
+
+  
+
+    The link on the
+    <a href="http://sa-mp.com">referring
+    page</a> seems to be wrong or outdated. Please inform the author of
+    <a href="http://sa-mp.com">that page</a>
+    about the error.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:postmaster@localhost">webmaster</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.38 (Win64) OpenSSL/1.0.2q PHP/5.6.40</span>
+</address>
+</body>
+</html>
+
+
+[23:06:56] [join] Gabriel_Monteiro has joined the server (2:25.47.33.203)
+[23:07:05] 
+[23:07:14] [chat] [Mac_Miller]: bem blindado
+[23:07:16] [chat] [Yuri_Braga]: da mais tiro no carro
+[23:07:21] [chat] [Gabriel_Monteiro]: tá blindado?
+[23:07:22] [chat] [Yuri_Braga]: otimo
+[23:07:23] [chat] [Mac_Miller]: municao?
+[23:07:24] [chat] [Yuri_Braga]: o carro sim
+[23:07:28] [chat] [Gabriel_Monteiro]: to vendo
+[23:07:35] [chat] [Yuri_Braga]: o vidro n tem oq fazer
+[23:07:35] [chat] [Mac_Miller]: blindado 100 porcento
+[23:07:36] [chat] [Gabriel_Monteiro]: mais blindado q caveirão do bope
+[23:07:37] [chat] [Gabriel_Monteiro]: kk
+[23:07:44] [chat] [Yuri_Braga]: eh do samp isso
+[23:07:50] [chat] [Yuri_Braga]: só se criar um objeto invisivel
+[23:07:52] [chat] [Yuri_Braga]: com fisica
+[23:08:06] [Nex-AC debug] Fire rate: 0, weaponid: 31
+[23:08:06] [Nex-AC] Suspeita no ID 2. Código de motivo: 026 (1)
+[23:08:06] 
+[23:08:06] [SAVE-PJ] Jogador Gabriel_Monteiro - Personagem salvo com sucesso.
+[23:08:06] [part] Gabriel_Monteiro has left the server (2:2)
+[23:08:09] [chat] [Yuri_Braga]: bem feito
+[23:08:11] [chat] [Mac_Miller]: kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+[23:08:13] [chat] [Yuri_Braga]: tomou código 026
+[23:08:16] [chat] [Yuri_Braga]: speed fire
+[23:08:35] [chat] [Mac_Miller]: fica atirando q nem um doente tbm
+[23:08:50] [connection] incoming connection: 25.47.33.203:61468 id: 2
+[23:08:50] localhost/api-ip2.php?ip=25.47.33.203
+[23:08:50] [ERRO] CHECK-IP COM FALHA! Code: 404, Data: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Object not found!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Object not found!</h1>
+<p>
+
+
+    The requested URL was not found on this server.
+
+  
+
+    The link on the
+    <a href="http://sa-mp.com">referring
+    page</a> seems to be wrong or outdated. Please inform the author of
+    <a href="http://sa-mp.com">that page</a>
+    about the error.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:postmaster@localhost">webmaster</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.38 (Win64) OpenSSL/1.0.2q PHP/5.6.40</span>
+</address>
+</body>
+</html>
+
+
+[23:08:50] [join] Gabriel_Monteiro has joined the server (2:25.47.33.203)
+[23:08:59] 
+[23:09:28] [chat] [Mac_Miller]: sobe paraibanos
+[23:09:54] [chat] [Mac_Miller]: onde fica
+[23:10:03] [chat] [Yuri_Braga]: alguém voou
+[23:10:06] [chat] [Yuri_Braga]: escolhe uma qualquer ai
+[23:10:08] [chat] [Mac_Miller]: n faz falta
+[23:10:18] [chat] [Yuri_Braga]: aeroporto
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[23:11:29] password = ""  (string)
+[23:11:29] filterscripts = ""  (string)
+[23:11:29] artpath = "models"  (string)
+[23:11:29] 
+[23:11:29] Server Plugins
+[23:11:29] --------------
+[23:11:29]  Loading plugin: nativechecker
+[23:11:29]   Loaded.
+[23:11:29]  Loading plugin: mysql
+[23:11:29]  >> plugin.mysql: R39-5 successfully loaded.
+[23:11:29]   Loaded.
+[23:11:29]  Loading plugin: streamer
+[23:11:29] 
+
+*** Streamer Plugin v2.9.2 by Incognito loaded ***
+
+[23:11:29]   Loaded.
+[23:11:29]  Loading plugin: sscanf
+[23:11:29] 
+
+[23:11:29]  ===============================
+
+[23:11:29]       sscanf plugin loaded.     
+
+[23:11:29]          Version:  2.8.1        
+
+[23:11:29]    (c) 2012 Alex "Y_Less" Cole  
+
+[23:11:29]  ===============================
+
+[23:11:29]   Loaded.
+[23:11:29]  Loading plugin: Whirlpool
+[23:11:29]  
+[23:11:29]  ==================
+[23:11:29]  
+[23:11:29]   Whirlpool loaded
+[23:11:29]  
+[23:11:29]  ==================
+[23:11:29]  
+[23:11:29]   Loaded.
+[23:11:29]  Loading plugin: mapandreas
+[23:11:29]   Loaded.
+[23:11:29]  Loading plugin: ColAndreas
+[23:11:29] *********************
+[23:11:29] ** Created By:     **
+[23:11:29] ** [uL]Chris42O    **
+[23:11:29] ** [uL]Slice       **
+[23:11:29] ** [uL]Pottus      **
+[23:11:29] *********************
+[23:11:29] No collision data found.
+[23:11:29] *********************
+[23:11:29]   ColAndreas Loaded
+[23:11:29]    v1.4.0
+[23:11:29] *********************
+[23:11:29]   Loaded.
+[23:11:29]  Loading plugin: dns
+[23:11:29] 
+
+*** DNS Plugin v2.4 by Incognito loaded ***
+
+[23:11:29]   Loaded.
+[23:11:29]  Loading plugin: YSF_DL
+[23:11:29] 
+[23:11:29]  ==============================================
+[23:11:29]  YSF 2.2 (compiled Sep 19 2021 13:02:34) loaded
+[23:11:29]   (c) 2008 Alex "Y_Less" Cole
+[23:11:29]   (c) 2010 - 2018 kurta999
+[23:11:29]   (c) 2018 - 2020 IllidanS4
+[23:11:29]  Server version: 0.3.DL R1, Windows
+[23:11:29]  ==============================================
+[23:11:29] 
+[23:11:29]   Loaded.
+[23:11:29]  Loaded 9 plugins.
+
+[23:11:29] [artwork:crc] taliba/taliba.dff CRC = 0x59945A80
+[23:11:29] [artwork:crc] taliba/taliba.txd CRC = 0x6355B6A
+[23:11:29] [artwork:crc] taliba/taliba2.dff CRC = 0xBB63B464
+[23:11:29] [artwork:crc] taliba/taliba2.txd CRC = 0x90B27E6E
+[23:11:29] [artwork:crc] taliba/taliba3.dff CRC = 0xE2E733E8
+[23:11:29] [artwork:crc] taliba/taliba3.txd CRC = 0xBC08005E
+[23:11:29] [artwork:crc] taliba/taliba4.dff CRC = 0x6828674B
+[23:11:29] [artwork:crc] taliba/taliba4.txd CRC = 0xB491BD51
+[23:11:29] [artwork:crc] taliba/taliba5.dff CRC = 0xDF6EC86
+[23:11:29] [artwork:crc] taliba/taliba5.txd CRC = 0x68893977
+[23:11:29] [artwork:crc] taliba/taliba6.dff CRC = 0xC47278F3
+[23:11:29] [artwork:crc] taliba/taliba6.txd CRC = 0x8C65BC30
+[23:11:29] [artwork:crc] taliba/taliba7.dff CRC = 0x21ED392D
+[23:11:29] [artwork:crc] taliba/taliba7.txd CRC = 0x3C5B484E
+[23:11:29] [artwork:crc] taliba/taliba8.dff CRC = 0x4C679CBE
+[23:11:29] [artwork:crc] taliba/taliba8.txd CRC = 0x23FF2285
+[23:11:29] [artwork:crc] taliba/taliba9.dff CRC = 0xDD1F6BE8
+[23:11:29] [artwork:crc] taliba/taliba9.txd CRC = 0x3724AA26
+[23:11:29] [artwork:crc] taliba/taliba10.dff CRC = 0x134E2005
+[23:11:29] [artwork:crc] taliba/taliba10.txd CRC = 0xD51A0FF9
+[23:11:29] [artwork:crc] taliba/taliba11.dff CRC = 0x448A080D
+[23:11:29] [artwork:crc] taliba/taliba11.txd CRC = 0x62CFAC9F
+[23:11:29] [artwork:crc] taliba/taliba12.dff CRC = 0xE56251EE
+[23:11:29] [artwork:crc] taliba/taliba12.txd CRC = 0xFDE64604
+[23:11:29] [artwork:crc] taliba/taliba13.dff CRC = 0x8299D6CC
+[23:11:29] [artwork:crc] taliba/taliba13.txd CRC = 0x85A9998
+[23:11:29] [artwork:crc] taliba/taliba14.dff CRC = 0xB115C3F1
+[23:11:29] [artwork:crc] taliba/taliba14.txd CRC = 0x8D57DED8
+[23:11:29] [artwork:crc] taliba/taliba15.dff CRC = 0x1D04FA75
+[23:11:29] [artwork:crc] taliba/taliba15.txd CRC = 0xDECA406A
+[23:11:29] [artwork:crc] pmc/pmc1.dff CRC = 0x2DD4CA47
+[23:11:29] [artwork:crc] pmc/pmc1.txd CRC = 0xE07D9D46
+[23:11:29] [artwork:crc] pmc/pmc2.dff CRC = 0x4B9C0356
+[23:11:29] [artwork:crc] pmc/pmc2.txd CRC = 0xED3AB6A4
+[23:11:29] [artwork:crc] pmc/pmc3.dff CRC = 0xE7046D23
+[23:11:29] [artwork:crc] pmc/pmc3.txd CRC = 0x9E046331
+[23:11:29] [artwork:crc] pmc/pmc4.dff CRC = 0x9546189A
+[23:11:29] [artwork:crc] pmc/pmc4.txd CRC = 0x399F00A3
+[23:11:29] [artwork:crc] pmc/pmc5.dff CRC = 0x493621B6
+[23:11:29] [artwork:crc] pmc/pmc5.txd CRC = 0x86A22FD
+[23:11:29] [artwork:crc] pmc/pmc6.dff CRC = 0x616A75AB
+[23:11:29] [artwork:crc] pmc/pmc6.txd CRC = 0x80654964
+[23:11:29] [artwork:crc] pmc/pmc7.dff CRC = 0x10D6EE16
+[23:11:29] [artwork:crc] pmc/pmc7.txd CRC = 0x3CCB6AA6
+[23:11:29] [artwork:crc] pmc/pmc8.dff CRC = 0xD27637A8
+[23:11:29] [artwork:crc] pmc/pmc8.txd CRC = 0x2EF7BC1
+[23:11:29] [artwork:crc] pmc/pmc9.dff CRC = 0x75507F0D
+[23:11:29] [artwork:crc] pmc/pmc9.txd CRC = 0x3A627F5F
+[23:11:29] [artwork:crc] isis/isis1.dff CRC = 0xA107A44C
+[23:11:29] [artwork:crc] isis/isis1.txd CRC = 0x8547D9E6
+[23:11:29] [artwork:crc] isis/isis2.dff CRC = 0xC029C75B
+[23:11:29] [artwork:crc] isis/isis2.txd CRC = 0x77C900E8
+[23:11:29] [artwork:crc] isis/isis3.dff CRC = 0xD5FF099B
+[23:11:29] [artwork:crc] isis/isis3.txd CRC = 0x586260F2
+[23:11:29] [artwork:crc] isis/isis4.dff CRC = 0xC029C75B
+[23:11:29] [artwork:crc] isis/isis4.txd CRC = 0x52486C98
+[23:11:29] [artwork:crc] isis/isis5.dff CRC = 0x3C88572C
+[23:11:29] [artwork:crc] isis/isis5.txd CRC = 0x686CAA15
+[23:11:29] [artwork:crc] russo/russia1.dff CRC = 0x8855C1F1
+[23:11:29] [artwork:crc] russo/russia1.txd CRC = 0xFC8E21E6
+[23:11:29] [artwork:crc] russo/russia2.dff CRC = 0xCB8A1129
+[23:11:29] [artwork:crc] russo/russia2.txd CRC = 0x83AC881E
+[23:11:29] [artwork:crc] russo/russia3.dff CRC = 0x871A42CA
+[23:11:30] [artwork:crc] russo/russia3.txd CRC = 0xC6E1DF4B
+[23:11:30] [artwork:crc] russo/russia4.dff CRC = 0xB2D466D
+[23:11:30] [artwork:crc] russo/russia4.txd CRC = 0x2F9F7341
+[23:11:30] [artwork:crc] russo/russia5.dff CRC = 0x81309CA2
+[23:11:30] [artwork:crc] russo/russia5.txd CRC = 0x3269522E
+[23:11:30] [artwork:crc] russo/russia6.dff CRC = 0x264C07E8
+[23:11:30] [artwork:crc] russo/russia6.txd CRC = 0x43734C43
+[23:11:30] [artwork:crc] russo/russia7.dff CRC = 0x415C9DE3
+[23:11:30] [artwork:crc] russo/russia7.txd CRC = 0xF1B100BB
+[23:11:30] [artwork:crc] seals/seal1.dff CRC = 0x35B276D4
+[23:11:30] [artwork:crc] seals/seal1.txd CRC = 0x9339AF93
+[23:11:30] [artwork:crc] seals/seal2.dff CRC = 0x1B7364B6
+[23:11:30] [artwork:crc] seals/seal2.txd CRC = 0xEB6C1EBB
+[23:11:30] [artwork:crc] seals/seal3.dff CRC = 0x403AD120
+[23:11:30] [artwork:crc] seals/seal3.txd CRC = 0x9B1DC1A4
+[23:11:30] [artwork:crc] seals/seal4.dff CRC = 0xF13470B5
+[23:11:30] [artwork:crc] seals/seal4.txd CRC = 0x19C7B0F0
+[23:11:30] [artwork:crc] seals/seal5.dff CRC = 0x51B5E899
+[23:11:30] [artwork:crc] seals/seal5.txd CRC = 0x5E1CD488
+[23:11:30] [artwork:crc] seals/seal6.dff CRC = 0xF9FBD5A7
+[23:11:30] [artwork:crc] seals/seal6.txd CRC = 0xB8DA2980
+[23:11:30] [artwork:crc] seals/seal7.dff CRC = 0xC12D0388
+[23:11:30] [artwork:crc] seals/seal7.txd CRC = 0x4AA35C9E
+[23:11:30] [artwork:crc] seals/seal8.dff CRC = 0xBEAF3085
+[23:11:30] [artwork:crc] seals/seal8.txd CRC = 0xA4C2C97A
+[23:11:30] [artwork:crc] seals/seal9.dff CRC = 0xAE273045
+[23:11:30] [artwork:crc] seals/seal9.txd CRC = 0x7B8EE53
+[23:11:30] [artwork:crc] seals/seal10.dff CRC = 0x43FE5B13
+[23:11:30] [artwork:crc] seals/seal10.txd CRC = 0x6C3715BD
+[23:11:30] [artwork:crc] seals/seal11.dff CRC = 0x8486662B
+[23:11:30] [artwork:crc] seals/seal11.txd CRC = 0x3F9CA9
+[23:11:30] [artwork:crc] seals/seal12.dff CRC = 0x34C39C5C
+[23:11:30] [artwork:crc] seals/seal12.txd CRC = 0xD89C2D5C
+[23:11:30] [artwork:crc] seals/seal13.dff CRC = 0xE913DA0B
+[23:11:30] [artwork:crc] seals/seal13.txd CRC = 0x369CC349
+[23:11:30] [artwork:crc] seals/seal14.dff CRC = 0x8D06D38A
+[23:11:30] [artwork:crc] seals/seal14.txd CRC = 0xF32FAC77
+[23:11:30] [artwork:crc] seals/seal15.dff CRC = 0x93FD3C0C
+[23:11:30] [artwork:crc] seals/seal15.txd CRC = 0x75D1421B
+[23:11:30] [artwork:crc] seals/seal16.dff CRC = 0xAA739E12
+[23:11:30] [artwork:crc] seals/seal16.txd CRC = 0x44283298
+[23:11:30] [artwork:crc] seals/seal17.dff CRC = 0xDED343C6
+[23:11:30] [artwork:crc] seals/seal17.txd CRC = 0xAF16CF6
+[23:11:30] [artwork:crc] dogs/pet1.dff CRC = 0x14ABDB74
+[23:11:30] [artwork:crc] dogs/pet1.txd CRC = 0xC0D15148
+[23:11:30] [artwork:crc] dogs/pet2.dff CRC = 0x871FCAB4
+[23:11:30] [artwork:crc] dogs/pet2.txd CRC = 0xF35F8D62
+[23:11:30] [artwork:crc] dogs/pet3.dff CRC = 0x223072E5
+[23:11:30] [artwork:crc] dogs/pet3.txd CRC = 0x918C9CD0
+[23:11:30] [artwork:crc] dogs/pet4.dff CRC = 0xEF44912D
+[23:11:30] [artwork:crc] dogs/pet4.txd CRC = 0xD3839FDF
+[23:11:30] [artwork:crc] dogs/pet5.dff CRC = 0x223072E5
+[23:11:30] [artwork:crc] dogs/pet5.txd CRC = 0xAECE83C9
+[23:11:30] [artwork:crc] dogs/pet6.dff CRC = 0x60C6F8E9
+[23:11:30] [artwork:crc] dogs/pet6.txd CRC = 0x8EBEA5D0
+[23:11:30] [artwork:crc] dogs/pet7.dff CRC = 0x723783B7
+[23:11:30] [artwork:crc] dogs/pet7.txd CRC = 0x33F08C5C
+[23:11:30] [artwork:crc] dogs/pet8.dff CRC = 0x0
+[23:11:30] [artwork:error] Bad file: dogs/pet8.dff
+[23:11:30] [artwork:crc] dogs/canmel.dff CRC = 0x0
+[23:11:30] [artwork:error] Bad file: dogs/canmel.dff
+[23:11:30] [artwork:crc] hud.dff CRC = 0x4BC6EDFF
+[23:11:30] [artwork:crc] hud.txd CRC = 0xC1ADFB21
+[23:11:30] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[23:11:30] [artwork:crc] tela.txd CRC = 0xED6A6238
+[23:11:30] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[23:11:30] [artwork:crc] logo.txd CRC = 0xABC0A657
+[23:11:30] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[23:11:30] [artwork:crc] logo.txd CRC = 0xABC0A657
+[23:11:30] [artwork:crc] textdraw_object.dff CRC = 0x0
+[23:11:30] [artwork:error] Bad file: textdraw_object.dff
+[23:11:30] [artwork:crc] itens/rojao.dff CRC = 0x6F72D6BB
+[23:11:30] [artwork:crc] itens/rojao.txd CRC = 0x19207CDF
+[23:11:30] [artwork:crc] itens/band.dff CRC = 0xD6FE9FF4
+[23:11:30] [artwork:crc] itens/band.txd CRC = 0x7FE6AB15
+[23:11:30] [artwork:crc] itens/cone.dff CRC = 0xF711EDD9
+[23:11:30] [artwork:crc] itens/cone.txd CRC = 0x66D2389E
+[23:11:30] [artwork:crc] itens/cavalete.dff CRC = 0x3A338AFC
+[23:11:30] [artwork:crc] itens/cavalete.txd CRC = 0x85244494
+[23:11:30] [artwork:crc] itens/faixa.dff CRC = 0x7507B9AC
+[23:11:30] [artwork:crc] itens/faixa.txd CRC = 0x8A8138C3
+[23:11:30] [artwork:crc] itens/RadioMotorola.dff CRC = 0x9AAB6A9
+[23:11:30] [artwork:crc] itens/RadioMotorola.txd CRC = 0x22353790
+[23:11:30] [artwork:crc] itens/chapeubope.dff CRC = 0xFD233655
+[23:11:30] [artwork:crc] itens/chapeubope.txd CRC = 0x68298F01
+[23:11:30] [artwork:crc] itens/boneobjeto1.dff CRC = 0xC82233C
+[23:11:30] [artwork:crc] itens/boneobjeto1.txd CRC = 0xB81E24C1
+[23:11:30] [artwork:crc] itens/boneobjeto2.dff CRC = 0xC82233C
+[23:11:30] [artwork:crc] itens/boneobjeto2.txd CRC = 0xB81E24C1
+[23:11:30] [artwork:crc] itens/boneobjeto3.dff CRC = 0xC82233C
+[23:11:30] [artwork:crc] itens/boneobjeto3.txd CRC = 0x25EC71FD
+[23:11:30] [artwork:crc] itens/boneobjeto4.dff CRC = 0xC82233C
+[23:11:30] [artwork:crc] itens/boneobjeto4.txd CRC = 0x3D3821FC
+[23:11:30] [artwork:crc] itens/coletebandido.dff CRC = 0x35333281
+[23:11:30] [artwork:crc] itens/coletebandido.txd CRC = 0x7FCB75F7
+[23:11:30] [artwork:crc] itens/mochila1.dff CRC = 0x7198BBAD
+[23:11:30] [artwork:crc] itens/mochila1.txd CRC = 0xAA488C0D
+[23:11:30] [artwork:crc] itens/mochila2.dff CRC = 0xBA43DBFB
+[23:11:30] [artwork:crc] itens/mochila2.txd CRC = 0xA55E4D43
+[23:11:30] [artwork:crc] itens/mochila3.dff CRC = 0x36D7E922
+[23:11:30] [artwork:crc] itens/mochila3.txd CRC = 0x31D6F73
+[23:11:30] [artwork:crc] itens/mochila4.dff CRC = 0x49A9723A
+[23:11:30] [artwork:crc] itens/mochila4.txd CRC = 0xB888188E
+[23:11:30] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[23:11:30] [artwork:crc] itens/helmet6.txd CRC = 0x60AE21A9
+[23:11:30] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[23:11:30] [artwork:crc] itens/helmet7.txd CRC = 0xB8E8641F
+[23:11:30] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[23:11:30] [artwork:crc] itens/helmet11.txd CRC = 0xAA929E4F
+[23:11:30] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[23:11:30] [artwork:crc] itens/helmet12.txd CRC = 0x6CA6E0F4
+[23:11:30] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[23:11:30] [artwork:crc] itens/helmet15.txd CRC = 0x7BB77D7E
+[23:11:30] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[23:11:30] [artwork:crc] itens/helmet16.txd CRC = 0x5781CAFC
+[23:11:30] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[23:11:30] [artwork:crc] itens/helmet19.txd CRC = 0x157E14B7
+[23:11:30] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[23:11:30] [artwork:crc] itens/helmet21.txd CRC = 0x53A928B0
+[23:11:30] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[23:11:30] [artwork:crc] itens/helmet24.txd CRC = 0xF1A29DA5
+[23:11:30] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[23:11:30] [artwork:crc] itens/helmet1.txd CRC = 0xFF5E6BB4
+[23:11:30] [artwork:crc] itens/ifood.dff CRC = 0xAD546C14
+[23:11:30] [artwork:crc] itens/ifood.txd CRC = 0xBED788D3
+[23:11:30] [artwork:crc] itens/ubereats.dff CRC = 0xD7C5543C
+[23:11:30] [artwork:crc] itens/ubereats.txd CRC = 0x1A9E171D
+[23:11:30] [artwork:crc] itens/bsimples.dff CRC = 0x246AB514
+[23:11:30] [artwork:crc] itens/bsimples.txd CRC = 0x9D54BD44
+[23:11:30] [artwork:crc] itens/bolsanikelateral.dff CRC = 0x82FA00BC
+[23:11:30] [artwork:crc] itens/bolsanikelateral.txd CRC = 0x9BE9FEF5
+[23:11:30] [artwork:crc] itens/PacoteMcDonalds.dff CRC = 0x7F3872D5
+[23:11:30] [artwork:crc] itens/PacoteMcDonalds.txd CRC = 0xB1587374
+[23:11:30] [artwork:crc] itens/coletemoto.dff CRC = 0xAEF7F9AB
+[23:11:30] [artwork:crc] itens/coletemoto.txd CRC = 0xCEFD3EA6
+[23:11:30] [artwork:crc] itens/barricada.dff CRC = 0xC7D7CD68
+[23:11:30] [artwork:crc] itens/barricada.txd CRC = 0x95DED922
+[23:11:30] [artwork:crc] itens_seals/bone.dff CRC = 0x98550AB1
+[23:11:30] [artwork:crc] itens_seals/bone.txd CRC = 0x233FCCF
+[23:11:30] [artwork:crc] itens_seals/capacete.dff CRC = 0xC715FAC0
+[23:11:30] [artwork:crc] itens_seals/capacete.txd CRC = 0xB1780A1A
+[23:11:30] [artwork:crc] itens_seals/capacete2.dff CRC = 0x3C0F5E9E
+[23:11:30] [artwork:crc] itens_seals/capacete2.txd CRC = 0x42DBE476
+[23:11:30] [artwork:crc] itens_seals/coleteleve.dff CRC = 0x7BA58D1D
+[23:11:30] [artwork:crc] itens_seals/coleteleve.txd CRC = 0x65C63F9C
+[23:11:30] [artwork:crc] itens_seals/coletepesado.dff CRC = 0xE9F699DF
+[23:11:30] [artwork:crc] itens_seals/coletepesado.txd CRC = 0xD3E48D2F
+[23:11:30] [artwork:crc] itens_seals/gorro.dff CRC = 0x80819053
+[23:11:30] [artwork:crc] itens_seals/gorro.txd CRC = 0xAED9F61A
+[23:11:30] [artwork:crc] itens/escudo.dff CRC = 0x434102A8
+[23:11:30] [artwork:crc] itens/escudo.txd CRC = 0xDB8AA769
+[23:11:30] [artwork:crc] itens/morteiro.dff CRC = 0x212ACFDB
+[23:11:30] [artwork:crc] itens/morteiro.txd CRC = 0xE3BEDADE
+[23:11:30] [artwork:crc] itens/munimorteiro.dff CRC = 0xF0EFD884
+[23:11:30] [artwork:crc] itens/munimorteiro.txd CRC = 0xFE95109F
+[23:11:30] [artwork:crc] itens/mina.dff CRC = 0x4A5004C4
+[23:11:30] [artwork:crc] itens/mina.txd CRC = 0xEFEA75E5
+[23:11:30] [artwork:crc] itens/maconhab.dff CRC = 0xBF46F2FF
+[23:11:30] [artwork:crc] itens/maconhab.txd CRC = 0x68419BE
+[23:11:30] [artwork:crc] itens/maconhar.dff CRC = 0xA0906971
+[23:11:30] [artwork:crc] itens/maconhar.txd CRC = 0x13A26228
+[23:11:30] [artwork:crc] itens/cocaina.dff CRC = 0x22B7B621
+[23:11:30] [artwork:crc] itens/cocaina.txd CRC = 0xF84F4DF
+[23:11:30] [artwork:crc] itens/crackr.dff CRC = 0x7260DE97
+[23:11:30] [artwork:crc] itens/crackr.txd CRC = 0xEB7DC1B6
+[23:11:30] [artwork:crc] itens/crackb.dff CRC = 0xAA6EDDA1
+[23:11:30] [artwork:crc] itens/crackb.txd CRC = 0xEB7DC1B6
+[23:11:30] [artwork:crc] itens/lsd.dff CRC = 0x6CB2980D
+[23:11:30] [artwork:crc] itens/lsd.txd CRC = 0xB190FA30
+[23:11:30] [artwork:crc] itens/lancaperfume.dff CRC = 0x8FB92930
+[23:11:30] [artwork:crc] itens/lancaperfume.txd CRC = 0x4205E4C1
+[23:11:30] [artwork:crc] itens/MesaDeDrogas.dff CRC = 0xF6C0A1DF
+[23:11:30] [artwork:crc] itens/MesaDeDrogas.txd CRC = 0x54036B75
+[23:11:30] [artwork:crc] AB/ABPart01.dff CRC = 0x662FD82C
+[23:11:30] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[23:11:30] [artwork:crc] AB/ABPart02.dff CRC = 0xC595C830
+[23:11:30] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[23:11:30] [artwork:crc] AB/ABPart03.dff CRC = 0xBE418106
+[23:11:30] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[23:11:30] [artwork:crc] AB/ABPart04.dff CRC = 0x2333EC80
+[23:11:30] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[23:11:30] [artwork:crc] AB/ABPart05.dff CRC = 0x63FAA3EB
+[23:11:30] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[23:11:30] [artwork:crc] AB/ABPart06.dff CRC = 0xC8D54C9B
+[23:11:30] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[23:11:30] [artwork:crc] AB/ABPart07.dff CRC = 0x31CFC7E6
+[23:11:30] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[23:11:30] [artwork:crc] AB/ABHouse01.dff CRC = 0x14234EEA
+[23:11:30] [artwork:crc] AB/ABHouse.txd CRC = 0x1B70AE5E
+[23:11:30] [artwork:crc] AB/ABHouse02.dff CRC = 0x50BF0743
+[23:11:30] [artwork:crc] AB/ABHouse.txd CRC = 0x1B70AE5E
+[23:11:30] [artwork:crc] AB/ABProps.dff CRC = 0x319313A
+[23:11:30] [artwork:crc] AB/ABHouse.txd CRC = 0x1B70AE5E
+[23:11:30] [artwork:crc] AB/ABVeg.dff CRC = 0x6873DFBA
+[23:11:30] [artwork:crc] AB/ABVeg.txd CRC = 0x8435FADA
+[23:11:30] [artwork:crc] AB/ABProp01.dff CRC = 0x51233E10
+[23:11:30] [artwork:crc] AB/ABProp01.txd CRC = 0x98DEDDFB
+[23:11:30] [artwork:crc] AB/ABProp02.dff CRC = 0x418A3779
+[23:11:30] [artwork:crc] AB/ABProp02.txd CRC = 0xC2E53317
+[23:11:30] [artwork:crc] AB/ABProp03.dff CRC = 0xFF96C6A5
+[23:11:30] [artwork:crc] AB/ABProp03.txd CRC = 0x3A3C8286
+[23:11:30] [artwork:crc] AB/ABProp04.dff CRC = 0x32B1EE03
+[23:11:30] [artwork:crc] AB/ABProp04.txd CRC = 0x9FEACA8C
+[23:11:30] [artwork:crc] AB/ABProp05.dff CRC = 0x6C76CBD2
+[23:11:30] [artwork:crc] AB/ABProp05.txd CRC = 0xFB0719C4
+[23:11:30] 
+[23:11:30] Filterscripts
+[23:11:30] ---------------
+[23:11:30]   Loaded 0 filterscripts.
+
+[23:11:31]    Error: Function not registered: 'SSCANF_Init'
+[23:11:31]    Error: Function not registered: 'SSCANF_IsConnected'
+[23:11:31]    Error: Function not registered: 'SSCANF_Join'
+[23:11:31]    Error: Function not registered: 'SSCANF_Leave'
+[23:11:31]    Error: Function not registered: 'IsValidDynamicObject'
+[23:11:31]    Error: Function not registered: 'DestroyDynamicObject'
+[23:11:31]    Error: Function not registered: 'CreateDynamicObject'
+[23:11:31]    Error: Function not registered: 'AttachDynamicObjectToVehicle'
+[23:11:31]    Error: Function not registered: 'CreateDynamicSphere'
+[23:11:31]    Error: Function not registered: 'CreateDynamic3DTextLabel'
+[23:11:31]    Error: Function not registered: 'Streamer_SetArrayData'
+[23:11:31]    Error: Function not registered: 'DestroyDynamicArea'
+[23:11:31]    Error: Function not registered: 'DestroyDynamic3DTextLabel'
+[23:11:31]    Error: Function not registered: 'Streamer_GetArrayData'
+[23:11:31]    Error: Function not registered: 'Streamer_Update'
+[23:11:31]    Error: Function not registered: 'Streamer_GetFloatData'
+[23:11:31]    Error: Function not registered: 'Streamer_SetIntData'
+[23:11:31]    Error: Function not registered: 'Streamer_UpdateEx'
+[23:11:31]    Error: Function not registered: 'DestroyDynamicPickup'
+[23:11:31]    Error: Function not registered: 'CreateDynamicPickup'
+[23:11:31]    Error: Function not registered: 'Streamer_GetDistanceToItem'
+[23:11:31]    Error: Function not registered: 'Streamer_GetIntData'
+[23:11:31]    Error: Function not registered: 'Streamer_GetItemStreamerID'
+[23:11:31]    Error: Function not registered: 'IsValidDynamicPickup'
+[23:11:31]    Error: Function not registered: 'sscanf'
+[23:11:31]    Error: Function not registered: 'GetDynamicObjectPos'
+[23:11:31]    Error: Function not registered: 'MoveDynamicObject'
+[23:11:31]    Error: Function not registered: 'StopDynamicObject'
+[23:11:31]    Error: Function not registered: 'SetDynamicObjectMaterial'
+[23:11:31]    Error: Function not registered: 'SetDynamicObjectMaterialText'
+[23:11:31]    Error: Function not registered: 'CreateDynamicObjectEx'
+[23:11:31]    Error: Function not registered: 'mysql_query'
+[23:11:31]    Error: Function not registered: 'cache_get_row_count'
+[23:11:31]    Error: Function not registered: 'cache_get_field_content'
+[23:11:31]    Error: Function not registered: 'IsValidDynamic3DTextLabel'
+[23:11:31]    Error: Function not registered: 'mysql_connect'
+[23:11:31]    Error: Function not registered: 'mysql_errno'
+[23:11:31]    Error: Function not registered: 'Streamer_VisibleItems'
+[23:11:31]    Error: Function not registered: 'MapAndreas_Init'
+[23:11:31]    Error: Function not registered: 'mysql_tquery'
+[23:11:31]    Error: Function not registered: 'cache_get_data'
+[23:11:31]    Error: Function not registered: 'cache_insert_id'
+[23:11:31]    Error: Function not registered: 'MapAndreas_FindAverageZ'
+[23:11:31]    Error: Function not registered: 'DestroyAllDynamicObjects'
+[23:11:31]    Error: Function not registered: 'mysql_close'
+[23:11:31]    Error: Function not registered: 'IsValidDynamicCP'
+[23:11:31]    Error: Function not registered: 'DestroyDynamicCP'
+[23:11:31]    Error: Function not registered: 'CreateDynamicCP'
+[23:11:31]    Error: Function not registered: 'mysql_escape_string'
+[23:11:31]    Error: Function not registered: 'UpdateDynamic3DTextLabelText'
+[23:11:31]    Error: Function not registered: 'Streamer_SetFloatData'
+[23:11:31]    Error: Function not registered: 'ClearDynamicActorAnimations'
+[23:11:31]    Error: Function not registered: 'MapAndreas_FindZ_For2DCoord'
+[23:11:31]    Error: Function not registered: 'EditDynamicObject'
+[23:11:31]    Error: Function not registered: 'WP_Hash'
+[23:11:31]    Error: Function not registered: 'mysql_format'
+[23:11:31]    Error: Function not registered: 'SetDynamicObjectPos'
+[23:11:31]    Error: Function not registered: 'SetDynamicObjectRot'
+[23:11:31]    Error: Function not registered: 'cache_get_field_content_int'
+[23:11:31]    Error: Function not registered: 'cache_get_field_content_float'
+[23:11:31]    Error: Function not registered: 'GetDynamicObjectRot'
+[23:11:31]    Error: Function not registered: 'Streamer_CountItems'
+[23:11:31]  
+[23:11:31]  
+[23:11:31]  
+[23:11:31]  ======================================= 
+[23:11:31]  |                                     | 
+[23:11:31]  |        YSI version 3.09.0684        | 
+[23:11:31]  |        By Alex "Y_Less" Cole        | 
+[23:11:31]  |                                     | 
+[23:11:31]  ======================================= 
+[23:11:31]  
+[23:11:31]  
+[23:11:31]  
+[23:11:31] [ADM] Info: Load EVF v3.2.1 for SA:MP 0.3.7 by Abyss Morgan
+[23:11:31]  
+[23:11:31] --------------------------------------
+[23:11:31]  Anticheat Nex-AC carregado!
+[23:11:31]  Anticheat versão: 1.9.61
+[23:11:31]  Autor: Nexius (PT-BR by NicK_)
+[23:11:31] --------------------------------------
+
+[23:11:31] [CARREGADO] Custom nametags by Yur$
+[23:11:31] |-- Corrida de Cavalos: Carregado
+[23:11:32] [CARREGADO] Mining Village
+[23:11:32] [CARREGADO] Mapa avião
+[23:11:32] [CARREGADO] Mapa: Aeroporto abandonado Village
+[23:11:32] [CARREGADO] Mapa: WH 2
+[23:11:32] [CARREGADO] Mapa: Factory int
+[23:11:32] [CARREGADO] Mapa: Ghetto droga int
+[23:11:32] [CARREGADO] Mapa: Ghetto ammo int
+[23:11:32] [CARREGADO] Mapa Ilegal gunshop int
+[23:11:32] [CARREGADO] Mapa: int lavagem de grana
+[23:11:32] [CARREGADO] Mapa: Hospital interior
+[23:11:32] [CARREGADO] Mapa: Banco interior
+[23:11:32] [LOAD] Mapa: Barzinho
+[23:11:32] [LOAD] Mapa: Barzinho 2
+[23:11:32] [LOAD] Mapa: Barzinho 3
+[23:11:32] [CARREGADO] Mapa: Fight room
+[23:11:32] [CARREGADO] Mapa: Empresa 1
+[23:11:32] [CARREGADO] Mapa: Loja de Eletronicos
+[23:11:32] [CARREGADO] Mapa: Agencia de Empregos
+[23:11:32] [CARREGADO] Mapa: Estudio
+[23:11:32] [LOAD] Mapa: Sony
+[23:11:32] [LOAD] Mapa: Caravan
+[23:11:32] [LOAD] Mapa: Interiores de Casas e Empresas vazios
+[23:11:32] [LOAD] Mapa: Apartamento 1
+[23:11:32] [LOAD] Mapa: Apartamento 2
+[23:11:32] [LOAD] Mapa: Apartamento 3
+[23:11:32] [LOAD] Mapa: DrugHouse 1
+[23:11:32] [LOAD] Mapa: WeaponHouse 1
+[23:11:32] [CARREGADO] Mapa: Complexo 1
+[23:11:32] [CARREGADO] Mapa: Complexo 2
+[23:11:32] [CARREGADO] Mapa: Complexo 3
+[23:11:32] [CARREGADO] Mapa: Complexo 4
+[23:11:32] [CARREGADO] Mapa: Complexo 5
+[23:11:32] [CARREGADO] Mapa: Complexo 7
+[23:11:32] [CARREGADO] Mapa: Complexo 8
+[23:11:32] [CARREGADO] Mapa: Complexo 9
+[23:11:32] [CARREGADO] Sistema de Grafite
+[23:11:32] 
+-------------------------------------------
+[23:11:32] War on Terror Roleplay — 2023				
+[23:11:32] Desenvolvido por Yuri Braga					
+[23:11:32] ------------------------------------------
+ 
+[23:11:32] Number of vehicle models: 5
+[23:11:32] [connection] incoming connection: 25.5.168.18:60066 id: 0
+[23:11:32] localhost/api-ip2.php?ip=25.5.168.18
+[23:11:32] [join] Mac_Miller has joined the server (0:25.5.168.18)
+[23:11:33] [CARREGADO] Veiculos criados.
+[23:11:33] [CARREGADO] 0 veiculos carregados.
+[23:11:33] [CARREGADO] Casas: 0
+[23:11:33] [CARREGADO] Garagens: 0
+[23:11:33] [CARREGADO] Complexos: 0
+[23:11:33] [CARREGADO] Empresas: 0
+[23:11:33] [CARREGADO] Pontos de entrega.
+[23:11:33] [CARREGADO] FURNITURE: 0 moveis.
+[23:11:33] [CARREGADO] Armas no Servidor: 4
+[23:11:33] [CARREGADO] Armas no Chão: 0
+[23:11:33] [CARREGADO] Armas na Pos 0: 0
+[23:11:33] [CARREGADO] Facções: 4
+[23:11:33] [CARREGADO] Total de Portas/Portões: 0
+[23:11:33] [CARREGADO] Itens no Servidor: 2
+[23:11:33] [CARREGADO] Itens no Chão: 0 
+[23:11:33] [CARREGADO] Itens na Pos 0: 0
+[23:11:33] [CARREGADO] Munições no chão do Servidor: 0 
+[23:11:33] [CARREGADO] Atualmente existem 0 drogas plantadas por SA.
+[23:11:33] [CARREGADO] Drogas no chão do Servidor: 0
+[23:11:33] [CARREGADO] Drogas na Pos 0: 0
+[23:11:33] [CARREGADO] Pixes: 0
+[23:11:33] [CARREGADO] Multas: 0
+[23:11:33] sscanf warning: Format specifier does not match parameter count.
+[23:11:33] [CARREGADO] Cofre do governo: US$24931273
+[23:11:33] [SERVER-INFO] Carregado com sucesso!
+[23:11:33] [ERRO] CHECK-IP COM FALHA! Code: 6, Data: 
+[23:11:38] 
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[23:11:53] password = ""  (string)
+[23:11:53] filterscripts = ""  (string)
+[23:11:53] artpath = "models"  (string)
+[23:11:53] 
+[23:11:53] Server Plugins
+[23:11:53] --------------
+[23:11:53]  Loading plugin: nativechecker
+[23:11:53]   Loaded.
+[23:11:53]  Loading plugin: mysql
+[23:11:53]  >> plugin.mysql: R39-5 successfully loaded.
+[23:11:53]   Loaded.
+[23:11:53]  Loading plugin: streamer
+[23:11:53] 
+
+*** Streamer Plugin v2.9.2 by Incognito loaded ***
+
+[23:11:53]   Loaded.
+[23:11:53]  Loading plugin: sscanf
+[23:11:53] 
+
+[23:11:53]  ===============================
+
+[23:11:53]       sscanf plugin loaded.     
+
+[23:11:53]          Version:  2.8.1        
+
+[23:11:53]    (c) 2012 Alex "Y_Less" Cole  
+
+[23:11:53]  ===============================
+
+[23:11:53]   Loaded.
+[23:11:53]  Loading plugin: Whirlpool
+[23:11:53]  
+[23:11:53]  ==================
+[23:11:53]  
+[23:11:53]   Whirlpool loaded
+[23:11:53]  
+[23:11:53]  ==================
+[23:11:53]  
+[23:11:53]   Loaded.
+[23:11:53]  Loading plugin: mapandreas
+[23:11:53]   Loaded.
+[23:11:53]  Loading plugin: ColAndreas
+[23:11:53] *********************
+[23:11:53] ** Created By:     **
+[23:11:53] ** [uL]Chris42O    **
+[23:11:53] ** [uL]Slice       **
+[23:11:53] ** [uL]Pottus      **
+[23:11:53] *********************
+[23:11:53] No collision data found.
+[23:11:53] *********************
+[23:11:53]   ColAndreas Loaded
+[23:11:53]    v1.4.0
+[23:11:53] *********************
+[23:11:53]   Loaded.
+[23:11:53]  Loading plugin: dns
+[23:11:53] 
+
+*** DNS Plugin v2.4 by Incognito loaded ***
+
+[23:11:53]   Loaded.
+[23:11:53]  Loading plugin: YSF
+[23:11:53] This version of YSF doesn't support SA-MP 0.3.DL
+[23:11:53] Use another version of YSF or build with SAMP_03DL
+[23:11:53] Error: Unknown Windows server version (0x00491FA0)
+[23:11:53] Error: Big part of YSF will be unusable for you
+[23:11:53]   Loaded.
+[23:11:53]  Loaded 9 plugins.
+
+[23:11:53] [artwork:crc] taliba/taliba.dff CRC = 0x59945A80
+[23:11:53] [artwork:crc] taliba/taliba.txd CRC = 0x6355B6A
+[23:11:53] [artwork:crc] taliba/taliba2.dff CRC = 0xBB63B464
+[23:11:53] [artwork:crc] taliba/taliba2.txd CRC = 0x90B27E6E
+[23:11:53] [artwork:crc] taliba/taliba3.dff CRC = 0xE2E733E8
+[23:11:53] [artwork:crc] taliba/taliba3.txd CRC = 0xBC08005E
+[23:11:53] [artwork:crc] taliba/taliba4.dff CRC = 0x6828674B
+[23:11:53] [artwork:crc] taliba/taliba4.txd CRC = 0xB491BD51
+[23:11:53] [artwork:crc] taliba/taliba5.dff CRC = 0xDF6EC86
+[23:11:53] [artwork:crc] taliba/taliba5.txd CRC = 0x68893977
+[23:11:53] [artwork:crc] taliba/taliba6.dff CRC = 0xC47278F3
+[23:11:53] [artwork:crc] taliba/taliba6.txd CRC = 0x8C65BC30
+[23:11:53] [artwork:crc] taliba/taliba7.dff CRC = 0x21ED392D
+[23:11:53] [artwork:crc] taliba/taliba7.txd CRC = 0x3C5B484E
+[23:11:53] [artwork:crc] taliba/taliba8.dff CRC = 0x4C679CBE
+[23:11:53] [artwork:crc] taliba/taliba8.txd CRC = 0x23FF2285
+[23:11:53] [artwork:crc] taliba/taliba9.dff CRC = 0xDD1F6BE8
+[23:11:53] [artwork:crc] taliba/taliba9.txd CRC = 0x3724AA26
+[23:11:53] [artwork:crc] taliba/taliba10.dff CRC = 0x134E2005
+[23:11:53] [artwork:crc] taliba/taliba10.txd CRC = 0xD51A0FF9
+[23:11:53] [artwork:crc] taliba/taliba11.dff CRC = 0x448A080D
+[23:11:53] [artwork:crc] taliba/taliba11.txd CRC = 0x62CFAC9F
+[23:11:53] [artwork:crc] taliba/taliba12.dff CRC = 0xE56251EE
+[23:11:53] [artwork:crc] taliba/taliba12.txd CRC = 0xFDE64604
+[23:11:53] [artwork:crc] taliba/taliba13.dff CRC = 0x8299D6CC
+[23:11:53] [artwork:crc] taliba/taliba13.txd CRC = 0x85A9998
+[23:11:53] [artwork:crc] taliba/taliba14.dff CRC = 0xB115C3F1
+[23:11:53] [artwork:crc] taliba/taliba14.txd CRC = 0x8D57DED8
+[23:11:53] [artwork:crc] taliba/taliba15.dff CRC = 0x1D04FA75
+[23:11:53] [artwork:crc] taliba/taliba15.txd CRC = 0xDECA406A
+[23:11:53] [artwork:crc] pmc/pmc1.dff CRC = 0x2DD4CA47
+[23:11:53] [artwork:crc] pmc/pmc1.txd CRC = 0xE07D9D46
+[23:11:53] [artwork:crc] pmc/pmc2.dff CRC = 0x4B9C0356
+[23:11:53] [artwork:crc] pmc/pmc2.txd CRC = 0xED3AB6A4
+[23:11:53] [artwork:crc] pmc/pmc3.dff CRC = 0xE7046D23
+[23:11:53] [artwork:crc] pmc/pmc3.txd CRC = 0x9E046331
+[23:11:53] [artwork:crc] pmc/pmc4.dff CRC = 0x9546189A
+[23:11:53] [artwork:crc] pmc/pmc4.txd CRC = 0x399F00A3
+[23:11:53] [artwork:crc] pmc/pmc5.dff CRC = 0x493621B6
+[23:11:53] [artwork:crc] pmc/pmc5.txd CRC = 0x86A22FD
+[23:11:53] [artwork:crc] pmc/pmc6.dff CRC = 0x616A75AB
+[23:11:53] [artwork:crc] pmc/pmc6.txd CRC = 0x80654964
+[23:11:53] [artwork:crc] pmc/pmc7.dff CRC = 0x10D6EE16
+[23:11:53] [artwork:crc] pmc/pmc7.txd CRC = 0x3CCB6AA6
+[23:11:53] [artwork:crc] pmc/pmc8.dff CRC = 0xD27637A8
+[23:11:53] [artwork:crc] pmc/pmc8.txd CRC = 0x2EF7BC1
+[23:11:53] [artwork:crc] pmc/pmc9.dff CRC = 0x75507F0D
+[23:11:53] [artwork:crc] pmc/pmc9.txd CRC = 0x3A627F5F
+[23:11:53] [artwork:crc] isis/isis1.dff CRC = 0xA107A44C
+[23:11:54] [artwork:crc] isis/isis1.txd CRC = 0x8547D9E6
+[23:11:54] [artwork:crc] isis/isis2.dff CRC = 0xC029C75B
+[23:11:54] [artwork:crc] isis/isis2.txd CRC = 0x77C900E8
+[23:11:54] [artwork:crc] isis/isis3.dff CRC = 0xD5FF099B
+[23:11:54] [artwork:crc] isis/isis3.txd CRC = 0x586260F2
+[23:11:54] [artwork:crc] isis/isis4.dff CRC = 0xC029C75B
+[23:11:54] [artwork:crc] isis/isis4.txd CRC = 0x52486C98
+[23:11:54] [artwork:crc] isis/isis5.dff CRC = 0x3C88572C
+[23:11:54] [artwork:crc] isis/isis5.txd CRC = 0x686CAA15
+[23:11:54] [artwork:crc] russo/russia1.dff CRC = 0x8855C1F1
+[23:11:54] [artwork:crc] russo/russia1.txd CRC = 0xFC8E21E6
+[23:11:54] [artwork:crc] russo/russia2.dff CRC = 0xCB8A1129
+[23:11:54] [artwork:crc] russo/russia2.txd CRC = 0x83AC881E
+[23:11:54] [artwork:crc] russo/russia3.dff CRC = 0x871A42CA
+[23:11:54] [artwork:crc] russo/russia3.txd CRC = 0xC6E1DF4B
+[23:11:54] [artwork:crc] russo/russia4.dff CRC = 0xB2D466D
+[23:11:54] [artwork:crc] russo/russia4.txd CRC = 0x2F9F7341
+[23:11:54] [artwork:crc] russo/russia5.dff CRC = 0x81309CA2
+[23:11:54] [artwork:crc] russo/russia5.txd CRC = 0x3269522E
+[23:11:54] [artwork:crc] russo/russia6.dff CRC = 0x264C07E8
+[23:11:54] [artwork:crc] russo/russia6.txd CRC = 0x43734C43
+[23:11:54] [artwork:crc] russo/russia7.dff CRC = 0x415C9DE3
+[23:11:54] [artwork:crc] russo/russia7.txd CRC = 0xF1B100BB
+[23:11:54] [artwork:crc] seals/seal1.dff CRC = 0x35B276D4
+[23:11:54] [artwork:crc] seals/seal1.txd CRC = 0x9339AF93
+[23:11:54] [artwork:crc] seals/seal2.dff CRC = 0x1B7364B6
+[23:11:54] [artwork:crc] seals/seal2.txd CRC = 0xEB6C1EBB
+[23:11:54] [artwork:crc] seals/seal3.dff CRC = 0x403AD120
+[23:11:54] [artwork:crc] seals/seal3.txd CRC = 0x9B1DC1A4
+[23:11:54] [artwork:crc] seals/seal4.dff CRC = 0xF13470B5
+[23:11:54] [artwork:crc] seals/seal4.txd CRC = 0x19C7B0F0
+[23:11:54] [artwork:crc] seals/seal5.dff CRC = 0x51B5E899
+[23:11:54] [artwork:crc] seals/seal5.txd CRC = 0x5E1CD488
+[23:11:54] [artwork:crc] seals/seal6.dff CRC = 0xF9FBD5A7
+[23:11:54] [artwork:crc] seals/seal6.txd CRC = 0xB8DA2980
+[23:11:54] [artwork:crc] seals/seal7.dff CRC = 0xC12D0388
+[23:11:54] [artwork:crc] seals/seal7.txd CRC = 0x4AA35C9E
+[23:11:54] [artwork:crc] seals/seal8.dff CRC = 0xBEAF3085
+[23:11:54] [artwork:crc] seals/seal8.txd CRC = 0xA4C2C97A
+[23:11:54] [artwork:crc] seals/seal9.dff CRC = 0xAE273045
+[23:11:54] [artwork:crc] seals/seal9.txd CRC = 0x7B8EE53
+[23:11:54] [artwork:crc] seals/seal10.dff CRC = 0x43FE5B13
+[23:11:54] [artwork:crc] seals/seal10.txd CRC = 0x6C3715BD
+[23:11:54] [artwork:crc] seals/seal11.dff CRC = 0x8486662B
+[23:11:54] [artwork:crc] seals/seal11.txd CRC = 0x3F9CA9
+[23:11:54] [artwork:crc] seals/seal12.dff CRC = 0x34C39C5C
+[23:11:54] [artwork:crc] seals/seal12.txd CRC = 0xD89C2D5C
+[23:11:54] [artwork:crc] seals/seal13.dff CRC = 0xE913DA0B
+[23:11:54] [artwork:crc] seals/seal13.txd CRC = 0x369CC349
+[23:11:54] [artwork:crc] seals/seal14.dff CRC = 0x8D06D38A
+[23:11:54] [artwork:crc] seals/seal14.txd CRC = 0xF32FAC77
+[23:11:54] [artwork:crc] seals/seal15.dff CRC = 0x93FD3C0C
+[23:11:54] [artwork:crc] seals/seal15.txd CRC = 0x75D1421B
+[23:11:54] [artwork:crc] seals/seal16.dff CRC = 0xAA739E12
+[23:11:54] [artwork:crc] seals/seal16.txd CRC = 0x44283298
+[23:11:54] [artwork:crc] seals/seal17.dff CRC = 0xDED343C6
+[23:11:54] [artwork:crc] seals/seal17.txd CRC = 0xAF16CF6
+[23:11:54] [artwork:crc] dogs/pet1.dff CRC = 0x14ABDB74
+[23:11:54] [artwork:crc] dogs/pet1.txd CRC = 0xC0D15148
+[23:11:54] [artwork:crc] dogs/pet2.dff CRC = 0x871FCAB4
+[23:11:54] [artwork:crc] dogs/pet2.txd CRC = 0xF35F8D62
+[23:11:54] [artwork:crc] dogs/pet3.dff CRC = 0x223072E5
+[23:11:54] [artwork:crc] dogs/pet3.txd CRC = 0x918C9CD0
+[23:11:54] [artwork:crc] dogs/pet4.dff CRC = 0xEF44912D
+[23:11:54] [artwork:crc] dogs/pet4.txd CRC = 0xD3839FDF
+[23:11:54] [artwork:crc] dogs/pet5.dff CRC = 0x223072E5
+[23:11:54] [artwork:crc] dogs/pet5.txd CRC = 0xAECE83C9
+[23:11:54] [artwork:crc] dogs/pet6.dff CRC = 0x60C6F8E9
+[23:11:54] [artwork:crc] dogs/pet6.txd CRC = 0x8EBEA5D0
+[23:11:54] [artwork:crc] dogs/pet7.dff CRC = 0x723783B7
+[23:11:54] [artwork:crc] dogs/pet7.txd CRC = 0x33F08C5C
+[23:11:54] [artwork:crc] dogs/pet8.dff CRC = 0x0
+[23:11:54] [artwork:error] Bad file: dogs/pet8.dff
+[23:11:54] [artwork:crc] dogs/canmel.dff CRC = 0x0
+[23:11:54] [artwork:error] Bad file: dogs/canmel.dff
+[23:11:54] [artwork:crc] hud.dff CRC = 0x4BC6EDFF
+[23:11:54] [artwork:crc] hud.txd CRC = 0xC1ADFB21
+[23:11:54] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[23:11:54] [artwork:crc] tela.txd CRC = 0xED6A6238
+[23:11:54] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[23:11:54] [artwork:crc] logo.txd CRC = 0xABC0A657
+[23:11:54] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[23:11:54] [artwork:crc] logo.txd CRC = 0xABC0A657
+[23:11:54] [artwork:crc] textdraw_object.dff CRC = 0x0
+[23:11:54] [artwork:error] Bad file: textdraw_object.dff
+[23:11:54] [artwork:crc] itens/rojao.dff CRC = 0x6F72D6BB
+[23:11:54] [artwork:crc] itens/rojao.txd CRC = 0x19207CDF
+[23:11:54] [artwork:crc] itens/band.dff CRC = 0xD6FE9FF4
+[23:11:54] [artwork:crc] itens/band.txd CRC = 0x7FE6AB15
+[23:11:54] [artwork:crc] itens/cone.dff CRC = 0xF711EDD9
+[23:11:54] [artwork:crc] itens/cone.txd CRC = 0x66D2389E
+[23:11:54] [artwork:crc] itens/cavalete.dff CRC = 0x3A338AFC
+[23:11:54] [artwork:crc] itens/cavalete.txd CRC = 0x85244494
+[23:11:54] [artwork:crc] itens/faixa.dff CRC = 0x7507B9AC
+[23:11:54] [artwork:crc] itens/faixa.txd CRC = 0x8A8138C3
+[23:11:54] [artwork:crc] itens/RadioMotorola.dff CRC = 0x9AAB6A9
+[23:11:54] [artwork:crc] itens/RadioMotorola.txd CRC = 0x22353790
+[23:11:54] [artwork:crc] itens/chapeubope.dff CRC = 0xFD233655
+[23:11:54] [artwork:crc] itens/chapeubope.txd CRC = 0x68298F01
+[23:11:54] [artwork:crc] itens/boneobjeto1.dff CRC = 0xC82233C
+[23:11:54] [artwork:crc] itens/boneobjeto1.txd CRC = 0xB81E24C1
+[23:11:54] [artwork:crc] itens/boneobjeto2.dff CRC = 0xC82233C
+[23:11:54] [artwork:crc] itens/boneobjeto2.txd CRC = 0xB81E24C1
+[23:11:54] [artwork:crc] itens/boneobjeto3.dff CRC = 0xC82233C
+[23:11:54] [artwork:crc] itens/boneobjeto3.txd CRC = 0x25EC71FD
+[23:11:54] [artwork:crc] itens/boneobjeto4.dff CRC = 0xC82233C
+[23:11:54] [artwork:crc] itens/boneobjeto4.txd CRC = 0x3D3821FC
+[23:11:54] [artwork:crc] itens/coletebandido.dff CRC = 0x35333281
+[23:11:54] [artwork:crc] itens/coletebandido.txd CRC = 0x7FCB75F7
+[23:11:54] [artwork:crc] itens/mochila1.dff CRC = 0x7198BBAD
+[23:11:54] [artwork:crc] itens/mochila1.txd CRC = 0xAA488C0D
+[23:11:54] [artwork:crc] itens/mochila2.dff CRC = 0xBA43DBFB
+[23:11:54] [artwork:crc] itens/mochila2.txd CRC = 0xA55E4D43
+[23:11:54] [artwork:crc] itens/mochila3.dff CRC = 0x36D7E922
+[23:11:54] [artwork:crc] itens/mochila3.txd CRC = 0x31D6F73
+[23:11:54] [artwork:crc] itens/mochila4.dff CRC = 0x49A9723A
+[23:11:54] [artwork:crc] itens/mochila4.txd CRC = 0xB888188E
+[23:11:54] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[23:11:54] [artwork:crc] itens/helmet6.txd CRC = 0x60AE21A9
+[23:11:54] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[23:11:54] [artwork:crc] itens/helmet7.txd CRC = 0xB8E8641F
+[23:11:54] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[23:11:54] [artwork:crc] itens/helmet11.txd CRC = 0xAA929E4F
+[23:11:54] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[23:11:54] [artwork:crc] itens/helmet12.txd CRC = 0x6CA6E0F4
+[23:11:54] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[23:11:54] [artwork:crc] itens/helmet15.txd CRC = 0x7BB77D7E
+[23:11:54] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[23:11:54] [artwork:crc] itens/helmet16.txd CRC = 0x5781CAFC
+[23:11:54] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[23:11:54] [artwork:crc] itens/helmet19.txd CRC = 0x157E14B7
+[23:11:54] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[23:11:54] [artwork:crc] itens/helmet21.txd CRC = 0x53A928B0
+[23:11:54] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[23:11:54] [artwork:crc] itens/helmet24.txd CRC = 0xF1A29DA5
+[23:11:54] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[23:11:54] [artwork:crc] itens/helmet1.txd CRC = 0xFF5E6BB4
+[23:11:54] [artwork:crc] itens/ifood.dff CRC = 0xAD546C14
+[23:11:54] [artwork:crc] itens/ifood.txd CRC = 0xBED788D3
+[23:11:54] [artwork:crc] itens/ubereats.dff CRC = 0xD7C5543C
+[23:11:54] [artwork:crc] itens/ubereats.txd CRC = 0x1A9E171D
+[23:11:54] [artwork:crc] itens/bsimples.dff CRC = 0x246AB514
+[23:11:54] [artwork:crc] itens/bsimples.txd CRC = 0x9D54BD44
+[23:11:54] [artwork:crc] itens/bolsanikelateral.dff CRC = 0x82FA00BC
+[23:11:54] [artwork:crc] itens/bolsanikelateral.txd CRC = 0x9BE9FEF5
+[23:11:54] [artwork:crc] itens/PacoteMcDonalds.dff CRC = 0x7F3872D5
+[23:11:54] [artwork:crc] itens/PacoteMcDonalds.txd CRC = 0xB1587374
+[23:11:54] [artwork:crc] itens/coletemoto.dff CRC = 0xAEF7F9AB
+[23:11:54] [artwork:crc] itens/coletemoto.txd CRC = 0xCEFD3EA6
+[23:11:54] [artwork:crc] itens/barricada.dff CRC = 0xC7D7CD68
+[23:11:54] [artwork:crc] itens/barricada.txd CRC = 0x95DED922
+[23:11:54] [artwork:crc] itens_seals/bone.dff CRC = 0x98550AB1
+[23:11:54] [artwork:crc] itens_seals/bone.txd CRC = 0x233FCCF
+[23:11:54] [artwork:crc] itens_seals/capacete.dff CRC = 0xC715FAC0
+[23:11:54] [artwork:crc] itens_seals/capacete.txd CRC = 0xB1780A1A
+[23:11:54] [artwork:crc] itens_seals/capacete2.dff CRC = 0x3C0F5E9E
+[23:11:54] [artwork:crc] itens_seals/capacete2.txd CRC = 0x42DBE476
+[23:11:54] [artwork:crc] itens_seals/coleteleve.dff CRC = 0x7BA58D1D
+[23:11:54] [artwork:crc] itens_seals/coleteleve.txd CRC = 0x65C63F9C
+[23:11:54] [artwork:crc] itens_seals/coletepesado.dff CRC = 0xE9F699DF
+[23:11:54] [artwork:crc] itens_seals/coletepesado.txd CRC = 0xD3E48D2F
+[23:11:54] [artwork:crc] itens_seals/gorro.dff CRC = 0x80819053
+[23:11:54] [artwork:crc] itens_seals/gorro.txd CRC = 0xAED9F61A
+[23:11:54] [artwork:crc] itens/escudo.dff CRC = 0x434102A8
+[23:11:54] [artwork:crc] itens/escudo.txd CRC = 0xDB8AA769
+[23:11:54] [artwork:crc] itens/morteiro.dff CRC = 0x212ACFDB
+[23:11:54] [artwork:crc] itens/morteiro.txd CRC = 0xE3BEDADE
+[23:11:54] [artwork:crc] itens/munimorteiro.dff CRC = 0xF0EFD884
+[23:11:54] [artwork:crc] itens/munimorteiro.txd CRC = 0xFE95109F
+[23:11:54] [artwork:crc] itens/mina.dff CRC = 0x4A5004C4
+[23:11:54] [artwork:crc] itens/mina.txd CRC = 0xEFEA75E5
+[23:11:54] [artwork:crc] itens/maconhab.dff CRC = 0xBF46F2FF
+[23:11:54] [artwork:crc] itens/maconhab.txd CRC = 0x68419BE
+[23:11:54] [artwork:crc] itens/maconhar.dff CRC = 0xA0906971
+[23:11:54] [artwork:crc] itens/maconhar.txd CRC = 0x13A26228
+[23:11:54] [artwork:crc] itens/cocaina.dff CRC = 0x22B7B621
+[23:11:54] [artwork:crc] itens/cocaina.txd CRC = 0xF84F4DF
+[23:11:54] [artwork:crc] itens/crackr.dff CRC = 0x7260DE97
+[23:11:54] [artwork:crc] itens/crackr.txd CRC = 0xEB7DC1B6
+[23:11:54] [artwork:crc] itens/crackb.dff CRC = 0xAA6EDDA1
+[23:11:54] [artwork:crc] itens/crackb.txd CRC = 0xEB7DC1B6
+[23:11:54] [artwork:crc] itens/lsd.dff CRC = 0x6CB2980D
+[23:11:54] [artwork:crc] itens/lsd.txd CRC = 0xB190FA30
+[23:11:54] [artwork:crc] itens/lancaperfume.dff CRC = 0x8FB92930
+[23:11:54] [artwork:crc] itens/lancaperfume.txd CRC = 0x4205E4C1
+[23:11:54] [artwork:crc] itens/MesaDeDrogas.dff CRC = 0xF6C0A1DF
+[23:11:54] [artwork:crc] itens/MesaDeDrogas.txd CRC = 0x54036B75
+[23:11:54] [artwork:crc] AB/ABPart01.dff CRC = 0x662FD82C
+[23:11:54] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[23:11:54] [artwork:crc] AB/ABPart02.dff CRC = 0xC595C830
+[23:11:54] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[23:11:54] [artwork:crc] AB/ABPart03.dff CRC = 0xBE418106
+[23:11:54] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[23:11:54] [artwork:crc] AB/ABPart04.dff CRC = 0x2333EC80
+[23:11:54] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[23:11:54] [artwork:crc] AB/ABPart05.dff CRC = 0x63FAA3EB
+[23:11:54] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[23:11:54] [artwork:crc] AB/ABPart06.dff CRC = 0xC8D54C9B
+[23:11:54] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[23:11:54] [artwork:crc] AB/ABPart07.dff CRC = 0x31CFC7E6
+[23:11:54] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[23:11:54] [artwork:crc] AB/ABHouse01.dff CRC = 0x14234EEA
+[23:11:54] [artwork:crc] AB/ABHouse.txd CRC = 0x1B70AE5E
+[23:11:54] [artwork:crc] AB/ABHouse02.dff CRC = 0x50BF0743
+[23:11:54] [artwork:crc] AB/ABHouse.txd CRC = 0x1B70AE5E
+[23:11:54] [artwork:crc] AB/ABProps.dff CRC = 0x319313A
+[23:11:54] [artwork:crc] AB/ABHouse.txd CRC = 0x1B70AE5E
+[23:11:54] [artwork:crc] AB/ABVeg.dff CRC = 0x6873DFBA
+[23:11:54] [artwork:crc] AB/ABVeg.txd CRC = 0x8435FADA
+[23:11:54] [artwork:crc] AB/ABProp01.dff CRC = 0x51233E10
+[23:11:54] [artwork:crc] AB/ABProp01.txd CRC = 0x98DEDDFB
+[23:11:54] [artwork:crc] AB/ABProp02.dff CRC = 0x418A3779
+[23:11:54] [artwork:crc] AB/ABProp02.txd CRC = 0xC2E53317
+[23:11:54] [artwork:crc] AB/ABProp03.dff CRC = 0xFF96C6A5
+[23:11:54] [artwork:crc] AB/ABProp03.txd CRC = 0x3A3C8286
+[23:11:54] [artwork:crc] AB/ABProp04.dff CRC = 0x32B1EE03
+[23:11:54] [artwork:crc] AB/ABProp04.txd CRC = 0x9FEACA8C
+[23:11:54] [artwork:crc] AB/ABProp05.dff CRC = 0x6C76CBD2
+[23:11:54] [artwork:crc] AB/ABProp05.txd CRC = 0xFB0719C4
+[23:11:55] 
+[23:11:55] Filterscripts
+[23:11:55] ---------------
+[23:11:55]   Loaded 0 filterscripts.
+
+[23:11:55]    Error: Function not registered: 'SSCANF_Init'
+[23:11:55]    Error: Function not registered: 'SSCANF_IsConnected'
+[23:11:55]    Error: Function not registered: 'SSCANF_Join'
+[23:11:55]    Error: Function not registered: 'SSCANF_Leave'
+[23:11:55]    Error: Function not registered: 'IsValidDynamicObject'
+[23:11:55]    Error: Function not registered: 'DestroyDynamicObject'
+[23:11:55]    Error: Function not registered: 'CreateDynamicObject'
+[23:11:55]    Error: Function not registered: 'AttachDynamicObjectToVehicle'
+[23:11:55]    Error: Function not registered: 'CreateDynamicSphere'
+[23:11:55]    Error: Function not registered: 'CreateDynamic3DTextLabel'
+[23:11:55]    Error: Function not registered: 'Streamer_SetArrayData'
+[23:11:55]    Error: Function not registered: 'DestroyDynamicArea'
+[23:11:55]    Error: Function not registered: 'DestroyDynamic3DTextLabel'
+[23:11:55]    Error: Function not registered: 'Streamer_GetArrayData'
+[23:11:55]    Error: Function not registered: 'Streamer_Update'
+[23:11:55]    Error: Function not registered: 'Streamer_GetFloatData'
+[23:11:55]    Error: Function not registered: 'Streamer_SetIntData'
+[23:11:55]    Error: Function not registered: 'Streamer_UpdateEx'
+[23:11:55]    Error: Function not registered: 'DestroyDynamicPickup'
+[23:11:55]    Error: Function not registered: 'CreateDynamicPickup'
+[23:11:55]    Error: Function not registered: 'Streamer_GetDistanceToItem'
+[23:11:55]    Error: Function not registered: 'Streamer_GetIntData'
+[23:11:55]    Error: Function not registered: 'Streamer_GetItemStreamerID'
+[23:11:55]    Error: Function not registered: 'IsValidDynamicPickup'
+[23:11:55]    Error: Function not registered: 'sscanf'
+[23:11:55]    Error: Function not registered: 'GetDynamicObjectPos'
+[23:11:55]    Error: Function not registered: 'MoveDynamicObject'
+[23:11:55]    Error: Function not registered: 'StopDynamicObject'
+[23:11:55]    Error: Function not registered: 'SetDynamicObjectMaterial'
+[23:11:55]    Error: Function not registered: 'SetDynamicObjectMaterialText'
+[23:11:55]    Error: Function not registered: 'CreateDynamicObjectEx'
+[23:11:55]    Error: Function not registered: 'mysql_query'
+[23:11:55]    Error: Function not registered: 'cache_get_row_count'
+[23:11:55]    Error: Function not registered: 'cache_get_field_content'
+[23:11:55]    Error: Function not registered: 'IsValidDynamic3DTextLabel'
+[23:11:55]    Error: Function not registered: 'mysql_connect'
+[23:11:55]    Error: Function not registered: 'mysql_errno'
+[23:11:55]    Error: Function not registered: 'Streamer_VisibleItems'
+[23:11:55]    Error: Function not registered: 'MapAndreas_Init'
+[23:11:55]    Error: Function not registered: 'mysql_tquery'
+[23:11:55]    Error: Function not registered: 'cache_get_data'
+[23:11:55]    Error: Function not registered: 'cache_insert_id'
+[23:11:55]    Error: Function not registered: 'MapAndreas_FindAverageZ'
+[23:11:55]    Error: Function not registered: 'DestroyAllDynamicObjects'
+[23:11:55]    Error: Function not registered: 'mysql_close'
+[23:11:55]    Error: Function not registered: 'IsValidDynamicCP'
+[23:11:55]    Error: Function not registered: 'DestroyDynamicCP'
+[23:11:55]    Error: Function not registered: 'CreateDynamicCP'
+[23:11:55]    Error: Function not registered: 'mysql_escape_string'
+[23:11:55]    Error: Function not registered: 'UpdateDynamic3DTextLabelText'
+[23:11:55]    Error: Function not registered: 'Streamer_SetFloatData'
+[23:11:55]    Error: Function not registered: 'ClearDynamicActorAnimations'
+[23:11:55]    Error: Function not registered: 'MapAndreas_FindZ_For2DCoord'
+[23:11:55]    Error: Function not registered: 'EditDynamicObject'
+[23:11:55]    Error: Function not registered: 'WP_Hash'
+[23:11:55]    Error: Function not registered: 'mysql_format'
+[23:11:55]    Error: Function not registered: 'SetDynamicObjectPos'
+[23:11:55]    Error: Function not registered: 'SetDynamicObjectRot'
+[23:11:55]    Error: Function not registered: 'cache_get_field_content_int'
+[23:11:55]    Error: Function not registered: 'cache_get_field_content_float'
+[23:11:55]    Error: Function not registered: 'GetDynamicObjectRot'
+[23:11:55]    Error: Function not registered: 'Streamer_CountItems'
+[23:11:55]  
+[23:11:55]  
+[23:11:55]  
+[23:11:55]  ======================================= 
+[23:11:55]  |                                     | 
+[23:11:55]  |        YSI version 3.09.0684        | 
+[23:11:55]  |        By Alex "Y_Less" Cole        | 
+[23:11:55]  |                                     | 
+[23:11:55]  ======================================= 
+[23:11:55]  
+[23:11:55]  
+[23:11:55]  
+[23:11:56] [ADM] Info: Load EVF v3.2.1 for SA:MP 0.3.7 by Abyss Morgan
+[23:11:56]  
+[23:11:56] --------------------------------------
+[23:11:56]  Anticheat Nex-AC carregado!
+[23:11:56]  Anticheat versão: 1.9.61
+[23:11:56]  Autor: Nexius (PT-BR by NicK_)
+[23:11:56] --------------------------------------
+
+[23:11:56] [CARREGADO] Custom nametags by Yur$
+[23:11:56] |-- Corrida de Cavalos: Carregado
+[23:11:57] [CARREGADO] Mining Village
+[23:11:57] [CARREGADO] Mapa avião
+[23:11:57] [CARREGADO] Mapa: Aeroporto abandonado Village
+[23:11:57] [CARREGADO] Mapa: WH 2
+[23:11:57] [CARREGADO] Mapa: Factory int
+[23:11:57] [CARREGADO] Mapa: Ghetto droga int
+[23:11:57] [CARREGADO] Mapa: Ghetto ammo int
+[23:11:57] [CARREGADO] Mapa Ilegal gunshop int
+[23:11:57] [CARREGADO] Mapa: int lavagem de grana
+[23:11:57] [CARREGADO] Mapa: Hospital interior
+[23:11:57] [CARREGADO] Mapa: Banco interior
+[23:11:57] [LOAD] Mapa: Barzinho
+[23:11:57] [LOAD] Mapa: Barzinho 2
+[23:11:57] [LOAD] Mapa: Barzinho 3
+[23:11:57] [CARREGADO] Mapa: Fight room
+[23:11:57] [CARREGADO] Mapa: Empresa 1
+[23:11:57] [CARREGADO] Mapa: Loja de Eletronicos
+[23:11:57] [CARREGADO] Mapa: Agencia de Empregos
+[23:11:57] [CARREGADO] Mapa: Estudio
+[23:11:57] [LOAD] Mapa: Sony
+[23:11:57] [LOAD] Mapa: Caravan
+[23:11:57] [LOAD] Mapa: Interiores de Casas e Empresas vazios
+[23:11:57] [LOAD] Mapa: Apartamento 1
+[23:11:57] [LOAD] Mapa: Apartamento 2
+[23:11:57] [LOAD] Mapa: Apartamento 3
+[23:11:57] [LOAD] Mapa: DrugHouse 1
+[23:11:57] [LOAD] Mapa: WeaponHouse 1
+[23:11:57] [CARREGADO] Mapa: Complexo 1
+[23:11:57] [CARREGADO] Mapa: Complexo 2
+[23:11:57] [CARREGADO] Mapa: Complexo 3
+[23:11:57] [CARREGADO] Mapa: Complexo 4
+[23:11:57] [CARREGADO] Mapa: Complexo 5
+[23:11:57] [CARREGADO] Mapa: Complexo 7
+[23:11:57] [CARREGADO] Mapa: Complexo 8
+[23:11:57] [CARREGADO] Mapa: Complexo 9
+[23:11:57] [CARREGADO] Sistema de Grafite
+[23:11:57] 
+-------------------------------------------
+[23:11:57] War on Terror Roleplay — 2023				
+[23:11:57] Desenvolvido por Yuri Braga					
+[23:11:57] ------------------------------------------
+ 
+[23:11:57] Number of vehicle models: 5
+[23:11:57] [connection] incoming connection: 25.5.168.18:58371 id: 0
+[23:11:57] localhost/api-ip2.php?ip=25.5.168.18
+[23:11:57] [join] Mac_Miller has joined the server (0:25.5.168.18)
+[23:11:57] [CARREGADO] Veiculos criados.
+[23:11:57] [CARREGADO] 0 veiculos carregados.
+[23:11:57] [CARREGADO] Casas: 0
+[23:11:57] [CARREGADO] Garagens: 0
+[23:11:57] [CARREGADO] Complexos: 0
+[23:11:57] [CARREGADO] Empresas: 0
+[23:11:57] [CARREGADO] Pontos de entrega.
+[23:11:57] [CARREGADO] FURNITURE: 0 moveis.
+[23:11:57] [CARREGADO] Armas no Servidor: 4
+[23:11:57] [CARREGADO] Armas no Chão: 0
+[23:11:57] [CARREGADO] Armas na Pos 0: 0
+[23:11:57] [CARREGADO] Facções: 4
+[23:11:57] [CARREGADO] Total de Portas/Portões: 0
+[23:11:57] [CARREGADO] Itens no Servidor: 2
+[23:11:57] [CARREGADO] Itens no Chão: 0 
+[23:11:57] [CARREGADO] Itens na Pos 0: 0
+[23:11:57] [CARREGADO] Munições no chão do Servidor: 0 
+[23:11:57] [CARREGADO] Atualmente existem 0 drogas plantadas por SA.
+[23:11:57] [CARREGADO] Drogas no chão do Servidor: 0
+[23:11:57] [CARREGADO] Drogas na Pos 0: 0
+[23:11:57] [CARREGADO] Pixes: 0
+[23:11:57] [CARREGADO] Multas: 0
+[23:11:57] sscanf warning: Format specifier does not match parameter count.
+[23:11:57] [CARREGADO] Cofre do governo: US$24931273
+[23:11:57] [SERVER-INFO] Carregado com sucesso!
+[23:11:57] [ERRO] CHECK-IP COM FALHA! Code: 404, Data: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Object not found!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Object not found!</h1>
+<p>
+
+
+    The requested URL was not found on this server.
+
+  
+
+    The link on the
+    <a href="http://sa-mp.com">referring
+    page</a> seems to be wrong or outdated. Please inform the author of
+    <a href="http://sa-mp.com">that page</a>
+    about the error.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:postmaster@localhost">webmaster</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.38 (Win64) OpenSSL/1.0.2q PHP/5.6.40</span>
+</address>
+</body>
+</html>
+
+
+[23:12:25] 
+[23:12:28] [connection] incoming connection: 25.5.149.43:51627 id: 1
+[23:12:28] localhost/api-ip2.php?ip=25.5.149.43
+[23:12:28] [ERRO] CHECK-IP COM FALHA! Code: 404, Data: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Object not found!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Object not found!</h1>
+<p>
+
+
+    The requested URL was not found on this server.
+
+  
+
+    The link on the
+    <a href="http://sa-mp.com">referring
+    page</a> seems to be wrong or outdated. Please inform the author of
+    <a href="http://sa-mp.com">that page</a>
+    about the error.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:postmaster@localhost">webmaster</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.38 (Win64) OpenSSL/1.0.2q PHP/5.6.40</span>
+</address>
+</body>
+</html>
+
+
+[23:12:28] [join] Yuri_Braga has joined the server (1:25.5.149.43)
+[23:12:34] 
+[23:13:10] [connection] incoming connection: 25.47.33.203:57458 id: 2
+[23:13:10] localhost/api-ip2.php?ip=25.47.33.203
+[23:13:10] [ERRO] CHECK-IP COM FALHA! Code: 404, Data: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Object not found!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Object not found!</h1>
+<p>
+
+
+    The requested URL was not found on this server.
+
+  
+
+    The link on the
+    <a href="http://sa-mp.com">referring
+    page</a> seems to be wrong or outdated. Please inform the author of
+    <a href="http://sa-mp.com">that page</a>
+    about the error.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:postmaster@localhost">webmaster</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.38 (Win64) OpenSSL/1.0.2q PHP/5.6.40</span>
+</address>
+</body>
+</html>
+
+
+[23:13:11] [join] Gabriel_Monteiro has joined the server (2:25.47.33.203)
+[23:13:16] 
+[23:13:19] [chat] [Gabriel_Monteiro]: .
+[23:13:22] [chat] [Gabriel_Monteiro]: qir 0
+[23:13:26] [chat] [Gabriel_Monteiro]: net tá foda
+[23:13:30] [chat] [Gabriel_Monteiro]: tá ae
+[23:13:33] [chat] [Mac_Miller]: como seta
+[23:13:38] [chat] [Gabriel_Monteiro]: seta oq
+[23:13:43] [chat] [Mac_Miller]: seta um duneride ai
+[23:13:44] [chat] [Mac_Miller]: carro
+[23:13:56] [chat] [Gabriel_Monteiro]: sobe nessa porra
+[23:13:57] [chat] [Mac_Miller]: dureride macaco
+[23:14:32] [chat] [Yuri_Braga]: e
+[23:14:38] [chat] [Mac_Miller]: slk mais lagado q tudo
+[23:14:50] [Nex-AC debug] Dist: 211.597824, dist set: 25000.000000, old pos diff: 7.936836, speed: 152, veh: 14
+[23:14:50] [Nex-AC] Suspeita no ID 2. Código de motivo: 003 (2)
+[23:14:50] 
+[23:14:50] [SAVE-PJ] Jogador Gabriel_Monteiro - Personagem salvo com sucesso.
+[23:14:50] [part] Gabriel_Monteiro has left the server (2:2)
+[23:14:51] [chat] [Mac_Miller]: oi
+[23:15:01] [chat] [Mac_Miller]: kkkkkkkkkkkkk
+[23:15:04] [chat] [Mac_Miller]: pqp
+[23:15:24] [chat] [Mac_Miller]: kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+[23:15:32] [chat] [Yuri_Braga]: tu tá vendo né
+[23:15:34] [chat] [Yuri_Braga]: dps te mando print
+[23:15:42] [chat] [Yuri_Braga]: vou só ver oq eh o 003
+[23:15:48] [connection] incoming connection: 25.47.33.203:57867 id: 2
+[23:15:48] localhost/api-ip2.php?ip=25.47.33.203
+[23:15:48] [ERRO] CHECK-IP COM FALHA! Code: 404, Data: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Object not found!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Object not found!</h1>
+<p>
+
+
+    The requested URL was not found on this server.
+
+  
+
+    The link on the
+    <a href="http://sa-mp.com">referring
+    page</a> seems to be wrong or outdated. Please inform the author of
+    <a href="http://sa-mp.com">that page</a>
+    about the error.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:postmaster@localhost">webmaster</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.38 (Win64) OpenSSL/1.0.2q PHP/5.6.40</span>
+</address>
+</body>
+</html>
+
+
+[23:15:48] [join] Gabriel_Monteiro has joined the server (2:25.47.33.203)
+[23:15:51] [chat] [Yuri_Braga]: true,	//3 Anti-teleport hack (in vehicle)
+[23:15:54] 
+[23:16:09] [chat] [Mac_Miller]: nao cosegue joga sem hack
+[23:16:10] [chat] [Yuri_Braga]: um buraco kk
+[23:16:28] sscanf warning: Format specifier does not match parameter count.
+[23:16:30] sscanf warning: Format specifier does not match parameter count.
+[23:17:40] [chat] [Yuri_Braga]: Ei!
+[23:17:52] [chat] [Yuri_Braga]: Cobre, vou disparar um morteiro em golf uno.
+[23:18:05] [chat] [Mac_Miller]: certo.
+[23:18:13] [chat] [Yuri_Braga]: objeto bugado a colisão
+[23:18:16] [chat] [Yuri_Braga]: deixa eu atirar
+[23:18:29] [chat] [Mac_Miller]: pegou?
+[23:18:34] [chat] [Yuri_Braga]: Não.
+[23:18:44] [chat] [Mac_Miller]: seu macaco
+[23:19:08] [chat] [Gabriel_Monteiro]: viado
+[23:19:12] [chat] [Gabriel_Monteiro]: vcs são mto burro
+[23:19:14] [chat] [Yuri_Braga]: eu n to prestando atenção
+[23:19:16] [chat] [Gabriel_Monteiro]: q cover foi esse?
+[23:19:18] [chat] [Gabriel_Monteiro]: kkkkkkkkkkkkkkkkkkkkkkkkkk
+[23:19:18] [chat] [Yuri_Braga]: fiquei bugado no morteiro
+[23:19:21] [chat] [Mac_Miller]: ent
+[23:19:21] [chat] [Yuri_Braga]: ai fui olhar kkk
+[23:19:24] [chat] [Gabriel_Monteiro]: vai ent
+[23:19:26] [chat] [Mac_Miller]: monteiro me travoukkkkkkkkkkkkkkkkkkkkkk
+[23:19:26] [chat] [Yuri_Braga]: vamo call salseiro
+[23:19:27] [chat] [Gabriel_Monteiro]: +1 chance
+[23:19:30] [chat] [Yuri_Braga]: deixa só eu corrigir o morteiro
+[23:19:32] [chat] [Gabriel_Monteiro]: vou call c vcs
+[23:19:33] [chat] [Mac_Miller]: call n da bobo
+[23:19:35] [chat] [Gabriel_Monteiro]: atende lá
+[23:19:35] [chat] [Mac_Miller]: quebro o fone
+[23:19:37] [chat] [Gabriel_Monteiro]: ah vdd
+[23:19:42] [chat] [Gabriel_Monteiro]: mano, tu tem q consertar esse fone
+[23:19:43] [chat] [Gabriel_Monteiro]: até dia 16
+[23:19:54] [chat] [Yuri_Braga]: so chega dia 26
+[23:20:01] [chat] [Mac_Miller]: espera o bolsa familia cair q eu lanço oto
+[23:20:02] [chat] [Gabriel_Monteiro]: kkk
+[23:20:11] [chat] [Gabriel_Monteiro]: slc, saleiro só tem dinheiro de bolsa em familia emb olsa familia
+[23:20:13] [chat] [Gabriel_Monteiro]: parece o yuri
+[23:20:24] [chat] [Mac_Miller]: kkkkkkkkkkkkkk pelo menos tenho ne pedinte
+[23:20:30] [chat] [Gabriel_Monteiro]: pedinte
+[23:20:31] [chat] [Gabriel_Monteiro]: kk
+[23:20:47] [SAVE-PJ] Jogador Mac_Miller - Personagem salvo com sucesso.
+[23:20:47] [SAVE-PJ] Jogador Yuri_Braga - Personagem salvo com sucesso.
+[23:20:47] [SAVE-PJ] Jogador Gabriel_Monteiro - Personagem salvo com sucesso.
+[23:20:47] [SAVE-PJ] Jogador Mac_Miller - Personagem salvo com sucesso.
+[23:20:48] [SERVER-SALVANDO] Todos os veículos foram salvos.
+[23:20:48] [SERVER-SALVANDO] Todas as casas foram salvas.
+[23:20:48] [SAVE-PJ] Jogador Yuri_Braga - Personagem salvo com sucesso.
+[23:20:49] [SERVER-SALVANDO] Todos os veículos foram salvos.
+[23:20:49] [SERVER-SALVANDO] Todas as casas foram salvas.
+[23:20:49] [SAVE-PJ] Jogador Gabriel_Monteiro - Personagem salvo com sucesso.
+[23:20:50] [SERVER-SALVANDO] Todos os veículos foram salvos.
+[23:20:50] [SERVER-SALVANDO] Todas as casas foram salvas.
+[23:20:50] [Nex-AC debug] AC health: 70, health: 85
+[23:20:50] [Nex-AC] Suspeita no ID 2. Código de motivo: 012
+[23:20:50] 
+[23:20:50] [SAVE-PJ] Jogador Yuri_Braga - Personagem salvo com sucesso.
+[23:20:50] [part] Yuri_Braga has left the server (1:1)
+[23:20:50] 
+[23:20:50] [SAVE-PJ] Jogador Mac_Miller - Personagem salvo com sucesso.
+[23:20:50] [part] Mac_Miller has left the server (0:2)
+[23:20:50] 
+[23:20:50] [SAVE-PJ] Jogador Gabriel_Monteiro - Personagem salvo com sucesso.
+[23:20:50] [part] Gabriel_Monteiro has left the server (2:2)
+[23:20:53] [ADM] Info: Unload EVF v3.2.1 for SA:MP 0.3.7 by Abyss Morgan
+[23:20:53]  
+[23:20:53] --------------------------------------
+[23:20:53]  Estatísticas do anticheat Nex-AC
+[23:20:53]  Detectando e previnindo:
+[23:20:53]   2 tentativas de cheating
+[23:20:53]   0 tentativas de hacking
+[23:20:53]   0 tentativas de crashing
+[23:20:53]   0 tentativas de flooding
+[23:20:53]   0 attaques
+[23:20:53]  Total de detecções e punições em 2 cheaters
+[23:20:53] --------------------------------------
+
+[23:21:06]    Error: Function not registered: 'SSCANF_Init'
+[23:21:06]    Error: Function not registered: 'SSCANF_IsConnected'
+[23:21:06]    Error: Function not registered: 'SSCANF_Join'
+[23:21:06]    Error: Function not registered: 'SSCANF_Leave'
+[23:21:06]    Error: Function not registered: 'IsValidDynamicObject'
+[23:21:06]    Error: Function not registered: 'DestroyDynamicObject'
+[23:21:06]    Error: Function not registered: 'CreateDynamicObject'
+[23:21:06]    Error: Function not registered: 'AttachDynamicObjectToVehicle'
+[23:21:06]    Error: Function not registered: 'CreateDynamicSphere'
+[23:21:06]    Error: Function not registered: 'CreateDynamic3DTextLabel'
+[23:21:06]    Error: Function not registered: 'Streamer_SetArrayData'
+[23:21:06]    Error: Function not registered: 'DestroyDynamicArea'
+[23:21:06]    Error: Function not registered: 'DestroyDynamic3DTextLabel'
+[23:21:06]    Error: Function not registered: 'Streamer_GetArrayData'
+[23:21:06]    Error: Function not registered: 'Streamer_Update'
+[23:21:06]    Error: Function not registered: 'Streamer_GetFloatData'
+[23:21:06]    Error: Function not registered: 'Streamer_SetIntData'
+[23:21:06]    Error: Function not registered: 'Streamer_UpdateEx'
+[23:21:06]    Error: Function not registered: 'DestroyDynamicPickup'
+[23:21:06]    Error: Function not registered: 'CreateDynamicPickup'
+[23:21:06]    Error: Function not registered: 'Streamer_GetDistanceToItem'
+[23:21:06]    Error: Function not registered: 'Streamer_GetIntData'
+[23:21:06]    Error: Function not registered: 'Streamer_GetItemStreamerID'
+[23:21:06]    Error: Function not registered: 'IsValidDynamicPickup'
+[23:21:06]    Error: Function not registered: 'sscanf'
+[23:21:06]    Error: Function not registered: 'GetDynamicObjectPos'
+[23:21:06]    Error: Function not registered: 'MoveDynamicObject'
+[23:21:06]    Error: Function not registered: 'StopDynamicObject'
+[23:21:06]    Error: Function not registered: 'SetDynamicObjectMaterial'
+[23:21:06]    Error: Function not registered: 'SetDynamicObjectMaterialText'
+[23:21:06]    Error: Function not registered: 'CreateDynamicObjectEx'
+[23:21:06]    Error: Function not registered: 'mysql_query'
+[23:21:06]    Error: Function not registered: 'cache_get_row_count'
+[23:21:06]    Error: Function not registered: 'cache_get_field_content'
+[23:21:06]    Error: Function not registered: 'IsValidDynamic3DTextLabel'
+[23:21:06]    Error: Function not registered: 'mysql_connect'
+[23:21:06]    Error: Function not registered: 'mysql_errno'
+[23:21:06]    Error: Function not registered: 'Streamer_VisibleItems'
+[23:21:06]    Error: Function not registered: 'MapAndreas_Init'
+[23:21:06]    Error: Function not registered: 'mysql_tquery'
+[23:21:06]    Error: Function not registered: 'cache_get_data'
+[23:21:06]    Error: Function not registered: 'cache_insert_id'
+[23:21:06]    Error: Function not registered: 'MapAndreas_FindAverageZ'
+[23:21:06]    Error: Function not registered: 'DestroyAllDynamicObjects'
+[23:21:06]    Error: Function not registered: 'mysql_close'
+[23:21:06]    Error: Function not registered: 'IsValidDynamicCP'
+[23:21:06]    Error: Function not registered: 'DestroyDynamicCP'
+[23:21:06]    Error: Function not registered: 'CreateDynamicCP'
+[23:21:06]    Error: Function not registered: 'mysql_escape_string'
+[23:21:06]    Error: Function not registered: 'UpdateDynamic3DTextLabelText'
+[23:21:06]    Error: Function not registered: 'Streamer_SetFloatData'
+[23:21:06]    Error: Function not registered: 'ClearDynamicActorAnimations'
+[23:21:06]    Error: Function not registered: 'MapAndreas_FindZ_For2DCoord'
+[23:21:06]    Error: Function not registered: 'EditDynamicObject'
+[23:21:06]    Error: Function not registered: 'WP_Hash'
+[23:21:06]    Error: Function not registered: 'mysql_format'
+[23:21:06]    Error: Function not registered: 'SetDynamicObjectPos'
+[23:21:06]    Error: Function not registered: 'SetDynamicObjectRot'
+[23:21:06]    Error: Function not registered: 'cache_get_field_content_int'
+[23:21:06]    Error: Function not registered: 'cache_get_field_content_float'
+[23:21:06]    Error: Function not registered: 'GetDynamicObjectRot'
+[23:21:06]    Error: Function not registered: 'Streamer_CountItems'
+[23:21:06]  
+[23:21:06]  
+[23:21:06]  
+[23:21:06]  ======================================= 
+[23:21:06]  |                                     | 
+[23:21:06]  |        YSI version 3.09.0684        | 
+[23:21:06]  |        By Alex "Y_Less" Cole        | 
+[23:21:06]  |                                     | 
+[23:21:06]  ======================================= 
+[23:21:06]  
+[23:21:06]  
+[23:21:06]  
+[23:21:06] [ADM] Info: Load EVF v3.2.1 for SA:MP 0.3.7 by Abyss Morgan
+[23:21:06]  
+[23:21:06] --------------------------------------
+[23:21:06]  Anticheat Nex-AC carregado!
+[23:21:06]  Anticheat versão: 1.9.61
+[23:21:06]  Autor: Nexius (PT-BR by NicK_)
+[23:21:06] --------------------------------------
+
+[23:21:06] [CARREGADO] Custom nametags by Yur$
+[23:21:06] |-- Corrida de Cavalos: Carregado
+[23:21:07] [CARREGADO] Mining Village
+[23:21:07] [CARREGADO] Mapa avião
+[23:21:07] [CARREGADO] Mapa: Aeroporto abandonado Village
+[23:21:07] [CARREGADO] Mapa: WH 2
+[23:21:07] [CARREGADO] Mapa: Factory int
+[23:21:07] [CARREGADO] Mapa: Ghetto droga int
+[23:21:07] [CARREGADO] Mapa: Ghetto ammo int
+[23:21:07] [CARREGADO] Mapa Ilegal gunshop int
+[23:21:07] [CARREGADO] Mapa: int lavagem de grana
+[23:21:07] [CARREGADO] Mapa: Hospital interior
+[23:21:07] [CARREGADO] Mapa: Banco interior
+[23:21:07] [LOAD] Mapa: Barzinho
+[23:21:07] [LOAD] Mapa: Barzinho 2
+[23:21:07] [LOAD] Mapa: Barzinho 3
+[23:21:07] [CARREGADO] Mapa: Fight room
+[23:21:07] [CARREGADO] Mapa: Empresa 1
+[23:21:07] [CARREGADO] Mapa: Loja de Eletronicos
+[23:21:07] [CARREGADO] Mapa: Agencia de Empregos
+[23:21:07] [CARREGADO] Mapa: Estudio
+[23:21:07] [LOAD] Mapa: Sony
+[23:21:07] [LOAD] Mapa: Caravan
+[23:21:07] [LOAD] Mapa: Interiores de Casas e Empresas vazios
+[23:21:07] [LOAD] Mapa: Apartamento 1
+[23:21:07] [LOAD] Mapa: Apartamento 2
+[23:21:07] [LOAD] Mapa: Apartamento 3
+[23:21:07] [LOAD] Mapa: DrugHouse 1
+[23:21:07] [LOAD] Mapa: WeaponHouse 1
+[23:21:07] [CARREGADO] Mapa: Complexo 1
+[23:21:07] [CARREGADO] Mapa: Complexo 2
+[23:21:07] [CARREGADO] Mapa: Complexo 3
+[23:21:07] [CARREGADO] Mapa: Complexo 4
+[23:21:07] [CARREGADO] Mapa: Complexo 5
+[23:21:07] [CARREGADO] Mapa: Complexo 7
+[23:21:07] [CARREGADO] Mapa: Complexo 8
+[23:21:07] [CARREGADO] Mapa: Complexo 9
+[23:21:08] [CARREGADO] Sistema de Grafite
+[23:21:08] 
+-------------------------------------------
+[23:21:08] War on Terror Roleplay — 2023				
+[23:21:08] Desenvolvido por Yuri Braga					
+[23:21:08] ------------------------------------------
+ 
+[23:21:08] Number of vehicle models: 5
+[23:21:08] [CARREGADO] Veiculos criados.
+[23:21:08] [CARREGADO] 0 veiculos carregados.
+[23:21:08] [CARREGADO] Casas: 0
+[23:21:08] [CARREGADO] Garagens: 0
+[23:21:08] [CARREGADO] Complexos: 0
+[23:21:08] [CARREGADO] Empresas: 0
+[23:21:08] [CARREGADO] Pontos de entrega.
+[23:21:08] [CARREGADO] FURNITURE: 0 moveis.
+[23:21:08] [CARREGADO] Armas no Servidor: 4
+[23:21:08] [CARREGADO] Armas no Chão: 0
+[23:21:08] [CARREGADO] Armas na Pos 0: 0
+[23:21:08] [CARREGADO] Facções: 4
+[23:21:08] [CARREGADO] Total de Portas/Portões: 0
+[23:21:08] [CARREGADO] Itens no Servidor: 2
+[23:21:08] [CARREGADO] Itens no Chão: 0 
+[23:21:08] [CARREGADO] Itens na Pos 0: 0
+[23:21:08] [CARREGADO] Munições no chão do Servidor: 0 
+[23:21:08] [CARREGADO] Atualmente existem 0 drogas plantadas por SA.
+[23:21:08] [CARREGADO] Drogas no chão do Servidor: 0
+[23:21:08] [CARREGADO] Drogas na Pos 0: 0
+[23:21:08] [CARREGADO] Pixes: 0
+[23:21:08] [CARREGADO] Multas: 0
+[23:21:08] sscanf warning: Format specifier does not match parameter count.
+[23:21:08] [CARREGADO] Cofre do governo: US$24929818
+[23:21:08] [SERVER-INFO] Carregado com sucesso!
+[23:21:20] [connection] incoming connection: 25.5.149.43:56783 id: 0
+[23:21:20] localhost/api-ip2.php?ip=25.5.149.43
+[23:21:20] [ERRO] CHECK-IP COM FALHA! Code: 404, Data: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Object not found!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Object not found!</h1>
+<p>
+
+
+    The requested URL was not found on this server.
+
+  
+
+    The link on the
+    <a href="http://sa-mp.com">referring
+    page</a> seems to be wrong or outdated. Please inform the author of
+    <a href="http://sa-mp.com">that page</a>
+    about the error.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:postmaster@localhost">webmaster</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.38 (Win64) OpenSSL/1.0.2q PHP/5.6.40</span>
+</address>
+</body>
+</html>
+
+
+[23:21:20] [join] Yuri_Braga has joined the server (0:25.5.149.43)
+[23:21:28] 
+[23:21:40] [connection] incoming connection: 25.47.33.203:61917 id: 1
+[23:21:40] localhost/api-ip2.php?ip=25.47.33.203
+[23:21:40] [ERRO] CHECK-IP COM FALHA! Code: 404, Data: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Object not found!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Object not found!</h1>
+<p>
+
+
+    The requested URL was not found on this server.
+
+  
+
+    The link on the
+    <a href="http://sa-mp.com">referring
+    page</a> seems to be wrong or outdated. Please inform the author of
+    <a href="http://sa-mp.com">that page</a>
+    about the error.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:postmaster@localhost">webmaster</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.38 (Win64) OpenSSL/1.0.2q PHP/5.6.40</span>
+</address>
+</body>
+</html>
+
+
+[23:21:40] [join] Gabriel_Monteiro has joined the server (1:25.47.33.203)
+[23:21:46] 
+[23:23:00] [connection] incoming connection: 25.5.168.18:49740 id: 2
+[23:23:00] localhost/api-ip2.php?ip=25.5.168.18
+[23:23:00] [ERRO] CHECK-IP COM FALHA! Code: 404, Data: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Object not found!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Object not found!</h1>
+<p>
+
+
+    The requested URL was not found on this server.
+
+  
+
+    The link on the
+    <a href="http://sa-mp.com">referring
+    page</a> seems to be wrong or outdated. Please inform the author of
+    <a href="http://sa-mp.com">that page</a>
+    about the error.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:postmaster@localhost">webmaster</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.38 (Win64) OpenSSL/1.0.2q PHP/5.6.40</span>
+</address>
+</body>
+</html>
+
+
+[23:23:01] [join] Mac_Miller has joined the server (2:25.5.168.18)
+[23:23:07] 
+[23:23:50] [Nex-AC debug] Fire rate: 6, weaponid: 31
+[23:23:50] [Nex-AC] Suspeita no ID 1. Código de motivo: 026 (1)
+[23:23:50] 
+[23:23:50] [SAVE-PJ] Jogador Gabriel_Monteiro - Personagem salvo com sucesso.
+[23:23:50] [part] Gabriel_Monteiro has left the server (1:2)
+[23:24:10] [connection] incoming connection: 25.47.33.203:57934 id: 1
+[23:24:10] localhost/api-ip2.php?ip=25.47.33.203
+[23:24:10] [ERRO] CHECK-IP COM FALHA! Code: 404, Data: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Object not found!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Object not found!</h1>
+<p>
+
+
+    The requested URL was not found on this server.
+
+  
+
+    The link on the
+    <a href="http://sa-mp.com">referring
+    page</a> seems to be wrong or outdated. Please inform the author of
+    <a href="http://sa-mp.com">that page</a>
+    about the error.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:postmaster@localhost">webmaster</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.38 (Win64) OpenSSL/1.0.2q PHP/5.6.40</span>
+</address>
+</body>
+</html>
+
+
+[23:24:10] [join] Gabriel_Monteiro has joined the server (1:25.47.33.203)
+[23:24:17] 
+[23:26:00] [Nex-AC debug] Fire rate: 1, weaponid: 31
+[23:26:00] [Nex-AC] Suspeita no ID 1. Código de motivo: 026 (1)
+[23:26:00] 
+[23:26:00] [SAVE-PJ] Jogador Gabriel_Monteiro - Personagem salvo com sucesso.
+[23:26:00] [part] Gabriel_Monteiro has left the server (1:2)
+[23:26:19] [connection] incoming connection: 25.47.33.203:55629 id: 1
+[23:26:19] localhost/api-ip2.php?ip=25.47.33.203
+[23:26:19] [ERRO] CHECK-IP COM FALHA! Code: 404, Data: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Object not found!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Object not found!</h1>
+<p>
+
+
+    The requested URL was not found on this server.
+
+  
+
+    The link on the
+    <a href="http://sa-mp.com">referring
+    page</a> seems to be wrong or outdated. Please inform the author of
+    <a href="http://sa-mp.com">that page</a>
+    about the error.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:postmaster@localhost">webmaster</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.38 (Win64) OpenSSL/1.0.2q PHP/5.6.40</span>
+</address>
+</body>
+</html>
+
+
+[23:26:19] [join] Gabriel_Monteiro has joined the server (1:25.47.33.203)
+[23:26:26] 
+[23:28:47] sscanf warning: Strings without a length are deprecated, please add a destination size.
+[23:28:47] sscanf warning: Format specifier does not match parameter count.
+[23:29:14] [Nex-AC debug] AC armour: 88, armour: 92
+[23:29:14] [Nex-AC] Suspeita no ID 1. Código de motivo: 013
+[23:29:14] 
+[23:29:14] [SAVE-PJ] Jogador Gabriel_Monteiro - Personagem salvo com sucesso.
+[23:29:14] [part] Gabriel_Monteiro has left the server (1:2)
+[23:29:48] sscanf warning: Strings without a length are deprecated, please add a destination size.
+[23:29:48] sscanf warning: Format specifier does not match parameter count.
+[23:29:52] [connection] incoming connection: 25.47.33.203:58803 id: 1
+[23:29:52] localhost/api-ip2.php?ip=25.47.33.203
+[23:29:52] [ERRO] CHECK-IP COM FALHA! Code: 404, Data: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Object not found!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Object not found!</h1>
+<p>
+
+
+    The requested URL was not found on this server.
+
+  
+
+    The link on the
+    <a href="http://sa-mp.com">referring
+    page</a> seems to be wrong or outdated. Please inform the author of
+    <a href="http://sa-mp.com">that page</a>
+    about the error.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:postmaster@localhost">webmaster</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.38 (Win64) OpenSSL/1.0.2q PHP/5.6.40</span>
+</address>
+</body>
+</html>
+
+
+[23:29:52] [join] Gabriel_Monteiro has joined the server (1:25.47.33.203)
+[23:29:57] 
+[23:30:03] [chat] [Yuri_Braga]:  /destruirarma
+[23:30:15] [Nex-AC debug] AC health: 42, health: 47
+[23:30:15] [Nex-AC] Suspeita no ID 1. Código de motivo: 012
+[23:30:15] 
+[23:30:15] [SAVE-PJ] Jogador Gabriel_Monteiro - Personagem salvo com sucesso.
+[23:30:15] [part] Gabriel_Monteiro has left the server (1:2)
+[23:31:12] [chat] [Yuri_Braga]: assustou ai
+[23:31:17] [chat] [Yuri_Braga]: cria outro pj
+[23:31:19] [chat] [Mac_Miller]: senti um calor ali
+[23:31:20] [chat] [Yuri_Braga]: o crash te bugou
+[23:31:42] [chat] [Mac_Miller]: da arminha
+[23:31:46] [chat] [Mac_Miller]: setararma 2 356 100
+[23:31:52] [chat] [Mac_Miller]: nao tafunfando cmg
+[23:32:23] [chat] [Yuri_Braga]: 356?
+[23:32:25] [chat] [Yuri_Braga]: id normal fi
+[23:32:28] [chat] [Yuri_Braga]: 31, 24
+[23:32:32] [chat] [Yuri_Braga]:  /setararma 2 31
+[23:32:35] [chat] [Yuri_Braga]:  /setarammo
+[23:32:37] [chat] [Yuri_Braga]: pra munição
+[23:32:48] [connection] incoming connection: 25.47.33.203:50551 id: 1
+[23:32:48] localhost/api-ip2.php?ip=25.47.33.203
+[23:32:48] [ERRO] CHECK-IP COM FALHA! Code: 404, Data: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Object not found!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Object not found!</h1>
+<p>
+
+
+    The requested URL was not found on this server.
+
+  
+
+    The link on the
+    <a href="http://sa-mp.com">referring
+    page</a> seems to be wrong or outdated. Please inform the author of
+    <a href="http://sa-mp.com">that page</a>
+    about the error.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:postmaster@localhost">webmaster</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.38 (Win64) OpenSSL/1.0.2q PHP/5.6.40</span>
+</address>
+</body>
+</html>
+
+
+[23:32:48] [join] Gabriel_Monteiro has joined the server (1:25.47.33.203)
+[23:37:14] [Nex-AC debug] ID 1 usando NOP SetPlayerHealth
+[23:37:14] [Nex-AC debug] AC health: 70, health: 100
+[23:37:14] [Nex-AC] Suspeita no ID 1. Código de motivo: 052 (3)
+[23:37:14] 
+[23:37:14] [SAVE-PJ] Jogador Gabriel_Monteiro - Personagem salvo com sucesso.
+[23:37:14] [part] Gabriel_Monteiro has left the server (1:2)
+[23:37:55] [connection] incoming connection: 25.47.33.203:61013 id: 1
+[23:37:55] localhost/api-ip2.php?ip=25.47.33.203
+[23:37:55] [ERRO] CHECK-IP COM FALHA! Code: 404, Data: <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Object not found!</title>
+<link rev="made" href="mailto:postmaster@localhost" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Object not found!</h1>
+<p>
+
+
+    The requested URL was not found on this server.
+
+  
+
+    The link on the
+    <a href="http://sa-mp.com">referring
+    page</a> seems to be wrong or outdated. Please inform the author of
+    <a href="http://sa-mp.com">that page</a>
+    about the error.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="mailto:postmaster@localhost">webmaster</a>.
+
+</p>
+
+<h2>Error 404</h2>
+<address>
+  <a href="/">localhost</a><br />
+  <span>Apache/2.4.38 (Win64) OpenSSL/1.0.2q PHP/5.6.40</span>
+</address>
+</body>
+</html>
+
+
+[23:37:55] [join] Gabriel_Monteiro has joined the server (1:25.47.33.203)
+[23:38:01] 
+[23:38:39] [SAVE-PJ] Jogador Yuri_Braga - Personagem salvo com sucesso.
+[23:38:39] 
+[23:39:44] [SAVE-PJ] Jogador Mac_Miller - Personagem salvo com sucesso.
+[23:39:50] [chat] [Mac_Miller]: s

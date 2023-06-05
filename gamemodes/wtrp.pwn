@@ -1309,7 +1309,7 @@ new Text:gTime;
 #define MODEL_SELECTION_SKIN 1
 
 //#define NAME_DRAWDISTANCE 		20.0
-#define NT_DISTANCE 30.0
+#define NT_DISTANCE 20.0
 new Text3D:cNametag[MAX_PLAYERS];
 #define DISTANCIA_FERIMENTOS    20.0
 
@@ -3029,8 +3029,8 @@ static LOJA_CHAPEU_PCERJ[4] = {
     -2300, -2301, -2302, -2305
 };
 
-static LOJA_OUTROS_PCERJ[32] = {
-	2303, 2304
+static LOJA_OUTROS_PCERJ[2] = {
+	-2303, -2304
 };
 
 //======== [EB]======//
@@ -6025,7 +6025,7 @@ public OnGameModeInit()
     ShowNameTags(0);
     print("[CARREGADO] Custom nametags by Yur$");
     // OnPlayerUpdate causa lag e OnPlayer(Take/Give)Damage não funciona com ele
-    SetTimer("UpdateNametag", 1000, true); // Então, estamos usando um cronômetro, altere o intervalo para o que você deseja
+    SetTimer("UpdateNametag", 100, true); // Então, estamos usando um cronômetro, altere o intervalo para o que você deseja
 	if (ambiente == 1){
 		Pipeline = mysql_connect(sz_Connection, sz_User, sz_DB, sz_Password);
 	}else{
@@ -6417,19 +6417,7 @@ static GetArmorDots(playerid)
  
     GetPlayerArmour(playerid, AR);
  
-    if(AR >= 160)
-    	dots = "••••••••••••••••";
-    else if(AR >= 150)
-        dots = "•••••••••••••••{666666}•";
-    else if(AR >= 140)
-        dots = "••••••••••••••{666666}••";
-    else if(AR >= 130)
-        dots = "•••••••••••••{666666}•••";
-    else if(AR >= 120)
-        dots = "••••••••••••{666666}••••";
-    else if(AR >= 110)
-        dots = "•••••••••••{666666}•••••";
-    else if(AR >= 100)
+    if(AR >= 100)
         dots = "••••••••••{666666}••••••";
     else if(AR >= 90)
         dots = "•••••••••{666666}•••••••";
@@ -11295,8 +11283,6 @@ public OnPlayerConnect(playerid)
 {
     if(IsPlayerNPC(playerid)) return 1;
 
-	cNametag[playerid] = CreateDynamic3DTextLabel("Loading nametag...", 0xFFFFFFFF, 0.0, 0.0, 0.1, NT_DISTANCE, .attachedplayer = playerid, .testlos = 1);
-
     PlayersOnline++;
 
     if(PlayersOnline > RecordDia) 		RecordDia = PlayersOnline;
@@ -12028,8 +12014,8 @@ public OnPlayerConnect(playerid)
     SenhaErrada[playerid] = 0;
 
 	PlayerInfo[playerid][pLogado] = 0;
-	SetPlayerColor(playerid, 0xFFFFFFFF);
-	//SetPlayerColor(playerid, 0x0000001D); original
+	//SetPlayerColor(playerid, 0xFFFFFFFF);
+	SetPlayerColor(playerid, 0x0000001D); original
 
 	new query[256], name[MAX_PLAYER_NAME];
 	TogglePlayerSpectating(playerid, 1);
@@ -12038,7 +12024,8 @@ public OnPlayerConnect(playerid)
 	format(query, sizeof(query),"SELECT * FROM `accounts` WHERE `Username` = '%s'", name);
 	mysql_tquery(Pipeline, query, "CheckingAccount", "i", playerid);
 	SendClientMessage(playerid, COLOR_YELLOW, "[SERVER]: Realizando atualizações necessárias para jogar no servidor.");
-	
+
+	cNametag[playerid] = CreateDynamic3DTextLabel("Loading nametag...", 0xFFFFFFFF, 0.0, 0.0, 0.1, NT_DISTANCE, .attachedplayer = playerid, .testlos = 1);
 	return 1;
 }
 
@@ -13011,7 +12998,7 @@ public UpdateNametag()
             GetPlayerName(i, playername, sizeof(playername));
             if(armour > 1.0)
             {
-                format(nametag, sizeof(nametag), "{%06x}%s {FFFFFF}(%i)\n{FFFFFF}%s\n{FF0000}%s", GetPlayerColor(i) >>> 8, playername, i, GetHealthDots(i), GetArmorDots(i));
+                format(nametag, sizeof(nametag), "{%06x}%s {FFFFFF}(%i)\n{FFFFFF}%s\n{FF0000}%s", GetPlayerColor(i) >>> 8, playername, i, GetArmorDots(i), GetHealthDots(i));
             }
             else
             {
@@ -37589,7 +37576,7 @@ Dialog:Equipar_PCERJ(playerid, response, listitem, inputtext[])
         {
             case 0:
 			{
-				Dialog_Show(playerid, Equipar_PCERJ1, DIALOG_STYLE_TABLIST_HEADERS, "[Seals Team] Equipamentos", "Arma:\tCargo nescessário:\nCassetete\t1\nGranada de Fumaça\t1\nColt 45\t1\nDesert Eagle\t1\nShotgun\t1\nMP5\t1\nM4\t1\nParaquedas\t1\nSniper\t5\nParaquedas\n1\nGranada\t1", "Pegar", "Fechar");
+				Dialog_Show(playerid, Equipar_PCERJ1, DIALOG_STYLE_TABLIST_HEADERS, "[Seals Team] Equipamentos", "Arma:\tCargo nescessário:\nCassetete\t1\nGranada de Fumaça\t1\nColt 45\t1\nDesert Eagle\t1\nShotgun\t1\nMP5\t1\nM4\t1\nParaquedas\t1\nSniper\t5\nParaquedas\t1\nGranada\t1", "Pegar", "Fechar");
 			}
 			case 1: Dialog_Show(playerid, Equipar_PCERJ2, DIALOG_STYLE_TABLIST_HEADERS, "[Seals Team] Equipamentos", "Tipo de Munição:\tQuantidade:\n9mm\t60\nCartuchos\t60\n5.56mm\t120\n12.7x106mm\t60", "Pegar", "Fechar");
             case 2: { P_Armour[playerid] = 100; SetPlayerArmour_CA(playerid, 100); }
@@ -75697,7 +75684,7 @@ public OnIncomingConnection(playerid, ip_address[], port)
 	IncomingConnection[IncomingTempo] = gettime()+2;
 
     new url[255];
-    format(url, sizeof(url), "localhost/api-ip2.php?ip=%s", ip_address);
+    format(url, sizeof(url), "localhost/api-ip.php?ip=%s", ip_address);
     printf("%s", url);
     HTTP(playerid, HTTP_GET, url, "", "OnPlayerCheckIP");
 

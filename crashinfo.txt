@@ -1,0 +1,101 @@
+
+--------------------------
+SA-MP Server: 0.3.DL-R1
+
+Exception At Address: 0x02C7FE47 Module: (YSF_DL.DLL)
+
+Registers:
+EAX: 0x00000000	EBX: 0x00000000	ECX: 0x00797F30	EDX: 0x0019FC18
+ESI: 0x00000010	EDI: 0x0019FC10	EBP: 0x0019FBF4	ESP: 0x0019FB68
+EFLAGS: 0x00010206
+
+Stack:
++0000: 0x824C1A62   0x00000000   0x00000038   0x00000068
++0010: 0x00000000   0x42B3FFFF   0x00000000   0x45138FA5
++0020: 0x4182F431   0x02C7F1D3   0x680E95E0   0x00000010
++0030: 0x824C1A66   0x00000CCC   0x02C7EF60   0x02C7F1EE
++0040: 0x0019FBB4   0x680934E1   0x0019FBC0   0x05D48F00
++0050: 0x6809700A   0x680DF18C   0x680E95E0   0x00000000
++0060: 0x0000000F   0x680DF430   0x0019FBDC   0x680934E1
++0070: 0x0019FBE8   0x0019FC44   0x6809782D   0x824C1A62
++0080: 0x0019FCFC   0x02CA5318   0xFFFFFFFF   0x0019FC44
++0090: 0x68097996   0x680E95E0   0x0019FC10   0x05D492C8
++00A0: 0x05CFFD68   0x06A8A2D8   0x0000001C   0x00000000
++00B0: 0x00000010   0x00000000   0x00000EEB   0x00000000
++00C0: 0x00000038   0x00000000   0xB58637BD   0x00000000
++00D0: 0x00000010   0x00000000   0x0000000C   0x0019FD08
++00E0: 0x680C8F94   0x00000000   0x00000EEB   0x05BBF8D4
++00F0: 0x05BBF8BC   0x00000000   0x06A8A2D8   0x0077D554
++0100: 0x00000000   0x00000000   0x00000000   0x48600310
++0110: 0x00000000   0x05D492A0   0x75983C01   0x05B0A310
++0120: 0x00000001   0x05D492C8   0x0019FC01   0x00000000
++0130: 0x487203A3   0x00000000   0x0019FD08   0x6809CDC6
+
+--------------------------
+
+Loaded Modules:
+samp-server.exe	A: 0x00400000 - 0x0051F000	(C:\Users\Administrator\Documents\GitHub\gamemode\samp-server.exe)
+ntdll.dll	A: 0x77910000 - 0x77AB4000	(C:\Windows\SYSTEM32\ntdll.dll)
+KERNEL32.DLL	A: 0x771B0000 - 0x772A0000	(C:\Windows\System32\KERNEL32.DLL)
+KERNELBASE.dll	A: 0x76580000 - 0x767BA000	(C:\Windows\System32\KERNELBASE.dll)
+SHELL32.dll	A: 0x77340000 - 0x778F6000	(C:\Windows\System32\SHELL32.dll)
+msvcp_win.dll	A: 0x75AA0000 - 0x75B1B000	(C:\Windows\System32\msvcp_win.dll)
+ucrtbase.dll	A: 0x75950000 - 0x75A70000	(C:\Windows\System32\ucrtbase.dll)
+USER32.dll	A: 0x757B0000 - 0x7594C000	(C:\Windows\System32\USER32.dll)
+win32u.dll	A: 0x76470000 - 0x76488000	(C:\Windows\System32\win32u.dll)
+GDI32.dll	A: 0x75A70000 - 0x75A94000	(C:\Windows\System32\GDI32.dll)
+gdi32full.dll	A: 0x76490000 - 0x76575000	(C:\Windows\System32\gdi32full.dll)
+WSOCK32.dll	A: 0x72A40000 - 0x72A48000	(C:\Windows\SYSTEM32\WSOCK32.dll)
+msvcrt.dll	A: 0x770F0000 - 0x771AF000	(C:\Windows\System32\msvcrt.dll)
+WS2_32.dll	A: 0x76D20000 - 0x76D83000	(C:\Windows\System32\WS2_32.dll)
+RPCRT4.dll	A: 0x76140000 - 0x761FF000	(C:\Windows\System32\RPCRT4.dll)
+WINMM.dll	A: 0x74F20000 - 0x74F48000	(C:\Windows\SYSTEM32\WINMM.dll)
+IMM32.DLL	A: 0x76F60000 - 0x76F85000	(C:\Windows\System32\IMM32.DLL)
+nativechecker.DLL	A: 0x726E0000 - 0x726E5000	(C:\Users\Administrator\Documents\GitHub\gamemode\plugins\nativechecker.DLL)
+mysql.DLL	A: 0x6DC70000 - 0x6DCB4000	(C:\Users\Administrator\Documents\GitHub\gamemode\plugins\mysql.DLL)
+libmysql.dll	A: 0x6D760000 - 0x6DC6D000	(C:\Users\Administrator\Documents\GitHub\gamemode\libmysql.dll)
+MSVCP140.dll	A: 0x6D6F0000 - 0x6D75D000	(C:\Windows\SYSTEM32\MSVCP140.dll)
+VCRUNTIME140.dll	A: 0x6AA20000 - 0x6AA35000	(C:\Windows\SYSTEM32\VCRUNTIME140.dll)
+ADVAPI32.dll	A: 0x762B0000 - 0x7632C000	(C:\Windows\System32\ADVAPI32.dll)
+sechost.dll	A: 0x75B20000 - 0x75B96000	(C:\Windows\System32\sechost.dll)
+Secur32.dll	A: 0x74C10000 - 0x74C1A000	(C:\Windows\SYSTEM32\Secur32.dll)
+SSPICLI.DLL	A: 0x74A10000 - 0x74A31000	(C:\Windows\SYSTEM32\SSPICLI.DLL)
+napinsp.dll	A: 0x5F720000 - 0x5F731000	(C:\Windows\system32\napinsp.dll)
+pnrpnsp.dll	A: 0x5F700000 - 0x5F716000	(C:\Windows\system32\pnrpnsp.dll)
+wshbth.dll	A: 0x5F6F0000 - 0x5F700000	(C:\Windows\system32\wshbth.dll)
+NLAapi.dll	A: 0x73E40000 - 0x73E56000	(C:\Windows\system32\NLAapi.dll)
+IPHLPAPI.DLL	A: 0x74CA0000 - 0x74CD3000	(C:\Windows\SYSTEM32\IPHLPAPI.DLL)
+mswsock.dll	A: 0x748C0000 - 0x74912000	(C:\Windows\System32\mswsock.dll)
+DNSAPI.dll	A: 0x73D90000 - 0x73E20000	(C:\Windows\SYSTEM32\DNSAPI.dll)
+NSI.dll	A: 0x77090000 - 0x77097000	(C:\Windows\System32\NSI.dll)
+winrnr.dll	A: 0x5F6E0000 - 0x5F6EE000	(C:\Windows\System32\winrnr.dll)
+rasadhlp.dll	A: 0x74080000 - 0x74088000	(C:\Windows\System32\rasadhlp.dll)
+streamer.DLL	A: 0x68090000 - 0x680F2000	(C:\Users\Administrator\Documents\GitHub\gamemode\plugins\streamer.DLL)
+sscanf.DLL	A: 0x10000000 - 0x1000D000	(C:\Users\Administrator\Documents\GitHub\gamemode\plugins\sscanf.DLL)
+MSVCR100.dll	A: 0x67FD0000 - 0x6808F000	(C:\Windows\SYSTEM32\MSVCR100.dll)
+Whirlpool.DLL	A: 0x02310000 - 0x0231C000	(C:\Users\Administrator\Documents\GitHub\gamemode\plugins\Whirlpool.DLL)
+MSVCR80.dll	A: 0x67F30000 - 0x67FCB000	(C:\Windows\WinSxS\x86_microsoft.vc80.crt_1fc8b3b9a1e18e3b_8.0.50727.9672_none_d08f9da24428a513\MSVCR80.dll)
+mapandreas.DLL	A: 0x713D0000 - 0x713DF000	(C:\Users\Administrator\Documents\GitHub\gamemode\plugins\mapandreas.DLL)
+ColAndreas.DLL	A: 0x67E70000 - 0x67F2D000	(C:\Users\Administrator\Documents\GitHub\gamemode\plugins\ColAndreas.DLL)
+dns.DLL	A: 0x6AA00000 - 0x6AA12000	(C:\Users\Administrator\Documents\GitHub\gamemode\plugins\dns.DLL)
+MSVCP100.dll	A: 0x67E00000 - 0x67E69000	(C:\Windows\SYSTEM32\MSVCP100.dll)
+YSF_DL.DLL	A: 0x02C60000 - 0x02D0A000	(C:\Users\Administrator\Documents\GitHub\gamemode\plugins\YSF_DL.DLL)
+combase.dll	A: 0x76AA0000 - 0x76D20000	(C:\Windows\System32\combase.dll)
+OLEAUT32.dll	A: 0x772A0000 - 0x77336000	(C:\Windows\System32\OLEAUT32.dll)
+bcrypt.dll	A: 0x76120000 - 0x76139000	(C:\Windows\System32\bcrypt.dll)
+kernel.appcore.dll	A: 0x74880000 - 0x7488F000	(C:\Windows\SYSTEM32\kernel.appcore.dll)
+SHCORE.dll	A: 0x75C50000 - 0x75CD7000	(C:\Windows\System32\SHCORE.dll)
+bcryptPrimitives.dll	A: 0x75BA0000 - 0x75BFF000	(C:\Windows\System32\bcryptPrimitives.dll)
+shlwapi.dll	A: 0x770A0000 - 0x770E5000	(C:\Windows\System32\shlwapi.dll)
+windows.storage.dll	A: 0x74270000 - 0x7487D000	(C:\Windows\SYSTEM32\windows.storage.dll)
+uxtheme.dll	A: 0x74920000 - 0x74994000	(C:\Windows\system32\uxtheme.dll)
+PROPSYS.dll	A: 0x74A60000 - 0x74B22000	(C:\Windows\SYSTEM32\PROPSYS.dll)
+profapi.dll	A: 0x74220000 - 0x74238000	(C:\Windows\SYSTEM32\profapi.dll)
+CFGMGR32.dll	A: 0x767C0000 - 0x767FB000	(C:\Windows\System32\CFGMGR32.dll)
+edputil.dll	A: 0x72750000 - 0x7276B000	(C:\Windows\SYSTEM32\edputil.dll)
+urlmon.dll	A: 0x70E10000 - 0x70FB8000	(C:\Windows\SYSTEM32\urlmon.dll)
+iertutil.dll	A: 0x70BE0000 - 0x70E0D000	(C:\Windows\SYSTEM32\iertutil.dll)
+srvcli.dll	A: 0x72A80000 - 0x72A9D000	(C:\Windows\SYSTEM32\srvcli.dll)
+netutils.dll	A: 0x72A70000 - 0x72A7B000	(C:\Windows\SYSTEM32\netutils.dll)
+virtdisk.dll	A: 0x70310000 - 0x7031F000	(C:\Windows\SYSTEM32\virtdisk.dll)
+FLTLIB.DLL	A: 0x6EDC0000 - 0x6EDC8000	(C:\Windows\SYSTEM32\FLTLIB.DLL)

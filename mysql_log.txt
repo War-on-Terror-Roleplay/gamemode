@@ -4,3 +4,25 @@
 [23:39:40] [WARNING] CMySQLResult::GetRowDataByName - field not found ("pArmBzk")
 [23:40:37] [ERROR] CMySQLQuery::Execute[] - (error #1054) Unknown column 'MunBzk' in 'field list'
 [23:40:37] [ERROR] CMySQLQuery::Execute[] - (error #1054) Unknown column 'pArmBzk' in 'field list'
+[22:43:25] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[22:54:48] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[22:57:51] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[23:01:17] [WARNING] CMySQLHandle::Create - connection already exists
+[23:02:11] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[23:03:05] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[23:07:05] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[23:08:59] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[23:11:38] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[23:12:25] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[23:12:34] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[23:13:16] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[23:15:54] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[23:21:06] [WARNING] CMySQLHandle::Create - connection already exists
+[23:21:28] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[23:21:46] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[23:23:07] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[23:24:16] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[23:26:26] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[23:29:57] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[23:32:54] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[23:38:01] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")

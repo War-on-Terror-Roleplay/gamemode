@@ -27,3 +27,6 @@
 [23:32:54] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
 [23:38:01] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
 [23:48:47] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[17:21:58] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[17:26:26] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[17:29:29] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")

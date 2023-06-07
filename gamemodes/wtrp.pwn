@@ -12057,8 +12057,8 @@ public CheckingAccount(playerid)
     TogglePlayerControllable(playerid,false);
 	SetPlayerPos(playerid, 1741.3394, -1875.1597, 13.5859);
 
-	InterpolateCameraPos(playerid, 2482.030517, -1100.739501, 52.487133, 2482.030517, -1100.739501, 52.487133, GetSeconds(60), CAMERA_MOVE);
-	InterpolateCameraLookAt(playerid, 2477.113769, -1099.987792, 51.976806, 2477.113769, -1099.987792, GetSeconds(60), CAMERA_MOVE);
+	InterpolateCameraPos(playerid, 311.185089, 2435.568359, 17.282800, 310.615600, 2436.388916, 17.232822, GetSeconds(60), CAMERA_MOVE);
+	InterpolateCameraLookAt(playerid, 311.185089, 2435.568359, 17.282800, 310.615600, 2436.388916, GetSeconds(60), CAMERA_MOVE);
 	
 	new rows, fields;
 	cache_get_data(rows, fields, Pipeline);

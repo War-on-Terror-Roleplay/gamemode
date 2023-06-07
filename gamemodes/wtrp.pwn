@@ -1328,12 +1328,12 @@ new Text3D:cNametag[MAX_PLAYERS];
 #define  SHOTGDANO           25.0
 #define  COMBATDANO          25.0
 #define  UZIDANO             15.0
-#define  MP5DANO             15.0
-#define  AKDANO              15.0
-#define  M4DANO              15.0
-#define  TECDANO             15.0
-#define  RIFLEDANO           300.0
-#define  SNIPERDANO          300.0
+#define  MP5DANO             18.0
+#define  AKDANO              20.0
+#define  M4DANO              16.0
+#define  TECDANO             18.0
+#define  RIFLEDANO           400.0
+#define  SNIPERDANO          400.0
 
 new GunNames[48][] = {
 	"Nada", "Brass Knuckles", "Golf Club", "Nitestick", "Knife", "Baseball Bat",

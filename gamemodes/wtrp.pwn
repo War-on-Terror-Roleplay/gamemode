@@ -13841,8 +13841,6 @@ COMMAND:petmenu(playerid, params[])
     if(!PetData[playerid][petModelID])
         return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não possui um pet.");
 
-	if(PlayerInfo[playerid][pDoador] <= 2)
-		return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não possui premium ouro ativo.");
 
     ShowPetMenu(playerid);
     return 1;
@@ -21784,7 +21782,7 @@ CMD:guardararma(playerid, params[])
 	}
 	else
 	{
-	    if(modelo == 1 || modelo == 3 || modelo == 4 || modelo == 16 || modelo == 17 || modelo == 22|| modelo == 22 || modelo == 23 || modelo == 24 || modelo == 28 || modelo == 41 || modelo == 43 || modelo == 46)
+	    if(modelo == 1 || modelo == 3 || modelo == 4 || modelo == 16 || modelo == 17 || modelo == 22|| modelo == 22 || modelo == 23 || modelo == 24 || modelo == 28 || modelo == 35 || modelo == 36 || modelo == 41 || modelo == 43 || modelo == 46)
 	    {
 	        if(InvId == 1)
 	        {
@@ -71180,7 +71178,7 @@ CMD:comprarpet(playerid,params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 
-	if(PlayerInfo[playerid][pDoador] <= 2)
+	if(PlayerInfo[playerid][pDoador] <= 0)
 		return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não possui premium ouro ativo.");
 
 	{

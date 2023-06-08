@@ -7319,28 +7319,6 @@ CMD:disparar(playerid, params[])
 	    SetTimerEx("QuedaMissil", 5000, false, "i", playerid);
 		SendClientMessage(playerid, COLOR_LIGHTGREEN, "INFO:{FFFFFF} Morteiro disparado, aguarde!");
 	}
-	new Float:X, Float:Y, Float:Z;
-	new worldid = GetPlayerVirtualWorld(playerid);
- 	new intid = GetPlayerInterior(playerid);
-		
-	GetPlayerPos(playerid, X, Y, Z);
-	GetXYInFrontOfPlayer(playerid, X, Y, 30);
-
-	foreach(Player, i)
-	{
-		if(IsPlayerInRangeOfPoint(i, 200.0, X, Y, Z))
-		{
-			Streamer_UpdateEx(i, X, Y, (Z), worldid, intid);
-		}
-	}
-
-	foreach(Player, i)
-	{
-		if(IsPlayerConnected(i) && IsPlayerInRangeOfPoint(i, 200.0, X, Y, Z))
-		{
-			PlayAudioStreamForPlayer(i, "http://localhost/midia/morteiro.mp3", X, Y, Z, 200.0, 1);
-		}
-	}
 	return 1;
 }
  

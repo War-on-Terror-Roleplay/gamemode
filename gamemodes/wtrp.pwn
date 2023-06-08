@@ -7289,6 +7289,7 @@ CMD:criarmorteiro(playerid, params[])
 		MorteiroPrincipal[0][playerid] = CreateObject(-2201,x,y,z-1,0.0000000,0.0000000,0.0000000);
 		SetPlayerPos(playerid, x, y, z);
 		MissilCriado[playerid] = true;
+		PlayerInfo[playerid][pArrombarDNV_C] = 300;
 		SendClientMessage(playerid, COLOR_WHITE, "INFO: Morteiro armado.");
 	}
  	return 1;
@@ -7309,14 +7310,14 @@ CMD:disparar(playerid, params[])
 	}
 	else
 	{
-		PlayerInfo[playerid][pArrombarDNV_C] = 1;
 	    new Float:x, Float:y, Float:z;
 	    GetObjectPos(Missil[0][playerid], x, y, z);
 	    //CreateExplosion(x, y, z, 1, 1);
 	    MoveObject(Missil[0][playerid], x, y, z+700, 90, 0, 0, 0);
 	    MoveObject(Missil[1][playerid], x, y, z+705, 90, 0, 0, 0);
 	    MoveObject(Missil[2][playerid], x, y, z+710, 90, 0, 0, 0);
-	    SetTimerEx("QuedaMissil", 500, false, "i", playerid);
+	    SetTimerEx("QuedaMissil", 5000, false, "i", playerid);
+		SendClientMessage(playerid, COLOR_LIGHTGREEN, "INFO:{FFFFFF} Morteiro disparado, aguarde!");
 	}
 	new Float:X, Float:Y, Float:Z;
 	new worldid = GetPlayerVirtualWorld(playerid);
@@ -7359,7 +7360,7 @@ public OnPlayerClickMap(playerid, Float:fX, Float:fY, Float:fZ)
     AlvoX[playerid] = fX;
     AlvoY[playerid] = fY;
     MapAndreas_FindAverageZ(fX, fY, AlvoZ[playerid]);
-    SendClientMessage(playerid, COLOR_CINZA, "INFO: Alvo marcado!");
+    SendClientMessage(playerid, COLOR_CINZA, "INFO: Alvo marcado com sucesso!");
     SendClientMessage(playerid, COLOR_CINZA, "USE: /disparar para Lançar o morteiro!");
     }
 	return 1;
@@ -7378,7 +7379,7 @@ public QuedaMissil(playerid)
 	MoveObject(MissilCaindo[0][playerid], AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid], 50, 0, 180, 0);
 	MoveObject(MissilCaindo[1][playerid], AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid]+5, 50, 0, 180, 0);
 	MoveObject(MissilCaindo[2][playerid], AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid]+10, 50, 0, 180, 0);
-	SetTimerEx("MissilExplode", 1700, false, "i", playerid);
+	SetTimerEx("MissilExplode", 30000, false, "i", playerid);
 	return 1;
 }
  
@@ -7409,7 +7410,7 @@ public MissilExplode(playerid)
 	AlvoX[playerid] = 0;
 	AlvoY[playerid] = 0;
 	AlvoZ[playerid] = 0;
-	SetTimerEx("TimerZera", 12000, false, "i", playerid);
+	SetTimerEx("TimerZera", 300000, false, "i", playerid);
 	return 1;
 }
 forward TimerZera(playerid);
@@ -7699,12 +7700,11 @@ COMMAND:setmorteiro(playerid, params[])
             if(PlayerInfo[targetid][pMorteiro] == 0)
             {
                 PlayerInfo[targetid][pMorteiro] = 100;
-                PlayerInfo[targetid][pKitMedico] = 100;
                 PlayerInfo[targetid][pMinaTerrestre] = 100;
                 PlayerInfo[targetid][pColeteBomba] = 100;
-                format(string,sizeof(string),"AdmCmd: Você setou para %s 10 morteiros.",PlayerName(targetid, 0));
+                format(string,sizeof(string),"AdmCmd: Você setou para %s 100 morteiros.",PlayerName(targetid, 0));
                 SendClientMessage(playerid, COLOR_LIGHTRED, string);
-                format(string,sizeof(string),"-> %s lhe deu 10 morteiros, parabéns por esta conquista.",admnome);
+                format(string,sizeof(string),"-> %s lhe deu 100 morteiros, parabéns por esta conquista.",admnome);
                 SendClientMessage(targetid, COLOR_YELLOW, string);
             }
             else
@@ -7719,6 +7719,42 @@ COMMAND:setmorteiro(playerid, params[])
     }
     return 1;
 }
+COMMAND:medicteam(playerid, params[])
+{
+    if (PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
+    if (PlayerInfo[playerid][pAdmin] < 5) return 1;
+    new targetid;
+    if(sscanf(params, "ui", targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /factionteam [id]");
+    else
+    {
+        if (!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_WHITE, "{FF6347}Este jogador não está conectado!");
+        if(PlayerInfo[playerid][pAdmin] >= 5)
+        {
+            new admnome[24];
+            if(PlayerInfo[playerid][pAdmin] > 3000) format(admnome, sizeof(admnome), "%s", PlayerInfo[playerid][pNomeOOC]);
+            else format(admnome, sizeof(admnome), "%s", PlayerName(playerid, 0));
+
+            if(PlayerInfo[targetid][pKitMedico] == 0)
+            {
+                PlayerInfo[targetid][pKitMedico] = 2;
+                format(string,sizeof(string),"AdmCmd: Você setou %s na Medic Team.",PlayerName(targetid, 0));
+                SendClientMessage(playerid, COLOR_LIGHTRED, string);
+                format(string,sizeof(string),"-> %s promoveu você para Medic Team, parabéns por esta conquista.",admnome);
+                SendClientMessage(targetid, COLOR_YELLOW, string);
+            }
+            else
+            {
+                PlayerInfo[targetid][pKitMedico] = 0;
+                format(string,sizeof(string),"AdmCmd: Você removeu %s da Medic Team.",PlayerName(targetid, 0));
+                SendClientMessage(playerid, COLOR_LIGHTRED, string);
+                format(string,sizeof(string),"AdmCmd: %s removeu você da Medic Team.",admnome);
+                SendClientMessage(targetid, COLOR_LIGHTRED, string);
+            }
+        }
+    }
+    return 1;
+}
+
 COMMAND:factionteam(playerid, params[])
 {
     if (PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
@@ -12998,7 +13034,7 @@ public UpdateNametag()
             GetPlayerName(i, playername, sizeof(playername));
             if(armour > 1.0)
             {
-                format(nametag, sizeof(nametag), "{%06x}%s {FFFFFF}(%i)\n{FFFFFF}%s\n{FF0000}%s", GetPlayerColor(i) >>> 8, playername, i, GetArmorDots(i), GetHealthDots(i));
+                format(nametag, sizeof(nametag), "{%06x}%s {FFFFFF}(%i)\n{FFFFFF}%s\n{CDCDCD}%s", GetPlayerColor(i) >>> 8, playername, i, GetArmorDots(i), GetHealthDots(i));
             }
             else
             {
@@ -17130,6 +17166,48 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys) {
 				}
 				else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você está sem munição.");
 			}
+			if(Arma == 35)
+			{
+			    if(GetPlayerAmmo(playerid) >= 2) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode jogar um pente cheio fora, gaste algumas balas antes.");
+				if(PlayerInfo[playerid][pMunBzk] >= 12)
+				{
+				    MuniArma = 30;
+			    	if(GetPlayerInterior(playerid) > 0)
+						BalasFaltam = (MuniArma-GetPlayerAmmo(playerid));
+				    else
+			    		BalasFaltam = (MuniArma-ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaAmmo]);
+					if(BalasFaltam < 0) { ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaAmmo] = 0; BalasFaltam = MuniArma; }
+			    	if(BalasFaltam == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Sua arma já está carregada.");
+
+				    if(PlayerInfo[playerid][pMunBzk] >= BalasFaltam)
+				    {
+					    PlayerInfo[playerid][pMunBzk] = PlayerInfo[playerid][pMunBzk]-BalasFaltam;
+					    ResetPlayerWeapons(playerid);
+					    GivePlayerWeapon(playerid,30,MuniArma);
+					    ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaAmmo] = MuniArma;
+					    if(!IsPlayerInAnyVehicle(playerid))
+						{
+							ApplyAnimation(playerid, "COLT45", "colt45_reload", 4.1, 0, 1, 1, 1, 1, 1);
+							SetTimerEx("StopTalk", 1000, false, "i", playerid);
+						}
+					}
+					else
+					{
+					    ResetPlayerWeapons(playerid);
+					    GivePlayerWeapon(playerid,30,PlayerInfo[playerid][pMunBzk]+ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaAmmo]);
+					    ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaAmmo] = PlayerInfo[playerid][pMunBzk];
+
+					    PlayerInfo[playerid][pMunBzk] = 0;
+					    if(!IsPlayerInAnyVehicle(playerid))
+						{
+							ApplyAnimation(playerid, "COLT45", "colt45_reload", 4.1, 0, 1, 1, 1, 1, 1);
+							SetTimerEx("StopTalk", 1000, false, "i", playerid);
+						}
+					}
+					PlayerPlaySoundEx(playerid, 36401);
+				}
+				else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você está sem munição.");
+			}
 			if(Arma == 36)
 			{
 			    if(GetPlayerAmmo(playerid) >= 2) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode jogar um pente cheio fora, gaste algumas balas antes.");
@@ -17197,7 +17275,8 @@ stock MaxAmmoWep(Arma){
 	else if(Arma == 32) MuniArma = 35;
 	else if(Arma == 33) MuniArma = 10;
 	else if(Arma == 34) MuniArma = 10;
-	else if(Arma == 36) MuniArma = 2;
+	else if(Arma == 35) MuniArma = 3;
+	else if(Arma == 36) MuniArma = 3;
 	else MuniArma = 0;
 	return MuniArma;
 }
@@ -24720,6 +24799,22 @@ COMMAND:recarregar(playerid, params[])
 	   		PlayerInfo[playerid][pMun127] = PlayerInfo[playerid][pMun127]-1;
 		    ResetPlayerWeapons(playerid);
   			GivePlayerWeapon(playerid,34,1);
+		   	ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaAmmo] = 1;
+		    if(!IsPlayerInAnyVehicle(playerid))
+			{
+				ApplyAnimation(playerid, "BUDDY", "buddy_reload", 4.1, 0, 1, 1, 1, 1, 1);
+				SetTimerEx("StopTalk", 1000, false, "i", playerid);
+			}
+		}
+		else return SendClientMessage(playerid, COLOR_LIGHTRED, "Você está sem munição!");
+	}
+	if(Arma == 35)
+	{
+		if(PlayerInfo[playerid][pMunBzk] >= 2)
+		{
+	   		PlayerInfo[playerid][pMunBzk] = PlayerInfo[playerid][pMunBzk]-2;
+		    ResetPlayerWeapons(playerid);
+  			GivePlayerWeapon(playerid,36,1);
 		   	ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaAmmo] = 1;
 		    if(!IsPlayerInAnyVehicle(playerid))
 			{
@@ -37294,10 +37389,10 @@ Dialog:Equipar_PMERJ(playerid, response, listitem, inputtext[])
         {
             case 0:
 			{
-				Dialog_Show(playerid, Equipar_PMERJ1, DIALOG_STYLE_TABLIST_HEADERS, "[USMC] Equipamentos", "Arma:\tCargo nescessário:\nCassetete\t1\nGranada de Fumaça\t1\nColt 45\t1\nDesert Eagle\t1\nShotgun\t1\nMP5\t1\nM4\t2", "Pegar", "Fechar");
+				Dialog_Show(playerid, Equipar_PMERJ1, DIALOG_STYLE_TABLIST_HEADERS, "[USMC] Equipamentos", "Arma:\tCargo nescessário:\nCassetete\t1\nGranada de Fumaça\t1\nColt 45\t1\nDesert Eagle\t1\nShotgun\t1\nMP5\t1\nM4\t2\nHS Rocket\t2", "Pegar", "Fechar");
 			}
-			case 1: Dialog_Show(playerid, Equipar_PMERJ2, DIALOG_STYLE_TABLIST_HEADERS, "[USMC] Equipamentos", "Tipo de Munição:\tQuantidade:\n9mm\t60\nCartuchos\t60\n5.56mm\t250\n12.7x106mm\t60", "Pegar", "Fechar");
-            case 2: { P_Armour[playerid] = 120; SetPlayerArmour_CA(playerid, 120); }
+			case 1: Dialog_Show(playerid, Equipar_PMERJ2, DIALOG_STYLE_TABLIST_HEADERS, "[USMC] Equipamentos", "Tipo de Munição:\tQuantidade:\n9mm\t60\nCartuchos\t60\n5.56mm\t250\n12.7x106mm\t60\nMun morteiro\t10", "Pegar", "Fechar");
+            case 2: { P_Armour[playerid] = 100; SetPlayerArmour_CA(playerid, 100); }
             case 3: { P_Armour[playerid] = 0; SetPlayerArmour_CA(playerid, 0); }
             case 4:
             {
@@ -37402,7 +37497,18 @@ Dialog:Equipar_PMERJ1(playerid, response, listitem, inputtext[])
 			    EntregandoArmaSQL(playerid, 31, 0, 1, 0);
 			    PlayerInfo[playerid][pMun556] += 120;
 			    SendClientMessage(playerid,COLOR_LIGHTGREEN,"Você recebeu uma M4 e 120 balas 5.56mm.");
-			   	format(strl, sizeof(strl), "%s equipou uma M4 e 60 balas 5.56mm.", PlayerName(playerid,0));
+			   	format(strl, sizeof(strl), "%s equipou uma M4 e 120 balas 5.56mm.", PlayerName(playerid,0));
+			  	LogEquipar_P(playerid,strl);
+			    return 1;
+			}
+			case 7:
+			{
+			    if(PlayerInfo[playerid][pArmaMao] > 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já tem uma arma em mãos, guarde-a antes.");
+			    if(PlayerInfo[playerid][pFacCargo] < 1) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem cargo o suficiente para pegar essa arma.");
+			    EntregandoArmaSQL(playerid, 36, 0, 1, 0);
+			    PlayerInfo[playerid][pMunBzk] += 10;
+			    SendClientMessage(playerid,COLOR_LIGHTGREEN,"Você recebeu uma HS Rocket e 10 munições.");
+			   	format(strl, sizeof(strl), "%s equipou uma HS ROCKET e 10 munições.", PlayerName(playerid,0));
 			  	LogEquipar_P(playerid,strl);
 			    return 1;
 			}
@@ -37449,6 +37555,14 @@ Dialog:Equipar_PMERJ2(playerid, response, listitem, inputtext[])
 			    PlayerInfo[playerid][pMun127] += 60;
 			    SendClientMessage(playerid,COLOR_LIGHTGREEN,"Você recebeu 60 balas 12.7x106mm.");
 			   	format(strl, sizeof(strl), "%s equipou 60 balas 12.7x106mm.", PlayerName(playerid,0));
+			  	LogEquipar_P(playerid,strl);
+			    return 1;
+			}
+			case 4:
+			{
+			    PlayerInfo[playerid][pMorteiro] += 10;
+			    SendClientMessage(playerid,COLOR_LIGHTGREEN,"Você recebeu 60 munições de morteiro.");
+			   	format(strl, sizeof(strl), "%s equipou 60 munições de morteiro.", PlayerName(playerid,0));
 			  	LogEquipar_P(playerid,strl);
 			    return 1;
 			}
@@ -37576,9 +37690,9 @@ Dialog:Equipar_PCERJ(playerid, response, listitem, inputtext[])
         {
             case 0:
 			{
-				Dialog_Show(playerid, Equipar_PCERJ1, DIALOG_STYLE_TABLIST_HEADERS, "[Seals Team] Equipamentos", "Arma:\tCargo nescessário:\nCassetete\t1\nGranada de Fumaça\t1\nColt 45\t1\nDesert Eagle\t1\nShotgun\t1\nMP5\t1\nM4\t1\nParaquedas\t1\nSniper\t5\nParaquedas\t1\nGranada\t1", "Pegar", "Fechar");
+				Dialog_Show(playerid, Equipar_PCERJ1, DIALOG_STYLE_TABLIST_HEADERS, "[Seals Team] Equipamentos", "Arma:\tCargo nescessário:\nCassetete\t1\nGranada de Fumaça\t1\nColt 45\t1\nDesert Eagle\t1\nShotgun\t1\nMP5\t1\nM4\t1\nParaquedas\t1\nSniper\t5\nParaquedas\t1\nGranada\t1\nHS Rocket\t1", "Pegar", "Fechar");
 			}
-			case 1: Dialog_Show(playerid, Equipar_PCERJ2, DIALOG_STYLE_TABLIST_HEADERS, "[Seals Team] Equipamentos", "Tipo de Munição:\tQuantidade:\n9mm\t60\nCartuchos\t60\n5.56mm\t120\n12.7x106mm\t60", "Pegar", "Fechar");
+			case 1: Dialog_Show(playerid, Equipar_PCERJ2, DIALOG_STYLE_TABLIST_HEADERS, "[Seals Team] Equipamentos", "Tipo de Munição:\tQuantidade:\n9mm\t60\nCartuchos\t60\n5.56mm\t120\n12.7x106mm\t60\nMun morteiro\t10", "Pegar", "Fechar");
             case 2: { P_Armour[playerid] = 100; SetPlayerArmour_CA(playerid, 100); }
             case 3: { P_Armour[playerid] = 0; SetPlayerArmour_CA(playerid, 0); }
             case 4:
@@ -37725,6 +37839,17 @@ Dialog:Equipar_PCERJ1(playerid, response, listitem, inputtext[])
 			  	LogEquipar_P(playerid,strl);
 			    return 1;
 			}
+			case 11:
+			{
+			    if(PlayerInfo[playerid][pArmaMao] > 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já tem uma arma em mãos, guarde-a antes.");
+			    if(PlayerInfo[playerid][pFacCargo] < 1) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem cargo o suficiente para pegar essa arma.");
+			    EntregandoArmaSQL(playerid, 36, 0, 1, 0);
+			    PlayerInfo[playerid][pMunBzk] += 10;
+			    SendClientMessage(playerid,COLOR_LIGHTGREEN,"Você recebeu uma HS Rocket e 10 munições.");
+			   	format(strl, sizeof(strl), "%s equipou uma HS ROCKET e 10 munições.", PlayerName(playerid,0));
+			  	LogEquipar_P(playerid,strl);
+			    return 1;
+			}
         }
     }
 	return 1;
@@ -37768,6 +37893,14 @@ Dialog:Equipar_PCERJ2(playerid, response, listitem, inputtext[])
 			    PlayerInfo[playerid][pMun127] += 60;
 			    SendClientMessage(playerid,COLOR_LIGHTGREEN,"Você recebeu 60 balas 12.7x106mm.");
 			   	format(strl, sizeof(strl), "%s equipou 60 balas 12.7x106mm.", PlayerName(playerid,0));
+			  	LogEquipar_P(playerid,strl);
+			    return 1;
+			}
+			case 4:
+			{
+			    PlayerInfo[playerid][pMorteiro] += 10;
+			    SendClientMessage(playerid,COLOR_LIGHTGREEN,"Você recebeu 10 munições de morteiro.");
+			   	format(strl, sizeof(strl), "%s equipou 10 munições de morteiro.", PlayerName(playerid,0));
 			  	LogEquipar_P(playerid,strl);
 			    return 1;
 			}
@@ -42494,16 +42627,17 @@ COMMAND:kitmedico(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid;
-	if(sscanf(params, "u", targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} (/desf)ibrilador [ID do jogador]");
+	if(sscanf(params, "u", targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /bandagem [ID do jogador]");
 	else
 	{
         if(PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar logado para utilizar este comando.");
         if(!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador não está conectado!");
         if(PlayerInfo[targetid][pMorto] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador não necessita de cuidados médicos.");
+        if(PlayerInfo[targetid][pMorto] != 2) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando em um jogador morto!");
         if(PlayerInfo[playerid][pMorto] > 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
         if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
         if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
-		if(PlayerInfo[playerid][pKitMedico] <= 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve ter pelo menos 1 kit médico.");
+		if(PlayerInfo[playerid][pKitMedico] <= 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve ser um médico de combate.");
 		{
   			if(GetDistanceBetweenPlayers(playerid,targetid) <= 5.0)
 	    	{
@@ -42519,7 +42653,6 @@ COMMAND:kitmedico(playerid, params[])
 				{
 				    ZerarDamages(targetid);
 				}
-				PlayerInfo[playerid][pKitMedico] = PlayerInfo[playerid][pKitMedico]-1;
     		    PlayerInfo[targetid][pMorto] = 0;
 				TogglePlayerControllable(targetid,true);
     			SetPlayerHealth(targetid, 20);
@@ -79294,7 +79427,6 @@ Dialog:DIALOG_VPEDIDO(playerid, response, listitem, inputtext[])
                 Shotgun\tUS$50000\n \
                 Uzi\tUS$22000\n \
                 AK-47\tUS$150000\n \
-				M4A1\tUS$230000\n \
                 Tec-9\tUS$22000\n \
                 Munição: 9mm [50 balas]\tUS$500\n \
                 Munição: 556mm [50 balas]\tUS$800\n \
@@ -79419,21 +79551,13 @@ Dialog:DIALOG_TRAFICANTESARMA(playerid, response, listitem, inputtext[])
 	        }
 	        case 7:
 	        {
-         		TraficInfo[traficid][traPedPrec] += 250000;
-          		format(string,sizeof(string),"Pedido %d - M4A1.", OutrasInfos[playerid][oPedidoID]);
-	           	SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
-	           	TraficInfo[traficid][traPed][pedidoid] = 31;
-	           	MenuCompraArma(playerid, 1);
-	        }
-	        case 8:
-	        {
 	            TraficInfo[traficid][traPedPrec] += 500;
                	format(string,sizeof(string),"Pedido %d - Caixa de munição 9mm.", OutrasInfos[playerid][oPedidoID]);
 	           	SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 	           	TraficInfo[traficid][traPed][pedidoid] = 1;
 	           	MenuCompraArma(playerid, 1);
 	        }
-	        case 9:
+	        case 8:
 	        {
          		TraficInfo[traficid][traPedPrec] += 800;
            		format(string,sizeof(string),"Pedido %d - Caixa de munição 5.56mm.", OutrasInfos[playerid][oPedidoID]);
@@ -79441,7 +79565,7 @@ Dialog:DIALOG_TRAFICANTESARMA(playerid, response, listitem, inputtext[])
             	TraficInfo[traficid][traPed][pedidoid] = 2;
             	MenuCompraArma(playerid, 1);
 	        }
-	        case 10:
+	        case 9:
 	        {
 	       		TraficInfo[traficid][traPedPrec] += 500;
         		format(string,sizeof(string),"Pedido %d - Caixa de cartuchos.", OutrasInfos[playerid][oPedidoID]);
@@ -79449,7 +79573,7 @@ Dialog:DIALOG_TRAFICANTESARMA(playerid, response, listitem, inputtext[])
 	         	TraficInfo[traficid][traPed][pedidoid] = 3;
 	          	MenuCompraArma(playerid, 1);
 	        }
-	        case 11:
+	        case 10:
 	        {
 	        	TraficInfo[traficid][traPedPrec] += 800;
 				format(string,sizeof(string),"Pedido %d - Caixa de munição 12.7x106mm.", OutrasInfos[playerid][oPedidoID]);
@@ -79457,7 +79581,7 @@ Dialog:DIALOG_TRAFICANTESARMA(playerid, response, listitem, inputtext[])
 	           	TraficInfo[traficid][traPed][pedidoid] = 4;
 	         	MenuCompraArma(playerid, 1);
 	        }
-	        case 12:
+	        case 11:
 	        {
 				format(string,sizeof(string),"Pedido %d - Vazio.", OutrasInfos[playerid][oPedidoID]);
 	         	SendClientMessage(playerid, COLOR_LIGHTGREEN, string);

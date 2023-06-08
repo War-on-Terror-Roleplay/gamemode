@@ -42662,7 +42662,7 @@ COMMAND:kitmedico(playerid, params[])
  		    	PlayerPlaySound(targetid,1150, 0.0, 0.0, 0.0);
   		    	ApplyAnimation(targetid, "CARRY", "crry_prtial", 2.0, 0, 0, 0, 0, 0);
          		SetPlayerChatBubble(targetid, "", 0xe8827600, 100.0, 1);
-
+				printf("[DEBUG] /kitmedico funcionou");
 				TempoDesistir[targetid] = 0;
    				PodeAceitarMorte[targetid] = 0;
      		}

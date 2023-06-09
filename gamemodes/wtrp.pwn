@@ -2965,15 +2965,8 @@ static VITOR_Uniformes[6] = {
 };
 
 //===== [ PMERJ ] =====//
-static PMERJ_Uniformes[32] = {
-	20400, 20401, 20402, 20403,
-	20404, 20405, 20406, 20407,
-	20408, 20409, 20410, 20411,
-	20412, 20413, 20414, 20415,
-	20416, 20417, 20418, 20419,
-	20420, 20421, 20422, 20423,
-	20424, 20426, 20427, 20428,
-	20429, 20430, 20431, 20432
+static PMERJ_Uniformes[1] = {
+	20201
 };
 
 static PMERJ_Barreiras[17] = {
@@ -2995,15 +2988,12 @@ static LOJA_OCULOS_PMERJ[3] = {
 	19138, 19139, 19140
 };
 
-static LOJA_CHAPEU_PMERJ[3] = {
-	-2104, -2129, -2130
+static LOJA_CHAPEU_PMERJ[2] = {
+	-2300, -2401
 };
 
 static LOJA_OUTROS_PMERJ[14] = {
-	-2126, -2101, -2106, -2120,
-	-2121, -2122, -2123, -2124,
-	-2125, -2105, -2127, -2108, 
-	-2128, -2100
+	-2402, -2200, -2104
 };
 //======== [BRINKS]======//
 static PROTEGE_Uniformes[4] = {
@@ -3029,8 +3019,8 @@ static LOJA_CHAPEU_PCERJ[4] = {
     -2300, -2301, -2302, -2305
 };
 
-static LOJA_OUTROS_PCERJ[2] = {
-	-2303, -2304
+static LOJA_OUTROS_PCERJ[3] = {
+	-2303, -2304, -2200
 };
 
 //======== [EB]======//
@@ -31684,7 +31674,7 @@ CMD:ajudafaccao(playerid, params[])
         SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /deter /tablet /apreender /tapeteprego /removerprego /retirar");
 		if(PlayerInfo[playerid][pKitMedico] >= 1)
 		{
-        	SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /cpr /bandagem /kitmedico");
+        	SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /cprr /bandagem");
 		}
 		if(PlayerInfo[playerid][pFacCargo] >= 9)
 		{
@@ -31699,7 +31689,7 @@ CMD:ajudafaccao(playerid, params[])
         SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** (/r)adio /rbaixo (radio baixo) /membros /f");
 		if(PlayerInfo[playerid][pKitMedico] >= 1)
 		{
-        	SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /cpr /bandagem /kitmedico");
+        	SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /cprr /bandagem ");
 		}
         if(PlayerInfo[playerid][pFacCargo] >= 4)
         {
@@ -31718,7 +31708,7 @@ CMD:ajudafaccao(playerid, params[])
         SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /deter /tablet /apreender /retirar");
 		if(PlayerInfo[playerid][pKitMedico] >= 1)
 		{
-        	SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /cpr /bandagem /kitmedico");
+        	SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /cprr /bandagem ");
 		}
         if(PlayerInfo[playerid][pFacCargo] >= 9)
         {
@@ -31738,7 +31728,7 @@ CMD:ajudafaccao(playerid, params[])
         SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /deter /tablet /apreender /tapeteprego /removerprego /retirar");
 		if(PlayerInfo[playerid][pKitMedico] >= 1)
 		{
-        	SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /cpr /bandagem /kitmedico");
+        	SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /cprr /bandagem ");
 		}
 		if(PlayerInfo[playerid][pFacCargo] >= 9)
 		{
@@ -31764,7 +31754,7 @@ CMD:ajudafaccao(playerid, params[])
         SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACÇÃO *** Canal de rádio: 181");
 		if(PlayerInfo[playerid][pKitMedico] >= 1)
 		{
-        	SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /cpr /bandagem /kitmedico");
+        	SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /cprr /bandagem ");
 		}
 		if(PlayerInfo[playerid][pFacCargo] >= 9)
         {
@@ -31793,7 +31783,7 @@ CMD:ajudafaccao(playerid, params[])
         SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACÇÃO *** /membros, /trancar, /f");
 		if(PlayerInfo[playerid][pKitMedico] >= 1)
 		{
-        	SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /cpr /bandagem /kitmedico");
+        	SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /cprr /bandagem ");
 		}
         if(PlayerInfo[playerid][pFacCargo] >= 5)
         {
@@ -31814,7 +31804,7 @@ CMD:ajudafaccao(playerid, params[])
     	}
 		if(PlayerInfo[playerid][pKitMedico] >= 1)
 		{
-        	SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /cpr /bandagem /kitmedico");
+        	SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /cprr /bandagem ");
 		}
         SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACÇÃO *** /membros, /trancar, /f");
 
@@ -31835,7 +31825,7 @@ CMD:ajudafaccao(playerid, params[])
         }
 		if(PlayerInfo[playerid][pKitMedico] >= 1)
 		{
-        	SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /cpr /bandagem /kitmedico");
+        	SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /cprr /bandagem ");
 		}
     }
 	else
@@ -42647,6 +42637,7 @@ COMMAND:bandagem(playerid, params[])
 						PlayerInfo[targetid][pTomouAlgumTiro] = 0;
 						OutrasInfos[targetid][oPerdVida] = 0;
 						OutrasInfos[targetid][oCaiSangue] = 0;
+						printf("[DEBUG] /cprr funcionou 1");
 					}
 				}
 				else
@@ -42656,6 +42647,7 @@ COMMAND:bandagem(playerid, params[])
 				PlayerInfo[targetid][pTomouAlgumTiro] = 0;
 				OutrasInfos[targetid][oPerdVida] = 0;
 				OutrasInfos[targetid][oCaiSangue] = 0;
+				printf("[DEBUG] /cprr funcionou 2");
      		}
      		else return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não está próximo suficiente deste jogador!");
 		}
@@ -42663,12 +42655,11 @@ COMMAND:bandagem(playerid, params[])
 	return 1;
 }
 
-ALTCOMMAND:cpr->kitmedico;
-COMMAND:kitmedico(playerid, params[])
+COMMAND:cprr(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new targetid;
-	if(sscanf(params, "u", targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /cpr [ID do jogador]");
+	if(sscanf(params, "u", targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /cprr [ID do jogador]");
 	else
 	{
         if(PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar logado para utilizar este comando.");
@@ -42703,7 +42694,7 @@ COMMAND:kitmedico(playerid, params[])
  		    	PlayerPlaySound(targetid,1150, 0.0, 0.0, 0.0);
   		    	ApplyAnimation(targetid, "CARRY", "crry_prtial", 2.0, 0, 0, 0, 0, 0);
          		SetPlayerChatBubble(targetid, "", 0xe8827600, 100.0, 1);
-				printf("[DEBUG] /kitmedico funcionou");
+				printf("[DEBUG] /bandagem funcionou");
 				TempoDesistir[targetid] = 0;
    				PodeAceitarMorte[targetid] = 0;
      		}

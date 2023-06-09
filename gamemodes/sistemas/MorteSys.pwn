@@ -23,14 +23,20 @@ public SetPlayerMorto(playerid, status) {
 			SetPVarInt(playerid, "TempoParaSerLevantado", 300);
 
 			TogglePlayerControllable(playerid, 0);
-			SendClientMessage(playerid, COLOR_LIGHTRED, "Você está ferido, você pode aguardar um médico chegar ou aceitar a morte daqui a 3 minutos. ((Se o anim bugar, use /morto))");
+			SendClientMessage(playerid, COLOR_LIGHTRED, "Você está ferido, você pode aguardar um médico chegar ou aceitar a morte daqui a 20 minutos. ((Se o anim bugar, use /morto))");
 
 			PlayerInfo[playerid][pMancando] = 0;
 
 	       	if (IsValidDynamic3DTextLabel(TextMorto[playerid])) DestroyDynamic3DTextLabel(TextMorto[playerid]);
 			TextMorto[playerid] = CreateDynamic3DTextLabel("(( Este player está ferido /ferimentos para mais informações))", 0xFF4B00FF, 0.0, 0.0, 0.7, DISTANCIA_FERIMENTOS, playerid, INVALID_VEHICLE_ID, 0, GetPlayerVirtualWorld(playerid));
 					
-			TempoDesistir[playerid] = 600;
+			TempoDesistir[playerid] = 1200;
+
+			if(PlayerInfo[playerid][pDoador] > 0)
+			{
+				TempoDesistir[playerid] = 600;
+				SendClientMessage(playerid, COLOR_YELLOW, "Você é premium e poderá usar o /aceitarmorte em 10 minutos.");
+			}
 
 			SetarAnimMorto(playerid);
 		    SetarItensDoPlayer(playerid);
@@ -48,14 +54,18 @@ public SetPlayerMorto(playerid, status) {
 			TextMorto[playerid] = CreateDynamic3DTextLabel("(( Este jogador está morto ))", 0xFF4B00FF, 0.0, 0.0, 0.7, DISTANCIA_FERIMENTOS, playerid, INVALID_VEHICLE_ID, 0, GetPlayerVirtualWorld(playerid));
 
 			PlayerInfo[playerid][pMancando] = 0;
-			SetarAnimMorto(playerid);
 
-			SendClientMessage(playerid, COLOR_YELLOW, "-> Agora você está morto. você poderá utilizar /aceitarmorte daqui a 5 minutos, para respawnar.");
-			TempoDesistir[playerid] = 600;
+			SendClientMessage(playerid, COLOR_YELLOW, "-> Agora você está morto. você poderá utilizar /aceitarmorte daqui a 15 minutos, para respawnar.");
+			TempoDesistir[playerid] = 900;
+
+			if(PlayerInfo[playerid][pDoador] > 0)
+			{
+				TempoDesistir[playerid] = 300;
+				SendClientMessage(playerid, COLOR_YELLOW, "Você é premium e poderá usar o /aceitarmorte em 5 minutos.");
+			}
 
 			TogglePlayerControllable(playerid, 0);
 			TextDrawShowForPlayer(playerid,Telinha);
-			SetarAnimMorto(playerid);
 			SetarAnimMorto(playerid);
 	    }
 	}

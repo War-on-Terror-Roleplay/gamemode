@@ -10894,17 +10894,23 @@ public OnVehicleDamageStatusUpdate(vehicleid, playerid)
 
 									PlayerInfo[playerid][pMorto] = 1;
 									AcabouDeMorrer[playerid] = 2;
-									SetPVarInt(playerid, "TempoParaSerLevantado", 300);
+									SetPVarInt(playerid, "TempoParaSerLevantado", 600);
+
+									if(PlayerInfo[playerid][pDoador] > 0)
+									{
+										TempoDesistir[playerid] = 600;
+										SendClientMessage(playerid, COLOR_YELLOW, "Você é premium e poderá usar o /aceitarmorte em 10 minutos.");
+									}
 
 									TogglePlayerControllable(playerid, 0);
-									SendClientMessage(playerid, COLOR_LIGHTRED, "Você está ferido, você pode aguardar um médico chegar ou aceitar a morte daqui a 3 minutos. ((Se o anim bugar, use /morto))");
+									SendClientMessage(playerid, COLOR_LIGHTRED, "Você está ferido, você pode aguardar um médico chegar ou aceitar a morte daqui a 20 minutos. ((Se o anim bugar, use /morto))");
 
 									PlayerInfo[playerid][pMancando] = 0;
 
                                     if (IsValidDynamic3DTextLabel(TextMorto[playerid])) DestroyDynamic3DTextLabel(TextMorto[playerid]);
 									TextMorto[playerid] = CreateDynamic3DTextLabel("(( Este player está ferido /ferimentos para mais informações))", 0xFF4B00FF, 0.0, 0.0, 0.7, DISTANCIA_FERIMENTOS, playerid, INVALID_VEHICLE_ID, 0, GetPlayerVirtualWorld(playerid));
 					
-									TempoDesistir[playerid] = 600;
+									TempoDesistir[playerid] = 1200;
 
 									SetarAnimMorto(playerid);
 
@@ -13068,7 +13074,12 @@ public OnPlayerSpawn(playerid){
 
 
 				PlayerInfo[playerid][pMancando] = 0;
-				TempoDesistir[playerid] = 600;
+				TempoDesistir[playerid] = 1200;
+				if(PlayerInfo[playerid][pDoador] > 0)
+				{
+					TempoDesistir[playerid] = 600;
+					SendClientMessage(playerid, COLOR_YELLOW, "Você é premium e poderá usar o /aceitarmorte em 10 minutos.");
+				}
 
 				ApplyAnimation(playerid, "CARRY", "crry_prtial", 2.0, 0, 0, 0, 0, 0);
 				ComAnim[playerid] = 0;
@@ -13476,7 +13487,13 @@ public SetPlayerLocalSpawn(playerid) {
 		PlayerInfo[playerid][pMancando] = 0;
 
 		TextMorto[playerid] = CreateDynamic3DTextLabel("(( Este jogador está brutalmente ferido\n/ferimentos para mais informações\n))", 0xFF4B00FF, 0.0, 0.0, 0.7, DISTANCIA_FERIMENTOS, playerid);
-		TempoDesistir[playerid] = 600;
+		TempoDesistir[playerid] = 1200;
+
+		if(PlayerInfo[playerid][pDoador] > 0)
+		{
+			TempoDesistir[playerid] = 600;
+			SendClientMessage(playerid, COLOR_YELLOW, "Você é premium e poderá usar o /aceitarmorte em 10 minutos.");
+		}
 
 		SetPlayerPosLogin(playerid, PlayerInfo[playerid][pPos][0], PlayerInfo[playerid][pPos][1], PlayerInfo[playerid][pPos][2], 1);
 
@@ -13508,38 +13525,13 @@ public SetPlayerLocalSpawn(playerid) {
 		PlayerInfo[playerid][pMancando] = 0;
 
 		TextMorto[playerid] = CreateDynamic3DTextLabel("(( Este jogador está brutalmente ferido\n/ferimentos para mais informações\n))", 0xFF4B00FF, 0.0, 0.0, 0.7, DISTANCIA_FERIMENTOS, playerid);
-		TempoDesistir[playerid] = 600;
-		
-		SetPlayerPosLogin(playerid, PlayerInfo[playerid][pPos][0], PlayerInfo[playerid][pPos][1], PlayerInfo[playerid][pPos][2], 1);
+		TempoDesistir[playerid] = 900;
 
-		ApplyAnimation(playerid, "CARRY", "crry_prtial", 2.0, 0, 0, 0, 0, 0);
-		ComAnim[playerid] = 0;
-		ClearAnimations(playerid, 1);
-
-		ApplyAnimation(playerid, "ped", "KO_shot_stom", 4.0, 0, 1, 1, 1, -1, 1);
-		ApplyAnimation(playerid, "ped", "KO_shot_stom", 4.0, 0, 1, 1, 1, -1, 1);
-
-		Anim2Morreu[playerid] = SetTimerEx("AnimMorreu", ANIM_DOIS_MORTE, false, "d", playerid);
-		TelaLoginDel(playerid);
-	}
-	else if(PlayerInfo[playerid][pMorto] == 3)
-	{
-		SendClientMessage(playerid, COLOR_LIGHTRED, "VOCÊ LOGOU MORTO.");
-		SetPlayerHealth(playerid, 20);
-		P_Health[playerid] = 20;
-
-		PlayerInfo[playerid][pMorto] = 1;
-		AcabouDeMorrer[playerid] = 5;
-
-		TogglePlayerControllable(playerid, 0);
-		SendClientMessage(playerid, COLOR_LIGHTRED, "Você está morto, você pode aguardar um médico chegar ou aceitar a morte daqui a 3 minutos.");
-
-		if (IsValidDynamic3DTextLabel(TextMorto[playerid])) DestroyDynamic3DTextLabel(TextMorto[playerid]);
-
-		PlayerInfo[playerid][pMancando] = 0;
-
-		TextMorto[playerid] = CreateDynamic3DTextLabel("(( Este jogador está brutalmente ferido\n/ferimentos para mais informações\n))", 0xFF4B00FF, 0.0, 0.0, 0.7, DISTANCIA_FERIMENTOS, playerid);
-		TempoDesistir[playerid] = 600;
+		if(PlayerInfo[playerid][pDoador] > 0)
+		{
+			TempoDesistir[playerid] = 300;
+			SendClientMessage(playerid, COLOR_YELLOW, "Você é premium e poderá usar o /aceitarmorte em 5 minutos.");
+		}
 		
 		SetPlayerPosLogin(playerid, PlayerInfo[playerid][pPos][0], PlayerInfo[playerid][pPos][1], PlayerInfo[playerid][pPos][2], 1);
 
@@ -24240,7 +24232,7 @@ CMD:levantar(playerid, params[])
     	if(!PlayerInfo[var][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} ID inválido.");
     	if(PlayerInfo[var][pMorto] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador não precisa de ajuda para levantar-se.");
 		if(PlayerInfo[var][pTomouAlgumTiro] != 0 || PlayerInfo[var][pMorto] > 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador está ferido demais.");
-		if(GetPVarInt(var, "TempoParaSerLevantado") < 400) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador ainda não pode ser levantado.");
+		if(GetPVarInt(var, "TempoParaSerLevantado") < 600) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador ainda não pode ser levantado.");
 
   		format(string,sizeof(string),"Você ajudou %s a se levantar.",PlayerName(var, 1));
    		SendClientMessage(playerid, COLOR_LIGHTGREEN, string);

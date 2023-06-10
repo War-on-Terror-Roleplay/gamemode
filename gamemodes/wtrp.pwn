@@ -79512,7 +79512,7 @@ Dialog:DIALOG_TRAFICANTESARMA(playerid, response, listitem, inputtext[])
                 case 28: TraficInfo[traficid][traPedPrec] = TraficInfo[traficid][traPedPrec]-22000;
                 case 29: TraficInfo[traficid][traPedPrec] = TraficInfo[traficid][traPedPrec]-22000;
                 case 30: TraficInfo[traficid][traPedPrec] = TraficInfo[traficid][traPedPrec]-150000;
-                case 31: TraficInfo[traficid][traPedPrec] = TraficInfo[traficid][traPedPrec]-250000;
+                //case 31: TraficInfo[traficid][traPedPrec] = TraficInfo[traficid][traPedPrec]-250000;
                 case 32: TraficInfo[traficid][traPedPrec] = TraficInfo[traficid][traPedPrec]-22000;
                 case 33: TraficInfo[traficid][traPedPrec] = TraficInfo[traficid][traPedPrec]-15000000;
                 case 34: TraficInfo[traficid][traPedPrec] = TraficInfo[traficid][traPedPrec]-15000000;

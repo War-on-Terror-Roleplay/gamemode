@@ -20,3 +20,11 @@
 [00:07:11] [ERROR] CMySQLQuery::Execute[] - (error #1064) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '{FF6347}AdmCmd: Faccao Medics [SQL ID: 4] criada. | Ordem: 11' at line 1
 [00:07:19] [ERROR] CMySQLQuery::Execute[] - (error #1064) You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '{FF6347}AdmCmd: Faccao talibã [SQL ID: 5] criada. | Ordem: 12' at line 1
 [00:08:43] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[10:38:28] [ERROR] CMySQLQuery::Execute[] - (error #2003) Can't connect to MySQL server on 'localhost' (10061)
+[10:52:51] [ERROR] CMySQLConnection::Connect - (error #2003) Can't connect to MySQL server on 'localhost' (10061)
+[10:52:51] [ERROR] CMySQLQuery::Execute - (error #2006) MySQL server has gone away
+[10:52:51] [WARNING] cache_get_row_count - no active cache
+[10:52:51] [ERROR] CMySQLQuery::Execute - (error #2006) MySQL server has gone away
+[10:52:51] [WARNING] cache_get_field_content - no active cache
+[10:52:55] [ERROR] CMySQLConnection::Connect - (error #2003) Can't connect to MySQL server on 'localhost' (10061)
+[10:52:55] [ERROR] CMySQLConnection::Connect - (error #2003) Can't connect to MySQL server on 'localhost' (10061)

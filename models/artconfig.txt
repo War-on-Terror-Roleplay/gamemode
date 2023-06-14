@@ -67,8 +67,7 @@ AddCharModel(252, 20072, "dogs/pet4.dff", "dogs/pet4.txd");
 AddCharModel(252, 20073, "dogs/pet5.dff", "dogs/pet5.txd");
 AddCharModel(252, 20074, "dogs/pet6.dff", "dogs/pet6.txd");
 AddCharModel(252, 20075, "dogs/pet7.dff", "dogs/pet7.txd");
-AddCharModel(252, 20076, "dogs/pet8.dff", "dogs/pet8.txd");
-AddCharModel(252, 20077, "dogs/canmel.dff", "dogs/canmel.txd");
+AddCharModel(252, 20077, "dogs/camel.dff", "dogs/camel.txd");
 
 
 //textdraw

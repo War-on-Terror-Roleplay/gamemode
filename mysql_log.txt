@@ -28,3 +28,4 @@
 [10:52:51] [WARNING] cache_get_field_content - no active cache
 [10:52:55] [ERROR] CMySQLConnection::Connect - (error #2003) Can't connect to MySQL server on 'localhost' (10061)
 [10:52:55] [ERROR] CMySQLConnection::Connect - (error #2003) Can't connect to MySQL server on 'localhost' (10061)
+[11:36:50] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")

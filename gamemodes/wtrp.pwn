@@ -35828,7 +35828,7 @@ CMD:uniforme(playerid, params[])
             }
             else return SendClientMessage(playerid, COLOR_LIGHTRED, "[ERRO] {FFFFFF}Você não está em serviço.");
         }
-        else return SendClientMessage(playerid, COLOR_LIGHTRED, "[ERRO] {FFFFFF}Você não está no vestiário dos medicos.");
+        else return SendClientMessage(playerid, COLOR_LIGHTRED, "[ERRO] {FFFFFF}Você não está no vestiário dos medicos!.");
     }
 	return 1;
 }

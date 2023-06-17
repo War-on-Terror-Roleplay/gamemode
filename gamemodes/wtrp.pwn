@@ -37,6 +37,7 @@
 #define YSI_NO_HEAP_MALLOC
 #include <YSI\y_malloc>
 
+
 // --------- [ INCLUDES ] ---------
 
 //Streamer
@@ -199,8 +200,8 @@ new ambiente = 1; // 0  - Localhost 1 - Produção
 
 
 //====== [DEFINIÇÕES DO SERVIDOR] =======================================================
-#define ULTIMO_GMX      "12/06/2023"
-#define CA_VERSAO       "WT:RP v2.09"
+#define ULTIMO_GMX      "17/06/2023"
+#define CA_VERSAO       "WT:RP v2.26"
 #define CA_LINK         "weburl discord.io/wtroleplay"
 //#define CA_NOME         "hostname War on Terror Roleplay | BETA TEST CLOSED"
 #define CA_NOME         "hostname War on Terror Roleplay | discord.io/wtroleplay"
@@ -7009,8 +7010,8 @@ public EntregandoArmaSQL(playerid, armaid, extra, equipar, raspada)
 		    if(armaid == 41) ammo = 2000;
 			else if(armaid == 42) ammo = 2000;
 			else if(armaid == 43) ammo = 2000;
-			else if(armaid == 46) ammo = 1;
-			else if(armaid == 1) ammo = 1;
+			else if(armaid == 44) ammo = 1;
+			else if(armaid == 45) ammo = 1;
 			else if(armaid == 2) ammo = 1;
 			else if(armaid == 3) ammo = 1;
 			else if(armaid == 4) ammo = 1;
@@ -7043,7 +7044,7 @@ public EntregandoArmaSQL(playerid, armaid, extra, equipar, raspada)
 		        if(armaid == 41) ammo = 2000;
 				else if(armaid == 42) ammo = 2000;
 				else if(armaid == 43) ammo = 2000;
-				else if(armaid == 46) ammo = 1;
+				else if(armaid == 44) ammo = 1;
 				else if(armaid == 1) ammo = 1;
 				else if(armaid == 2) ammo = 1;
 				else if(armaid == 3) ammo = 1;
@@ -7136,6 +7137,7 @@ public ArmaEntregueComSucesso(playerid,armaid,ammo,extra,equipar,raspada)
 	if(armaid == 41) GivePlayerWeapon(playerid,armaid,2000);
 	else if(armaid == 42) GivePlayerWeapon(playerid,armaid,2000);
 	else if(armaid == 43) GivePlayerWeapon(playerid,armaid,50);
+	else if(armaid == 44) GivePlayerWeapon(playerid,armaid,50);
 	else GivePlayerWeapon(playerid,armaid,0);
 
     new Numeracao = randomEx(1000, 99999999);
@@ -13008,7 +13010,7 @@ public UpdateNametag()
             GetPlayerName(i, playername, sizeof(playername));
             if(armour > 1.0)
             {
-                format(nametag, sizeof(nametag), "{%06x}%s {FFFFFF}(%i)\n{FFFFFF}%s\n{CDCDCD}%s", GetPlayerColor(i) >>> 8, playername, i, GetArmorDots(i), GetHealthDots(i));
+                format(nametag, sizeof(nametag), "{%06x}%s {FFFFFF}(%i)\n{FFFFFF}%s\n{FF0000}%s", GetPlayerColor(i) >>> 8, playername, i, GetArmorDots(i), GetHealthDots(i));
             }
             else
             {
@@ -13177,7 +13179,7 @@ public OnPlayerSpawn(playerid){
                     GameTextForPlayer(playerid, stringl,6000,1);
 
                     format(stringl, sizeof(stringl), "SERVER: Bem-vindo %s.",PlayerName(playerid,0)); SendClientMessage(playerid, COLOR_WHITE, stringl);
-                    format(stringl, sizeof(stringl), "SERVER: Última atualização realizada em 12/06/2023, v2.09, acesse nosso fórum e veja o que vou atualizado."); SendClientMessage(playerid, COLOR_WHITE, stringl);
+                    format(stringl, sizeof(stringl), "SERVER: Última atualização realizada em 17/06/2023, WT:RP v2.26, acesse nosso fórum e veja o que vou atualizado."); SendClientMessage(playerid, COLOR_WHITE, stringl);
                     format(stringl, sizeof(stringl), "DEV: Estamos em nossa versão Beta e caso algum bug seja encontrado reporte-o via fórum."); SendClientMessage(playerid, COLOR_WHITE, stringl);
                     
                     if(PlayerInfo[playerid][pAge] == 23)

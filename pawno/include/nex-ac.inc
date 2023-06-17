@@ -289,7 +289,7 @@ static bool:ac_ACAllow[] =
 	true,	//46 Anti-Attached object crasher
 	true,	//47 Anti-Weapon Crasher
 
-	true,	//48 Protection from connection flood in one slot
+	false,	//48 Protection from connection flood in one slot
 	true,	//49 Anti-callback functions flood
 	true,	//50 Anti-flood by seat changing
 

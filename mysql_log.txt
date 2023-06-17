@@ -30,3 +30,13 @@
 [10:52:55] [ERROR] CMySQLConnection::Connect - (error #2003) Can't connect to MySQL server on 'localhost' (10061)
 [11:36:50] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
 [19:29:59] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[17:43:39] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[17:43:53] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[17:54:49] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[17:55:01] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[18:09:17] [WARNING] CMySQLHandle::Create - connection already exists
+[18:09:54] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[18:09:57] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[18:10:26] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[18:10:56] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[18:14:00] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")

@@ -19874,7 +19874,7 @@ public CreateUser(playerid)
     printf("[SERVER-INFO] Novo jogador foi registrado como: %s (%d) | DB ID: %d", PlayerName(playerid,0), playerid, PlayerInfo[playerid][pID]);
 
 	new strl[126];
-	format(strl, sizeof(strl), "%s registrou-se no servidor. [DB: %d]", PlayerName(playerid,0), PlayerInfo[playerid][pID]);
+	format(strl, sizeof(strl), "[SERVER-INFO] %s registrou-se no servidor. [DB: %d]", PlayerName(playerid,0), PlayerInfo[playerid][pID]);
 	RegLog(strl);
 
     PlayerInfo[playerid][pLogado] = 1;

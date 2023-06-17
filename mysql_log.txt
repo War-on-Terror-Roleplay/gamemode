@@ -29,3 +29,4 @@
 [10:52:55] [ERROR] CMySQLConnection::Connect - (error #2003) Can't connect to MySQL server on 'localhost' (10061)
 [10:52:55] [ERROR] CMySQLConnection::Connect - (error #2003) Can't connect to MySQL server on 'localhost' (10061)
 [11:36:50] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")
+[19:29:59] [WARNING] CMySQLResult::GetRowDataByName - field not found ("petName")

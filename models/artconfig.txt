@@ -158,4 +158,12 @@ AddSimpleModel(-1, 2262, -20512, "AB/ABProp02.dff", "AB/ABProp02.txd");
 AddSimpleModel(-1, 2262, -20513, "AB/ABProp03.dff", "AB/ABProp03.txd");
 AddSimpleModel(-1, 2262, -20514, "AB/ABProp04.dff", "AB/ABProp04.txd");
 AddSimpleModel(-1, 2262, -20515, "AB/ABProp05.dff", "AB/ABProp05.txd");
-
+AddSimpleModel(-1, 19480, -20516, "vila/bandeirataliban.dff", "vila/bandeirataliban.txd");
+AddSimpleModel(-1, 19480, -20517, "vila/CabanaPrelight.dff", "vila/CabanaPrelight.txd");
+AddSimpleModel(-1, 19480, -20518, "vila/CabanaPrelight2.dff", "vila/CabanaPrelight2.txd");
+AddSimpleModel(-1, 19480, -20519, "vila/CabanaPrelight3.dff", "vila/CabanaPrelight3.txd");
+AddSimpleModel(-1, 19480, -20520, "vila/CabanaPrelight4.dff", "vila/CabanaPrelight4.txd");
+AddSimpleModel(-1, 19480, -20521, "vila/CabanaPrelight5.dff", "vila/CabanaPrelight5.txd");
+AddSimpleModel(-1, 19480, -20522, "vila/CabanaPrelight6.dff", "vila/CabanaPrelight6.txd");
+AddSimpleModel(-1, 19480, -20523, "vila/cabanadestruida55.dff", "vila/cabanadestruida55.txd");
+AddSimpleModel(-1, 19480, -20524, "vila/interioraberto3.dff", "vila/interioraberto3.txd");

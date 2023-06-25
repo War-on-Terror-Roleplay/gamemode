@@ -56,8 +56,17 @@ AddCharModel(287, 20116, "seals/seal16.dff", "seals/seal16.txd");
 AddCharModel(287, 20117, "seals/seal17.dff", "seals/seal17.txd"); 
 
 //US Navy - USMC
-AddCharModel(287, 20201, "usmc/usmc.dff", "usmc/usmc.txd"); 
-
+AddCharModel(287, 20201, "usmc/usmc1.dff", "usmc/usmc1.txd"); 
+AddCharModel(287, 20202, "usmc/usmc2.dff", "usmc/usmc2.txd"); 
+AddCharModel(287, 20203, "usmc/usmc3.dff", "usmc/usmc3.txd"); 
+AddCharModel(287, 20204, "usmc/usmc4.dff", "usmc/usmc4.txd"); 
+AddCharModel(287, 20205, "usmc/usmc5.dff", "usmc/usmc5.txd"); 
+AddCharModel(287, 20206, "usmc/usmc6.dff", "usmc/usmc6.txd"); 
+AddCharModel(287, 20207, "usmc/usmc7.dff", "usmc/usmc7.txd"); 
+AddCharModel(287, 20208, "usmc/usmc8.dff", "usmc/usmc8.txd"); 
+AddCharModel(287, 20209, "usmc/usmc9.dff", "usmc/usmc9.txd"); 
+AddCharModel(96, 20210, "usmc/usmc10.dff", "usmc/usmc10.txd"); 
+AddCharModel(96, 20211, "usmc/usmc11.dff", "usmc/usmc11.txd"); 
 
 //Pet System
 AddCharModel(13, 20069, "dogs/pet1.dff", "dogs/pet1.txd"); 

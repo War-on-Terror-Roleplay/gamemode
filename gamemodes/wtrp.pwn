@@ -2966,8 +2966,10 @@ static VITOR_Uniformes[6] = {
 };
 
 //===== [ PMERJ ] =====//
-static PMERJ_Uniformes[1] = {
-	20201
+static PMERJ_Uniformes[11] = {
+	20201, 20202, 20203, 20204,
+	20205, 20206, 20207, 20208,
+	20509, 20510, 20511
 };
 
 static PMERJ_Barreiras[17] = {

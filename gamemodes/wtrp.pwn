@@ -13,7 +13,7 @@
 #include <neon>
 #include <dini>
 #include <YSI\y_bit>
-#include <YSI\y_hooks> //
+#include <YSI\y_hooks> 
 #include <YSI\y_va>
 #include <YSI\y_foreach>
 #include <YSI\y_iterate>
@@ -28,17 +28,12 @@
 #include <trap>
 #include <explosive>
 #include <mapandreas>
-//Tunning
 #include <YSI\y_ini>
-//anticheater
 #include <nex-ac>
-//pet
 #define YSI_NO_VERSION_CHECK
 #define YSI_NO_HEAP_MALLOC
 #include <YSI\y_malloc>
 
-
-// --------- [ INCLUDES ] ---------
 
 //Streamer
 #define VISIBLE_ITEMS 3000
@@ -7525,7 +7520,6 @@ CMD:veraparencia(playerid, params[])
 }
 CMD:idade(playerid, params[])
 {
-    //if(PlayerInfo[playerid][pAge] == 23);
     ShowPlayerDialog(playerid, DIALOG_AGE, DIALOG_STYLE_INPUT, "Idade", "Idade minima: 5\n Idade máxima: 99.\n Entre com uma idade válida.", "Confirmar", "Cancelar");
     return 1;
 }
@@ -9996,8 +9990,6 @@ public Timer_Segundos()
 
 					}
 					//=============================
-					//if(OutrasInfos[i][oPodePas] > 0) OutrasInfos[i][oPodePas]--;
-					//=============================
 					if(IsAFK[i] == true)
 					{
 						AFKTimer[i]++;
@@ -11347,7 +11339,6 @@ public OnPlayerConnect(playerid)
 
     PlayAudioStreamForPlayer(playerid, "https://progressive-roleplay.com/midia/intro.mp3");
 	
-	//PlayerTextDrawHide(playerid, pTextdraws);
 
     //GetPlayerHost(playerid);
 
@@ -16428,11 +16419,6 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys) {
 			return 1;
 		}
 	}
-
-	//Basket
-/*	if(newkeys & KEY_FIRE && !IsPlayerInAnyVehicle(playerid)) {
-	    KeyStateChangeBasket(playerid, newkeys, oldkeys);
-	}*/ 
 	//GM
 	if (!IsPlayerInAnyVehicle(playerid) && (newkeys & KEY_YES))
 	{
@@ -18458,12 +18444,12 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		{
 		    if(response)
 		    {
-		        if(listitem == 0) { Font = "Urban Riot"; /*GraffitiSize[playerid]+= 40;*/ }
-				else if(listitem == 1) { Font = "Bombing"; /*GraffitiSize[playerid]+= 48;*/ }
-				else if(listitem == 2) { Font = "Impact"; /*GraffitiSize[playerid]+= 48;*/ }
-				else if(listitem == 3) { Font = "Los Santos"; /*GraffitiSize[playerid]+= 36;*/ }
-				else if(listitem == 4) { Font = "Gangland Style"; /*GraffitiSize[playerid]+= 18;*/ }
-				else if(listitem == 5) { Font = "Arial"; /*GraffitiSize[playerid]+= 40;*/ }
+		        if(listitem == 0) { Font = "Urban Riot";  }
+				else if(listitem == 1) { Font = "Bombing"; }
+				else if(listitem == 2) { Font = "Impact";  }
+				else if(listitem == 3) { Font = "Los Santos";  }
+				else if(listitem == 4) { Font = "Gangland Style";  }
+				else if(listitem == 5) { Font = "Arial";  }
 				format(GraffitiFont[playerid], 32, Font);
                 ShowPlayerDialog(playerid,DIALOG_GRAFITE_6,DIALOG_STYLE_LIST,"{DAA520}Fonte","Ver Fonte\nEscolher esta Fonte","Ok","Voltar");
 		    }
@@ -18501,8 +18487,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		{
 			if (!response)
 			{
-				/*Kick(playerid);
-				GameTextForPlayer(playerid, "~R~Kickado", 4000, 4);*/
+
 			}
 			if(response)
 			{
@@ -26474,7 +26459,7 @@ COMMAND:sacar(playerid, params[])
 				else if(EmpInfo[PlayerInfo[playerid][pEntrouEmpresa]][eTipo] == EMP_TIPO_BANCO)
 				{
 	    			//if(PlayerInfo[playerid][pSavings] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar essa função do banco em quanto tiver Savings ativo.");
-					if(PlayerInfo[playerid][pBanco] < qnt) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tudo isso no banco.");
+					if(PlayerInfo[playerid][pBanco] < qnt) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem tudo isso no banco.");
 	      			PlayerInfo[playerid][pBanco] = PlayerInfo[playerid][pBanco]-qnt;
 			        PlayerInfo[playerid][pGrana] += qnt;
 
@@ -41263,34 +41248,6 @@ COMMAND:jetpack(playerid, params[])
 	return 1;
 }
 
-COMMAND:amancar22(playerid, params[])
-{
-    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
-    if(PlayerInfo[playerid][pAdmin] >= 5)
-    {
-        //if(adebug[playerid] == 0) adebug[playerid] = 1;
-		//if(adebug[playerid] == 1) adebug[playerid] = 0;
-
-		if(PlayerInfo[playerid][pMancando] == 0)
-		{
-			PlayerInfo[playerid][pMancando] = 1;
-			SendClientMessage(playerid, COLOR_LIGHTRED, "[!] Vai mancar, isso mesmo, manque como todos os outros.");
-		}
-		else if(PlayerInfo[playerid][pMancando] == 1)
-		{
-			PlayerInfo[playerid][pMancando] = 0;
-			SendClientMessage(playerid, COLOR_WHITE, "[!] Não vai mancar, safado! pare, seja justo com os outros jogadores");
-			SendClientMessage(playerid, COLOR_LIGHTRED, "AdmCmd: Você foi banido por abusar do comando de mancar.");
-			SendClientMessage(playerid, 0xadc3e7ff, "Server closed the connection.");
-		}
-
-		new strl[126];
-		format(strl, 126, "%s alterou seu estado de manco. [/amancar]", PlayerName(playerid, 0));
-		LogCMD_A(playerid, strl);
-	}
-	return 1;
-}
-
 forward SendBankErrorMessage(playerid);
 public SendBankErrorMessage(playerid){
     SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Não foi possível fazer essa transição.");
@@ -41482,9 +41439,6 @@ CMD:tratar(playerid,params[])
 CMD:deixarferido(playerid,params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-    //new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
-    //if(FacInfo[FacId][fTipo] == FAC_TIPO_CBERJ)
-    //{
 
     if(!IsPlayerInRangeOfPoint(playerid, 30, 2043.6692,-1383.1019,17.1479)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está na entrada do Hospital.");
 
@@ -56967,7 +56921,6 @@ ALTCOMMAND:pt->portamalas;
 COMMAND:portamalas(playerid,params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-    //if(PlayerInfo[playerid][pEmServico] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando estando em serviço.");
     if(IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa estar fora do veículo.");
     if(gettime() < FloodCMD[playerid]) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Aguarde um segundo antes de usar um comando novamente.");
     if(IsPlayerEditandoAlgo(playerid)) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Termine de editar o objeto antes.");
@@ -67186,8 +67139,6 @@ CMD:abastecerbomba(playerid, params[])
 
 	if (GetPlayerState(playerid) != PLAYER_STATE_DRIVER) return SendClientMessage(playerid, COLOR_WHITE, "Você precisa estar dirigindo o veiculo!");
 
-	//if (GetEngineStatus(vehicleid)) return SendClientMessage(playerid, COLOR_WHITE, "Desligue o motor.");
-
 	new id = Pump_Nearest(playerid);
 	if (id != -1)
 	{
@@ -71559,7 +71510,6 @@ CMD:minhaspecas(playerid,params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-	//if(PlayerInfo[playerid][pJob] != JOB_MECANICO && PlayerInfo[playerid][pJob] != JOB_DESMANCHE) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não é um mecânico.");
 	format(string,sizeof(string),"_______Peças de %s:_______", PlayerName(playerid, 0));
 	SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 	format(string,sizeof(string),"[Rádio (%d)] [Neon (%d)] [GPS (%d)]", PlayerInfo[playerid][pPecasMecanicas][0], PlayerInfo[playerid][pPecasMecanicas][1], PlayerInfo[playerid][pPecasMecanicas][2]);
@@ -78786,12 +78736,6 @@ public OnPlayerSuspectedForAimbot(playerid,hitid,weaponid,warnings)
 		format(str,256,"Random Aim Offsets: 1)%f 2)%f 3)%f",Wstats[0],Wstats[1],Wstats[2]);
 		SendAdminMessage(-1,str);
 	}
-	/*if(warnings & WARNING_BACKWARD_SHOT)
-	{
-	    TogglePlayerControllable(playerid, false);
-	    format(str,256,"O ANTI-CHEAT[%d]%s(%d) atirou em um jogador atrás dele com %s.",ids[playerid],nme,playerid,wname);
-		SendAdminMessage(-1,str);
-	}*/
 	if(warnings & WARNING_CONTINOUS_SHOTS)
 	{
 	    TogglePlayerControllable(playerid, false);

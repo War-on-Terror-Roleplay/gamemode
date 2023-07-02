@@ -132,6 +132,10 @@ AddSimpleModel(-1,18645, -2305, "itens_seals/gorro.dff", "itens_seals/gorro.txd"
 //objewtos USMC
 AddSimpleModel(-1,18645, -2401, "itens_usmc/capSF.dff", "itens_usmc/capSF.txd");
 AddSimpleModel(-1,19142, -2402, "itens_usmc/VestSF.dff", "itens_usmc/VestSF.txd");
+AddSimpleModel(-1,19142, -2403, "itens_usmc/colete.dff", "itens_usmc/colete.txd");
+AddSimpleModel(-1,18645, -2404, "itens_usmc/capacete.dff", "itens_usmc/capacete.txd");
+AddSimpleModel(-1,18645, -2405, "itens_usmc/capacete2.dff", "itens_usmc/capacete2.txd");
+AddSimpleModel(-1,18645, -2406, "itens_usmc/capacete3.dff", "itens_usmc/capacete3.txd");
 
 //Objetos GOV US
 AddSimpleModel(-1,3634, -2200, "itens/escudo.dff", "itens/escudo.txd");
@@ -167,12 +171,22 @@ AddSimpleModel(-1, 2262, -20512, "AB/ABProp02.dff", "AB/ABProp02.txd");
 AddSimpleModel(-1, 2262, -20513, "AB/ABProp03.dff", "AB/ABProp03.txd");
 AddSimpleModel(-1, 2262, -20514, "AB/ABProp04.dff", "AB/ABProp04.txd");
 AddSimpleModel(-1, 2262, -20515, "AB/ABProp05.dff", "AB/ABProp05.txd");
-AddSimpleModel(-1, 19480, -20516, "vila/bandeirataliban.dff", "vila/bandeirataliban.txd");
-AddSimpleModel(-1, 19480, -20517, "vila/CabanaPrelight.dff", "vila/CabanaPrelight.txd");
-AddSimpleModel(-1, 19480, -20518, "vila/CabanaPrelight2.dff", "vila/CabanaPrelight2.txd");
-AddSimpleModel(-1, 19480, -20519, "vila/CabanaPrelight3.dff", "vila/CabanaPrelight3.txd");
-AddSimpleModel(-1, 19480, -20520, "vila/CabanaPrelight4.dff", "vila/CabanaPrelight4.txd");
-AddSimpleModel(-1, 19480, -20521, "vila/CabanaPrelight5.dff", "vila/CabanaPrelight5.txd");
-AddSimpleModel(-1, 19480, -20522, "vila/CabanaPrelight6.dff", "vila/CabanaPrelight6.txd");
-AddSimpleModel(-1, 19480, -20523, "vila/cabanadestruida55.dff", "vila/cabanadestruida55.txd");
-AddSimpleModel(-1, 19480, -20524, "vila/interioraberto3.dff", "vila/interioraberto3.txd");
+AddSimpleModel(-1, 19480, -2009, "vila/bandeirataliban.dff", "vila/bandeirataliban.txd");
+AddSimpleModel(-1, 19480, -2033, "vila/CabanaPrelight.dff", "vila/CabanaPrelight.txd");
+AddSimpleModel(-1, 19480, -2034, "vila/CabanaPrelight2.dff", "vila/CabanaPrelight2.txd");
+AddSimpleModel(-1, 19480, -2035, "vila/CabanaPrelight3.dff", "vila/CabanaPrelight3.txd");
+AddSimpleModel(-1, 19480, -2036, "vila/CabanaPrelight4.dff", "vila/CabanaPrelight4.txd");
+AddSimpleModel(-1, 19480, -2037, "vila/CabanaPrelight5.dff", "vila/CabanaPrelight5.txd");
+AddSimpleModel(-1, 19480, -2038, "vila/CabanaPrelight6.dff", "vila/CabanaPrelight6.txd");
+AddSimpleModel(-1, 19480, -2050, "vila/cabanadestruida55.dff", "vila/cabanadestruida55.txd");
+AddSimpleModel(-1, 19480, -2051, "vila/interioraberto3.dff", "vila/interioraberto3.txd");
+AddSimpleModel(-1, 2262, -20700, "USBase/UsmcBASE01.dff", "USBase/UsmcTextures.txd");
+AddSimpleModel(-1, 2262, -20701, "USBase/UsmcBASE02.dff", "USBase/UsmcTextures.txd");
+AddSimpleModel(-1, 2262, -20702, "USBase/UsmcBASE03.dff", "USBase/UsmcTextures.txd");
+AddSimpleModel(-1, 2262, -20703, "USBase/UsmcBASE04.dff", "USBase/UsmcTextures.txd");
+AddSimpleModel(-1, 2262, -20704, "USBase/UsmcPROP01.dff", "USBase/UsmcTextures.txd");
+AddSimpleModel(-1, 2262, -20705, "USBase/UsmcDORMS01.dff", "USBase/UsmcDORMS.txd");
+AddSimpleModel(-1, 2262, -20706, "USBase/UsmcDORMS02.dff", "USBase/UsmcDORMS.txd");
+AddSimpleModel(-1, 2262, -20707, "USBase/UsmcPROP02.dff", "USBase/UsmcTextures.txd");
+AddSimpleModel(-1, 2262, -20708, "USBase/UsmcPROP03.dff", "USBase/UsmcProps01.txd");
+AddSimpleModel(-1, 11391, -20709, "USBase/UsmcPROP04.dff", "USBase/UsmcProps02.txd");

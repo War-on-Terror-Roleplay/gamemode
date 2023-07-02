@@ -9279,3 +9279,2623 @@ v0.3.DL-R1, (C)2005-2018 SA-MP Team
 [18:16:01] [Personagem] Seu nome OOC é slced.
 [18:16:01] [SAVE-PJ] Jogador Felipe_Amorim - Personagem salvo com sucesso.
 [18:16:01] [part] Felipe_Amorim has left the server (1:1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[18:44:42] password = ""  (string)
+[18:44:42] filterscripts = ""  (string)
+[18:44:42] artpath = "models"  (string)
+[18:44:42] 
+[18:44:42] Server Plugins
+[18:44:42] --------------
+[18:44:42]  Loading plugin: nativechecker
+[18:44:42]   Loaded.
+[18:44:42]  Loading plugin: mysql
+[18:44:42]  >> plugin.mysql: R39-5 successfully loaded.
+[18:44:42]   Loaded.
+[18:44:42]  Loading plugin: streamer
+[18:44:42] 
+
+*** Streamer Plugin v2.9.2 by Incognito loaded ***
+
+[18:44:42]   Loaded.
+[18:44:42]  Loading plugin: sscanf
+[18:44:42] 
+
+[18:44:42]  ===============================
+
+[18:44:42]       sscanf plugin loaded.     
+
+[18:44:42]          Version:  2.8.1        
+
+[18:44:42]    (c) 2012 Alex "Y_Less" Cole  
+
+[18:44:42]  ===============================
+
+[18:44:42]   Loaded.
+[18:44:42]  Loading plugin: Whirlpool
+[18:44:42]  
+[18:44:42]  ==================
+[18:44:42]  
+[18:44:42]   Whirlpool loaded
+[18:44:42]  
+[18:44:42]  ==================
+[18:44:42]  
+[18:44:42]   Loaded.
+[18:44:42]  Loading plugin: mapandreas
+[18:44:42]   Loaded.
+[18:44:42]  Loading plugin: ColAndreas
+[18:44:42] *********************
+[18:44:42] ** Created By:     **
+[18:44:42] ** [uL]Chris42O    **
+[18:44:42] ** [uL]Slice       **
+[18:44:42] ** [uL]Pottus      **
+[18:44:42] *********************
+[18:44:42] No collision data found.
+[18:44:42] *********************
+[18:44:42]   ColAndreas Loaded
+[18:44:42]    v1.4.0
+[18:44:42] *********************
+[18:44:42]   Loaded.
+[18:44:42]  Loading plugin: dns
+[18:44:42] 
+
+*** DNS Plugin v2.4 by Incognito loaded ***
+
+[18:44:42]   Loaded.
+[18:44:42]  Loading plugin: YSF
+[18:44:42] This version of YSF doesn't support SA-MP 0.3.DL
+[18:44:42] Use another version of YSF or build with SAMP_03DL
+[18:44:42] Error: Unknown Windows server version (0x00491FA0)
+[18:44:42] Error: Big part of YSF will be unusable for you
+[18:44:42]   Loaded.
+[18:44:42]  Loaded 9 plugins.
+
+[18:44:42] [artwork:crc] taliba/taliba.dff CRC = 0x59945A80
+[18:44:42] [artwork:crc] taliba/taliba.txd CRC = 0x6355B6A
+[18:44:42] [artwork:crc] taliba/taliba2.dff CRC = 0xBB63B464
+[18:44:42] [artwork:crc] taliba/taliba2.txd CRC = 0x90B27E6E
+[18:44:42] [artwork:crc] taliba/taliba3.dff CRC = 0xE2E733E8
+[18:44:42] [artwork:crc] taliba/taliba3.txd CRC = 0xBC08005E
+[18:44:42] [artwork:crc] taliba/taliba4.dff CRC = 0x6828674B
+[18:44:42] [artwork:crc] taliba/taliba4.txd CRC = 0xB491BD51
+[18:44:42] [artwork:crc] taliba/taliba5.dff CRC = 0xDF6EC86
+[18:44:42] [artwork:crc] taliba/taliba5.txd CRC = 0x68893977
+[18:44:42] [artwork:crc] taliba/taliba6.dff CRC = 0xC47278F3
+[18:44:42] [artwork:crc] taliba/taliba6.txd CRC = 0x8C65BC30
+[18:44:42] [artwork:crc] taliba/taliba7.dff CRC = 0x21ED392D
+[18:44:42] [artwork:crc] taliba/taliba7.txd CRC = 0x3C5B484E
+[18:44:42] [artwork:crc] taliba/taliba8.dff CRC = 0x4C679CBE
+[18:44:42] [artwork:crc] taliba/taliba8.txd CRC = 0x23FF2285
+[18:44:42] [artwork:crc] taliba/taliba9.dff CRC = 0xDD1F6BE8
+[18:44:42] [artwork:crc] taliba/taliba9.txd CRC = 0x3724AA26
+[18:44:42] [artwork:crc] taliba/taliba10.dff CRC = 0x134E2005
+[18:44:42] [artwork:crc] taliba/taliba10.txd CRC = 0xD51A0FF9
+[18:44:42] [artwork:crc] taliba/taliba11.dff CRC = 0x448A080D
+[18:44:42] [artwork:crc] taliba/taliba11.txd CRC = 0x62CFAC9F
+[18:44:42] [artwork:crc] taliba/taliba12.dff CRC = 0xE56251EE
+[18:44:42] [artwork:crc] taliba/taliba12.txd CRC = 0xFDE64604
+[18:44:42] [artwork:crc] taliba/taliba13.dff CRC = 0x8299D6CC
+[18:44:42] [artwork:crc] taliba/taliba13.txd CRC = 0x85A9998
+[18:44:42] [artwork:crc] taliba/taliba14.dff CRC = 0xB115C3F1
+[18:44:42] [artwork:crc] taliba/taliba14.txd CRC = 0x8D57DED8
+[18:44:42] [artwork:crc] taliba/taliba15.dff CRC = 0x1D04FA75
+[18:44:42] [artwork:crc] taliba/taliba15.txd CRC = 0xDECA406A
+[18:44:42] [artwork:crc] pmc/pmc1.dff CRC = 0x2DD4CA47
+[18:44:42] [artwork:crc] pmc/pmc1.txd CRC = 0xE07D9D46
+[18:44:42] [artwork:crc] pmc/pmc2.dff CRC = 0x4B9C0356
+[18:44:42] [artwork:crc] pmc/pmc2.txd CRC = 0xED3AB6A4
+[18:44:42] [artwork:crc] pmc/pmc3.dff CRC = 0xE7046D23
+[18:44:42] [artwork:crc] pmc/pmc3.txd CRC = 0x9E046331
+[18:44:42] [artwork:crc] pmc/pmc4.dff CRC = 0x9546189A
+[18:44:42] [artwork:crc] pmc/pmc4.txd CRC = 0x399F00A3
+[18:44:42] [artwork:crc] pmc/pmc5.dff CRC = 0x493621B6
+[18:44:42] [artwork:crc] pmc/pmc5.txd CRC = 0x86A22FD
+[18:44:42] [artwork:crc] pmc/pmc6.dff CRC = 0x616A75AB
+[18:44:42] [artwork:crc] pmc/pmc6.txd CRC = 0x80654964
+[18:44:42] [artwork:crc] pmc/pmc7.dff CRC = 0x10D6EE16
+[18:44:42] [artwork:crc] pmc/pmc7.txd CRC = 0x3CCB6AA6
+[18:44:42] [artwork:crc] pmc/pmc8.dff CRC = 0xD27637A8
+[18:44:42] [artwork:crc] pmc/pmc8.txd CRC = 0x2EF7BC1
+[18:44:42] [artwork:crc] pmc/pmc9.dff CRC = 0x75507F0D
+[18:44:42] [artwork:crc] pmc/pmc9.txd CRC = 0x3A627F5F
+[18:44:42] [artwork:crc] isis/isis1.dff CRC = 0xA107A44C
+[18:44:42] [artwork:crc] isis/isis1.txd CRC = 0x8547D9E6
+[18:44:42] [artwork:crc] isis/isis2.dff CRC = 0xC029C75B
+[18:44:42] [artwork:crc] isis/isis2.txd CRC = 0x77C900E8
+[18:44:42] [artwork:crc] isis/isis3.dff CRC = 0xD5FF099B
+[18:44:42] [artwork:crc] isis/isis3.txd CRC = 0x586260F2
+[18:44:42] [artwork:crc] isis/isis4.dff CRC = 0xC029C75B
+[18:44:42] [artwork:crc] isis/isis4.txd CRC = 0x52486C98
+[18:44:42] [artwork:crc] isis/isis5.dff CRC = 0x3C88572C
+[18:44:42] [artwork:crc] isis/isis5.txd CRC = 0x686CAA15
+[18:44:42] [artwork:crc] russo/russia1.dff CRC = 0x8855C1F1
+[18:44:42] [artwork:crc] russo/russia1.txd CRC = 0xFC8E21E6
+[18:44:42] [artwork:crc] russo/russia2.dff CRC = 0xCB8A1129
+[18:44:42] [artwork:crc] russo/russia2.txd CRC = 0x83AC881E
+[18:44:42] [artwork:crc] russo/russia3.dff CRC = 0x871A42CA
+[18:44:42] [artwork:crc] russo/russia3.txd CRC = 0xC6E1DF4B
+[18:44:42] [artwork:crc] russo/russia4.dff CRC = 0xB2D466D
+[18:44:42] [artwork:crc] russo/russia4.txd CRC = 0x2F9F7341
+[18:44:42] [artwork:crc] russo/russia5.dff CRC = 0x81309CA2
+[18:44:42] [artwork:crc] russo/russia5.txd CRC = 0x3269522E
+[18:44:42] [artwork:crc] russo/russia6.dff CRC = 0x264C07E8
+[18:44:42] [artwork:crc] russo/russia6.txd CRC = 0x43734C43
+[18:44:42] [artwork:crc] russo/russia7.dff CRC = 0x415C9DE3
+[18:44:42] [artwork:crc] russo/russia7.txd CRC = 0xF1B100BB
+[18:44:42] [artwork:crc] seals/seal1.dff CRC = 0x35B276D4
+[18:44:42] [artwork:crc] seals/seal1.txd CRC = 0x9339AF93
+[18:44:42] [artwork:crc] seals/seal2.dff CRC = 0x1B7364B6
+[18:44:42] [artwork:crc] seals/seal2.txd CRC = 0xEB6C1EBB
+[18:44:42] [artwork:crc] seals/seal3.dff CRC = 0x403AD120
+[18:44:42] [artwork:crc] seals/seal3.txd CRC = 0x9B1DC1A4
+[18:44:42] [artwork:crc] seals/seal4.dff CRC = 0xF13470B5
+[18:44:42] [artwork:crc] seals/seal4.txd CRC = 0x19C7B0F0
+[18:44:42] [artwork:crc] seals/seal5.dff CRC = 0x51B5E899
+[18:44:42] [artwork:crc] seals/seal5.txd CRC = 0x5E1CD488
+[18:44:42] [artwork:crc] seals/seal6.dff CRC = 0xF9FBD5A7
+[18:44:42] [artwork:crc] seals/seal6.txd CRC = 0xB8DA2980
+[18:44:42] [artwork:crc] seals/seal7.dff CRC = 0xC12D0388
+[18:44:42] [artwork:crc] seals/seal7.txd CRC = 0x4AA35C9E
+[18:44:42] [artwork:crc] seals/seal8.dff CRC = 0xBEAF3085
+[18:44:42] [artwork:crc] seals/seal8.txd CRC = 0xA4C2C97A
+[18:44:42] [artwork:crc] seals/seal9.dff CRC = 0xAE273045
+[18:44:42] [artwork:crc] seals/seal9.txd CRC = 0x7B8EE53
+[18:44:42] [artwork:crc] seals/seal10.dff CRC = 0x43FE5B13
+[18:44:42] [artwork:crc] seals/seal10.txd CRC = 0x6C3715BD
+[18:44:42] [artwork:crc] seals/seal11.dff CRC = 0x8486662B
+[18:44:42] [artwork:crc] seals/seal11.txd CRC = 0x3F9CA9
+[18:44:42] [artwork:crc] seals/seal12.dff CRC = 0x34C39C5C
+[18:44:42] [artwork:crc] seals/seal12.txd CRC = 0xD89C2D5C
+[18:44:42] [artwork:crc] seals/seal13.dff CRC = 0xE913DA0B
+[18:44:42] [artwork:crc] seals/seal13.txd CRC = 0x369CC349
+[18:44:42] [artwork:crc] seals/seal14.dff CRC = 0x8D06D38A
+[18:44:43] [artwork:crc] seals/seal14.txd CRC = 0xF32FAC77
+[18:44:43] [artwork:crc] seals/seal15.dff CRC = 0x93FD3C0C
+[18:44:43] [artwork:crc] seals/seal15.txd CRC = 0x75D1421B
+[18:44:43] [artwork:crc] seals/seal16.dff CRC = 0xAA739E12
+[18:44:43] [artwork:crc] seals/seal16.txd CRC = 0x44283298
+[18:44:43] [artwork:crc] seals/seal17.dff CRC = 0xDED343C6
+[18:44:43] [artwork:crc] seals/seal17.txd CRC = 0xAF16CF6
+[18:44:43] [artwork:crc] usmc/usmc1.dff CRC = 0x557DD9CF
+[18:44:43] [artwork:crc] usmc/usmc1.txd CRC = 0xFEC2D977
+[18:44:43] [artwork:crc] usmc/usmc2.dff CRC = 0xC784806B
+[18:44:43] [artwork:crc] usmc/usmc2.txd CRC = 0x49359519
+[18:44:43] [artwork:crc] usmc/usmc3.dff CRC = 0x8823B3F1
+[18:44:43] [artwork:crc] usmc/usmc3.txd CRC = 0x7E648A40
+[18:44:43] [artwork:crc] usmc/usmc4.dff CRC = 0xA7E3535
+[18:44:43] [artwork:crc] usmc/usmc4.txd CRC = 0x6F8E1A9
+[18:44:43] [artwork:crc] usmc/usmc5.dff CRC = 0xB527D29B
+[18:44:43] [artwork:crc] usmc/usmc5.txd CRC = 0x69597A5F
+[18:44:43] [artwork:crc] usmc/usmc6.dff CRC = 0x45DDC3F2
+[18:44:43] [artwork:crc] usmc/usmc6.txd CRC = 0xA3075FD3
+[18:44:43] [artwork:crc] usmc/usmc7.dff CRC = 0xB621EE37
+[18:44:43] [artwork:crc] usmc/usmc7.txd CRC = 0x4C50FD91
+[18:44:43] [artwork:crc] usmc/usmc8.dff CRC = 0xC24F55AF
+[18:44:43] [artwork:crc] usmc/usmc8.txd CRC = 0xA98ECF32
+[18:44:43] [artwork:crc] usmc/usmc9.dff CRC = 0x81005AD3
+[18:44:43] [artwork:crc] usmc/usmc9.txd CRC = 0x2A0F713C
+[18:44:43] [artwork:crc] usmc/usmc10.dff CRC = 0x74B99E1F
+[18:44:43] [artwork:crc] usmc/usmc10.txd CRC = 0xF4CEDCF6
+[18:44:43] [artwork:crc] usmc/usmc11.dff CRC = 0x943458C4
+[18:44:43] [artwork:crc] usmc/usmc11.txd CRC = 0x91A8525
+[18:44:43] [artwork:crc] dogs/pet1.dff CRC = 0x14ABDB74
+[18:44:43] [artwork:crc] dogs/pet1.txd CRC = 0xC0D15148
+[18:44:43] [artwork:crc] dogs/pet2.dff CRC = 0x871FCAB4
+[18:44:43] [artwork:crc] dogs/pet2.txd CRC = 0xF35F8D62
+[18:44:43] [artwork:crc] dogs/pet3.dff CRC = 0x223072E5
+[18:44:43] [artwork:crc] dogs/pet3.txd CRC = 0x918C9CD0
+[18:44:43] [artwork:crc] dogs/pet4.dff CRC = 0xEF44912D
+[18:44:43] [artwork:crc] dogs/pet4.txd CRC = 0xD3839FDF
+[18:44:43] [artwork:crc] dogs/pet5.dff CRC = 0x223072E5
+[18:44:43] [artwork:crc] dogs/pet5.txd CRC = 0xAECE83C9
+[18:44:43] [artwork:crc] dogs/pet6.dff CRC = 0x60C6F8E9
+[18:44:43] [artwork:crc] dogs/pet6.txd CRC = 0x8EBEA5D0
+[18:44:43] [artwork:crc] dogs/pet7.dff CRC = 0x723783B7
+[18:44:43] [artwork:crc] dogs/pet7.txd CRC = 0x33F08C5C
+[18:44:43] [artwork:crc] dogs/camel.dff CRC = 0xDA9C5460
+[18:44:43] [artwork:crc] dogs/camel.txd CRC = 0xA76F584B
+[18:44:43] [artwork:crc] hud.dff CRC = 0x4BC6EDFF
+[18:44:43] [artwork:crc] hud.txd CRC = 0xC1ADFB21
+[18:44:43] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[18:44:43] [artwork:crc] tela.txd CRC = 0xED6A6238
+[18:44:43] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[18:44:43] [artwork:crc] logo.txd CRC = 0xABC0A657
+[18:44:43] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[18:44:43] [artwork:crc] logo.txd CRC = 0xABC0A657
+[18:44:43] [artwork:crc] textdraw_object.dff CRC = 0x0
+[18:44:43] [artwork:error] Bad file: textdraw_object.dff
+[18:44:43] [artwork:crc] itens/rojao.dff CRC = 0x6F72D6BB
+[18:44:43] [artwork:crc] itens/rojao.txd CRC = 0x19207CDF
+[18:44:43] [artwork:crc] itens/band.dff CRC = 0xD6FE9FF4
+[18:44:43] [artwork:crc] itens/band.txd CRC = 0x7FE6AB15
+[18:44:43] [artwork:crc] itens/cone.dff CRC = 0xF711EDD9
+[18:44:43] [artwork:crc] itens/cone.txd CRC = 0x66D2389E
+[18:44:43] [artwork:crc] itens/cavalete.dff CRC = 0x3A338AFC
+[18:44:43] [artwork:crc] itens/cavalete.txd CRC = 0x85244494
+[18:44:43] [artwork:crc] itens/faixa.dff CRC = 0x7507B9AC
+[18:44:43] [artwork:crc] itens/faixa.txd CRC = 0x8A8138C3
+[18:44:43] [artwork:crc] itens/RadioMotorola.dff CRC = 0x9AAB6A9
+[18:44:43] [artwork:crc] itens/RadioMotorola.txd CRC = 0x22353790
+[18:44:43] [artwork:crc] itens/chapeubope.dff CRC = 0xFD233655
+[18:44:43] [artwork:crc] itens/chapeubope.txd CRC = 0x68298F01
+[18:44:43] [artwork:crc] itens/boneobjeto1.dff CRC = 0xC82233C
+[18:44:43] [artwork:crc] itens/boneobjeto1.txd CRC = 0xB81E24C1
+[18:44:43] [artwork:crc] itens/boneobjeto2.dff CRC = 0xC82233C
+[18:44:43] [artwork:crc] itens/boneobjeto2.txd CRC = 0xB81E24C1
+[18:44:43] [artwork:crc] itens/boneobjeto3.dff CRC = 0xC82233C
+[18:44:43] [artwork:crc] itens/boneobjeto3.txd CRC = 0x25EC71FD
+[18:44:43] [artwork:crc] itens/boneobjeto4.dff CRC = 0xC82233C
+[18:44:43] [artwork:crc] itens/boneobjeto4.txd CRC = 0x3D3821FC
+[18:44:43] [artwork:crc] itens/coletebandido.dff CRC = 0x35333281
+[18:44:43] [artwork:crc] itens/coletebandido.txd CRC = 0x7FCB75F7
+[18:44:43] [artwork:crc] itens/mochila1.dff CRC = 0x7198BBAD
+[18:44:43] [artwork:crc] itens/mochila1.txd CRC = 0xAA488C0D
+[18:44:43] [artwork:crc] itens/mochila2.dff CRC = 0xBA43DBFB
+[18:44:43] [artwork:crc] itens/mochila2.txd CRC = 0xA55E4D43
+[18:44:43] [artwork:crc] itens/mochila3.dff CRC = 0x36D7E922
+[18:44:43] [artwork:crc] itens/mochila3.txd CRC = 0x31D6F73
+[18:44:43] [artwork:crc] itens/mochila4.dff CRC = 0x49A9723A
+[18:44:43] [artwork:crc] itens/mochila4.txd CRC = 0xB888188E
+[18:44:43] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[18:44:43] [artwork:crc] itens/helmet6.txd CRC = 0x60AE21A9
+[18:44:43] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[18:44:43] [artwork:crc] itens/helmet7.txd CRC = 0xB8E8641F
+[18:44:43] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[18:44:43] [artwork:crc] itens/helmet11.txd CRC = 0xAA929E4F
+[18:44:43] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[18:44:43] [artwork:crc] itens/helmet12.txd CRC = 0x6CA6E0F4
+[18:44:43] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[18:44:43] [artwork:crc] itens/helmet15.txd CRC = 0x7BB77D7E
+[18:44:43] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[18:44:43] [artwork:crc] itens/helmet16.txd CRC = 0x5781CAFC
+[18:44:43] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[18:44:43] [artwork:crc] itens/helmet19.txd CRC = 0x157E14B7
+[18:44:43] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[18:44:43] [artwork:crc] itens/helmet21.txd CRC = 0x53A928B0
+[18:44:43] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[18:44:43] [artwork:crc] itens/helmet24.txd CRC = 0xF1A29DA5
+[18:44:43] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[18:44:43] [artwork:crc] itens/helmet1.txd CRC = 0xFF5E6BB4
+[18:44:43] [artwork:crc] itens/ifood.dff CRC = 0xAD546C14
+[18:44:43] [artwork:crc] itens/ifood.txd CRC = 0xBED788D3
+[18:44:43] [artwork:crc] itens/ubereats.dff CRC = 0xD7C5543C
+[18:44:43] [artwork:crc] itens/ubereats.txd CRC = 0x1A9E171D
+[18:44:43] [artwork:crc] itens/bsimples.dff CRC = 0x246AB514
+[18:44:43] [artwork:crc] itens/bsimples.txd CRC = 0x9D54BD44
+[18:44:43] [artwork:crc] itens/bolsanikelateral.dff CRC = 0x82FA00BC
+[18:44:43] [artwork:crc] itens/bolsanikelateral.txd CRC = 0x9BE9FEF5
+[18:44:43] [artwork:crc] itens/PacoteMcDonalds.dff CRC = 0x7F3872D5
+[18:44:43] [artwork:crc] itens/PacoteMcDonalds.txd CRC = 0xB1587374
+[18:44:43] [artwork:crc] itens/coletemoto.dff CRC = 0xAEF7F9AB
+[18:44:43] [artwork:crc] itens/coletemoto.txd CRC = 0xCEFD3EA6
+[18:44:43] [artwork:crc] itens/barricada.dff CRC = 0xC7D7CD68
+[18:44:43] [artwork:crc] itens/barricada.txd CRC = 0x95DED922
+[18:44:43] [artwork:crc] itens_seals/bone.dff CRC = 0x98550AB1
+[18:44:43] [artwork:crc] itens_seals/bone.txd CRC = 0x233FCCF
+[18:44:43] [artwork:crc] itens_seals/capacete.dff CRC = 0xC715FAC0
+[18:44:43] [artwork:crc] itens_seals/capacete.txd CRC = 0xB1780A1A
+[18:44:43] [artwork:crc] itens_seals/capacete2.dff CRC = 0x3C0F5E9E
+[18:44:43] [artwork:crc] itens_seals/capacete2.txd CRC = 0x42DBE476
+[18:44:43] [artwork:crc] itens_seals/coleteleve.dff CRC = 0x7BA58D1D
+[18:44:43] [artwork:crc] itens_seals/coleteleve.txd CRC = 0x65C63F9C
+[18:44:43] [artwork:crc] itens_seals/coletepesado.dff CRC = 0xE9F699DF
+[18:44:43] [artwork:crc] itens_seals/coletepesado.txd CRC = 0xD3E48D2F
+[18:44:43] [artwork:crc] itens_seals/gorro.dff CRC = 0x80819053
+[18:44:43] [artwork:crc] itens_seals/gorro.txd CRC = 0xAED9F61A
+[18:44:43] [artwork:crc] itens_usmc/capSF.dff CRC = 0x1792D924
+[18:44:43] [artwork:crc] itens_usmc/capSF.txd CRC = 0xE6FFFD62
+[18:44:43] [artwork:crc] itens_usmc/VestSF.dff CRC = 0x42557B1
+[18:44:43] [artwork:crc] itens_usmc/VestSF.txd CRC = 0xC6CB541C
+[18:44:43] [artwork:crc] itens/escudo.dff CRC = 0x434102A8
+[18:44:43] [artwork:crc] itens/escudo.txd CRC = 0xDB8AA769
+[18:44:43] [artwork:crc] itens/morteiro.dff CRC = 0x212ACFDB
+[18:44:43] [artwork:crc] itens/morteiro.txd CRC = 0xE3BEDADE
+[18:44:43] [artwork:crc] itens/munimorteiro.dff CRC = 0xF0EFD884
+[18:44:43] [artwork:crc] itens/munimorteiro.txd CRC = 0xFE95109F
+[18:44:43] [artwork:crc] itens/mina.dff CRC = 0x4A5004C4
+[18:44:43] [artwork:crc] itens/mina.txd CRC = 0xEFEA75E5
+[18:44:43] [artwork:crc] itens/maconhab.dff CRC = 0xBF46F2FF
+[18:44:43] [artwork:crc] itens/maconhab.txd CRC = 0x68419BE
+[18:44:43] [artwork:crc] itens/maconhar.dff CRC = 0xA0906971
+[18:44:43] [artwork:crc] itens/maconhar.txd CRC = 0x13A26228
+[18:44:43] [artwork:crc] itens/cocaina.dff CRC = 0x22B7B621
+[18:44:43] [artwork:crc] itens/cocaina.txd CRC = 0xF84F4DF
+[18:44:43] [artwork:crc] itens/crackr.dff CRC = 0x7260DE97
+[18:44:43] [artwork:crc] itens/crackr.txd CRC = 0xEB7DC1B6
+[18:44:43] [artwork:crc] itens/crackb.dff CRC = 0xAA6EDDA1
+[18:44:43] [artwork:crc] itens/crackb.txd CRC = 0xEB7DC1B6
+[18:44:43] [artwork:crc] itens/lsd.dff CRC = 0x6CB2980D
+[18:44:43] [artwork:crc] itens/lsd.txd CRC = 0xB190FA30
+[18:44:43] [artwork:crc] itens/lancaperfume.dff CRC = 0x8FB92930
+[18:44:43] [artwork:crc] itens/lancaperfume.txd CRC = 0x4205E4C1
+[18:44:43] [artwork:crc] itens/MesaDeDrogas.dff CRC = 0xF6C0A1DF
+[18:44:43] [artwork:crc] itens/MesaDeDrogas.txd CRC = 0x54036B75
+[18:44:43] [artwork:crc] AB/ABPart01.dff CRC = 0x662FD82C
+[18:44:43] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[18:44:43] [artwork:crc] AB/ABPart02.dff CRC = 0xC595C830
+[18:44:43] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[18:44:43] [artwork:crc] AB/ABPart03.dff CRC = 0xBE418106
+[18:44:43] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[18:44:43] [artwork:crc] AB/ABPart04.dff CRC = 0x2333EC80
+[18:44:43] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[18:44:43] [artwork:crc] AB/ABPart05.dff CRC = 0x63FAA3EB
+[18:44:43] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[18:44:43] [artwork:crc] AB/ABPart06.dff CRC = 0xC8D54C9B
+[18:44:43] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[18:44:43] [artwork:crc] AB/ABPart07.dff CRC = 0x31CFC7E6
+[18:44:43] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[18:44:43] [artwork:crc] AB/ABHouse01.dff CRC = 0x14234EEA
+[18:44:43] [artwork:crc] AB/ABHouse.txd CRC = 0x1B70AE5E
+[18:44:43] [artwork:crc] AB/ABHouse02.dff CRC = 0x50BF0743
+[18:44:43] [artwork:crc] AB/ABHouse.txd CRC = 0x1B70AE5E
+[18:44:43] [artwork:crc] AB/ABProps.dff CRC = 0x319313A
+[18:44:43] [artwork:crc] AB/ABHouse.txd CRC = 0x1B70AE5E
+[18:44:43] [artwork:crc] AB/ABVeg.dff CRC = 0x6873DFBA
+[18:44:43] [artwork:crc] AB/ABVeg.txd CRC = 0x8435FADA
+[18:44:43] [artwork:crc] AB/ABProp01.dff CRC = 0x51233E10
+[18:44:43] [artwork:crc] AB/ABProp01.txd CRC = 0x98DEDDFB
+[18:44:43] [artwork:crc] AB/ABProp02.dff CRC = 0x418A3779
+[18:44:43] [artwork:crc] AB/ABProp02.txd CRC = 0xC2E53317
+[18:44:43] [artwork:crc] AB/ABProp03.dff CRC = 0xFF96C6A5
+[18:44:43] [artwork:crc] AB/ABProp03.txd CRC = 0x3A3C8286
+[18:44:43] [artwork:crc] AB/ABProp04.dff CRC = 0x32B1EE03
+[18:44:43] [artwork:crc] AB/ABProp04.txd CRC = 0x9FEACA8C
+[18:44:43] [artwork:crc] AB/ABProp05.dff CRC = 0x6C76CBD2
+[18:44:43] [artwork:crc] AB/ABProp05.txd CRC = 0xFB0719C4
+[18:44:43] [artwork:crc] vila/bandeirataliban.dff CRC = 0x1E99423A
+[18:44:43] [artwork:crc] vila/bandeirataliban.txd CRC = 0xFF0D1F2B
+[18:44:43] [artwork:crc] vila/CabanaPrelight.dff CRC = 0x6526C46F
+[18:44:43] [artwork:crc] vila/CabanaPrelight.txd CRC = 0x1828D1FC
+[18:44:43] [artwork:crc] vila/CabanaPrelight2.dff CRC = 0x71827700
+[18:44:43] [artwork:crc] vila/CabanaPrelight2.txd CRC = 0x1828D1FC
+[18:44:43] [artwork:crc] vila/CabanaPrelight3.dff CRC = 0xB7F6DE74
+[18:44:43] [artwork:crc] vila/CabanaPrelight3.txd CRC = 0x1828D1FC
+[18:44:43] [artwork:crc] vila/CabanaPrelight4.dff CRC = 0xE0E5ACE8
+[18:44:43] [artwork:crc] vila/CabanaPrelight4.txd CRC = 0x1828D1FC
+[18:44:43] [artwork:crc] vila/CabanaPrelight5.dff CRC = 0x52A509EA
+[18:44:43] [artwork:crc] vila/CabanaPrelight5.txd CRC = 0x1828D1FC
+[18:44:43] [artwork:crc] vila/CabanaPrelight6.dff CRC = 0x978B10A8
+[18:44:43] [artwork:crc] vila/CabanaPrelight6.txd CRC = 0x1828D1FC
+[18:44:43] [artwork:crc] vila/cabanadestruida55.dff CRC = 0x0
+[18:44:43] [artwork:error] Bad file: vila/cabanadestruida55.dff
+[18:44:43] [artwork:crc] vila/interioraberto3.dff CRC = 0xDC2E1D9D
+[18:44:43] [artwork:crc] vila/interioraberto3.txd CRC = 0x60E84196
+[18:44:43] 
+[18:44:43] Filterscripts
+[18:44:43] ---------------
+[18:44:43]   Loaded 0 filterscripts.
+
+[18:44:44]    Error: Function not registered: 'SSCANF_Init'
+[18:44:44]    Error: Function not registered: 'SSCANF_IsConnected'
+[18:44:44]    Error: Function not registered: 'SSCANF_Join'
+[18:44:44]    Error: Function not registered: 'SSCANF_Leave'
+[18:44:44]    Error: Function not registered: 'IsValidDynamicObject'
+[18:44:44]    Error: Function not registered: 'DestroyDynamicObject'
+[18:44:44]    Error: Function not registered: 'CreateDynamicObject'
+[18:44:44]    Error: Function not registered: 'AttachDynamicObjectToVehicle'
+[18:44:44]    Error: Function not registered: 'CreateDynamicSphere'
+[18:44:44]    Error: Function not registered: 'CreateDynamic3DTextLabel'
+[18:44:44]    Error: Function not registered: 'Streamer_SetArrayData'
+[18:44:44]    Error: Function not registered: 'DestroyDynamicArea'
+[18:44:44]    Error: Function not registered: 'DestroyDynamic3DTextLabel'
+[18:44:44]    Error: Function not registered: 'Streamer_GetArrayData'
+[18:44:44]    Error: Function not registered: 'Streamer_Update'
+[18:44:44]    Error: Function not registered: 'Streamer_GetFloatData'
+[18:44:44]    Error: Function not registered: 'Streamer_SetIntData'
+[18:44:44]    Error: Function not registered: 'Streamer_UpdateEx'
+[18:44:44]    Error: Function not registered: 'DestroyDynamicPickup'
+[18:44:44]    Error: Function not registered: 'CreateDynamicPickup'
+[18:44:44]    Error: Function not registered: 'Streamer_GetDistanceToItem'
+[18:44:44]    Error: Function not registered: 'Streamer_GetIntData'
+[18:44:44]    Error: Function not registered: 'Streamer_GetItemStreamerID'
+[18:44:44]    Error: Function not registered: 'IsValidDynamicPickup'
+[18:44:44]    Error: Function not registered: 'sscanf'
+[18:44:44]    Error: Function not registered: 'GetDynamicObjectPos'
+[18:44:44]    Error: Function not registered: 'MoveDynamicObject'
+[18:44:44]    Error: Function not registered: 'StopDynamicObject'
+[18:44:44]    Error: Function not registered: 'SetDynamicObjectMaterial'
+[18:44:44]    Error: Function not registered: 'SetDynamicObjectMaterialText'
+[18:44:44]    Error: Function not registered: 'CreateDynamicObjectEx'
+[18:44:44]    Error: Function not registered: 'mysql_query'
+[18:44:44]    Error: Function not registered: 'cache_get_row_count'
+[18:44:44]    Error: Function not registered: 'cache_get_field_content'
+[18:44:44]    Error: Function not registered: 'IsValidDynamic3DTextLabel'
+[18:44:44]    Error: Function not registered: 'mysql_connect'
+[18:44:44]    Error: Function not registered: 'mysql_errno'
+[18:44:44]    Error: Function not registered: 'Streamer_VisibleItems'
+[18:44:44]    Error: Function not registered: 'MapAndreas_Init'
+[18:44:44]    Error: Function not registered: 'mysql_tquery'
+[18:44:44]    Error: Function not registered: 'cache_get_data'
+[18:44:44]    Error: Function not registered: 'cache_insert_id'
+[18:44:44]    Error: Function not registered: 'MapAndreas_FindAverageZ'
+[18:44:44]    Error: Function not registered: 'DestroyAllDynamicObjects'
+[18:44:44]    Error: Function not registered: 'mysql_close'
+[18:44:44]    Error: Function not registered: 'IsValidDynamicCP'
+[18:44:44]    Error: Function not registered: 'DestroyDynamicCP'
+[18:44:44]    Error: Function not registered: 'CreateDynamicCP'
+[18:44:44]    Error: Function not registered: 'mysql_escape_string'
+[18:44:44]    Error: Function not registered: 'UpdateDynamic3DTextLabelText'
+[18:44:44]    Error: Function not registered: 'Streamer_SetFloatData'
+[18:44:44]    Error: Function not registered: 'ClearDynamicActorAnimations'
+[18:44:44]    Error: Function not registered: 'MapAndreas_FindZ_For2DCoord'
+[18:44:44]    Error: Function not registered: 'EditDynamicObject'
+[18:44:44]    Error: Function not registered: 'WP_Hash'
+[18:44:44]    Error: Function not registered: 'mysql_format'
+[18:44:44]    Error: Function not registered: 'SetDynamicObjectPos'
+[18:44:44]    Error: Function not registered: 'SetDynamicObjectRot'
+[18:44:44]    Error: Function not registered: 'cache_get_field_content_int'
+[18:44:44]    Error: Function not registered: 'cache_get_field_content_float'
+[18:44:44]    Error: Function not registered: 'GetDynamicObjectRot'
+[18:44:44]    Error: Function not registered: 'Streamer_CountItems'
+[18:44:44]  
+[18:44:44]  
+[18:44:44]  
+[18:44:44]  ======================================= 
+[18:44:44]  |                                     | 
+[18:44:44]  |        YSI version 3.09.0684        | 
+[18:44:44]  |        By Alex "Y_Less" Cole        | 
+[18:44:44]  |                                     | 
+[18:44:44]  ======================================= 
+[18:44:44]  
+[18:44:44]  
+[18:44:44]  
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[20:13:54] password = ""  (string)
+[20:13:54] filterscripts = ""  (string)
+[20:13:54] artpath = "models"  (string)
+[20:13:54] 
+[20:13:54] Server Plugins
+[20:13:54] --------------
+[20:13:54]  Loading plugin: nativechecker
+[20:13:54]   Loaded.
+[20:13:54]  Loading plugin: mysql
+[20:13:54]  >> plugin.mysql: R39-5 successfully loaded.
+[20:13:54]   Loaded.
+[20:13:54]  Loading plugin: streamer
+[20:13:54] 
+
+*** Streamer Plugin v2.9.2 by Incognito loaded ***
+
+[20:13:54]   Loaded.
+[20:13:54]  Loading plugin: sscanf
+[20:13:54] 
+
+[20:13:54]  ===============================
+
+[20:13:54]       sscanf plugin loaded.     
+
+[20:13:54]          Version:  2.8.1        
+
+[20:13:54]    (c) 2012 Alex "Y_Less" Cole  
+
+[20:13:54]  ===============================
+
+[20:13:54]   Loaded.
+[20:13:54]  Loading plugin: Whirlpool
+[20:13:54]  
+[20:13:54]  ==================
+[20:13:54]  
+[20:13:54]   Whirlpool loaded
+[20:13:54]  
+[20:13:54]  ==================
+[20:13:54]  
+[20:13:54]   Loaded.
+[20:13:54]  Loading plugin: mapandreas
+[20:13:54]   Loaded.
+[20:13:54]  Loading plugin: ColAndreas
+[20:13:54] *********************
+[20:13:54] ** Created By:     **
+[20:13:54] ** [uL]Chris42O    **
+[20:13:54] ** [uL]Slice       **
+[20:13:54] ** [uL]Pottus      **
+[20:13:54] *********************
+[20:13:54] No collision data found.
+[20:13:54] *********************
+[20:13:54]   ColAndreas Loaded
+[20:13:54]    v1.4.0
+[20:13:54] *********************
+[20:13:54]   Loaded.
+[20:13:54]  Loading plugin: dns
+[20:13:54] 
+
+*** DNS Plugin v2.4 by Incognito loaded ***
+
+[20:13:54]   Loaded.
+[20:13:54]  Loading plugin: YSF
+[20:13:54] This version of YSF doesn't support SA-MP 0.3.DL
+[20:13:54] Use another version of YSF or build with SAMP_03DL
+[20:13:54] Error: Unknown Windows server version (0x00491FA0)
+[20:13:54] Error: Big part of YSF will be unusable for you
+[20:13:54]   Loaded.
+[20:13:54]  Loaded 9 plugins.
+
+[20:13:54] [artwork:crc] taliba/taliba.dff CRC = 0x59945A80
+[20:13:54] [artwork:crc] taliba/taliba.txd CRC = 0x6355B6A
+[20:13:54] [artwork:crc] taliba/taliba2.dff CRC = 0xBB63B464
+[20:13:54] [artwork:crc] taliba/taliba2.txd CRC = 0x90B27E6E
+[20:13:54] [artwork:crc] taliba/taliba3.dff CRC = 0xE2E733E8
+[20:13:54] [artwork:crc] taliba/taliba3.txd CRC = 0xBC08005E
+[20:13:54] [artwork:crc] taliba/taliba4.dff CRC = 0x6828674B
+[20:13:54] [artwork:crc] taliba/taliba4.txd CRC = 0xB491BD51
+[20:13:54] [artwork:crc] taliba/taliba5.dff CRC = 0xDF6EC86
+[20:13:54] [artwork:crc] taliba/taliba5.txd CRC = 0x68893977
+[20:13:54] [artwork:crc] taliba/taliba6.dff CRC = 0xC47278F3
+[20:13:54] [artwork:crc] taliba/taliba6.txd CRC = 0x8C65BC30
+[20:13:54] [artwork:crc] taliba/taliba7.dff CRC = 0x21ED392D
+[20:13:54] [artwork:crc] taliba/taliba7.txd CRC = 0x3C5B484E
+[20:13:54] [artwork:crc] taliba/taliba8.dff CRC = 0x4C679CBE
+[20:13:54] [artwork:crc] taliba/taliba8.txd CRC = 0x23FF2285
+[20:13:54] [artwork:crc] taliba/taliba9.dff CRC = 0xDD1F6BE8
+[20:13:54] [artwork:crc] taliba/taliba9.txd CRC = 0x3724AA26
+[20:13:54] [artwork:crc] taliba/taliba10.dff CRC = 0x134E2005
+[20:13:54] [artwork:crc] taliba/taliba10.txd CRC = 0xD51A0FF9
+[20:13:54] [artwork:crc] taliba/taliba11.dff CRC = 0x448A080D
+[20:13:54] [artwork:crc] taliba/taliba11.txd CRC = 0x62CFAC9F
+[20:13:54] [artwork:crc] taliba/taliba12.dff CRC = 0xE56251EE
+[20:13:54] [artwork:crc] taliba/taliba12.txd CRC = 0xFDE64604
+[20:13:54] [artwork:crc] taliba/taliba13.dff CRC = 0x8299D6CC
+[20:13:54] [artwork:crc] taliba/taliba13.txd CRC = 0x85A9998
+[20:13:54] [artwork:crc] taliba/taliba14.dff CRC = 0xB115C3F1
+[20:13:54] [artwork:crc] taliba/taliba14.txd CRC = 0x8D57DED8
+[20:13:54] [artwork:crc] taliba/taliba15.dff CRC = 0x1D04FA75
+[20:13:54] [artwork:crc] taliba/taliba15.txd CRC = 0xDECA406A
+[20:13:54] [artwork:crc] pmc/pmc1.dff CRC = 0x2DD4CA47
+[20:13:54] [artwork:crc] pmc/pmc1.txd CRC = 0xE07D9D46
+[20:13:54] [artwork:crc] pmc/pmc2.dff CRC = 0x4B9C0356
+[20:13:54] [artwork:crc] pmc/pmc2.txd CRC = 0xED3AB6A4
+[20:13:54] [artwork:crc] pmc/pmc3.dff CRC = 0xE7046D23
+[20:13:55] [artwork:crc] pmc/pmc3.txd CRC = 0x9E046331
+[20:13:55] [artwork:crc] pmc/pmc4.dff CRC = 0x9546189A
+[20:13:55] [artwork:crc] pmc/pmc4.txd CRC = 0x399F00A3
+[20:13:55] [artwork:crc] pmc/pmc5.dff CRC = 0x493621B6
+[20:13:55] [artwork:crc] pmc/pmc5.txd CRC = 0x86A22FD
+[20:13:55] [artwork:crc] pmc/pmc6.dff CRC = 0x616A75AB
+[20:13:55] [artwork:crc] pmc/pmc6.txd CRC = 0x80654964
+[20:13:55] [artwork:crc] pmc/pmc7.dff CRC = 0x10D6EE16
+[20:13:55] [artwork:crc] pmc/pmc7.txd CRC = 0x3CCB6AA6
+[20:13:55] [artwork:crc] pmc/pmc8.dff CRC = 0xD27637A8
+[20:13:55] [artwork:crc] pmc/pmc8.txd CRC = 0x2EF7BC1
+[20:13:55] [artwork:crc] pmc/pmc9.dff CRC = 0x75507F0D
+[20:13:55] [artwork:crc] pmc/pmc9.txd CRC = 0x3A627F5F
+[20:13:55] [artwork:crc] isis/isis1.dff CRC = 0xA107A44C
+[20:13:55] [artwork:crc] isis/isis1.txd CRC = 0x8547D9E6
+[20:13:55] [artwork:crc] isis/isis2.dff CRC = 0xC029C75B
+[20:13:55] [artwork:crc] isis/isis2.txd CRC = 0x77C900E8
+[20:13:55] [artwork:crc] isis/isis3.dff CRC = 0xD5FF099B
+[20:13:55] [artwork:crc] isis/isis3.txd CRC = 0x586260F2
+[20:13:55] [artwork:crc] isis/isis4.dff CRC = 0xC029C75B
+[20:13:55] [artwork:crc] isis/isis4.txd CRC = 0x52486C98
+[20:13:55] [artwork:crc] isis/isis5.dff CRC = 0x3C88572C
+[20:13:55] [artwork:crc] isis/isis5.txd CRC = 0x686CAA15
+[20:13:55] [artwork:crc] russo/russia1.dff CRC = 0x8855C1F1
+[20:13:55] [artwork:crc] russo/russia1.txd CRC = 0xFC8E21E6
+[20:13:55] [artwork:crc] russo/russia2.dff CRC = 0xCB8A1129
+[20:13:55] [artwork:crc] russo/russia2.txd CRC = 0x83AC881E
+[20:13:55] [artwork:crc] russo/russia3.dff CRC = 0x871A42CA
+[20:13:55] [artwork:crc] russo/russia3.txd CRC = 0xC6E1DF4B
+[20:13:55] [artwork:crc] russo/russia4.dff CRC = 0xB2D466D
+[20:13:55] [artwork:crc] russo/russia4.txd CRC = 0x2F9F7341
+[20:13:55] [artwork:crc] russo/russia5.dff CRC = 0x81309CA2
+[20:13:55] [artwork:crc] russo/russia5.txd CRC = 0x3269522E
+[20:13:55] [artwork:crc] russo/russia6.dff CRC = 0x264C07E8
+[20:13:55] [artwork:crc] russo/russia6.txd CRC = 0x43734C43
+[20:13:55] [artwork:crc] russo/russia7.dff CRC = 0x415C9DE3
+[20:13:55] [artwork:crc] russo/russia7.txd CRC = 0xF1B100BB
+[20:13:55] [artwork:crc] seals/seal1.dff CRC = 0x35B276D4
+[20:13:55] [artwork:crc] seals/seal1.txd CRC = 0x9339AF93
+[20:13:55] [artwork:crc] seals/seal2.dff CRC = 0x1B7364B6
+[20:13:55] [artwork:crc] seals/seal2.txd CRC = 0xEB6C1EBB
+[20:13:55] [artwork:crc] seals/seal3.dff CRC = 0x403AD120
+[20:13:55] [artwork:crc] seals/seal3.txd CRC = 0x9B1DC1A4
+[20:13:55] [artwork:crc] seals/seal4.dff CRC = 0xF13470B5
+[20:13:55] [artwork:crc] seals/seal4.txd CRC = 0x19C7B0F0
+[20:13:55] [artwork:crc] seals/seal5.dff CRC = 0x51B5E899
+[20:13:55] [artwork:crc] seals/seal5.txd CRC = 0x5E1CD488
+[20:13:55] [artwork:crc] seals/seal6.dff CRC = 0xF9FBD5A7
+[20:13:55] [artwork:crc] seals/seal6.txd CRC = 0xB8DA2980
+[20:13:55] [artwork:crc] seals/seal7.dff CRC = 0xC12D0388
+[20:13:55] [artwork:crc] seals/seal7.txd CRC = 0x4AA35C9E
+[20:13:55] [artwork:crc] seals/seal8.dff CRC = 0xBEAF3085
+[20:13:55] [artwork:crc] seals/seal8.txd CRC = 0xA4C2C97A
+[20:13:55] [artwork:crc] seals/seal9.dff CRC = 0xAE273045
+[20:13:55] [artwork:crc] seals/seal9.txd CRC = 0x7B8EE53
+[20:13:55] [artwork:crc] seals/seal10.dff CRC = 0x43FE5B13
+[20:13:55] [artwork:crc] seals/seal10.txd CRC = 0x6C3715BD
+[20:13:55] [artwork:crc] seals/seal11.dff CRC = 0x8486662B
+[20:13:55] [artwork:crc] seals/seal11.txd CRC = 0x3F9CA9
+[20:13:55] [artwork:crc] seals/seal12.dff CRC = 0x34C39C5C
+[20:13:55] [artwork:crc] seals/seal12.txd CRC = 0xD89C2D5C
+[20:13:55] [artwork:crc] seals/seal13.dff CRC = 0xE913DA0B
+[20:13:55] [artwork:crc] seals/seal13.txd CRC = 0x369CC349
+[20:13:55] [artwork:crc] seals/seal14.dff CRC = 0x8D06D38A
+[20:13:55] [artwork:crc] seals/seal14.txd CRC = 0xF32FAC77
+[20:13:55] [artwork:crc] seals/seal15.dff CRC = 0x93FD3C0C
+[20:13:55] [artwork:crc] seals/seal15.txd CRC = 0x75D1421B
+[20:13:55] [artwork:crc] seals/seal16.dff CRC = 0xAA739E12
+[20:13:55] [artwork:crc] seals/seal16.txd CRC = 0x44283298
+[20:13:55] [artwork:crc] seals/seal17.dff CRC = 0xDED343C6
+[20:13:55] [artwork:crc] seals/seal17.txd CRC = 0xAF16CF6
+[20:13:55] [artwork:crc] usmc/usmc1.dff CRC = 0x557DD9CF
+[20:13:55] [artwork:crc] usmc/usmc1.txd CRC = 0xFEC2D977
+[20:13:55] [artwork:crc] usmc/usmc2.dff CRC = 0xC784806B
+[20:13:55] [artwork:crc] usmc/usmc2.txd CRC = 0x49359519
+[20:13:55] [artwork:crc] usmc/usmc3.dff CRC = 0x8823B3F1
+[20:13:55] [artwork:crc] usmc/usmc3.txd CRC = 0x7E648A40
+[20:13:55] [artwork:crc] usmc/usmc4.dff CRC = 0xA7E3535
+[20:13:55] [artwork:crc] usmc/usmc4.txd CRC = 0x6F8E1A9
+[20:13:55] [artwork:crc] usmc/usmc5.dff CRC = 0xB527D29B
+[20:13:55] [artwork:crc] usmc/usmc5.txd CRC = 0x69597A5F
+[20:13:55] [artwork:crc] usmc/usmc6.dff CRC = 0x45DDC3F2
+[20:13:55] [artwork:crc] usmc/usmc6.txd CRC = 0xA3075FD3
+[20:13:55] [artwork:crc] usmc/usmc7.dff CRC = 0xB621EE37
+[20:13:55] [artwork:crc] usmc/usmc7.txd CRC = 0x4C50FD91
+[20:13:55] [artwork:crc] usmc/usmc8.dff CRC = 0xC24F55AF
+[20:13:55] [artwork:crc] usmc/usmc8.txd CRC = 0xA98ECF32
+[20:13:55] [artwork:crc] usmc/usmc9.dff CRC = 0x81005AD3
+[20:13:55] [artwork:crc] usmc/usmc9.txd CRC = 0x2A0F713C
+[20:13:55] [artwork:crc] usmc/usmc10.dff CRC = 0x74B99E1F
+[20:13:55] [artwork:crc] usmc/usmc10.txd CRC = 0xF4CEDCF6
+[20:13:55] [artwork:crc] usmc/usmc11.dff CRC = 0x943458C4
+[20:13:55] [artwork:crc] usmc/usmc11.txd CRC = 0x91A8525
+[20:13:55] [artwork:crc] dogs/pet1.dff CRC = 0x14ABDB74
+[20:13:55] [artwork:crc] dogs/pet1.txd CRC = 0xC0D15148
+[20:13:55] [artwork:crc] dogs/pet2.dff CRC = 0x871FCAB4
+[20:13:55] [artwork:crc] dogs/pet2.txd CRC = 0xF35F8D62
+[20:13:55] [artwork:crc] dogs/pet3.dff CRC = 0x223072E5
+[20:13:55] [artwork:crc] dogs/pet3.txd CRC = 0x918C9CD0
+[20:13:55] [artwork:crc] dogs/pet4.dff CRC = 0xEF44912D
+[20:13:55] [artwork:crc] dogs/pet4.txd CRC = 0xD3839FDF
+[20:13:55] [artwork:crc] dogs/pet5.dff CRC = 0x223072E5
+[20:13:55] [artwork:crc] dogs/pet5.txd CRC = 0xAECE83C9
+[20:13:55] [artwork:crc] dogs/pet6.dff CRC = 0x60C6F8E9
+[20:13:55] [artwork:crc] dogs/pet6.txd CRC = 0x8EBEA5D0
+[20:13:55] [artwork:crc] dogs/pet7.dff CRC = 0x723783B7
+[20:13:55] [artwork:crc] dogs/pet7.txd CRC = 0x33F08C5C
+[20:13:55] [artwork:crc] dogs/camel.dff CRC = 0xDA9C5460
+[20:13:55] [artwork:crc] dogs/camel.txd CRC = 0xA76F584B
+[20:13:55] [artwork:crc] hud.dff CRC = 0x4BC6EDFF
+[20:13:55] [artwork:crc] hud.txd CRC = 0xC1ADFB21
+[20:13:55] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[20:13:55] [artwork:crc] tela.txd CRC = 0xED6A6238
+[20:13:55] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[20:13:55] [artwork:crc] logo.txd CRC = 0xABC0A657
+[20:13:55] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[20:13:55] [artwork:crc] logo.txd CRC = 0xABC0A657
+[20:13:55] [artwork:crc] textdraw_object.dff CRC = 0x0
+[20:13:55] [artwork:error] Bad file: textdraw_object.dff
+[20:13:55] [artwork:crc] itens/rojao.dff CRC = 0x6F72D6BB
+[20:13:55] [artwork:crc] itens/rojao.txd CRC = 0x19207CDF
+[20:13:55] [artwork:crc] itens/band.dff CRC = 0xD6FE9FF4
+[20:13:55] [artwork:crc] itens/band.txd CRC = 0x7FE6AB15
+[20:13:55] [artwork:crc] itens/cone.dff CRC = 0xF711EDD9
+[20:13:55] [artwork:crc] itens/cone.txd CRC = 0x66D2389E
+[20:13:55] [artwork:crc] itens/cavalete.dff CRC = 0x3A338AFC
+[20:13:55] [artwork:crc] itens/cavalete.txd CRC = 0x85244494
+[20:13:55] [artwork:crc] itens/faixa.dff CRC = 0x7507B9AC
+[20:13:55] [artwork:crc] itens/faixa.txd CRC = 0x8A8138C3
+[20:13:55] [artwork:crc] itens/RadioMotorola.dff CRC = 0x9AAB6A9
+[20:13:55] [artwork:crc] itens/RadioMotorola.txd CRC = 0x22353790
+[20:13:55] [artwork:crc] itens/chapeubope.dff CRC = 0xFD233655
+[20:13:55] [artwork:crc] itens/chapeubope.txd CRC = 0x68298F01
+[20:13:55] [artwork:crc] itens/boneobjeto1.dff CRC = 0xC82233C
+[20:13:55] [artwork:crc] itens/boneobjeto1.txd CRC = 0xB81E24C1
+[20:13:55] [artwork:crc] itens/boneobjeto2.dff CRC = 0xC82233C
+[20:13:55] [artwork:crc] itens/boneobjeto2.txd CRC = 0xB81E24C1
+[20:13:55] [artwork:crc] itens/boneobjeto3.dff CRC = 0xC82233C
+[20:13:55] [artwork:crc] itens/boneobjeto3.txd CRC = 0x25EC71FD
+[20:13:55] [artwork:crc] itens/boneobjeto4.dff CRC = 0xC82233C
+[20:13:55] [artwork:crc] itens/boneobjeto4.txd CRC = 0x3D3821FC
+[20:13:55] [artwork:crc] itens/coletebandido.dff CRC = 0x35333281
+[20:13:55] [artwork:crc] itens/coletebandido.txd CRC = 0x7FCB75F7
+[20:13:55] [artwork:crc] itens/mochila1.dff CRC = 0x7198BBAD
+[20:13:55] [artwork:crc] itens/mochila1.txd CRC = 0xAA488C0D
+[20:13:55] [artwork:crc] itens/mochila2.dff CRC = 0xBA43DBFB
+[20:13:55] [artwork:crc] itens/mochila2.txd CRC = 0xA55E4D43
+[20:13:55] [artwork:crc] itens/mochila3.dff CRC = 0x36D7E922
+[20:13:55] [artwork:crc] itens/mochila3.txd CRC = 0x31D6F73
+[20:13:55] [artwork:crc] itens/mochila4.dff CRC = 0x49A9723A
+[20:13:55] [artwork:crc] itens/mochila4.txd CRC = 0xB888188E
+[20:13:55] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[20:13:55] [artwork:crc] itens/helmet6.txd CRC = 0x60AE21A9
+[20:13:55] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[20:13:55] [artwork:crc] itens/helmet7.txd CRC = 0xB8E8641F
+[20:13:55] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[20:13:55] [artwork:crc] itens/helmet11.txd CRC = 0xAA929E4F
+[20:13:55] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[20:13:55] [artwork:crc] itens/helmet12.txd CRC = 0x6CA6E0F4
+[20:13:55] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[20:13:55] [artwork:crc] itens/helmet15.txd CRC = 0x7BB77D7E
+[20:13:55] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[20:13:55] [artwork:crc] itens/helmet16.txd CRC = 0x5781CAFC
+[20:13:55] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[20:13:55] [artwork:crc] itens/helmet19.txd CRC = 0x157E14B7
+[20:13:55] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[20:13:55] [artwork:crc] itens/helmet21.txd CRC = 0x53A928B0
+[20:13:55] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[20:13:55] [artwork:crc] itens/helmet24.txd CRC = 0xF1A29DA5
+[20:13:55] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[20:13:55] [artwork:crc] itens/helmet1.txd CRC = 0xFF5E6BB4
+[20:13:55] [artwork:crc] itens/ifood.dff CRC = 0xAD546C14
+[20:13:55] [artwork:crc] itens/ifood.txd CRC = 0xBED788D3
+[20:13:55] [artwork:crc] itens/ubereats.dff CRC = 0xD7C5543C
+[20:13:55] [artwork:crc] itens/ubereats.txd CRC = 0x1A9E171D
+[20:13:55] [artwork:crc] itens/bsimples.dff CRC = 0x246AB514
+[20:13:55] [artwork:crc] itens/bsimples.txd CRC = 0x9D54BD44
+[20:13:55] [artwork:crc] itens/bolsanikelateral.dff CRC = 0x82FA00BC
+[20:13:55] [artwork:crc] itens/bolsanikelateral.txd CRC = 0x9BE9FEF5
+[20:13:55] [artwork:crc] itens/PacoteMcDonalds.dff CRC = 0x7F3872D5
+[20:13:55] [artwork:crc] itens/PacoteMcDonalds.txd CRC = 0xB1587374
+[20:13:55] [artwork:crc] itens/coletemoto.dff CRC = 0xAEF7F9AB
+[20:13:55] [artwork:crc] itens/coletemoto.txd CRC = 0xCEFD3EA6
+[20:13:55] [artwork:crc] itens/barricada.dff CRC = 0xC7D7CD68
+[20:13:55] [artwork:crc] itens/barricada.txd CRC = 0x95DED922
+[20:13:55] [artwork:crc] itens_seals/bone.dff CRC = 0x98550AB1
+[20:13:55] [artwork:crc] itens_seals/bone.txd CRC = 0x233FCCF
+[20:13:55] [artwork:crc] itens_seals/capacete.dff CRC = 0xC715FAC0
+[20:13:55] [artwork:crc] itens_seals/capacete.txd CRC = 0xB1780A1A
+[20:13:55] [artwork:crc] itens_seals/capacete2.dff CRC = 0x3C0F5E9E
+[20:13:55] [artwork:crc] itens_seals/capacete2.txd CRC = 0x42DBE476
+[20:13:55] [artwork:crc] itens_seals/coleteleve.dff CRC = 0x7BA58D1D
+[20:13:55] [artwork:crc] itens_seals/coleteleve.txd CRC = 0x65C63F9C
+[20:13:55] [artwork:crc] itens_seals/coletepesado.dff CRC = 0xE9F699DF
+[20:13:55] [artwork:crc] itens_seals/coletepesado.txd CRC = 0xD3E48D2F
+[20:13:55] [artwork:crc] itens_seals/gorro.dff CRC = 0x80819053
+[20:13:55] [artwork:crc] itens_seals/gorro.txd CRC = 0xAED9F61A
+[20:13:55] [artwork:crc] itens_usmc/capSF.dff CRC = 0x1792D924
+[20:13:55] [artwork:crc] itens_usmc/capSF.txd CRC = 0xE6FFFD62
+[20:13:55] [artwork:crc] itens_usmc/VestSF.dff CRC = 0x42557B1
+[20:13:55] [artwork:crc] itens_usmc/VestSF.txd CRC = 0xC6CB541C
+[20:13:55] [artwork:crc] itens_usmc/colete.dff CRC = 0x1B01E9AC
+[20:13:55] [artwork:crc] itens_usmc/colete.txd CRC = 0x968E08F7
+[20:13:55] [artwork:crc] itens_usmc/capacete.dff CRC = 0xBE266B13
+[20:13:55] [artwork:crc] itens_usmc/capacete.txd CRC = 0xA9CA8DB7
+[20:13:55] [artwork:crc] itens_usmc/capacete2.dff CRC = 0x24202079
+[20:13:55] [artwork:crc] itens_usmc/capacete2.txd CRC = 0xA9CA8DB7
+[20:13:55] [artwork:crc] itens_usmc/capacete3.dff CRC = 0x1B532C99
+[20:13:55] [artwork:crc] itens_usmc/capacete3.txd CRC = 0x968E08F7
+[20:13:55] [artwork:crc] itens/escudo.dff CRC = 0x434102A8
+[20:13:55] [artwork:crc] itens/escudo.txd CRC = 0xDB8AA769
+[20:13:55] [artwork:crc] itens/morteiro.dff CRC = 0x212ACFDB
+[20:13:55] [artwork:crc] itens/morteiro.txd CRC = 0xE3BEDADE
+[20:13:55] [artwork:crc] itens/munimorteiro.dff CRC = 0xF0EFD884
+[20:13:55] [artwork:crc] itens/munimorteiro.txd CRC = 0xFE95109F
+[20:13:55] [artwork:crc] itens/mina.dff CRC = 0x4A5004C4
+[20:13:55] [artwork:crc] itens/mina.txd CRC = 0xEFEA75E5
+[20:13:55] [artwork:crc] itens/maconhab.dff CRC = 0xBF46F2FF
+[20:13:55] [artwork:crc] itens/maconhab.txd CRC = 0x68419BE
+[20:13:55] [artwork:crc] itens/maconhar.dff CRC = 0xA0906971
+[20:13:55] [artwork:crc] itens/maconhar.txd CRC = 0x13A26228
+[20:13:55] [artwork:crc] itens/cocaina.dff CRC = 0x22B7B621
+[20:13:55] [artwork:crc] itens/cocaina.txd CRC = 0xF84F4DF
+[20:13:55] [artwork:crc] itens/crackr.dff CRC = 0x7260DE97
+[20:13:55] [artwork:crc] itens/crackr.txd CRC = 0xEB7DC1B6
+[20:13:55] [artwork:crc] itens/crackb.dff CRC = 0xAA6EDDA1
+[20:13:55] [artwork:crc] itens/crackb.txd CRC = 0xEB7DC1B6
+[20:13:55] [artwork:crc] itens/lsd.dff CRC = 0x6CB2980D
+[20:13:55] [artwork:crc] itens/lsd.txd CRC = 0xB190FA30
+[20:13:55] [artwork:crc] itens/lancaperfume.dff CRC = 0x8FB92930
+[20:13:55] [artwork:crc] itens/lancaperfume.txd CRC = 0x4205E4C1
+[20:13:55] [artwork:crc] itens/MesaDeDrogas.dff CRC = 0xF6C0A1DF
+[20:13:55] [artwork:crc] itens/MesaDeDrogas.txd CRC = 0x54036B75
+[20:13:55] [artwork:crc] AB/ABPart01.dff CRC = 0x662FD82C
+[20:13:55] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[20:13:55] [artwork:crc] AB/ABPart02.dff CRC = 0xC595C830
+[20:13:55] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[20:13:55] [artwork:crc] AB/ABPart03.dff CRC = 0xBE418106
+[20:13:55] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[20:13:55] [artwork:crc] AB/ABPart04.dff CRC = 0x2333EC80
+[20:13:55] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[20:13:55] [artwork:crc] AB/ABPart05.dff CRC = 0x63FAA3EB
+[20:13:55] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[20:13:55] [artwork:crc] AB/ABPart06.dff CRC = 0xC8D54C9B
+[20:13:55] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[20:13:55] [artwork:crc] AB/ABPart07.dff CRC = 0x31CFC7E6
+[20:13:55] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[20:13:55] [artwork:crc] AB/ABHouse01.dff CRC = 0x14234EEA
+[20:13:55] [artwork:crc] AB/ABHouse.txd CRC = 0x1B70AE5E
+[20:13:55] [artwork:crc] AB/ABHouse02.dff CRC = 0x50BF0743
+[20:13:55] [artwork:crc] AB/ABHouse.txd CRC = 0x1B70AE5E
+[20:13:55] [artwork:crc] AB/ABProps.dff CRC = 0x319313A
+[20:13:55] [artwork:crc] AB/ABHouse.txd CRC = 0x1B70AE5E
+[20:13:55] [artwork:crc] AB/ABVeg.dff CRC = 0x6873DFBA
+[20:13:55] [artwork:crc] AB/ABVeg.txd CRC = 0x8435FADA
+[20:13:55] [artwork:crc] AB/ABProp01.dff CRC = 0x51233E10
+[20:13:55] [artwork:crc] AB/ABProp01.txd CRC = 0x98DEDDFB
+[20:13:55] [artwork:crc] AB/ABProp02.dff CRC = 0x418A3779
+[20:13:55] [artwork:crc] AB/ABProp02.txd CRC = 0xC2E53317
+[20:13:55] [artwork:crc] AB/ABProp03.dff CRC = 0xFF96C6A5
+[20:13:55] [artwork:crc] AB/ABProp03.txd CRC = 0x3A3C8286
+[20:13:55] [artwork:crc] AB/ABProp04.dff CRC = 0x32B1EE03
+[20:13:55] [artwork:crc] AB/ABProp04.txd CRC = 0x9FEACA8C
+[20:13:55] [artwork:crc] AB/ABProp05.dff CRC = 0x6C76CBD2
+[20:13:55] [artwork:crc] AB/ABProp05.txd CRC = 0xFB0719C4
+[20:13:55] [artwork:crc] vila/bandeirataliban.dff CRC = 0x1E99423A
+[20:13:55] [artwork:crc] vila/bandeirataliban.txd CRC = 0xFF0D1F2B
+[20:13:55] [artwork:crc] vila/CabanaPrelight.dff CRC = 0x6526C46F
+[20:13:55] [artwork:crc] vila/CabanaPrelight.txd CRC = 0x1828D1FC
+[20:13:55] [artwork:crc] vila/CabanaPrelight2.dff CRC = 0x71827700
+[20:13:55] [artwork:crc] vila/CabanaPrelight2.txd CRC = 0x1828D1FC
+[20:13:55] [artwork:crc] vila/CabanaPrelight3.dff CRC = 0xB7F6DE74
+[20:13:55] [artwork:crc] vila/CabanaPrelight3.txd CRC = 0x1828D1FC
+[20:13:55] [artwork:crc] vila/CabanaPrelight4.dff CRC = 0xE0E5ACE8
+[20:13:55] [artwork:crc] vila/CabanaPrelight4.txd CRC = 0x1828D1FC
+[20:13:55] [artwork:crc] vila/CabanaPrelight5.dff CRC = 0x52A509EA
+[20:13:55] [artwork:crc] vila/CabanaPrelight5.txd CRC = 0x1828D1FC
+[20:13:55] [artwork:crc] vila/CabanaPrelight6.dff CRC = 0x978B10A8
+[20:13:55] [artwork:crc] vila/CabanaPrelight6.txd CRC = 0x1828D1FC
+[20:13:55] [artwork:crc] vila/cabanadestruida55.dff CRC = 0x0
+[20:13:55] [artwork:error] Bad file: vila/cabanadestruida55.dff
+[20:13:55] [artwork:crc] vila/interioraberto3.dff CRC = 0xDC2E1D9D
+[20:13:56] [artwork:crc] vila/interioraberto3.txd CRC = 0x60E84196
+[20:13:56] 
+[20:13:56] Filterscripts
+[20:13:56] ---------------
+[20:13:56]   Loaded 0 filterscripts.
+
+[20:13:56]    Error: Function not registered: 'SSCANF_Init'
+[20:13:56]    Error: Function not registered: 'SSCANF_IsConnected'
+[20:13:56]    Error: Function not registered: 'SSCANF_Join'
+[20:13:56]    Error: Function not registered: 'SSCANF_Leave'
+[20:13:56]    Error: Function not registered: 'IsValidDynamicObject'
+[20:13:56]    Error: Function not registered: 'DestroyDynamicObject'
+[20:13:56]    Error: Function not registered: 'CreateDynamicObject'
+[20:13:56]    Error: Function not registered: 'AttachDynamicObjectToVehicle'
+[20:13:56]    Error: Function not registered: 'CreateDynamicSphere'
+[20:13:56]    Error: Function not registered: 'CreateDynamic3DTextLabel'
+[20:13:56]    Error: Function not registered: 'Streamer_SetArrayData'
+[20:13:56]    Error: Function not registered: 'DestroyDynamicArea'
+[20:13:56]    Error: Function not registered: 'DestroyDynamic3DTextLabel'
+[20:13:56]    Error: Function not registered: 'Streamer_GetArrayData'
+[20:13:56]    Error: Function not registered: 'Streamer_Update'
+[20:13:56]    Error: Function not registered: 'Streamer_GetFloatData'
+[20:13:56]    Error: Function not registered: 'Streamer_SetIntData'
+[20:13:56]    Error: Function not registered: 'Streamer_UpdateEx'
+[20:13:56]    Error: Function not registered: 'DestroyDynamicPickup'
+[20:13:56]    Error: Function not registered: 'CreateDynamicPickup'
+[20:13:56]    Error: Function not registered: 'Streamer_GetDistanceToItem'
+[20:13:56]    Error: Function not registered: 'Streamer_GetIntData'
+[20:13:56]    Error: Function not registered: 'Streamer_GetItemStreamerID'
+[20:13:56]    Error: Function not registered: 'IsValidDynamicPickup'
+[20:13:56]    Error: Function not registered: 'sscanf'
+[20:13:56]    Error: Function not registered: 'GetDynamicObjectPos'
+[20:13:56]    Error: Function not registered: 'MoveDynamicObject'
+[20:13:56]    Error: Function not registered: 'StopDynamicObject'
+[20:13:56]    Error: Function not registered: 'SetDynamicObjectMaterial'
+[20:13:56]    Error: Function not registered: 'SetDynamicObjectMaterialText'
+[20:13:56]    Error: Function not registered: 'CreateDynamicObjectEx'
+[20:13:56]    Error: Function not registered: 'mysql_query'
+[20:13:56]    Error: Function not registered: 'cache_get_row_count'
+[20:13:56]    Error: Function not registered: 'cache_get_field_content'
+[20:13:56]    Error: Function not registered: 'IsValidDynamic3DTextLabel'
+[20:13:56]    Error: Function not registered: 'mysql_connect'
+[20:13:56]    Error: Function not registered: 'mysql_errno'
+[20:13:56]    Error: Function not registered: 'Streamer_VisibleItems'
+[20:13:56]    Error: Function not registered: 'MapAndreas_Init'
+[20:13:56]    Error: Function not registered: 'mysql_tquery'
+[20:13:56]    Error: Function not registered: 'cache_get_data'
+[20:13:56]    Error: Function not registered: 'cache_insert_id'
+[20:13:56]    Error: Function not registered: 'MapAndreas_FindAverageZ'
+[20:13:56]    Error: Function not registered: 'DestroyAllDynamicObjects'
+[20:13:56]    Error: Function not registered: 'mysql_close'
+[20:13:56]    Error: Function not registered: 'IsValidDynamicCP'
+[20:13:56]    Error: Function not registered: 'DestroyDynamicCP'
+[20:13:56]    Error: Function not registered: 'CreateDynamicCP'
+[20:13:56]    Error: Function not registered: 'mysql_escape_string'
+[20:13:56]    Error: Function not registered: 'UpdateDynamic3DTextLabelText'
+[20:13:56]    Error: Function not registered: 'Streamer_SetFloatData'
+[20:13:56]    Error: Function not registered: 'ClearDynamicActorAnimations'
+[20:13:56]    Error: Function not registered: 'MapAndreas_FindZ_For2DCoord'
+[20:13:56]    Error: Function not registered: 'EditDynamicObject'
+[20:13:56]    Error: Function not registered: 'WP_Hash'
+[20:13:56]    Error: Function not registered: 'mysql_format'
+[20:13:56]    Error: Function not registered: 'SetDynamicObjectPos'
+[20:13:56]    Error: Function not registered: 'SetDynamicObjectRot'
+[20:13:56]    Error: Function not registered: 'cache_get_field_content_int'
+[20:13:56]    Error: Function not registered: 'cache_get_field_content_float'
+[20:13:56]    Error: Function not registered: 'GetDynamicObjectRot'
+[20:13:56]    Error: Function not registered: 'Streamer_CountItems'
+[20:13:56]  
+[20:13:56]  
+[20:13:56]  
+[20:13:56]  ======================================= 
+[20:13:56]  |                                     | 
+[20:13:56]  |        YSI version 3.09.0684        | 
+[20:13:56]  |        By Alex "Y_Less" Cole        | 
+[20:13:56]  |                                     | 
+[20:13:56]  ======================================= 
+[20:13:56]  
+[20:13:56]  
+[20:13:56]  
+[20:13:56] [ADM] Info: Load EVF v3.2.1 for SA:MP 0.3.7 by Abyss Morgan
+[20:13:56]  
+[20:13:56] --------------------------------------
+[20:13:56]  Anticheat Nex-AC carregado!
+[20:13:56]  Anticheat versão: 1.9.61
+[20:13:56]  Autor: Nexius (PT-BR by NicK_)
+[20:13:56] --------------------------------------
+
+[20:13:56] [CARREGADO] Custom nametags by Yur$
+[20:13:57] |-- Corrida de Cavalos: Carregado
+[20:14:00] [CARREGADO] Mapa: Vila tierra roubada
+[20:14:00] [CARREGADO] Mapa avião
+[20:14:00] [CARREGADO] Mapa: Aeroporto abandonado Village
+[20:14:00] [CARREGADO] Mapa: WH 2
+[20:14:00] [CARREGADO] Mapa: Factory int
+[20:14:00] [CARREGADO] Mapa: Ghetto droga int
+[20:14:00] [CARREGADO] Mapa: Ghetto ammo int
+[20:14:00] [CARREGADO] Mapa Ilegal gunshop int
+[20:14:00] [CARREGADO] Mapa: int lavagem de grana
+[20:14:00] [CARREGADO] Mapa: Hospital interior
+[20:14:00] [CARREGADO] Mapa: Banco interior
+[20:14:00] [LOAD] Mapa: Barzinho
+[20:14:00] [LOAD] Mapa: Barzinho 2
+[20:14:00] [LOAD] Mapa: Barzinho 3
+[20:14:00] [CARREGADO] Mapa: Fight room
+[20:14:00] [CARREGADO] Mapa: Empresa 1
+[20:14:00] [CARREGADO] Mapa: Loja de Eletronicos
+[20:14:01] [CARREGADO] Mapa: Agencia de Empregos
+[20:14:01] [CARREGADO] Mapa: Estudio
+[20:14:01] [LOAD] Mapa: Sony
+[20:14:01] [LOAD] Mapa: Caravan
+[20:14:01] [LOAD] Mapa: Interiores de Casas e Empresas vazios
+[20:14:01] [LOAD] Mapa: Apartamento 1
+[20:14:01] [LOAD] Mapa: Apartamento 2
+[20:14:01] [LOAD] Mapa: Apartamento 3
+[20:14:01] [LOAD] Mapa: DrugHouse 1
+[20:14:01] [LOAD] Mapa: WeaponHouse 1
+[20:14:01] [CARREGADO] Mapa: Complexo 1
+[20:14:01] [CARREGADO] Mapa: Complexo 2
+[20:14:01] [CARREGADO] Mapa: Complexo 3
+[20:14:01] [CARREGADO] Mapa: Complexo 4
+[20:14:01] [CARREGADO] Mapa: Complexo 5
+[20:14:01] [CARREGADO] Mapa: Complexo 7
+[20:14:01] [CARREGADO] Mapa: Complexo 8
+[20:14:01] [CARREGADO] Mapa: Complexo 9
+[20:14:01] [CARREGADO] Sistema de Grafite
+[20:14:01] 
+-------------------------------------------
+[20:14:01] War on Terror Roleplay — 2023				
+[20:14:01] Desenvolvido por Yuri Braga					
+[20:14:01] ------------------------------------------
+ 
+[20:14:01] Number of vehicle models: 5
+[20:14:02] [CARREGADO] Veiculos criados.
+[20:14:02] [CARREGADO] 0 veiculos carregados.
+[20:14:02] [CARREGADO] Casas: 0
+[20:14:02] [CARREGADO] Garagens: 0
+[20:14:02] [CARREGADO] Complexos: 0
+[20:14:02] [CARREGADO] Empresas: 0
+[20:14:03] [CARREGADO] Pontos de entrega.
+[20:14:03] [CARREGADO] FURNITURE: 0 moveis.
+[20:14:03] [CARREGADO] Armas no Servidor: 3
+[20:14:03] [CARREGADO] Armas no Chão: 2
+[20:14:03] [CARREGADO] Armas na Pos 0: 0
+[20:14:03] [CARREGADO] Facções: 6
+[20:14:03] [CARREGADO] Total de Portas/Portões: 0
+[20:14:03] [CARREGADO] Itens no Servidor: 0
+[20:14:03] [CARREGADO] Itens no Chão: 0 
+[20:14:03] [CARREGADO] Itens na Pos 0: 0
+[20:14:03] [CARREGADO] Munições no chão do Servidor: 0 
+[20:14:03] [CARREGADO] Atualmente existem 0 drogas plantadas por SA.
+[20:14:03] [CARREGADO] Drogas no chão do Servidor: 0
+[20:14:03] [CARREGADO] Drogas na Pos 0: 0
+[20:14:03] [CARREGADO] Pixes: 0
+[20:14:03] [CARREGADO] Multas: 0
+[20:14:03] sscanf warning: Format specifier does not match parameter count.
+[20:14:03] [CARREGADO] Cofre do governo: US$24929818
+[20:14:03] [SERVER-INFO] Carregado com sucesso!
+[20:56:10] [connection] incoming connection: 170.0.78.245:44017 id: 0
+[20:56:10] progressive-roleplay.com/wtrp2023/api-ip.php?ip=170.0.78.245
+[20:56:10] [ERRO] CHECK-IP COM FALHA! Code: 301, Data: <!DOCTYPE html>
+<html style="height:100%">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title> 301 Moved Permanently
+</title></head>
+<body style="color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;">
+<div style="height:auto; min-height:100%; ">     <div style="text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;">
+        <h1 style="margin:0; font-size:150px; line-height:150px; font-weight:bold;">301</h1>
+<h2 style="margin-top:20px;font-size: 30px;">Moved Permanently
+</h2>
+<p>The document has been permanently moved.</p>
+</div></div></body></html>
+
+[20:56:13] [join] theghost has joined the server (0:170.0.78.245)
+[20:56:14] [part] theghost has left the server (0:2)
+[21:02:46] [connection] incoming connection: 170.0.78.245:44912 id: 0
+[21:02:46] progressive-roleplay.com/wtrp2023/api-ip.php?ip=170.0.78.245
+[21:02:46] [ERRO] CHECK-IP COM FALHA! Code: 301, Data: <!DOCTYPE html>
+<html style="height:100%">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title> 301 Moved Permanently
+</title></head>
+<body style="color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;">
+<div style="height:auto; min-height:100%; ">     <div style="text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;">
+        <h1 style="margin:0; font-size:150px; line-height:150px; font-weight:bold;">301</h1>
+<h2 style="margin-top:20px;font-size: 30px;">Moved Permanently
+</h2>
+<p>The document has been permanently moved.</p>
+</div></div></body></html>
+
+[21:02:49] [join] Jason_Stolt has joined the server (0:170.0.78.245)
+[21:04:57] [SERVER-INFO] Novo jogador foi registrado como: Jason Stolt (0) | DB ID: 2
+[21:05:52] [Personagem] Seu nome OOC é theghost.
+[21:07:19] [Nex-AC debug] Anim: 958, old anim: 958, weaponid: 0, spec act: 0, vel x, y: 0.178738, vel z: 0.635328
+[21:07:19] [Nex-AC] Suspeita no ID 0. Código de motivo: 007 (1)
+[21:07:19] [Personagem] Seu nome OOC é theghost.
+[21:07:19] [SAVE-PJ] Jogador Jason_Stolt - Personagem salvo com sucesso.
+[21:07:19] [part] Jason_Stolt has left the server (0:2)
+[21:07:50] [connection] incoming connection: 170.0.78.245:45094 id: 0
+[21:07:50] progressive-roleplay.com/wtrp2023/api-ip.php?ip=170.0.78.245
+[21:07:50] [ERRO] CHECK-IP COM FALHA! Code: 301, Data: <!DOCTYPE html>
+<html style="height:100%">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title> 301 Moved Permanently
+</title></head>
+<body style="color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;">
+<div style="height:auto; min-height:100%; ">     <div style="text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;">
+        <h1 style="margin:0; font-size:150px; line-height:150px; font-weight:bold;">301</h1>
+<h2 style="margin-top:20px;font-size: 30px;">Moved Permanently
+</h2>
+<p>The document has been permanently moved.</p>
+</div></div></body></html>
+
+[21:07:54] [join] Jason_Stolt has joined the server (0:170.0.78.245)
+[21:08:11] [Personagem] Seu nome OOC é theghost.
+[21:12:40] [connection] incoming connection: 170.0.78.245:44415 id: 1
+[21:12:40] progressive-roleplay.com/wtrp2023/api-ip.php?ip=170.0.78.245
+[21:12:40] [ERRO] CHECK-IP COM FALHA! Code: 301, Data: <!DOCTYPE html>
+<html style="height:100%">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title> 301 Moved Permanently
+</title></head>
+<body style="color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;">
+<div style="height:auto; min-height:100%; ">     <div style="text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;">
+        <h1 style="margin:0; font-size:150px; line-height:150px; font-weight:bold;">301</h1>
+<h2 style="margin-top:20px;font-size: 30px;">Moved Permanently
+</h2>
+<p>The document has been permanently moved.</p>
+</div></div></body></html>
+
+[21:12:40] Warning: Minimum time between new connections (500) exceeded for 170.0.78.245:44563. Ignoring the request.
+[21:12:41] [Personagem] Seu nome OOC é theghost.
+[21:12:41] [SAVE-PJ] Jogador Jason_Stolt - Personagem salvo com sucesso.
+[21:12:41] [part] Jason_Stolt has left the server (0:0)
+[21:12:41] [connection] incoming connection: 170.0.78.245:44563 id: 0
+[21:12:46] [connection] incoming connection: 170.0.78.245:44847 id: 1
+[21:12:46] progressive-roleplay.com/wtrp2023/api-ip.php?ip=170.0.78.245
+[21:12:46] [ERRO] CHECK-IP COM FALHA! Code: 301, Data: <!DOCTYPE html>
+<html style="height:100%">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title> 301 Moved Permanently
+</title></head>
+<body style="color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;">
+<div style="height:auto; min-height:100%; ">     <div style="text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;">
+        <h1 style="margin:0; font-size:150px; line-height:150px; font-weight:bold;">301</h1>
+<h2 style="margin-top:20px;font-size: 30px;">Moved Permanently
+</h2>
+<p>The document has been permanently moved.</p>
+</div></div></body></html>
+
+[21:12:46] [join] Jason_Stolt has joined the server (1:170.0.78.245)
+[21:13:12] [Personagem] Seu nome OOC é theghost.
+[21:14:36] [connection] incoming connection: 170.0.78.245:44531 id: 0
+[21:14:36] progressive-roleplay.com/wtrp2023/api-ip.php?ip=170.0.78.245
+[21:14:36] [ERRO] CHECK-IP COM FALHA! Code: 301, Data: <!DOCTYPE html>
+<html style="height:100%">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title> 301 Moved Permanently
+</title></head>
+<body style="color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;">
+<div style="height:auto; min-height:100%; ">     <div style="text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;">
+        <h1 style="margin:0; font-size:150px; line-height:150px; font-weight:bold;">301</h1>
+<h2 style="margin-top:20px;font-size: 30px;">Moved Permanently
+</h2>
+<p>The document has been permanently moved.</p>
+</div></div></body></html>
+
+[21:14:37] [warning] dropping a split packet from client
+[21:14:38] [warning] dropping a split packet from client
+[21:14:39] [warning] dropping a split packet from client
+[21:14:40] [warning] dropping a split packet from client
+[21:14:41] [connection] incoming connection: 170.0.78.245:45029 id: 2
+[21:14:41] progressive-roleplay.com/wtrp2023/api-ip.php?ip=170.0.78.245
+[21:14:42] [ERRO] CHECK-IP COM FALHA! Code: 301, Data: <!DOCTYPE html>
+<html style="height:100%">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title> 301 Moved Permanently
+</title></head>
+<body style="color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;">
+<div style="height:auto; min-height:100%; ">     <div style="text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;">
+        <h1 style="margin:0; font-size:150px; line-height:150px; font-weight:bold;">301</h1>
+<h2 style="margin-top:20px;font-size: 30px;">Moved Permanently
+</h2>
+<p>The document has been permanently moved.</p>
+</div></div></body></html>
+
+[21:14:42] [connection] incoming connection: 170.0.78.245:45063 id: 2
+[21:14:45] [Personagem] Seu nome OOC é theghost.
+[21:14:45] [SAVE-PJ] Jogador Jason_Stolt - Personagem salvo com sucesso.
+[21:14:45] [part] Jason_Stolt has left the server (1:0)
+[21:14:45] [join] Jason_Stolt has joined the server (2:170.0.78.245)
+[21:14:59] [Personagem] Seu nome OOC é theghost.
+[21:16:45] [Personagem] Seu nome OOC é theghost.
+[21:16:45] [SAVE-PJ] Jogador Jason_Stolt - Personagem salvo com sucesso.
+[21:16:45] [part] Jason_Stolt has left the server (2:1)
+[21:16:57] [connection] incoming connection: 170.0.78.245:45121 id: 0
+[21:16:57] progressive-roleplay.com/wtrp2023/api-ip.php?ip=170.0.78.245
+[21:16:57] [ERRO] CHECK-IP COM FALHA! Code: 301, Data: <!DOCTYPE html>
+<html style="height:100%">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title> 301 Moved Permanently
+</title></head>
+<body style="color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;">
+<div style="height:auto; min-height:100%; ">     <div style="text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;">
+        <h1 style="margin:0; font-size:150px; line-height:150px; font-weight:bold;">301</h1>
+<h2 style="margin-top:20px;font-size: 30px;">Moved Permanently
+</h2>
+<p>The document has been permanently moved.</p>
+</div></div></body></html>
+
+[21:16:57] [join] Jason_Stolt has joined the server (0:170.0.78.245)
+[21:17:16] [part] Jason_Stolt has left the server (0:2)
+[21:17:24] [connection] incoming connection: 170.0.78.245:44969 id: 0
+[21:17:24] progressive-roleplay.com/wtrp2023/api-ip.php?ip=170.0.78.245
+[21:17:24] [ERRO] CHECK-IP COM FALHA! Code: 301, Data: <!DOCTYPE html>
+<html style="height:100%">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title> 301 Moved Permanently
+</title></head>
+<body style="color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;">
+<div style="height:auto; min-height:100%; ">     <div style="text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;">
+        <h1 style="margin:0; font-size:150px; line-height:150px; font-weight:bold;">301</h1>
+<h2 style="margin-top:20px;font-size: 30px;">Moved Permanently
+</h2>
+<p>The document has been permanently moved.</p>
+</div></div></body></html>
+
+[21:17:24] [join] Jason_Stolt has joined the server (0:170.0.78.245)
+[21:17:54] [part] Jason_Stolt has left the server (0:2)
+[21:18:07] [connection] incoming connection: 170.0.78.245:43936 id: 1
+[21:18:07] progressive-roleplay.com/wtrp2023/api-ip.php?ip=170.0.78.245
+[21:18:07] [ERRO] CHECK-IP COM FALHA! Code: 301, Data: <!DOCTYPE html>
+<html style="height:100%">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title> 301 Moved Permanently
+</title></head>
+<body style="color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;">
+<div style="height:auto; min-height:100%; ">     <div style="text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;">
+        <h1 style="margin:0; font-size:150px; line-height:150px; font-weight:bold;">301</h1>
+<h2 style="margin-top:20px;font-size: 30px;">Moved Permanently
+</h2>
+<p>The document has been permanently moved.</p>
+</div></div></body></html>
+
+[21:18:07] [join] Jason_Stolt has joined the server (1:170.0.78.245)
+[21:18:28] [part] Jason_Stolt has left the server (1:2)
+[21:18:39] [connection] incoming connection: 170.0.78.245:44150 id: 0
+[21:18:39] progressive-roleplay.com/wtrp2023/api-ip.php?ip=170.0.78.245
+[21:18:39] [ERRO] CHECK-IP COM FALHA! Code: 301, Data: <!DOCTYPE html>
+<html style="height:100%">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title> 301 Moved Permanently
+</title></head>
+<body style="color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;">
+<div style="height:auto; min-height:100%; ">     <div style="text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;">
+        <h1 style="margin:0; font-size:150px; line-height:150px; font-weight:bold;">301</h1>
+<h2 style="margin-top:20px;font-size: 30px;">Moved Permanently
+</h2>
+<p>The document has been permanently moved.</p>
+</div></div></body></html>
+
+[21:18:39] [join] Jason_Stolth has joined the server (0:170.0.78.245)
+[21:19:17] [part] Jason_Stolth has left the server (0:2)
+[21:19:28] [connection] incoming connection: 170.0.78.245:44234 id: 1
+[21:19:28] progressive-roleplay.com/wtrp2023/api-ip.php?ip=170.0.78.245
+[21:19:28] [ERRO] CHECK-IP COM FALHA! Code: 301, Data: <!DOCTYPE html>
+<html style="height:100%">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title> 301 Moved Permanently
+</title></head>
+<body style="color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;">
+<div style="height:auto; min-height:100%; ">     <div style="text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;">
+        <h1 style="margin:0; font-size:150px; line-height:150px; font-weight:bold;">301</h1>
+<h2 style="margin-top:20px;font-size: 30px;">Moved Permanently
+</h2>
+<p>The document has been permanently moved.</p>
+</div></div></body></html>
+
+[21:19:29] [join] Jason_Stolt has joined the server (1:170.0.78.245)
+[21:19:52] [Personagem] Seu nome OOC é theghost.
+[21:26:51] [Personagem] Seu nome OOC é theghost.
+[21:26:51] [SAVE-PJ] Jogador Jason_Stolt - Personagem salvo com sucesso.
+[21:26:51] [part] Jason_Stolt has left the server (1:0)
+[22:01:43] [connection] incoming connection: 189.47.20.55:54227 id: 0
+[22:01:43] progressive-roleplay.com/wtrp2023/api-ip.php?ip=189.47.20.55
+[22:01:43] [ERRO] CHECK-IP COM FALHA! Code: 301, Data: <!DOCTYPE html>
+<html style="height:100%">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title> 301 Moved Permanently
+</title></head>
+<body style="color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;">
+<div style="height:auto; min-height:100%; ">     <div style="text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;">
+        <h1 style="margin:0; font-size:150px; line-height:150px; font-weight:bold;">301</h1>
+<h2 style="margin-top:20px;font-size: 30px;">Moved Permanently
+</h2>
+<p>The document has been permanently moved.</p>
+</div></div></body></html>
+
+[22:01:43] [join] Veio has joined the server (0:189.47.20.55)
+[22:01:44] [part] Veio has left the server (0:2)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[20:16:01] password = ""  (string)
+[20:16:01] filterscripts = ""  (string)
+[20:16:01] artpath = "models"  (string)
+[20:16:01] 
+[20:16:01] Server Plugins
+[20:16:01] --------------
+[20:16:01]  Loading plugin: nativechecker
+[20:16:01]   Loaded.
+[20:16:01]  Loading plugin: mysql
+[20:16:01]  >> plugin.mysql: R39-5 successfully loaded.
+[20:16:01]   Loaded.
+[20:16:01]  Loading plugin: streamer
+[20:16:01] 
+
+*** Streamer Plugin v2.9.2 by Incognito loaded ***
+
+[20:16:01]   Loaded.
+[20:16:01]  Loading plugin: sscanf
+[20:16:01] 
+
+[20:16:01]  ===============================
+
+[20:16:01]       sscanf plugin loaded.     
+
+[20:16:01]          Version:  2.8.1        
+
+[20:16:01]    (c) 2012 Alex "Y_Less" Cole  
+
+[20:16:01]  ===============================
+
+[20:16:01]   Loaded.
+[20:16:01]  Loading plugin: Whirlpool
+[20:16:01]  
+[20:16:01]  ==================
+[20:16:01]  
+[20:16:01]   Whirlpool loaded
+[20:16:01]  
+[20:16:01]  ==================
+[20:16:01]  
+[20:16:02]   Loaded.
+[20:16:02]  Loading plugin: mapandreas
+[20:16:02]   Loaded.
+[20:16:02]  Loading plugin: ColAndreas
+[20:16:02] *********************
+[20:16:02] ** Created By:     **
+[20:16:02] ** [uL]Chris42O    **
+[20:16:02] ** [uL]Slice       **
+[20:16:02] ** [uL]Pottus      **
+[20:16:02] *********************
+[20:16:02] No collision data found.
+[20:16:02] *********************
+[20:16:02]   ColAndreas Loaded
+[20:16:02]    v1.4.0
+[20:16:02] *********************
+[20:16:02]   Loaded.
+[20:16:02]  Loading plugin: dns
+[20:16:02] 
+
+*** DNS Plugin v2.4 by Incognito loaded ***
+
+[20:16:02]   Loaded.
+[20:16:02]  Loading plugin: YSF
+[20:16:02] This version of YSF doesn't support SA-MP 0.3.DL
+[20:16:02] Use another version of YSF or build with SAMP_03DL
+[20:16:02] Error: Unknown Windows server version (0x00491FA0)
+[20:16:02] Error: Big part of YSF will be unusable for you
+[20:16:02]   Loaded.
+[20:16:02]  Loaded 9 plugins.
+
+[20:16:02] [artwork:crc] taliba/taliba.dff CRC = 0x59945A80
+[20:16:02] [artwork:crc] taliba/taliba.txd CRC = 0x6355B6A
+[20:16:02] [artwork:crc] taliba/taliba2.dff CRC = 0xBB63B464
+[20:16:02] [artwork:crc] taliba/taliba2.txd CRC = 0x90B27E6E
+[20:16:02] [artwork:crc] taliba/taliba3.dff CRC = 0xE2E733E8
+[20:16:02] [artwork:crc] taliba/taliba3.txd CRC = 0xBC08005E
+[20:16:02] [artwork:crc] taliba/taliba4.dff CRC = 0x6828674B
+[20:16:02] [artwork:crc] taliba/taliba4.txd CRC = 0xB491BD51
+[20:16:02] [artwork:crc] taliba/taliba5.dff CRC = 0xDF6EC86
+[20:16:02] [artwork:crc] taliba/taliba5.txd CRC = 0x68893977
+[20:16:02] [artwork:crc] taliba/taliba6.dff CRC = 0xC47278F3
+[20:16:02] [artwork:crc] taliba/taliba6.txd CRC = 0x8C65BC30
+[20:16:02] [artwork:crc] taliba/taliba7.dff CRC = 0x21ED392D
+[20:16:02] [artwork:crc] taliba/taliba7.txd CRC = 0x3C5B484E
+[20:16:02] [artwork:crc] taliba/taliba8.dff CRC = 0x4C679CBE
+[20:16:02] [artwork:crc] taliba/taliba8.txd CRC = 0x23FF2285
+[20:16:02] [artwork:crc] taliba/taliba9.dff CRC = 0xDD1F6BE8
+[20:16:02] [artwork:crc] taliba/taliba9.txd CRC = 0x3724AA26
+[20:16:02] [artwork:crc] taliba/taliba10.dff CRC = 0x134E2005
+[20:16:02] [artwork:crc] taliba/taliba10.txd CRC = 0xD51A0FF9
+[20:16:02] [artwork:crc] taliba/taliba11.dff CRC = 0x448A080D
+[20:16:02] [artwork:crc] taliba/taliba11.txd CRC = 0x62CFAC9F
+[20:16:02] [artwork:crc] taliba/taliba12.dff CRC = 0xE56251EE
+[20:16:02] [artwork:crc] taliba/taliba12.txd CRC = 0xFDE64604
+[20:16:02] [artwork:crc] taliba/taliba13.dff CRC = 0x8299D6CC
+[20:16:02] [artwork:crc] taliba/taliba13.txd CRC = 0x85A9998
+[20:16:02] [artwork:crc] taliba/taliba14.dff CRC = 0xB115C3F1
+[20:16:02] [artwork:crc] taliba/taliba14.txd CRC = 0x8D57DED8
+[20:16:02] [artwork:crc] taliba/taliba15.dff CRC = 0x1D04FA75
+[20:16:02] [artwork:crc] taliba/taliba15.txd CRC = 0xDECA406A
+[20:16:02] [artwork:crc] pmc/pmc1.dff CRC = 0x2DD4CA47
+[20:16:02] [artwork:crc] pmc/pmc1.txd CRC = 0xE07D9D46
+[20:16:02] [artwork:crc] pmc/pmc2.dff CRC = 0x4B9C0356
+[20:16:02] [artwork:crc] pmc/pmc2.txd CRC = 0xED3AB6A4
+[20:16:02] [artwork:crc] pmc/pmc3.dff CRC = 0xE7046D23
+[20:16:02] [artwork:crc] pmc/pmc3.txd CRC = 0x9E046331
+[20:16:02] [artwork:crc] pmc/pmc4.dff CRC = 0x9546189A
+[20:16:02] [artwork:crc] pmc/pmc4.txd CRC = 0x399F00A3
+[20:16:02] [artwork:crc] pmc/pmc5.dff CRC = 0x493621B6
+[20:16:02] [artwork:crc] pmc/pmc5.txd CRC = 0x86A22FD
+[20:16:02] [artwork:crc] pmc/pmc6.dff CRC = 0x616A75AB
+[20:16:02] [artwork:crc] pmc/pmc6.txd CRC = 0x80654964
+[20:16:02] [artwork:crc] pmc/pmc7.dff CRC = 0x10D6EE16
+[20:16:02] [artwork:crc] pmc/pmc7.txd CRC = 0x3CCB6AA6
+[20:16:02] [artwork:crc] pmc/pmc8.dff CRC = 0xD27637A8
+[20:16:02] [artwork:crc] pmc/pmc8.txd CRC = 0x2EF7BC1
+[20:16:02] [artwork:crc] pmc/pmc9.dff CRC = 0x75507F0D
+[20:16:02] [artwork:crc] pmc/pmc9.txd CRC = 0x3A627F5F
+[20:16:02] [artwork:crc] isis/isis1.dff CRC = 0xA107A44C
+[20:16:02] [artwork:crc] isis/isis1.txd CRC = 0x8547D9E6
+[20:16:02] [artwork:crc] isis/isis2.dff CRC = 0xC029C75B
+[20:16:02] [artwork:crc] isis/isis2.txd CRC = 0x77C900E8
+[20:16:02] [artwork:crc] isis/isis3.dff CRC = 0xD5FF099B
+[20:16:02] [artwork:crc] isis/isis3.txd CRC = 0x586260F2
+[20:16:02] [artwork:crc] isis/isis4.dff CRC = 0xC029C75B
+[20:16:02] [artwork:crc] isis/isis4.txd CRC = 0x52486C98
+[20:16:02] [artwork:crc] isis/isis5.dff CRC = 0x3C88572C
+[20:16:02] [artwork:crc] isis/isis5.txd CRC = 0x686CAA15
+[20:16:02] [artwork:crc] russo/russia1.dff CRC = 0x8855C1F1
+[20:16:02] [artwork:crc] russo/russia1.txd CRC = 0xFC8E21E6
+[20:16:02] [artwork:crc] russo/russia2.dff CRC = 0xCB8A1129
+[20:16:02] [artwork:crc] russo/russia2.txd CRC = 0x83AC881E
+[20:16:02] [artwork:crc] russo/russia3.dff CRC = 0x871A42CA
+[20:16:02] [artwork:crc] russo/russia3.txd CRC = 0xC6E1DF4B
+[20:16:02] [artwork:crc] russo/russia4.dff CRC = 0xB2D466D
+[20:16:02] [artwork:crc] russo/russia4.txd CRC = 0x2F9F7341
+[20:16:02] [artwork:crc] russo/russia5.dff CRC = 0x81309CA2
+[20:16:02] [artwork:crc] russo/russia5.txd CRC = 0x3269522E
+[20:16:02] [artwork:crc] russo/russia6.dff CRC = 0x264C07E8
+[20:16:02] [artwork:crc] russo/russia6.txd CRC = 0x43734C43
+[20:16:02] [artwork:crc] russo/russia7.dff CRC = 0x415C9DE3
+[20:16:02] [artwork:crc] russo/russia7.txd CRC = 0xF1B100BB
+[20:16:02] [artwork:crc] seals/seal1.dff CRC = 0x35B276D4
+[20:16:02] [artwork:crc] seals/seal1.txd CRC = 0x9339AF93
+[20:16:02] [artwork:crc] seals/seal2.dff CRC = 0x1B7364B6
+[20:16:02] [artwork:crc] seals/seal2.txd CRC = 0xEB6C1EBB
+[20:16:02] [artwork:crc] seals/seal3.dff CRC = 0x403AD120
+[20:16:02] [artwork:crc] seals/seal3.txd CRC = 0x9B1DC1A4
+[20:16:02] [artwork:crc] seals/seal4.dff CRC = 0xF13470B5
+[20:16:02] [artwork:crc] seals/seal4.txd CRC = 0x19C7B0F0
+[20:16:02] [artwork:crc] seals/seal5.dff CRC = 0x51B5E899
+[20:16:02] [artwork:crc] seals/seal5.txd CRC = 0x5E1CD488
+[20:16:02] [artwork:crc] seals/seal6.dff CRC = 0xF9FBD5A7
+[20:16:02] [artwork:crc] seals/seal6.txd CRC = 0xB8DA2980
+[20:16:02] [artwork:crc] seals/seal7.dff CRC = 0xC12D0388
+[20:16:02] [artwork:crc] seals/seal7.txd CRC = 0x4AA35C9E
+[20:16:02] [artwork:crc] seals/seal8.dff CRC = 0xBEAF3085
+[20:16:02] [artwork:crc] seals/seal8.txd CRC = 0xA4C2C97A
+[20:16:02] [artwork:crc] seals/seal9.dff CRC = 0xAE273045
+[20:16:02] [artwork:crc] seals/seal9.txd CRC = 0x7B8EE53
+[20:16:02] [artwork:crc] seals/seal10.dff CRC = 0x43FE5B13
+[20:16:02] [artwork:crc] seals/seal10.txd CRC = 0x6C3715BD
+[20:16:02] [artwork:crc] seals/seal11.dff CRC = 0x8486662B
+[20:16:02] [artwork:crc] seals/seal11.txd CRC = 0x3F9CA9
+[20:16:02] [artwork:crc] seals/seal12.dff CRC = 0x34C39C5C
+[20:16:03] [artwork:crc] seals/seal12.txd CRC = 0xD89C2D5C
+[20:16:03] [artwork:crc] seals/seal13.dff CRC = 0xE913DA0B
+[20:16:03] [artwork:crc] seals/seal13.txd CRC = 0x369CC349
+[20:16:03] [artwork:crc] seals/seal14.dff CRC = 0x8D06D38A
+[20:16:03] [artwork:crc] seals/seal14.txd CRC = 0xF32FAC77
+[20:16:03] [artwork:crc] seals/seal15.dff CRC = 0x93FD3C0C
+[20:16:03] [artwork:crc] seals/seal15.txd CRC = 0x75D1421B
+[20:16:03] [artwork:crc] seals/seal16.dff CRC = 0xAA739E12
+[20:16:03] [artwork:crc] seals/seal16.txd CRC = 0x44283298
+[20:16:03] [artwork:crc] seals/seal17.dff CRC = 0xDED343C6
+[20:16:03] [artwork:crc] seals/seal17.txd CRC = 0xAF16CF6
+[20:16:03] [artwork:crc] usmc/usmc1.dff CRC = 0x557DD9CF
+[20:16:03] [artwork:crc] usmc/usmc1.txd CRC = 0xFEC2D977
+[20:16:03] [artwork:crc] usmc/usmc2.dff CRC = 0xC784806B
+[20:16:03] [artwork:crc] usmc/usmc2.txd CRC = 0x49359519
+[20:16:03] [artwork:crc] usmc/usmc3.dff CRC = 0x8823B3F1
+[20:16:03] [artwork:crc] usmc/usmc3.txd CRC = 0x7E648A40
+[20:16:03] [artwork:crc] usmc/usmc4.dff CRC = 0xA7E3535
+[20:16:03] [artwork:crc] usmc/usmc4.txd CRC = 0x6F8E1A9
+[20:16:03] [artwork:crc] usmc/usmc5.dff CRC = 0xB527D29B
+[20:16:03] [artwork:crc] usmc/usmc5.txd CRC = 0x69597A5F
+[20:16:03] [artwork:crc] usmc/usmc6.dff CRC = 0x45DDC3F2
+[20:16:03] [artwork:crc] usmc/usmc6.txd CRC = 0xA3075FD3
+[20:16:03] [artwork:crc] usmc/usmc7.dff CRC = 0xB621EE37
+[20:16:03] [artwork:crc] usmc/usmc7.txd CRC = 0x4C50FD91
+[20:16:03] [artwork:crc] usmc/usmc8.dff CRC = 0xC24F55AF
+[20:16:03] [artwork:crc] usmc/usmc8.txd CRC = 0xA98ECF32
+[20:16:03] [artwork:crc] usmc/usmc9.dff CRC = 0x81005AD3
+[20:16:03] [artwork:crc] usmc/usmc9.txd CRC = 0x2A0F713C
+[20:16:03] [artwork:crc] usmc/usmc10.dff CRC = 0x74B99E1F
+[20:16:03] [artwork:crc] usmc/usmc10.txd CRC = 0xF4CEDCF6
+[20:16:03] [artwork:crc] usmc/usmc11.dff CRC = 0x943458C4
+[20:16:03] [artwork:crc] usmc/usmc11.txd CRC = 0x91A8525
+[20:16:03] [artwork:crc] dogs/pet1.dff CRC = 0x14ABDB74
+[20:16:03] [artwork:crc] dogs/pet1.txd CRC = 0xC0D15148
+[20:16:03] [artwork:crc] dogs/pet2.dff CRC = 0x871FCAB4
+[20:16:03] [artwork:crc] dogs/pet2.txd CRC = 0xF35F8D62
+[20:16:03] [artwork:crc] dogs/pet3.dff CRC = 0x223072E5
+[20:16:03] [artwork:crc] dogs/pet3.txd CRC = 0x918C9CD0
+[20:16:03] [artwork:crc] dogs/pet4.dff CRC = 0xEF44912D
+[20:16:03] [artwork:crc] dogs/pet4.txd CRC = 0xD3839FDF
+[20:16:03] [artwork:crc] dogs/pet5.dff CRC = 0x223072E5
+[20:16:03] [artwork:crc] dogs/pet5.txd CRC = 0xAECE83C9
+[20:16:03] [artwork:crc] dogs/pet6.dff CRC = 0x60C6F8E9
+[20:16:03] [artwork:crc] dogs/pet6.txd CRC = 0x8EBEA5D0
+[20:16:03] [artwork:crc] dogs/pet7.dff CRC = 0x723783B7
+[20:16:03] [artwork:crc] dogs/pet7.txd CRC = 0x33F08C5C
+[20:16:03] [artwork:crc] dogs/camel.dff CRC = 0xDA9C5460
+[20:16:03] [artwork:crc] dogs/camel.txd CRC = 0xA76F584B
+[20:16:03] [artwork:crc] hud.dff CRC = 0x4BC6EDFF
+[20:16:03] [artwork:crc] hud.txd CRC = 0xC1ADFB21
+[20:16:03] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[20:16:03] [artwork:crc] tela.txd CRC = 0xED6A6238
+[20:16:03] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[20:16:03] [artwork:crc] logo.txd CRC = 0xABC0A657
+[20:16:03] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[20:16:03] [artwork:crc] logo.txd CRC = 0xABC0A657
+[20:16:03] [artwork:crc] textdraw_object.dff CRC = 0x0
+[20:16:03] [artwork:error] Bad file: textdraw_object.dff
+[20:16:03] [artwork:crc] itens/rojao.dff CRC = 0x6F72D6BB
+[20:16:03] [artwork:crc] itens/rojao.txd CRC = 0x19207CDF
+[20:16:03] [artwork:crc] itens/band.dff CRC = 0xD6FE9FF4
+[20:16:03] [artwork:crc] itens/band.txd CRC = 0x7FE6AB15
+[20:16:03] [artwork:crc] itens/cone.dff CRC = 0xF711EDD9
+[20:16:03] [artwork:crc] itens/cone.txd CRC = 0x66D2389E
+[20:16:03] [artwork:crc] itens/cavalete.dff CRC = 0x3A338AFC
+[20:16:03] [artwork:crc] itens/cavalete.txd CRC = 0x85244494
+[20:16:03] [artwork:crc] itens/faixa.dff CRC = 0x7507B9AC
+[20:16:03] [artwork:crc] itens/faixa.txd CRC = 0x8A8138C3
+[20:16:03] [artwork:crc] itens/RadioMotorola.dff CRC = 0x9AAB6A9
+[20:16:03] [artwork:crc] itens/RadioMotorola.txd CRC = 0x22353790
+[20:16:03] [artwork:crc] itens/chapeubope.dff CRC = 0xFD233655
+[20:16:03] [artwork:crc] itens/chapeubope.txd CRC = 0x68298F01
+[20:16:03] [artwork:crc] itens/boneobjeto1.dff CRC = 0xC82233C
+[20:16:03] [artwork:crc] itens/boneobjeto1.txd CRC = 0xB81E24C1
+[20:16:03] [artwork:crc] itens/boneobjeto2.dff CRC = 0xC82233C
+[20:16:03] [artwork:crc] itens/boneobjeto2.txd CRC = 0xB81E24C1
+[20:16:03] [artwork:crc] itens/boneobjeto3.dff CRC = 0xC82233C
+[20:16:03] [artwork:crc] itens/boneobjeto3.txd CRC = 0x25EC71FD
+[20:16:03] [artwork:crc] itens/boneobjeto4.dff CRC = 0xC82233C
+[20:16:03] [artwork:crc] itens/boneobjeto4.txd CRC = 0x3D3821FC
+[20:16:03] [artwork:crc] itens/coletebandido.dff CRC = 0x35333281
+[20:16:03] [artwork:crc] itens/coletebandido.txd CRC = 0x7FCB75F7
+[20:16:03] [artwork:crc] itens/mochila1.dff CRC = 0x7198BBAD
+[20:16:03] [artwork:crc] itens/mochila1.txd CRC = 0xAA488C0D
+[20:16:03] [artwork:crc] itens/mochila2.dff CRC = 0xBA43DBFB
+[20:16:03] [artwork:crc] itens/mochila2.txd CRC = 0xA55E4D43
+[20:16:03] [artwork:crc] itens/mochila3.dff CRC = 0x36D7E922
+[20:16:03] [artwork:crc] itens/mochila3.txd CRC = 0x31D6F73
+[20:16:03] [artwork:crc] itens/mochila4.dff CRC = 0x49A9723A
+[20:16:03] [artwork:crc] itens/mochila4.txd CRC = 0xB888188E
+[20:16:03] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[20:16:03] [artwork:crc] itens/helmet6.txd CRC = 0x60AE21A9
+[20:16:03] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[20:16:03] [artwork:crc] itens/helmet7.txd CRC = 0xB8E8641F
+[20:16:03] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[20:16:03] [artwork:crc] itens/helmet11.txd CRC = 0xAA929E4F
+[20:16:03] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[20:16:03] [artwork:crc] itens/helmet12.txd CRC = 0x6CA6E0F4
+[20:16:03] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[20:16:03] [artwork:crc] itens/helmet15.txd CRC = 0x7BB77D7E
+[20:16:03] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[20:16:03] [artwork:crc] itens/helmet16.txd CRC = 0x5781CAFC
+[20:16:03] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[20:16:03] [artwork:crc] itens/helmet19.txd CRC = 0x157E14B7
+[20:16:03] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[20:16:03] [artwork:crc] itens/helmet21.txd CRC = 0x53A928B0
+[20:16:03] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[20:16:03] [artwork:crc] itens/helmet24.txd CRC = 0xF1A29DA5
+[20:16:03] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[20:16:03] [artwork:crc] itens/helmet1.txd CRC = 0xFF5E6BB4
+[20:16:03] [artwork:crc] itens/ifood.dff CRC = 0xAD546C14
+[20:16:03] [artwork:crc] itens/ifood.txd CRC = 0xBED788D3
+[20:16:03] [artwork:crc] itens/ubereats.dff CRC = 0xD7C5543C
+[20:16:03] [artwork:crc] itens/ubereats.txd CRC = 0x1A9E171D
+[20:16:03] [artwork:crc] itens/bsimples.dff CRC = 0x246AB514
+[20:16:03] [artwork:crc] itens/bsimples.txd CRC = 0x9D54BD44
+[20:16:03] [artwork:crc] itens/bolsanikelateral.dff CRC = 0x82FA00BC
+[20:16:03] [artwork:crc] itens/bolsanikelateral.txd CRC = 0x9BE9FEF5
+[20:16:03] [artwork:crc] itens/PacoteMcDonalds.dff CRC = 0x7F3872D5
+[20:16:03] [artwork:crc] itens/PacoteMcDonalds.txd CRC = 0xB1587374
+[20:16:03] [artwork:crc] itens/coletemoto.dff CRC = 0xAEF7F9AB
+[20:16:03] [artwork:crc] itens/coletemoto.txd CRC = 0xCEFD3EA6
+[20:16:03] [artwork:crc] itens/barricada.dff CRC = 0xC7D7CD68
+[20:16:03] [artwork:crc] itens/barricada.txd CRC = 0x95DED922
+[20:16:03] [artwork:crc] itens_seals/bone.dff CRC = 0x98550AB1
+[20:16:03] [artwork:crc] itens_seals/bone.txd CRC = 0x233FCCF
+[20:16:03] [artwork:crc] itens_seals/capacete.dff CRC = 0xC715FAC0
+[20:16:03] [artwork:crc] itens_seals/capacete.txd CRC = 0xB1780A1A
+[20:16:03] [artwork:crc] itens_seals/capacete2.dff CRC = 0x3C0F5E9E
+[20:16:03] [artwork:crc] itens_seals/capacete2.txd CRC = 0x42DBE476
+[20:16:03] [artwork:crc] itens_seals/coleteleve.dff CRC = 0x7BA58D1D
+[20:16:03] [artwork:crc] itens_seals/coleteleve.txd CRC = 0x65C63F9C
+[20:16:03] [artwork:crc] itens_seals/coletepesado.dff CRC = 0xE9F699DF
+[20:16:03] [artwork:crc] itens_seals/coletepesado.txd CRC = 0xD3E48D2F
+[20:16:03] [artwork:crc] itens_seals/gorro.dff CRC = 0x80819053
+[20:16:03] [artwork:crc] itens_seals/gorro.txd CRC = 0xAED9F61A
+[20:16:03] [artwork:crc] itens_usmc/capSF.dff CRC = 0x1792D924
+[20:16:03] [artwork:crc] itens_usmc/capSF.txd CRC = 0xE6FFFD62
+[20:16:03] [artwork:crc] itens_usmc/VestSF.dff CRC = 0x42557B1
+[20:16:03] [artwork:crc] itens_usmc/VestSF.txd CRC = 0xC6CB541C
+[20:16:03] [artwork:crc] itens_usmc/colete.dff CRC = 0x1B01E9AC
+[20:16:03] [artwork:crc] itens_usmc/colete.txd CRC = 0x968E08F7
+[20:16:03] [artwork:crc] itens_usmc/capacete.dff CRC = 0xBE266B13
+[20:16:03] [artwork:crc] itens_usmc/capacete.txd CRC = 0xA9CA8DB7
+[20:16:03] [artwork:crc] itens_usmc/capacete2.dff CRC = 0x24202079
+[20:16:03] [artwork:crc] itens_usmc/capacete2.txd CRC = 0xA9CA8DB7
+[20:16:03] [artwork:crc] itens_usmc/capacete3.dff CRC = 0x1B532C99
+[20:16:03] [artwork:crc] itens_usmc/capacete3.txd CRC = 0x968E08F7
+[20:16:03] [artwork:crc] itens/escudo.dff CRC = 0x434102A8
+[20:16:03] [artwork:crc] itens/escudo.txd CRC = 0xDB8AA769
+[20:16:03] [artwork:crc] itens/morteiro.dff CRC = 0x212ACFDB
+[20:16:03] [artwork:crc] itens/morteiro.txd CRC = 0xE3BEDADE
+[20:16:03] [artwork:crc] itens/munimorteiro.dff CRC = 0xF0EFD884
+[20:16:03] [artwork:crc] itens/munimorteiro.txd CRC = 0xFE95109F
+[20:16:03] [artwork:crc] itens/mina.dff CRC = 0x4A5004C4
+[20:16:03] [artwork:crc] itens/mina.txd CRC = 0xEFEA75E5
+[20:16:03] [artwork:crc] itens/maconhab.dff CRC = 0xBF46F2FF
+[20:16:03] [artwork:crc] itens/maconhab.txd CRC = 0x68419BE
+[20:16:03] [artwork:crc] itens/maconhar.dff CRC = 0xA0906971
+[20:16:03] [artwork:crc] itens/maconhar.txd CRC = 0x13A26228
+[20:16:03] [artwork:crc] itens/cocaina.dff CRC = 0x22B7B621
+[20:16:03] [artwork:crc] itens/cocaina.txd CRC = 0xF84F4DF
+[20:16:03] [artwork:crc] itens/crackr.dff CRC = 0x7260DE97
+[20:16:03] [artwork:crc] itens/crackr.txd CRC = 0xEB7DC1B6
+[20:16:03] [artwork:crc] itens/crackb.dff CRC = 0xAA6EDDA1
+[20:16:03] [artwork:crc] itens/crackb.txd CRC = 0xEB7DC1B6
+[20:16:03] [artwork:crc] itens/lsd.dff CRC = 0x6CB2980D
+[20:16:03] [artwork:crc] itens/lsd.txd CRC = 0xB190FA30
+[20:16:03] [artwork:crc] itens/lancaperfume.dff CRC = 0x8FB92930
+[20:16:03] [artwork:crc] itens/lancaperfume.txd CRC = 0x4205E4C1
+[20:16:03] [artwork:crc] itens/MesaDeDrogas.dff CRC = 0xF6C0A1DF
+[20:16:03] [artwork:crc] itens/MesaDeDrogas.txd CRC = 0x54036B75
+[20:16:03] [artwork:crc] AB/ABPart01.dff CRC = 0x662FD82C
+[20:16:03] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[20:16:03] [artwork:crc] AB/ABPart02.dff CRC = 0xC595C830
+[20:16:03] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[20:16:03] [artwork:crc] AB/ABPart03.dff CRC = 0xBE418106
+[20:16:03] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[20:16:03] [artwork:crc] AB/ABPart04.dff CRC = 0x2333EC80
+[20:16:03] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[20:16:03] [artwork:crc] AB/ABPart05.dff CRC = 0x63FAA3EB
+[20:16:03] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[20:16:03] [artwork:crc] AB/ABPart06.dff CRC = 0xC8D54C9B
+[20:16:03] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[20:16:03] [artwork:crc] AB/ABPart07.dff CRC = 0x31CFC7E6
+[20:16:03] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[20:16:03] [artwork:crc] AB/ABHouse01.dff CRC = 0x14234EEA
+[20:16:03] [artwork:crc] AB/ABHouse.txd CRC = 0x1B70AE5E
+[20:16:03] [artwork:crc] AB/ABHouse02.dff CRC = 0x50BF0743
+[20:16:03] [artwork:crc] AB/ABHouse.txd CRC = 0x1B70AE5E
+[20:16:03] [artwork:crc] AB/ABProps.dff CRC = 0x319313A
+[20:16:03] [artwork:crc] AB/ABHouse.txd CRC = 0x1B70AE5E
+[20:16:03] [artwork:crc] AB/ABVeg.dff CRC = 0x6873DFBA
+[20:16:03] [artwork:crc] AB/ABVeg.txd CRC = 0x8435FADA
+[20:16:03] [artwork:crc] AB/ABProp01.dff CRC = 0x51233E10
+[20:16:03] [artwork:crc] AB/ABProp01.txd CRC = 0x98DEDDFB
+[20:16:03] [artwork:crc] AB/ABProp02.dff CRC = 0x418A3779
+[20:16:03] [artwork:crc] AB/ABProp02.txd CRC = 0xC2E53317
+[20:16:03] [artwork:crc] AB/ABProp03.dff CRC = 0xFF96C6A5
+[20:16:03] [artwork:crc] AB/ABProp03.txd CRC = 0x3A3C8286
+[20:16:03] [artwork:crc] AB/ABProp04.dff CRC = 0x32B1EE03
+[20:16:03] [artwork:crc] AB/ABProp04.txd CRC = 0x9FEACA8C
+[20:16:03] [artwork:crc] AB/ABProp05.dff CRC = 0x6C76CBD2
+[20:16:03] [artwork:crc] AB/ABProp05.txd CRC = 0xFB0719C4
+[20:16:03] [artwork:crc] vila/bandeirataliban.dff CRC = 0x1E99423A
+[20:16:03] [artwork:crc] vila/bandeirataliban.txd CRC = 0xFF0D1F2B
+[20:16:03] [artwork:crc] vila/CabanaPrelight.dff CRC = 0x6526C46F
+[20:16:03] [artwork:crc] vila/CabanaPrelight.txd CRC = 0x1828D1FC
+[20:16:03] [artwork:crc] vila/CabanaPrelight2.dff CRC = 0x71827700
+[20:16:04] [artwork:crc] vila/CabanaPrelight2.txd CRC = 0x1828D1FC
+[20:16:04] [artwork:crc] vila/CabanaPrelight3.dff CRC = 0xB7F6DE74
+[20:16:04] [artwork:crc] vila/CabanaPrelight3.txd CRC = 0x1828D1FC
+[20:16:04] [artwork:crc] vila/CabanaPrelight4.dff CRC = 0xE0E5ACE8
+[20:16:04] [artwork:crc] vila/CabanaPrelight4.txd CRC = 0x1828D1FC
+[20:16:04] [artwork:crc] vila/CabanaPrelight5.dff CRC = 0x52A509EA
+[20:16:04] [artwork:crc] vila/CabanaPrelight5.txd CRC = 0x1828D1FC
+[20:16:04] [artwork:crc] vila/CabanaPrelight6.dff CRC = 0x978B10A8
+[20:16:04] [artwork:crc] vila/CabanaPrelight6.txd CRC = 0x1828D1FC
+[20:16:04] [artwork:crc] vila/cabanadestruida55.dff CRC = 0x0
+[20:16:04] [artwork:error] Bad file: vila/cabanadestruida55.dff
+[20:16:04] [artwork:crc] vila/interioraberto3.dff CRC = 0xDC2E1D9D
+[20:16:04] [artwork:crc] vila/interioraberto3.txd CRC = 0x60E84196
+[20:16:04] 
+[20:16:04] Filterscripts
+[20:16:04] ---------------
+[20:16:04]   Loaded 0 filterscripts.
+
+[20:16:04]    Error: Function not registered: 'SSCANF_Init'
+[20:16:04]    Error: Function not registered: 'SSCANF_IsConnected'
+[20:16:04]    Error: Function not registered: 'SSCANF_Join'
+[20:16:04]    Error: Function not registered: 'SSCANF_Leave'
+[20:16:04]    Error: Function not registered: 'IsValidDynamicObject'
+[20:16:04]    Error: Function not registered: 'DestroyDynamicObject'
+[20:16:04]    Error: Function not registered: 'CreateDynamicObject'
+[20:16:04]    Error: Function not registered: 'AttachDynamicObjectToVehicle'
+[20:16:04]    Error: Function not registered: 'CreateDynamicSphere'
+[20:16:04]    Error: Function not registered: 'CreateDynamic3DTextLabel'
+[20:16:04]    Error: Function not registered: 'Streamer_SetArrayData'
+[20:16:04]    Error: Function not registered: 'DestroyDynamicArea'
+[20:16:04]    Error: Function not registered: 'DestroyDynamic3DTextLabel'
+[20:16:04]    Error: Function not registered: 'Streamer_GetArrayData'
+[20:16:04]    Error: Function not registered: 'Streamer_Update'
+[20:16:04]    Error: Function not registered: 'Streamer_GetFloatData'
+[20:16:04]    Error: Function not registered: 'Streamer_SetIntData'
+[20:16:04]    Error: Function not registered: 'Streamer_UpdateEx'
+[20:16:04]    Error: Function not registered: 'DestroyDynamicPickup'
+[20:16:04]    Error: Function not registered: 'CreateDynamicPickup'
+[20:16:04]    Error: Function not registered: 'Streamer_GetDistanceToItem'
+[20:16:04]    Error: Function not registered: 'Streamer_GetIntData'
+[20:16:04]    Error: Function not registered: 'Streamer_GetItemStreamerID'
+[20:16:04]    Error: Function not registered: 'IsValidDynamicPickup'
+[20:16:04]    Error: Function not registered: 'sscanf'
+[20:16:04]    Error: Function not registered: 'GetDynamicObjectPos'
+[20:16:04]    Error: Function not registered: 'MoveDynamicObject'
+[20:16:04]    Error: Function not registered: 'StopDynamicObject'
+[20:16:04]    Error: Function not registered: 'SetDynamicObjectMaterial'
+[20:16:04]    Error: Function not registered: 'SetDynamicObjectMaterialText'
+[20:16:04]    Error: Function not registered: 'CreateDynamicObjectEx'
+[20:16:04]    Error: Function not registered: 'mysql_query'
+[20:16:04]    Error: Function not registered: 'cache_get_row_count'
+[20:16:04]    Error: Function not registered: 'cache_get_field_content'
+[20:16:04]    Error: Function not registered: 'IsValidDynamic3DTextLabel'
+[20:16:04]    Error: Function not registered: 'mysql_connect'
+[20:16:04]    Error: Function not registered: 'mysql_errno'
+[20:16:04]    Error: Function not registered: 'Streamer_VisibleItems'
+[20:16:04]    Error: Function not registered: 'MapAndreas_Init'
+[20:16:04]    Error: Function not registered: 'mysql_tquery'
+[20:16:04]    Error: Function not registered: 'cache_get_data'
+[20:16:04]    Error: Function not registered: 'cache_insert_id'
+[20:16:04]    Error: Function not registered: 'MapAndreas_FindAverageZ'
+[20:16:04]    Error: Function not registered: 'DestroyAllDynamicObjects'
+[20:16:04]    Error: Function not registered: 'mysql_close'
+[20:16:04]    Error: Function not registered: 'IsValidDynamicCP'
+[20:16:04]    Error: Function not registered: 'DestroyDynamicCP'
+[20:16:04]    Error: Function not registered: 'CreateDynamicCP'
+[20:16:04]    Error: Function not registered: 'mysql_escape_string'
+[20:16:04]    Error: Function not registered: 'UpdateDynamic3DTextLabelText'
+[20:16:04]    Error: Function not registered: 'Streamer_SetFloatData'
+[20:16:04]    Error: Function not registered: 'ClearDynamicActorAnimations'
+[20:16:04]    Error: Function not registered: 'MapAndreas_FindZ_For2DCoord'
+[20:16:04]    Error: Function not registered: 'EditDynamicObject'
+[20:16:04]    Error: Function not registered: 'WP_Hash'
+[20:16:04]    Error: Function not registered: 'mysql_format'
+[20:16:04]    Error: Function not registered: 'SetDynamicObjectPos'
+[20:16:04]    Error: Function not registered: 'SetDynamicObjectRot'
+[20:16:04]    Error: Function not registered: 'cache_get_field_content_int'
+[20:16:04]    Error: Function not registered: 'cache_get_field_content_float'
+[20:16:04]    Error: Function not registered: 'GetDynamicObjectRot'
+[20:16:04]    Error: Function not registered: 'Streamer_CountItems'
+[20:16:04]  
+[20:16:04]  
+[20:16:04]  
+[20:16:04]  ======================================= 
+[20:16:04]  |                                     | 
+[20:16:04]  |        YSI version 3.09.0684        | 
+[20:16:04]  |        By Alex "Y_Less" Cole        | 
+[20:16:04]  |                                     | 
+[20:16:04]  ======================================= 
+[20:16:04]  
+[20:16:04]  
+[20:16:04]  
+[20:16:05] [ADM] Info: Load EVF v3.2.1 for SA:MP 0.3.7 by Abyss Morgan
+[20:16:05]  
+[20:16:05] --------------------------------------
+[20:16:05]  Anticheat Nex-AC carregado!
+[20:16:05]  Anticheat versão: 1.9.61
+[20:16:05]  Autor: Nexius (PT-BR by NicK_)
+[20:16:05] --------------------------------------
+
+[20:16:05] [CARREGADO] Custom nametags by Yur$
+[20:16:05] |-- Corrida de Cavalos: Carregado
+[20:16:06] [CARREGADO] Mapa: Vila tierra roubada
+[20:16:06] [CARREGADO] Mapa avião
+[20:16:06] [CARREGADO] Mapa: Aeroporto abandonado Village
+[20:16:06] [CARREGADO] Mapa: WH 2
+[20:16:06] [CARREGADO] Mapa: Factory int
+[20:16:06] [CARREGADO] Mapa: Ghetto droga int
+[20:16:06] [CARREGADO] Mapa: Ghetto ammo int
+[20:16:06] [CARREGADO] Mapa Ilegal gunshop int
+[20:16:06] [CARREGADO] Mapa: int lavagem de grana
+[20:16:06] [CARREGADO] Mapa: Hospital interior
+[20:16:06] [CARREGADO] Mapa: Banco interior
+[20:16:06] [LOAD] Mapa: Barzinho
+[20:16:06] [LOAD] Mapa: Barzinho 2
+[20:16:06] [LOAD] Mapa: Barzinho 3
+[20:16:06] [CARREGADO] Mapa: Fight room
+[20:16:06] [CARREGADO] Mapa: Empresa 1
+[20:16:06] [CARREGADO] Mapa: Loja de Eletronicos
+[20:16:06] [CARREGADO] Mapa: Agencia de Empregos
+[20:16:06] [CARREGADO] Mapa: Estudio
+[20:16:06] [LOAD] Mapa: Sony
+[20:16:06] [LOAD] Mapa: Caravan
+[20:16:06] [LOAD] Mapa: Interiores de Casas e Empresas vazios
+[20:16:06] [LOAD] Mapa: Apartamento 1
+[20:16:06] [LOAD] Mapa: Apartamento 2
+[20:16:06] [LOAD] Mapa: Apartamento 3
+[20:16:06] [LOAD] Mapa: DrugHouse 1
+[20:16:06] [LOAD] Mapa: WeaponHouse 1
+[20:16:06] [CARREGADO] Mapa: Complexo 1
+[20:16:06] [CARREGADO] Mapa: Complexo 2
+[20:16:06] [CARREGADO] Mapa: Complexo 3
+[20:16:06] [CARREGADO] Mapa: Complexo 4
+[20:16:06] [CARREGADO] Mapa: Complexo 5
+[20:16:06] [CARREGADO] Mapa: Complexo 7
+[20:16:06] [CARREGADO] Mapa: Complexo 8
+[20:16:06] [CARREGADO] Mapa: Complexo 9
+[20:16:06] [CARREGADO] Sistema de Grafite
+[20:16:06] 
+-------------------------------------------
+[20:16:06] War on Terror Roleplay — 2023				
+[20:16:06] Desenvolvido por Yuri Braga					
+[20:16:06] ------------------------------------------
+ 
+[20:16:06] Number of vehicle models: 5
+[20:16:06] [CARREGADO] Veiculos criados.
+[20:16:06] [CARREGADO] 0 veiculos carregados.
+[20:16:06] [CARREGADO] Casas: 0
+[20:16:06] [CARREGADO] Garagens: 0
+[20:16:06] [CARREGADO] Complexos: 0
+[20:16:06] [CARREGADO] Empresas: 0
+[20:16:06] [CARREGADO] Pontos de entrega.
+[20:16:06] [CARREGADO] FURNITURE: 0 moveis.
+[20:16:06] [CARREGADO] Armas no Servidor: 3
+[20:16:06] [CARREGADO] Armas no Chão: 2
+[20:16:06] [CARREGADO] Armas na Pos 0: 0
+[20:16:06] [CARREGADO] Facções: 6
+[20:16:06] [CARREGADO] Total de Portas/Portões: 0
+[20:16:06] [CARREGADO] Itens no Servidor: 0
+[20:16:06] [CARREGADO] Itens no Chão: 0 
+[20:16:06] [CARREGADO] Itens na Pos 0: 0
+[20:16:06] [CARREGADO] Munições no chão do Servidor: 0 
+[20:16:06] [CARREGADO] Atualmente existem 0 drogas plantadas por SA.
+[20:16:06] [CARREGADO] Drogas no chão do Servidor: 0
+[20:16:06] [CARREGADO] Drogas na Pos 0: 0
+[20:16:06] [CARREGADO] Pixes: 0
+[20:16:06] [CARREGADO] Multas: 0
+[20:16:06] sscanf warning: Format specifier does not match parameter count.
+[20:16:06] [CARREGADO] Cofre do governo: US$24929863
+[20:16:06] [SERVER-INFO] Carregado com sucesso!
+[20:16:18] [connection] incoming connection: 127.0.0.1:59529 id: 0
+[20:16:18] progressive-roleplay.com/wtrp2023/api-ip.php?ip=127.0.0.1
+[20:16:18] [join] Jason_Hayes has joined the server (0:127.0.0.1)
+[20:16:19] [ERRO] CHECK-IP COM FALHA! Code: 301, Data: <!DOCTYPE html>
+<html style="height:100%">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title> 301 Moved Permanently
+</title></head>
+<body style="color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;">
+<div style="height:auto; min-height:100%; ">     <div style="text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;">
+        <h1 style="margin:0; font-size:150px; line-height:150px; font-weight:bold;">301</h1>
+<h2 style="margin-top:20px;font-size: 30px;">Moved Permanently
+</h2>
+<p>The document has been permanently moved.</p>
+</div></div></body></html>
+
+[20:18:05] [Nex-AC debug] ID 0 usando NOP SetPlayerPos
+[20:18:05] [Nex-AC debug] Dist: 416.057373, acSet[7]: 1
+[20:18:05] [Nex-AC] Suspeita no ID 0. Código de motivo: 052 (10)
+[20:18:06] 
+[20:18:06] [SAVE-PJ] Jogador Jason_Hayes - Personagem salvo com sucesso.
+[20:18:06] [part] Jason_Hayes has left the server (0:2)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[14:08:03] password = ""  (string)
+[14:08:03] filterscripts = ""  (string)
+[14:08:03] artpath = "models"  (string)
+[14:08:03] 
+[14:08:03] Server Plugins
+[14:08:03] --------------
+[14:08:03]  Loading plugin: nativechecker
+[14:08:03]   Loaded.
+[14:08:03]  Loading plugin: mysql
+[14:08:03]  >> plugin.mysql: R39-5 successfully loaded.
+[14:08:03]   Loaded.
+[14:08:03]  Loading plugin: streamer
+[14:08:03] 
+
+*** Streamer Plugin v2.9.2 by Incognito loaded ***
+
+[14:08:03]   Loaded.
+[14:08:03]  Loading plugin: sscanf
+[14:08:03] 
+
+[14:08:03]  ===============================
+
+[14:08:03]       sscanf plugin loaded.     
+
+[14:08:03]          Version:  2.8.1        
+
+[14:08:03]    (c) 2012 Alex "Y_Less" Cole  
+
+[14:08:03]  ===============================
+
+[14:08:03]   Loaded.
+[14:08:03]  Loading plugin: Whirlpool
+[14:08:03]  
+[14:08:03]  ==================
+[14:08:03]  
+[14:08:03]   Whirlpool loaded
+[14:08:03]  
+[14:08:03]  ==================
+[14:08:03]  
+[14:08:04]   Loaded.
+[14:08:04]  Loading plugin: mapandreas
+[14:08:04]   Loaded.
+[14:08:04]  Loading plugin: ColAndreas
+[14:08:04] *********************
+[14:08:04] ** Created By:     **
+[14:08:04] ** [uL]Chris42O    **
+[14:08:04] ** [uL]Slice       **
+[14:08:04] ** [uL]Pottus      **
+[14:08:04] *********************
+[14:08:04] No collision data found.
+[14:08:04] *********************
+[14:08:04]   ColAndreas Loaded
+[14:08:04]    v1.4.0
+[14:08:04] *********************
+[14:08:04]   Loaded.
+[14:08:04]  Loading plugin: dns
+[14:08:04] 
+
+*** DNS Plugin v2.4 by Incognito loaded ***
+
+[14:08:04]   Loaded.
+[14:08:04]  Loading plugin: YSF
+[14:08:04] This version of YSF doesn't support SA-MP 0.3.DL
+[14:08:04] Use another version of YSF or build with SAMP_03DL
+[14:08:04] Error: Unknown Windows server version (0x00491FA0)
+[14:08:04] Error: Big part of YSF will be unusable for you
+[14:08:04]   Loaded.
+[14:08:04]  Loaded 9 plugins.
+
+[14:08:04] [artwork:crc] taliba/taliba.dff CRC = 0x59945A80
+[14:08:04] [artwork:crc] taliba/taliba.txd CRC = 0x6355B6A
+[14:08:04] [artwork:crc] taliba/taliba2.dff CRC = 0xBB63B464
+[14:08:04] [artwork:crc] taliba/taliba2.txd CRC = 0x90B27E6E
+[14:08:04] [artwork:crc] taliba/taliba3.dff CRC = 0xE2E733E8
+[14:08:04] [artwork:crc] taliba/taliba3.txd CRC = 0xBC08005E
+[14:08:04] [artwork:crc] taliba/taliba4.dff CRC = 0x6828674B
+[14:08:04] [artwork:crc] taliba/taliba4.txd CRC = 0xB491BD51
+[14:08:04] [artwork:crc] taliba/taliba5.dff CRC = 0xDF6EC86
+[14:08:04] [artwork:crc] taliba/taliba5.txd CRC = 0x68893977
+[14:08:05] [artwork:crc] taliba/taliba6.dff CRC = 0xC47278F3
+[14:08:05] [artwork:crc] taliba/taliba6.txd CRC = 0x8C65BC30
+[14:08:05] [artwork:crc] taliba/taliba7.dff CRC = 0x21ED392D
+[14:08:05] [artwork:crc] taliba/taliba7.txd CRC = 0x3C5B484E
+[14:08:05] [artwork:crc] taliba/taliba8.dff CRC = 0x4C679CBE
+[14:08:05] [artwork:crc] taliba/taliba8.txd CRC = 0x23FF2285
+[14:08:05] [artwork:crc] taliba/taliba9.dff CRC = 0xDD1F6BE8
+[14:08:05] [artwork:crc] taliba/taliba9.txd CRC = 0x3724AA26
+[14:08:05] [artwork:crc] taliba/taliba10.dff CRC = 0x134E2005
+[14:08:05] [artwork:crc] taliba/taliba10.txd CRC = 0xD51A0FF9
+[14:08:05] [artwork:crc] taliba/taliba11.dff CRC = 0x448A080D
+[14:08:05] [artwork:crc] taliba/taliba11.txd CRC = 0x62CFAC9F
+[14:08:05] [artwork:crc] taliba/taliba12.dff CRC = 0xE56251EE
+[14:08:05] [artwork:crc] taliba/taliba12.txd CRC = 0xFDE64604
+[14:08:05] [artwork:crc] taliba/taliba13.dff CRC = 0x8299D6CC
+[14:08:05] [artwork:crc] taliba/taliba13.txd CRC = 0x85A9998
+[14:08:05] [artwork:crc] taliba/taliba14.dff CRC = 0xB115C3F1
+[14:08:05] [artwork:crc] taliba/taliba14.txd CRC = 0x8D57DED8
+[14:08:06] [artwork:crc] taliba/taliba15.dff CRC = 0x1D04FA75
+[14:08:06] [artwork:crc] taliba/taliba15.txd CRC = 0xDECA406A
+[14:08:06] [artwork:crc] pmc/pmc1.dff CRC = 0x2DD4CA47
+[14:08:06] [artwork:crc] pmc/pmc1.txd CRC = 0xE07D9D46
+[14:08:06] [artwork:crc] pmc/pmc2.dff CRC = 0x4B9C0356
+[14:08:06] [artwork:crc] pmc/pmc2.txd CRC = 0xED3AB6A4
+[14:08:06] [artwork:crc] pmc/pmc3.dff CRC = 0xE7046D23
+[14:08:06] [artwork:crc] pmc/pmc3.txd CRC = 0x9E046331
+[14:08:06] [artwork:crc] pmc/pmc4.dff CRC = 0x9546189A
+[14:08:06] [artwork:crc] pmc/pmc4.txd CRC = 0x399F00A3
+[14:08:06] [artwork:crc] pmc/pmc5.dff CRC = 0x493621B6
+[14:08:06] [artwork:crc] pmc/pmc5.txd CRC = 0x86A22FD
+[14:08:06] [artwork:crc] pmc/pmc6.dff CRC = 0x616A75AB
+[14:08:06] [artwork:crc] pmc/pmc6.txd CRC = 0x80654964
+[14:08:06] [artwork:crc] pmc/pmc7.dff CRC = 0x10D6EE16
+[14:08:06] [artwork:crc] pmc/pmc7.txd CRC = 0x3CCB6AA6
+[14:08:06] [artwork:crc] pmc/pmc8.dff CRC = 0xD27637A8
+[14:08:06] [artwork:crc] pmc/pmc8.txd CRC = 0x2EF7BC1
+[14:08:06] [artwork:crc] pmc/pmc9.dff CRC = 0x75507F0D
+[14:08:06] [artwork:crc] pmc/pmc9.txd CRC = 0x3A627F5F
+[14:08:06] [artwork:crc] isis/isis1.dff CRC = 0xA107A44C
+[14:08:06] [artwork:crc] isis/isis1.txd CRC = 0x8547D9E6
+[14:08:06] [artwork:crc] isis/isis2.dff CRC = 0xC029C75B
+[14:08:06] [artwork:crc] isis/isis2.txd CRC = 0x77C900E8
+[14:08:06] [artwork:crc] isis/isis3.dff CRC = 0xD5FF099B
+[14:08:06] [artwork:crc] isis/isis3.txd CRC = 0x586260F2
+[14:08:07] [artwork:crc] isis/isis4.dff CRC = 0xC029C75B
+[14:08:07] [artwork:crc] isis/isis4.txd CRC = 0x52486C98
+[14:08:07] [artwork:crc] isis/isis5.dff CRC = 0x3C88572C
+[14:08:07] [artwork:crc] isis/isis5.txd CRC = 0x686CAA15
+[14:08:07] [artwork:crc] russo/russia1.dff CRC = 0x8855C1F1
+[14:08:07] [artwork:crc] russo/russia1.txd CRC = 0xFC8E21E6
+[14:08:07] [artwork:crc] russo/russia2.dff CRC = 0xCB8A1129
+[14:08:07] [artwork:crc] russo/russia2.txd CRC = 0x83AC881E
+[14:08:07] [artwork:crc] russo/russia3.dff CRC = 0x871A42CA
+[14:08:07] [artwork:crc] russo/russia3.txd CRC = 0xC6E1DF4B
+[14:08:07] [artwork:crc] russo/russia4.dff CRC = 0xB2D466D
+[14:08:07] [artwork:crc] russo/russia4.txd CRC = 0x2F9F7341
+[14:08:07] [artwork:crc] russo/russia5.dff CRC = 0x81309CA2
+[14:08:07] [artwork:crc] russo/russia5.txd CRC = 0x3269522E
+[14:08:07] [artwork:crc] russo/russia6.dff CRC = 0x264C07E8
+[14:08:07] [artwork:crc] russo/russia6.txd CRC = 0x43734C43
+[14:08:07] [artwork:crc] russo/russia7.dff CRC = 0x415C9DE3
+[14:08:07] [artwork:crc] russo/russia7.txd CRC = 0xF1B100BB
+[14:08:07] [artwork:crc] seals/seal1.dff CRC = 0x35B276D4
+[14:08:07] [artwork:crc] seals/seal1.txd CRC = 0x9339AF93
+[14:08:07] [artwork:crc] seals/seal2.dff CRC = 0x1B7364B6
+[14:08:07] [artwork:crc] seals/seal2.txd CRC = 0xEB6C1EBB
+[14:08:07] [artwork:crc] seals/seal3.dff CRC = 0x403AD120
+[14:08:07] [artwork:crc] seals/seal3.txd CRC = 0x9B1DC1A4
+[14:08:07] [artwork:crc] seals/seal4.dff CRC = 0xF13470B5
+[14:08:07] [artwork:crc] seals/seal4.txd CRC = 0x19C7B0F0
+[14:08:07] [artwork:crc] seals/seal5.dff CRC = 0x51B5E899
+[14:08:07] [artwork:crc] seals/seal5.txd CRC = 0x5E1CD488
+[14:08:07] [artwork:crc] seals/seal6.dff CRC = 0xF9FBD5A7
+[14:08:07] [artwork:crc] seals/seal6.txd CRC = 0xB8DA2980
+[14:08:07] [artwork:crc] seals/seal7.dff CRC = 0xC12D0388
+[14:08:07] [artwork:crc] seals/seal7.txd CRC = 0x4AA35C9E
+[14:08:07] [artwork:crc] seals/seal8.dff CRC = 0xBEAF3085
+[14:08:07] [artwork:crc] seals/seal8.txd CRC = 0xA4C2C97A
+[14:08:07] [artwork:crc] seals/seal9.dff CRC = 0xAE273045
+[14:08:07] [artwork:crc] seals/seal9.txd CRC = 0x7B8EE53
+[14:08:07] [artwork:crc] seals/seal10.dff CRC = 0x43FE5B13
+[14:08:07] [artwork:crc] seals/seal10.txd CRC = 0x6C3715BD
+[14:08:07] [artwork:crc] seals/seal11.dff CRC = 0x8486662B
+[14:08:07] [artwork:crc] seals/seal11.txd CRC = 0x3F9CA9
+[14:08:07] [artwork:crc] seals/seal12.dff CRC = 0x34C39C5C
+[14:08:07] [artwork:crc] seals/seal12.txd CRC = 0xD89C2D5C
+[14:08:07] [artwork:crc] seals/seal13.dff CRC = 0xE913DA0B
+[14:08:07] [artwork:crc] seals/seal13.txd CRC = 0x369CC349
+[14:08:07] [artwork:crc] seals/seal14.dff CRC = 0x8D06D38A
+[14:08:07] [artwork:crc] seals/seal14.txd CRC = 0xF32FAC77
+[14:08:07] [artwork:crc] seals/seal15.dff CRC = 0x93FD3C0C
+[14:08:07] [artwork:crc] seals/seal15.txd CRC = 0x75D1421B
+[14:08:07] [artwork:crc] seals/seal16.dff CRC = 0xAA739E12
+[14:08:07] [artwork:crc] seals/seal16.txd CRC = 0x44283298
+[14:08:07] [artwork:crc] seals/seal17.dff CRC = 0xDED343C6
+[14:08:07] [artwork:crc] seals/seal17.txd CRC = 0xAF16CF6
+[14:08:07] [artwork:crc] usmc/usmc1.dff CRC = 0x557DD9CF
+[14:08:07] [artwork:crc] usmc/usmc1.txd CRC = 0xFEC2D977
+[14:08:07] [artwork:crc] usmc/usmc2.dff CRC = 0xC784806B
+[14:08:07] [artwork:crc] usmc/usmc2.txd CRC = 0x49359519
+[14:08:07] [artwork:crc] usmc/usmc3.dff CRC = 0x8823B3F1
+[14:08:07] [artwork:crc] usmc/usmc3.txd CRC = 0x7E648A40
+[14:08:07] [artwork:crc] usmc/usmc4.dff CRC = 0xA7E3535
+[14:08:07] [artwork:crc] usmc/usmc4.txd CRC = 0x6F8E1A9
+[14:08:07] [artwork:crc] usmc/usmc5.dff CRC = 0xB527D29B
+[14:08:07] [artwork:crc] usmc/usmc5.txd CRC = 0x69597A5F
+[14:08:07] [artwork:crc] usmc/usmc6.dff CRC = 0x45DDC3F2
+[14:08:07] [artwork:crc] usmc/usmc6.txd CRC = 0xA3075FD3
+[14:08:08] [artwork:crc] usmc/usmc7.dff CRC = 0xB621EE37
+[14:08:08] [artwork:crc] usmc/usmc7.txd CRC = 0x4C50FD91
+[14:08:08] [artwork:crc] usmc/usmc8.dff CRC = 0xC24F55AF
+[14:08:08] [artwork:crc] usmc/usmc8.txd CRC = 0xA98ECF32
+[14:08:08] [artwork:crc] usmc/usmc9.dff CRC = 0x81005AD3
+[14:08:08] [artwork:crc] usmc/usmc9.txd CRC = 0x2A0F713C
+[14:08:08] [artwork:crc] usmc/usmc10.dff CRC = 0x74B99E1F
+[14:08:08] [artwork:crc] usmc/usmc10.txd CRC = 0xF4CEDCF6
+[14:08:08] [artwork:crc] usmc/usmc11.dff CRC = 0x943458C4
+[14:08:08] [artwork:crc] usmc/usmc11.txd CRC = 0x91A8525
+[14:08:08] [artwork:crc] dogs/pet1.dff CRC = 0x14ABDB74
+[14:08:08] [artwork:crc] dogs/pet1.txd CRC = 0xC0D15148
+[14:08:08] [artwork:crc] dogs/pet2.dff CRC = 0x871FCAB4
+[14:08:08] [artwork:crc] dogs/pet2.txd CRC = 0xF35F8D62
+[14:08:08] [artwork:crc] dogs/pet3.dff CRC = 0x223072E5
+[14:08:08] [artwork:crc] dogs/pet3.txd CRC = 0x918C9CD0
+[14:08:08] [artwork:crc] dogs/pet4.dff CRC = 0xEF44912D
+[14:08:08] [artwork:crc] dogs/pet4.txd CRC = 0xD3839FDF
+[14:08:08] [artwork:crc] dogs/pet5.dff CRC = 0x223072E5
+[14:08:08] [artwork:crc] dogs/pet5.txd CRC = 0xAECE83C9
+[14:08:08] [artwork:crc] dogs/pet6.dff CRC = 0x60C6F8E9
+[14:08:08] [artwork:crc] dogs/pet6.txd CRC = 0x8EBEA5D0
+[14:08:08] [artwork:crc] dogs/pet7.dff CRC = 0x723783B7
+[14:08:08] [artwork:crc] dogs/pet7.txd CRC = 0x33F08C5C
+[14:08:08] [artwork:crc] dogs/camel.dff CRC = 0xDA9C5460
+[14:08:08] [artwork:crc] dogs/camel.txd CRC = 0xA76F584B
+[14:08:08] [artwork:crc] hud.dff CRC = 0x4BC6EDFF
+[14:08:08] [artwork:crc] hud.txd CRC = 0xC1ADFB21
+[14:08:08] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[14:08:08] [artwork:crc] tela.txd CRC = 0xED6A6238
+[14:08:08] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[14:08:08] [artwork:crc] logo.txd CRC = 0xABC0A657
+[14:08:08] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[14:08:08] [artwork:crc] logo.txd CRC = 0xABC0A657
+[14:08:08] [artwork:crc] textdraw_object.dff CRC = 0x0
+[14:08:08] [artwork:error] Bad file: textdraw_object.dff
+[14:08:08] [artwork:crc] itens/rojao.dff CRC = 0x6F72D6BB
+[14:08:08] [artwork:crc] itens/rojao.txd CRC = 0x19207CDF
+[14:08:08] [artwork:crc] itens/band.dff CRC = 0xD6FE9FF4
+[14:08:08] [artwork:crc] itens/band.txd CRC = 0x7FE6AB15
+[14:08:08] [artwork:crc] itens/cone.dff CRC = 0xF711EDD9
+[14:08:08] [artwork:crc] itens/cone.txd CRC = 0x66D2389E
+[14:08:08] [artwork:crc] itens/cavalete.dff CRC = 0x3A338AFC
+[14:08:08] [artwork:crc] itens/cavalete.txd CRC = 0x85244494
+[14:08:08] [artwork:crc] itens/faixa.dff CRC = 0x7507B9AC
+[14:08:08] [artwork:crc] itens/faixa.txd CRC = 0x8A8138C3
+[14:08:08] [artwork:crc] itens/RadioMotorola.dff CRC = 0x9AAB6A9
+[14:08:08] [artwork:crc] itens/RadioMotorola.txd CRC = 0x22353790
+[14:08:08] [artwork:crc] itens/chapeubope.dff CRC = 0xFD233655
+[14:08:08] [artwork:crc] itens/chapeubope.txd CRC = 0x68298F01
+[14:08:08] [artwork:crc] itens/boneobjeto1.dff CRC = 0xC82233C
+[14:08:08] [artwork:crc] itens/boneobjeto1.txd CRC = 0xB81E24C1
+[14:08:08] [artwork:crc] itens/boneobjeto2.dff CRC = 0xC82233C
+[14:08:08] [artwork:crc] itens/boneobjeto2.txd CRC = 0xB81E24C1
+[14:08:08] [artwork:crc] itens/boneobjeto3.dff CRC = 0xC82233C
+[14:08:08] [artwork:crc] itens/boneobjeto3.txd CRC = 0x25EC71FD
+[14:08:08] [artwork:crc] itens/boneobjeto4.dff CRC = 0xC82233C
+[14:08:08] [artwork:crc] itens/boneobjeto4.txd CRC = 0x3D3821FC
+[14:08:08] [artwork:crc] itens/coletebandido.dff CRC = 0x35333281
+[14:08:08] [artwork:crc] itens/coletebandido.txd CRC = 0x7FCB75F7
+[14:08:08] [artwork:crc] itens/mochila1.dff CRC = 0x7198BBAD
+[14:08:08] [artwork:crc] itens/mochila1.txd CRC = 0xAA488C0D
+[14:08:08] [artwork:crc] itens/mochila2.dff CRC = 0xBA43DBFB
+[14:08:08] [artwork:crc] itens/mochila2.txd CRC = 0xA55E4D43
+[14:08:08] [artwork:crc] itens/mochila3.dff CRC = 0x36D7E922
+[14:08:08] [artwork:crc] itens/mochila3.txd CRC = 0x31D6F73
+[14:08:08] [artwork:crc] itens/mochila4.dff CRC = 0x49A9723A
+[14:08:08] [artwork:crc] itens/mochila4.txd CRC = 0xB888188E
+[14:08:08] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[14:08:08] [artwork:crc] itens/helmet6.txd CRC = 0x60AE21A9
+[14:08:08] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[14:08:08] [artwork:crc] itens/helmet7.txd CRC = 0xB8E8641F
+[14:08:08] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[14:08:08] [artwork:crc] itens/helmet11.txd CRC = 0xAA929E4F
+[14:08:08] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[14:08:08] [artwork:crc] itens/helmet12.txd CRC = 0x6CA6E0F4
+[14:08:08] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[14:08:08] [artwork:crc] itens/helmet15.txd CRC = 0x7BB77D7E
+[14:08:08] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[14:08:08] [artwork:crc] itens/helmet16.txd CRC = 0x5781CAFC
+[14:08:08] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[14:08:08] [artwork:crc] itens/helmet19.txd CRC = 0x157E14B7
+[14:08:08] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[14:08:08] [artwork:crc] itens/helmet21.txd CRC = 0x53A928B0
+[14:08:08] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[14:08:08] [artwork:crc] itens/helmet24.txd CRC = 0xF1A29DA5
+[14:08:08] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[14:08:08] [artwork:crc] itens/helmet1.txd CRC = 0xFF5E6BB4
+[14:08:08] [artwork:crc] itens/ifood.dff CRC = 0xAD546C14
+[14:08:08] [artwork:crc] itens/ifood.txd CRC = 0xBED788D3
+[14:08:08] [artwork:crc] itens/ubereats.dff CRC = 0xD7C5543C
+[14:08:08] [artwork:crc] itens/ubereats.txd CRC = 0x1A9E171D
+[14:08:08] [artwork:crc] itens/bsimples.dff CRC = 0x246AB514
+[14:08:08] [artwork:crc] itens/bsimples.txd CRC = 0x9D54BD44
+[14:08:08] [artwork:crc] itens/bolsanikelateral.dff CRC = 0x82FA00BC
+[14:08:08] [artwork:crc] itens/bolsanikelateral.txd CRC = 0x9BE9FEF5
+[14:08:08] [artwork:crc] itens/PacoteMcDonalds.dff CRC = 0x7F3872D5
+[14:08:08] [artwork:crc] itens/PacoteMcDonalds.txd CRC = 0xB1587374
+[14:08:08] [artwork:crc] itens/coletemoto.dff CRC = 0xAEF7F9AB
+[14:08:08] [artwork:crc] itens/coletemoto.txd CRC = 0xCEFD3EA6
+[14:08:08] [artwork:crc] itens/barricada.dff CRC = 0xC7D7CD68
+[14:08:08] [artwork:crc] itens/barricada.txd CRC = 0x95DED922
+[14:08:08] [artwork:crc] itens_seals/bone.dff CRC = 0x98550AB1
+[14:08:08] [artwork:crc] itens_seals/bone.txd CRC = 0x233FCCF
+[14:08:08] [artwork:crc] itens_seals/capacete.dff CRC = 0xC715FAC0
+[14:08:08] [artwork:crc] itens_seals/capacete.txd CRC = 0xB1780A1A
+[14:08:08] [artwork:crc] itens_seals/capacete2.dff CRC = 0x3C0F5E9E
+[14:08:08] [artwork:crc] itens_seals/capacete2.txd CRC = 0x42DBE476
+[14:08:08] [artwork:crc] itens_seals/coleteleve.dff CRC = 0x7BA58D1D
+[14:08:08] [artwork:crc] itens_seals/coleteleve.txd CRC = 0x65C63F9C
+[14:08:08] [artwork:crc] itens_seals/coletepesado.dff CRC = 0xE9F699DF
+[14:08:08] [artwork:crc] itens_seals/coletepesado.txd CRC = 0xD3E48D2F
+[14:08:08] [artwork:crc] itens_seals/gorro.dff CRC = 0x80819053
+[14:08:08] [artwork:crc] itens_seals/gorro.txd CRC = 0xAED9F61A
+[14:08:08] [artwork:crc] itens_usmc/capSF.dff CRC = 0x1792D924
+[14:08:08] [artwork:crc] itens_usmc/capSF.txd CRC = 0xE6FFFD62
+[14:08:08] [artwork:crc] itens_usmc/VestSF.dff CRC = 0x42557B1
+[14:08:08] [artwork:crc] itens_usmc/VestSF.txd CRC = 0xC6CB541C
+[14:08:08] [artwork:crc] itens_usmc/colete.dff CRC = 0x1B01E9AC
+[14:08:08] [artwork:crc] itens_usmc/colete.txd CRC = 0x968E08F7
+[14:08:08] [artwork:crc] itens_usmc/capacete.dff CRC = 0xBE266B13
+[14:08:08] [artwork:crc] itens_usmc/capacete.txd CRC = 0xA9CA8DB7
+[14:08:08] [artwork:crc] itens_usmc/capacete2.dff CRC = 0x24202079
+[14:08:08] [artwork:crc] itens_usmc/capacete2.txd CRC = 0xA9CA8DB7
+[14:08:08] [artwork:crc] itens_usmc/capacete3.dff CRC = 0x1B532C99
+[14:08:08] [artwork:crc] itens_usmc/capacete3.txd CRC = 0x968E08F7
+[14:08:08] [artwork:crc] itens/escudo.dff CRC = 0x434102A8
+[14:08:08] [artwork:crc] itens/escudo.txd CRC = 0xDB8AA769
+[14:08:08] [artwork:crc] itens/morteiro.dff CRC = 0x212ACFDB
+[14:08:08] [artwork:crc] itens/morteiro.txd CRC = 0xE3BEDADE
+[14:08:08] [artwork:crc] itens/munimorteiro.dff CRC = 0xF0EFD884
+[14:08:09] [artwork:crc] itens/munimorteiro.txd CRC = 0xFE95109F
+[14:08:09] [artwork:crc] itens/mina.dff CRC = 0x4A5004C4
+[14:08:09] [artwork:crc] itens/mina.txd CRC = 0xEFEA75E5
+[14:08:09] [artwork:crc] itens/maconhab.dff CRC = 0xBF46F2FF
+[14:08:09] [artwork:crc] itens/maconhab.txd CRC = 0x68419BE
+[14:08:09] [artwork:crc] itens/maconhar.dff CRC = 0xA0906971
+[14:08:09] [artwork:crc] itens/maconhar.txd CRC = 0x13A26228
+[14:08:09] [artwork:crc] itens/cocaina.dff CRC = 0x22B7B621
+[14:08:09] [artwork:crc] itens/cocaina.txd CRC = 0xF84F4DF
+[14:08:09] [artwork:crc] itens/crackr.dff CRC = 0x7260DE97
+[14:08:09] [artwork:crc] itens/crackr.txd CRC = 0xEB7DC1B6
+[14:08:09] [artwork:crc] itens/crackb.dff CRC = 0xAA6EDDA1
+[14:08:09] [artwork:crc] itens/crackb.txd CRC = 0xEB7DC1B6
+[14:08:09] [artwork:crc] itens/lsd.dff CRC = 0x6CB2980D
+[14:08:09] [artwork:crc] itens/lsd.txd CRC = 0xB190FA30
+[14:08:09] [artwork:crc] itens/lancaperfume.dff CRC = 0x8FB92930
+[14:08:09] [artwork:crc] itens/lancaperfume.txd CRC = 0x4205E4C1
+[14:08:09] [artwork:crc] itens/MesaDeDrogas.dff CRC = 0xF6C0A1DF
+[14:08:09] [artwork:crc] itens/MesaDeDrogas.txd CRC = 0x54036B75
+[14:08:09] [artwork:crc] AB/ABPart01.dff CRC = 0x662FD82C
+[14:08:09] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[14:08:09] [artwork:crc] AB/ABPart02.dff CRC = 0xC595C830
+[14:08:09] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[14:08:09] [artwork:crc] AB/ABPart03.dff CRC = 0xBE418106
+[14:08:09] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[14:08:09] [artwork:crc] AB/ABPart04.dff CRC = 0x2333EC80
+[14:08:09] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[14:08:09] [artwork:crc] AB/ABPart05.dff CRC = 0x63FAA3EB
+[14:08:09] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[14:08:09] [artwork:crc] AB/ABPart06.dff CRC = 0xC8D54C9B
+[14:08:09] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[14:08:09] [artwork:crc] AB/ABPart07.dff CRC = 0x31CFC7E6
+[14:08:09] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[14:08:09] [artwork:crc] AB/ABHouse01.dff CRC = 0x14234EEA
+[14:08:09] [artwork:crc] AB/ABHouse.txd CRC = 0x1B70AE5E
+[14:08:09] [artwork:crc] AB/ABHouse02.dff CRC = 0x50BF0743
+[14:08:09] [artwork:crc] AB/ABHouse.txd CRC = 0x1B70AE5E
+[14:08:09] [artwork:crc] AB/ABProps.dff CRC = 0x319313A
+[14:08:09] [artwork:crc] AB/ABHouse.txd CRC = 0x1B70AE5E
+[14:08:09] [artwork:crc] AB/ABVeg.dff CRC = 0x6873DFBA
+[14:08:09] [artwork:crc] AB/ABVeg.txd CRC = 0x8435FADA
+[14:08:09] [artwork:crc] AB/ABProp01.dff CRC = 0x51233E10
+[14:08:09] [artwork:crc] AB/ABProp01.txd CRC = 0x98DEDDFB
+[14:08:09] [artwork:crc] AB/ABProp02.dff CRC = 0x418A3779
+[14:08:09] [artwork:crc] AB/ABProp02.txd CRC = 0xC2E53317
+[14:08:09] [artwork:crc] AB/ABProp03.dff CRC = 0xFF96C6A5
+[14:08:09] [artwork:crc] AB/ABProp03.txd CRC = 0x3A3C8286
+[14:08:09] [artwork:crc] AB/ABProp04.dff CRC = 0x32B1EE03
+[14:08:09] [artwork:crc] AB/ABProp04.txd CRC = 0x9FEACA8C
+[14:08:09] [artwork:crc] AB/ABProp05.dff CRC = 0x6C76CBD2
+[14:08:09] [artwork:crc] AB/ABProp05.txd CRC = 0xFB0719C4
+[14:08:09] [artwork:crc] vila/bandeirataliban.dff CRC = 0x1E99423A
+[14:08:09] [artwork:crc] vila/bandeirataliban.txd CRC = 0xFF0D1F2B
+[14:08:09] [artwork:crc] vila/CabanaPrelight.dff CRC = 0x6526C46F
+[14:08:09] [artwork:crc] vila/CabanaPrelight.txd CRC = 0x1828D1FC
+[14:08:09] [artwork:crc] vila/CabanaPrelight2.dff CRC = 0x71827700
+[14:08:09] [artwork:crc] vila/CabanaPrelight2.txd CRC = 0x1828D1FC
+[14:08:09] [artwork:crc] vila/CabanaPrelight3.dff CRC = 0xB7F6DE74
+[14:08:09] [artwork:crc] vila/CabanaPrelight3.txd CRC = 0x1828D1FC
+[14:08:09] [artwork:crc] vila/CabanaPrelight4.dff CRC = 0xE0E5ACE8
+[14:08:09] [artwork:crc] vila/CabanaPrelight4.txd CRC = 0x1828D1FC
+[14:08:09] [artwork:crc] vila/CabanaPrelight5.dff CRC = 0x52A509EA
+[14:08:09] [artwork:crc] vila/CabanaPrelight5.txd CRC = 0x1828D1FC
+[14:08:09] [artwork:crc] vila/CabanaPrelight6.dff CRC = 0x978B10A8
+[14:08:09] [artwork:crc] vila/CabanaPrelight6.txd CRC = 0x1828D1FC
+[14:08:09] [artwork:crc] vila/cabanadestruida55.dff CRC = 0x0
+[14:08:09] [artwork:error] Bad file: vila/cabanadestruida55.dff
+[14:08:09] [artwork:crc] vila/interioraberto3.dff CRC = 0xDC2E1D9D
+[14:08:09] [artwork:crc] vila/interioraberto3.txd CRC = 0x60E84196
+[14:08:09] 
+[14:08:09] Filterscripts
+[14:08:09] ---------------
+[14:08:09]   Loaded 0 filterscripts.
+
+[14:08:11]    Error: Function not registered: 'SSCANF_Init'
+[14:08:11]    Error: Function not registered: 'SSCANF_IsConnected'
+[14:08:11]    Error: Function not registered: 'SSCANF_Join'
+[14:08:11]    Error: Function not registered: 'SSCANF_Leave'
+[14:08:11]    Error: Function not registered: 'IsValidDynamicObject'
+[14:08:11]    Error: Function not registered: 'DestroyDynamicObject'
+[14:08:11]    Error: Function not registered: 'CreateDynamicObject'
+[14:08:11]    Error: Function not registered: 'AttachDynamicObjectToVehicle'
+[14:08:11]    Error: Function not registered: 'CreateDynamicSphere'
+[14:08:11]    Error: Function not registered: 'CreateDynamic3DTextLabel'
+[14:08:11]    Error: Function not registered: 'Streamer_SetArrayData'
+[14:08:11]    Error: Function not registered: 'DestroyDynamicArea'
+[14:08:11]    Error: Function not registered: 'DestroyDynamic3DTextLabel'
+[14:08:11]    Error: Function not registered: 'Streamer_GetArrayData'
+[14:08:11]    Error: Function not registered: 'Streamer_Update'
+[14:08:11]    Error: Function not registered: 'Streamer_GetFloatData'
+[14:08:11]    Error: Function not registered: 'Streamer_SetIntData'
+[14:08:11]    Error: Function not registered: 'Streamer_UpdateEx'
+[14:08:11]    Error: Function not registered: 'DestroyDynamicPickup'
+[14:08:11]    Error: Function not registered: 'CreateDynamicPickup'
+[14:08:11]    Error: Function not registered: 'Streamer_GetDistanceToItem'
+[14:08:11]    Error: Function not registered: 'Streamer_GetIntData'
+[14:08:11]    Error: Function not registered: 'Streamer_GetItemStreamerID'
+[14:08:11]    Error: Function not registered: 'IsValidDynamicPickup'
+[14:08:11]    Error: Function not registered: 'sscanf'
+[14:08:11]    Error: Function not registered: 'GetDynamicObjectPos'
+[14:08:11]    Error: Function not registered: 'MoveDynamicObject'
+[14:08:11]    Error: Function not registered: 'StopDynamicObject'
+[14:08:11]    Error: Function not registered: 'SetDynamicObjectMaterial'
+[14:08:11]    Error: Function not registered: 'SetDynamicObjectMaterialText'
+[14:08:11]    Error: Function not registered: 'CreateDynamicObjectEx'
+[14:08:11]    Error: Function not registered: 'mysql_query'
+[14:08:11]    Error: Function not registered: 'cache_get_row_count'
+[14:08:11]    Error: Function not registered: 'cache_get_field_content'
+[14:08:11]    Error: Function not registered: 'IsValidDynamic3DTextLabel'
+[14:08:11]    Error: Function not registered: 'mysql_connect'
+[14:08:11]    Error: Function not registered: 'mysql_errno'
+[14:08:11]    Error: Function not registered: 'Streamer_VisibleItems'
+[14:08:11]    Error: Function not registered: 'MapAndreas_Init'
+[14:08:11]    Error: Function not registered: 'mysql_tquery'
+[14:08:11]    Error: Function not registered: 'cache_get_data'
+[14:08:11]    Error: Function not registered: 'cache_insert_id'
+[14:08:11]    Error: Function not registered: 'MapAndreas_FindAverageZ'
+[14:08:11]    Error: Function not registered: 'DestroyAllDynamicObjects'
+[14:08:11]    Error: Function not registered: 'mysql_close'
+[14:08:12]    Error: Function not registered: 'IsValidDynamicCP'
+[14:08:12]    Error: Function not registered: 'DestroyDynamicCP'
+[14:08:12]    Error: Function not registered: 'CreateDynamicCP'
+[14:08:12]    Error: Function not registered: 'mysql_escape_string'
+[14:08:12]    Error: Function not registered: 'UpdateDynamic3DTextLabelText'
+[14:08:12]    Error: Function not registered: 'Streamer_SetFloatData'
+[14:08:12]    Error: Function not registered: 'ClearDynamicActorAnimations'
+[14:08:12]    Error: Function not registered: 'MapAndreas_FindZ_For2DCoord'
+[14:08:12]    Error: Function not registered: 'EditDynamicObject'
+[14:08:12]    Error: Function not registered: 'WP_Hash'
+[14:08:12]    Error: Function not registered: 'mysql_format'
+[14:08:12]    Error: Function not registered: 'SetDynamicObjectPos'
+[14:08:12]    Error: Function not registered: 'SetDynamicObjectRot'
+[14:08:12]    Error: Function not registered: 'cache_get_field_content_int'
+[14:08:12]    Error: Function not registered: 'cache_get_field_content_float'
+[14:08:12]    Error: Function not registered: 'GetDynamicObjectRot'
+[14:08:12]    Error: Function not registered: 'Streamer_CountItems'
+[14:08:12]  
+[14:08:12]  
+[14:08:12]  
+[14:08:12]  ======================================= 
+[14:08:12]  |                                     | 
+[14:08:12]  |        YSI version 3.09.0684        | 
+[14:08:12]  |        By Alex "Y_Less" Cole        | 
+[14:08:12]  |                                     | 
+[14:08:12]  ======================================= 
+[14:08:12]  
+[14:08:12]  
+[14:08:12]  
+[14:08:13] [ADM] Info: Load EVF v3.2.1 for SA:MP 0.3.7 by Abyss Morgan
+[14:08:13]  
+[14:08:13] --------------------------------------
+[14:08:13]  Anticheat Nex-AC carregado!
+[14:08:13]  Anticheat versão: 1.9.61
+[14:08:13]  Autor: Nexius (PT-BR by NicK_)
+[14:08:13] --------------------------------------
+
+[14:08:13] [CARREGADO] Custom nametags by Yur$
+[14:08:13] |-- Corrida de Cavalos: Carregado
+[14:08:17] [CARREGADO] Mapa: Vila tierra roubada
+[14:08:17] [CARREGADO] Mapa avião
+[14:08:17] [CARREGADO] Mapa: Aeroporto abandonado Village
+[14:08:17] [CARREGADO] Mapa: WH 2
+[14:08:17] [CARREGADO] Mapa: Factory int
+[14:08:17] [CARREGADO] Mapa: Ghetto droga int
+[14:08:17] [CARREGADO] Mapa: Ghetto ammo int
+[14:08:17] [CARREGADO] Mapa Ilegal gunshop int
+[14:08:17] [CARREGADO] Mapa: int lavagem de grana
+[14:08:17] [CARREGADO] Mapa: Hospital interior
+[14:08:17] [CARREGADO] Mapa: Banco interior
+[14:08:17] [LOAD] Mapa: Barzinho
+[14:08:17] [LOAD] Mapa: Barzinho 2
+[14:08:17] [LOAD] Mapa: Barzinho 3
+[14:08:17] [CARREGADO] Mapa: Fight room
+[14:08:17] [CARREGADO] Mapa: Empresa 1
+[14:08:17] [CARREGADO] Mapa: Loja de Eletronicos
+[14:08:17] [CARREGADO] Mapa: Agencia de Empregos
+[14:08:17] [CARREGADO] Mapa: Estudio
+[14:08:17] [LOAD] Mapa: Sony
+[14:08:17] [LOAD] Mapa: Caravan
+[14:08:17] [LOAD] Mapa: Interiores de Casas e Empresas vazios
+[14:08:17] [LOAD] Mapa: Apartamento 1
+[14:08:17] [LOAD] Mapa: Apartamento 2
+[14:08:17] [LOAD] Mapa: Apartamento 3
+[14:08:17] [LOAD] Mapa: DrugHouse 1
+[14:08:17] [LOAD] Mapa: WeaponHouse 1
+[14:08:17] [CARREGADO] Mapa: Complexo 1
+[14:08:17] [CARREGADO] Mapa: Complexo 2
+[14:08:17] [CARREGADO] Mapa: Complexo 3
+[14:08:17] [CARREGADO] Mapa: Complexo 4
+[14:08:17] [CARREGADO] Mapa: Complexo 5
+[14:08:17] [CARREGADO] Mapa: Complexo 7
+[14:08:17] [CARREGADO] Mapa: Complexo 8
+[14:08:17] [CARREGADO] Mapa: Complexo 9
+[14:08:17] [CARREGADO] Sistema de Grafite
+[14:08:17] 
+-------------------------------------------
+[14:08:17] War on Terror Roleplay — 2023				
+[14:08:17] Desenvolvido por Yuri Braga					
+[14:08:18] ------------------------------------------
+ 
+[14:08:18] Number of vehicle models: 5
+[14:08:18] [CARREGADO] Veiculos criados.
+[14:08:18] [CARREGADO] 0 veiculos carregados.
+[14:08:18] [CARREGADO] Casas: 0
+[14:08:18] [CARREGADO] Garagens: 0
+[14:08:18] [CARREGADO] Complexos: 0
+[14:08:18] [CARREGADO] Empresas: 0
+[14:08:18] [CARREGADO] Pontos de entrega.
+[14:08:18] [CARREGADO] FURNITURE: 0 moveis.
+[14:08:18] [CARREGADO] Armas no Servidor: 3
+[14:08:18] [CARREGADO] Armas no Chão: 2
+[14:08:18] [CARREGADO] Armas na Pos 0: 0
+[14:08:18] [CARREGADO] Facções: 6
+[14:08:18] [CARREGADO] Total de Portas/Portões: 0
+[14:08:18] [CARREGADO] Itens no Servidor: 0
+[14:08:18] [CARREGADO] Itens no Chão: 0 
+[14:08:18] [CARREGADO] Itens na Pos 0: 0
+[14:08:18] [CARREGADO] Munições no chão do Servidor: 0 
+[14:08:18] [CARREGADO] Atualmente existem 0 drogas plantadas por SA.
+[14:08:18] [CARREGADO] Drogas no chão do Servidor: 0
+[14:08:18] [CARREGADO] Drogas na Pos 0: 0
+[14:08:18] [CARREGADO] Pixes: 0
+[14:08:18] [CARREGADO] Multas: 0
+[14:08:18] sscanf warning: Format specifier does not match parameter count.
+[14:08:18] [CARREGADO] Cofre do governo: US$24929863
+[14:08:18] [SERVER-INFO] Carregado com sucesso!
+[14:10:54] [connection] incoming connection: 187.19.226.95:34803 id: 0
+[14:10:54] progressive-roleplay.com/wtrp2023/api-ip.php?ip=187.19.226.95
+[14:10:54] [join] Brent_Austin has joined the server (0:187.19.226.95)
+[14:10:54] [ERRO] CHECK-IP COM FALHA! Code: 301, Data: <!DOCTYPE html>
+<html style="height:100%">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title> 301 Moved Permanently
+</title></head>
+<body style="color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;">
+<div style="height:auto; min-height:100%; ">     <div style="text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;">
+        <h1 style="margin:0; font-size:150px; line-height:150px; font-weight:bold;">301</h1>
+<h2 style="margin-top:20px;font-size: 30px;">Moved Permanently
+</h2>
+<p>The document has been permanently moved.</p>
+</div></div></body></html>
+
+[14:10:57] [connection] incoming connection: 187.94.219.75:59347 id: 1
+[14:10:57] progressive-roleplay.com/wtrp2023/api-ip.php?ip=187.94.219.75
+[14:10:57] [ERRO] CHECK-IP COM FALHA! Code: 301, Data: <!DOCTYPE html>
+<html style="height:100%">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title> 301 Moved Permanently
+</title></head>
+<body style="color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;">
+<div style="height:auto; min-height:100%; ">     <div style="text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;">
+        <h1 style="margin:0; font-size:150px; line-height:150px; font-weight:bold;">301</h1>
+<h2 style="margin-top:20px;font-size: 30px;">Moved Permanently
+</h2>
+<p>The document has been permanently moved.</p>
+</div></div></body></html>
+
+[14:10:57] [join] Jason_Hayes has joined the server (1:187.94.219.75)
+[14:11:05] 
+[14:11:07] [SERVER-INFO] Novo jogador foi registrado como: Brent Austin (0) | DB ID: 3
+[14:11:11] 
+[14:11:11] [part] Jason_Hayes has left the server (1:1)
+[14:11:16] [Personagem] Seu nome OOC é slced.
+[14:11:27] [connection] incoming connection: 127.0.0.1:64450 id: 1
+[14:11:27] progressive-roleplay.com/wtrp2023/api-ip.php?ip=127.0.0.1
+[14:11:27] [ERRO] CHECK-IP COM FALHA! Code: 301, Data: <!DOCTYPE html>
+<html style="height:100%">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title> 301 Moved Permanently
+</title></head>
+<body style="color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;">
+<div style="height:auto; min-height:100%; ">     <div style="text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;">
+        <h1 style="margin:0; font-size:150px; line-height:150px; font-weight:bold;">301</h1>
+<h2 style="margin-top:20px;font-size: 30px;">Moved Permanently
+</h2>
+<p>The document has been permanently moved.</p>
+</div></div></body></html>
+
+[14:11:27] [join] Jason_Hayes has joined the server (1:127.0.0.1)
+[14:12:09] [part] Jason_Hayes has left the server (1:1)
+[14:12:56] [connection] incoming connection: 187.94.219.75:60183 id: 1
+[14:12:56] progressive-roleplay.com/wtrp2023/api-ip.php?ip=187.94.219.75
+[14:12:56] [ERRO] CHECK-IP COM FALHA! Code: 301, Data: <!DOCTYPE html>
+<html style="height:100%">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title> 301 Moved Permanently
+</title></head>
+<body style="color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;">
+<div style="height:auto; min-height:100%; ">     <div style="text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;">
+        <h1 style="margin:0; font-size:150px; line-height:150px; font-weight:bold;">301</h1>
+<h2 style="margin-top:20px;font-size: 30px;">Moved Permanently
+</h2>
+<p>The document has been permanently moved.</p>
+</div></div></body></html>
+
+[14:12:56] [join] Jason_Hayes has joined the server (1:187.94.219.75)
+[14:13:00] [part] Jason_Hayes has left the server (1:1)
+[14:13:09] [connection] incoming connection: 127.0.0.1:52217 id: 1
+[14:13:09] progressive-roleplay.com/wtrp2023/api-ip.php?ip=127.0.0.1
+[14:13:09] [ERRO] CHECK-IP COM FALHA! Code: 301, Data: <!DOCTYPE html>
+<html style="height:100%">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title> 301 Moved Permanently
+</title></head>
+<body style="color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;">
+<div style="height:auto; min-height:100%; ">     <div style="text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;">
+        <h1 style="margin:0; font-size:150px; line-height:150px; font-weight:bold;">301</h1>
+<h2 style="margin-top:20px;font-size: 30px;">Moved Permanently
+</h2>
+<p>The document has been permanently moved.</p>
+</div></div></body></html>
+
+[14:13:09] [join] Jason_Hayes has joined the server (1:127.0.0.1)
+[14:13:16] [part] Jason_Hayes has left the server (1:1)
+[14:16:04] [connection] incoming connection: 170.79.76.246:11821 id: 1
+[14:16:04] progressive-roleplay.com/wtrp2023/api-ip.php?ip=170.79.76.246
+[14:16:04] [ERRO] CHECK-IP COM FALHA! Code: 301, Data: <!DOCTYPE html>
+<html style="height:100%">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title> 301 Moved Permanently
+</title></head>
+<body style="color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;">
+<div style="height:auto; min-height:100%; ">     <div style="text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;">
+        <h1 style="margin:0; font-size:150px; line-height:150px; font-weight:bold;">301</h1>
+<h2 style="margin-top:20px;font-size: 30px;">Moved Permanently
+</h2>
+<p>The document has been permanently moved.</p>
+</div></div></body></html>
+
+[14:16:04] [join] James_Salada has joined the server (1:170.79.76.246)
+[14:16:15] [SERVER-INFO] Novo jogador foi registrado como: James Salada (1) | DB ID: 4
+[14:16:36] [Personagem] Seu nome OOC é chockyto.
+[14:16:38] [connection] incoming connection: 187.94.219.75:20100 id: 2
+[14:16:38] progressive-roleplay.com/wtrp2023/api-ip.php?ip=187.94.219.75
+[14:16:38] [ERRO] CHECK-IP COM FALHA! Code: 301, Data: <!DOCTYPE html>
+<html style="height:100%">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title> 301 Moved Permanently
+</title></head>
+<body style="color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;">
+<div style="height:auto; min-height:100%; ">     <div style="text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;">
+        <h1 style="margin:0; font-size:150px; line-height:150px; font-weight:bold;">301</h1>
+<h2 style="margin-top:20px;font-size: 30px;">Moved Permanently
+</h2>
+<p>The document has been permanently moved.</p>
+</div></div></body></html>
+
+[14:16:38] [join] Jason_Hayes has joined the server (2:187.94.219.75)
+[14:16:42] [part] Jason_Hayes has left the server (2:1)
+[14:16:54] [connection] incoming connection: 127.0.0.1:65124 id: 2
+[14:16:54] progressive-roleplay.com/wtrp2023/api-ip.php?ip=127.0.0.1
+[14:16:54] [ERRO] CHECK-IP COM FALHA! Code: 301, Data: <!DOCTYPE html>
+<html style="height:100%">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title> 301 Moved Permanently
+</title></head>
+<body style="color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;">
+<div style="height:auto; min-height:100%; ">     <div style="text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;">
+        <h1 style="margin:0; font-size:150px; line-height:150px; font-weight:bold;">301</h1>
+<h2 style="margin-top:20px;font-size: 30px;">Moved Permanently
+</h2>
+<p>The document has been permanently moved.</p>
+</div></div></body></html>
+
+[14:16:54] [join] Jason_Hayes has joined the server (2:127.0.0.1)
+[14:16:58] [chat] [James_Salada]: sabe dar cmd de adm?
+[14:17:00] [part] Jason_Hayes has left the server (2:1)
+[14:17:02] [chat] [Brent_Austin]: n
+[14:17:46] [chat] [James_Salada]: kkk web empresario
+[14:18:44] [chat] [James_Salada]: cobrava pcrl
+[14:18:51] [connection] incoming connection: 187.94.219.75:65194 id: 2
+[14:18:51] progressive-roleplay.com/wtrp2023/api-ip.php?ip=187.94.219.75
+[14:18:51] [ERRO] CHECK-IP COM FALHA! Code: 301, Data: <!DOCTYPE html>
+<html style="height:100%">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title> 301 Moved Permanently
+</title></head>
+<body style="color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;">
+<div style="height:auto; min-height:100%; ">     <div style="text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;">
+        <h1 style="margin:0; font-size:150px; line-height:150px; font-weight:bold;">301</h1>
+<h2 style="margin-top:20px;font-size: 30px;">Moved Permanently
+</h2>
+<p>The document has been permanently moved.</p>
+</div></div></body></html>
+
+[14:18:51] [join] Jason_Hayes has joined the server (2:187.94.219.75)
+[14:18:53] [chat] [Brent_Austin]: kkkkkkkkkk
+[14:18:55] [chat] [James_Salada]: 5 hora da manhã pedindo mapa
+[14:18:59] [chat] [Brent_Austin]: ta loko
+[14:19:02] [chat] [Brent_Austin]: eu mandava si fude
+[14:19:04] [part] Jason_Hayes has left the server (2:1)
+[14:19:05] [chat] [James_Salada]: kkkkk
+[14:19:34] [connection] incoming connection: 187.94.219.75:19492 id: 2
+[14:19:34] progressive-roleplay.com/wtrp2023/api-ip.php?ip=187.94.219.75
+[14:19:34] [ERRO] CHECK-IP COM FALHA! Code: 301, Data: <!DOCTYPE html>
+<html style="height:100%">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<title> 301 Moved Permanently
+</title></head>
+<body style="color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif; height:100%; background-color: #fff;">
+<div style="height:auto; min-height:100%; ">     <div style="text-align: center; width:800px; margin-left: -400px; position:absolute; top: 30%; left:50%;">
+        <h1 style="margin:0; font-size:150px; line-height:150px; font-weight:bold;">301</h1>
+<h2 style="margin-top:20px;font-size: 30px;">Moved Permanently
+</h2>
+<p>The document has been permanently moved.</p>
+</div></div></body></html>
+
+[14:19:34] [join] Jason_Hayes has joined the server (2:187.94.219.75)
+[14:19:54] [Personagem] Seu nome OOC é chockyto.
+[14:20:29] [chat] [James_Salada]: como cria veiculo?
+[14:20:35] [chat] [Jason_Hayes]:  criarcarro
+[14:20:40] [chat] [James_Salada]: vou de hydra
+[14:22:55] [chat] [James_Salada]: kd a cidade da galinha?
+[14:22:58] [chat] [Jason_Hayes]: kd?
+[14:23:00] [chat] [James_Salada]: carl n mandou?
+[14:23:01] [chat] [Jason_Hayes]: eu coloquei o mapa
+[14:23:04] [chat] [James_Salada]: '-'
+[14:23:05] [chat] [Jason_Hayes]: q ele me mando
+[14:23:16] [chat] [James_Salada]: ala minha vila
+[14:23:18] [chat] [James_Salada]: coisa linda
+[14:23:57] [Personagem] Seu nome OOC é chockyto.
+[14:23:57] [SAVE-PJ] Jogador Jason_Hayes - Personagem salvo com sucesso.
+[14:23:57] [part] Jason_Hayes has left the server (2:1)
+[14:24:33] [death] James_Salada died 54
+[14:24:33] [Nex-AC debug] AC health: 15, health: 20
+[14:24:33] [Nex-AC] Suspeita no ID 1. Código de motivo: 012
+[14:24:33] [Personagem] Seu nome OOC é chockyto.
+[14:24:33] [SAVE-PJ] Jogador James_Salada - Personagem salvo com sucesso.
+[14:24:33] [part] James_Salada has left the server (1:2)
+[14:25:59] [Personagem] Seu nome OOC é chockyto.
+[14:25:59] [SAVE-PJ] Jogador Brent_Austin - Personagem salvo com sucesso.
+[14:25:59] [part] Brent_Austin has left the server (0:1)

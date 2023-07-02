@@ -188,20 +188,20 @@ new AvisoTiroOuvido[MAX_PLAYERS][8000];
 
 new ambiente = 1; // 0  - Localhost 1 - Produção
 
-#define localhost_Connection   "localhost"
-#define localhost_User         "root"
-#define localhost_DB           "prrpoficial"
-#define localhost_Password     ""
+#define localhost_Connection   "198.50.187.244"
+#define localhost_User         "yurib_8244"
+#define localhost_DB           "yurib_8244"
+#define localhost_Password     "05ef20wP7E"
 
-#define sz_Connection   "localhost"
-#define sz_User         "root"
-#define sz_DB           "prrpoficial"
-#define sz_Password     ""
+#define sz_Connection   "198.50.187.244"
+#define sz_User         "yurib_8244"
+#define sz_DB           "yurib_8244"
+#define sz_Password     "05ef20wP7E"
 
 
 //====== [DEFINIÇÕES DO SERVIDOR] =======================================================
-#define ULTIMO_GMX      "25/06/2023"
-#define CA_VERSAO       "WT:RP v2.26"
+#define ULTIMO_GMX      "02/07/2023"
+#define CA_VERSAO       "WT:RP v2.28"
 #define CA_LINK         "weburl discord.io/wtroleplay"
 //#define CA_NOME         "hostname War on Terror Roleplay | BETA TEST CLOSED"
 #define CA_NOME         "hostname War on Terror Roleplay | discord.io/wtroleplay"
@@ -214,7 +214,7 @@ new ambiente = 1; // 0  - Localhost 1 - Produção
 #define DISTANCIA_CHAT  12.0
 
 new	Anuncio = 0;
-new newfacid = 8;
+new newfacid = 0;
 
 #define KEY_AIM KEY_HANDBRAKE
 
@@ -2975,15 +2975,15 @@ static PMERJ_Uniformes[11] = {
 static PMERJ_Barreiras[17] = {
 	1422, 1423, 1424, 1425, 1427,
 	981, 978, 979, 19425, 19467, 
-	1428, 1437, -2101, -2102, -2103, 
-	-2132
+	1428, 1437, -2101, -2102, 
+	-2103, -2132
 
 };
 
 static TRAF_Barreiras[8] = {
-	935, 3632, 1431, 2960,
-	-2132, -2101, -2102, 
-	-2103
+	935, 3632, 1431, 
+	2960, -2132, -2101, 
+	-2102, -2103
 
 };
 
@@ -2991,12 +2991,14 @@ static LOJA_OCULOS_PMERJ[3] = {
 	19138, 19139, 19140
 };
 
-static LOJA_CHAPEU_PMERJ[2] = {
-	-2300, -2401
+static LOJA_CHAPEU_PMERJ[5] = {
+	-2300, -2401, -2404, 
+	-2405, -2406
 };
 
-static LOJA_OUTROS_PMERJ[14] = {
-	-2402, -2200, -2104
+static LOJA_OUTROS_PMERJ[4] = {
+	-2402, -2200, -2104, 
+	-2403
 };
 //======== [BRINKS]======//
 static PROTEGE_Uniformes[4] = {
@@ -5993,7 +5995,7 @@ public Tempo_Clima()
 	return 1;
 }
 
-new SERVER_DOWNLOAD[] = "https://progressive-roleplay.com/wtrp2023";
+new SERVER_DOWNLOAD[] = "https://progressive-roleplay.com/modsamp";
 public OnPlayerRequestDownload(playerid, type, crc)
 {
     if(!IsPlayerConnected(playerid)) return 0;
@@ -6064,8 +6066,8 @@ public OnGameModeInit()
     garbage_vehicles[2] = AddStaticVehicle(408,2186.2073,-1991.3400,14.1957,358.8047,1,1);  // Lixeiro 1
     garbage_vehicles[3] = AddStaticVehicle(408,2190.6982,-1991.1963,14.1343,359.5683,1,1); // Lixeiro 1
 
-    CarRent[0] = AddStaticVehicle(445,1664.2168,-2248.0488,-2.9842,90.2306,1,1); // Green 1
-    CarRent[1] = AddStaticVehicle(445,1653.5485,-2313.4810,-2.9741,269.5144,1,1); // Green 2
+    CarRent[0] = AddStaticVehicle(445,231.4044,2429.6064,16.6818,273.9338,1,1); //ALTERADO
+    CarRent[1] = AddStaticVehicle(445,243.9206,2448.6970,16.6725,88.4367,1,1); //ALTERADO 
 	CarRent[2] = AddStaticVehicle(426,1560.7415,-2308.8511,13.3286,269.5454,1,1); // 1
 	CarRent[3] = AddStaticVehicle(426,1560.7153,-2312.1589,13.3285,269.5454,1,1); // 2
 	CarRent[4] = AddStaticVehicle(405,1560.6952,-2315.5034,13.3498,269.5466,1,1); // 3
@@ -7521,7 +7523,7 @@ CMD:veraparencia(playerid, params[])
 }
 CMD:idade(playerid, params[])
 {
-    ///if(PlayerInfo[playerid][pAge] == 23);
+    //if(PlayerInfo[playerid][pAge] == 23);
     ShowPlayerDialog(playerid, DIALOG_AGE, DIALOG_STYLE_INPUT, "Idade", "Idade minima: 5\n Idade máxima: 99.\n Entre com uma idade válida.", "Confirmar", "Cancelar");
     return 1;
 }
@@ -8012,8 +8014,8 @@ CMD:rasparnumeracao(playerid, params[])
     SCM(playerid, COLOR_LIGHTGREEN, "Você raspou a numeração da arma.");
     ArmaData[id][ArmaRaspada] = 1;
 
-	PlayerInfo[playerid][pGranaSuja] += 1800;
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu 1800 reais sujo pela remoção da placa.");
+	PlayerInfo[playerid][pGrana] += 1800;
+	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu 1800 doláres pela remoção da placa.");
 
     SalvarArma(id);
 	return 1;
@@ -8149,7 +8151,7 @@ public Timer_Minutos()
 				    if(PlayerInfo[i][pPrisao] == 1)
 				    {
 				    	SendClientMessage(i, COLOR_LIGHTGREEN, "[!] Você foi liberto.");
-				    	SetPlayerPosFreeze(i, 1734.3285,-1861.4269,13.5775, 1);
+				    	SetPlayerPosFreeze(i, 239.4424,2456.2986,16.8125, 1);
 				    	SetPlayerVirtualWorld(i,0);
 				    	SetPlayerInterior(i, 0);
 						SetPlayerAlgema(i, 0);
@@ -8157,7 +8159,7 @@ public Timer_Minutos()
 					else if(PlayerInfo[i][pPrisao] == 2)
 				    {
 				    	SendClientMessage(i, COLOR_LIGHTGREEN, "[!] Você foi liberto.");
-				    	SetPlayerPosFreeze(i, 1734.3285,-1861.4269,13.5775, 1);
+				    	SetPlayerPosFreeze(i, 239.4424,2456.2986,16.8125, 1);
 				    	SetPlayerVirtualWorld(i,0);
 				    	SetPlayerInterior(i, 0);
 						SetPlayerAlgema(i, 0);
@@ -8166,7 +8168,7 @@ public Timer_Minutos()
 				    {
 				        //Ajail
 				    	SendClientMessage(i, COLOR_LIGHTGREEN, "-> Você foi liberto da prisão administrativa.");
-				    	SetPlayerPosFreeze(i, 1734.3285,-1861.4269,13.5775, 1);
+				    	SetPlayerPosFreeze(i, 239.4424,2456.2986,16.8125, 1);
 				    	SetPlayerVirtualWorld(i,0);
 				    	SetPlayerInterior(i, 0);
 						SetPlayerAlgema(i, 0);
@@ -10033,7 +10035,7 @@ public Timer_Segundos()
 	    				{
 						    if(GaragemInfo[perto_alarmeg][hAlarmeDisparado] > 0)
 						    {
-		        				PlayAudioStreamForPlayer(i, "http://localhost/midia/alarme_casa.mp3", GaragemInfo[perto_alarmeg][hExX],GaragemInfo[perto_alarmeg][hExY],GaragemInfo[perto_alarmeg][hExZ], 50.0, 1);
+		        				PlayAudioStreamForPlayer(i, "https://progressive-roleplay.com/midia/alarme_casa.mp3", GaragemInfo[perto_alarmeg][hExX],GaragemInfo[perto_alarmeg][hExY],GaragemInfo[perto_alarmeg][hExZ], 50.0, 1);
 		        				ouvindoxmradio[i] = 5;
 						    }
 						}
@@ -11846,6 +11848,27 @@ public OnPlayerConnect(playerid)
 
 	TextDrawHideForPlayer(playerid, HitMark);
 
+	//USMC
+	RemoveBuildingForPlayer(playerid, 16137, -389.765, 1515.160, 74.554, 0.250);
+	RemoveBuildingForPlayer(playerid, 16615, -389.765, 1515.160, 74.554, 0.250);
+	RemoveBuildingForPlayer(playerid, 16613, -346.671, 1595.079, 79.664, 0.250);
+	RemoveBuildingForPlayer(playerid, 16614, -346.671, 1595.079, 79.664, 0.250);
+	RemoveBuildingForPlayer(playerid, 16136, -350.062, 1594.339, 75.312, 0.250);
+	RemoveBuildingForPlayer(playerid, 16138, -326.695, 1541.390, 74.554, 0.250);
+	RemoveBuildingForPlayer(playerid, 16616, -326.695, 1541.390, 74.554, 0.250);
+	RemoveBuildingForPlayer(playerid, 16139, -372.445, 1495.959, 61.906, 0.250);
+	RemoveBuildingForPlayer(playerid, 16722, -372.445, 1495.959, 61.906, 0.250);
+	RemoveBuildingForPlayer(playerid, 16335, -225.188, 1394.839, 68.578, 0.250);
+	RemoveBuildingForPlayer(playerid, 16336, -225.188, 1394.839, 68.578, 0.250);
+	RemoveBuildingForPlayer(playerid, 16148, -352.281, 1577.540, 52.265, 0.250);
+	RemoveBuildingForPlayer(playerid, 16581, -352.281, 1577.540, 52.265, 0.250);
+	RemoveBuildingForPlayer(playerid, 16147, -190.313, 1565.300, 42.460, 0.250);
+	RemoveBuildingForPlayer(playerid, 16582, -190.313, 1565.300, 42.460, 0.250);
+	RemoveBuildingForPlayer(playerid, 16109, -344.062, 1398.699, 49.835, 0.250);
+	RemoveBuildingForPlayer(playerid, 16584, -344.062, 1398.699, 49.835, 0.250);
+	RemoveBuildingForPlayer(playerid, 16144, -324.148, 1302.229, 52.664, 0.250);
+	RemoveBuildingForPlayer(playerid, 16751, -324.148, 1302.229, 52.664, 0.250);
+	RemoveBuildingForPlayer(playerid, 16143, -324.148, 1302.229, 52.664, 0.250);
 	//Vila tierra roubada
 	RemoveBuildingForPlayer(playerid, 3350, -773.039, 2419.648, 155.968, 0.250);
 	RemoveBuildingForPlayer(playerid, 3302, -808.546, 2428.938, 159.210, 0.250);
@@ -13187,10 +13210,13 @@ public OnPlayerSpawn(playerid){
                     GameTextForPlayer(playerid, stringl,6000,1);
 
                     format(stringl, sizeof(stringl), "SERVER: Bem-vindo %s.",PlayerName(playerid,0)); SendClientMessage(playerid, COLOR_WHITE, stringl);
-                    format(stringl, sizeof(stringl), "SERVER: Última atualização realizada em 25/06/2023, WT:RP v2.26, acesse nosso fórum e veja o que vou atualizado."); SendClientMessage(playerid, COLOR_WHITE, stringl);
+                    format(stringl, sizeof(stringl), "SERVER: Última atualização realizada em 02/07/2023, WT:RP v2.28, acesse nosso fórum e veja o que vou atualizado."); SendClientMessage(playerid, COLOR_WHITE, stringl);
                     format(stringl, sizeof(stringl), "DEV: Estamos em nossa versão Beta e caso algum bug seja encontrado reporte-o via fórum."); SendClientMessage(playerid, COLOR_WHITE, stringl);
                     
                     if(PlayerInfo[playerid][pAge] == 23)
+                        SCM(playerid, COLOR_LIGHTRED, "O campo de idade não foi preenchido, use /idade para preenche-lo.");
+
+						if(PlayerInfo[playerid][pAge] == 0)
                         SCM(playerid, COLOR_LIGHTRED, "O campo de idade não foi preenchido, use /idade para preenche-lo.");
 
                     if((PlayerInfo[playerid][pFac] > 0) && (FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fCriada] == 0 || FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fCriada] == 2)){
@@ -15706,7 +15732,7 @@ public HackerSeven(playerid)
 	SetPlayerCameraLookAt(playerid, 2172.7,1601.9,999.9);
 	ApplyAnimation(playerid,"CASINO","Roulette_win", 4.0, 1, 0, 0, 0, 0);
     GameTextForPlayer(playerid,"~p~SUCESSO",2000,6);
-	SendClientMessage(playerid,COLOR_WHITE,"Você ganhou 760 reais pelo serviço.");
+	SendClientMessage(playerid,COLOR_WHITE,"Você ganhou 760 doláres pelo serviço.");
     PlayerInfo[playerid][pGrana] += 760;
     SetTimerEx("HackerSuccesed", 3000, 0, "d", playerid);
  
@@ -19889,9 +19915,9 @@ public CreateUser(playerid)
 
     PlayerInfo[playerid][pLogado] = 1;
     PlayerInfo[playerid][pLogouAgr] = 1;//Alterar
-    PlayerInfo[playerid][pPos][0] = 1742.2247; //Alterar para spawn em Los Santos
-    PlayerInfo[playerid][pPos][1] = -1858.8806;
-    PlayerInfo[playerid][pPos][2] = 13.4140;
+    PlayerInfo[playerid][pPos][0] = 239.4424; //Alterar para spawn em Los Santos
+    PlayerInfo[playerid][pPos][1] = 2456.2986;
+    PlayerInfo[playerid][pPos][2] = 16.8125;
     PlayerInfo[playerid][pInterior] = 0;
     PlayerInfo[playerid][pWorld] = 0;
     PlayerInfo[playerid][pPayDay] = 60;
@@ -19903,10 +19929,10 @@ public CreateUser(playerid)
 
     StopAudioStreamForPlayer(playerid);
 
-	SetPlayerPos(playerid, 1742.2247,-1858.8806,13.4140);
+	SetPlayerPos(playerid, 239.4424,2456.2986,16.8125);
 	TogglePlayerControllable(playerid, 0);
-	SetPlayerCameraPos(playerid, 1808.8971, -1754.5114, 56.6778);
-	SetPlayerCameraLookAt(playerid, 1809.8999, -1754.5228, 56.3977);
+	SetPlayerCameraPos(playerid, 311.185089, 2435.568359, 17.282800);
+	SetPlayerCameraLookAt(playerid, 311.185089, 2435.568359, 17.282800);
 	SetPlayerInterior(playerid, 0);
 	SetPlayerVirtualWorld(playerid, 0);
 	Dialog_Show(playerid, Dialog_Genero, DIALOG_STYLE_LIST, "Selecione seu genêro", "Masculino\nFeminino", "Selecionar", "");
@@ -28092,9 +28118,9 @@ forward PegouGranaCocaETrf(playerid);
 public PegouGranaCocaETrf(playerid)
 {
 
-	PlayerInfo[playerid][pGranaSuja] += 900;
+	PlayerInfo[playerid][pGrana] += 900;
 	//PlayerInfo[playerid][pTrafico]++;
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu 900 reais sujo pela cocaina excelente.");
+	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu 900 doláres pela cocaina excelente.");
 
 	new stringvendeu[256];
 	format(stringvendeu,sizeof(stringvendeu),"%s diz: Fé. Tamo junto!", PlayerName(playerid, 1));
@@ -28156,9 +28182,9 @@ forward PegouGranaCocaBTrf(playerid);
 public PegouGranaCocaBTrf(playerid)
 {
 
-	PlayerInfo[playerid][pGranaSuja] += 300;
+	PlayerInfo[playerid][pGrana] += 300;
 	//PlayerInfo[playerid][pTrafico]++;
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu 300 reais sujo pela cocaina.");
+	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu 300 doláres pela cocaina.");
 
 	new stringvendeu[256];
 	format(stringvendeu,sizeof(stringvendeu),"%s diz: Fé. Tamo junto!", PlayerName(playerid, 1));
@@ -28220,9 +28246,9 @@ forward PegouGranaErvaETrf(playerid);
 public PegouGranaErvaETrf(playerid)
 {
 
-	PlayerInfo[playerid][pGranaSuja] += 900;
+	PlayerInfo[playerid][pGrana] += 900;
 	//PlayerInfo[playerid][pTrafico]++;
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu 900 reais sujo pela cocaina excelente.");
+	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu 900 doláres pela cocaina excelente.");
 
 	new stringvendeu[256];
 	format(stringvendeu,sizeof(stringvendeu),"%s diz: Fé. Tamo junto!", PlayerName(playerid, 1));
@@ -28265,7 +28291,7 @@ COMMAND:lavar(playerid,params[])
 
 
 			PlayerInfo[playerid][pGranaSuja] = PlayerInfo[playerid][pGranaSuja] -= 20000;
-			SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você está limpando 20 mil sujo, ganhará 15 mil reais limpo.");
+			SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você está limpando 20 mil doláres sujo, ganhará 15 mil doláres limpo.");
 
 
 			SetTimerEx("InicioLavagem", 120000, false, "d", playerid);
@@ -28302,7 +28328,7 @@ public PegandoGranaSuja(playerid)
 forward PegouGranaSuja(playerid);
 public PegouGranaSuja(playerid)
 {
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu os 80 mil limpo.");
+	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu os 80 mil doláres limpos.");
 
     TogglePlayerControllable(playerid, 1);
     ClearAnimations(playerid, 1);
@@ -28697,8 +28723,8 @@ COMMAND:roubar(playerid,params[])
 		{
 			if(IsPlayerInRangeOfPoint(playerid,1.5,cbanco[i][cbposX], cbanco[i][cbposY], cbanco[i][cbposZ]) && cbanco[i][cbRrombado] == 1) 
 			{
-				PlayerInfo[playerid][pGranaSuja] += 50000;
-				SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você está colhetando 50 mil reais.");
+				PlayerInfo[playerid][pGrana] += 50000;
+				SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você está colhetando 50 mil doláres.");
 
 				new stringBCofre[256];	
 				format(stringBCofre,sizeof(stringBCofre),"** %s se abaixa e começa a recolher o dinheiro do cofre.", PlayerName(playerid, 1));
@@ -28721,8 +28747,8 @@ COMMAND:roubar(playerid,params[])
 		{
 			if(IsPlayerInRangeOfPoint(playerid,1.5,cLoja[i][clposX], cLoja[i][clposY], cLoja[i][clposZ]) && cLoja[i][clRrombado] == 1) 
 			{
-				PlayerInfo[playerid][pGranaSuja] += 10000;
-				SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você está colhetando 10 mil reais.");
+				PlayerInfo[playerid][pGrana] += 10000;
+				SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você está colhetando 10 mil doláres.");
 
 				new location[MAX_ZONE_NAME];
 				Get2DZone(location, TOTAL_ZONE_NAME, cLoja[i][clposX], cLoja[i][clposY], cLoja[i][clposZ]);
@@ -28753,8 +28779,8 @@ COMMAND:roubar(playerid,params[])
 		{
 			if(IsPlayerInRangeOfPoint(playerid,1.5,ATMs[i][aposX], ATMs[i][aposY], ATMs[i][aposZ]) && ATMs[i][aRrombado] == 1) 
 			{
-				PlayerInfo[playerid][pGranaSuja] += 8000;
-				SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você está colhetando 8 mil reais.");
+				PlayerInfo[playerid][pGrana] += 8000;
+				SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você está colhetando 8 mil doláres.");
 
 				new stringCaixaF[256];	
 				format(stringCaixaF,sizeof(stringCaixaF),"** %s se abaixa e começa a recolher o dinheiro do chão.", PlayerName(playerid, 1));
@@ -28775,7 +28801,7 @@ public PegandoGranaJoalheria(playerid)
  	{
   		if(IsPlayerInRangeOfPoint(playerid,1.5,joalheria[i][jlposX], joalheria[i][jlposY], joalheria[i][jlposZ]))
 		{
-            PlayerInfo[playerid][pGranaSuja] += 6000;
+            PlayerInfo[playerid][pGrana] += 6000;
             PlayerInfo[playerid][pOuro] += 10;
             PlayerInfo[playerid][pPrata] += 5;
             PlayerInfo[playerid][pBronze] += 4;
@@ -29931,7 +29957,7 @@ public RemovendoPlacaV(playerid, slot)
 	    SendClientMessage(playerid, 0xFF7B30FF, "A placa do veículo foi removida.");
 
 		PlayerInfo[playerid][pGranaSuja] += 900;
-		SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu 900 reais sujo pela remoção da placa.");
+		SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu 900 doláres sujo pela remoção da placa.");
 
 	}
     return 1;
@@ -29992,7 +30018,7 @@ public TrocandoPlacaV(playerid, slot)
 	    FetchVehiclePlate(slot,VehicleInfo[slot][vPlate]);
 
 		PlayerInfo[playerid][pGranaSuja] += 900;
-		SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu 900 reais sujo pela troca da placa.");
+		SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu 900 doláres sujo pela troca da placa.");
 
 	    SetVehicleNumberPlate(veh,VehicleInfo[slot][vPlate]);
 	    SendClientMessage(playerid, 0xFF7B30FF, "A placa do veículo foi trocada. (Veículo removido de procurado)");
@@ -31864,7 +31890,7 @@ COMMAND:retirar(playerid,params[])
 				        if(PlayerInfo[other][pGranaSuja])
 				        {
 							PlayerInfo[other][pGranaSuja] = 0;
-       						format(str,sizeof(str),"* %s retira o dinheiro sujo de de %s.", PlayerName(playerid, 1), PlayerName(other, 1));
+       						format(str,sizeof(str),"* %s retira o dinheiro sujo de %s.", PlayerName(playerid, 1), PlayerName(other, 1));
        						ProxDetector(10.0, playerid, str,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
 							return 1;
 						}
@@ -39445,7 +39471,7 @@ CMD:ajudaadmin(playerid, params[])
 			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Tester] /tirartmorte /desbugarskill /ajailoff /mascarados /ajudateam /checaratirador");
 		}
     	if(PlayerInfo[playerid][pAdmin] >= 1){
-			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Game Admin 1]{FFFFFF} /aj /rj /aduty /kick /ban /ooc /ir /trazer /irls /mandarlv /listaspec /setarvw /spec");
+			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Game Admin 1]{FFFFFF} /aj /rj /aduty /kick /ban /ooc /ir /trazer /irlv /mandarlv /listaspec /setarvw /spec");
 			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Game Admin 1]{FFFFFF} /irveiculo /trazerveiculo /curar /setarvida /tirartmorte /enviarjogador /tapa");
 			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Game Admin 1]{FFFFFF} /setarint /setarskin /ajail /ajailoff /daraviso /verip /checaravisos /removeraviso");
 			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Game Admin 1]{FFFFFF} /apagarpixe /congelar /descongelar /unbugc /desbugarskill /mascarados");
@@ -40549,7 +40575,7 @@ COMMAND:aveiculo(playerid, params[])
 					VehicleInfo[slot][vFaction] = 0;
 					StopEngine(VehicleInfo[slot][vVehicle]);
 
-					format(VehicleInfo[slot][vOwnerName], 24,"Governo do RJ");
+					format(VehicleInfo[slot][vOwnerName], 24,"Governo Afegão");
 
 					format(string, sizeof(string), "AdmCmd: Você mudou o veículo para o emprego %d.", variavel);
 					SendClientMessage(playerid, COLOR_LIGHTRED, string);
@@ -41210,7 +41236,7 @@ CMD:mandarlv(playerid,params[])
 		    SetPlayerInterior(type, 0);
 		    SetPlayerVirtualWorld(type, 0);
 
-		    SetPlayerPos(type, 1743.1464,-1859.5961,13.4141);
+		    SetPlayerPos(type, 239.4424,2456.2986,16.8125);
 
 		    TogglePlayerControllable(type, 1);
 
@@ -43637,7 +43663,7 @@ CMD:casasint2(playerid, params[])
     return 1;
 }
 
-CMD:irls(playerid,params[])
+CMD:irlv(playerid,params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 1 && PlayerInfo[playerid][pTester] < 1) return 1;
@@ -43651,7 +43677,7 @@ CMD:irls(playerid,params[])
 
     if(IsPlayerInAnyVehicle(playerid))
     {
-    	SetVehiclePos(GetPlayerVehicleID(playerid),1743.1464,-1859.5961,13.4141);
+    	SetVehiclePos(GetPlayerVehicleID(playerid),239.4424,2456.2986,16.8125);
 	    SetPlayerVirtualWorld(playerid,0);
 	    SetPlayerInterior(playerid,0);
 	    LinkVehicleToInterior(GetPlayerVehicleID(playerid),0);
@@ -43662,7 +43688,7 @@ CMD:irls(playerid,params[])
     {
 	    SetPlayerInterior(playerid, 0);
 	    SetPlayerVirtualWorld(playerid, 0);
-	    SetPlayerPos(playerid, 1743.1464,-1859.5961,13.4141);
+	    SetPlayerPos(playerid, 239.4424,2456.2986,16.8125);
 	}
 
 	TogglePlayerControllable(playerid, 1);
@@ -67206,7 +67232,7 @@ CMD:tpda(playerid, params[])
 	{
 	    VendoTPDA[playerid][i] = -1;
 	}
-	Dialog_Show(playerid, TruckerPDA, DIALOG_STYLE_LIST, "Trucker Personal Digital Assistant ", "{CDCFD3}Mostrar{FFFFFF} Industrias Primárias\n{CDCFD3}Mostrar{FFFFFF} Industrias Secundárias\n{CDCFD3}Mostrar{FFFFFF} Empresas aceitando carga\n{CDCFD3}Mostrar{FFFFFF} Porto do RJ", "Selecionar", "Sair");
+	Dialog_Show(playerid, TruckerPDA, DIALOG_STYLE_LIST, "Trucker Personal Digital Assistant ", "{CDCFD3}Mostrar{FFFFFF} Industrias Primárias\n{CDCFD3}Mostrar{FFFFFF} Industrias Secundárias\n{CDCFD3}Mostrar{FFFFFF} Empresas aceitando carga\n{CDCFD3}Mostrar{FFFFFF} Porto do Afegão", "Selecionar", "Sair");
 	return 1;
 }
 Dialog:TruckerPDA(playerid, response, listitem, inputtext[])
@@ -67371,7 +67397,7 @@ Dialog:TruckerPDA_Porto(playerid, response, listitem, inputtext[])
 		{
 		    VendoTPDA[playerid][i] = -1;
 		}
-		Dialog_Show(playerid, TruckerPDA, DIALOG_STYLE_LIST, "Trucker Personal Digital Assistant ", "{CDCFD3}Mostrar{FFFFFF} Industrias Primárias\n{CDCFD3}Mostrar{FFFFFF} Industrias Secundárias\n{CDCFD3}Mostrar{FFFFFF} Empresas aceitando carga\nPorto do RJ", "Selecionar", "Sair");
+		Dialog_Show(playerid, TruckerPDA, DIALOG_STYLE_LIST, "Trucker Personal Digital Assistant ", "{CDCFD3}Mostrar{FFFFFF} Industrias Primárias\n{CDCFD3}Mostrar{FFFFFF} Industrias Secundárias\n{CDCFD3}Mostrar{FFFFFF} Empresas aceitando carga\nPorto do Afegão", "Selecionar", "Sair");
 	}
 	return 1;
 }
@@ -67630,7 +67656,7 @@ Dialog:TruckerPDA_GPSinicio(playerid, response, listitem, inputtext[])
 {
     if(!response)
     {
-        Dialog_Show(playerid, TruckerPDA, DIALOG_STYLE_LIST, "Trucker Personal Digital Assistant ", "{CDCFD3}Mostrar{FFFFFF} Industrias Primárias\n{CDCFD3}Mostrar{FFFFFF} Industrias Secundárias\n{CDCFD3}Mostrar{FFFFFF} Empresas aceitando carga\n{CDCFD3}Mostrar{FFFFFF} Porto do RJ", "Selecionar", "Sair");
+        Dialog_Show(playerid, TruckerPDA, DIALOG_STYLE_LIST, "Trucker Personal Digital Assistant ", "{CDCFD3}Mostrar{FFFFFF} Industrias Primárias\n{CDCFD3}Mostrar{FFFFFF} Industrias Secundárias\n{CDCFD3}Mostrar{FFFFFF} Empresas aceitando carga\n{CDCFD3}Mostrar{FFFFFF} Porto do Afegão", "Selecionar", "Sair");
 	}
 	else
 	{
@@ -68914,11 +68940,11 @@ public PokerPulse(tableid)
 			// Pot
 	  		if(PokerTable[tableid][pkrDelay] > 0 && PokerTable[tableid][pkrActive] == 3)
 	  		{
-	    		if(playerid != -1) PlayerTextDrawSetString(playerid, PlayerPokerUI[playerid][37], "RJ Holden");
+	    		if(playerid != -1) PlayerTextDrawSetString(playerid, PlayerPokerUI[playerid][37], "Texas Holden");
 	      	}
 	  		else if(PokerTable[tableid][pkrActive] == 2)
 	  		{
-	    		if(playerid != -1) PlayerTextDrawSetString(playerid, PlayerPokerUI[playerid][37], "RJ Holden");
+	    		if(playerid != -1) PlayerTextDrawSetString(playerid, PlayerPokerUI[playerid][37], "Texas Holden");
 	      	}
 	  		else if(PokerTable[tableid][pkrActive] == 3)
 	  		{
@@ -68943,7 +68969,7 @@ public PokerPulse(tableid)
 			}
 			else
 			{
-	  			if(playerid != -1) PlayerTextDrawSetString(playerid, PlayerPokerUI[playerid][37], "RJ Holden");
+	  			if(playerid != -1) PlayerTextDrawSetString(playerid, PlayerPokerUI[playerid][37], "Texas Holden");
 	     	}
 			// Bet
 	  		if(PokerTable[tableid][pkrDelay] > 0 && PokerTable[tableid][pkrActive] == 3)
@@ -68968,7 +68994,7 @@ public PokerPulse(tableid)
 	   		}
 	   		else
 	   		{
-	  			if(playerid != -1) PlayerTextDrawSetString(playerid, PlayerPokerUI[playerid][46], "RJ Holden");
+	  			if(playerid != -1) PlayerTextDrawSetString(playerid, PlayerPokerUI[playerid][46], "Texas Holden");
 			}// Community Cards
 			switch(PokerTable[tableid][pkrStage])
 			{
@@ -70153,7 +70179,7 @@ CreatePokerGUI(playerid)
         PlayerTextDrawSetProportional(playerid, PlayerPokerUI[playerid][45], 1);
         PlayerTextDrawSetShadow(playerid, PlayerPokerUI[playerid][45], 1);
 
-        PlayerPokerUI[playerid][46] = CreatePlayerTextDraw(playerid, 318.000000, 245.000000, "RJ Holden");
+        PlayerPokerUI[playerid][46] = CreatePlayerTextDraw(playerid, 318.000000, 245.000000, "Texas Holden");
         PlayerTextDrawAlignment(playerid, PlayerPokerUI[playerid][46], 2);
         PlayerTextDrawBackgroundColor(playerid, PlayerPokerUI[playerid][46], -1);
         PlayerTextDrawFont(playerid, PlayerPokerUI[playerid][46], 2);
@@ -71352,11 +71378,11 @@ Dialog:Dialog_CPlacas(playerid, response, listitem, inputtext[])
 		{
 		    case 0:
 		    {
-		        if(PlayerInfo[playerid][pGranaSuja] >= 1000)
+		        if(PlayerInfo[playerid][pGrana] >= 1000)
 				{
 					PlayerInfo[playerid][pPlacas]++;
 					SendClientMessage(playerid, COLOR_LIGHTGREEN, "Você comprou uma Placa nova por US$1000 sujo.");
-					PlayerInfo[playerid][pGranaSuja] = PlayerInfo[playerid][pGranaSuja]-1000;
+					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-1000;
 				}
 				else SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem US$1000 em sua mão.");
 			}
@@ -77156,7 +77182,7 @@ stock OnProgressBarFinish(playerid,type)
 	            	ATMs[CarregandoATM[playerid]][aGrana] += 5000;
 	            	CarregandoATM[playerid] = -1;
 	            	SECURITY_SEGURANDOMALOTE[playerid] = 0;
-					SendClientMessage(playerid, 0xFF7B30FF, "Você carregou o caixa eletrônico com 5 mil reais.");
+					SendClientMessage(playerid, 0xFF7B30FF, "Você carregou o caixa eletrônico com 5 mil doláres.");
 		    		TogglePlayerControllable(playerid,1);
 		    		RemovePlayerAttachedObject(playerid, 0);
 
@@ -82804,7 +82830,7 @@ CMD:planos(playerid,params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(CelularData[playerid][celNumero] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem um celular.");
-	Dialog_Show(playerid, DIALOG_CEL_PLANOS, DIALOG_STYLE_LIST, "RJ Telefonica - Planos de cobrança", "Pacote Regular\nPacote Básico\nPacote Premium Completo\nPacote Premium SMS\nPacote Premium Fala Mais", "Ver Infos", "Fechar");
+	Dialog_Show(playerid, DIALOG_CEL_PLANOS, DIALOG_STYLE_LIST, "AF Telefonica - Planos de cobrança", "Pacote Regular\nPacote Básico\nPacote Premium Completo\nPacote Premium SMS\nPacote Premium Fala Mais", "Ver Infos", "Fechar");
 	return 1;
 }
 
@@ -82824,7 +82850,7 @@ Dialog:DIALOG_CEL_PLANOS(playerid, response, listitem, inputtext[])
 				US$0,40 por segundo de sligação.\n \
 				US$8 por SMS enviado.\n\n \
 				- ATENÇÃO: Ao trocar de plano você assina um contrato de 6 PayDay's.");
-	            Dialog_Show(playerid, DIALOG_CEL_PLANO1, DIALOG_STYLE_MSGBOX, "RJ Telefonica - Pacote regular", Infos, "Assinar", "Voltar");
+	            Dialog_Show(playerid, DIALOG_CEL_PLANO1, DIALOG_STYLE_MSGBOX, "AF Telefonica - Pacote regular", Infos, "Assinar", "Voltar");
 	        }
 	        case 1://Pacote Básico
 	        {
@@ -82836,7 +82862,7 @@ Dialog:DIALOG_CEL_PLANOS(playerid, response, listitem, inputtext[])
 				Valor: US$100 por PayDay.\n\n \
 				- AVISO: Caso você utilizar mais minutos ou SMS's do que o assinado, você pagará a mais de acordo com o plano regular.\n \
 				- ATENÇÃO: Ao trocar de plano você assina um contrato de 6 PayDay's.");
-	            Dialog_Show(playerid, DIALOG_CEL_PLANO2, DIALOG_STYLE_MSGBOX,"RJ Telefonica - Pacote básico", Infos, "Assinar", "Voltar");
+	            Dialog_Show(playerid, DIALOG_CEL_PLANO2, DIALOG_STYLE_MSGBOX,"AF Telefonica - Pacote básico", Infos, "Assinar", "Voltar");
 	        }
 	        case 2://Pacote Premium Completo
 	        {
@@ -82848,7 +82874,7 @@ Dialog:DIALOG_CEL_PLANOS(playerid, response, listitem, inputtext[])
 				Valor: US$200 por PayDay.\n\n \
 				- AVISO: Caso você utilizar mais minutos ou SMS's do que o assinado, você pagará a mais de acordo com o plano regular.\n \
 				- ATENÇÃO: Ao trocar de plano você assina um contrato de 6 PayDay's.");
-	            Dialog_Show(playerid, DIALOG_CEL_PLANO3, DIALOG_STYLE_MSGBOX, "RJ Telefonica - Pacote premium completo", Infos, "Assinar", "Voltar");
+	            Dialog_Show(playerid, DIALOG_CEL_PLANO3, DIALOG_STYLE_MSGBOX, "AF Telefonica - Pacote premium completo", Infos, "Assinar", "Voltar");
 	        }
 	        case 3://Pacote Premium SMS
 	        {
@@ -82860,7 +82886,7 @@ Dialog:DIALOG_CEL_PLANOS(playerid, response, listitem, inputtext[])
 				Valor: US$250 por PayDay.\n\n \
 				- AVISO: Caso você utilizar mais minutos ou SMS's do que o assinado, você pagará a mais de acordo com o plano regular.\n \
 				- ATENÇÃO: Ao trocar de plano você assina um contrato de 6 PayDay's.");
-	            Dialog_Show(playerid, DIALOG_CEL_PLANO4, DIALOG_STYLE_MSGBOX, "RJ Telefonica - Pacote premium SMS", Infos, "Assinar", "Voltar");
+	            Dialog_Show(playerid, DIALOG_CEL_PLANO4, DIALOG_STYLE_MSGBOX, "AF Telefonica - Pacote premium SMS", Infos, "Assinar", "Voltar");
 	        }
 	        case 4://Pacote Premium Fala Mais
 	        {
@@ -82872,7 +82898,7 @@ Dialog:DIALOG_CEL_PLANOS(playerid, response, listitem, inputtext[])
 				Valor: US$350 por PayDay.\n\n \
 				- AVISO: Caso você utilizar mais minutos ou SMS's do que o assinado, você pagará a mais de acordo com o plano regular.\n \
 				- ATENÇÃO: Ao trocar de plano você assina um contrato de 6 PayDay's.");
-	            Dialog_Show(playerid, DIALOG_CEL_PLANO5, DIALOG_STYLE_MSGBOX, "RJ Telefonica - Pacote premium Fala Mais", Infos, "Assinar", "Voltar");
+	            Dialog_Show(playerid, DIALOG_CEL_PLANO5, DIALOG_STYLE_MSGBOX, "AF Telefonica - Pacote premium Fala Mais", Infos, "Assinar", "Voltar");
 	        }
 		}
 	}
@@ -82881,27 +82907,27 @@ Dialog:DIALOG_CEL_PLANOS(playerid, response, listitem, inputtext[])
 
 Dialog:DIALOG_CEL_PLANO1(playerid, response, listitem, inputtext[])
 {
-    if(!response) return Dialog_Show(playerid, DIALOG_CEL_PLANOS, DIALOG_STYLE_INPUT, "RJ Telefonica - Planos de cobrança", "Pacote Regular\nPacote Básico\nPacote Premium Completo\nPacote Premium SMS\nPacote Premium Fala Mais", "Ver Infos", "Fechar");
+    if(!response) return Dialog_Show(playerid, DIALOG_CEL_PLANOS, DIALOG_STYLE_INPUT, "AF Telefonica - Planos de cobrança", "Pacote Regular\nPacote Básico\nPacote Premium Completo\nPacote Premium SMS\nPacote Premium Fala Mais", "Ver Infos", "Fechar");
 	else return ComprandoPlano(playerid, 0);
 }
 Dialog:DIALOG_CEL_PLANO2(playerid, response, listitem, inputtext[])
 {
-    if(!response) return Dialog_Show(playerid, DIALOG_CEL_PLANOS, DIALOG_STYLE_INPUT, "RJ Telefonica - Planos de cobrança", "Pacote Regular\nPacote Básico\nPacote Premium Completo\nPacote Premium SMS\nPacote Premium Fala Mais", "Ver Infos", "Fechar");
+    if(!response) return Dialog_Show(playerid, DIALOG_CEL_PLANOS, DIALOG_STYLE_INPUT, "AF Telefonica - Planos de cobrança", "Pacote Regular\nPacote Básico\nPacote Premium Completo\nPacote Premium SMS\nPacote Premium Fala Mais", "Ver Infos", "Fechar");
 	else return ComprandoPlano(playerid, 1);
 }
 Dialog:DIALOG_CEL_PLANO3(playerid, response, listitem, inputtext[])
 {
-    if(!response) return Dialog_Show(playerid, DIALOG_CEL_PLANOS, DIALOG_STYLE_INPUT, "RJ Telefonica - Planos de cobrança", "Pacote Regular\nPacote Básico\nPacote Premium Completo\nPacote Premium SMS\nPacote Premium Fala Mais", "Ver Infos", "Fechar");
+    if(!response) return Dialog_Show(playerid, DIALOG_CEL_PLANOS, DIALOG_STYLE_INPUT, "AF Telefonica - Planos de cobrança", "Pacote Regular\nPacote Básico\nPacote Premium Completo\nPacote Premium SMS\nPacote Premium Fala Mais", "Ver Infos", "Fechar");
 	else return ComprandoPlano(playerid, 2);
 }
 Dialog:DIALOG_CEL_PLANO4(playerid, response, listitem, inputtext[])
 {
-    if(!response) return Dialog_Show(playerid, DIALOG_CEL_PLANOS, DIALOG_STYLE_INPUT, "RJ Telefonica - Planos de cobrança", "Pacote Regular\nPacote Básico\nPacote Premium Completo\nPacote Premium SMS\nPacote Premium Fala Mais", "Ver Infos", "Fechar");
+    if(!response) return Dialog_Show(playerid, DIALOG_CEL_PLANOS, DIALOG_STYLE_INPUT, "AF Telefonica - Planos de cobrança", "Pacote Regular\nPacote Básico\nPacote Premium Completo\nPacote Premium SMS\nPacote Premium Fala Mais", "Ver Infos", "Fechar");
 	else return ComprandoPlano(playerid, 3);
 }
 Dialog:DIALOG_CEL_PLANO5(playerid, response, listitem, inputtext[])
 {
-    if(!response) return Dialog_Show(playerid, DIALOG_CEL_PLANOS, DIALOG_STYLE_INPUT, "RJ Telefonica - Planos de cobrança", "Pacote Regular\nPacote Básico\nPacote Premium Completo\nPacote Premium SMS\nPacote Premium Fala Mais", "Ver Infos", "Fechar");
+    if(!response) return Dialog_Show(playerid, DIALOG_CEL_PLANOS, DIALOG_STYLE_INPUT, "AF Telefonica - Planos de cobrança", "Pacote Regular\nPacote Básico\nPacote Premium Completo\nPacote Premium SMS\nPacote Premium Fala Mais", "Ver Infos", "Fechar");
 	else return ComprandoPlano(playerid, 4);
 }
 
@@ -87667,56 +87693,56 @@ public DesmanchandoVeh(playerid, parte)
 			if(IsATruck(vid))
 			{
 				PlayerInfo[playerid][pPecasMecanicas][5]+= 32;
-				PlayerInfo[playerid][pGranaSuja] += 9000;
-				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 32 peças de carro e US$9,000 sujo por desmanchar este veículo.");
+				PlayerInfo[playerid][pGrana] += 9000;
+				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 32 peças de carro e US$9,000 por desmanchar este veículo.");
 			}
 			else if(IsASUV(vid))
 			{
 		 		PlayerInfo[playerid][pPecasMecanicas][5]+= 25;
-				PlayerInfo[playerid][pGranaSuja] += 7000;
-				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 25 peças de carro e US$7,000 sujo por desmanchar este veículo.");
+				PlayerInfo[playerid][pGrana] += 7000;
+				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 25 peças de carro e US$7,000 por desmanchar este veículo.");
 			}
 			else if(IsASportCar(vid))
 			{
 		 		PlayerInfo[playerid][pPecasMecanicas][5]+= 20;
-				PlayerInfo[playerid][pGranaSuja] += 6000;
-				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 20 peças de carro e US$6,000 sujo por desmanchar este veículo.");
+				PlayerInfo[playerid][pGrana] += 6000;
+				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 20 peças de carro e US$6,000 por desmanchar este veículo.");
 			}
 			else if(IsAVan(vid))
 			{
 		 		PlayerInfo[playerid][pPecasMecanicas][5]+= 27;
-				PlayerInfo[playerid][pGranaSuja] += 5500;
-				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 27 peças de carro e US$5,500 sujo por desmanchar este veículo.");
+				PlayerInfo[playerid][pGrana] += 5500;
+				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 27 peças de carro e US$5,500 por desmanchar este veículo.");
 			}
 			else if(IsAPopularCar(vid))
 			{
 		 		PlayerInfo[playerid][pPecasMecanicas][5]+= 18;
-				PlayerInfo[playerid][pGranaSuja] += 4000;
-				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 18 peças de carro e US$4,000 sujo por desmanchar este veículo.");
+				PlayerInfo[playerid][pGrana] += 4000;
+				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 18 peças de carro e US$4,000 por desmanchar este veículo.");
 			}
 			else if(IsAUnique(vid))
 			{
 		 		PlayerInfo[playerid][pPecasMecanicas][5]+= 17;
-				PlayerInfo[playerid][pGranaSuja] += 3600;
-				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 17 peças de carro e US$3,600 sujo por desmanchar este veículo.");
+				PlayerInfo[playerid][pGrana] += 3600;
+				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 17 peças de carro e US$3,600 por desmanchar este veículo.");
 			}
 			else if(IsABike(vid))
 			{
 		 		PlayerInfo[playerid][pPecasMecanicas][5]+= 2;
-				PlayerInfo[playerid][pGranaSuja] += 1200;
-				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 6 peças de carro e US$1,200 sujo por desmanchar este veículo.");
+				PlayerInfo[playerid][pGrana] += 1200;
+				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 6 peças de carro e US$1,200 por desmanchar este veículo.");
 			}
 			else if(IsABicicleta(vid))
 			{
 				PlayerInfo[playerid][pPecasMecanicas][5]+= 1;
-				PlayerInfo[playerid][pGranaSuja] += 900;
-				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 4 peças de carro e US$900 sujo por desmanchar este veículo.");
+				PlayerInfo[playerid][pGrana] += 900;
+				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 4 peças de carro e US$900 por desmanchar este veículo.");
 			}
 			else
 			{
 			    PlayerInfo[playerid][pPecasMecanicas][5]+= 3;
-				PlayerInfo[playerid][pGranaSuja] += 500;
-				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 3 peças de carro e US$500 sujo por desmanchar este veículo.");
+				PlayerInfo[playerid][pGrana] += 500;
+				SCM(playerid, COLOR_LIGHTGREEN, "Você recebeu 3 peças de carro e US$500 por desmanchar este veículo.");
 			}
 			new slot = GetVehicleSlot(vid);
 			if(slot > -1)
@@ -89490,8 +89516,7 @@ Dialog:WoW(playerid, response, listitem, inputtext[]) {
 		    emp_pox = GetClosetBusiness(playerid, 8);
 		    GPS(playerid, "Loja de Armas", EmpInfo[emp_pox][eExX],EmpInfo[emp_pox][eExY],EmpInfo[emp_pox][eExZ]);
 		}
-		case 18: GPS(playerid, "Hospital", 2027.3602,-1386.4576,17.2108);
-		case 19: LGPS(playerid);
+		case 18: LGPS(playerid);
  	}
  	SendClientMessage(playerid, COLOR_LIGHTGREEN, "O local escolhido foi marcado em seu GPS.");
   	return 1;
@@ -89499,7 +89524,7 @@ Dialog:WoW(playerid, response, listitem, inputtext[]) {
 CMD:gps(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-	Dialog_Show(playerid, WoW, DIALOG_STYLE_LIST, "GPS", "Procurar Endereço >>\nUSMC\nPosto de Gasolina\nAgência de Empregos\n24-7\nConcesionária\nLoja de Roupas\nBanco\nPawn Shop\nPizzaria\nPier de Pesca\nCasa de Apostas\nHospital\nLoja de Peças\nCentral Anuncios\nDMV\nMercado Negro\nLoja de Armas\nHospital\nDesligar o GPS", "Selecionar", "Fechar");
+	Dialog_Show(playerid, WoW, DIALOG_STYLE_LIST, "GPS", "Procurar Endereço >>\nUSMC\nPosto de Gasolina\nAgência de Empregos\n24-7\nConcesionária\nLoja de Roupas\nBanco\nPawn Shop\nPizzaria\nPier de Pesca\nCasa de Apostas\nHospital\nLoja de Peças\nCentral Anuncios\nDMV\nMercado Negro\nLoja de Armas\nDesligar o GPS", "Selecionar", "Fechar");
 	return 1;
 }
 

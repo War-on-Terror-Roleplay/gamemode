@@ -200,8 +200,8 @@ new ambiente = 1; // 0  - Localhost 1 - Produção
 
 
 //====== [DEFINIÇÕES DO SERVIDOR] =======================================================
-#define ULTIMO_GMX      "02/07/2023"
-#define CA_VERSAO       "WT:RP v2.28"
+#define ULTIMO_GMX      "03/07/2023"
+#define CA_VERSAO       "WT:RP v2.30"
 #define CA_LINK         "weburl discord.io/wtroleplay"
 //#define CA_NOME         "hostname War on Terror Roleplay | BETA TEST CLOSED"
 #define CA_NOME         "hostname War on Terror Roleplay | discord.io/wtroleplay"
@@ -214,7 +214,7 @@ new ambiente = 1; // 0  - Localhost 1 - Produção
 #define DISTANCIA_CHAT  12.0
 
 new	Anuncio = 0;
-new newfacid = 0;
+new newfacid = 10;
 
 #define KEY_AIM KEY_HANDBRAKE
 
@@ -2587,7 +2587,9 @@ new EditandoEmpresa[MAX_PLAYERS];
 new EditandoProduto[MAX_PLAYERS];
 //==============================================================================
 //Basket System
-#include "../gamemodes/basket/b_Seville.pwn"
+//#include "../gamemodes/basket/b_Seville.pwn"
+#include "../gamemodes/sistemas/get.pwn"
+
 //==============================================================================
 //                      				Casas
 //==============================================================================
@@ -6085,7 +6087,7 @@ public OnGameModeInit()
 
 
     //Basket
-    basket_OnGameModeInit();
+    //basket_OnGameModeInit();
     Iniciar_HorseBetSys();
     //PortoTrucker_ModeInit();
 
@@ -12647,15 +12649,7 @@ public PlayerDisconectDelTexts(playerid)
 }
 
 public OnDynamicObjectMoved(objectid) {
-	//Basket - Seville
-	if(objectid == Ball_sv) {
-	    OnObjectMoved_Basket(objectid, 1);
-	    return 1;
-	}
-	if(objectid == Ball_idle) {
-	    OnObjectMoved_Basket(objectid, 2);
-	    return 1;
-	}
+
 	return 1;
 }
 
@@ -13009,7 +13003,7 @@ public OnPlayerDisconnect(playerid, reason)
 	 	}
 
 	 	//Basket System
-		basket_Disconnect(playerid);
+		//basket_Disconnect(playerid);
 		//Horse Bet
 		Horse_OnPlayerDisconnect(playerid);
 		PlayerDeslogouEditandoAlgo(playerid);
@@ -13210,14 +13204,14 @@ public OnPlayerSpawn(playerid){
                     GameTextForPlayer(playerid, stringl,6000,1);
 
                     format(stringl, sizeof(stringl), "SERVER: Bem-vindo %s.",PlayerName(playerid,0)); SendClientMessage(playerid, COLOR_WHITE, stringl);
-                    format(stringl, sizeof(stringl), "SERVER: Última atualização realizada em 02/07/2023, WT:RP v2.28, acesse nosso fórum e veja o que vou atualizado."); SendClientMessage(playerid, COLOR_WHITE, stringl);
+                    format(stringl, sizeof(stringl), "SERVER: Última atualização realizada em 03/07/2023, WT:RP v2.30, acesse nosso fórum e veja o que vou atualizado."); SendClientMessage(playerid, COLOR_WHITE, stringl);
                     format(stringl, sizeof(stringl), "DEV: Estamos em nossa versão Beta e caso algum bug seja encontrado reporte-o via fórum."); SendClientMessage(playerid, COLOR_WHITE, stringl);
                     
                     if(PlayerInfo[playerid][pAge] == 23)
                         SCM(playerid, COLOR_LIGHTRED, "O campo de idade não foi preenchido, use /idade para preenche-lo.");
 
-						if(PlayerInfo[playerid][pAge] == 0)
-                        SCM(playerid, COLOR_LIGHTRED, "O campo de idade não foi preenchido, use /idade para preenche-lo.");
+					if(PlayerInfo[playerid][pAge] == 0)
+                    	SCM(playerid, COLOR_LIGHTRED, "O campo de idade não foi preenchido, use /idade para preenche-lo.");
 
                     if((PlayerInfo[playerid][pFac] > 0) && (FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fCriada] == 0 || FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fCriada] == 2)){
                         SCM(playerid, COLOR_LIGHTRED, "SERVER: A facção que você fazia parte, não existe mais.");
@@ -13826,7 +13820,7 @@ COMMAND:darpet(playerid, params[])
 
     PetData[targetid][petModelID] = petmodel;
     format(petzin, sizeof(petzin), PetData[targetid][petName], 128, "Jack");
-    format(petzin, sizeof(petzin), "Você deu um pet para %s, modelo: %d.", PlayerName(targetid, 0), petmodel);
+    format(petzin, sizeof(petzin), "Você deu um pet para %s.", PlayerName(targetid, 0));
     SendClientMessage(playerid, COLOR_WHITE, petzin);
 
     return 1;
@@ -13889,7 +13883,7 @@ PetSpawn(playerid)
     PetData[playerid][petModel] = CreateActor(petmodelid, fX, fY+2, fZ, fAngle);
 
     format(stringpet, sizeof(stringpet), "Dono: %s", ReturnName(playerid));
-    PetData[playerid][petText] = CreateDynamic3DTextLabel(stringpet, COLOR_WHITE, fX, fY+2, fZ, 15.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
+    PetData[playerid][petText] = CreateDynamic3DTextLabel(stringpet, COLOR_WHITE, fX, fY+1, fZ, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
 
 
     PetData[playerid][petSpawn] = true;
@@ -16436,9 +16430,9 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys) {
 	}
 
 	//Basket
-	if(newkeys & KEY_FIRE && !IsPlayerInAnyVehicle(playerid)) {
+/*	if(newkeys & KEY_FIRE && !IsPlayerInAnyVehicle(playerid)) {
 	    KeyStateChangeBasket(playerid, newkeys, oldkeys);
-	}
+	}*/ 
 	//GM
 	if (!IsPlayerInAnyVehicle(playerid) && (newkeys & KEY_YES))
 	{
@@ -21169,7 +21163,7 @@ public SalvarPlayer(playerid)
 			PlayerInfo[playerid][pID]);
 	    mysql_function_query(Pipeline, query, false, "", "");
 
-		format(query,sizeof(query),"UPDATE `accounts` SET `pHabDrug`='%d',`pArmasResetadas`='%d', `AjudaInicial`='%d', `pTomouAlgumTiro`='%d', `pTomouTiroPesado`='%d', `pTomouTiroBrancas`='%d', `pConvenio`='%d', `pTempoMorto`='%d', `tempodesman`='%d',`pAjudaInicialDim`='%d', `FabricouDroga`='%d', `petName`='%d' WHERE `ID` = '%d'",
+		format(query,sizeof(query),"UPDATE `accounts` SET `pHabDrug`='%d',`pArmasResetadas`='%d', `AjudaInicial`='%d', `pTomouAlgumTiro`='%d', `pTomouTiroPesado`='%d', `pTomouTiroBrancas`='%d', `pConvenio`='%d', `pTempoMorto`='%d', `tempodesman`='%d',`pAjudaInicialDim`='%d', `FabricouDroga`='%d' WHERE `ID` = '%d'",
 			PlayerInfo[playerid][pHabDrug],
 			PlayerInfo[playerid][pArmasResetadas],
 			PlayerInfo[playerid][pAjudaInicial],
@@ -21181,7 +21175,6 @@ public SalvarPlayer(playerid)
 			OutrasInfos[playerid][oDesmancheTime],
 			PlayerInfo[playerid][pAjudaInicialDim],
 			PlayerInfo[playerid][pFabricouD],
-			PetData[playerid][petName],
 			PlayerInfo[playerid][pID]);
 		mysql_function_query(Pipeline, query, false, "", "");
 
@@ -43951,7 +43944,6 @@ public LoadAccountInfo(extraid)
         cache_get_field_content(0, "RefundTeam", tmp);  PlayerInfo[extraid][pRefundTeam] = strval(tmp);
         cache_get_field_content(0, "PropertyTeam", tmp);  PlayerInfo[extraid][pPropertyTeam] = strval(tmp);
         cache_get_field_content(0, "dog", tmp);  PetData[extraid][petModelID] = strval(tmp);
-        cache_get_field_content(0, "petName", tmp);  PetData[extraid][petName] = strval(tmp);
 
 
         cache_get_field_content(0, "desmanx", tmp);  OutrasInfos[extraid][oDesmancheX] = floatstr(tmp);

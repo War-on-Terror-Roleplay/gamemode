@@ -77,7 +77,7 @@ public OnPlayerDeath(playerid, killerid, reason) {
     ClearAnimations(playerid);
 	//=========================================
     SetPVarInt(playerid, "ChamouOnPlayerDeath", 1);
-    basket_OnPlayerDeath(playerid);
+// basket_OnPlayerDeath(playerid);
 
     new Float:X,Float:Y,Float:Z,Float:A;
 	GetPlayerPos(playerid, X, Y, Z);

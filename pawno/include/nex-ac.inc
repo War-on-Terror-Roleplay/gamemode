@@ -239,10 +239,10 @@
 static bool:ac_ACAllow[] =
 {
 	true,	//0 Anti-AirBreak (onfoot)
-	true,	//1 Anti-AirBreak (in vehicle)
+	false,	//1 Anti-AirBreak (in vehicle)
 	true,	//2 Anti-teleport hack (onfoot)
-	true,	//3 Anti-teleport hack (in vehicle)
-	true,	//4 Anti-teleport hack (into/between vehicles)
+	false,	//3 Anti-teleport hack (in vehicle)
+	false,	//4 Anti-teleport hack (into/between vehicles)
 	true,	//5 Anti-teleport hack (vehicle to player)
 	true,	//6 Anti-teleport hack (pickups)
 	true,	//7 Anti-FlyHack (onfoot)

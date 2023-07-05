@@ -195,7 +195,7 @@ new ambiente = 1; // 0  - Localhost 1 - Produção
 
 
 //====== [DEFINIÇÕES DO SERVIDOR] =======================================================
-#define ULTIMO_GMX      "03/07/2023"
+#define ULTIMO_GMX      "08/07/2023"
 #define CA_VERSAO       "WT:RP v2.30"
 #define CA_LINK         "weburl discord.io/wtroleplay"
 //#define CA_NOME         "hostname War on Terror Roleplay | BETA TEST CLOSED"
@@ -6094,8 +6094,8 @@ public OnGameModeInit()
     CreateDynamic3DTextLabel("[VENDER PEIXES]\nUse '/venderpeixes'", 0x008080FF, -754.3839,1529.4766,26.9495, 40.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
     CreatePickup(1239, 1, -754.3839,1529.4766,26.9495, -1);
 
-    CreateDynamic3DTextLabel("[CENTRAL DE ANÚNCIOS]\nUse '/anuncio'\nUse '/anuncioemp'", 0xffffffff, 1166.6110,-1473.7046,15.7921, 40.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
-    CreatePickup(1239, 1, 1166.6110,-1473.7046,15.7921, -1);
+    CreateDynamic3DTextLabel("[CENTRAL DE ANÚNCIOS]\nUse '/anuncio'\nUse '/anuncioemp'", 0xffffffff, -99.0746,1083.2296,19.7422, 40.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
+    CreatePickup(1239, 1, -99.0746,1083.2296,19.7422, -1);
     
 	CreateDynamic3DTextLabel("[USMC]\n/reparar", 0xffffffff, 2507.6438,-1551.7308,24.0324, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
     CreatePickup(1239, 1, 2507.6438,-1551.7308,24.0324, 0);
@@ -6130,16 +6130,18 @@ public OnGameModeInit()
     CreatePickup(1239, 1, 2027.3602,-1386.4576,17.2108, 0);
 
     //HOSPITAL
-    CreateDynamic3DTextLabel("{FFFFFF}[HOSPITAL]\n/tratar\n/convenio",0xffffffff, 174.4834,2784.5520,767.7469, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
-    CreatePickup(1239, 1, 1177.7151,-1321.4143,2015.4130, 0);
+    CreateDynamic3DTextLabel("{FFFFFF}[HOSPITAL]\n/tratar\n/convenio",0xffffffff, -320.3986,1049.1460,20.3403, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
+    CreatePickup(1239, 1, -320.3986,1049.1460,20.3403, 0);
 
     CreateDynamic3DTextLabel("{FFFFFF}[HOSPITAL]\n/deixarferido\nPara deixar o ferido",0xffffffff, 2043.6692,-1383.1019,17.1479, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
     CreatePickup(1239, 1, 2043.6692,-1383.1019,17.1479, 0);
 
 	//COMPRAR PEÇAS
-    CreateDynamic3DTextLabel("{FFFFFF}[LOJA DE PEÇAS]\n/comprarpecas\n/comprarplaca",0xffffffff, 1096.8484,-1528.9009,22.7434, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
-    CreatePickup(1239, 1, 1096.8484,-1528.9009,22.7434, 0);
+    CreateDynamic3DTextLabel("{FFFFFF}[LOJA DE PEÇAS]\n/comprarpecas\n/comprarplaca",0xffffffff, -144.7218,1078.8239,20.4922, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
+    CreatePickup(1239, 1, -144.7218,1078.8239,20.4922, 0);
 	
+	CreateDynamic3DTextLabel("{FFFFFF}M.Negro e Contrabando\n/comprar\n/contrabando",0xffffffff, 192.7921,1400.4963,10.5859, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
+	CreatePickup(1239, 1, 192.7921,1400.4963,10.5859, 0);
 	//COMPRAR
     CreateDynamic3DTextLabel("{FFFFFF}Conveniência\n/comprar",0xffffffff, 1917.8755,-1776.0514,13.6094, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
     CreatePickup(1239, 1, 1917.8755,-1776.0514,13.6094, 0);
@@ -12084,7 +12086,7 @@ public OnPlayerFinishedDownloading(playerid, virtualworld)
 	}
     return 1;
 }
-// SEM UCP
+//COM UCP
 forward CheckingAccount(playerid);
 public CheckingAccount(playerid)
 {
@@ -12093,74 +12095,90 @@ public CheckingAccount(playerid)
     TogglePlayerControllable(playerid,false);
 	SetPlayerPos(playerid, 1741.3394, -1875.1597, 13.5859);
 
-	InterpolateCameraPos(playerid, 311.185089, 2435.568359, 17.282800, 310.615600, 2436.388916, 17.232822, GetSeconds(60), CAMERA_MOVE);
-	InterpolateCameraLookAt(playerid, 311.185089, 2435.568359, 17.282800, 310.615600, 2436.388916, GetSeconds(60), CAMERA_MOVE);
-	
+    InterpolateCameraPos(playerid, 2119.1499, -491.2563, 122.1350, 2220.1875, -178.1629, 68.8067, GetSeconds(60), CAMERA_MOVE);
+    InterpolateCameraLookAt(playerid, 2119.4563, -490.3004, 121.9445, 2220.4978, -177.2082, 68.4912, GetSeconds(60), CAMERA_MOVE);
+
 	new rows, fields;
 	cache_get_data(rows, fields, Pipeline);
-	
 	if(rows)
 	{
-		LoginSeconds[playerid] = 60000;
+		LoginSeconds[playerid] = 50000;
 		TelaDeLogin[playerid] = 1;
 		new tmp[130];
   		cache_get_field_content(0, "ID", tmp); 			PlayerInfo[playerid][pID] = strval(tmp);
 		cache_get_field_content(0, "Password", tmp);	format(PlayerInfo[playerid][pPassword], 129, "%s", tmp);
-		
+		cache_get_field_content(0, "ucpOwn", tmp);	    PlayerInfo[playerid][pucpOwn] = strval(tmp);
+
 		new JaEstaOn = 0;
-		for(new di = 0; di < MAX_PLAYERS; di++)
-		{
-		    if(IsPlayerConnected(di))
-        	{
-			    if(playerid != di)
-			    {
-			    	if(PlayerInfo[playerid][pID] == PlayerInfo[di][pID])
-			    	{
+		for(new di = 0; di < MAX_PLAYERS; di++) {
+		    if(IsPlayerConnected(di)) {
+			    if(playerid != di) {
+			    	if(PlayerInfo[playerid][pID] == PlayerInfo[di][pID]) {
 			        	JaEstaOn = 1;
 						break;
+					}
+					if(PlayerInfo[playerid][pucpOwn] == PlayerInfo[di][pucpOwn]) {
+					    JaEstaOn = di+100;
+					    break;
 					}
 			    }
 			}
 		}
-		
-		if(JaEstaOn == 0)
-		{
+
+		if(JaEstaOn == 0) {
 		    new escapedPlayerName[MAX_PLAYER_NAME];
 		    mysql_real_escape_string(GetName(playerid), escapedPlayerName);
-			PlayerTextDrawShow(playerid, TelaLogin[playerid][0]);
-			PlayerTextDrawShow(playerid, TelaLogin[playerid][1]);
-			PlayerTextDrawShow(playerid, TelaLogin[playerid][3]);
-			PlayerTextDrawShow(playerid, TelaLogin[playerid][4]);
-			PlayerTextDrawShow(playerid, TelaLogin[playerid][5]);
-			new str[1024];
-			format(str, sizeof(str), "SERVER: Você só pode errar sua senha três (3) vezes.\n INFO: Nosso FÓRUM é o https://discord.io/wtroleplay\n acesse-o para mais informações sobre sua conta.\n\n        Digite sua senha:");
+			new str[250];
+			format(str, sizeof(str), "SERVER: Você só pode errar sua senha três (3) vezes.\n INFO: Nosso UCP é o htps://discord.io/wtroleplay\n acesse-o para mais informações sobre sua conta.\n\n        Digite sua senha:");
 			ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "War on Terror Roleplay", str, "Autenticar", "Cancelar");
-		}
-		else
-		{
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][0]);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][1]);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][3]);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][4]);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][5]);
+			
+		}
+		else if(JaEstaOn == 1) {
 		    new strdebug[56];
 			format(strdebug,126,"ERRO: O seu personagem %s, já está logado... Caso estranhe isto, contate um administrador.", GetName(playerid));
 			SendClientMessage(playerid, COLOR_LIGHTRED, strdebug);
 			SetTimerEx("TimerKick", 7000, 0, "d", playerid);
+			PlayerTextDrawShow(playerid, TelaLogin[playerid][0]);
+			PlayerTextDrawShow(playerid, TelaLogin[playerid][1]);
+			PlayerTextDrawShow(playerid, TelaLogin[playerid][3]);
+			PlayerTextDrawShow(playerid, TelaLogin[playerid][4]);
+			PlayerTextDrawShow(playerid, TelaLogin[playerid][5]);
+			
+		}
+		else {
+		    new strdebug[56];
+		    new pppid = (JaEstaOn-100);
+			format(strdebug,126,"ERRO: Algum outro personagem de sua UCP já está logado no servidor.. (Personagem: %s)", GetName(pppid));
+			SendClientMessage(playerid, COLOR_LIGHTRED, strdebug);
+			SetTimerEx("TimerKick", 7000, 0, "d", playerid);
+			PlayerTextDrawShow(playerid, TelaLogin[playerid][0]);
+			PlayerTextDrawShow(playerid, TelaLogin[playerid][1]);
+			PlayerTextDrawShow(playerid, TelaLogin[playerid][3]);
+			PlayerTextDrawShow(playerid, TelaLogin[playerid][4]);
+			PlayerTextDrawShow(playerid, TelaLogin[playerid][5]);
 		}
 	}
 	else
 	{
+	    new str[256];
+		format(str, sizeof(str), "\nOlá %s.\nA sua conta não existe, por favor dirija-se ao UCP para criar um personagem\nAtente-se as regras no nosso fórum também.\nUCP: htps://discord.io/wtroleplay/ucp\nFórum: htps://discord.io/wtroleplay\n", GetName(playerid));
+  		ShowPlayerDialog(playerid, 999999, DIALOG_STYLE_MSGBOX, "War on Terror Roleplay - Informação", str, "Fechar", "");
 		PlayerTextDrawShow(playerid, TelaLogin[playerid][0]);
 		PlayerTextDrawShow(playerid, TelaLogin[playerid][1]);
+		PlayerTextDrawShow(playerid, TelaLogin[playerid][2]);
 		PlayerTextDrawShow(playerid, TelaLogin[playerid][3]);
 		PlayerTextDrawShow(playerid, TelaLogin[playerid][4]);
 		PlayerTextDrawShow(playerid, TelaLogin[playerid][5]);
-	    new str[126];
-		format(str, sizeof(str), "Olá %s.\nBem vindo ao War on Terror Roleplay. Por favor entre com uma senha para registrar-se.", GetName(playerid));
-  		ShowPlayerDialog(playerid, DIALOG_REGISTER, DIALOG_STYLE_INPUT, "Registrar", str, "Registrar", "Sair");
+		SetTimerEx("TimerKick", 30, 0, "d", playerid);
+
 	}
-}
+	return 1;
+};
 
 
 forward PlayerConectCriarTexts(playerid);
@@ -13195,7 +13213,7 @@ public OnPlayerSpawn(playerid){
                     GameTextForPlayer(playerid, stringl,6000,1);
 
                     format(stringl, sizeof(stringl), "SERVER: Bem-vindo %s.",PlayerName(playerid,0)); SendClientMessage(playerid, COLOR_WHITE, stringl);
-                    format(stringl, sizeof(stringl), "SERVER: Última atualização realizada em 03/07/2023, WT:RP v2.30, acesse nosso fórum e veja o que vou atualizado."); SendClientMessage(playerid, COLOR_WHITE, stringl);
+                    format(stringl, sizeof(stringl), "SERVER: Última atualização realizada em 08/07/2023, WT:RP v2.30, acesse nosso fórum e veja o que vou atualizado."); SendClientMessage(playerid, COLOR_WHITE, stringl);
                     format(stringl, sizeof(stringl), "DEV: Estamos em nossa versão Beta e caso algum bug seja encontrado reporte-o via fórum."); SendClientMessage(playerid, COLOR_WHITE, stringl);
                     
                     if(PlayerInfo[playerid][pAge] == 23)
@@ -19894,7 +19912,7 @@ public CreateUser(playerid)
 
     PlayerInfo[playerid][pLogado] = 1;
     PlayerInfo[playerid][pLogouAgr] = 1;//Alterar
-    PlayerInfo[playerid][pPos][0] = 239.4424; //Alterar para spawn em Los Santos
+    PlayerInfo[playerid][pPos][0] = 239.4424; //Alterar para spawn
     PlayerInfo[playerid][pPos][1] = 2456.2986;
     PlayerInfo[playerid][pPos][2] = 16.8125;
     PlayerInfo[playerid][pInterior] = 0;
@@ -25329,7 +25347,7 @@ CMD:anuncio(playerid, params[])
 	if(CelularData[playerid][celNumero] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem um telefone celular.");
 	if(PlayerInfo[playerid][pLevel] < 6) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de TC 6 ou mais para anunciar.");
 	//if(Anuncio != 1)  return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Algum anúncio foi enviado nos ultimos 15 segundos, aguarde até enviar outro...");
-	if(!IsPlayerInRangeOfPoint(playerid,10.0,1166.6110,-1473.7046,15.7921)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está na área de anuncios, localizada no shopping.");
+	if(!IsPlayerInRangeOfPoint(playerid,10.0,-99.0746,1083.2296,19.7422)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está na área de anuncios, localizada no shopping.");
 
 	new opt[256];
 	if (sscanf(params, "s[256]",opt))
@@ -25374,7 +25392,7 @@ CMD:anuncioemp(playerid, params[])
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa estar logado.");
 	//if(Anuncio != 1)  return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Algum anúncio foi enviado nos ultimos 15 segundos, aguarde até enviar outro...");
 	if(PlayerInfo[playerid][pLevel] < 6) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de TC 6 ou mais para anunciar.");
-	if(!IsPlayerInRangeOfPoint(playerid,10.0,1166.6110,-1473.7046,15.7921)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está na área de anuncios, localizada no Shopping.");
+	if(!IsPlayerInRangeOfPoint(playerid,10.0,-99.0746,1083.2296,19.7422)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está na área de anuncios, localizada no Shopping.");
 
 	new opt[256];
 	if (sscanf(params, "s[256]",opt))
@@ -48632,7 +48650,7 @@ CMD:comprar(playerid, params[])
 		Combo Completo\tUS$18 \
 		", "Comprar", "Cancelar");
 	}
-	else if(IsPlayerInRangeOfPoint(playerid, 5,  1488.6760,-1721.4026,8.2160))
+	else if(IsPlayerInRangeOfPoint(playerid, 5,  192.7921,1400.4963,10.5859))
 	{	
 		Dialog_Show(playerid, Dialog_Bomba, DIALOG_STYLE_TABLIST_HEADERS, "Mercado Negro", "Produto\tPreço\n1x Dinamite\tUS$200\n1x C4\tUS$400\n1x TNT\tUS$800\n1x Mina Terrestre\tUS$150\n1x Morteiro\tUS$250\n1x Kit medico\tUS$250", "Comprar", "Cancelar");
 	}
@@ -54522,7 +54540,7 @@ CMD:entrar(playerid, params[])
 		}
 	}
 
-	if(IsPlayerInRangeOfPoint(playerid, 5, 2027.3602,-1386.4576,17.2108))//Hospital
+	if(IsPlayerInRangeOfPoint(playerid, 5, -320.3986,1049.1460,20.3403))//Hospital
 	{
 	    SetPlayerInterior(playerid, 5);
 	    SetPlayerVirtualWorld(playerid, 9);
@@ -55284,7 +55302,7 @@ CMD:sair(playerid, params[])
 	    PlayerInfo[playerid][pEntrouEmpresa] = -1;
 	    PlayerInfo[playerid][pEntrouGaragem] = -1;
 	    EntrouInt[playerid] = -1;
-	    SetPlayerPosFreeze(playerid, 2027.3602,-1386.4576,17.2108, 1);
+	    SetPlayerPosFreeze(playerid, -320.3986,1049.1460,20.3403 , 1);
 	}
 	return 1;
 }
@@ -71123,10 +71141,10 @@ CMD:contrabando(playerid,params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	{
-	   	if (IsPlayerInRangeOfPoint(playerid, 5, 1096.8484,-1528.9009,22.7434))
+	   	if (IsPlayerInRangeOfPoint(playerid, 5, 192.7921,1400.4963,10.5859))
 			Dialog_Show(playerid, DIALOG_VENDERJOIAS, DIALOG_STYLE_LIST, "Contrabando", "1x Ouro [US$2500]\n1x Prata [US$1600]\n1x Bronze [US$900]", "Vender", "Voltar");
 		else {
-  			SetPlayerCheckpoint(playerid, 1096.8484,-1528.9009,22.7434, 5.0);
+  			SetPlayerCheckpoint(playerid, 192.7921,1400.4963,10.5859, 5.0);
 			cp_target[playerid] = 1;
 			SendClientMessage(playerid, COLOR_LIGHTRED, "Você não está no local de contrabando.");
 			return 1;
@@ -71140,10 +71158,10 @@ CMD:comprarpecas(playerid,params[])
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pJob] == JOB_MECANICO)
 	{
-	   	if (IsPlayerInRangeOfPoint(playerid, 5, 1096.8484,-1528.9009,22.7434))
+	   	if (IsPlayerInRangeOfPoint(playerid, 5, -144.7218,1078.8239,20.4922))
 			Dialog_Show(playerid, Dialog_CPecas, DIALOG_STYLE_LIST, "Peças de Mecanico", "1x Rádio [US$20]\n1x Neon [US$100]\n1x GPS [US$20]\n1x Immob [US$30]\n1x Tranca [US$20]\nPeças de Reparo\nBaterias", "Selecionar", "Voltar");
 		else {
-  			SetPlayerCheckpoint(playerid, 1096.8484,-1528.9009,22.7434, 5.0);
+  			SetPlayerCheckpoint(playerid, -144.7218,1078.8239,20.4922, 5.0);
 			cp_target[playerid] = 1;
 			SendClientMessage(playerid, COLOR_LIGHTRED, "Você não está no local de venda de peças.");
 			return 1;
@@ -71158,10 +71176,10 @@ CMD:comprarplaca(playerid,params[])
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pJob] == JOB_FALSIFICADOR)
 	{
-	   	if (IsPlayerInRangeOfPoint(playerid, 5, 1096.8484,-1528.9009,22.7434) )
+	   	if (IsPlayerInRangeOfPoint(playerid, 5, -144.7218,1078.8239,20.4922) )
 			Dialog_Show(playerid, Dialog_CPlacas, DIALOG_STYLE_LIST, "Itens para Falsificadores", "1x Placa [US$1000]", "Selecionar", "Voltar");
 		else {
-  			SetPlayerCheckpoint(playerid, 1096.8484,-1528.9009,22.7434, 5.0);
+  			SetPlayerCheckpoint(playerid, -144.7218,1078.8239,20.4922, 5.0);
 			cp_target[playerid] = 1;
 			SendClientMessage(playerid, COLOR_LIGHTRED, "Você não está no local de venda de placas.");
 			return 1;
@@ -71179,11 +71197,11 @@ CMD:comprarpet(playerid,params[])
 		return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não possui premium ouro ativo.");
 
 	{
-	   	if (IsPlayerInRangeOfPoint(playerid, 5, 1096.8484,-1528.9009,22.7434))
+	   	if (IsPlayerInRangeOfPoint(playerid, 5, -144.7218,1078.8239,20.4922))
 			Dialog_Show(playerid, Dialog_PETSHOP, DIALOG_STYLE_TABLIST_HEADERS, "PETSHOP", "Produto\tPreço\nDOGUINHO 01\tUS$3870\nDOGUINHO 02\tUS$3870\nDOGUINHO 03\tUS$3870\n \
             \nDOGUINHO 04\tUS$3870\nDOGUINHO 05\tUS$3870\nDOGUINHO 06\tUS$3870\nDOGUINHO 07\tUS$3870\nCamelo\tUS$8000", "Selecionar", "Voltar");
 		else {
-  			SetPlayerCheckpoint(playerid, 1096.8484,-1528.9009,22.7434, 5.0);
+  			SetPlayerCheckpoint(playerid, -144.7218,1078.8239,20.4922, 5.0);
 			cp_target[playerid] = 1;
 			SendClientMessage(playerid, COLOR_LIGHTRED, "Você não está no petshop.");
 			return 1;
@@ -89438,15 +89456,15 @@ Dialog:WoW(playerid, response, listitem, inputtext[]) {
 		    emp_pox = GetClosetBusiness(playerid, 10);
 		    GPS(playerid, EmpInfo[emp_pox][eNome], EmpInfo[emp_pox][eExX],EmpInfo[emp_pox][eExY],EmpInfo[emp_pox][eExZ]);
 		}
-		case 12: GPS(playerid, "Hospital", 1172.1819,-1323.7139,15.4038);
-        case 13: GPS(playerid, "Loja de Peças", 1097.8562,-1520.4569,22.7452);
-        case 14: GPS(playerid, "Central de anúncios", 1166.6110,-1473.7046,15.7921);
+		case 12: GPS(playerid, "Hospital", -320.3986,1049.1460,20.3403);
+        case 13: GPS(playerid, "Loja de Peças", -144.7218,1078.8239,20.4922);
+        case 14: GPS(playerid, "Central de anúncios", -99.0746,1083.2296,19.7422);
 		case 15:
 		{
 			 emp_pox = GetClosetBusiness(playerid, EMP_TIPO_LIC_CENTER);
 			 GPS(playerid, "Auto Escola", EmpInfo[emp_pox][eExX],EmpInfo[emp_pox][eExY],EmpInfo[emp_pox][eExZ]);
 		}
-		case 16: GPS(playerid, "Mercado Negro", 1729.1348,-1577.5988,13.5451);
+		case 16: GPS(playerid, "Mercado Negro", 192.7921,1400.4963,10.5859);
 		case 17:
 		{
 		    emp_pox = GetClosetBusiness(playerid, 8);

@@ -12093,10 +12093,10 @@ public CheckingAccount(playerid)
 	LimparChat(playerid);
 
     TogglePlayerControllable(playerid,false);
-	SetPlayerPos(playerid, 1741.3394, -1875.1597, 13.5859);
+	SetPlayerPos(playerid, 239.4424,2456.2986,16.8125);
 
-    InterpolateCameraPos(playerid, 2119.1499, -491.2563, 122.1350, 2220.1875, -178.1629, 68.8067, GetSeconds(60), CAMERA_MOVE);
-    InterpolateCameraLookAt(playerid, 2119.4563, -490.3004, 121.9445, 2220.4978, -177.2082, 68.4912, GetSeconds(60), CAMERA_MOVE);
+	InterpolateCameraPos(playerid, 311.185089, 2435.568359, 17.282800, 310.615600, 2436.388916, 17.232822, GetSeconds(60), CAMERA_MOVE);
+	InterpolateCameraLookAt(playerid, 311.185089, 2435.568359, 17.282800, 310.615600, 2436.388916, GetSeconds(60), CAMERA_MOVE);
 
 	new rows, fields;
 	cache_get_data(rows, fields, Pipeline);
@@ -12129,14 +12129,13 @@ public CheckingAccount(playerid)
 		    new escapedPlayerName[MAX_PLAYER_NAME];
 		    mysql_real_escape_string(GetName(playerid), escapedPlayerName);
 			new str[250];
-			format(str, sizeof(str), "SERVER: Você só pode errar sua senha três (3) vezes.\n INFO: Nosso UCP é o htps://discord.io/wtroleplay\n acesse-o para mais informações sobre sua conta.\n\n        Digite sua senha:");
-			ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "War on Terror Roleplay", str, "Autenticar", "Cancelar");
+			format(str, sizeof(str), "SERVER: Você só pode errar sua senha três (3) vezes.\n INFO: Nosso UCP é o https://progressive-roleplay.com\n acesse-o para mais informações sobre sua conta.\n\n        Digite sua senha:");
+			ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "Progressive Roleplay", str, "Autenticar", "Cancelar");
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][0]);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][1]);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][3]);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][4]);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][5]);
-			
 		}
 		else if(JaEstaOn == 1) {
 		    new strdebug[56];
@@ -12148,7 +12147,6 @@ public CheckingAccount(playerid)
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][3]);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][4]);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][5]);
-			
 		}
 		else {
 		    new strdebug[56];
@@ -12166,8 +12164,8 @@ public CheckingAccount(playerid)
 	else
 	{
 	    new str[256];
-		format(str, sizeof(str), "\nOlá %s.\nA sua conta não existe, por favor dirija-se ao UCP para criar um personagem\nAtente-se as regras no nosso fórum também.\nUCP: htps://discord.io/wtroleplay/ucp\nFórum: htps://discord.io/wtroleplay\n", GetName(playerid));
-  		ShowPlayerDialog(playerid, 999999, DIALOG_STYLE_MSGBOX, "War on Terror Roleplay - Informação", str, "Fechar", "");
+		format(str, sizeof(str), "\nOlá %s.\nA sua conta não existe, por favor dirija-se ao UCP para criar um personagem\nAtente-se as regras no nosso fórum também.\nUCP: https://progressive-roleplay.com/ucp\nFórum: https://progressive-roleplay.com\n", GetName(playerid));
+  		ShowPlayerDialog(playerid, 999999, DIALOG_STYLE_MSGBOX, "Progressive Roleplay - Informação", str, "Fechar", "");
 		PlayerTextDrawShow(playerid, TelaLogin[playerid][0]);
 		PlayerTextDrawShow(playerid, TelaLogin[playerid][1]);
 		PlayerTextDrawShow(playerid, TelaLogin[playerid][2]);
@@ -12178,7 +12176,8 @@ public CheckingAccount(playerid)
 
 	}
 	return 1;
-};
+
+}
 
 
 forward PlayerConectCriarTexts(playerid);

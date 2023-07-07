@@ -1233,6 +1233,7 @@ new IncomingConnection[iI];
 #define DIALOG_CASAS1_MENU          17
 #define DIALOG_EMP1_MENU            18
 #define DIALOG_EMP2_MENU            19
+#define DIALOG_AGE2                  20
 #define DIALOG_ATTACH_INDEX             13500
 #define DIALOG_ATTACH_INDEX_SELECTION   DIALOG_ATTACH_INDEX+1
 #define DIALOG_ATTACH_EDITREPLACE       DIALOG_ATTACH_INDEX+2
@@ -7522,7 +7523,8 @@ CMD:veraparencia(playerid, params[])
 }
 CMD:idade(playerid, params[])
 {
-    ShowPlayerDialog(playerid, DIALOG_AGE, DIALOG_STYLE_INPUT, "Idade", "Idade minima: 5\n Idade máxima: 99.\n Entre com uma idade válida.", "Confirmar", "Cancelar");
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
+    ShowPlayerDialog(playerid, DIALOG_AGE2, DIALOG_STYLE_INPUT, "Idade", "Idade minima: 5\n Idade máxima: 99.\n Entre com uma idade válida.", "Confirmar", "Cancelar");
     return 1;
 }
 
@@ -18756,6 +18758,18 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 				PlayerInfo[playerid][pAge] = strval(inputtext);
 
 				ShowPlayerDialog(playerid, DIALOG_OOCREG, DIALOG_STYLE_INPUT, "Nome OOC", "Qual o seu nome OOC?", "Próximo", "Cancelar");
+			}
+		}
+		case DIALOG_AGE2:
+		{
+		    if(!response) return ShowPlayerDialog(playerid, DIALOG_AGE2, DIALOG_STYLE_INPUT, "Idade", "Entre com a idade de seu personagem.", "Confirmar", "Cancelar");
+		    if(response)
+		    {
+		    	if(strval(inputtext) < 5 || strval(inputtext) > 99) return ShowPlayerDialog(playerid, DIALOG_AGE2, DIALOG_STYLE_INPUT, "Idade", "ERRO!\n Idade minima: 5\n Idade máxima: 99.\n Entre com uma idade válida.", "Confirmar", "Cancelar");
+				format(szQuery, sizeof(szQuery), "[Personagem] Seu personagem tem %d anos.", strval(inputtext));
+				SendClientMessage(playerid, COLOR_LIGHTGREEN, szQuery);
+				PlayerInfo[playerid][pAge] = strval(inputtext);
+
 			}
 		}
 		case DIALOG_OOCREG:

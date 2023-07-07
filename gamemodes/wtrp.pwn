@@ -11078,8 +11078,7 @@ public ResetVarsPlayerInfo(extraid)
 	format(PlayerInfo[extraid][pPassword], 129, "YURIDESENVOLVEDORFULLSTACK@!BRASILcomedor");
 	PlayerInfo[extraid][pLevel] = 0;
 	PlayerInfo[extraid][pGender] = 0;
-	//PlayerInfo[extraid][pAge] = 0;
-	format(PlayerInfo[extraid][pAge], 50, " ");
+	PlayerInfo[extraid][pAge] = 0;
 	PlayerInfo[extraid][pAdmin] = 0;
 	PlayerInfo[extraid][pSkin] = 0;
 	PlayerInfo[extraid][pPos][0] = 0;
@@ -11782,7 +11781,7 @@ public OnPlayerConnect(playerid)
 
 	purchasing_vehicle[playerid] = -1;
 	format(PlayerInfo[playerid][pUltimoLogin],50," ");
-	format(PlayerInfo[playerid][pAge],50," ");
+	PlayerInfo[playerid][pAge] = 23;
 
 	SetPVarInt(playerid, "EditandoArmaNoChao", 0);
 

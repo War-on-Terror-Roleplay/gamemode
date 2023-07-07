@@ -84991,7 +84991,7 @@ COMMAND:rojao(playerid, params[])
 	GetPlayerPos(playerid, X, Y, Z);
 	GetXYInFrontOfPlayer(playerid, X, Y, 30);
 
-    SetPlayerAttachedObject(playerid, 6, -2063, 6, 0.05, 0.05, 0.15, 0.000000, 0.0, 0.0, 1.000000, 1.000000, 1.000000);
+    SetPlayerAttachedObject(playerid, 6, -2004, 6, 0.05, 0.05, 0.15, 0.000000, 0.0, 0.0, 1.000000, 1.000000, 1.000000);
     TogglePlayerControllable(playerid, 0);
     ApplyAnimation(playerid, "camera", "picstnd_in", 4.1, 0, 1, 1, 1, 0, 1);
     SetTimerEx("AbaixarMao", 5500, false, "d", playerid);

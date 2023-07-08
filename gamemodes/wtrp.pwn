@@ -2989,14 +2989,14 @@ static LOJA_OCULOS_PMERJ[3] = {
 	19138, 19139, 19140
 };
 
-static LOJA_CHAPEU_PMERJ[5] = {
-	-2300, -2401, -2404, 
+static LOJA_CHAPEU_PMERJ[4] = {
+	-2300, -2401, 
 	-2405, -2406
 };
 
-static LOJA_OUTROS_PMERJ[4] = {
+static LOJA_OUTROS_PMERJ[5] = {
 	-2402, -2200, -2104, 
-	-2403
+	-2403, -2404
 };
 //======== [BRINKS]======//
 static PROTEGE_Uniformes[4] = {
@@ -3027,27 +3027,26 @@ static LOJA_OUTROS_PCERJ[3] = {
 };
 
 //======== [EB]======//
-static EB_Uniformes[18] = {
-    20401, 20402, 20403, 20404,
-	20405, 20406, 20407, 20408,
-	20409, 20410, 20411, 20412,
-	20415, 20416, 20417, 20418, 
-	20419, 20420
+static EB_Uniformes[25] = {
+	20301, 20302, 20303, 20304,
+	20305, 20306, 20307, 20308,
+	20309, 20310, 20311, 20312,
+	20313, 20314, 20315, 20316,
+	20317, 20318, 20319, 20320,
+	20321, 20322, 20324, 20325
 
 };
 static LOJA_OCULOS_EB[3] = {
     19138, 19139, 19140
 };
 
-static LOJA_CHAPEU_EB[6] = {
-    -2111, -2113, -2114, -2115,
-	-2121, -2106
+static LOJA_CHAPEU_EB[1] = {
+	-2105
 
 };
 
-static LOJA_OUTROS_EB[8] = {
-	-2109, -2110, -2111, -2116,
-	-2120, -2107, -2103, -2112
+static LOJA_OUTROS_EB[1] = {
+	-2104
 };
 
 //======== [MEDIC]======//
@@ -6072,11 +6071,11 @@ public OnGameModeInit()
 
     CarRent[0] = AddStaticVehicle(445,231.4044,2429.6064,16.6818,273.9338,1,1); //ALTERADO
     CarRent[1] = AddStaticVehicle(445,243.9206,2448.6970,16.6725,88.4367,1,1); //ALTERADO 
-	CarRent[2] = AddStaticVehicle(426,1560.7415,-2308.8511,13.3286,269.5454,1,1); // 1
-	CarRent[3] = AddStaticVehicle(426,1560.7153,-2312.1589,13.3285,269.5454,1,1); // 2
-	CarRent[4] = AddStaticVehicle(405,1560.6952,-2315.5034,13.3498,269.5466,1,1); // 3
-	CarRent[5] = AddStaticVehicle(405,1560.6693,-2318.7683,13.3567,269.5466,1,1); // 4
-	CarRent[6] = AddStaticVehicle(401,1560.6440,-2321.9934,13.3636,269.5466,1,1); // 5
+	CarRent[2] = AddStaticVehicle(426,-138.1499,1220.1954,19.7344,181.2218,1,1); // 1
+	CarRent[3] = AddStaticVehicle(426,-144.4621,1219.7327,19.7344,181.2218,1,1); // 2
+	CarRent[4] = AddStaticVehicle(405,-149.9028,1220.9589,19.7274,176.5218,1,1); // 3
+	CarRent[5] = AddStaticVehicle(405,-155.7397,1220.4476,19.7274,176.5218,1,1); // 4
+	CarRent[6] = AddStaticVehicle(401,-163.0410,1219.6813,19.7344,184.9819,1,1); // 5
 	CarRent[7] = AddStaticVehicle(401,1560.6185,-2325.2891,13.3706,269.5466,1,1); // 6
     for(new c=0;c<sizeof(CarRent);c++)
     {
@@ -6112,8 +6111,8 @@ public OnGameModeInit()
     CreateDynamic3DTextLabel("[PÁTIO]\nUse '/apreender'\nUse '/desapreender'",0xffffffff,2819.6492,-1203.3964,24.9792, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
     CreatePickup(1239, 1, 2819.6492,-1203.3964,24.9792, 0);
 
-	CreateDynamic3DTextLabel("[Agencia de Seguros]\nUse '/aceitarcobranca'",0xffffffff,1500.2792,-1241.3109,14.5563, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);//checar correção
-	CreatePickup(1239, 1, 1500.2792,-1241.3109,14.5563, 0);//checar correção
+	CreateDynamic3DTextLabel("[Agencia de Seguros]\nUse '/aceitarcobranca'",0xffffffff,-142.1709,1081.1653,19.7422, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);//checar correção
+	CreatePickup(1239, 1, -142.1709,1081.1653,19.7422, 0);//checar correção
 
     //PEIXES
     //CreateDynamic3DTextLabel("{FFFFFF}[Casa de Peixes]\nUse '/venderpeixes'",0xffffffff, 2784.9338,-2454.6338,13.6344, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
@@ -6128,8 +6127,8 @@ public OnGameModeInit()
     CreatePickup(1239, 1, -337.6898,1557.2390,75.3437, 0);
     
 	//SAIDA GARAGEM USMC/SEALS
-	CreateDynamic3DTextLabel("{FFFFFF}[USMC/SEALS]\n/sair",0xffffffff, 1320.0571,1574.6483,10.5474, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
-    CreatePickup(1239, 1, 1320.0571,1574.6483,10.5474, 0);
+	CreateDynamic3DTextLabel("{FFFFFF}[USMC/SEALS]\n/sair",0xffffffff, 1319.3167,1340.9017,10.8203, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
+    CreatePickup(1239, 1, 1319.3167,1340.9017,10.8203, 0);
 
     //HOSPITAL
     CreateDynamic3DTextLabel("{FFFFFF}[HOSPITAL]\n/entrar",0xffffffff, -152.9051,1182.5298,19.7422, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
@@ -7344,6 +7343,7 @@ CMD:disparar(playerid, params[])
 	    MoveObject(Missil[2][playerid], x, y, z+710, 90, 0, 0, 0);
 	    SetTimerEx("QuedaMissil", 5000, false, "i", playerid);
 		SendClientMessage(playerid, COLOR_LIGHTGREEN, "INFO:{FFFFFF} Morteiro disparado, aguarde!");
+		SendClientMessageToAll(0xDC143CFF,"{DC143C}* Um morteiro foi disparado na região *");
 	}
 	return 1;
 }
@@ -8181,7 +8181,7 @@ public Timer_Minutos()
 				    if(PlayerInfo[i][pPrisao] == 1)
 				    {
 				    	SendClientMessage(i, COLOR_LIGHTGREEN, "[!] Você foi liberto.");
-				    	SetPlayerPosFreeze(i, 239.4424,2456.2986,16.8125, 1);
+				    	SetPlayerPosFreeze(i, -153.2006,1192.1924,19.6198, 1);
 				    	SetPlayerVirtualWorld(i,0);
 				    	SetPlayerInterior(i, 0);
 						SetPlayerAlgema(i, 0);
@@ -8189,7 +8189,7 @@ public Timer_Minutos()
 					else if(PlayerInfo[i][pPrisao] == 2)
 				    {
 				    	SendClientMessage(i, COLOR_LIGHTGREEN, "[!] Você foi liberto.");
-				    	SetPlayerPosFreeze(i, 239.4424,2456.2986,16.8125, 1);
+				    	SetPlayerPosFreeze(i, -153.2006,1192.1924,19.6198, 1);
 				    	SetPlayerVirtualWorld(i,0);
 				    	SetPlayerInterior(i, 0);
 						SetPlayerAlgema(i, 0);
@@ -8198,7 +8198,7 @@ public Timer_Minutos()
 				    {
 				        //Ajail
 				    	SendClientMessage(i, COLOR_LIGHTGREEN, "-> Você foi liberto da prisão administrativa.");
-				    	SetPlayerPosFreeze(i, 239.4424,2456.2986,16.8125, 1);
+				    	SetPlayerPosFreeze(i, -153.2006,1192.1924,19.6198, 1);
 				    	SetPlayerVirtualWorld(i,0);
 				    	SetPlayerInterior(i, 0);
 						SetPlayerAlgema(i, 0);
@@ -12699,7 +12699,7 @@ public CheckingAccount(playerid)
 	LimparChat(playerid);
 
     TogglePlayerControllable(playerid,false);
-	SetPlayerPos(playerid, 239.4424,2456.2986,16.8125);
+	SetPlayerPos(playerid, -153.2006,1192.1924,19.6198);
 
 	InterpolateCameraPos(playerid, 311.185089, 2435.568359, 17.282800, 310.615600, 2436.388916, 17.232822, GetSeconds(60), CAMERA_MOVE);
 	InterpolateCameraLookAt(playerid, 311.185089, 2435.568359, 17.282800, 310.615600, 2436.388916, GetSeconds(60), CAMERA_MOVE);
@@ -14925,7 +14925,7 @@ COMMAND:aceitarcobranca(playerid,params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 
-    if(IsPlayerInRangeOfPoint(playerid,7.5,1500.2792,-1241.3109,14.5563))//checar correção
+    if(IsPlayerInRangeOfPoint(playerid,7.5,-142.1709,1081.1653,19.7422))//checar correção
 	{
 		new idx = 0;
 		new tmp[64];
@@ -14938,7 +14938,7 @@ COMMAND:aceitarcobranca(playerid,params[])
 	else
 	{
  		SendClientMessage(playerid,COLOR_LIGHTRED,"Você não esta na agência de seguros. (Marcada no mapa)");
-   		SetPlayerCheckpoint(playerid,1500.2792,-1241.3109,14.5563,5.0);//checar correção
+   		SetPlayerCheckpoint(playerid,-142.1709,1081.1653,19.7422,5.0);//checar correção
 	    cp_target[playerid] = 2;
 	}
 	return 1;
@@ -20606,9 +20606,9 @@ public CreateUser(playerid)
 
     PlayerInfo[playerid][pLogado] = 1;
     PlayerInfo[playerid][pLogouAgr] = 1;//Alterar
-    PlayerInfo[playerid][pPos][0] = 239.4424; //Alterar para spawn
-    PlayerInfo[playerid][pPos][1] = 2456.2986;
-    PlayerInfo[playerid][pPos][2] = 16.8125;
+    PlayerInfo[playerid][pPos][0] = -153.2006; //Alterar para spawn
+    PlayerInfo[playerid][pPos][1] = 1192.1924;
+    PlayerInfo[playerid][pPos][2] = 19.6198;
     PlayerInfo[playerid][pInterior] = 0;
     PlayerInfo[playerid][pWorld] = 0;
     PlayerInfo[playerid][pPayDay] = 60;
@@ -20620,7 +20620,7 @@ public CreateUser(playerid)
 
     StopAudioStreamForPlayer(playerid);
 
-	SetPlayerPos(playerid, 239.4424,2456.2986,16.8125);
+	SetPlayerPos(playerid, -153.2006,1192.1924,19.6198);
 	TogglePlayerControllable(playerid, 0);
 	SetPlayerCameraPos(playerid, 311.185089, 2435.568359, 17.282800);
 	SetPlayerCameraLookAt(playerid, 311.185089, 2435.568359, 17.282800);
@@ -20659,9 +20659,9 @@ public OnModelSelectionResponse(playerid, extraid, index, modelid, response)
 			God_Aviso2[playerid] = 0;
 			SetPlayerScore(playerid, PlayerInfo[playerid][pLevel]);
 		    PlayerInfo[playerid][pSkin] = modelid;
-			PlayerInfo[playerid][pPos][0] = 1743.7053; //Alterar para spawn em Los Santos
-			PlayerInfo[playerid][pPos][1] = -1863.2133;
-			PlayerInfo[playerid][pPos][2] = 13.5959;
+			PlayerInfo[playerid][pPos][0] = -153.2006; //Alterar para spawn em Los Santos
+			PlayerInfo[playerid][pPos][1] = 1192.1924;
+			PlayerInfo[playerid][pPos][2] = 19.6198;
 		    StopAudioStreamForPlayer(playerid);
 
     		PlayerInfo[playerid][pLogouAgr] = 1;
@@ -32409,7 +32409,7 @@ CMD:ajudafaccao(playerid, params[])
     if(FacInfo[faccao][fTipo] == FAC_TIPO_PCERJ) // CIA
     {
         SendClientMessage(playerid, COLOR_WHITE, "*** AJUDA FACCAO ***");
-        SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** Canal de rádio: 197");
+        SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** Canal de rádio: 1551");
         SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** (/r)adio /rbaixo (radio baixo) /algemar /f /distintivo");
         SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** (/r2)adio /rbaixo2 (radio baixo 2) /nickbranco /nickazul");
         SendClientMessage(playerid, COLOR_CINZA, "*** AJUDA FACCAO *** /deixarferido /blockf /gov /squad /prefixo /rprefixo");
@@ -33840,20 +33840,20 @@ COMMAND:darlicencavoo(playerid, params[])
     if(PlayerInfo[playerid][pFacCargo] < 9) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem acesso a este comando.");
 
     new other, stringrt[126];
-	if (sscanf(params, "i",other)) SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} /darlicenca [playerid]");
+	if (sscanf(params, "i",other)) SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} /darlicencavoo [playerid]");
 	else
 	{
 	    if(GetDistanceBetweenPlayers(playerid,other) < 5.0)
 		{
-			if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PMERJ)
-			{
-			    if(PlayerInfo[playerid][pFlyLic] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você já tem uma licença de voo.");
-				PlayerInfo[playerid][pFlyLic] = 1;
+ 			if(PlayerInfo[playerid][pFac] != FAC_TIPO_PMERJ)
+    		{
+    			if(PlayerInfo[other][pFlyLic] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este player já tem uma licença de armas.");
 
-				format(stringrt, sizeof(stringrt), "Você deu a licença de voo para %s.", PlayerName(other, 1));
+		    	format(stringrt, sizeof(stringrt), "Você deu a licença de voar para %s.", PlayerName(other, 1));
 		    	SendClientMessage(other, COLOR_LIGHTGREEN, stringrt);
-		    	format(stringrt, sizeof(stringrt), "%s deu a você a licença de voo.", PlayerName(other, 1));
+		    	format(stringrt, sizeof(stringrt), "%s deu a você a licença de voar.", PlayerName(other, 1));
 		    	SendClientMessage(playerid, COLOR_LIGHTGREEN, stringrt);
+            	PlayerInfo[other][pFlyLic] = 1;
 			}
 		}
 		else
@@ -36571,7 +36571,7 @@ CMD:trabalho(playerid, params[])
             {
 			    new StrMsg[256];
 
-			    if(PlayerInfo[playerid][pDutySkin] == 0) PlayerInfo[playerid][pDutySkin] = 20400;
+			    if(PlayerInfo[playerid][pDutySkin] == 0) PlayerInfo[playerid][pDutySkin] = 20201;
 			    switch(PlayerInfo[playerid][pEmServico])
 			    {
 			    	case 0:
@@ -36786,7 +36786,7 @@ CMD:trabalho(playerid, params[])
             {
                 new StrMsg[256];
 
-                if(PlayerInfo[playerid][pDutySkin] == 0) PlayerInfo[playerid][pDutySkin] = 20200;
+                if(PlayerInfo[playerid][pDutySkin] == 0) PlayerInfo[playerid][pDutySkin] = 20101;
                 switch(PlayerInfo[playerid][pEmServico])
                 {
                     case 0:
@@ -37000,15 +37000,12 @@ CMD:trabalho(playerid, params[])
             {
 			    new StrMsg[256];
 
-			    if(PlayerInfo[playerid][pDutySkin] == 0) PlayerInfo[playerid][pDutySkin] = 20500;
+			    if(PlayerInfo[playerid][pDutySkin] == 0) PlayerInfo[playerid][pDutySkin] = 20301;
 			    switch(PlayerInfo[playerid][pEmServico])
 			    {
 			    	case 0:
 			    	{
-
-					    if(PlayerInfo[playerid][pMun9mm] > 0 || PlayerInfo[playerid][pMunCart] > 0 || PlayerInfo[playerid][pMun556] > 0 || PlayerInfo[playerid][pMun127] > 0) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve guardar suas munições particulares no armário antes de entrar em serviço.");
-
-                        format(StrMsg, sizeof(StrMsg), "**BRINKS: %s %s entrou em serviço!**", GetPlayerCargo(playerid), PlayerName(playerid, 0));
+                        format(StrMsg, sizeof(StrMsg), "**GHOSTS: %s %s entrou em serviço!**", GetPlayerCargo(playerid), PlayerName(playerid, 0));
 	  					SendFacMessage(0x6666CCFF,FacId,StrMsg);
 	  					PlayerInfo[playerid][pEmServico] = 1;
 	  					SetPlayerSkin(playerid, PlayerInfo[playerid][pDutySkin]);
@@ -37019,7 +37016,7 @@ CMD:trabalho(playerid, params[])
 					    //if(PlayerInfo[playerid][pArmaMao] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa devolver suas armas ou guarda-las no armário para sair de serviço.");
 						//if(PlayerInfo[playerid][pColde] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa devolver a arma do corpo para sair de serviço.");
 
-					    format(StrMsg, sizeof(StrMsg), "** BRINKS: %s %s saiu de serviço!**", GetPlayerCargo(playerid), PlayerName(playerid, 0));
+					    format(StrMsg, sizeof(StrMsg), "** GHOSTS: %s %s saiu de serviço!**", GetPlayerCargo(playerid), PlayerName(playerid, 0));
 		   				SendFacMessage(0x6666CCFF,FacId,StrMsg);
 		   				PlayerInfo[playerid][pEmServico] = 0;
 		   				SetPlayerSkin(playerid, PlayerInfo[playerid][pSkin]);
@@ -37681,20 +37678,14 @@ CMD:equipar(playerid, params[])
             Dialog_Show(playerid, Equipar_PCERJ, DIALOG_STYLE_LIST, "[Seals Team] Equipamentos", "Armas\nMunições\nColete\nRetirar Colete\nDevolver Armas\nAcessórios", "Selecionar", "Fechar");
         else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está na sala de equipamentos.");
     }
-    /* if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_EB)
+    if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_EB)
     {
         if(PlayerInfo[playerid][pEmServico] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
         if(IsPlayerInRangeOfPoint(playerid, 15, FacInfo[i][fArmarioPosX], FacInfo[i][fArmarioPosY], FacInfo[i][fArmarioPosZ]) && GetPlayerVirtualWorld(playerid) == FacInfo[i][fArmarioVw])
-            Dialog_Show(playerid, Equipar_eb, DIALOG_STYLE_LIST, "[Ghosts] Equipamentos", "Armas\nMunições\nColete\nRetirar Colete\nDevolver Armas\nAcessórios", "Selecionar", "Fechar");
+            Dialog_Show(playerid, Equipar_eb, DIALOG_STYLE_LIST, "[Ghosts] Equipamentos", "Colete\nRetirar Colete\nAcessórios", "Selecionar", "Fechar");
         else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está na sala de equipamentos.");
-    } */    
-	if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PRIXY)
-    {
-        if(PlayerInfo[playerid][pEmServico] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
-        if(IsPlayerInRangeOfPoint(playerid, 15, FacInfo[i][fArmarioPosX], FacInfo[i][fArmarioPosY], FacInfo[i][fArmarioPosZ]) && GetPlayerVirtualWorld(playerid) == FacInfo[i][fArmarioVw])
-            Dialog_Show(playerid, Equipar_eb, DIALOG_STYLE_LIST, "[Ghosts] Equipamentos", "Armas\nMunições\nColete\nRetirar Colete\nDevolver Armas\nAcessórios", "Selecionar", "Fechar");
-        else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está na sala de equipamentos.");
-    }
+    }   
+
 	if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_BANK)
 	{
 	    if(PlayerInfo[playerid][pEmServico] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
@@ -37712,36 +37703,10 @@ Dialog:Equipar_eb(playerid, response, listitem, inputtext[])
     {
         switch(listitem)
         {
-            case 0:
-			{
-				Dialog_Show(playerid, Equipar_EB1, DIALOG_STYLE_TABLIST_HEADERS, "[EB] Equipamentos", "Arma:\tCargo nescessário:\nCassetete\t1\nGranada de Fumaça\t1\nColt 45\t1\nDesert Eagle\t1\nShotgun\t1\nMP5\t1\nM4\t1\nParaquedas\t1\nSniper\t5", "Pegar", "Fechar");
-			}
-			case 1: Dialog_Show(playerid, Equipar_EB2, DIALOG_STYLE_TABLIST_HEADERS, "[EB] Equipamentos", "Tipo de Munição:\tQuantidade:\n9mm\t60\nCartuchos\t60\n5.56mm\t120\n12.7x106mm\t60", "Pegar", "Fechar");
-            case 2: { P_Armour[playerid] = 100; SetPlayerArmour_CA(playerid, 100); }
-            case 3: { P_Armour[playerid] = 0; SetPlayerArmour_CA(playerid, 0); }
-            case 4:
-            {
-                new ArmaId = PlayerInfo[playerid][pArmaMao];
-                if(ArmaId > 0)
-                {
-                    new strl[326];
-				   	format(strl, sizeof(strl), "%s devolveu uma %s com numeração: %d.", PlayerName(playerid, 0), GunNames[ArmaData[ArmaId][ArmaModelo]], ArmaData[ArmaId][ArmaNumeracao]);
-				  	LogDevarma_P(playerid,strl);
-	                //========================================
-				    DesarmandoPlayer[playerid] = 2;
-					ResetPlayerWeapons(playerid);
-					PlayerInfo[playerid][pArmaMao] = 0;
-					RemovePlayerAttachedObject(playerid, 0);
-					//========================================
-
-					ArmaData[ArmaId][ArmaCor] = 1;
-
-					SalvarArma(ArmaId);
-					return 1;
-				}
-				else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem nenhuma arma para entregar.");
-            }
-            case 5:
+		
+            case 0: { P_Armour[playerid] = 100; SetPlayerArmour_CA(playerid, 100); }
+            case 1: { P_Armour[playerid] = 0; SetPlayerArmour_CA(playerid, 0); }
+            case 2:
 	  		{
 	  		    Dialog_Show(playerid, DIALOGLJROUPAS_EB, DIALOG_STYLE_LIST, "Selecione uma categoria.", "Oculos\nChapeus\nOutros Itens", "Selecionar", "Cancelar");
 	    	}
@@ -41696,7 +41661,7 @@ CMD:mandarlv(playerid,params[])
 		{
 			format(string, sizeof(string), "AVISO: Você está na prisão por %d minuto(s)", PlayerInfo[type][pTemPreso]);
 			SendClientMessage(type, COLOR_LIGHTRED, string);
-			SetPlayerPos(type, 1393.3003,-14.5012,1001.0156);
+			SetPlayerPos(type, 1543.5889,-1669.9229,13.5567);
 
 			SetPlayerVirtualWorld(type, 0);
 
@@ -41755,7 +41720,7 @@ CMD:mandarlv(playerid,params[])
 		    SetPlayerInterior(type, 0);
 		    SetPlayerVirtualWorld(type, 0);
 
-		    SetPlayerPos(type, 239.4424,2456.2986,16.8125);
+		    SetPlayerPos(type, -153.2006,1192.1924,19.6198);
 
 		    TogglePlayerControllable(type, 1);
 
@@ -44165,7 +44130,7 @@ CMD:irlv(playerid,params[])
 
     if(IsPlayerInAnyVehicle(playerid))
     {
-    	SetVehiclePos(GetPlayerVehicleID(playerid),239.4424,2456.2986,16.8125);
+    	SetVehiclePos(GetPlayerVehicleID(playerid),-153.2006,1192.1924,19.6198);
 	    SetPlayerVirtualWorld(playerid,0);
 	    SetPlayerInterior(playerid,0);
 	    LinkVehicleToInterior(GetPlayerVehicleID(playerid),0);
@@ -44176,7 +44141,7 @@ CMD:irlv(playerid,params[])
     {
 	    SetPlayerInterior(playerid, 0);
 	    SetPlayerVirtualWorld(playerid, 0);
-	    SetPlayerPos(playerid, 239.4424,2456.2986,16.8125);
+	    SetPlayerPos(playerid, -153.2006,1192.1924,19.6198);
 	}
 
 	TogglePlayerControllable(playerid, 1);
@@ -50501,7 +50466,7 @@ Dialog:DIALOG_247(playerid, response, listitem, inputtext[])
 				{
 					if(PlayerInfo[playerid][pGrana] >= 50)
 	 		        {
-	 		            if(PlayerInfo[playerid][pLevel] > 10)
+	 		            if(PlayerInfo[playerid][pLevel] > 4)
 	 		            {
 		 		            if(PlayerInfo[playerid][pLevel] < 10) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa ser TC10 para comprar uma lata de spray.");
 						    if(PlayerInfo[playerid][pArmaMao] > 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já tem uma arma em mãos, guarde-a antes.");
@@ -55105,7 +55070,7 @@ CMD:entrar(playerid, params[])
 				}
 			}
 
-			SetVehiclePos(vehi,1320.0571,1574.6483,10.5474);
+			SetVehiclePos(vehi,1319.3167,1340.9017,10.8203);
 			LinkVehicleToInterior(vehi, 0);
 			SetVehicleVirtualWorld(vehi,0);
 			SetVehicleZAngle(vehi, 0);
@@ -55131,7 +55096,7 @@ CMD:entrar(playerid, params[])
 		}else{
 			SetPlayerInterior(playerid, 0);
 			SetPlayerVirtualWorld(playerid, 0);
-			SetPlayerPos(playerid, 1320.0571,1574.6483,10.5474);
+			SetPlayerPos(playerid, 1319.3167,1340.9017,10.8203);
 			SetPlayerFacingAngle(playerid, 0);
 			GameTextForPlayer(playerid, "~w~Bem-vindo a garagem da USMC/SEALS", 5000, 1);
 			PlayerInfo[playerid][pInterior] = 0;
@@ -55616,7 +55581,7 @@ CMD:sair(playerid, params[])
 	    EntrouInt[playerid] = -1;
 	    SetPlayerPosFreeze(playerid, -152.9051,1182.5298,19.7422, 1);
 	}
-	else if (IsPlayerInRangeOfPoint(playerid, 10.0, 1320.0571,1574.6483,10.5474)) // USMC/SEALS GARAGEM
+	else if (IsPlayerInRangeOfPoint(playerid, 10.0, 1319.3167,1340.9017,10.8203)) // USMC/SEALS GARAGEM
 	{
 
 		new PlayerNoCarro[4];
@@ -55646,7 +55611,7 @@ CMD:sair(playerid, params[])
 				}
 			}
 
-			SetVehiclePos(vehi, -337.6898,1557.2390,75.3437);
+			SetVehiclePos(vehi, -301.8944,1497.8920,75.6697);
 			LinkVehicleToInterior(vehi, 0);
 			SetVehicleVirtualWorld(vehi, 0);
 			SetVehicleZAngle(vehi, 180);
@@ -55671,7 +55636,7 @@ CMD:sair(playerid, params[])
 		}else{
 			SetPlayerVirtualWorld(playerid, 0);
 			SetPlayerInterior(playerid, 0);
-			SetPlayerPos(playerid, -337.6898,1557.2390,75.3437);
+			SetPlayerPos(playerid, -301.8944,1497.8920,75.6697);
 			SetPlayerFacingAngle(playerid, 180);
 		}
 	}
@@ -64465,7 +64430,7 @@ COMMAND:veiculo(playerid,params[])
 
 	if(strcmp(tmp,"remontar",true) == 0)
 	{
-		if(IsPlayerInRangeOfPoint(playerid,7.5,1500.2792,-1241.3109,14.5563))//checar correção
+		if(IsPlayerInRangeOfPoint(playerid,7.5,-142.1709,1081.1653,19.7422))//checar correção
 		{
 		    new tmp2[32];
 		    tmp2 = strtok(params,idx);
@@ -64478,7 +64443,7 @@ COMMAND:veiculo(playerid,params[])
 		else
 		{
 		    SendClientMessage(playerid,COLOR_LIGHTRED,"Você não esta na agência de seguros. (Marcada no mapa)");
-		    SetPlayerCheckpoint(playerid,1500.2792,-1241.3109,14.5563,5.0);//checar correção
+		    SetPlayerCheckpoint(playerid,-142.1709,1081.1653,19.7422,5.0);//checar correção
 		    cp_target[playerid] = 2;
 		    return 1;
 		}
@@ -81221,7 +81186,7 @@ CMD:pixar(playerid, params[], help)
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(GetPlayerWeapon(playerid) == 41)
 	{
-	    if(PlayerInfo[playerid][pLevel] > 25)
+	    if(PlayerInfo[playerid][pLevel] > 4)
      	{
 		    ShowPlayerDialog(playerid,DIALOG_GRAFITE_1,DIALOG_STYLE_INPUT,"Pixação","Entre com o texto a ser pixado.\n\nMáximo de caracteres: {ff0000}18","Avançar","Cancelar");
 		    SetPVarInt(playerid, "SettingGraffiti", 1);
@@ -81229,7 +81194,7 @@ CMD:pixar(playerid, params[], help)
 		    SCM(playerid, COLOR_LIGHTRED, "LEMBRE-SE: VOCÊ PODE SER BANIDO POR PIXAÇÕES INVÁLIDAS, SEM NOÇÃO, OFENSIVAS, DE ZOEIRA OOC, ETC..!");
 		    return 1;
 		}
-		else return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa ter TC 25 ou mais.");
+		else return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa ter TC 5 ou mais.");
 	}
 	else return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está segurando uma lata de Spray.");
 }

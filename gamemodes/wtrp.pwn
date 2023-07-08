@@ -7235,9 +7235,29 @@ COMMAND:settempo(playerid, params[])
     }
     return 1;
 }
+CMD:blindagem(playerid, params[]) 
+{ 
+    if(!IsPlayerInAnyVehicle(playerid)) 
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em um veículo."); 
+	if(PlayerInfo[playerid][pDoador] < 1) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não é um premium.");
+
+    new vehicleid = GetPlayerVehicleID(playerid), modeloo = GetVehicleModel(vehicleid); 
+    switch(modeloo) 
+    { 
+        case 522, 581, 586, 521, 468, 463, 461, 462, 448: return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este Modelo de veículo não Pode ser blindado!."); 
+    } 
+
+    Vuln[vehicleid] = VulnMAX; 
+    RepairVehicle(vehicleid); 
+    SendClientMessage(playerid, COLOR_WHITE, "Seu veículo foi blindado."); 
+
+    return true; 
+}
+
 CMD:blindar(playerid, params[]) 
 { 
 	if(PlayerInfo[playerid][pJob] != JOB_MECANICO) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não é um mecânico.");
+
     if(!IsPlayerInAnyVehicle(playerid)) 
         return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em um veículo."); 
 
@@ -7258,9 +7278,14 @@ CMD:blindar(playerid, params[])
  	}
  	if(taperto == 0) return SCM(playerid, COLOR_LIGHTRED, "Você não está em uma oficina.");
 
-    Vuln[vehicleid] = VulnMAX; 
-    RepairVehicle(vehicleid); 
-    SendClientMessage(playerid, COLOR_WHITE, "Seu veículo foi blindado."); 
+	if(PlayerInfo[playerid][pGrana] >= 200)
+	{
+		PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-200;
+		Vuln[vehicleid] = VulnMAX; 
+		RepairVehicle(vehicleid); 
+		SendClientMessage(playerid, COLOR_WHITE, "Seu veículo foi blindado."); 
+	}
+	else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não tem dinheiro o suficiente (US$200).");
 
     return true; 
 }
@@ -14016,7 +14041,7 @@ COMMAND:petmenu(playerid, params[])
 {
     if(!PetData[playerid][petModelID])
         return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não possui um pet.");
-
+	if(PlayerInfo[playerid][pDoador] < 1) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não é um premium.");
 
     ShowPetMenu(playerid);
     return 1;

@@ -5873,14 +5873,14 @@ static g_NewSkins[46] = {
 	20006, 20007, 20008, 20009,
 	20010, 20011, 20012, 20013,
 	20014, 20015, 20016, 20017,
-	20018, 20018, 20019, 20020,
-	20021, 20022, 20023, 20024,
-	20025, 20026, 20027, 20028,
-	20029, 20030, 20031, 20032,
-	20033, 20034, 20035, 20036,
-	20037, 20038, 20039, 20040,
-	20041, 20042, 20043, 20044,
-	20045, 20046
+	20018, 20019, 20020, 20021, 
+	20022, 20023, 20024, 20025, 
+	20026, 20027, 20028, 20029, 
+	20030, 20031, 20032, 20033, 
+	20034, 20035, 20036, 20037, 
+	20038, 20039, 20040, 20041, 
+	20042, 20043, 20044, 20045, 
+	20046
 };
 
 
@@ -6098,17 +6098,8 @@ public OnGameModeInit()
     CreateDynamic3DTextLabel("[CENTRO DE EMPREGOS]\nUse '/pegaremprego'", 0x008080FF, 1414.9390,-1576.9739,20.0859, 40.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
     CreatePickup(1239, 1, 1414.9390,-1576.9739,20.0859, -1);
 
-    CreateDynamic3DTextLabel("[VENDER PEIXES]\nUse '/venderpeixes'", 0x008080FF, -754.3839,1529.4766,26.9495, 40.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
-    CreatePickup(1239, 1, -754.3839,1529.4766,26.9495, -1);
-
     CreateDynamic3DTextLabel("[CENTRAL DE ANÚNCIOS]\nUse '/anuncio'\nUse '/anuncioemp'", 0xffffffff, -99.0746,1083.2296,19.7422, 40.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
     CreatePickup(1239, 1, -99.0746,1083.2296,19.7422, -1);
-    
-	CreateDynamic3DTextLabel("[USMC]\n/reparar", 0xffffffff, 2507.6438,-1551.7308,24.0324, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
-    CreatePickup(1239, 1, 2507.6438,-1551.7308,24.0324, 0);
-
-	CreateDynamic3DTextLabel("[Seals Team]\n/reparar", 0xffffffff, 1720.7937,-1578.8098,13.5547, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
-    CreatePickup(1239, 1, 1720.7937,-1578.8098,13.5547, 0);
 	
 	CreateDynamic3DTextLabel("[P. ONIBUS]\n/iniciarviagem", 0xffffffff, 1737.5643,-1859.1648,13.4141, 10.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, -1);
 	CreatePickup(1239, 1, 1737.5643,-1859.1648,13.4141, 0); 
@@ -6125,18 +6116,25 @@ public OnGameModeInit()
 	CreatePickup(1239, 1, 1500.2792,-1241.3109,14.5563, 0);//checar correção
 
     //PEIXES
-    CreateDynamic3DTextLabel("{FFFFFF}[Casa de Peixes]\nUse '/venderpeixes'",0xffffffff, 2784.9338,-2454.6338,13.6344, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
-    CreatePickup(1239, 1, 2784.9338,-2454.6338,13.6344, 0);
+    //CreateDynamic3DTextLabel("{FFFFFF}[Casa de Peixes]\nUse '/venderpeixes'",0xffffffff, 2784.9338,-2454.6338,13.6344, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
+    //CreatePickup(1239, 1, 2784.9338,-2454.6338,13.6344, 0);
 
     //CADEIA
     CreateDynamic3DTextLabel("{FFFFFF}[CADEIA]\nUse '/prender'",0xffffffff, 1396.2954,-10.2383,1000.9221, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
     CreatePickup(1239, 1, 1396.2954,-10.2383,1000.9221, 0);
 
-    //ENTRADA HOSPITAL
+    //ENTRADA GARAGEM USMC/SEALS
+    CreateDynamic3DTextLabel("{FFFFFF}[USMC/SEALS]\n/entrar",0xffffffff, -337.6898,1557.2390,75.3437, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
+    CreatePickup(1239, 1, -337.6898,1557.2390,75.3437, 0);
+    
+	//SAIDA GARAGEM USMC/SEALS
+	CreateDynamic3DTextLabel("{FFFFFF}[USMC/SEALS]\n/sair",0xffffffff, 1320.0571,1574.6483,10.5474, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
+    CreatePickup(1239, 1, 1320.0571,1574.6483,10.5474, 0);
+
+    //HOSPITAL
     CreateDynamic3DTextLabel("{FFFFFF}[HOSPITAL]\n/entrar",0xffffffff, 2027.3602,-1386.4576,17.2108, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
     CreatePickup(1239, 1, 2027.3602,-1386.4576,17.2108, 0);
 
-    //HOSPITAL
     CreateDynamic3DTextLabel("{FFFFFF}[HOSPITAL]\n/tratar\n/convenio",0xffffffff, -320.3986,1049.1460,20.3403, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
     CreatePickup(1239, 1, -320.3986,1049.1460,20.3403, 0);
 
@@ -6149,6 +6147,7 @@ public OnGameModeInit()
 	
 	CreateDynamic3DTextLabel("{FFFFFF}M.Negro e Contrabando\n/comprar\n/contrabando",0xffffffff, 192.7921,1400.4963,10.5859, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
 	CreatePickup(1239, 1, 192.7921,1400.4963,10.5859, 0);
+	
 	//COMPRAR
     CreateDynamic3DTextLabel("{FFFFFF}Conveniência\n/comprar",0xffffffff, 1917.8755,-1776.0514,13.6094, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
     CreatePickup(1239, 1, 1917.8755,-1776.0514,13.6094, 0);
@@ -12188,6 +12187,7 @@ public OnPlayerFinishedDownloading(playerid, virtualworld)
     return 1;
 }
 //COM UCP
+/*
 forward CheckingAccount(playerid);
 public CheckingAccount(playerid)
 {
@@ -12219,7 +12219,6 @@ public CheckingAccount(playerid)
 						break;
 					}
 					if(PlayerInfo[playerid][pucpOwn] == PlayerInfo[di][pucpOwn]) {
-					    JaEstaOn = di+100;
 					    break;
 					}
 			    }
@@ -12230,15 +12229,15 @@ public CheckingAccount(playerid)
 		    new escapedPlayerName[MAX_PLAYER_NAME];
 		    mysql_real_escape_string(GetName(playerid), escapedPlayerName);
 			new str[250];
-			format(str, sizeof(str), "SERVER: Você só pode errar sua senha três (3) vezes.\n INFO: Nosso UCP é o https://progressive-roleplay.com\n acesse-o para mais informações sobre sua conta.\n\n        Digite sua senha:");
-			ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "Progressive Roleplay", str, "Autenticar", "Cancelar");
+			format(str, sizeof(str), "SERVER: Você só pode errar sua senha três (3) vezes.\n INFO: Nosso UCP é o https://discord.io/wtroleplay\n acesse-o para mais informações sobre sua conta.\n\n        Digite sua senha:");
+			ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "War on Terror Roleplay", str, "Autenticar", "Cancelar");
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][0]);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][1]);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][3]);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][4]);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][5]);
 		}
-		else if(JaEstaOn == 1) {
+		else if(JaEstaOn == 2) {
 		    new strdebug[56];
 			format(strdebug,126,"ERRO: O seu personagem %s, já está logado... Caso estranhe isto, contate um administrador.", GetName(playerid));
 			SendClientMessage(playerid, COLOR_LIGHTRED, strdebug);
@@ -12265,8 +12264,8 @@ public CheckingAccount(playerid)
 	else
 	{
 	    new str[256];
-		format(str, sizeof(str), "\nOlá %s.\nA sua conta não existe, por favor dirija-se ao UCP para criar um personagem\nAtente-se as regras no nosso fórum também.\nUCP: https://progressive-roleplay.com/ucp\nFórum: https://progressive-roleplay.com\n", GetName(playerid));
-  		ShowPlayerDialog(playerid, 999999, DIALOG_STYLE_MSGBOX, "Progressive Roleplay - Informação", str, "Fechar", "");
+		format(str, sizeof(str), "\nOlá %s.\nA sua conta não existe, por favor dirija-se ao UCP para criar um personagem\nAtente-se as regras no nosso fórum também.\nUCP: https://discord.io/wtroleplay\nFórum: https://progressive-roleplay.com\n", GetName(playerid));
+  		ShowPlayerDialog(playerid, 999999, DIALOG_STYLE_MSGBOX, "War on Terror Roleplay - Informação", str, "Fechar", "");
 		PlayerTextDrawShow(playerid, TelaLogin[playerid][0]);
 		PlayerTextDrawShow(playerid, TelaLogin[playerid][1]);
 		PlayerTextDrawShow(playerid, TelaLogin[playerid][2]);
@@ -12278,6 +12277,84 @@ public CheckingAccount(playerid)
 	}
 	return 1;
 
+}
+*/
+// SEM UCP
+forward CheckingAccount(playerid);
+public CheckingAccount(playerid)
+{
+	LimparChat(playerid);
+
+    TogglePlayerControllable(playerid,false);
+	SetPlayerPos(playerid, 1741.3394, -1875.1597, 13.5859);
+
+	InterpolateCameraPos(playerid, 311.185089, 2435.568359, 17.282800, 310.615600, 2436.388916, 17.232822, GetSeconds(60), CAMERA_MOVE);
+	InterpolateCameraLookAt(playerid, 311.185089, 2435.568359, 17.282800, 310.615600, 2436.388916, GetSeconds(60), CAMERA_MOVE);
+	
+	new rows, fields;
+	cache_get_data(rows, fields, Pipeline);
+	
+	if(rows)
+	{
+		LoginSeconds[playerid] = 60000;
+		TelaDeLogin[playerid] = 1;
+		new tmp[130];
+  		cache_get_field_content(0, "ID", tmp); 			PlayerInfo[playerid][pID] = strval(tmp);
+		cache_get_field_content(0, "Password", tmp);	format(PlayerInfo[playerid][pPassword], 129, "%s", tmp);
+		
+		new JaEstaOn = 0;
+		for(new di = 0; di < MAX_PLAYERS; di++)
+		{
+		    if(IsPlayerConnected(di))
+        	{
+			    if(playerid != di)
+			    {
+			    	if(PlayerInfo[playerid][pID] == PlayerInfo[di][pID])
+			    	{
+			        	JaEstaOn = 1;
+						break;
+					}
+			    }
+			}
+		}
+		
+		if(JaEstaOn == 0)
+		{
+		    new escapedPlayerName[MAX_PLAYER_NAME];
+		    mysql_real_escape_string(GetName(playerid), escapedPlayerName);
+			PlayerTextDrawShow(playerid, TelaLogin[playerid][0]);
+			PlayerTextDrawShow(playerid, TelaLogin[playerid][1]);
+			PlayerTextDrawShow(playerid, TelaLogin[playerid][3]);
+			PlayerTextDrawShow(playerid, TelaLogin[playerid][4]);
+			PlayerTextDrawShow(playerid, TelaLogin[playerid][5]);
+			new str[1024];
+			format(str, sizeof(str), "SERVER: Você só pode errar sua senha três (3) vezes.\n INFO: Nosso FÓRUM é o https://discord.io/wtroleplay\n acesse-o para mais informações sobre sua conta.\n\n        Digite sua senha:");
+			ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "War on Terror Roleplay", str, "Autenticar", "Cancelar");
+		}
+		else
+		{
+			PlayerTextDrawShow(playerid, TelaLogin[playerid][0]);
+			PlayerTextDrawShow(playerid, TelaLogin[playerid][1]);
+			PlayerTextDrawShow(playerid, TelaLogin[playerid][3]);
+			PlayerTextDrawShow(playerid, TelaLogin[playerid][4]);
+			PlayerTextDrawShow(playerid, TelaLogin[playerid][5]);
+		    new strdebug[56];
+			format(strdebug,126,"ERRO: O seu personagem %s, já está logado... Caso estranhe isto, contate um administrador.", GetName(playerid));
+			SendClientMessage(playerid, COLOR_LIGHTRED, strdebug);
+			SetTimerEx("TimerKick", 7000, 0, "d", playerid);
+		}
+	}
+	else
+	{
+		PlayerTextDrawShow(playerid, TelaLogin[playerid][0]);
+		PlayerTextDrawShow(playerid, TelaLogin[playerid][1]);
+		PlayerTextDrawShow(playerid, TelaLogin[playerid][3]);
+		PlayerTextDrawShow(playerid, TelaLogin[playerid][4]);
+		PlayerTextDrawShow(playerid, TelaLogin[playerid][5]);
+	    new str[126];
+		format(str, sizeof(str), "Olá %s.\nBem vindo ao War on Terror Roleplay. Por favor entre com uma senha para registrar-se.", GetName(playerid));
+  		ShowPlayerDialog(playerid, DIALOG_REGISTER, DIALOG_STYLE_INPUT, "Registrar", str, "Registrar", "Sair");
+	}
 }
 
 
@@ -54665,28 +54742,7 @@ CMD:entrar(playerid, params[])
 	    PlayerInfo[playerid][pEntrouGaragem] = -1;
 	    EntrouInt[playerid] = 1;
 	}
-	else if(IsPlayerInRangeOfPoint(playerid, 5, 1728.8789,-1565.1876,14.5625))//CIA 1 andar
-	{
-	    SetPlayerInterior(playerid, 0);
-	    SetPlayerVirtualWorld(playerid, 0);
-
-	    SetPlayerPosFreeze(playerid, 1410.2965,-10.9775,1001.0098, 1);
-	}
-	else if(IsPlayerInRangeOfPoint(playerid, 5, 1400.2490,-12.1037,1001.0098))//CIA 2 andar
-	{
-	    SetPlayerInterior(playerid, 0);
-	    SetPlayerVirtualWorld(playerid, 0);
-
-	    SetPlayerPosFreeze(playerid, 1390.2905,-30.3338,1000.9183, 1);
-	}
-	else if(IsPlayerInRangeOfPoint(playerid, 5, 2514.5640,-1525.5608,24.0324))//USMC
-	{
-	    SetPlayerInterior(playerid, 5);
-	    SetPlayerVirtualWorld(playerid, 1);
-
-	    SetPlayerPosFreeze(playerid, 1513.2678,-1623.1249,774.0040, 1);
-	}
-	else if (IsPlayerInRangeOfPoint(playerid, 5.0, 954.6230,-1467.4749,13.5547)) // MEDIC GARAGEM
+	else if (IsPlayerInRangeOfPoint(playerid, 10.0, -337.6898,1557.2390,75.3437)) // USMC/SEALS GARAGEM
 	{
 		new PlayerNoCarro[4];
 		new PlayerNoCarroL[4];
@@ -54715,7 +54771,7 @@ CMD:entrar(playerid, params[])
 				}
 			}
 
-			SetVehiclePos(vehi,2296.9138,2498.3650,-7.4531);
+			SetVehiclePos(vehi,1320.0571,1574.6483,10.5474);
 			LinkVehicleToInterior(vehi, 0);
 			SetVehicleVirtualWorld(vehi,0);
 			SetVehicleZAngle(vehi, 0);
@@ -54741,203 +54797,13 @@ CMD:entrar(playerid, params[])
 		}else{
 			SetPlayerInterior(playerid, 0);
 			SetPlayerVirtualWorld(playerid, 0);
-			SetPlayerPos(playerid, 2296.9138,2498.3650,-7.4531);
+			SetPlayerPos(playerid, 1320.0571,1574.6483,10.5474);
 			SetPlayerFacingAngle(playerid, 0);
-			GameTextForPlayer(playerid, "~w~Bem-vindo a garagem do MEDIC.", 5000, 1);
+			GameTextForPlayer(playerid, "~w~Bem-vindo a garagem da USMC/SEALS", 5000, 1);
 			PlayerInfo[playerid][pInterior] = 0;
 			PlayerInfo[playerid][pWorld] = 0;
 
 		}
-	}
-	else if (IsPlayerInRangeOfPoint(playerid, 5.0, 1772.9445,-1543.1234,13.6688)) // BRINKS GARAGEM
-	{
-		new PlayerNoCarro[4];
-		new PlayerNoCarroL[4];
-		new count = 0;
-		new vehi = GetPlayerVehicleID(playerid);
-
-		PlayerNoCarro[0] = 999;
-		PlayerNoCarro[1] = 999;
-		PlayerNoCarro[2] = 999;
-		PlayerNoCarro[3] = 999;
-
-		if(IsPlayerInAnyVehicle(playerid))
-		{
-			if(GetPlayerVehicleSeat(playerid) != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO:{FFFFFF} Apenas o motorista do veículo pode utilizar o comando.");
-			foreach(new pp : Player)
-			{
-				if(count < 4)
-				{
-					if(GetPlayerVehicleID(pp) == vehi)
-					{
-						PlayerNoCarro[count] = pp;
-						PlayerNoCarroL[count] = GetPlayerVehicleSeat(pp);
-
-						count++;
-					}
-				}
-			}
-
-			SetVehiclePos(vehi,2481.5627,2513.5317,10.8203);
-			LinkVehicleToInterior(vehi, 0);
-			SetVehicleVirtualWorld(vehi,0);
-			SetVehicleZAngle(vehi, 0);
-
-
-
-			SetPlayerVirtualWorld(playerid, 0);
-			SetPlayerInterior(playerid, 0);
-			PutPlayerInVehicle(playerid, vehi, 0);
-
-			for(new lug = 0; lug < 4; lug++)
-			{
-				if(PlayerNoCarro[lug] != 999)
-				{
-					if(IsPlayerConnected(PlayerNoCarro[lug])) {
-						SetPlayerVirtualWorld(PlayerNoCarro[lug], 0);
-						SetPlayerInterior(PlayerNoCarro[lug], 0);
-						PutPlayerInVehicle(PlayerNoCarro[lug], vehi, PlayerNoCarroL[lug]);
-					}
-				}
-			}
-
-		}else{
-			SetPlayerInterior(playerid, 0);
-			SetPlayerVirtualWorld(playerid, 0);
-			SetPlayerPos(playerid, 2481.5627,2513.5317,10.8203);
-			SetPlayerFacingAngle(playerid, 0);
-			GameTextForPlayer(playerid, "~w~Bem-vindo a garagem da BRINKS.", 5000, 1);
-			PlayerInfo[playerid][pInterior] = 0;
-			PlayerInfo[playerid][pWorld] = 0;
-
-		}
-	}
-	else if (IsPlayerInRangeOfPoint(playerid, 5.0, 1744.0854,-1555.1968,8.4305)) // CIA GARAGEM
-	{
-		new PlayerNoCarro[4];
-		new PlayerNoCarroL[4];
-		new count = 0;
-		new vehi = GetPlayerVehicleID(playerid);
-
-		PlayerNoCarro[0] = 999;
-		PlayerNoCarro[1] = 999;
-		PlayerNoCarro[2] = 999;
-		PlayerNoCarro[3] = 999;
-
-		if(IsPlayerInAnyVehicle(playerid))
-		{
-			if(GetPlayerVehicleSeat(playerid) != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO:{FFFFFF} Apenas o motorista do veículo pode utilizar o comando.");
-			foreach(new pp : Player)
-			{
-				if(count < 4)
-				{
-					if(GetPlayerVehicleID(pp) == vehi)
-					{
-						PlayerNoCarro[count] = pp;
-						PlayerNoCarroL[count] = GetPlayerVehicleSeat(pp);
-
-						count++;
-					}
-				}
-			}
-
-			SetVehiclePos(vehi,-1627.9585,690.3979,6.7627);
-			LinkVehicleToInterior(vehi, 0);
-			SetVehicleVirtualWorld(vehi,0);
-			SetVehicleZAngle(vehi, 0);
-
-
-
-			SetPlayerVirtualWorld(playerid, 0);
-			SetPlayerInterior(playerid, 0);
-			PutPlayerInVehicle(playerid, vehi, 0);
-
-			for(new lug = 0; lug < 4; lug++)
-			{
-				if(PlayerNoCarro[lug] != 999)
-				{
-					if(IsPlayerConnected(PlayerNoCarro[lug])) {
-						SetPlayerVirtualWorld(PlayerNoCarro[lug], 0);
-						SetPlayerInterior(PlayerNoCarro[lug], 0);
-						PutPlayerInVehicle(PlayerNoCarro[lug], vehi, PlayerNoCarroL[lug]);
-					}
-				}
-			}
-
-		}else{
-			SetPlayerInterior(playerid, 0);
-			SetPlayerVirtualWorld(playerid, 0);
-			SetPlayerPos(playerid, -1627.9585,690.3979,6.7627);
-			SetPlayerFacingAngle(playerid, 0);
-			GameTextForPlayer(playerid, "~w~Bem-vindo a garagem da CIA.", 5000, 1);
-			PlayerInfo[playerid][pInterior] = 0;
-			PlayerInfo[playerid][pWorld] = 0;
-
-		}
-	}
-	else if (IsPlayerInRangeOfPoint(playerid, 5.0, 2501.8445,-1564.4512,24.0324)) // USMC GARAGEM
-	{
-		new PlayerNoCarro[4];
-		new PlayerNoCarroL[4];
-		new count = 0;
-		new vehi = GetPlayerVehicleID(playerid);
-
-		PlayerNoCarro[0] = 999;
-		PlayerNoCarro[1] = 999;
-		PlayerNoCarro[2] = 999;
-		PlayerNoCarro[3] = 999;
-
-		if(IsPlayerInAnyVehicle(playerid))
-		{
-			if(GetPlayerVehicleSeat(playerid) != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO:{FFFFFF} Apenas o motorista do veículo pode utilizar o comando.");
-			foreach(new pp : Player)
-			{
-				if(count < 4)
-				{
-					if(GetPlayerVehicleID(pp) == vehi)
-					{
-						PlayerNoCarro[count] = pp;
-						PlayerNoCarroL[count] = GetPlayerVehicleSeat(pp);
-
-						count++;
-					}
-				}
-			}
-
-			SetVehiclePos(vehi, 2318.3911,2446.4016,3.2734);
-			LinkVehicleToInterior(vehi, 0);
-			SetVehicleVirtualWorld(vehi,0);
-			SetVehicleZAngle(vehi, 0);
-
-
-
-			SetPlayerVirtualWorld(playerid, 0);
-			SetPlayerInterior(playerid, 0);
-			PutPlayerInVehicle(playerid, vehi, 0);
-
-			for(new lug = 0; lug < 4; lug++)
-			{
-				if(PlayerNoCarro[lug] != 999)
-				{
-					if(IsPlayerConnected(PlayerNoCarro[lug])) {
-						SetPlayerVirtualWorld(PlayerNoCarro[lug], 0);
-						SetPlayerInterior(PlayerNoCarro[lug], 0);
-						PutPlayerInVehicle(PlayerNoCarro[lug], vehi, PlayerNoCarroL[lug]);
-					}
-				}
-			}
-
-		}else{
-			SetPlayerInterior(playerid, 0);
-			SetPlayerVirtualWorld(playerid, 0);
-			SetPlayerPos(playerid, 2318.3911,2446.4016,3.2734);
-			SetPlayerFacingAngle(playerid, 0);
-			GameTextForPlayer(playerid, "~w~Bem-vindo a garagem da USMC.", 5000, 1);
-
-		}
-
-		PlayerInfo[playerid][pInterior] = 0;
-		PlayerInfo[playerid][pWorld] = 0;
 	}
 
 	//==========================================================================
@@ -55415,6 +55281,65 @@ CMD:sair(playerid, params[])
 	    PlayerInfo[playerid][pEntrouGaragem] = -1;
 	    EntrouInt[playerid] = -1;
 	    SetPlayerPosFreeze(playerid, -320.3986,1049.1460,20.3403 , 1);
+	}
+	else if (IsPlayerInRangeOfPoint(playerid, 10.0, 1320.0571,1574.6483,10.5474)) // USMC/SEALS GARAGEM
+	{
+
+		new PlayerNoCarro[4];
+		new PlayerNoCarroL[4];
+		new count = 0;
+		new vehi = GetPlayerVehicleID(playerid);
+
+		PlayerNoCarro[0] = 999;
+		PlayerNoCarro[1] = 999;
+		PlayerNoCarro[2] = 999;
+		PlayerNoCarro[3] = 999;
+
+		if(IsPlayerInAnyVehicle(playerid))
+		{
+			if(GetPlayerVehicleSeat(playerid) != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO:{FFFFFF} Apenas o motorista do veiculo pode utilizar o comando.");
+			foreach(new pp : Player)
+			{
+				if(count < 4)
+				{
+					if(GetPlayerVehicleID(pp) == vehi)
+					{
+						PlayerNoCarro[count] = pp;
+						PlayerNoCarroL[count] = GetPlayerVehicleSeat(pp);
+
+						count++;
+					}
+				}
+			}
+
+			SetVehiclePos(vehi, -337.6898,1557.2390,75.3437);
+			LinkVehicleToInterior(vehi, 0);
+			SetVehicleVirtualWorld(vehi, 0);
+			SetVehicleZAngle(vehi, 180);
+
+			SetPlayerVirtualWorld(playerid, 0);
+			SetPlayerInterior(playerid, 0);
+			PutPlayerInVehicle(playerid, vehi, 0);
+
+			for(new lug = 0; lug < 4; lug++)
+			{
+				if(PlayerNoCarro[lug] != 999)
+				{
+					if(IsPlayerConnected(PlayerNoCarro[lug])) {
+						SetPlayerVirtualWorld(PlayerNoCarro[lug], 0);
+						SetPlayerInterior(PlayerNoCarro[lug], 0);
+						PutPlayerInVehicle(PlayerNoCarro[lug], vehi, PlayerNoCarroL[lug]);
+					}
+				}
+			}
+			PlayerInfo[playerid][pInterior] = 0;
+			PlayerInfo[playerid][pWorld] = 0;
+		}else{
+			SetPlayerVirtualWorld(playerid, 0);
+			SetPlayerInterior(playerid, 0);
+			SetPlayerPos(playerid, -337.6898,1557.2390,75.3437);
+			SetPlayerFacingAngle(playerid, 180);
+		}
 	}
 	return 1;
 }
@@ -67244,7 +67169,7 @@ CMD:nomeindustria(playerid, params[])
     if(id == -1) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não está próximo a uma industria.");
 
 	if (sscanf(params, "s[24]", name)) {
-	    SendClientMessage(playerid, COLOR_LIGHTRED,"/editarpe [name]");
+	    SendClientMessage(playerid, COLOR_LIGHTRED,"/nomeindustria [name]");
 	    return 1;
 	}
 

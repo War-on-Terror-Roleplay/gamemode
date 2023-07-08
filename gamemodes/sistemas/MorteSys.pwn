@@ -124,11 +124,11 @@ public OnPlayerDeath(playerid, killerid, reason) {
 
 public SairDoHospital(playerid)
 {
-    PlayerInfo[playerid][pPos][0] = 1173.1841;
-    PlayerInfo[playerid][pPos][1] = -1323.3143;
-    PlayerInfo[playerid][pPos][2] = 15.3952;
+    PlayerInfo[playerid][pPos][0] = 1177.0627;
+    PlayerInfo[playerid][pPos][1] = -1330.7129;
+    PlayerInfo[playerid][pPos][2] = 3015.4128;
 
-	SetPlayerPosFreeze(playerid, 1173.1841,-1323.3143,15.3952, 1);
+	SetPlayerPosFreeze(playerid, 1177.0627,-1330.7129,3015.4128, 1);
 	PlayerInfo[playerid][pMorto] = 0;
 	SetPVarInt(playerid, "ChamouOnPlayerDeath", 0);
 	PlayerInfo[playerid][pTomouAlgumTiro] = 0;
@@ -376,7 +376,7 @@ CMD:aceitarmorte(playerid,params[])
 		    SetPlayerInterior(playerid,0);
 			SetPlayerVirtualWorld(playerid,0);
 
-			SetPlayerPos(playerid,1162.5776, -1344.0281, 13.2223);
+			SetPlayerPos(playerid,1177.0627,-1330.7129,3015.4128);
 			SetPlayerCameraPos(playerid, 1261.9004, -1423.1548, 28.3268);
 			SetPlayerCameraLookAt(playerid, 1261.2498, -1422.3973, 28.2017);
 

@@ -35,6 +35,16 @@ AddCharModel(287, 20033, "russo/russia4.dff", "russo/russia4.txd");
 AddCharModel(287, 20034, "russo/russia5.dff", "russo/russia5.txd"); 
 AddCharModel(287, 20035, "russo/russia6.dff", "russo/russia6.txd"); 
 AddCharModel(287, 20036, "russo/russia7.dff", "russo/russia7.txd"); 
+AddCharModel(287, 20037, "press/press1.dff", "press/press1.txd");
+AddCharModel(287, 20038, "press/press2.dff", "press/press2.txd");
+AddCharModel(287, 20039, "mexicano/mexicano1.dff", "mexicano/mexicano1.txd");
+AddCharModel(287, 20040, "mexicano/mexicano2.dff", "mexicano/mexicano1.txd");
+AddCharModel(287, 20041, "mexicano/mexicano3.dff", "mexicano/mexicano1.txd");
+AddCharModel(287, 20042, "mexicano/mexicano4.dff", "mexicano/mexicano1.txd");
+AddCharModel(287, 20043, "mexicano/mexicano5.dff", "mexicano/mexicano1.txd");
+AddCharModel(287, 20044, "mexicano/mexicano6.dff", "mexicano/mexicano1.txd");
+AddCharModel(287, 20045, "mexicano/mexicano7.dff", "mexicano/mexicano1.txd");
+AddCharModel(287, 20046, "mexicano/mexicano8.dff", "mexicano/mexicano1.txd");
 
 //Navy Seal Team Six
 AddCharModel(287, 20101, "seals/seal1.dff", "seals/seal1.txd"); 

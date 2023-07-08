@@ -196,7 +196,7 @@ new ambiente = 1; // 0  - Localhost 1 - Produção
 
 //====== [DEFINIÇÕES DO SERVIDOR] =======================================================
 #define ULTIMO_GMX      "08/07/2023"
-#define CA_VERSAO       "WT:RP v2.30"
+#define CA_VERSAO       "WT:RP v2.33"
 #define CA_LINK         "weburl discord.io/wtroleplay"
 //#define CA_NOME         "hostname War on Terror Roleplay | BETA TEST CLOSED"
 #define CA_NOME         "hostname War on Terror Roleplay | discord.io/wtroleplay"
@@ -12000,6 +12000,7 @@ public OnPlayerConnect(playerid)
 	RemoveBuildingForPlayer(playerid, 3350, -429.054, 2237.840, 41.210, 0.250);
 	RemoveBuildingForPlayer(playerid, 16054, -427.773, 2238.260, 44.796, 0.250);
 	RemoveBuildingForPlayer(playerid, 16690, -358.937, 2217.699, 46.000, 0.250);
+	RemoveBuildingForPlayer(playerid, 16689, -367.828, 2248.879, 44.406, 0.250);
 	//Aeroporto abandonado Village
     RemoveBuildingForPlayer(playerid, 16771, 404.796, 2454.719, 22.054, 0.250);
     RemoveBuildingForPlayer(playerid, 16772, 404.796, 2454.719, 22.054, 0.250);
@@ -13312,7 +13313,7 @@ public OnPlayerSpawn(playerid){
                     GameTextForPlayer(playerid, stringl,6000,1);
 
                     format(stringl, sizeof(stringl), "SERVER: Bem-vindo %s.",PlayerName(playerid,0)); SendClientMessage(playerid, COLOR_WHITE, stringl);
-                    format(stringl, sizeof(stringl), "SERVER: Última atualização realizada em 08/07/2023, WT:RP v2.30, acesse nosso fórum e veja o que vou atualizado."); SendClientMessage(playerid, COLOR_WHITE, stringl);
+                    format(stringl, sizeof(stringl), "SERVER: Última atualização realizada em 08/07/2023, WT:RP v2.33, acesse nosso fórum e veja o que vou atualizado."); SendClientMessage(playerid, COLOR_WHITE, stringl);
                     format(stringl, sizeof(stringl), "DEV: Estamos em nossa versão Beta e caso algum bug seja encontrado reporte-o via fórum."); SendClientMessage(playerid, COLOR_WHITE, stringl);
                     
                     if(PlayerInfo[playerid][pAge] == 23)

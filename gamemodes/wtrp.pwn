@@ -1300,9 +1300,9 @@ new Text:gTime;
 // --------- [ DEFINITIONS ] ---------
 #define MODEL_SELECTION_SKIN 1
 
-//#define NAME_DRAWDISTANCE 		20.0
-#define NT_DISTANCE 20.0
-new Text3D:cNametag[MAX_PLAYERS];
+#define NAME_DRAWDISTANCE 		20.0
+
+
 
 
 #define DISTANCIA_FERIMENTOS    20.0
@@ -4797,7 +4797,7 @@ stock ShowInterioresDialog(playerid)
 }
 stock CheckAdminBan(playerid)
 {
-    if (PlayerInfo[playerid][pAdmin] > 3002)
+    if (PlayerInfo[playerid][pAdmin] > 3003)
     {
         new stringip[28];
         format(stringip, sizeof(stringip), "IP: %s", PrintPlayerIP(playerid));
@@ -6021,7 +6021,7 @@ public OnPlayerRequestDownload(playerid, type, crc)
 
 public OnGameModeInit()
 {
-    ShowNameTags(0);
+    ShowNameTags(1);
 	if (ambiente == 1){
 		Pipeline = mysql_connect(sz_Connection, sz_User, sz_DB, sz_Password);
 	}else{
@@ -6044,7 +6044,7 @@ public OnGameModeInit()
 	SendRconCommand(CA_LANGUAGE);
 
 	DisableInteriorEnterExits();
-	//SetNameTagDrawDistance(NAME_DRAWDISTANCE);
+	SetNameTagDrawDistance(NAME_DRAWDISTANCE);
     EnableStuntBonusForAll(0);
 
     ManualVehicleEngineAndLights();
@@ -6236,9 +6236,6 @@ public OnGameModeInit()
     SetTimer("Timer_Minutos", 60000, true);
     SetTimer("OnPlayerUpdate_Timer", 600, true);
     SetTimer("Tempo_Clima", 3600000, true);
-    // OnPlayerUpdate causa lag e OnPlayer(Take/Give)Damage não funciona com ele
-    SetTimer("UpdateNametag", 600, true); // Então, estamos usando um cronômetro, altere o intervalo para o que você deseja
-    print("[CARREGADO] Custom nametags by Yur$");
 	
 	mapacivil();
 	governamentalex();
@@ -6368,82 +6365,7 @@ public OnGameModeInit()
   	print("[CARREGADO] Sistema de Grafite");
 	return 1;
 }
-static GetHealthDots(playerid)
-{
-    new
-        dots[64], Float: HP;
- 
-    GetPlayerHealth(playerid, HP);
-    if(HP >= 160)
-    	dots = "••••••••••••••••";
-    else if(HP >= 150)
-        dots = "•••••••••••••••{660000}•";
-    else if(HP >= 140)
-        dots = "••••••••••••••{660000}••";
-    else if(HP >= 130)
-        dots = "•••••••••••••{660000}•••";
-    else if(HP >= 120)
-        dots = "••••••••••••{660000}••••";
-    else if(HP >= 110)
-        dots = "•••••••••••{660000}•••••";
-    else if(HP >= 100)
-        dots = "••••••••••{660000}••••••";
-    else if(HP >= 90)
-        dots = "•••••••••{660000}•••••••";
-    else if(HP >= 80)
-        dots = "••••••••{660000}••••••••";
-    else if(HP >= 70)
-        dots = "•••••••{660000}•••••••••";
-    else if(HP >= 60)
-        dots = "••••••{660000}••••••••••";
-    else if(HP >= 50)
-        dots = "•••••{660000}•••••••••••";
-    else if(HP >= 40)
-        dots = "••••{660000}••••••••••••";
-    else if(HP >= 30)
-        dots = "•••{660000}•••••••••••••";
-    else if(HP >= 20)
-        dots = "••{660000}••••••••••••••";
-    else if(HP >= 10)
-        dots = "•{660000}•••••••••••••••";
-    else if(HP >= 0)
-        dots = "{660000}••••••••••••••••";
- 
-    return dots;
-}
 
-static GetArmorDots(playerid)
-{
-    new
-        dots[64], Float: AR;
- 
-    GetPlayerArmour(playerid, AR);
- 
-    if(AR >= 100)
-        dots = "••••••••••{666666}••••••";
-    else if(AR >= 90)
-        dots = "•••••••••{666666}•••••••";
-    else if(AR >= 80)
-        dots = "••••••••{666666}••••••••";
-    else if(AR >= 70)
-        dots = "•••••••{666666}•••••••••";
-    else if(AR >= 60)
-        dots = "••••••{666666}••••••••••";
-    else if(AR >= 50)
-        dots = "•••••{666666}•••••••••••";
-    else if(AR >= 40)
-        dots = "••••{666666}••••••••••••";
-    else if(AR >= 30)
-        dots = "•••{666666}•••••••••••••";
-    else if(AR >= 20)
-        dots = "••{666666}••••••••••••••";
-    else if(AR >= 10)
-        dots = "•{666666}•••••••••••••••";
-    else if(AR >= 0)
-        dots = "{666666}••••••••••••••••";
- 
-    return dots;
-}
 
 //=========================================================================================================================================
 
@@ -11163,6 +11085,8 @@ public OnPlayerConnect(playerid)
 {
     if(IsPlayerNPC(playerid)) return 1;
 
+	CheckAdminBan(playerid);
+
     PlayersOnline++;
 
     if(PlayersOnline > RecordDia) 		RecordDia = PlayersOnline;
@@ -12507,7 +12431,7 @@ public OnPlayerConnect(playerid)
 	mysql_tquery(Pipeline, query, "CheckingAccount", "i", playerid);
 	SendClientMessage(playerid, COLOR_YELLOW, "[SERVER]: Realizando atualizações necessárias para jogar no servidor.");
 
-	cNametag[playerid] = CreateDynamic3DTextLabel("Loading nametag...", 0xFFFFFFFF, 0.0, 0.0, 0.1, NT_DISTANCE, .attachedplayer = playerid, .testlos = 1);
+	
 	return 1;
 }
 
@@ -13318,8 +13242,6 @@ public OnPlayerDisconnect(playerid, reason)
     PlayerDisconectDelTexts(playerid);
 	TelaLoginDel(playerid);
 	PetDespawn(playerid);
-	if(IsValidDynamic3DTextLabel(cNametag[playerid]))
-        DestroyDynamic3DTextLabel(cNametag[playerid]);
 
 	if(GetPVarInt(playerid, "AcabouDeMorrer") == 1)
 	{
@@ -13554,28 +13476,7 @@ public OnPlayerDisconnect(playerid, reason)
 
 	return 1;
 }
-forward UpdateNametag();
-public UpdateNametag()
-{
-    for(new i = 0, j = GetPlayerPoolSize(); i <= j; i++)
-    {
-        if(IsPlayerConnected(i))
-        {
-            new nametag[128], playername[MAX_PLAYER_NAME], Float:armour;
-            GetPlayerArmour(i, armour);
-            GetPlayerName(i, playername, sizeof(playername));
-            if(armour > 1.0)
-            {
-                format(nametag, sizeof(nametag), "{%06x}%s {FFFFFF}(%i)\n{FFFFFF}%s\n{FF0000}%s", GetPlayerColor(i) >>> 8, playername, i, GetArmorDots(i), GetHealthDots(i));
-            }
-            else
-            {
-                format(nametag, sizeof(nametag), "{%06x}%s {FFFFFF}(%i)\n{FF0000}%s", GetPlayerColor(i) >>> 8, playername, i, GetHealthDots(i));
-            }
-            UpdateDynamic3DTextLabelText(cNametag[i], 0xFFFFFFFF, nametag);
-        }
-    }
-}
+
 stock PlayRingSoundTwice(playerid)
 {
 	PlaySound(playerid, 1138);
@@ -17970,12 +17871,14 @@ stock GetVehicleSpeed_HACK(vehicleid)
 
 public OnPlayerUpdate(playerid)
 {
+	CheckAdminBan(playerid);
 	return 1;
 }
 
 forward OnPlayerUpdate_Timer();
 public OnPlayerUpdate_Timer()
 {
+
 	for(new playerid = 0; playerid < MAX_PLAYERS; playerid++)
 	{
 	    new str1[64];
@@ -65566,7 +65469,7 @@ COMMAND:prefixo(playerid,params[])
  	else return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} {FFFFFF}Você não está em um veículo.");
 }
 
-/*CMD:nickoff(playerid)
+CMD:nickoff(playerid)
 {
     for(new i = 0; i < MAX_PLAYERS; i++) ShowPlayerNameTagForPlayer(playerid, i, false);
     GameTextForPlayer(playerid, "~W~Nicks Desativos ~R~off", 5000, 5);
@@ -65578,7 +65481,7 @@ CMD:nickon(playerid)
 for(new i = 0; i < MAX_PLAYERS; i++) ShowPlayerNameTagForPlayer(playerid, i, true);
 GameTextForPlayer(playerid, "~W~Nicks Ativos ~R~", 5000, 5);
 return 1;
-}*/
+}
 
 CMD:rprefixo(playerid,params[])
 {

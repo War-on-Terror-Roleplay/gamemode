@@ -1305,7 +1305,10 @@ new Text:gTime;
 // --------- [ DEFINITIONS ] ---------
 #define MODEL_SELECTION_SKIN 1
 
-#define NAME_DRAWDISTANCE 		20.0
+//#define NAME_DRAWDISTANCE 		20.0
+#define NT_DISTANCE 20.0
+new Text3D:cNametag[MAX_PLAYERS];
+
 
 #define DISTANCIA_FERIMENTOS    20.0
 
@@ -6009,9 +6012,7 @@ public OnPlayerRequestDownload(playerid, type, crc)
 
 public OnGameModeInit()
 {
-    ShowNameTags(1);
-    print("[CARREGADO] Custom nametags by Yur$");
-
+    ShowNameTags(0);
 	if (ambiente == 1){
 		Pipeline = mysql_connect(sz_Connection, sz_User, sz_DB, sz_Password);
 	}else{
@@ -6034,7 +6035,7 @@ public OnGameModeInit()
 	SendRconCommand(CA_LANGUAGE);
 
 	DisableInteriorEnterExits();
-	SetNameTagDrawDistance(NAME_DRAWDISTANCE);
+	//SetNameTagDrawDistance(NAME_DRAWDISTANCE);
     EnableStuntBonusForAll(0);
 
     ManualVehicleEngineAndLights();
@@ -6136,11 +6137,14 @@ public OnGameModeInit()
 	CreatePickup(1239, 1, 192.7921,1400.4963,10.5859, 0);
 	
 	//COMPRAR
-    CreateDynamic3DTextLabel("{FFFFFF}Conveniência\n/comprar",0xffffffff, 1917.8755,-1776.0514,13.6094, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
-    CreatePickup(1239, 1, 1917.8755,-1776.0514,13.6094, 0);
+    CreateDynamic3DTextLabel("{FFFFFF}Conveniência\n/comprar",0xffffffff, -366.4313,1566.4269,75.3437, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
+    CreatePickup(1239, 1, -366.4313,1566.4269,75.3437, 0);
 
-    CreateDynamic3DTextLabel("{FFFFFF}RM Lanches\n/comprar",0xffffffff, 2114.7300,-1806.5607,13.5616, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
-    CreatePickup(1239, 1, 2114.7300,-1806.5607,13.5616, 0);
+    CreateDynamic3DTextLabel("{FFFFFF}RM Lanches\n/comprar",0xffffffff, -362.5867,1564.2064,75.6562, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
+    CreatePickup(1239, 1, -362.5867,1564.2064,75.6562, 0);
+
+    CreateDynamic3DTextLabel("{FFFFFF}BAR\n/comprar",0xffffffff, -356.6523,1564.1899,75.6562, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
+    CreatePickup(1239, 1, -356.6523,1564.1899,75.6562, 0);
 
 	//==========================================================
     //Tunning
@@ -6223,7 +6227,9 @@ public OnGameModeInit()
     SetTimer("Timer_Minutos", 60000, true);
     SetTimer("OnPlayerUpdate_Timer", 600, true);
     SetTimer("Tempo_Clima", 3600000, true);
-
+    // OnPlayerUpdate causa lag e OnPlayer(Take/Give)Damage não funciona com ele
+    SetTimer("UpdateNametag", 600, true); // Então, estamos usando um cronômetro, altere o intervalo para o que você deseja
+    print("[CARREGADO] Custom nametags by Yur$");
 	
 	mapacivil();
 	governamentalex();
@@ -6353,6 +6359,83 @@ public OnGameModeInit()
   	print("[CARREGADO] Sistema de Grafite");
 	return 1;
 }
+static GetHealthDots(playerid)
+{
+    new
+        dots[64], Float: HP;
+ 
+    GetPlayerHealth(playerid, HP);
+    if(HP >= 160)
+    	dots = "••••••••••••••••";
+    else if(HP >= 150)
+        dots = "•••••••••••••••{660000}•";
+    else if(HP >= 140)
+        dots = "••••••••••••••{660000}••";
+    else if(HP >= 130)
+        dots = "•••••••••••••{660000}•••";
+    else if(HP >= 120)
+        dots = "••••••••••••{660000}••••";
+    else if(HP >= 110)
+        dots = "•••••••••••{660000}•••••";
+    else if(HP >= 100)
+        dots = "••••••••••{660000}••••••";
+    else if(HP >= 90)
+        dots = "•••••••••{660000}•••••••";
+    else if(HP >= 80)
+        dots = "••••••••{660000}••••••••";
+    else if(HP >= 70)
+        dots = "•••••••{660000}•••••••••";
+    else if(HP >= 60)
+        dots = "••••••{660000}••••••••••";
+    else if(HP >= 50)
+        dots = "•••••{660000}•••••••••••";
+    else if(HP >= 40)
+        dots = "••••{660000}••••••••••••";
+    else if(HP >= 30)
+        dots = "•••{660000}•••••••••••••";
+    else if(HP >= 20)
+        dots = "••{660000}••••••••••••••";
+    else if(HP >= 10)
+        dots = "•{660000}•••••••••••••••";
+    else if(HP >= 0)
+        dots = "{660000}••••••••••••••••";
+ 
+    return dots;
+}
+
+static GetArmorDots(playerid)
+{
+    new
+        dots[64], Float: AR;
+ 
+    GetPlayerArmour(playerid, AR);
+ 
+    if(AR >= 100)
+        dots = "••••••••••{666666}••••••";
+    else if(AR >= 90)
+        dots = "•••••••••{666666}•••••••";
+    else if(AR >= 80)
+        dots = "••••••••{666666}••••••••";
+    else if(AR >= 70)
+        dots = "•••••••{666666}•••••••••";
+    else if(AR >= 60)
+        dots = "••••••{666666}••••••••••";
+    else if(AR >= 50)
+        dots = "•••••{666666}•••••••••••";
+    else if(AR >= 40)
+        dots = "••••{666666}••••••••••••";
+    else if(AR >= 30)
+        dots = "•••{666666}•••••••••••••";
+    else if(AR >= 20)
+        dots = "••{666666}••••••••••••••";
+    else if(AR >= 10)
+        dots = "•{666666}•••••••••••••••";
+    else if(AR >= 0)
+        dots = "{666666}••••••••••••••••";
+ 
+    return dots;
+}
+
 //=========================================================================================================================================
 
 forward CarregarFacs();
@@ -7296,7 +7379,7 @@ public QuedaMissil(playerid)
 	MoveObject(MissilCaindo[0][playerid], AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid], 50, 0, 180, 0);
 	MoveObject(MissilCaindo[1][playerid], AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid]+5, 50, 0, 180, 0);
 	MoveObject(MissilCaindo[2][playerid], AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid]+10, 50, 0, 180, 0);
-	SetTimerEx("MissilExplode", 30000, false, "i", playerid);
+	SetTimerEx("MissilExplode", 6000, false, "i", playerid);
 	return 1;
 }
  
@@ -12404,6 +12487,8 @@ public OnPlayerConnect(playerid)
 	RemoveBuildingForPlayer(playerid, 16690, -358.937, 2217.699, 46.000, 0.250);
 	RemoveBuildingForPlayer(playerid, 16689, -367.828, 2248.879, 44.406, 0.250);
 	//Aeroporto abandonado Village
+	RemoveBuildingForPlayer(playerid, 3296, 255.983, 2549.330, 20.203, 0.250);
+	RemoveBuildingForPlayer(playerid, 3287, 255.983, 2549.330, 20.203, 0.250);
     RemoveBuildingForPlayer(playerid, 16771, 404.796, 2454.719, 22.054, 0.250);
     RemoveBuildingForPlayer(playerid, 16772, 404.796, 2454.719, 22.054, 0.250);
     RemoveBuildingForPlayer(playerid, 16775, 412.117, 2476.629, 19.515, 0.250);
@@ -12566,7 +12651,7 @@ public OnPlayerConnect(playerid)
 	mysql_tquery(Pipeline, query, "CheckingAccount", "i", playerid);
 	SendClientMessage(playerid, COLOR_YELLOW, "[SERVER]: Realizando atualizações necessárias para jogar no servidor.");
 
-	
+	cNametag[playerid] = CreateDynamic3DTextLabel("Loading nametag...", 0xFFFFFFFF, 0.0, 0.0, 0.1, NT_DISTANCE, .attachedplayer = playerid, .testlos = 1);
 	return 1;
 }
 
@@ -13375,7 +13460,8 @@ public OnPlayerDisconnect(playerid, reason)
     PlayerDisconectDelTexts(playerid);
 	TelaLoginDel(playerid);
 	PetDespawn(playerid);
-
+	if(IsValidDynamic3DTextLabel(cNametag[playerid]))
+        DestroyDynamic3DTextLabel(cNametag[playerid]);
 
 	if(GetPVarInt(playerid, "AcabouDeMorrer") == 1)
 	{
@@ -13610,7 +13696,28 @@ public OnPlayerDisconnect(playerid, reason)
 
 	return 1;
 }
-
+forward UpdateNametag();
+public UpdateNametag()
+{
+    for(new i = 0, j = GetPlayerPoolSize(); i <= j; i++)
+    {
+        if(IsPlayerConnected(i))
+        {
+            new nametag[128], playername[MAX_PLAYER_NAME], Float:armour;
+            GetPlayerArmour(i, armour);
+            GetPlayerName(i, playername, sizeof(playername));
+            if(armour > 1.0)
+            {
+                format(nametag, sizeof(nametag), "{%06x}%s {FFFFFF}(%i)\n{FFFFFF}%s\n{FF0000}%s", GetPlayerColor(i) >>> 8, playername, i, GetArmorDots(i), GetHealthDots(i));
+            }
+            else
+            {
+                format(nametag, sizeof(nametag), "{%06x}%s {FFFFFF}(%i)\n{FF0000}%s", GetPlayerColor(i) >>> 8, playername, i, GetHealthDots(i));
+            }
+            UpdateDynamic3DTextLabelText(cNametag[i], 0xFFFFFFFF, nametag);
+        }
+    }
+}
 stock PlayRingSoundTwice(playerid)
 {
 	PlaySound(playerid, 1138);
@@ -48944,15 +49051,15 @@ CMD:comprar(playerid, params[])
 			}
         }
     }
-	if(IsPlayerInRangeOfPoint(playerid, 5, 2532.0464,-1916.4795,13.5480))
+	if(IsPlayerInRangeOfPoint(playerid, 5, -356.6523,1564.1899,75.6562))
 	{
 	    Dialog_Show(playerid, DIALOG_BARSHOP_Rua, DIALOG_STYLE_LIST, "Selecione uma categoria.", "Cerveja\tUS$5\nVinho\tUS$6\nSprunk\tUS$2", "Selecionar", "Cancelar");
 	}
-	else if(IsPlayerInRangeOfPoint(playerid, 5, 2532.0464,-1916.4795,13.5480))
+/*	else if(IsPlayerInRangeOfPoint(playerid, 5, -356.6523,1564.1899,75.6562))
 	{
 	    Dialog_Show(playerid, DIALOGJOIAS, DIALOG_STYLE_TABLIST_HEADERS, "JOALHERIA", "Produto\tPreço\nRelógios", "Selecionar", "Cancelar");
-	}
-	else if(IsPlayerInRangeOfPoint(playerid, 5, 1917.8755,-1776.0514,13.6094)) //comprar 24/7
+	}*/
+	else if(IsPlayerInRangeOfPoint(playerid, 5, -366.4313,1566.4269,75.3437)) //comprar 24/7
 	{
 		Dialog_Show(playerid, Dialog_247Rua, DIALOG_STYLE_TABLIST_HEADERS, "24/7", "Produto\tPreço\n\
 		{878787}ELETRÔNICOS\n\
@@ -48977,7 +49084,7 @@ CMD:comprar(playerid, params[])
 	{	
 		Dialog_Show(playerid, Dialog_Bomba, DIALOG_STYLE_TABLIST_HEADERS, "Mercado Negro", "Produto\tPreço\n1x Dinamite\tUS$200\n1x C4\tUS$400\n1x TNT\tUS$800\n1x Mina Terrestre\tUS$150\n1x Morteiro\tUS$250\n1x Kit medico\tUS$250", "Comprar", "Cancelar");
 	}
-	else if(IsPlayerInRangeOfPoint(playerid, 5, 2114.7300,-1806.5607,13.5616)) //Stacked aberta
+	else if(IsPlayerInRangeOfPoint(playerid, 5, -362.5867,1564.2064,75.6562)) //Stacked aberta
 	{
 	    Dialog_Show(playerid, DIALOG_STACKEDRua, DIALOG_STYLE_TABLIST_HEADERS, "STACKED", "Produto\tPreço\nPizza Pequena\tUS$8\nPizza + Refri\tUS$12\nCombo Completo\tUS$18", "Selecionar", "Cancelar");
 	}

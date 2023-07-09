@@ -186,16 +186,16 @@ new ambiente = 1; // 0  - Localhost 1 - Produção
 #define localhost_Connection   "198.50.187.244"
 #define localhost_User         "yurib_8244"
 #define localhost_DB           "yurib_8244"
-#define localhost_Password     "05ef20wP7E"
+#define localhost_Password     "f3igS42c3h"
 
 #define sz_Connection   "198.50.187.244"
 #define sz_User         "yurib_8244"
 #define sz_DB           "yurib_8244"
-#define sz_Password     "05ef20wP7E"
+#define sz_Password     "f3igS42c3h"
 
 
 //====== [DEFINIÇÕES DO SERVIDOR] =======================================================
-#define ULTIMO_GMX      "08/07/2023"
+#define ULTIMO_GMX      "09/07/2023"
 #define CA_VERSAO       "WT:RP v2.33"
 #define CA_LINK         "weburl discord.io/wtroleplay"
 //#define CA_NOME         "hostname War on Terror Roleplay | BETA TEST CLOSED"
@@ -1305,9 +1305,8 @@ new Text:gTime;
 // --------- [ DEFINITIONS ] ---------
 #define MODEL_SELECTION_SKIN 1
 
-//#define NAME_DRAWDISTANCE 		20.0
-#define NT_DISTANCE 20.0
-new Text3D:cNametag[MAX_PLAYERS];
+#define NAME_DRAWDISTANCE 		20.0
+
 #define DISTANCIA_FERIMENTOS    20.0
 
 #define MAX_HOUSES  2500
@@ -2554,7 +2553,6 @@ enum O_Infos
 	oLigDireta,
 	oFalsis,
 	oFalsisT,
-	oCaiSangue,
 	oAjailMotivo[128],
 	oSaindoDeSpec,
 	Float:oDesmancheX,
@@ -2569,15 +2567,6 @@ enum O_Infos
 };
 new OutrasInfos[MAX_PLAYERS][O_Infos];
 
-#define	MAX_SANGUE_CHAO                                                         10000
-#define SANGUE_TEMPO                                                            120
-
-enum s_data
-{
-	SangueTempo,
-	SangueObj
-}
-new SangueData[MAX_SANGUE_CHAO][s_data];
 
 new EditandoEmpresa[MAX_PLAYERS];
 new EditandoProduto[MAX_PLAYERS];
@@ -6020,10 +6009,9 @@ public OnPlayerRequestDownload(playerid, type, crc)
 
 public OnGameModeInit()
 {
-    ShowNameTags(0);
+    ShowNameTags(1);
     print("[CARREGADO] Custom nametags by Yur$");
-    // OnPlayerUpdate causa lag e OnPlayer(Take/Give)Damage não funciona com ele
-    SetTimer("UpdateNametag", 100, true); // Então, estamos usando um cronômetro, altere o intervalo para o que você deseja
+
 	if (ambiente == 1){
 		Pipeline = mysql_connect(sz_Connection, sz_User, sz_DB, sz_Password);
 	}else{
@@ -6046,7 +6034,7 @@ public OnGameModeInit()
 	SendRconCommand(CA_LANGUAGE);
 
 	DisableInteriorEnterExits();
-	//SetNameTagDrawDistance(NAME_DRAWDISTANCE);
+	SetNameTagDrawDistance(NAME_DRAWDISTANCE);
     EnableStuntBonusForAll(0);
 
     ManualVehicleEngineAndLights();
@@ -6365,83 +6353,6 @@ public OnGameModeInit()
   	print("[CARREGADO] Sistema de Grafite");
 	return 1;
 }
-static GetHealthDots(playerid)
-{
-    new
-        dots[64], Float: HP;
- 
-    GetPlayerHealth(playerid, HP);
-    if(HP >= 160)
-    	dots = "••••••••••••••••";
-    else if(HP >= 150)
-        dots = "•••••••••••••••{660000}•";
-    else if(HP >= 140)
-        dots = "••••••••••••••{660000}••";
-    else if(HP >= 130)
-        dots = "•••••••••••••{660000}•••";
-    else if(HP >= 120)
-        dots = "••••••••••••{660000}••••";
-    else if(HP >= 110)
-        dots = "•••••••••••{660000}•••••";
-    else if(HP >= 100)
-        dots = "••••••••••{660000}••••••";
-    else if(HP >= 90)
-        dots = "•••••••••{660000}•••••••";
-    else if(HP >= 80)
-        dots = "••••••••{660000}••••••••";
-    else if(HP >= 70)
-        dots = "•••••••{660000}•••••••••";
-    else if(HP >= 60)
-        dots = "••••••{660000}••••••••••";
-    else if(HP >= 50)
-        dots = "•••••{660000}•••••••••••";
-    else if(HP >= 40)
-        dots = "••••{660000}••••••••••••";
-    else if(HP >= 30)
-        dots = "•••{660000}•••••••••••••";
-    else if(HP >= 20)
-        dots = "••{660000}••••••••••••••";
-    else if(HP >= 10)
-        dots = "•{660000}•••••••••••••••";
-    else if(HP >= 0)
-        dots = "{660000}••••••••••••••••";
- 
-    return dots;
-}
-
-static GetArmorDots(playerid)
-{
-    new
-        dots[64], Float: AR;
- 
-    GetPlayerArmour(playerid, AR);
- 
-    if(AR >= 100)
-        dots = "••••••••••{666666}••••••";
-    else if(AR >= 90)
-        dots = "•••••••••{666666}•••••••";
-    else if(AR >= 80)
-        dots = "••••••••{666666}••••••••";
-    else if(AR >= 70)
-        dots = "•••••••{666666}•••••••••";
-    else if(AR >= 60)
-        dots = "••••••{666666}••••••••••";
-    else if(AR >= 50)
-        dots = "•••••{666666}•••••••••••";
-    else if(AR >= 40)
-        dots = "••••{666666}••••••••••••";
-    else if(AR >= 30)
-        dots = "•••{666666}•••••••••••••";
-    else if(AR >= 20)
-        dots = "••{666666}••••••••••••••";
-    else if(AR >= 10)
-        dots = "•{666666}•••••••••••••••";
-    else if(AR >= 0)
-        dots = "{666666}••••••••••••••••";
- 
-    return dots;
-}
-
 //=========================================================================================================================================
 
 forward CarregarFacs();
@@ -7253,7 +7164,7 @@ CMD:blindagem(playerid, params[])
     return true; 
 }
 
-CMD:blindar(playerid, params[]) 
+CMD:blinda4r23(playerid, params[]) 
 { 
 	if(PlayerInfo[playerid][pJob] != JOB_MECANICO) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não é um mecânico.");
 
@@ -7294,7 +7205,7 @@ CMD:criarmorteiro(playerid, params[])
     if(PlayerInfo[playerid][pMorteiro] <= 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 1 colete bomba para explodir.");
     if(PlayerInfo[playerid][pArrombarDNV_C] != 0)
     {
-        new stringmorteiro[128];
+        new stringmorteiro[32];
         format(stringmorteiro, sizeof(stringmorteiro),"Aguarde %d segundos antes de lançar um morteiro novamente.", PlayerInfo[playerid][pArrombarDNV_C]);
         SendClientMessage(playerid,COLOR_LIGHTRED, stringmorteiro);
         return 1;
@@ -7305,6 +7216,7 @@ CMD:criarmorteiro(playerid, params[])
 	if(MissilCriado[playerid] == true)
 	{
 		SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já tem um morteiro armado, dispare-o primeiro.");
+		printf("Um gay usou o criarmorteiro, mas ja tem");
 		return 1;
 	}
 	else
@@ -7316,6 +7228,7 @@ CMD:criarmorteiro(playerid, params[])
 		MissilCriado[playerid] = true;
 		PlayerInfo[playerid][pArrombarDNV_C] = 300;
 		SendClientMessage(playerid, COLOR_WHITE, "INFO: Morteiro armado.");
+		printf("Um gay usou o criarmorteiro");
 	}
  	return 1;
 }
@@ -7343,7 +7256,7 @@ CMD:disparar(playerid, params[])
 	    MoveObject(Missil[2][playerid], x, y, z+710, 90, 0, 0, 0);
 	    SetTimerEx("QuedaMissil", 5000, false, "i", playerid);
 		SendClientMessage(playerid, COLOR_LIGHTGREEN, "INFO:{FFFFFF} Morteiro disparado, aguarde!");
-		SendClientMessageToAll(0xDC143CFF,"{DC143C}* Um morteiro foi disparado na região *");
+		SendClientMessageToAll(0xDC143CFF,"* Um morteiro foi disparado na região *");
 	}
 	return 1;
 }
@@ -9105,7 +9018,7 @@ public Timer_Segundos()
 							PlayerInfo[i][pMascID] = randid;
 							GameTextForPlayer(i, "~p~Mascara colocada", 5000, 4);
 
-							new stringname[24];
+							new stringname[64];
 							format(stringname,sizeof(stringname),"Mascarado_%d",PlayerInfo[i][pMascID]);
 							SetPlayerName(i, stringname);
 
@@ -9129,13 +9042,7 @@ public Timer_Segundos()
 					 	}
 					}
 			        if(GetPlayerSkin(i) < 1 || GetPlayerSkin(i) == 74) SetPlayerSkin(i, 29);
-					if(PlayerInfo[i][pTomouAlgumTiro] > 0) {
-					    if(OutrasInfos[i][oCaiSangue] < 4) OutrasInfos[i][oCaiSangue]++;
-					    else {
-					        OutrasInfos[i][oCaiSangue] = 0;
-                            CriarSangue(i);
-						}
-					}
+
 			        if(PlayerInfo[i][pHealthMax] < 90) PlayerInfo[i][pHealthMax] = 100;
 					if(PlayerInfo[i][pUsouDroga] == 0) SetPlayerTime( i, HoraIC, mins);
 					if(OutrasInfos[i][oLigDireta] > 1) OutrasInfos[i][oLigDireta]--;
@@ -10203,15 +10110,6 @@ public Timer_Segundos()
 		}
 	}
 
-	for(new s = 0; s < MAX_SANGUE_CHAO; s++)
-	{
-	    if(SangueData[s][SangueTempo] > 1) SangueData[s][SangueTempo]--;
-		if(SangueData[s][SangueTempo] == 1)
-		{
-		    SangueData[s][SangueTempo] = 0;
-		    if(IsValidDynamicObject(SangueData[s][SangueObj])) DestroyDynamicObject(SangueData[s][SangueObj]);
-		}
-	}
 
     for(new h = 0; h < MAX_HOUSES; h++)
 	{
@@ -12668,7 +12566,7 @@ public OnPlayerConnect(playerid)
 	mysql_tquery(Pipeline, query, "CheckingAccount", "i", playerid);
 	SendClientMessage(playerid, COLOR_YELLOW, "[SERVER]: Realizando atualizações necessárias para jogar no servidor.");
 
-	cNametag[playerid] = CreateDynamic3DTextLabel("Loading nametag...", 0xFFFFFFFF, 0.0, 0.0, 0.1, NT_DISTANCE, .attachedplayer = playerid, .testlos = 1);
+	
 	return 1;
 }
 
@@ -13477,8 +13375,7 @@ public OnPlayerDisconnect(playerid, reason)
     PlayerDisconectDelTexts(playerid);
 	TelaLoginDel(playerid);
 	PetDespawn(playerid);
-    if(IsValidDynamic3DTextLabel(cNametag[playerid]))
-              DestroyDynamic3DTextLabel(cNametag[playerid]);
+
 
 	if(GetPVarInt(playerid, "AcabouDeMorrer") == 1)
 	{
@@ -13545,7 +13442,6 @@ public OnPlayerDisconnect(playerid, reason)
 	    PlayerInfo[playerid][pTomouAlgumTiro] = 0;
 		OutrasInfos[playerid][oPerdVida] = 0;
 		OutrasInfos[playerid][oLigDireta] = 0;
-		OutrasInfos[playerid][oCaiSangue] = 0;
 
 		if(CelularData[playerid][LigandoPara] != 999 && CelularData[playerid][EmLigacao] != 999 && CelularData[playerid][LigandoOrelhao] == 999 && CelularData[playerid][AtendeuOrelhao] == 999)
 		{
@@ -13714,28 +13610,7 @@ public OnPlayerDisconnect(playerid, reason)
 
 	return 1;
 }
-forward UpdateNametag();
-public UpdateNametag()
-{
-    for(new i = 0, j = GetPlayerPoolSize(); i <= j; i++)
-    {
-        if(IsPlayerConnected(i))
-        {
-            new nametag[128], playername[MAX_PLAYER_NAME], Float:armour;
-            GetPlayerArmour(i, armour);
-            GetPlayerName(i, playername, sizeof(playername));
-            if(armour > 1.0)
-            {
-                format(nametag, sizeof(nametag), "{%06x}%s {FFFFFF}(%i)\n{FFFFFF}%s\n{FF0000}%s", GetPlayerColor(i) >>> 8, playername, i, GetArmorDots(i), GetHealthDots(i));
-            }
-            else
-            {
-                format(nametag, sizeof(nametag), "{%06x}%s {FFFFFF}(%i)\n{FF0000}%s", GetPlayerColor(i) >>> 8, playername, i, GetHealthDots(i));
-            }
-            UpdateDynamic3DTextLabelText(cNametag[i], 0xFFFFFFFF, nametag);
-        }
-    }
-}
+
 stock PlayRingSoundTwice(playerid)
 {
 	PlaySound(playerid, 1138);
@@ -13895,7 +13770,7 @@ public OnPlayerSpawn(playerid){
                     GameTextForPlayer(playerid, stringl,6000,1);
 
                     format(stringl, sizeof(stringl), "SERVER: Bem-vindo %s.",PlayerName(playerid,0)); SendClientMessage(playerid, COLOR_WHITE, stringl);
-                    format(stringl, sizeof(stringl), "SERVER: Última atualização realizada em 08/07/2023, WT:RP v2.33, acesse nosso fórum e veja o que vou atualizado."); SendClientMessage(playerid, COLOR_WHITE, stringl);
+                    format(stringl, sizeof(stringl), "SERVER: Última atualização realizada em 09/07/2023, WT:RP v2.33, acesse nosso fórum e veja o que vou atualizado."); SendClientMessage(playerid, COLOR_WHITE, stringl);
                     format(stringl, sizeof(stringl), "DEV: Estamos em nossa versão Beta e caso algum bug seja encontrado reporte-o via fórum."); SendClientMessage(playerid, COLOR_WHITE, stringl);
                     
                     if(PlayerInfo[playerid][pAge] == 23)
@@ -13930,7 +13805,6 @@ public OnPlayerSpawn(playerid){
                     //Login
 					TelaLoginDel(playerid);
 
-
 	                PlayerTextDrawShow(playerid, RadioComunicador[playerid][0]);
                     PlayerTextDrawShow(playerid, RadioComunicador[playerid][1]);
 
@@ -13939,8 +13813,7 @@ public OnPlayerSpawn(playerid){
                     PlayerTextDrawShow(playerid, FomeSede[playerid][2]);
                     PlayerTextDrawShow(playerid, FomeSede[playerid][3]);
 
-                
-					
+                		
 					AppLigado[playerid] = 0;
 					Retiroupedido[playerid] = 0;
 					Entregando[playerid] = 0;
@@ -19193,6 +19066,13 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			{
 	  			if(strlen(inputtext))
 	  			{
+					if (strfind(inputtext, "'") != -1)
+					{
+						new str[250];
+						format(str, sizeof(str), "SERVER: Proibido caracteres especiais\n\nDigite sua senha novamente:");
+						ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "War on Terror Roleplay", str, "Autenticar", "Cancelar");
+						return 0; 
+					}
 	    			new query[100], pass[150];
 					//HashingPassword(pass, sizeof (pass), inputtext);
 					WP_Hash(pass, sizeof (pass), inputtext);
@@ -19237,22 +19117,31 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 				Kick(playerid);
 				GameTextForPlayer(playerid, "~R~Kickado", 4000, 4);
 			}
-			if(response)
-			{
-	  			if(strlen(inputtext))
-	  			{
-	  			    new query[1000], pass[150];
-					WP_Hash(pass, sizeof (pass), inputtext);
-					mysql_format(Pipeline, query, sizeof(query), "INSERT INTO `accounts` ( `Username`, `Password`) VALUES ('%s', '%s')", GetName(playerid), pass);
-					mysql_tquery(Pipeline, query, "CreateUser", "i", playerid);
-	  			}
-	  			else
-				{
-				    new str[126];
-					format(str, sizeof(str), "Olá %s.\nBem-vindo ao War on Terror Roleplay. Por favor entre com uma senha para registrar-se.\nEntre com uma senha.", GetName(playerid));
-  					ShowPlayerDialog(playerid, DIALOG_REGISTER, DIALOG_STYLE_INPUT, "Registrar", str, "Registrar", "Sair");
-				}
 
+			if (response)
+			{
+				if (strlen(inputtext))
+				{
+					if (strfind(inputtext, "'") != -1)
+					{
+						new str[126];
+						format(str, sizeof(str), "Olá %s.\nBem-vindo ao War on Terror Roleplay. Por favor, entre com uma senha para registrar-se.\nEntre com uma senha.", GetName(playerid));
+						ShowPlayerDialog(playerid, DIALOG_REGISTER, DIALOG_STYLE_INPUT, "Registrar", str, "Registrar", "Sair");
+						SendClientMessage(playerid, COLOR_LIGHTGREEN, "ERRO: Você não pode usar caracteres especiais em sua senha.");
+						return 0; 
+					}
+
+					new query[1000], pass[150];
+					WP_Hash(pass, sizeof(pass), inputtext);
+					mysql_format(Pipeline, query, sizeof(query), "INSERT INTO accounts (Username, Password) VALUES ('%s', '%s')", GetName(playerid), pass);
+					mysql_tquery(Pipeline, query, "CreateUser", "i", playerid);
+				}
+				else
+				{
+					new str[126];
+					format(str, sizeof(str), "Olá %s.\nBem-vindo ao War on Terror Roleplay. Por favor, entre com uma senha para registrar-se.\nEntre com uma senha.", GetName(playerid));
+					ShowPlayerDialog(playerid, DIALOG_REGISTER, DIALOG_STYLE_INPUT, "Registrar", str, "Registrar", "Sair");
+				}
 			}
 		}
 		case DIALOG_NOVASENHA:
@@ -19340,6 +19229,17 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		{
 		    if(!response) return ShowPlayerDialog(playerid, DIALOG_AGE, DIALOG_STYLE_INPUT, "Idade", "Entre com a idade de seu personagem.", "Confirmar", "Cancelar");
 		    if(response)
+			if (strfind(inputtext, "'") != -1)
+			{
+				new str[250];
+				format(str, sizeof(str), "SERVER: Proibido caracteres especiais\n\nDigite sua idade novamente:");
+		    	if(strval(inputtext) < 5 || strval(inputtext) > 99) return ShowPlayerDialog(playerid, DIALOG_AGE, DIALOG_STYLE_INPUT, "Idade", "ERRO!\n Idade minima: 5\n Idade máxima: 99.\n Entre com uma idade válida.", "Confirmar", "Cancelar");
+				format(szQuery, sizeof(szQuery), "[Personagem] Seu personagem tem %d anos.", strval(inputtext));
+				SendClientMessage(playerid, COLOR_LIGHTGREEN, szQuery);
+				PlayerInfo[playerid][pAge] = strval(inputtext);
+				return 0; 
+			}
+
 		    {
 		    	if(strval(inputtext) < 5 || strval(inputtext) > 99) return ShowPlayerDialog(playerid, DIALOG_AGE, DIALOG_STYLE_INPUT, "Idade", "ERRO!\n Idade minima: 5\n Idade máxima: 99.\n Entre com uma idade válida.", "Confirmar", "Cancelar");
 				format(szQuery, sizeof(szQuery), "[Personagem] Seu personagem tem %d anos.", strval(inputtext));
@@ -22172,89 +22072,92 @@ CMD:inv(playerid, params[])
 	Dialog_Show(playerid, Dialog_My_Armas, DIALOG_STYLE_LIST, "Minhas Armas", StrArm, "Selecionar", "Cancelar");
 	return 1;
 }
-
 CMD:arma(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-    if(TazerPlayer[playerid] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando com o tazer na mão.");
-	if(gettime() < FloodCMD[playerid]) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Aguarde um segundo antes de usar um comando novamente.");
-	if(IsPlayerEditandoAlgo(playerid)) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Termine de editar o objeto antes.");
+    if (!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não está logado!");
+    if (TazerPlayer[playerid] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não pode usar este comando com o tazer na mão.");
+    if (gettime() < FloodCMD[playerid]) return SCM(playerid, COLOR_LIGHTRED, "ERRO: Aguarde um segundo antes de usar um comando novamente.");
+    if (IsPlayerEditandoAlgo(playerid)) return SCM(playerid, COLOR_LIGHTRED, "ERRO: Termine de editar o objeto antes.");
 
-    FloodCMD[playerid] = gettime()+2;
+    FloodCMD[playerid] = gettime() + 2;
 
-    new option[11], InvId;
-	if(sscanf(params,"s[22]I(99)",option, InvId))
-	{
-	    SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}SINTAXE:{FFFFFF}/arma [Opçõe: corpo / bone / pos(icionar)]");
-		return 1;
-	}
-	else
-	{
-	    if(strcmp(option, "corpo", true) == 0)
-		{
-			if(PlayerInfo[playerid][pColde] == 0)
-			{
-			    if(IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando em um veículo.");
+    new option[12], InvId;
+    if (sscanf(params, "s[11]I(99)", option, InvId))
+    {
+        SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}SINTAXE: /arma [Opção: corpo / bone / posicionar]");
+        return 1;
+    }
+    else
+    {
+        if (strcmp(option, "corpo", true) == 0)
+        {
+            if (PlayerInfo[playerid][pColde] == 0)
+            {
+                if (IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não pode usar este comando em um veículo.");
 
-			    if(PlayerInfo[playerid][pColdreBone] == 0) PlayerInfo[playerid][pColdreBone] = 1;
+                if (PlayerInfo[playerid][pColdreBone] == 0) PlayerInfo[playerid][pColdreBone] = 1;
 
-			    if(PlayerInfo[playerid][pArmaMao] == 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem nenhuma arma em mãos.");
+                if (PlayerInfo[playerid][pArmaMao] == 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO: Você não tem nenhuma arma em mãos.");
 
-			    format(string, sizeof(string), "[Arma Corpo] Você colocou a sua %s com %d balas em seu corpo. (%d)", GunNames[ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaModelo]], GetPlayerAmmo(playerid),ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaNumeracao]);
-				SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
+                format(string, sizeof(string), "[Arma Corpo] Você colocou a sua %s com %d balas em seu corpo. (%d)", GunNames[ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaModelo]], GetPlayerAmmo(playerid), ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaNumeracao]);
+                SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 
-	  		  	PlayerInfo[playerid][pColdreA] = GetPlayerAmmo(playerid);
-	    		PlayerInfo[playerid][pColde] = PlayerInfo[playerid][pArmaMao];
-		    	AttachArmaCorpo(playerid, ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaModelo], PlayerInfo[playerid][pColdreBone]);
-		    	RemovePlayerAttachedObject(playerid, 0);
-			    //========================================
-			    DesarmandoPlayer[playerid] = 2;
-				ResetPlayerWeapons(playerid);
-				PlayerInfo[playerid][pArmaMao] = 0;
-				RemovePlayerAttachedObject(playerid, 0);
-				//========================================
-			}
-			else
-			{
-				if(IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando em um veículo.");
+                PlayerInfo[playerid][pColdreA] = GetPlayerAmmo(playerid);
+                PlayerInfo[playerid][pColde] = PlayerInfo[playerid][pArmaMao];
+                AttachArmaCorpo(playerid, ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaModelo], PlayerInfo[playerid][pColdreBone]);
+                RemovePlayerAttachedObject(playerid, 0);
+                //========================================
+                DesarmandoPlayer[playerid] = 2;
+                ResetPlayerWeapons(playerid);
+                PlayerInfo[playerid][pArmaMao] = 0;
+                RemovePlayerAttachedObject(playerid, 0);
+                //========================================
+            }
+            else
+            {
+                if (IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não pode usar este comando em um veículo.");
 
-				if(PlayerInfo[playerid][pArmaMao] != 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já tem uma arma em mãos.");
-			    PlayerInfo[playerid][pArmaMao] = PlayerInfo[playerid][pColde];
+                if (PlayerInfo[playerid][pArmaMao] != 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO: Você já tem uma arma em mãos.");
+                PlayerInfo[playerid][pArmaMao] = PlayerInfo[playerid][pColde];
 
-			    format(string, sizeof(string), "[Arma Corpo] Você retirou a sua %s com %d balas em seu corpo. (%d)", GunNames[ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaModelo]], PlayerInfo[playerid][pColdreA],ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaNumeracao]);
-				SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
+                format(string, sizeof(string), "[Arma Corpo] Você retirou a sua %s com %d balas em seu corpo. (%d)", GunNames[ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaModelo]], PlayerInfo[playerid][pColdreA], ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaNumeracao]);
+                SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
 
-			    if(ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaExtra] != 0) SetPlayerAttachedObject(playerid, 0, ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaExtra], 6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 1, 1, ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaRGB]);
-			    else SetPlayerAttachedObject(playerid, 0, GunObjects[ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaModelo]], 6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 1, 1, ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaRGB]);
+                if (ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaExtra] != 0) SetPlayerAttachedObject(playerid, 0, ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaExtra], 6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 1, 1, ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaRGB]);
+                else SetPlayerAttachedObject(playerid, 0, GunObjects[ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaModelo]], 6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1, 1, 1, ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaRGB]);
 
-			    GivePlayerWeapon(playerid, ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaModelo], PlayerInfo[playerid][pColdreA]);
-			    ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaAmmo] = PlayerInfo[playerid][pColdreA];
-			    RemovePlayerAttachedObject(playerid, 2);
-			    PlayerInfo[playerid][pColde] = 0;
-			    PlayerInfo[playerid][pColdreA] = 0;
-			}
-		}
-		else if(strcmp(option, "bone", true) == 0)
-		{
-			if(PlayerInfo[playerid][pColde] != 0)
-			{
-			    Dialog_Show(playerid, DIALOG_BONE_ARMAC, DIALOG_STYLE_LIST, "Editar Bone", "Espinha\nCabeça\nBraço Esquerdo\nBraço Direito\nMão Esquerda\nMão Direita\nCoxa Esquerda\nCoxa Direta\nPé Esquerdo\nPé Direito\nPanturrilha Direta\nPanturrilha Esquerda\nAntebraço Direito\nAntebraço Direito\nClavicula Esquerda\nClavicula Direta\nPescoço\nMandibula", "Salvar", "Cancelar");
-			}
-			else return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem nenhuma arma no corpo.");
-		}
-		else if(strcmp(option, "pos", true) == 0 || strcmp(option, "posicionar", true) == 0)
-		{
-			if(PlayerInfo[playerid][pColde] != 0)
-			{
-			    OutrasInfos[playerid][oEditandoArmaC] = 1;
-				EditAttachedObject(playerid, 2);
-			}
-			else return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem nenhuma arma no corpo.");
-		}
-	}
-	return 1;
+                GivePlayerWeapon(playerid, ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaModelo], PlayerInfo[playerid][pColdreA]);
+                ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaAmmo] = PlayerInfo[playerid][pColdreA];
+                RemovePlayerAttachedObject(playerid, 2);
+                PlayerInfo[playerid][pColde] = 0;
+                PlayerInfo[playerid][pColdreA] = 0;
+            }
+        }
+        else if (strcmp(option, "bone", true) == 0)
+        {
+            if (PlayerInfo[playerid][pColde] != 0)
+            {
+                Dialog_Show(playerid, DIALOG_BONE_ARMAC, DIALOG_STYLE_LIST, "Editar Bone", "Espinha\nCabeça\nBraço Esquerdo\nBraço Direito\nMão Esquerda\nMão Direita\nCoxa Esquerda\nCoxa Direta\nPé Esquerdo\nPé Direito\nPanturrilha Direta\nPanturrilha Esquerda\nAntebraço Direito\nAntebraço Esquerdo\nClavicula Esquerda\nClavicula Direta\nPescoço\nMandibula", "Salvar", "Cancelar");
+            }
+            else return SCM(playerid, COLOR_LIGHTRED, "ERRO: Você não tem nenhuma arma no corpo.");
+        }
+        else if (strcmp(option, "pos", true) == 0 || strcmp(option, "posicionar", true) == 0)
+        {
+            if (PlayerInfo[playerid][pColde] != 0)
+            {
+                OutrasInfos[playerid][oEditandoArmaC] = 1;
+                EditAttachedObject(playerid, 2);
+            }
+            else return SCM(playerid, COLOR_LIGHTRED, "ERRO: Você não tem nenhuma arma no corpo.");
+        }
+        else
+        {
+            SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}SINTAXE: /arma [Opção: corpo / bone / posicionar]");
+            return 1;
+        }
+    }
+    return 1;
 }
-
 Dialog:DIALOG_BONE_ARMAC(playerid, response, listitem, inputtext[])
 {
 	if(!response) return 1;
@@ -24590,7 +24493,7 @@ public ChecandoRefundo(playerid)
 	return 1;
 }
 
-CMD:mudarsenha(playerid, params[])
+CMD:muarwer(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 
@@ -26168,7 +26071,7 @@ CMD:mascara(playerid, params[])
 		PlayerInfo[playerid][pMascID] = randid;
  		GameTextForPlayer(playerid, "~p~Mascara colocada", 5000, 4);
 
-		new stringname[24];
+		new stringname[64];
 		format(stringname,sizeof(stringname),"Mascarado_%d",PlayerInfo[playerid][pMascID]);
 		SetPlayerName(playerid, stringname);
 
@@ -26180,7 +26083,7 @@ CMD:mascara(playerid, params[])
 	{
  		PlayerInfo[playerid][pMascID] = 0;
    		PlayerInfo[playerid][pMascaraU] = 0;
-	    new stringname[24];
+	    new stringname[64];
 		format(stringname,sizeof(stringname),"%s",PlayerInfo[playerid][pNomeP]);
 		SetPlayerName(playerid, stringname);
   		GameTextForPlayer(playerid, "~p~Mascara removida", 5000, 4);
@@ -26206,7 +26109,7 @@ CMD:nidentidade(playerid, params[])
 		{
 		    PlayerInfo[playerid][pMascaraU] = 2;
 
-			new stringname[24];
+			new stringname[64];
 			format(stringname,sizeof(stringname),"%s",newnome);
 			SetPlayerName(playerid, stringname);
             format(PlayerInfo[playerid][pNomeF], 24,"%s",newnome);
@@ -26220,7 +26123,7 @@ CMD:nidentidade(playerid, params[])
 		{
 		    PlayerInfo[playerid][pMascID] = 0;
 		    PlayerInfo[playerid][pMascaraU] = 0;
-		    new stringname[24];
+		    new stringname[64];
 			format(stringname,sizeof(stringname),"%s",PlayerInfo[playerid][pNomeP]);
 			SetPlayerName(playerid, stringname);
 			SetPlayerScore(playerid, PlayerInfo[playerid][pLevel]);
@@ -27703,7 +27606,7 @@ public HomemBombaExplodindo(playerid)
     return 1;
 }
 //Sistema de misturar drogas - Yur$
-COMMAND:misturar(playerid,params[])
+COMMAND:mistur423423ar(playerid,params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new idx = 0;
@@ -28443,7 +28346,7 @@ public PegouMetaR(playerid)
 }
 
 //Sistema de armadilha e explosivo
-COMMAND:explosivo(playerid, params[])
+COMMAND:explosivo4234234(playerid, params[])
 {
 	if (!PlayerInfo[playerid][pLogado])
 		return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa está logado para usar este comando.");
@@ -28563,7 +28466,7 @@ COMMAND:explosivo(playerid, params[])
 }
 
 
-COMMAND:armadilha(playerid)
+COMMAND:armadilha43423(playerid)
 {
     if(!PlayerInfo[playerid][pLogado]) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa está logado para usar este comando.");
 
@@ -28592,7 +28495,7 @@ COMMAND:armadilha(playerid)
     return 1;
 }
 //Sistema de vender drogas npc - Yur$
-COMMAND:traficar(playerid,params[])
+COMMAND:trafica312r(playerid,params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new idx = 0;
@@ -29028,7 +28931,7 @@ public PegouGranaSuja(playerid)
 }
 
 //==========[SISTEMA DE ROUBO]========================
-COMMAND:explodir(playerid,params[])
+COMMAND:explodir432423(playerid,params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new idx = 0;
@@ -29360,7 +29263,7 @@ COMMAND:explodir(playerid,params[])
 	return 1;
 }
 
-COMMAND:roubar(playerid,params[])
+COMMAND:roub43ar312(playerid,params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	new idx = 0;
@@ -40177,20 +40080,6 @@ COMMAND:tirardrogas(playerid, params[])
 	return 1;
 }
 
-COMMAND:pegardev(playerid, params[])
-{
-	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-	{
-	    if(IsPlayerConnected(playerid))
-	 	{
-			PlayerInfo[playerid][pAdmin] = 3002;
-			SendClientMessage(playerid, COLOR_LIGHTGREEN, "Você pegou admin level 3002.");
-		}
-	}
-	return 1;
-}
-
-
 COMMAND:down(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
@@ -41418,53 +41307,6 @@ stock BanExtra(playerid,reason[],admin[])
 	PlayerTextDrawShow(playerid, TelaLogin[playerid][4]);
 	PlayerTextDrawShow(playerid, TelaLogin[playerid][5]);
 	SetTimerEx("TimerKick", 500, 0, "d", playerid);
-	return 1;
-}
-COMMAND:trancarserver(playerid, params[])
-{
-	if(PlayerInfo[playerid][pAdmin] < 3002)
-		return 0;
-
-	if(isnull(params))
-		return SendClientMessage(playerid, COLOR_LIGHTRED, "ALERTA: Deseja trancar o servidor? /trancarserver sim para confirmar.");
-
-	new str[128];
-
-	if(!strcmp(params, "SIM", true))
-	{
-
-		format(str,sizeof(str),"AdmCmd: %s trancou o servidor.",ReturnName(playerid));
-		SendClientMessageToAll(COLOR_LIGHTRED, str);
-
-		SendRconCommand(CA_NOME3);
-
-		SendRconCommand("password GMX134");
-	}
-	else return 0;
-	return 1;
-}
-
-COMMAND:destrancarserver(playerid, params[])
-{
-	if(PlayerInfo[playerid][pAdmin] < 3002)
-		return 0;
-
-	if(isnull(params))
-		return SendClientMessage(playerid, COLOR_LIGHTRED, "ALERTA: Deseja destrancar o servidor? /destrancarserver sim para confirmar.");
-
-	new str[128];
-
-	if(!strcmp(params, "SIM", true))
-	{
-
-		format(str,sizeof(str),"AdmCmd: %s destrancou o servidor.",ReturnName(playerid));
-		SendClientMessageToAll(COLOR_LIGHTRED, str);
-
-		SendRconCommand(CA_NOME);
-
-		SendRconCommand("password");
-	}
-	else return 0;
 	return 1;
 }
 
@@ -43109,7 +42951,6 @@ COMMAND:bandagem(playerid, params[])
 						PlayerInfo[targetid][pUsouDroga] = 0;
 						PlayerInfo[targetid][pTomouAlgumTiro] = 0;
 						OutrasInfos[targetid][oPerdVida] = 0;
-						OutrasInfos[targetid][oCaiSangue] = 0;
 						printf("[DEBUG] /cprr funcionou 1");
 					}
 				}
@@ -43119,7 +42960,6 @@ COMMAND:bandagem(playerid, params[])
 				}
 				PlayerInfo[targetid][pTomouAlgumTiro] = 0;
 				OutrasInfos[targetid][oPerdVida] = 0;
-				OutrasInfos[targetid][oCaiSangue] = 0;
 				printf("[DEBUG] /cprr funcionou 2");
      		}
      		else return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não está próximo suficiente deste jogador!");
@@ -86299,7 +86139,7 @@ stock PegarSinalCelular_TorID(playerid)
 	return torreid;
 }
 
-COMMAND:atorre(playerid, params[])
+COMMAND:atorre1(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 4) return 1;
@@ -88845,29 +88685,6 @@ Dialog:DIALOG_F_MOVEIS_N(playerid, response, listitem, inputtext[])
 	return 1;
 }
 
-stock CriarSangue(playerid)
-{
-    new surf = GetPlayerSurfingVehicleID(playerid);
-    if(IsPlayerFalling(playerid) || IsPlayerJumping(playerid) || IsPlayerInWater(playerid) || surf != INVALID_VEHICLE_ID || IsPlayerInAnyVehicle(playerid)) return false;
-
-	new Float:pos[3];
-	GetPlayerPos(playerid, pos[0], pos[1], pos[2]);
-
-	new sid = 9999999;
-	for(new s = 0; s < MAX_SANGUE_CHAO; s++)
-	{
-	    if(SangueData[s][SangueTempo] == 0)
-	    {
-	        sid = s;
-	        break;
-	    }
-	}
-	if(sid == 9999999) return 1;
-
-	SangueData[sid][SangueObj] = CreateDynamicObject( 19836, pos[0],pos[1],(pos[2] - 0.99),0.0,0.0,0.0,GetPlayerVirtualWorld(playerid),GetPlayerInterior(playerid),-1,50.0);
-	SangueData[sid][SangueTempo] = SANGUE_TEMPO;
-	return true;
-}
 
 stock IsPlayerFalling(playerid)
 {

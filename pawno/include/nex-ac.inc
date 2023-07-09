@@ -285,7 +285,7 @@ static bool:ac_ACAllow[] =
 
 	true,	//43 Anti-Tuning crasher
 	true,	//44 Anti-Invalid seat crasher
-	false,	//45 Anti-Dialog crasher
+	true,	//45 Anti-Dialog crasher
 	true,	//46 Anti-Attached object crasher
 	true,	//47 Anti-Weapon Crasher
 
@@ -295,7 +295,7 @@ static bool:ac_ACAllow[] =
 
 	true,	//51 Anti-DoS
 
-	false	//52 Anti-NOPs
+	true	//52 Anti-NOPs
 },
 
 bool:ac_NOPAllow[] =

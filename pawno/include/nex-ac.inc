@@ -278,7 +278,7 @@ static bool:ac_ACAllow[] =
 	true,	//36 Anti-Fake NPC
 	true,	//37 Anti-Reconnect
 	true,	//38 Anti-High ping
-	false,	//39 Anti-Dialog hack
+	true,	//39 Anti-Dialog hack
 	true,	//40 Protection from sandbox
 	true,	//41 Protection from invalid version
 	true,	//42 Anti-Rcon hack
@@ -289,8 +289,8 @@ static bool:ac_ACAllow[] =
 	true,	//46 Anti-Attached object crasher
 	true,	//47 Anti-Weapon Crasher
 
-	false,	//48 Protection from connection flood in one slot
-	true,	//49 Anti-callback functions flood
+	true,	//48 Protection from connection flood in one slot
+	false,	//49 Anti-callback functions flood
 	true,	//50 Anti-flood by seat changing
 
 	true,	//51 Anti-DoS

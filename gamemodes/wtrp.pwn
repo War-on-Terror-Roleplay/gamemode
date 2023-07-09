@@ -196,7 +196,7 @@ new ambiente = 1; // 0  - Localhost 1 - Produção
 
 //====== [DEFINIÇÕES DO SERVIDOR] =======================================================
 #define ULTIMO_GMX      "09/07/2023"
-#define CA_VERSAO       "WT:RP v2.33"
+#define CA_VERSAO       "WT:RP v2.35"
 #define CA_LINK         "weburl discord.io/wtroleplay"
 //#define CA_NOME         "hostname War on Terror Roleplay | BETA TEST CLOSED"
 #define CA_NOME         "hostname War on Terror Roleplay | discord.io/wtroleplay"
@@ -7338,14 +7338,14 @@ public TimerZera(playerid)
 	return 1;
 }
 
-CMD:bichos(playerid, params[]) 
+CMD:bichos23232(playerid, params[]) 
 {
 	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	MostrarMenuTabela(playerid);
 	return 1;
 }
  
-CMD:jogodobicho(playerid, params[]) 
+CMD:jogodobicho323232(playerid, params[]) 
 {
 	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	MostrarMenuBicho(playerid);
@@ -7464,7 +7464,7 @@ CMD:veraparencia(playerid, params[])
     	return 1;
 	}
 }
-CMD:idade(playerid, params[])
+CMD:idade335543(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     ShowPlayerDialog(playerid, DIALOG_AGE2, DIALOG_STYLE_INPUT, "Idade", "Idade minima: 5\n Idade máxima: 99.\n Entre com uma idade válida.", "Confirmar", "Cancelar");
@@ -13770,14 +13770,9 @@ public OnPlayerSpawn(playerid){
                     GameTextForPlayer(playerid, stringl,6000,1);
 
                     format(stringl, sizeof(stringl), "SERVER: Bem-vindo %s.",PlayerName(playerid,0)); SendClientMessage(playerid, COLOR_WHITE, stringl);
-                    format(stringl, sizeof(stringl), "SERVER: Última atualização realizada em 09/07/2023, WT:RP v2.33, acesse nosso fórum e veja o que vou atualizado."); SendClientMessage(playerid, COLOR_WHITE, stringl);
+                    format(stringl, sizeof(stringl), "SERVER: Última atualização realizada em 09/07/2023, WT:RP v2.35, acesse nosso fórum e veja o que vou atualizado."); SendClientMessage(playerid, COLOR_WHITE, stringl);
                     format(stringl, sizeof(stringl), "DEV: Estamos em nossa versão Beta e caso algum bug seja encontrado reporte-o via fórum."); SendClientMessage(playerid, COLOR_WHITE, stringl);
                     
-                    if(PlayerInfo[playerid][pAge] == 23)
-                        SCM(playerid, COLOR_LIGHTRED, "O campo de idade não foi preenchido, use /idade para preenche-lo.");
-
-					if(PlayerInfo[playerid][pAge] == 0)
-                    	SCM(playerid, COLOR_LIGHTRED, "O campo de idade não foi preenchido, use /idade para preenche-lo.");
 
                     if((PlayerInfo[playerid][pFac] > 0) && (FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fCriada] == 0 || FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fCriada] == 2)){
                         SCM(playerid, COLOR_LIGHTRED, "SERVER: A facção que você fazia parte, não existe mais.");
@@ -19184,7 +19179,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		        ATMs[TaNaATM[playerid]][aGrana] += valor;
 	    		return 1;
 			}
-			else return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem todo este dinheiro.");
+			else return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem todo este dinheiro.");	
 	    }
 	    case DIALOG_SBANCO:
 	    {
@@ -19211,7 +19206,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 				SendClientMessage(playerid,COLOR_WHITE,"|-----Extrato Bancário-----|");
                 return 1;
 			}
-			else return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem todo este dinheiro.");
+			else return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem todo este dinheiro.");	
 	    }
 		case DIALOG_COMPLEXO_MENU:
         {
@@ -21446,7 +21441,7 @@ public OnQueryFinish(resultid, extraid, ConnectionHandle)
 		        cache_get_field_content(0, "Motivo", tmp);
 	        	format(strMot, 256, "%s", tmp);
 
-    			cache_get_field_content(0, "Admin", tmp);
+    			cache_get_field_content(0, "Luxo", tmp);
 				format(stringadm, 24, "%s", tmp);
 
 				cache_get_field_content(0, "Data", tmp);
@@ -21516,7 +21511,7 @@ public SalvarPlayer(playerid)
 		   	}
 		}
 
-		format(query, sizeof(query), "UPDATE `accounts` SET `Level` = '%d', `Gender` = '%d', `Age` = '%s', `Admin` = '%d', `Skin` = '%d', `Interior` = '%d', `World` = '%d', `registrado` = '%d', `Tutorial` = '%d' WHERE `ID` = '%d'",
+		format(query, sizeof(query), "UPDATE `accounts` SET `Level` = '%d', `Gender` = '%d', `Age` = '%s', `Luxo` = '%d', `Skin` = '%d', `Interior` = '%d', `World` = '%d', `registrado` = '%d', `Tutorial` = '%d' WHERE `ID` = '%d'",
    			PlayerInfo[playerid][pLevel],
 			PlayerInfo[playerid][pGender],
 			PlayerInfo[playerid][pAge],
@@ -24493,7 +24488,7 @@ public ChecandoRefundo(playerid)
 	return 1;
 }
 
-CMD:muarwer(playerid, params[])
+CMD:mudarsenha(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 
@@ -44044,7 +44039,7 @@ public LoadAccountInfo(extraid)
 		cache_get_field_content(0, "Level", tmp);		PlayerInfo[extraid][pLevel] = strval(tmp);
 		cache_get_field_content(0, "Gender", tmp);		PlayerInfo[extraid][pGender] = strval(tmp);
 		cache_get_field_content(0, "Age", tmp); 		format(PlayerInfo[extraid][pAge], 50, "%s", tmp);
-		cache_get_field_content(0, "Admin", tmp);		PlayerInfo[extraid][pAdmin] = strval(tmp);
+		cache_get_field_content(0, "Luxo", tmp);		PlayerInfo[extraid][pAdmin] = strval(tmp);
 		cache_get_field_content(0, "Skin", tmp);		PlayerInfo[extraid][pSkin] = strval(tmp);
 		cache_get_field_content(0, "PosX", tmp);		PlayerInfo[extraid][pPos][0] = floatstr(tmp);
 		cache_get_field_content(0, "PosY", tmp);		PlayerInfo[extraid][pPos][1] = floatstr(tmp);
@@ -89152,7 +89147,7 @@ public OnVerRefudoArma(extraid, id)
 		nome[32];
 
  	cache_get_field_content(0, "jogador", nome, Pipeline);
- 	cache_get_field_content(0, "admin", admin, Pipeline);
+ 	cache_get_field_content(0, "Luxo", admin, Pipeline);
   	chave = cache_get_field_int(0, "chave");
   	arma = cache_get_field_int(0, "arma");
 
@@ -89192,7 +89187,7 @@ public OnVerRefudoItem(extraid, id)
 		nome[32];
 
  	cache_get_field_content(0, "jogador", nome, Pipeline);
- 	cache_get_field_content(0, "admin", admin, Pipeline);
+ 	cache_get_field_content(0, "Luxo", admin, Pipeline);
   	chave = cache_get_field_int(0, "chave");
   	quantidade = cache_get_field_int(0, "quantidade");
   	arma = cache_get_field_int(0, "arma");
@@ -89259,7 +89254,7 @@ public OnVerRefudoGrana(extraid, id)
 		nome[32];
 
  	cache_get_field_content(0, "jogador", nome, Pipeline);
- 	cache_get_field_content(0, "admin", admin, Pipeline);
+ 	cache_get_field_content(0, "Luxo", admin, Pipeline);
   	chave = cache_get_field_int(0, "chave");
   	arma = cache_get_field_int(0, "arma");
 

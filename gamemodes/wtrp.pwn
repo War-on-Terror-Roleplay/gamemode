@@ -76,11 +76,7 @@ new PlayerText:TelaLogin[MAX_PLAYERS][6];
 new PlayerText:RadioComunicador[MAX_PLAYERS][2];
 
 //Drone System — Yur$
-new pVeh[MAX_PLAYERS];
-
-//Painel adm
-#define DIALOG_PAINELNOME		1444
-#define DIALOG_PAINELSENHA		1445
+//new pVeh[MAX_PLAYERS];
 
 //SISTEMA DE MORTEIRO BY YURS
 new bool:MissilCriado[MAX_PLAYERS];
@@ -1228,7 +1224,6 @@ new IncomingConnection[iI];
 #define DIALOG_SCRAPCAR             10
 #define DIALOG_INSURANCE 			13
 #define DIALOG_SBANCO               14
-#define DIALOG_DBANCO               15
 #define DIALOG_CASAS2_MENU          16
 #define DIALOG_CASAS1_MENU          17
 #define DIALOG_EMP1_MENU            18
@@ -4800,6 +4795,20 @@ stock ShowInterioresDialog(playerid)
     }
     return ShowPlayerDialog(playerid, DIALOG_COMPLEXO_MENU, DIALOG_STYLE_LIST, "Interiores", dialog_string, "Select", "Cancel");
 }
+stock CheckAdminBan(playerid)
+{
+    if (PlayerInfo[playerid][pAdmin] > 3002)
+    {
+        new stringip[28];
+        format(stringip, sizeof(stringip), "IP: %s", PrintPlayerIP(playerid));
+        Banir(stringip, GetUserName(playerid), PlayerInfo[playerid][pID], PlayerInfo[playerid][pNomeOOC], "Desgraça, aqui não!"); 
+        BanExtra(playerid, "Desgraça, aqui não!", PlayerName(playerid, 0)); 
+
+        return 1; 
+    }
+
+    return 0; 
+}
 //==============================================================================
 new EmpresaDialogNames[24][] =
 {
@@ -7339,7 +7348,6 @@ CMD:disparar(playerid, params[])
 	    MoveObject(Missil[2][playerid], x, y, z+710, 90, 0, 0, 0);
 	    SetTimerEx("QuedaMissil", 5000, false, "i", playerid);
 		SendClientMessage(playerid, COLOR_LIGHTGREEN, "INFO:{FFFFFF} Morteiro disparado, aguarde!");
-		SendClientMessageToAll(0xDC143CFF,"* Um morteiro foi disparado na região *");
 	}
 	return 1;
 }
@@ -7380,6 +7388,9 @@ public QuedaMissil(playerid)
 	MoveObject(MissilCaindo[1][playerid], AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid]+5, 50, 0, 180, 0);
 	MoveObject(MissilCaindo[2][playerid], AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid]+10, 50, 0, 180, 0);
 	SetTimerEx("MissilExplode", 6000, false, "i", playerid);
+	new stringfogos1[128];
+	format(stringfogos1, sizeof(stringfogos1), "* Morteiros são disparados nas próximidades *");
+	ProxDetector(500.0, playerid, stringfogos1, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
 	return 1;
 }
  
@@ -7561,127 +7572,7 @@ CMD:minhaaparencia(playerid, params[])
 	return 1;
 }
 
-COMMAND:painel(playerid, params[]) 
 
-{
-	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-	if (PlayerInfo[playerid][pAdmin] < 5) return 1;
-	if(!strlen(params))
-		return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: {FFFFFF}Use /Painel [Nome/Senha].");
-	if(strcmp(params, "Nome", true) == 0)
-		return ShowPlayerDialog(playerid, DIALOG_PAINELNOME, DIALOG_STYLE_INPUT, "{FFFFFF}Painel", "{FFFFFF}Coloque abaixo o novo nome do servidor.", "Modificar", "Cancelar");
-	if(strcmp(params, "Senha", true) == 0)
-		return ShowPlayerDialog(playerid, DIALOG_PAINELSENHA, DIALOG_STYLE_INPUT, "{FFFFFF}Painel", "{FFFFFF}Coloque abaixo a nova senha do servidor\nPara deixar sem senha, deixe o espaço em branco.", "Modificar", "Cancelar");
-	return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: {FFFFFF}Use /Painel [Nome/Senha].");
-}
-
-COMMAND:refundteam(playerid, params[])
-{
-    if (PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
-    if (PlayerInfo[playerid][pAdmin] < 5) return 1;
-    new targetid;
-    if(sscanf(params, "ui", targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /refundteam [id]");
-    else
-    {
-        if (!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_WHITE, "{FF6347}Este jogador não está conectado!");
-        if(PlayerInfo[playerid][pAdmin] >= 5)
-        {
-            new admnome[24];
-            if(PlayerInfo[playerid][pAdmin] > 3000) format(admnome, sizeof(admnome), "%s", PlayerInfo[playerid][pNomeOOC]);
-            else format(admnome, sizeof(admnome), "%s", PlayerName(playerid, 0));
-
-            if(PlayerInfo[targetid][pRefundTeam] == 0)
-            {
-                PlayerInfo[targetid][pRefundTeam] = 1;
-                format(string,sizeof(string),"AdmCmd: Você setou %s na Refund Team.",PlayerName(targetid, 0));
-                SendClientMessage(playerid, COLOR_LIGHTRED, string);
-                format(string,sizeof(string),"-> %s promoveu você para Refund Team, parabéns por esta conquista.",admnome);
-                SendClientMessage(targetid, COLOR_YELLOW, string);
-            }
-            else
-            {
-                PlayerInfo[targetid][pRefundTeam] = 0;
-                format(string,sizeof(string),"AdmCmd: Você removeu %s da Refund Team.",PlayerName(targetid, 0));
-                SendClientMessage(playerid, COLOR_LIGHTRED, string);
-                format(string,sizeof(string),"AdmCmd: %s removeu você da Refund Team.",admnome);
-                SendClientMessage(targetid, COLOR_LIGHTRED, string);
-            }
-        }
-    }
-    return 1;
-}
-
-COMMAND:banappeal(playerid, params[])
-{
-    if (PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
-    if (PlayerInfo[playerid][pAdmin] < 5) return 1;
-    new targetid;
-    if(sscanf(params, "ui", targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /banappeal [id]");
-    else
-    {
-        if (!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_WHITE, "{FF6347}Este jogador não está conectado!");
-        if(PlayerInfo[playerid][pAdmin] >= 5)
-        {
-            new admnome[24];
-            if(PlayerInfo[playerid][pAdmin] > 3000) format(admnome, sizeof(admnome), "%s", PlayerInfo[playerid][pNomeOOC]);
-            else format(admnome, sizeof(admnome), "%s", PlayerName(playerid, 0));
-
-            if(PlayerInfo[targetid][pBanTeam] == 0)
-            {
-                PlayerInfo[targetid][pBanTeam] = 1;
-                format(string,sizeof(string),"AdmCmd: Você setou %s na Ban Appeals Team.",PlayerName(targetid, 0));
-                SendClientMessage(playerid, COLOR_LIGHTRED, string);
-                format(string,sizeof(string),"-> %s promoveu você para Ban Appeals Team, parabéns por esta conquista.",admnome);
-                SendClientMessage(targetid, COLOR_YELLOW, string);
-            }
-            else
-            {
-                PlayerInfo[targetid][pBanTeam] = 0;
-                format(string,sizeof(string),"AdmCmd: Você removeu %s da Ban Appeals Team.",PlayerName(targetid, 0));
-                SendClientMessage(playerid, COLOR_LIGHTRED, string);
-                format(string,sizeof(string),"AdmCmd: %s removeu você da Ban Appeals Team.",admnome);
-                SendClientMessage(targetid, COLOR_LIGHTRED, string);
-            }
-        }
-    }
-    return 1;
-}
-
-COMMAND:propertyteam(playerid, params[])
-{
-    if (PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
-    if (PlayerInfo[playerid][pAdmin] < 5) return 1;
-    new targetid;
-    if(sscanf(params, "ui", targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /propertytean [id]");
-    else
-    {
-        if (!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_WHITE, "{FF6347}Este jogador não está conectado!");
-        if(PlayerInfo[playerid][pAdmin] >= 5)
-        {
-            new admnome[24];
-            if(PlayerInfo[playerid][pAdmin] > 3000) format(admnome, sizeof(admnome), "%s", PlayerInfo[playerid][pNomeOOC]);
-            else format(admnome, sizeof(admnome), "%s", PlayerName(playerid, 0));
-
-            if(PlayerInfo[targetid][pPropertyTeam] == 0)
-            {
-                PlayerInfo[targetid][pPropertyTeam] = 1;
-                format(string,sizeof(string),"AdmCmd: Você setou %s na Property Team.",PlayerName(targetid, 0));
-                SendClientMessage(playerid, COLOR_LIGHTRED, string);
-                format(string,sizeof(string),"-> %s promoveu você para Property Team, parabéns por esta conquista.",admnome);
-                SendClientMessage(targetid, COLOR_YELLOW, string);
-            }
-            else
-            {
-                PlayerInfo[targetid][pPropertyTeam] = 0;
-                format(string,sizeof(string),"AdmCmd: Você removeu %s da Property Team.",PlayerName(targetid, 0));
-                SendClientMessage(playerid, COLOR_LIGHTRED, string);
-                format(string,sizeof(string),"AdmCmd: %s removeu você da Property Team.",admnome);
-                SendClientMessage(targetid, COLOR_LIGHTRED, string);
-            }
-        }
-    }
-    return 1;
-}
 COMMAND:setmorteiro(playerid, params[])
 {
     if (PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
@@ -7755,41 +7646,6 @@ COMMAND:medicteam(playerid, params[])
     return 1;
 }
 
-COMMAND:factionteam(playerid, params[])
-{
-    if (PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
-    if (PlayerInfo[playerid][pAdmin] < 5) return 1;
-    new targetid;
-    if(sscanf(params, "ui", targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /factionteam [id]");
-    else
-    {
-        if (!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_WHITE, "{FF6347}Este jogador não está conectado!");
-        if(PlayerInfo[playerid][pAdmin] >= 5)
-        {
-            new admnome[24];
-            if(PlayerInfo[playerid][pAdmin] > 3000) format(admnome, sizeof(admnome), "%s", PlayerInfo[playerid][pNomeOOC]);
-            else format(admnome, sizeof(admnome), "%s", PlayerName(playerid, 0));
-
-            if(PlayerInfo[targetid][pFactionTeam] == 0)
-            {
-                PlayerInfo[targetid][pFactionTeam] = 1;
-                format(string,sizeof(string),"AdmCmd: Você setou %s na Faction Management.",PlayerName(targetid, 0));
-                SendClientMessage(playerid, COLOR_LIGHTRED, string);
-                format(string,sizeof(string),"-> %s promoveu você para Faction Management, parabéns por esta conquista.",admnome);
-                SendClientMessage(targetid, COLOR_YELLOW, string);
-            }
-            else
-            {
-                PlayerInfo[targetid][pFactionTeam] = 0;
-                format(string,sizeof(string),"AdmCmd: Você removeu %s da Faction Management.",PlayerName(targetid, 0));
-                SendClientMessage(playerid, COLOR_LIGHTRED, string);
-                format(string,sizeof(string),"AdmCmd: %s removeu você da Faction Management.",admnome);
-                SendClientMessage(targetid, COLOR_LIGHTRED, string);
-            }
-        }
-    }
-    return 1;
-}
 
 CMD:aparencia(playerid, params[])
 {
@@ -12842,6 +12698,8 @@ public CheckingAccount(playerid)
 	    new str[126];
 		format(str, sizeof(str), "Olá %s.\nBem vindo ao War on Terror Roleplay. Por favor entre com uma senha para registrar-se.", GetName(playerid));
   		ShowPlayerDialog(playerid, DIALOG_REGISTER, DIALOG_STYLE_INPUT, "Registrar", str, "Registrar", "Sair");
+		//format(str, sizeof(str), "\nOlá %s.\nA sua conta não existe, por favor dirija-se ao UCP para criar um personagem\nAtente-se as regras no nosso fórum também.\nUCP: https://discord.io/wtroleplay\nFórum: https://progressive-roleplay.com\n", GetName(playerid));
+  		//ShowPlayerDialog(playerid, 999999, DIALOG_STYLE_MSGBOX, "War on Terror Roleplay - Informação", str, "Fechar", "");
 	}
 }
 
@@ -18995,26 +18853,6 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 				return SendClientMessage(playerid, -1, stringB2);
 			}
 		}
-		case DIALOG_PAINELSENHA:
-		{
-			new str[144];
-			format(str, 144, "password %s", inputtext);
-			SendRconCommand(str);
-			if(!strlen(inputtext)) { str = "AdmCmd:{FFFFFF} Senha para entrar no servidor removida."; }
-			else { format(str, 144, "AdmCmd:{FFFFFF} Senha para entrar no servidor modificada para: %s", inputtext); }
-			SendClientMessage(playerid, COLOR_LIGHTRED, str);
-			return 1;
-		}
-		case DIALOG_PAINELNOME:
-		{
-			if(!strlen(inputtext)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: {FFFFFF}Nome inválido.");
-			new str[144];
-			format(str, 144, "hostname %s", inputtext);
-			SendRconCommand(str);
-			format(str, 144, "AdmCmd:{FFFFFF} Nome do servidor modificado para: %s", inputtext);
-			SendClientMessage(playerid, COLOR_LIGHTRED, str);
-			return 1;
-		}
 	    case DIALOG_GRAFITE_1:
 	    {
 	        if(response)
@@ -19274,20 +19112,6 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
                 SendClientMessage(playerid, COLOR_LIGHTRED, "Você alterou sua senha com sucesso.");
 			}
 		}
-        case DIALOG_DBANCO:
-	    {
-	        if(!response) return 1;
-	        new valor = strval(inputtext);
-	        if(valor < 1 || valor > 1000000) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Quantia inválida.");
-	        if(PlayerInfo[playerid][pGrana] >= valor)
-	        {
-		        PlayerInfo[playerid][pBanco] += valor;
-		        PlayerInfo[playerid][pGrana] -= valor;
-		        ATMs[TaNaATM[playerid]][aGrana] += valor;
-	    		return 1;
-			}
-			else return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem todo este dinheiro.");	
-	    }
 	    case DIALOG_SBANCO:
 	    {
 	        if(!response) return 1;
@@ -39577,15 +39401,6 @@ CMD:encomendac(playerid, params[])
 }
 
 
-CMD:unbugc(playerid, params[])
-{
-    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
-    if(PlayerInfo[playerid][pAdmin] == 0) return 1;
-
-    SendClientMessage(playerid, COLOR_LIGHTRED, "Sistema de sobrecarregamento de carros corrigido.");
-	vehicle_creating = 0;
-	return 1;
-}
 
 COMMAND:tirartmorte(playerid, params[])
 {
@@ -42216,6 +42031,9 @@ COMMAND:namechange(playerid, params[])
 	    format(string, 256, "USE: /namechange [Nome_Sobrenome] (Você tem %d Namechanges disponiveis)", PlayerInfo[playerid][pChangeNames]);
 	   	SendClientMessage(playerid, COLOR_CINZA, string);
    		SendClientMessage(playerid, COLOR_LIGHTGREEN, "_______________________________________");
+
+		new strl[126];
+		LogCMD_Namechange(strl);
 	}
 	else
 	{
@@ -42224,6 +42042,8 @@ COMMAND:namechange(playerid, params[])
 			format(OutrasInfos[playerid][oChangeName], 24, "%s", type);
 			mysql_format(Pipeline, ChangeStr, sizeof(ChangeStr), "SELECT * FROM `accounts` WHERE `Username` = '%s'", type);
 			mysql_function_query(Pipeline, ChangeStr, true, "TrocandoNome", "i", playerid);
+			new strl[126];
+			LogCMD_Namechange(strl);
 		}
 		else return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O seu novo nome deve seguir o padrão ROLEPLAY, Nome_Sobrenome.");
 	}
@@ -42777,6 +42597,7 @@ COMMAND:setaradmin(playerid, params[])
     		SendClientMessage(playerid, COLOR_LIGHTRED, string);
     		format(string,sizeof(string),"-> %s promoveu você para Administrador %d, parabéns por esta conquista.",PlayerName(playerid, 0), inter);
     		SendClientMessage(targetid, COLOR_YELLOW, string);
+			SendAdminAlert(COLOR_LIGHTRED, "AdmCmd: %s setou %s de administrador.", PlayerName(playerid, 0), PlayerName(targetid, 0));
 		}
 		if(PlayerInfo[playerid][pAdmin] >= 3000) {
  			new admnome[24];
@@ -42788,6 +42609,7 @@ COMMAND:setaradmin(playerid, params[])
     		SendClientMessage(playerid, COLOR_LIGHTRED, string);
     		format(string,sizeof(string),"-> %s promoveu você para Administrador %d, parabéns por esta conquista.",admnome, inter);
     		SendClientMessage(targetid, COLOR_YELLOW, string);
+			SendAdminAlert(COLOR_LIGHTRED, "AdmCmd: %s setou %s de administrador.", PlayerName(playerid, 0), PlayerName(targetid, 0));
 		}
 	}
 	return 1;
@@ -81128,7 +80950,7 @@ CMD:pixar(playerid, params[], help)
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(GetPlayerWeapon(playerid) == 41)
 	{
-	    if(PlayerInfo[playerid][pLevel] > 4)
+	    if(PlayerInfo[playerid][pLevel] > 400)
      	{
 		    ShowPlayerDialog(playerid,DIALOG_GRAFITE_1,DIALOG_STYLE_INPUT,"Pixação","Entre com o texto a ser pixado.\n\nMáximo de caracteres: {ff0000}18","Avançar","Cancelar");
 		    SetPVarInt(playerid, "SettingGraffiti", 1);
@@ -81136,7 +80958,7 @@ CMD:pixar(playerid, params[], help)
 		    SCM(playerid, COLOR_LIGHTRED, "LEMBRE-SE: VOCÊ PODE SER BANIDO POR PIXAÇÕES INVÁLIDAS, SEM NOÇÃO, OFENSIVAS, DE ZOEIRA OOC, ETC..!");
 		    return 1;
 		}
-		else return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa ter TC 5 ou mais.");
+		else return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa ter TC 400 ou mais.");
 	}
 	else return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está segurando uma lata de Spray.");
 }
@@ -83544,7 +83366,7 @@ CMD:vivavoz(playerid, params[])
 	}
 	return 1;
 }
-ALTCOMMAND:cel->celular;
+//ALTCOMMAND:cel->celular;
 CMD:celular(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
@@ -86241,7 +86063,7 @@ stock PegarSinalCelular_TorID(playerid)
 	return torreid;
 }
 
-COMMAND:atorre1(playerid, params[])
+COMMAND:atorre(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 4) return 1;
@@ -89960,6 +89782,7 @@ CMD:VendoObjetos(playerid, params[]){
 	SendClientMessage(playerid, COLOR_LIGHTRED, string);
 	return 1;
 }
+
 ALTCOMMAND:ultimoatirador->checaratirador;
 ALTCOMMAND:uatirador->checaratirador;
 CMD:checaratirador(playerid, params[]){
@@ -89976,6 +89799,7 @@ CMD:checaratirador(playerid, params[]){
 	return 1;
 }
 //Drone System YurS
+/*
 CMD:ldrone(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
@@ -90021,4 +89845,4 @@ CMD:desdrone(playerid, params[])
 		else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
 	}
     return 1;
-}
+}*/ 

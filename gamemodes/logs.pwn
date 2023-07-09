@@ -28,6 +28,8 @@ forward LogCMD_AnuncioEmp(strl[]);
 forward LogEquipar_P(playerid, strl[]);
 forward LogDevarma_P(playerid, strl[]);
 
+forward LogCMD_Namechange(strl[]);
+
 forward ArrombarLog(strl[]);
 forward LogCMD_Dropar(strl[]);
 forward LogCMD_Pegar(strl[]);
@@ -1075,6 +1077,35 @@ public LogCMD_AnuncioEmp(strl[])
 	gettime(hour,minuite,second);
 	format(entry, sizeof(entry), "[%d %s %d:%d:%d] %s\n",day1, mtext, hour, minuite, second, strl);
 	format(readfile, sizeof(readfile), "logs/AnuncioEmp_%s_%d.log", mtext,year1);
+	new File: hFile = fopen(readfile, io_append);
+	if(!hFile) return 1; // Do not saved a corrupt file.
+	fwrite(hFile, entry);
+	fclose(hFile);
+	return 1;
+}
+
+public LogCMD_Namechange(strl[])
+{
+    new mtext[20],year1, month1,day1,hour,minuite,second,entry[128],readfile[128];
+	getdate(year1, month1, day1);
+	switch(month1)
+	{
+		case 1: mtext = "Janeiro";
+		case 2: mtext = "Fevereiro";
+		case 3: mtext = "Março";
+		case 4: mtext = "Abril";
+		case 5: mtext = "Maio";
+		case 6: mtext = "Junho";
+		case 7: mtext = "Julho";
+		case 8: mtext = "Agosto";
+		case 9: mtext = "Setembro";
+		case 10: mtext = "Outubro";
+		case 11: mtext = "Novembro";
+	    case 12: mtext = "Dezembro";
+	}
+	gettime(hour,minuite,second);
+	format(entry, sizeof(entry), "[%d %s %d:%d:%d] %s\n",day1, mtext, hour, minuite, second, strl);
+	format(readfile, sizeof(readfile), "logs/namechange/namechange_%s_%d.log", mtext,year1);
 	new File: hFile = fopen(readfile, io_append);
 	if(!hFile) return 1; // Do not saved a corrupt file.
 	fwrite(hFile, entry);

@@ -5875,7 +5875,7 @@ static g_aFemaleSkins[77] = {
 	298
 };
 
-static g_NewSkins[46] = {
+static g_NewSkins[45] = {
     20001,
 	20002, 20003, 20004, 20005,
 	20006, 20007, 20008, 20009,
@@ -5886,9 +5886,8 @@ static g_NewSkins[46] = {
 	20026, 20027, 20028, 20029, 
 	20030, 20031, 20032, 20033, 
 	20034, 20035, 20036, 20037, 
-	20038, 20039, 20040, 20041, 
-	20042, 20043, 20044, 20045, 
-	20046
+	20038, 20039, 20040,  20042, 
+	20043, 20044, 20045, 20046
 };
 
 
@@ -7186,7 +7185,7 @@ CMD:blindagem(playerid, params[])
     return true; 
 }
 
-CMD:blinda4r23(playerid, params[]) 
+CMD:blindar(playerid, params[]) 
 { 
 	if(PlayerInfo[playerid][pJob] != JOB_MECANICO) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não é um mecânico.");
 
@@ -7488,7 +7487,7 @@ CMD:veraparencia(playerid, params[])
     	return 1;
 	}
 }
-CMD:idade335543(playerid, params[])
+CMD:idade(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     ShowPlayerDialog(playerid, DIALOG_AGE2, DIALOG_STYLE_INPUT, "Idade", "Idade minima: 5\n Idade máxima: 99.\n Entre com uma idade válida.", "Confirmar", "Cancelar");
@@ -19088,14 +19087,24 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		}
 		case DIALOG_AGE2:
 		{
-		    if(!response) return ShowPlayerDialog(playerid, DIALOG_AGE2, DIALOG_STYLE_INPUT, "Idade", "Entre com a idade de seu personagem.", "Confirmar", "Cancelar");
+		    if(!response) return ShowPlayerDialog(playerid, DIALOG_AGE, DIALOG_STYLE_INPUT, "Idade", "Entre com a idade de seu personagem.", "Confirmar", "Cancelar");
 		    if(response)
-		    {
-		    	if(strval(inputtext) < 5 || strval(inputtext) > 99) return ShowPlayerDialog(playerid, DIALOG_AGE2, DIALOG_STYLE_INPUT, "Idade", "ERRO!\n Idade minima: 5\n Idade máxima: 99.\n Entre com uma idade válida.", "Confirmar", "Cancelar");
+			if (strfind(inputtext, "'") != -1)
+			{
+				new str[250];
+				format(str, sizeof(str), "SERVER: Proibido caracteres especiais\n\nDigite sua idade novamente:");
+		    	if(strval(inputtext) < 5 || strval(inputtext) > 99) return ShowPlayerDialog(playerid, DIALOG_AGE, DIALOG_STYLE_INPUT, "Idade", "ERRO!\n Idade minima: 5\n Idade máxima: 99.\n Entre com uma idade válida.", "Confirmar", "Cancelar");
 				format(szQuery, sizeof(szQuery), "[Personagem] Seu personagem tem %d anos.", strval(inputtext));
 				SendClientMessage(playerid, COLOR_LIGHTGREEN, szQuery);
 				PlayerInfo[playerid][pAge] = strval(inputtext);
+				return 0; 
+			}
 
+		    {
+		    	if(strval(inputtext) < 5 || strval(inputtext) > 99) return ShowPlayerDialog(playerid, DIALOG_AGE, DIALOG_STYLE_INPUT, "Idade", "ERRO!\n Idade minima: 5\n Idade máxima: 99.\n Entre com uma idade válida.", "Confirmar", "Cancelar");
+				format(szQuery, sizeof(szQuery), "[Personagem] Seu personagem tem %d anos.", strval(inputtext));
+				SendClientMessage(playerid, COLOR_LIGHTGREEN, szQuery);
+				PlayerInfo[playerid][pAge] = strval(inputtext);
 			}
 		}
 		case DIALOG_OOCREG:
@@ -42814,7 +42823,6 @@ COMMAND:cprr(playerid, params[])
         if(PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar logado para utilizar este comando.");
         if(!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador não está conectado!");
         if(PlayerInfo[targetid][pMorto] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador não necessita de cuidados médicos.");
-        if(PlayerInfo[targetid][pMorto] != 2) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando em um jogador morto!");
         if(PlayerInfo[playerid][pMorto] > 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
         if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
         if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
@@ -80862,7 +80870,7 @@ CMD:pixar(playerid, params[], help)
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(GetPlayerWeapon(playerid) == 41)
 	{
-	    if(PlayerInfo[playerid][pLevel] > 400)
+	    if(PlayerInfo[playerid][pLevel] > 4)
      	{
 		    ShowPlayerDialog(playerid,DIALOG_GRAFITE_1,DIALOG_STYLE_INPUT,"Pixação","Entre com o texto a ser pixado.\n\nMáximo de caracteres: {ff0000}18","Avançar","Cancelar");
 		    SetPVarInt(playerid, "SettingGraffiti", 1);
@@ -80870,7 +80878,7 @@ CMD:pixar(playerid, params[], help)
 		    SCM(playerid, COLOR_LIGHTRED, "LEMBRE-SE: VOCÊ PODE SER BANIDO POR PIXAÇÕES INVÁLIDAS, SEM NOÇÃO, OFENSIVAS, DE ZOEIRA OOC, ETC..!");
 		    return 1;
 		}
-		else return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa ter TC 400 ou mais.");
+		else return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa ter TC 4 ou mais.");
 	}
 	else return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está segurando uma lata de Spray.");
 }

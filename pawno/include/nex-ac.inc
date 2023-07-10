@@ -240,11 +240,11 @@ static bool:ac_ACAllow[] =
 {
 	true,	//0 Anti-AirBreak (onfoot)
 	false,	//1 Anti-AirBreak (in vehicle)
-	true,	//2 Anti-teleport hack (onfoot)
+	false,	//2 Anti-teleport hack (onfoot)
 	false,	//3 Anti-teleport hack (in vehicle)
 	false,	//4 Anti-teleport hack (into/between vehicles)
 	true,	//5 Anti-teleport hack (vehicle to player)
-	true,	//6 Anti-teleport hack (pickups)
+	false,	//6 Anti-teleport hack (pickups)
 	true,	//7 Anti-FlyHack (onfoot)
 	true,	//8 Anti-FlyHack (in vehicle)
 	true,	//9 Anti-SpeedHack (onfoot)
@@ -277,7 +277,7 @@ static bool:ac_ACAllow[] =
 
 	true,	//36 Anti-Fake NPC
 	true,	//37 Anti-Reconnect
-	true,	//38 Anti-High ping
+	false,	//38 Anti-High ping
 	false,	//39 Anti-Dialog hack
 	true,	//40 Protection from sandbox
 	true,	//41 Protection from invalid version

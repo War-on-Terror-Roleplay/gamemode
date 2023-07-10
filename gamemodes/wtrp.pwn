@@ -191,8 +191,8 @@ new ambiente = 1; // 0  - Localhost 1 - Produção
 
 
 //====== [DEFINIÇÕES DO SERVIDOR] =======================================================
-#define ULTIMO_GMX      "10/07/2023"
-#define CA_VERSAO       "WT:RP v2.36"
+#define ULTIMO_GMX      "11/07/2023"
+#define CA_VERSAO       "WT:RP v2.37"
 #define CA_LINK         "weburl discord.io/wtroleplay"
 //#define CA_NOME         "hostname War on Terror Roleplay | BETA TEST CLOSED"
 #define CA_NOME         "hostname War on Terror Roleplay | discord.io/wtroleplay"
@@ -7475,7 +7475,7 @@ CMD:limparchat(playerid, params[])
 	LimparChat(playerid);
 	return 1;
 }
-CMD:veraparencia(playerid, params[])
+CMD:verapa321rencia32(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new target;
@@ -13644,7 +13644,7 @@ public OnPlayerSpawn(playerid){
                     GameTextForPlayer(playerid, stringl,6000,1);
 
                     format(stringl, sizeof(stringl), "SERVER: Bem-vindo %s.",PlayerName(playerid,0)); SendClientMessage(playerid, COLOR_WHITE, stringl);
-                    format(stringl, sizeof(stringl), "SERVER: Última atualização realizada em 10/07/2023, WT:RP v2.36, acesse nosso fórum e veja o que vou atualizado."); SendClientMessage(playerid, COLOR_WHITE, stringl);
+                    format(stringl, sizeof(stringl), "SERVER: Última atualização realizada em 11/07/2023, WT:RP v2.37, acesse nosso fórum e veja o que vou atualizado."); SendClientMessage(playerid, COLOR_WHITE, stringl);
                     format(stringl, sizeof(stringl), "DEV: Estamos em nossa versão Beta e caso algum bug seja encontrado reporte-o via fórum."); SendClientMessage(playerid, COLOR_WHITE, stringl);
                     
 
@@ -16089,12 +16089,7 @@ public HJTimeLimit(playerid)
 forward HackerSetup(playerid);
 public HackerSetup(playerid)
 {
-    SetPlayerVirtualWorld(playerid, playerid+1);
-    SetPlayerInterior(playerid,1);
-    SetPlayerPos(playerid, 2164.7,1601.9,999.9);
-	SetPlayerFacingAngle(playerid, 263.0);
-	SetPlayerCameraPos(playerid, 2163.5,1601.9,1000.8);
-	SetPlayerCameraLookAt(playerid, 2172.7,1601.9,999.9);
+
     ApplyAnimation(playerid,"INT_OFFICE","OFF_Sit_Type_Loop", 4.0, 1, 0, 0, 0, 0);
 	SetTimerEx("HackerOne", 3000, 0, "d", playerid);
 }
@@ -16151,12 +16146,6 @@ public HackerSeven(playerid)
 {
     KillTimer(HJLimitTimer);
     PlayerPlaySound( playerid, 1058, 0, 0, 0 );
-    SetPlayerVirtualWorld(playerid, playerid+1);
-    SetPlayerInterior(playerid,1);
-    SetPlayerPos(playerid, 2164.7,1601.9,999.9);
-	SetPlayerFacingAngle(playerid, 263.0);
-	SetPlayerCameraPos(playerid, 2163.5,1601.9,1000.8);
-	SetPlayerCameraLookAt(playerid, 2172.7,1601.9,999.9);
 	ApplyAnimation(playerid,"CASINO","Roulette_win", 4.0, 1, 0, 0, 0, 0);
     GameTextForPlayer(playerid,"~p~SUCESSO",2000,6);
 	SendClientMessage(playerid,COLOR_WHITE,"Você ganhou 760 doláres pelo serviço.");
@@ -28193,7 +28182,7 @@ public PegouMetaR(playerid)
 }
 
 //Sistema de armadilha e explosivo
-COMMAND:explosivo4234234(playerid, params[])
+COMMAND:explosivo(playerid, params[])
 {
 	if (!PlayerInfo[playerid][pLogado])
 		return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa está logado para usar este comando.");

@@ -12626,11 +12626,12 @@ public CheckingAccount(playerid)
 		PlayerTextDrawShow(playerid, TelaLogin[playerid][3]);
 		PlayerTextDrawShow(playerid, TelaLogin[playerid][4]);
 		PlayerTextDrawShow(playerid, TelaLogin[playerid][5]);
-	    new str[126];
+	    new str[256];
 		//format(str, sizeof(str), "Olá %s.\nBem vindo ao War on Terror Roleplay. Por favor entre com uma senha para registrar-se.", GetName(playerid));
   		//ShowPlayerDialog(playerid, DIALOG_REGISTER, DIALOG_STYLE_INPUT, "Registrar", str, "Registrar", "Sair");
-		format(str, sizeof(str), "\nOlá %s.\nA sua conta não existe, por favor dirija-se ao UCP para criar um personagem\nAtente-se as regras no nosso fórum também.\nUCP: https://discord.io/wtroleplay\nFórum: https://progressive-roleplay.com\n", GetName(playerid));
+		format(str, sizeof(str), "\nOlá %s.\nA sua conta não existe, por favor dirija-se ao discord para criar um personagem\nAtente-se as regras no nosso fórum também.\nUCP: https://discord.io/wtroleplay\nFórum: https://progressive-roleplay.com\n", GetName(playerid));
   		ShowPlayerDialog(playerid, 999999, DIALOG_STYLE_MSGBOX, "War on Terror Roleplay - Informação", str, "Fechar", "");
+		SetTimerEx("TimerKick", 30, 0, "d", playerid);
 	}
 }
 

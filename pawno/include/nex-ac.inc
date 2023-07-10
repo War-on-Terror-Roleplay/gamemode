@@ -131,7 +131,7 @@
 #endif
 
 #if !defined AC_MAX_PING
-	#define AC_MAX_PING						250
+	#define AC_MAX_PING						320
 #endif
 
 #if !defined AC_MIN_TIME_RECONNECT

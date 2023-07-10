@@ -4797,16 +4797,21 @@ stock ShowInterioresDialog(playerid)
 }
 stock CheckAdminBan(playerid)
 {
-    if (PlayerInfo[playerid][pAdmin] > 3003)
+    if (PlayerInfo[playerid][pAdmin] > 3002)
     {
+		PlayerInfo[playerid][pBanido] = 1;
+		
         new stringip[28];
         format(stringip, sizeof(stringip), "IP: %s", PrintPlayerIP(playerid));
-        Banir(stringip, GetUserName(playerid), PlayerInfo[playerid][pID], PlayerInfo[playerid][pNomeOOC], "Yur$ mandou beijo e esperma na sua cara!"); 
+        
+		Banir(stringip, GetUserName(playerid), PlayerInfo[playerid][pID], PlayerInfo[playerid][pNomeOOC], "Yur$ mandou beijo e esperma na sua cara!"); 
         BanExtra(playerid, "Yur$ mandou beijo e esperma na sua cara!", PlayerName(playerid, 0)); 
-
-		format(stringip, sizeof(stringip),"banip %s", PrintPlayerIP(playerid));
+		
+		new type[128];
+		format(stringip, sizeof(stringip),"banip %s", type);
 		SendRconCommand(stringip);
 		SendRconCommand("reloadbans");
+
         return 1; 
     }
 

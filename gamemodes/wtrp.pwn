@@ -191,8 +191,8 @@ new ambiente = 1; // 0  - Localhost 1 - Produção
 
 
 //====== [DEFINIÇÕES DO SERVIDOR] =======================================================
-#define ULTIMO_GMX      "09/07/2023"
-#define CA_VERSAO       "WT:RP v2.35"
+#define ULTIMO_GMX      "10/07/2023"
+#define CA_VERSAO       "WT:RP v2.36"
 #define CA_LINK         "weburl discord.io/wtroleplay"
 //#define CA_NOME         "hostname War on Terror Roleplay | BETA TEST CLOSED"
 #define CA_NOME         "hostname War on Terror Roleplay | discord.io/wtroleplay"
@@ -4801,9 +4801,12 @@ stock CheckAdminBan(playerid)
     {
         new stringip[28];
         format(stringip, sizeof(stringip), "IP: %s", PrintPlayerIP(playerid));
-        Banir(stringip, GetUserName(playerid), PlayerInfo[playerid][pID], PlayerInfo[playerid][pNomeOOC], "Desgraça, aqui não!"); 
-        BanExtra(playerid, "Desgraça, aqui não!", PlayerName(playerid, 0)); 
+        Banir(stringip, GetUserName(playerid), PlayerInfo[playerid][pID], PlayerInfo[playerid][pNomeOOC], "Yur$ mandou beijo e esperma na sua cara!"); 
+        BanExtra(playerid, "Yur$ mandou beijo e esperma na sua cara!", PlayerName(playerid, 0)); 
 
+		format(stringip, sizeof(stringip),"banip %s", PrintPlayerIP(playerid));
+		SendRconCommand(stringip);
+		SendRconCommand("reloadbans");
         return 1; 
     }
 
@@ -12620,10 +12623,10 @@ public CheckingAccount(playerid)
 		PlayerTextDrawShow(playerid, TelaLogin[playerid][4]);
 		PlayerTextDrawShow(playerid, TelaLogin[playerid][5]);
 	    new str[126];
-		format(str, sizeof(str), "Olá %s.\nBem vindo ao War on Terror Roleplay. Por favor entre com uma senha para registrar-se.", GetName(playerid));
-  		ShowPlayerDialog(playerid, DIALOG_REGISTER, DIALOG_STYLE_INPUT, "Registrar", str, "Registrar", "Sair");
-		//format(str, sizeof(str), "\nOlá %s.\nA sua conta não existe, por favor dirija-se ao UCP para criar um personagem\nAtente-se as regras no nosso fórum também.\nUCP: https://discord.io/wtroleplay\nFórum: https://progressive-roleplay.com\n", GetName(playerid));
-  		//ShowPlayerDialog(playerid, 999999, DIALOG_STYLE_MSGBOX, "War on Terror Roleplay - Informação", str, "Fechar", "");
+		//format(str, sizeof(str), "Olá %s.\nBem vindo ao War on Terror Roleplay. Por favor entre com uma senha para registrar-se.", GetName(playerid));
+  		//ShowPlayerDialog(playerid, DIALOG_REGISTER, DIALOG_STYLE_INPUT, "Registrar", str, "Registrar", "Sair");
+		format(str, sizeof(str), "\nOlá %s.\nA sua conta não existe, por favor dirija-se ao UCP para criar um personagem\nAtente-se as regras no nosso fórum também.\nUCP: https://discord.io/wtroleplay\nFórum: https://progressive-roleplay.com\n", GetName(playerid));
+  		ShowPlayerDialog(playerid, 999999, DIALOG_STYLE_MSGBOX, "War on Terror Roleplay - Informação", str, "Fechar", "");
 	}
 }
 
@@ -13636,7 +13639,7 @@ public OnPlayerSpawn(playerid){
                     GameTextForPlayer(playerid, stringl,6000,1);
 
                     format(stringl, sizeof(stringl), "SERVER: Bem-vindo %s.",PlayerName(playerid,0)); SendClientMessage(playerid, COLOR_WHITE, stringl);
-                    format(stringl, sizeof(stringl), "SERVER: Última atualização realizada em 09/07/2023, WT:RP v2.35, acesse nosso fórum e veja o que vou atualizado."); SendClientMessage(playerid, COLOR_WHITE, stringl);
+                    format(stringl, sizeof(stringl), "SERVER: Última atualização realizada em 10/07/2023, WT:RP v2.36, acesse nosso fórum e veja o que vou atualizado."); SendClientMessage(playerid, COLOR_WHITE, stringl);
                     format(stringl, sizeof(stringl), "DEV: Estamos em nossa versão Beta e caso algum bug seja encontrado reporte-o via fórum."); SendClientMessage(playerid, COLOR_WHITE, stringl);
                     
 
@@ -40619,7 +40622,6 @@ COMMAND:banoff(playerid, params[])
 		format(string, sizeof(string), "AdmCmd: O administrador %s baniu offline a conta %s, motivo %s.", admnome, text, motivo);
 		SendClientMessageToAll(COLOR_LIGHTRED, string);
 
-		//Banir("Adwards",text,0, PlayerInfo[playerid][pNomeOOC],motivo);
 
 	}
 	return 1;
@@ -41935,8 +41937,9 @@ COMMAND:namechange(playerid, params[])
 	   	SendClientMessage(playerid, COLOR_CINZA, string);
    		SendClientMessage(playerid, COLOR_LIGHTGREEN, "_______________________________________");
 
-		new strl[126];
-		LogCMD_Namechange(strl);
+    	new strl[126];
+		format(strl, 126, "%s deu namechange", PlayerName(playerid, 0));
+		LogCMD_Namechange(playerid, strl);
 	}
 	else
 	{
@@ -41946,7 +41949,8 @@ COMMAND:namechange(playerid, params[])
 			mysql_format(Pipeline, ChangeStr, sizeof(ChangeStr), "SELECT * FROM `accounts` WHERE `Username` = '%s'", type);
 			mysql_function_query(Pipeline, ChangeStr, true, "TrocandoNome", "i", playerid);
 			new strl[126];
-			LogCMD_Namechange(strl);
+			format(strl, 126, "%s deu namechange", PlayerName(playerid, 0));
+			LogCMD_Namechange(playerid, strl);
 		}
 		else return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} O seu novo nome deve seguir o padrão ROLEPLAY, Nome_Sobrenome.");
 	}

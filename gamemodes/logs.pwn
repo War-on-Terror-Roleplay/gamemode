@@ -28,7 +28,7 @@ forward LogCMD_AnuncioEmp(strl[]);
 forward LogEquipar_P(playerid, strl[]);
 forward LogDevarma_P(playerid, strl[]);
 
-forward LogCMD_Namechange(strl[]);
+forward LogCMD_Namechange(playerid, strl[]);
 
 forward ArrombarLog(strl[]);
 forward LogCMD_Dropar(strl[]);
@@ -1084,7 +1084,7 @@ public LogCMD_AnuncioEmp(strl[])
 	return 1;
 }
 
-public LogCMD_Namechange(strl[])
+public LogCMD_Namechange(playerid, strl[])
 {
     new mtext[20],year1, month1,day1,hour,minuite,second,entry[128],readfile[128];
 	getdate(year1, month1, day1);
@@ -1105,7 +1105,7 @@ public LogCMD_Namechange(strl[])
 	}
 	gettime(hour,minuite,second);
 	format(entry, sizeof(entry), "[%d %s %d:%d:%d] %s\n",day1, mtext, hour, minuite, second, strl);
-	format(readfile, sizeof(readfile), "logs/namechange/namechange_%s_%d.log", mtext,year1);
+	format(readfile, sizeof(readfile), "logs/namechange/%s_%s_%d.log", PlayerName(playerid, 0), mtext,year1);
 	new File: hFile = fopen(readfile, io_append);
 	if(!hFile) return 1; // Do not saved a corrupt file.
 	fwrite(hFile, entry);

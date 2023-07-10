@@ -119,7 +119,7 @@
 #endif
 
 #if !defined AC_MAX_CONNECTS_FROM_IP
-	#define AC_MAX_CONNECTS_FROM_IP			2
+	#define AC_MAX_CONNECTS_FROM_IP			1
 #endif
 
 #if !defined AC_MAX_RCON_LOGIN_ATTEMPT
@@ -131,7 +131,7 @@
 #endif
 
 #if !defined AC_MAX_PING
-	#define AC_MAX_PING						500
+	#define AC_MAX_PING						250
 #endif
 
 #if !defined AC_MIN_TIME_RECONNECT
@@ -249,24 +249,24 @@ static bool:ac_ACAllow[] =
 	true,	//8 Anti-FlyHack (in vehicle)
 	true,	//9 Anti-SpeedHack (onfoot)
 	true,	//10 Anti-SpeedHack (in vehicle)
-	true,	//11 Anti-Health hack (in vehicle)
-	true,	//12 Anti-Health hack (onfoot)
-	true,	//13 Anti-Armour hack
+	false,	//11 Anti-Health hack (in vehicle)
+	false,	//12 Anti-Health hack (onfoot)
+	false,	//13 Anti-Armour hack
 	true,	//14 Anti-Money hack
 	true,	//15 Anti-Weapon hack
 	true,	//16 Anti-Ammo hack (add)
 	true,	//17 Anti-Ammo hack (infinite)
 	true,	//18 Anti-Special actions hack
-	true,	//19 Anti-GodMode from bullets (onfoot)
-	true,	//20 Anti-GodMode from bullets (in vehicle)
+	false,	//19 Anti-GodMode from bullets (onfoot)
+	false,	//20 Anti-GodMode from bullets (in vehicle)
 	true,	//21 Anti-Invisible hack
 	true,	//22 Anti-lagcomp-spoof
 	true,	//23 Anti-Tuning hack
 	true,	//24 Anti-Parkour mod
 	true,	//25 Anti-Quick turn
 	true,	//26 Anti-Rapid fire
-	true,	//27 Anti-FakeSpawn
-	true,	//28 Anti-FakeKill
+	false,	//27 Anti-FakeSpawn
+	false,	//28 Anti-FakeKill
 	true,	//29 Anti-Pro Aim
 	true,	//30 Anti-CJ run
 	true,	//31 Anti-CarShot

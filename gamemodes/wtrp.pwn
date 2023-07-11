@@ -1326,8 +1326,8 @@ new Text:gTime;
 #define  AKDANO              20.0
 #define  M4DANO              16.0
 #define  TECDANO             18.0
-#define  RIFLEDANO           400.0
-#define  SNIPERDANO          400.0
+#define  RIFLEDANO           50.0
+#define  SNIPERDANO          100.0
 
 new GunNames[48][] = {
 	"Nada", "Brass Knuckles", "Golf Club", "Nitestick", "Knife", "Baseball Bat",
@@ -5975,32 +5975,32 @@ public Tempo_Clima()
 
 	switch(novoclima_LS)
 	{
-	    case 0: Clima_LS = 2;
-	    case 1: Clima_LS = 2;
-     	case 2: Clima_LS = 7;
-   		case 3: Clima_LS = 8;
-   		case 4: Clima_LS = 2;
-   		case 5: Clima_LS = 2;
+	    case 0: Clima_LS = 20;
+	    case 1: Clima_LS = 19;
+     	case 2: Clima_LS = 20;
+   		case 3: Clima_LS = 19;
+   		case 4: Clima_LS = 20;
+   		case 5: Clima_LS = 19;
    		default: Clima_LS = 2;
 	}
 	switch(novoclima_LV)
 	{
-	    case 0: Clima_LV = 42;
+	    case 0: Clima_LV = 20;
 	    case 1: Clima_LV = 19;
-     	case 2: Clima_LV = 42;
+     	case 2: Clima_LV = 20;
    		case 3: Clima_LV = 19;
    		case 4: Clima_LV = 20;
-   		case 5: Clima_LV = 20;
-   		default: Clima_LV = 42;
+   		case 5: Clima_LV = 19;
+   		default: Clima_LV = 2;
 	}
 	switch(novoclima_SF)
 	{
-	    case 0: Clima_SF = 2;
-	    case 1: Clima_SF = 2;
-     	case 2: Clima_SF = 7;
-   		case 3: Clima_SF = 8;
-   		case 4: Clima_SF = 2;
-   		case 5: Clima_SF = 2;
+	    case 0: Clima_SF = 20;
+	    case 1: Clima_SF = 19;
+     	case 2: Clima_SF = 20;
+   		case 3: Clima_SF = 19;
+   		case 4: Clima_SF = 20;
+   		case 5: Clima_SF = 19;
    		default: Clima_SF = 2;
 	}
 	return 1;
@@ -9926,7 +9926,7 @@ public Timer_Segundos()
 					//=============================================================
 					//==============================================================
 					//Weather Sys by Yur$
-					if(PlayerInfo[i][pDrogaTime] == 0)
+					  /*if(PlayerInfo[i][pDrogaTime] == 0)
 					{
 						if(PlayerInfo[i][pEntrouCasa] == -1 && PlayerInfo[i][pEntrouEmpresa] == -1  && PlayerInfo[i][pEntrouComplexo] == -1 && PlayerInfo[i][pEntrouGaragem] == -1 && EntrouInt[i] == -1)
 						{
@@ -9947,7 +9947,7 @@ public Timer_Segundos()
 						{
 		                    SetPlayerWeather(i, 2);
 						}
-					}
+					} */
 					//==============================================================
 			    }
 	 		}
@@ -10696,7 +10696,7 @@ public OnVehicleDamageStatusUpdate(vehicleid, playerid)
 
 									if(PlayerInfo[playerid][pDoador] > 0)
 									{
-										TempoDesistir[playerid] = 600;
+										TempoDesistir[playerid] = 100;
 										SendClientMessage(playerid, COLOR_YELLOW, "Você é premium e poderá usar o /aceitarmorte em 10 minutos.");
 									}
 
@@ -10708,7 +10708,7 @@ public OnVehicleDamageStatusUpdate(vehicleid, playerid)
                                     if (IsValidDynamic3DTextLabel(TextMorto[playerid])) DestroyDynamic3DTextLabel(TextMorto[playerid]);
 									TextMorto[playerid] = CreateDynamic3DTextLabel("(( Este player está ferido /ferimentos para mais informações))", 0xFF4B00FF, 0.0, 0.0, 0.7, DISTANCIA_FERIMENTOS, playerid, INVALID_VEHICLE_ID, 0, GetPlayerVirtualWorld(playerid));
 					
-									TempoDesistir[playerid] = 1200;
+									TempoDesistir[playerid] = 300;
 
 									SetarAnimMorto(playerid);
 
@@ -13539,10 +13539,10 @@ public OnPlayerSpawn(playerid){
 
 
 				PlayerInfo[playerid][pMancando] = 0;
-				TempoDesistir[playerid] = 1200;
+				TempoDesistir[playerid] = 300;
 				if(PlayerInfo[playerid][pDoador] > 0)
 				{
-					TempoDesistir[playerid] = 600;
+					TempoDesistir[playerid] = 60;
 					SendClientMessage(playerid, COLOR_YELLOW, "Você é premium e poderá usar o /aceitarmorte em 10 minutos.");
 				}
 
@@ -13948,11 +13948,11 @@ public SetPlayerLocalSpawn(playerid) {
 		PlayerInfo[playerid][pMancando] = 0;
 
 		TextMorto[playerid] = CreateDynamic3DTextLabel("(( Este jogador está brutalmente ferido\n/ferimentos para mais informações\n))", 0xFF4B00FF, 0.0, 0.0, 0.7, DISTANCIA_FERIMENTOS, playerid);
-		TempoDesistir[playerid] = 1200;
+		TempoDesistir[playerid] = 300;
 
 		if(PlayerInfo[playerid][pDoador] > 0)
 		{
-			TempoDesistir[playerid] = 600;
+			TempoDesistir[playerid] = 60;
 			SendClientMessage(playerid, COLOR_YELLOW, "Você é premium e poderá usar o /aceitarmorte em 10 minutos.");
 		}
 
@@ -13986,11 +13986,11 @@ public SetPlayerLocalSpawn(playerid) {
 		PlayerInfo[playerid][pMancando] = 0;
 
 		TextMorto[playerid] = CreateDynamic3DTextLabel("(( Este jogador está brutalmente ferido\n/ferimentos para mais informações\n))", 0xFF4B00FF, 0.0, 0.0, 0.7, DISTANCIA_FERIMENTOS, playerid);
-		TempoDesistir[playerid] = 900;
+		TempoDesistir[playerid] = 300;
 
 		if(PlayerInfo[playerid][pDoador] > 0)
 		{
-			TempoDesistir[playerid] = 300;
+			TempoDesistir[playerid] = 30;
 			SendClientMessage(playerid, COLOR_YELLOW, "Você é premium e poderá usar o /aceitarmorte em 5 minutos.");
 		}
 		
@@ -22411,7 +22411,9 @@ COMMAND:dropar(playerid, params[])
 	    if(TazerPlayer[playerid] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando com o tazer na mão.");
 	    if(PlayerInfo[playerid][pEmServico] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando estando em serviço.");
     	if(PlayerInfo[playerid][pArmaMao] == 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem nenhuma arma em mãos");
+		if(PlayerInfo[playerid][pMorto] > 0) return SCM(playerid, COLOR_LIGHTRED,"Você está ferido demais para dirigir um veículo.");
 		if(GetPVarInt(playerid, "EditandoArmaNoChao") == 1) return 1;
+
 
 		new WorldCasa = GetPlayerVirtualWorld(playerid);
 
@@ -22463,7 +22465,7 @@ COMMAND:dropar(playerid, params[])
 	}
 	else if(strcmp(option, "municao", true) == 0)
 	{
-	    if(PlayerInfo[playerid][pEmServico] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando estando em serviço.");
+	    //if(PlayerInfo[playerid][pEmServico] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando estando em serviço.");
 
         format(StrArm, sizeof(StrArm), "9mm: %d",PlayerInfo[playerid][pMun9mm]);
 		format(StrArm, sizeof(StrArm), "%s\n5x56mm: %d",StrArm,PlayerInfo[playerid][pMun556]);
@@ -27239,23 +27241,12 @@ CMD:vestircolete(playerid, params[])
     if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
 	if(IsPlayerInWater(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não pode utilizar este comando enquanto estiver na água!");
 	if(TomouTazer[playerid] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não pode utilizar este comando enquanto estiver sob efeito do tazer!");
-    if(PlayerInfo[playerid][pTNT] < 3) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 3 TNT para formar o colete.");
+    if(PlayerInfo[playerid][pColeteBomba] < 1) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 1 colete para vestir.");
     
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Vestindo o colete, aguarde.");
+	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} /homembomba liberado.");
 
-    SetTimerEx("VestindoColeteBomba", 10000, false, "d", playerid);
 
 	return 1;
-}
-
-forward VestindoColeteBomba(playerid);
-public VestindoColeteBomba(playerid)
-{
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você vestiu o colete.");
-    PlayerInfo[playerid][pTNT] = PlayerInfo[playerid][pTNT]-= 3;
-    PlayerInfo[playerid][pColeteBomba] = PlayerInfo[pColeteBomba][pTNT]+= 1;
-
-    return 1;
 }
 
 CMD:homembomba(playerid, params[])
@@ -27278,7 +27269,6 @@ CMD:homembomba(playerid, params[])
 
     SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Aguarde 3 segundos para explodir.");
     SetTimerEx("HomemBombaExplodindo", 3000, false, "d", playerid);
-
 	return 1;
 }
 
@@ -27286,14 +27276,14 @@ forward HomemBombaExplodindo(playerid);
 public HomemBombaExplodindo(playerid)
 {
     PlayerInfo[playerid][pArrombarDNV_C] = 600;
-    
     new Float:x, Float:y, Float:z;
 	GetPlayerPos(playerid, x, y, z);
 
     CreateExplosion(x, y, z, 10, 20.0);
 	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você Explodiu.");
     PlayerInfo[playerid][pColeteBomba]--;
-
+	SendAdminAlert(COLOR_LIGHTRED, "AdmCmd:{FFFFFF} %s acaba de utilizar o comando /homembomba, aplique auto ck.", PlayerName(playerid, 0));
+	
     return 1;
 }
 //Sistema de misturar drogas - Yur$

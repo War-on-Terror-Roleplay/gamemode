@@ -23,18 +23,18 @@ public SetPlayerMorto(playerid, status) {
 			SetPVarInt(playerid, "TempoParaSerLevantado", 300);
 
 			TogglePlayerControllable(playerid, 0);
-			SendClientMessage(playerid, COLOR_LIGHTRED, "Você está ferido, você pode aguardar um médico chegar ou aceitar a morte daqui a 20 minutos. ((Se o anim bugar, use /morto))");
+			SendClientMessage(playerid, COLOR_LIGHTRED, "Você está ferido, você pode aguardar um médico chegar ou aceitar a morte daqui a 5 minutos. ((Se o anim bugar, use /morto))");
 
 			PlayerInfo[playerid][pMancando] = 0;
 
 	       	if (IsValidDynamic3DTextLabel(TextMorto[playerid])) DestroyDynamic3DTextLabel(TextMorto[playerid]);
 			TextMorto[playerid] = CreateDynamic3DTextLabel("(( Este player está ferido /ferimentos para mais informações))", 0xFF4B00FF, 0.0, 0.0, 0.7, DISTANCIA_FERIMENTOS, playerid, INVALID_VEHICLE_ID, 0, GetPlayerVirtualWorld(playerid));
 					
-			TempoDesistir[playerid] = 1200;
+			TempoDesistir[playerid] = 300;
 
 			if(PlayerInfo[playerid][pDoador] > 0)
 			{
-				TempoDesistir[playerid] = 600;
+				TempoDesistir[playerid] = 60;
 				SendClientMessage(playerid, COLOR_YELLOW, "Você é premium e poderá usar o /aceitarmorte em 10 minutos.");
 			}
 
@@ -56,11 +56,11 @@ public SetPlayerMorto(playerid, status) {
 			PlayerInfo[playerid][pMancando] = 0;
 
 			SendClientMessage(playerid, COLOR_YELLOW, "-> Agora você está morto. você poderá utilizar /aceitarmorte daqui a 15 minutos, para respawnar.");
-			TempoDesistir[playerid] = 900;
+			TempoDesistir[playerid] = 300;
 
 			if(PlayerInfo[playerid][pDoador] > 0)
 			{
-				TempoDesistir[playerid] = 300;
+				TempoDesistir[playerid] = 30;
 				SendClientMessage(playerid, COLOR_YELLOW, "Você é premium e poderá usar o /aceitarmorte em 5 minutos.");
 			}
 
@@ -169,7 +169,7 @@ public SairDoHospital(playerid)
 CMD:aceitarmorte(playerid,params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return 1;
-	if(PlayerInfo[playerid][pMorto] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: {FFFFFF}você não pode aceitar a morte agora.");
+	if(PodeAceitarMorte[playerid] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: {FFFFFF}você não pode aceitar a morte agora.");
     if(PodeAceitarMorte[playerid] == 1)
     {
         if (IsValidDynamic3DTextLabel(TextMorto[playerid])) DestroyDynamic3DTextLabel(TextMorto[playerid]);

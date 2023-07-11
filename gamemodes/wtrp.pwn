@@ -17587,7 +17587,7 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys) {
 				{
 	   				PlayerInfo[playerid][pMunBzk] = PlayerInfo[playerid][pMunBzk]-1;
 				    ResetPlayerWeapons(playerid);
-				    GivePlayerWeapon(playerid,34,1);
+				    GivePlayerWeapon(playerid,35,1);
 				    ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaAmmo] = 1;
 				    if(!IsPlayerInAnyVehicle(playerid))
 					{
@@ -17605,7 +17605,7 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys) {
 				{
 	   				PlayerInfo[playerid][pMunBzk] = PlayerInfo[playerid][pMunBzk]-1;
 				    ResetPlayerWeapons(playerid);
-				    GivePlayerWeapon(playerid,34,1);
+				    GivePlayerWeapon(playerid,36,1);
 				    ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaAmmo] = 1;
 				    if(!IsPlayerInAnyVehicle(playerid))
 					{
@@ -25150,23 +25150,7 @@ COMMAND:recarregar(playerid, params[])
 		{
 	   		PlayerInfo[playerid][pMunBzk] = PlayerInfo[playerid][pMunBzk]-2;
 		    ResetPlayerWeapons(playerid);
-  			GivePlayerWeapon(playerid,36,1);
-		   	ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaAmmo] = 1;
-		    if(!IsPlayerInAnyVehicle(playerid))
-			{
-				ApplyAnimation(playerid, "BUDDY", "buddy_reload", 4.1, 0, 1, 1, 1, 1, 1);
-				SetTimerEx("StopTalk", 1000, false, "i", playerid);
-			}
-		}
-		else return SendClientMessage(playerid, COLOR_LIGHTRED, "Você está sem munição!");
-	}
-	if(Arma == 35)
-	{
-		if(PlayerInfo[playerid][pMunBzk] >= 2)
-		{
-	   		PlayerInfo[playerid][pMunBzk] = PlayerInfo[playerid][pMunBzk]-2;
-		    ResetPlayerWeapons(playerid);
-  			GivePlayerWeapon(playerid,36,1);
+  			GivePlayerWeapon(playerid,35,1);
 		   	ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaAmmo] = 1;
 		    if(!IsPlayerInAnyVehicle(playerid))
 			{
@@ -25192,6 +25176,7 @@ COMMAND:recarregar(playerid, params[])
 		}
 		else return SendClientMessage(playerid, COLOR_LIGHTRED, "Você está sem munição!");
 	}
+
 	FloodCMD[playerid] = gettime()+2;
 	return 1;
 }

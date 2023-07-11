@@ -255,7 +255,7 @@ static bool:ac_ACAllow[] =
 	true,	//14 Anti-Money hack
 	true,	//15 Anti-Weapon hack
 	true,	//16 Anti-Ammo hack (add)
-	true,	//17 Anti-Ammo hack (infinite)
+	false,	//17 Anti-Ammo hack (infinite)
 	true,	//18 Anti-Special actions hack
 	false,	//19 Anti-GodMode from bullets (onfoot)
 	false,	//20 Anti-GodMode from bullets (in vehicle)

@@ -254,7 +254,7 @@ static bool:ac_ACAllow[] =
 	false,	//13 Anti-Armour hack
 	true,	//14 Anti-Money hack
 	true,	//15 Anti-Weapon hack
-	true,	//16 Anti-Ammo hack (add)
+	false,	//16 Anti-Ammo hack (add)
 	false,	//17 Anti-Ammo hack (infinite)
 	true,	//18 Anti-Special actions hack
 	false,	//19 Anti-GodMode from bullets (onfoot)
@@ -262,7 +262,7 @@ static bool:ac_ACAllow[] =
 	true,	//21 Anti-Invisible hack
 	true,	//22 Anti-lagcomp-spoof
 	true,	//23 Anti-Tuning hack
-	true,	//24 Anti-Parkour mod
+	false,	//24 Anti-Parkour mod
 	true,	//25 Anti-Quick turn
 	true,	//26 Anti-Rapid fire
 	false,	//27 Anti-FakeSpawn

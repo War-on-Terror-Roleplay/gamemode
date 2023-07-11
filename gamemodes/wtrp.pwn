@@ -21999,6 +21999,8 @@ public AttachArmaCorpo(playerid, armaid, bone)
 			case 32: SetPlayerAttachedObject(playerid, 2, GunObjects[armaid], bone, 0.1040, 0.1069, 0.1740, 4.2999, 145.4999, 23.5000, 1, 1, 1, ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaRGB]);
 			case 33: SetPlayerAttachedObject(playerid, 2, GunObjects[armaid], bone, -0.2539, -0.1229, 0.0000, 0.0000, 0.0000, 3.1000, 1, 1, 1, ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaRGB]);
 			case 34: SetPlayerAttachedObject(playerid, 2, GunObjects[armaid], bone, -0.2539, -0.1229, 0.0000, 0.0000, 0.0000, 3.1000, 1, 1, 1, ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaRGB]);
+			case 35: SetPlayerAttachedObject(playerid, 2, GunObjects[armaid], bone, -0.2539, -0.1229, 0.0000, 0.0000, 0.0000, 3.1000, 1, 1, 1, ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaRGB]);
+			case 36: SetPlayerAttachedObject(playerid, 2, GunObjects[armaid], bone, -0.2539, -0.1229, 0.0000, 0.0000, 0.0000, 3.1000, 1, 1, 1, ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaRGB]);
 		}
 	}
 	return 1;
@@ -40338,7 +40340,7 @@ COMMAND:ajail(playerid, params[])
 			    PlayerInfo[targetid][pPrisao] = 0;
 	    		PlayerInfo[targetid][pTemPreso] = 0;
 				SendClientMessage(targetid, COLOR_GREEN, "Você foi solto da prisão administrativa.");
-				SetPlayerPos(targetid,1808.6868,-1578.7084,13.4993);
+				SetPlayerPos(targetid,-153.2006,1192.1924,19.6198);
             	TogglePlayerControllable(targetid, true);
             	SetPlayerInterior(targetid, 0);
             	SetPlayerVirtualWorld(targetid, targetid);
@@ -42626,16 +42628,17 @@ COMMAND:cprr(playerid, params[])
 				}
     		    PlayerInfo[targetid][pMorto] = 0;
 				TogglePlayerControllable(targetid,true);
-    			SetPlayerHealth(targetid, 50);
-				P_Health[targetid] = 20;
+    			SetPlayerHealth(targetid, 25);
+				P_Health[targetid] = 25;
 				God_Aviso2[targetid] = 0;
 				God_VidaAnterior2[targetid] = 50;
  		    	PlayerPlaySound(targetid,1150, 0.0, 0.0, 0.0);
   		    	ApplyAnimation(targetid, "CARRY", "crry_prtial", 2.0, 0, 0, 0, 0, 0);
          		SetPlayerChatBubble(targetid, "", 0xe8827600, 100.0, 1);
-				printf("[DEBUG] /bandagem funcionou");
 				TempoDesistir[targetid] = 0;
    				PodeAceitarMorte[targetid] = 0;
+				TextDrawHideForPlayer(targetid,Telinha);
+				if (IsValidDynamic3DTextLabel(TextMorto[targetid])) DestroyDynamic3DTextLabel(TextMorto[targetid]);
      		}
      		else return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não está próximo suficiente deste jogador!");
 		}

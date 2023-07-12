@@ -6165,7 +6165,15 @@ public OnGameModeInit()
     //ENTRADA GARAGEM USMC/SEALS
     CreateDynamic3DTextLabel("{FFFFFF}[USMC/SEALS]\n/entrar",0xffffffff, -337.6898,1557.2390,75.3437, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
     CreatePickup(1239, 1, -337.6898,1557.2390,75.3437, 0);
-    
+
+  	//torre
+	CreateDynamic3DTextLabel("{FFFFFF}[TORRE]\n/sair",0xffffffff, 692.9901,1935.2566,35.4816, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
+    CreatePickup(1239, 1,692.9901,1935.2566,35.4816, 0);
+
+  	//torre
+	CreateDynamic3DTextLabel("{FFFFFF}[TORRE]\n/entrar",0xffffffff, 694.2213,1938.0826,5.8878, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
+    CreatePickup(1239, 1,694.2213,1938.0826,5.8878, 0);
+
 	//SAIDA GARAGEM USMC/SEALS
 	CreateDynamic3DTextLabel("{FFFFFF}[USMC/SEALS]\n/sair",0xffffffff, 1319.3167,1340.9017,10.8203, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
     CreatePickup(1239, 1, 1319.3167,1340.9017,10.8203, 0);
@@ -6184,12 +6192,16 @@ public OnGameModeInit()
     CreateDynamic3DTextLabel("{FFFFFF}[LOJA DE PEÇAS]\n/comprarpecas\n/comprarplaca",0xffffffff, -153.1079,1070.8595,19.7422, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
     CreatePickup(1239, 1, -153.1079,1070.8595,19.7422, 0);
 	
-	CreateDynamic3DTextLabel("{FFFFFF}M.Negro e Contrabando\n/comprar\n/contrabando",0xffffffff, 192.7921,1400.4963,10.5859, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
-	CreatePickup(1239, 1, 192.7921,1400.4963,10.5859, 0);
+	CreateDynamic3DTextLabel("{FFFFFF}M.Negro e Contrabando\n/comprar\n/contrabando",0xffffffff, 678.1797,1829.4917,7.9554, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
+	CreatePickup(1239, 1, 678.1797,1829.4917,7.9554, 0);
 	
 	//COMPRAR
     CreateDynamic3DTextLabel("{FFFFFF}Conveniência\n/comprar",0xffffffff, -366.4313,1566.4269,75.3437, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
     CreatePickup(1239, 1, -366.4313,1566.4269,75.3437, 0);
+
+	//COMPRAR
+    CreateDynamic3DTextLabel("{FFFFFF}Conveniência\n/comprar",0xffffffff, 694.2307,1825.9968,5.4090, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
+    CreatePickup(1239, 1, 694.2307,1825.9968,5.4090, 0);
 
     CreateDynamic3DTextLabel("{FFFFFF}RM Lanches\n/comprar",0xffffffff, -362.5867,1564.2064,75.6562, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
     CreatePickup(1239, 1, -362.5867,1564.2064,75.6562, 0);
@@ -48794,7 +48806,28 @@ CMD:comprar(playerid, params[])
 		Combo Completo\tUS$18 \
 		", "Comprar", "Cancelar");
 	}
-	else if(IsPlayerInRangeOfPoint(playerid, 5,  192.7921,1400.4963,10.5859))
+	else if(IsPlayerInRangeOfPoint(playerid, 5, 694.2307,1825.9968,5.4090)) //comprar 24/7
+	{
+		Dialog_Show(playerid, Dialog_247Rua, DIALOG_STYLE_TABLIST_HEADERS, "24/7", "Produto\tPreço\n\
+		{878787}ELETRÔNICOS\n\
+		Celular\tUS$120\n\
+		Radio\tUS$190\n\
+		Câmera\tUS$50\n\
+		Boombox\tUS$140\n\
+		{878787}VARIADOS\n\
+		Galão\tUS$50\n\
+		Caixa de Ferramentas\tUS$180\n\
+		Cigarro\tUS$8\n\
+		Mascara\tUS$500\n\
+		Lata de Spray\tUS$50\n\
+		{878787}BEBIDAS E COMIDA\n\
+		Lata de Spray\tUS$50\n\
+		Pizza Pequena\tUS$8\n\
+		Pizza + Refri\tUS$12\n\
+		Combo Completo\tUS$18 \
+		", "Comprar", "Cancelar");
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 5,  678.1797,1829.4917,7.9554))
 	{	
 		Dialog_Show(playerid, Dialog_Bomba, DIALOG_STYLE_TABLIST_HEADERS, "Mercado Negro", "Produto\tPreço\n1x Dinamite\tUS$200\n1x C4\tUS$400\n1x TNT\tUS$800\n1x Mina Terrestre\tUS$150\n1x Morteiro\tUS$850", "Comprar", "Cancelar");
 	}
@@ -54687,6 +54720,18 @@ CMD:entrar(playerid, params[])
 	    PlayerInfo[playerid][pEntrouGaragem] = -1;
 	    EntrouInt[playerid] = 1;
 	}
+	else if(IsPlayerInRangeOfPoint(playerid, 5, 694.2213,1938.0826,5.8878))//torre
+	{
+
+
+	    SetPlayerPosFreeze(playerid, 692.9901,1935.2566,35.4816, 1);
+
+	    PlayerInfo[playerid][pEntrouCasa] = -1;
+   		PlayerInfo[playerid][pEntrouComplexo] = -1;
+	    PlayerInfo[playerid][pEntrouEmpresa] = -1;
+	    PlayerInfo[playerid][pEntrouGaragem] = -1;
+	    EntrouInt[playerid] = 1;
+	}
 	else if (IsPlayerInRangeOfPoint(playerid, 10.0, -337.6898,1557.2390,75.3437)) // USMC/SEALS GARAGEM
 	{
 		new PlayerNoCarro[4];
@@ -55226,6 +55271,18 @@ CMD:sair(playerid, params[])
 	    PlayerInfo[playerid][pEntrouGaragem] = -1;
 	    EntrouInt[playerid] = -1;
 	    SetPlayerPosFreeze(playerid, -152.9051,1182.5298,19.7422, 1);
+	}
+	else if(IsPlayerInRangeOfPoint(playerid, 5, 692.9901,1935.2566,35.4816))//torre
+	{
+
+
+	    SetPlayerPosFreeze(playerid, 694.2213,1938.0826,5.8878, 1);
+
+	    PlayerInfo[playerid][pEntrouCasa] = -1;
+   		PlayerInfo[playerid][pEntrouComplexo] = -1;
+	    PlayerInfo[playerid][pEntrouEmpresa] = -1;
+	    PlayerInfo[playerid][pEntrouGaragem] = -1;
+	    EntrouInt[playerid] = 1;
 	}
 	else if (IsPlayerInRangeOfPoint(playerid, 10.0, 1319.3167,1340.9017,10.8203)) // USMC/SEALS GARAGEM
 	{
@@ -71123,10 +71180,10 @@ CMD:contrabando(playerid,params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	{
-	   	if (IsPlayerInRangeOfPoint(playerid, 5, 192.7921,1400.4963,10.5859))
+	   	if (IsPlayerInRangeOfPoint(playerid, 5, 678.1797,1829.4917,7.9554))
 			Dialog_Show(playerid, DIALOG_VENDERJOIAS, DIALOG_STYLE_LIST, "Contrabando", "1x Ouro [US$2500]\n1x Prata [US$1600]\n1x Bronze [US$900]", "Vender", "Voltar");
 		else {
-  			SetPlayerCheckpoint(playerid, 192.7921,1400.4963,10.5859, 5.0);
+  			SetPlayerCheckpoint(playerid, 678.1797,1829.4917,7.9554, 5.0);
 			cp_target[playerid] = 1;
 			SendClientMessage(playerid, COLOR_LIGHTRED, "Você não está no local de contrabando.");
 			return 1;
@@ -89423,7 +89480,7 @@ Dialog:WoW(playerid, response, listitem, inputtext[]) {
 			 emp_pox = GetClosetBusiness(playerid, EMP_TIPO_LIC_CENTER);
 			 GPS(playerid, "Auto Escola", EmpInfo[emp_pox][eExX],EmpInfo[emp_pox][eExY],EmpInfo[emp_pox][eExZ]);
 		}
-		case 16: GPS(playerid, "Mercado Negro", 192.7921,1400.4963,10.5859);
+		case 16: GPS(playerid, "Mercado Negro", 678.1797,1829.4917,7.9554);
 		case 17:
 		{
 		    emp_pox = GetClosetBusiness(playerid, 8);

@@ -23174,6 +23174,9 @@ Dialog:Dialog_DropAmmo2(playerid, response, listitem, inputtext[])
 				{
 					format(str2,sizeof(str2),"INSERT INTO cartuxo (CartuxoTipo) VALUES ('%d')", Tipp);
 					mysql_function_query(Pipeline, str2, true, "DropandoCartuxo", "dd",playerid,Ammo);
+					new strl[100];
+					format(strl, sizeof(strl), "%s equipou algumas munições 9mm.", PlayerName(playerid,0));
+					LogDropar_M(playerid,strl);
 				}
 				else return SCM(playerid, COLOR_LIGHTRED, "Você não tem munições de 9mm o suficiente.");
 			}
@@ -23183,6 +23186,9 @@ Dialog:Dialog_DropAmmo2(playerid, response, listitem, inputtext[])
 			    {
 					format(str2,sizeof(str2),"INSERT INTO cartuxo (CartuxoTipo) VALUES ('%d')", Tipp);
 					mysql_function_query(Pipeline, str2, true, "DropandoCartuxo", "dd",playerid,Ammo);
+					new strl[100];
+					format(strl, sizeof(strl), "%s equipou algumas munições 9mm.", PlayerName(playerid,0));
+					LogDropar_M(playerid,strl);
 			    }
 			    else return SCM(playerid, COLOR_LIGHTRED, "Você não tem munições de 5.56mm o suficiente.");
 			}
@@ -23192,7 +23198,10 @@ Dialog:Dialog_DropAmmo2(playerid, response, listitem, inputtext[])
 			    {
 					format(str2,sizeof(str2),"INSERT INTO cartuxo (CartuxoTipo) VALUES ('%d')", Tipp);
 					mysql_function_query(Pipeline, str2, true, "DropandoCartuxo", "dd",playerid,Ammo);
-			    }
+					new strl[100];
+					format(strl, sizeof(strl), "%s equipou algumas munições 9mm.", PlayerName(playerid,0));
+					LogDropar_M(playerid,strl);			    
+				}
 			    else return SCM(playerid, COLOR_LIGHTRED, "Você não tem Cartuchos o suficiente.");
 			}
 			case 3:
@@ -23201,7 +23210,10 @@ Dialog:Dialog_DropAmmo2(playerid, response, listitem, inputtext[])
 			    {
 					format(str2,sizeof(str2),"INSERT INTO cartuxo (CartuxoTipo) VALUES ('%d')", Tipp);
 					mysql_function_query(Pipeline, str2, true, "DropandoCartuxo", "dd",playerid,Ammo);
-			    }
+					new strl[100];
+					format(strl, sizeof(strl), "%s equipou algumas munições 9mm.", PlayerName(playerid,0));
+					LogDropar_M(playerid,strl);			    
+				}
 			    else return SCM(playerid, COLOR_LIGHTRED, "Você não tem munições de 127.7x106mm o suficiente.");
 			}
 			case 4:
@@ -23210,6 +23222,9 @@ Dialog:Dialog_DropAmmo2(playerid, response, listitem, inputtext[])
 			    {
 					format(str2,sizeof(str2),"INSERT INTO cartuxo (CartuxoTipo) VALUES ('%d')", Tipp);
 					mysql_function_query(Pipeline, str2, true, "DropandoCartuxo", "dd",playerid,Ammo);
+					new strl[100];
+					format(strl, sizeof(strl), "%s equipou algumas munições 9mm.", PlayerName(playerid,0));
+					LogDropar_M(playerid,strl);
 			    }
 			    else return SCM(playerid, COLOR_LIGHTRED, "Você não tem munições de 20x110mm o suficiente.");
 			}

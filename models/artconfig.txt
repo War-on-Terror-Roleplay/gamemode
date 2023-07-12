@@ -64,7 +64,7 @@ AddCharModel(287, 20114, "seals/seal14.dff", "seals/seal14.txd");
 AddCharModel(287, 20115, "seals/seal15.dff", "seals/seal15.txd"); 
 AddCharModel(287, 20116, "seals/seal16.dff", "seals/seal16.txd"); 
 AddCharModel(287, 20117, "seals/seal17.dff", "seals/seal17.txd"); 
-
+AddCharModel(287, 20118, "seals/piloto.dff", "seals/piloto.txd"); 
 //US Navy - USMC
 AddCharModel(287, 20201, "usmc/usmc1.dff", "usmc/usmc1.txd"); 
 AddCharModel(287, 20202, "usmc/usmc2.dff", "usmc/usmc2.txd"); 
@@ -267,3 +267,11 @@ AddSimpleModel(-1, 2262, -20615, "VFC/VFCHouses01.dff", "VFC/VFCHouses.txd");
 AddSimpleModel(-1, 2262, -20616, "VFC/VFCHouses02.dff", "VFC/VFCHouses.txd");
 AddSimpleModel(-1, 2262, -20617, "VFC/VFCHouses03.dff", "VFC/VFCHouses.txd");
 AddSimpleModel(-1, 800, -20618, "VFC/VFCHouses04.dff", "VFC/VFCHouses1.txd");
+AddSimpleModel(-1, 1300, -1301, "iran/loja01.dff", "iran/loja01.txd");
+AddSimpleModel(-1, 1300, -1303, "iran/base01.dff", "iran/base01.txd");
+AddSimpleModel(-1, 1300, -1306, "iran/casa03.dff", "iran/casa03.txd");
+AddSimpleModel(-1, 1300, -1307, "iran/destroco01.dff", "iran/destroco01.txd");
+AddSimpleModel(-1, 1300, -1308, "iran/muro01.dff", "iran/muro01.txd");
+AddSimpleModel(-1, 1300, -1500, "iran/10.dff", "iran/10.txd");
+AddSimpleModel(-1, 1300, -1502, "iran/terreno.dff", "iran/terreno.txd");
+AddSimpleModel(-1, 1300, -1503, "iran/torre1.dff", "iran/torre1.txd");

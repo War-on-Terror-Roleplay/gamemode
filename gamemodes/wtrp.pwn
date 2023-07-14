@@ -6184,8 +6184,8 @@ public OnGameModeInit()
     CreateDynamic3DTextLabel("{FFFFFF}[HOSPITAL]\n/entrar",0xffffffff, -152.9051,1182.5298,19.7422, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
     CreatePickup(1239, 1, -152.9051,1182.5298,19.7422, 0);
 
-    CreateDynamic3DTextLabel("{FFFFFF}[HOSPITAL]\n/tratar\n/convenio",0xffffffff, 1177.0627,-1330.7129,3015.4128, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
-    CreatePickup(1239, 1, 1177.0627,-1330.7129,3015.4128, 0);
+    CreateDynamic3DTextLabel("{FFFFFF}[HOSPITAL]\n/tratar\n/convenio",0xffffffff, 1174.9033,-1335.1479,3015.4128, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
+    CreatePickup(1239, 1, 1174.9033,-1335.1479,3015.4128, 0);
 
     CreateDynamic3DTextLabel("{FFFFFF}[HOSPITAL]\n/deixarferido\nPara deixar o ferido",0xffffffff, -155.8893,1191.7095,19.6341, 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1);
     CreatePickup(1239, 1, -155.8893,1191.7095,19.6341, 0);
@@ -41494,7 +41494,7 @@ public SendBankErrorMessage(playerid){
 CMD:tratar(playerid,params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-    if(IsPlayerInRangeOfPoint(playerid, 20, 1177.0627,-1330.7129,3015.4128))
+    if(IsPlayerInRangeOfPoint(playerid, 20, 1174.9033,-1335.1479,3015.4128))
 	{
         if (IsValidDynamic3DTextLabel(TextMorto[playerid])) DestroyDynamic3DTextLabel(TextMorto[playerid]);
 		TempoDesistir[playerid] = 0;
@@ -87504,7 +87504,7 @@ CMD:convenio(playerid,params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 	if(PlayerInfo[playerid][pConvenio] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já tem um convênio, use /cancelarconvenio para cancela-lo.");
-    if(IsPlayerInRangeOfPoint(playerid, 20, 1177.0627,-1330.7129,3015.4128))
+    if(IsPlayerInRangeOfPoint(playerid, 20, 1174.9033,-1335.1479,3015.4128))
 	{
         new ConvDial[522];
 		format(ConvDial, 255, "\t\t\t- Convênio Médico -\t\t\t\n\n \

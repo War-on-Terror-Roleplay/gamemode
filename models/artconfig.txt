@@ -179,7 +179,14 @@ AddSimpleModel(-1,19602, -2201, "itens/morteiro.dff", "itens/morteiro.txd");
 AddSimpleModel(-1,1636, -2202, "itens/munimorteiro.dff", "itens/munimorteiro.txd");
 AddSimpleModel(-1,1636, -2203, "itens/mina.dff", "itens/mina.txd");
 
-
+//trincheira
+AddSimpleModel(-1,1636, -2204, "trincheira/1.dff", "trincheira/1.txd");
+AddSimpleModel(-1,1636, -2205, "trincheira/2.dff", "trincheira/2.txd");
+AddSimpleModel(-1,1636, -2206, "trincheira/3.dff", "trincheira/3.txd");
+AddSimpleModel(-1,1636, -2207, "trincheira/4.dff", "trincheira/3.txd");
+AddSimpleModel(-1,1636, -2208, "trincheira/5.dff", "trincheira/3.txd");
+AddSimpleModel(-1,1636, -2209, "trincheira/6.dff", "trincheira/3.txd");
+AddSimpleModel(-1,1636, -2210, "trincheira/7.dff", "trincheira/3.txd");
 //Drogas
 AddSimpleModel(-1,19141, -2300, "itens/maconhab.dff", "itens/maconhab.txd");
 AddSimpleModel(-1,19141, -2301, "itens/maconhar.dff", "itens/maconhar.txd");

@@ -55,7 +55,7 @@ native WP_Hash(_buffer[], len, const str[]);
 new PayDayDuplo = 0;
 
 // Vehicle Rental
-new CarRent[8];
+new CarRent[2];
 new RentCarKey[MAX_PLAYERS];
 
 //New Blindagem system
@@ -191,7 +191,7 @@ new ambiente = 1; // 0  - Localhost 1 - Produção
 
 
 //====== [DEFINIÇÕES DO SERVIDOR] =======================================================
-#define ULTIMO_GMX      "12/07/2023"
+#define ULTIMO_GMX      "14/07/2023"
 #define CA_VERSAO       "WT:RP v2.37"
 #define CA_LINK         "weburl discord.io/wtroleplay"
 //#define CA_NOME         "hostname War on Terror Roleplay | BETA TEST CLOSED"
@@ -2957,11 +2957,13 @@ static PMERJ_Uniformes[11] = {
 	20509, 20510, 20511
 };
 
-static PMERJ_Barreiras[17] = {
+static PMERJ_Barreiras[24] = {
 	1422, 1423, 1424, 1425, 1427,
 	981, 978, 979, 19425, 19467, 
 	1428, 1437, -2101, -2102, 
-	-2103, -2132
+	-2103, -2132, -2204, -2205,
+	-2206, -2207, -2208, -2209,
+	-2210
 
 };
 
@@ -6111,12 +6113,12 @@ public OnGameModeInit()
 
     CarRent[0] = AddStaticVehicle(445,231.4044,2429.6064,16.6818,273.9338,5,5); //ALTERADO
     CarRent[1] = AddStaticVehicle(445,243.9206,2448.6970,16.6725,88.4367,3,3); //ALTERADO 
-	CarRent[2] = AddStaticVehicle(426,-138.1499,1220.1954,19.7344,181.2218,2,2); // 1
+	/*CarRent[2] = AddStaticVehicle(426,-138.1499,1220.1954,19.7344,181.2218,2,2); // 1
 	CarRent[3] = AddStaticVehicle(426,-144.4621,1219.7327,19.7344,181.2218,7,7); // 2
 	CarRent[4] = AddStaticVehicle(405,-149.9028,1220.9589,19.7274,176.5218,0,0); // 3
 	CarRent[5] = AddStaticVehicle(405,-155.7397,1220.4476,19.7274,176.5218,6,6); // 4
 	CarRent[6] = AddStaticVehicle(401,-163.0410,1219.6813,19.7344,184.9819,9,9); // 5
-	CarRent[7] = AddStaticVehicle(401,1560.6185,-2325.2891,13.3706,269.5466,10,10); // 6
+	CarRent[7] = AddStaticVehicle(401,1560.6185,-2325.2891,13.3706,269.5466,10,10); // 6*/
     for(new c=0;c<sizeof(CarRent);c++)
     {
 		SetVehicleNumberPlate(CarRent[c], "ALUGADO");
@@ -7322,7 +7324,7 @@ CMD:disparar(playerid, params[])
 	    MoveObject(Missil[0][playerid], x, y, z+700, 90, 0, 0, 0);
 	    MoveObject(Missil[1][playerid], x, y, z+705, 90, 0, 0, 0);
 	    MoveObject(Missil[2][playerid], x, y, z+710, 90, 0, 0, 0);
-	    SetTimerEx("QuedaMissil", 5000, false, "i", playerid);
+	    SetTimerEx("QuedaMissil", 1000, false, "i", playerid);
 		SendClientMessage(playerid, COLOR_LIGHTGREEN, "INFO:{FFFFFF} Morteiro disparado, aguarde!");
 		SendAdminAlert(COLOR_LIGHTRED, "AdmCmd:{FFFFFF} %s acaba de utilizar o comando de morteiro.", PlayerName(playerid, 0));
 	}
@@ -7364,7 +7366,7 @@ public QuedaMissil(playerid)
 	MoveObject(MissilCaindo[0][playerid], AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid], 50, 0, 180, 0);
 	MoveObject(MissilCaindo[1][playerid], AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid]+5, 50, 0, 180, 0);
 	MoveObject(MissilCaindo[2][playerid], AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid]+10, 50, 0, 180, 0);
-	SetTimerEx("MissilExplode", 6000, false, "i", playerid);
+	SetTimerEx("MissilExplode", 1000, false, "i", playerid);
 	new stringfogos1[128];
 	format(stringfogos1, sizeof(stringfogos1), "* Morteiros são disparados nas próximidades *");
 	ProxDetector(500.0, playerid, stringfogos1, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
@@ -13850,7 +13852,7 @@ public OnPlayerSpawn(playerid){
                     GameTextForPlayer(playerid, stringl,6000,1);
 
                     format(stringl, sizeof(stringl), "SERVER: Bem-vindo %s.",PlayerName(playerid,0)); SendClientMessage(playerid, COLOR_WHITE, stringl);
-                    format(stringl, sizeof(stringl), "SERVER: Última atualização realizada em 12/07/2023, WT:RP v2.37, acesse nosso fórum e veja o que vou atualizado."); SendClientMessage(playerid, COLOR_WHITE, stringl);
+                    format(stringl, sizeof(stringl), "SERVER: Última atualização realizada em 14/07/2023, WT:RP v2.37, acesse nosso fórum e veja o que vou atualizado."); SendClientMessage(playerid, COLOR_WHITE, stringl);
                     format(stringl, sizeof(stringl), "DEV: Estamos em nossa versão Beta e caso algum bug seja encontrado reporte-o via fórum."); SendClientMessage(playerid, COLOR_WHITE, stringl);
                     
 
@@ -22609,7 +22611,7 @@ COMMAND:dropar(playerid, params[])
 	    if(TazerPlayer[playerid] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando com o tazer na mão.");
 	    if(PlayerInfo[playerid][pEmServico] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando estando em serviço.");
     	if(PlayerInfo[playerid][pArmaMao] == 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem nenhuma arma em mãos");
-		if(PlayerInfo[playerid][pMorto] > 0) return SCM(playerid, COLOR_LIGHTRED,"Você está ferido demais para dirigir um veículo.");
+		if(PlayerInfo[playerid][pMorto] > 0) return SCM(playerid, COLOR_LIGHTRED,"Você está ferido demais para dropar.");
 		if(GetPVarInt(playerid, "EditandoArmaNoChao") == 1) return 1;
 
 
@@ -42759,7 +42761,8 @@ COMMAND:bandagem(playerid, params[])
         if(PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar logado para utilizar este comando.");
         if(!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador não está conectado!");
         if(PlayerInfo[targetid][pMorto] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador não necessita de cuidados médicos.");
-        if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
+		if(PlayerInfo[targetid][pMorto] != 2) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador está morto e não ferido.");
+		if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
         if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
 		if(PlayerInfo[playerid][pKitMedico] <= 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve ser um médico de combate.");
 		{
@@ -42811,7 +42814,9 @@ COMMAND:cprr(playerid, params[])
         if(PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar logado para utilizar este comando.");
         if(!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador não está conectado!");
         if(PlayerInfo[playerid][pMorto] > 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
-        if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
+        if(PlayerInfo[targetid][pMorto] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador não necessita de cuidados médicos.");
+		if(PlayerInfo[targetid][pMorto] != 2) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador está morto e não ferido.");
+		if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
         if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
 		if(PlayerInfo[playerid][pKitMedico] <= 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve ser um médico de combate.");
 		{
@@ -42860,7 +42865,6 @@ COMMAND:desfibrilador(playerid, params[])
         if(PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar logado para utilizar este comando.");
         if(!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador não está conectado!");
         if(PlayerInfo[targetid][pMorto] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador não necessita de cuidados médicos.");
-    
         if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
         if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
         new faccao = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
@@ -48829,7 +48833,7 @@ CMD:comprar(playerid, params[])
 	}
 	else if(IsPlayerInRangeOfPoint(playerid, 5,  678.1797,1829.4917,7.9554))
 	{	
-		Dialog_Show(playerid, Dialog_Bomba, DIALOG_STYLE_TABLIST_HEADERS, "Mercado Negro", "Produto\tPreço\n1x Dinamite\tUS$200\n1x C4\tUS$400\n1x TNT\tUS$800\n1x Mina Terrestre\tUS$150\n1x Morteiro\tUS$850", "Comprar", "Cancelar");
+		Dialog_Show(playerid, Dialog_Bomba, DIALOG_STYLE_TABLIST_HEADERS, "Mercado Negro", "Produto\tPreço\n1x Dinamite\tUS$200\n1x C4\tUS$400\n1x TNT\tUS$800\n1x Mina Terrestre\tUS$150\n1x Morteiro\tUS$99999999", "Comprar", "Cancelar");
 	}
 	else if(IsPlayerInRangeOfPoint(playerid, 5, -362.5867,1564.2064,75.6562)) //Stacked aberta
 	{
@@ -48898,11 +48902,11 @@ Dialog:Dialog_Bomba(playerid, response, listitem, inputtext[])
             }
 		    case 4:
 		    {
-		        if(PlayerInfo[playerid][pGrana] >= 850)
+		        if(PlayerInfo[playerid][pGrana] >= 999999999)
 				{
 					PlayerInfo[playerid][pMorteiro]++;
-					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Bombas] Você comprou um morteiro por US$850.");
-					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-850;
+					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Bombas] Você comprou um morteiro por US$999999999.");
+					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-999999999;
 				}
 				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não tem dinheiro o suficiente.");
             }

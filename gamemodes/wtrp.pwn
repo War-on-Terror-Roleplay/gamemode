@@ -1343,6 +1343,7 @@ new GunNames[48][] = {
 new Text:Telinha;
 new Text:HitMark;
 new Text:ScreenTelinha;
+new Text:telapreta2;
 new Text:TelinhaPreta;
 // --------- [ VARIABLES ] ---------
 
@@ -6339,6 +6340,19 @@ public OnGameModeInit()
 	TextDrawUseBox(Telinha, 1);
 	TextDrawBoxColor(Telinha, 80);
 	TextDrawTextSize(Telinha, 650.000000, 30.000000);
+
+    Telapreta2[playerid][0] = CreatePlayerTextDraw(playerid, 647.000, 1.000, "New textdraw");
+    PlayerTextDrawLetterSize(playerid, Telapreta2[playerid][0], 0.899, 50.299);
+    PlayerTextDrawTextSize(playerid, Telapreta2[playerid][0], 0.000, 44.000);
+    PlayerTextDrawAlignment(playerid, Telapreta2[playerid][0], 3);
+    PlayerTextDrawColor(playerid, Telapreta2[playerid][0], 255);
+    PlayerTextDrawUseBox(playerid, Telapreta2[playerid][0], 1);
+    PlayerTextDrawBoxColor(playerid, Telapreta2[playerid][0], 255);
+    PlayerTextDrawSetShadow(playerid, Telapreta2[playerid][0], 1);
+    PlayerTextDrawSetOutline(playerid, Telapreta2[playerid][0], 1);
+    PlayerTextDrawBackgroundColor(playerid, Telapreta2[playerid][0], 255);
+    PlayerTextDrawFont(playerid, Telapreta2[playerid][0], 1);
+    PlayerTextDrawSetProportional(playerid, Telapreta2[playerid][0], 1);
 
 	ScreenTelinha = TextDrawCreate(-30.000000, -5.000000, "_"); // Quando Morre
 	TextDrawBackgroundColor(ScreenTelinha, 100);
@@ -11663,6 +11677,7 @@ public OnPlayerConnect(playerid)
 	SetPVarInt(playerid, "EditandoArmaNoChao", 0);
 	SetPVarInt(playerid, "PDRadio" , 0);
 	SetPVarInt(playerid, "ScreenTelinha", 0);
+	SetPVarInt(playerid, "Telapreta2", 0);
 	SetPVarInt(playerid, "TelinhaPretaa", 0);
 
 	SetPVarInt(playerid, "CumpInvite", 9999);
@@ -27372,17 +27387,17 @@ COMMAND:telapreta(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você precisa estar logado.");
 
-    switch(GetPVarInt(playerid, "ScreenTelinha"))
+    switch(GetPVarInt(playerid, "Telapreta2"))
     {
 		case 0:
 		{
-			TextDrawShowForPlayer(playerid,ScreenTelinha);
-			SetPVarInt(playerid, "ScreenTelinha", 1);
+			TextDrawShowForPlayer(playerid,Telapreta2);
+			SetPVarInt(playerid, "Telapreta2", 1);
 		}
 		case 1:
 		{
-		    TextDrawHideForPlayer(playerid,ScreenTelinha);
-			SetPVarInt(playerid, "ScreenTelinha", 0);
+		    TextDrawHideForPlayer(playerid,Telapreta2);
+			SetPVarInt(playerid, "Telapreta2", 0);
 		}
 	}
 	return 1;
@@ -27481,6 +27496,14 @@ CMD:homembomba(playerid, params[])
 		return 1;
 	}
 
+	foreach(Player, i)
+	{
+		if(IsPlayerConnected(i) && IsPlayerInRangeOfPoint(i, 180.0, X, Y, Z))
+		{
+			PlayAudioStreamForPlayer(i, "https://progressive-roleplay.com/midia/homembomba.mp3", X, Y, Z, 50.0, 1);
+		}
+	}
+
     SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Aguarde 3 segundos para explodir.");
     SetTimerEx("HomemBombaExplodindo", 3000, false, "d", playerid);
 	return 1;
@@ -27492,6 +27515,14 @@ public HomemBombaExplodindo(playerid)
     PlayerInfo[playerid][pArrombarDNV_C] = 600;
     new Float:x, Float:y, Float:z;
 	GetPlayerPos(playerid, x, y, z);
+	
+	foreach(Player, i)
+	{
+		if(IsPlayerConnected(i) && IsPlayerInRangeOfPoint(i, 180.0, X, Y, Z))
+		{
+			PlayAudioStreamForPlayer(i, "https://progressive-roleplay.com/midia/kabum.mp3", X, Y, Z, 50.0, 1);
+		}
+	}
 
     CreateExplosion(x, y, z, 10, 20.0);
 	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você Explodiu.");
@@ -40577,7 +40608,7 @@ COMMAND:ajail(playerid, params[])
 
 			new tempofinalll= (tempo*60);
 
-			format(str2,sizeof(str2),"INSERT INTO a_ajailrecord (PlayerNome,PlayerID,Data,Motivo,Admin,IP,Tempo) VALUES ('%s','%d','%s','%s','%s','%s','%d')",PlayerName(targetid,0),PlayerInfo[targetid][pID],DataSalvar,motivo,PlayerName(playerid,0),stringip,tempofinalll);
+			format(str2,sizeof(str2),"INSERT INTO a_ajailrecord (PlayerNome,PlayerID,Data,Motivo,Luxo,IP,Tempo) VALUES ('%s','%d','%s','%s','%s','%s','%d')",PlayerName(targetid,0),PlayerInfo[targetid][pID],DataSalvar,motivo,PlayerName(playerid,0),stringip,tempofinalll);
     		mysql_function_query(Pipeline, str2, false, "noReturnQuery", "");
 		}
 	}
@@ -40777,7 +40808,7 @@ public AjilzandoPlayer(playerid, tempo)
 		format(strh,sizeof(strh),"%s:%s:%s",hourstr,minstr,secstr);
 		format(DataSalvar,sizeof(DataSalvar),"%d-%d-%d - %s",d,m,y,strh);
 
-		format(str2,sizeof(str2),"INSERT INTO a_ajailrecord (PlayerNome,PlayerID,Data,Motivo,Admin,IP,Tempo) VALUES ('%s','%d','%s','%s','%s','00','%d')",planame,IDn,DataSalvar,text,PlayerName(playerid,0),tempo);
+		format(str2,sizeof(str2),"INSERT INTO a_ajailrecord (PlayerNome,PlayerID,Data,Motivo,Luxo,IP,Tempo) VALUES ('%s','%d','%s','%s','%s','00','%d')",planame,IDn,DataSalvar,text,PlayerName(playerid,0),tempo);
     	mysql_function_query(Pipeline, str2, false, "noReturnQuery", "");
 
 		format(string, sizeof(string), "AdmCmd: O administrador %s aplicou ajailoff de %d minutos em %s.", PlayerName(playerid, 0), tempo, text);
@@ -41137,7 +41168,7 @@ Banir(ip[], username[], id, banner[], reason[])
 	static
 	    str[256];
 
-	format(str,sizeof(str),"INSERT INTO a_banrecord (PlayerNome,PlayerID,Data,Motivo,Admin,IP) VALUES ('%s','%d','%s','%s','%s','%s')",
+	format(str,sizeof(str),"INSERT INTO a_banrecord (PlayerNome,PlayerID,Data,Motivo,Luxo,IP) VALUES ('%s','%d','%s','%s','%s','%s')",
 		SQL_ReturnEscaped(username),
 		id,
 		ReturnDate(),
@@ -41234,7 +41265,7 @@ COMMAND:kick(playerid, params[])
 			format(stringip, sizeof(stringip), "IP: %s", PrintPlayerIP(targetid));
 
 			new str2[256];
-			format(str2,sizeof(str2),"INSERT INTO a_kickrec (PlayerNome,PlayerID,Data,Motivo,Admin,IP) VALUES ('%s','%d','%s','%s','%s','%s')",PlayerName(targetid,0),PlayerInfo[targetid][pID],DataSalvar,text,PlayerName(playerid,0),stringip);
+			format(str2,sizeof(str2),"INSERT INTO a_kickrec (PlayerNome,PlayerID,Data,Motivo,Luxo,IP) VALUES ('%s','%d','%s','%s','%s','%s')",PlayerName(targetid,0),PlayerInfo[targetid][pID],DataSalvar,text,PlayerName(playerid,0),stringip);
     		mysql_function_query(Pipeline, str2, false, "noReturnQuery", "");
 		}
 		else if(PlayerInfo[playerid][pTester] > 0)
@@ -41268,7 +41299,7 @@ COMMAND:kick(playerid, params[])
 			format(stringip, sizeof(stringip), "IP: %s", PrintPlayerIP(targetid));
 
 			new str2[256];
-			format(str2,sizeof(str2),"INSERT INTO a_kickrec (PlayerNome,PlayerID,Data,Motivo,Admin,IP) VALUES ('%s','%d','%s','%s','%s','%s')",PlayerName(targetid,0),PlayerInfo[targetid][pID],DataSalvar,text,PlayerName(playerid,0),stringip);
+			format(str2,sizeof(str2),"INSERT INTO a_kickrec (PlayerNome,PlayerID,Data,Motivo,Luxo,IP) VALUES ('%s','%d','%s','%s','%s','%s')",PlayerName(targetid,0),PlayerInfo[targetid][pID],DataSalvar,text,PlayerName(playerid,0),stringip);
     		mysql_function_query(Pipeline, str2, false, "noReturnQuery", "");
 		}
 		else
@@ -72172,7 +72203,7 @@ public OnPlayerWeaponShot( playerid, weaponid, hittype, hitid, Float:fX, Float:f
 		        new stringip[28];
 				format(stringip, sizeof(stringip), "IP: %s", PrintPlayerIP(playerid));
 			    new str2[256];
-				format(str2,sizeof(str2),"INSERT INTO a_kickrec (PlayerNome,PlayerID,Data,Motivo,Admin,IP) VALUES ('%s','%d','%s','Anti Bullet Crash','Sistema','%s')",PlayerName(playerid,0),PlayerInfo[playerid][pID],DataSalvar,stringip);
+				format(str2,sizeof(str2),"INSERT INTO a_kickrec (PlayerNome,PlayerID,Data,Motivo,Luxo,IP) VALUES ('%s','%d','%s','Anti Bullet Crash','Sistema','%s')",PlayerName(playerid,0),PlayerInfo[playerid][pID],DataSalvar,stringip);
 				mysql_function_query(Pipeline, str2, false, "noReturnQuery", "");
 				Kick(playerid);
 				return 1;
@@ -88921,7 +88952,7 @@ CriarRefundoArma(admin[], arma, chave, jogador[])
 	static
 	    str[256];
 
-	format(str,sizeof(str),"INSERT INTO refundoarma (admin,arma,chave,jogador) VALUES ('%s','%d','%d','%s')",
+	format(str,sizeof(str),"INSERT INTO refundoarma (Luxo,arma,chave,jogador) VALUES ('%s','%d','%d','%s')",
 		SQL_ReturnEscaped(admin),
 		arma,
 		chave,
@@ -88934,7 +88965,7 @@ CriarRefundoItem(admin[], arma, chave, quantidade, jogador[])
 	static
 	    str[256];
 
-	format(str,sizeof(str),"INSERT INTO refundoitens (admin,arma,chave,quantidade, jogador) VALUES ('%s','%d','%d','%d','%s')",
+	format(str,sizeof(str),"INSERT INTO refundoitens (Luxo,arma,chave,quantidade, jogador) VALUES ('%s','%d','%d','%d','%s')",
 		SQL_ReturnEscaped(admin),
 		arma,
 		chave,
@@ -88948,7 +88979,7 @@ CriarRefundoGrana(admin[], arma, chave, jogador[])
 	static
 	    str[256];
 
-	format(str,sizeof(str),"INSERT INTO refundograna (admin,arma,chave,jogador) VALUES ('%s','%d','%d','%s')",
+	format(str,sizeof(str),"INSERT INTO refundograna (Luxo,arma,chave,jogador) VALUES ('%s','%d','%d','%s')",
 		SQL_ReturnEscaped(admin),
 		arma,
 		chave,

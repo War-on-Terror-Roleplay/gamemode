@@ -192,7 +192,7 @@ new ambiente = 1; // 0  - Localhost 1 - Produção
 
 //====== [DEFINIÇÕES DO SERVIDOR] =======================================================
 #define ULTIMO_GMX      "14/07/2023"
-#define CA_VERSAO       "WT:RP v2.37"
+#define CA_VERSAO       "WT:RP v2.38"
 #define CA_LINK         "weburl discord.io/wtroleplay"
 //#define CA_NOME         "hostname War on Terror Roleplay | BETA TEST CLOSED"
 #define CA_NOME         "hostname War on Terror Roleplay | discord.io/wtroleplay"
@@ -1024,7 +1024,7 @@ enum ddDrug
 	ddObjeto,
 	ddEstado,
 	ddWorld
-};
+}; 
 static DrogaPlantada[MAX_DRUGPLANT][ddDrug];
 
 #define MAX_DRUGDROP 10000
@@ -1343,7 +1343,6 @@ new GunNames[48][] = {
 new Text:Telinha;
 new Text:HitMark;
 new Text:ScreenTelinha;
-new Text:telapreta2;
 new Text:TelinhaPreta;
 // --------- [ VARIABLES ] ---------
 
@@ -6341,18 +6340,6 @@ public OnGameModeInit()
 	TextDrawBoxColor(Telinha, 80);
 	TextDrawTextSize(Telinha, 650.000000, 30.000000);
 
-    Telapreta2[playerid][0] = CreatePlayerTextDraw(playerid, 647.000, 1.000, "New textdraw");
-    PlayerTextDrawLetterSize(playerid, Telapreta2[playerid][0], 0.899, 50.299);
-    PlayerTextDrawTextSize(playerid, Telapreta2[playerid][0], 0.000, 44.000);
-    PlayerTextDrawAlignment(playerid, Telapreta2[playerid][0], 3);
-    PlayerTextDrawColor(playerid, Telapreta2[playerid][0], 255);
-    PlayerTextDrawUseBox(playerid, Telapreta2[playerid][0], 1);
-    PlayerTextDrawBoxColor(playerid, Telapreta2[playerid][0], 255);
-    PlayerTextDrawSetShadow(playerid, Telapreta2[playerid][0], 1);
-    PlayerTextDrawSetOutline(playerid, Telapreta2[playerid][0], 1);
-    PlayerTextDrawBackgroundColor(playerid, Telapreta2[playerid][0], 255);
-    PlayerTextDrawFont(playerid, Telapreta2[playerid][0], 1);
-    PlayerTextDrawSetProportional(playerid, Telapreta2[playerid][0], 1);
 
 	ScreenTelinha = TextDrawCreate(-30.000000, -5.000000, "_"); // Quando Morre
 	TextDrawBackgroundColor(ScreenTelinha, 100);
@@ -11677,7 +11664,6 @@ public OnPlayerConnect(playerid)
 	SetPVarInt(playerid, "EditandoArmaNoChao", 0);
 	SetPVarInt(playerid, "PDRadio" , 0);
 	SetPVarInt(playerid, "ScreenTelinha", 0);
-	SetPVarInt(playerid, "Telapreta2", 0);
 	SetPVarInt(playerid, "TelinhaPretaa", 0);
 
 	SetPVarInt(playerid, "CumpInvite", 9999);
@@ -13866,7 +13852,7 @@ public OnPlayerSpawn(playerid){
                     GameTextForPlayer(playerid, stringl,6000,1);
 
                     format(stringl, sizeof(stringl), "SERVER: Bem-vindo %s.",PlayerName(playerid,0)); SendClientMessage(playerid, COLOR_WHITE, stringl);
-                    format(stringl, sizeof(stringl), "SERVER: Última atualização realizada em 14/07/2023, WT:RP v2.37, acesse nosso fórum e veja o que vou atualizado."); SendClientMessage(playerid, COLOR_WHITE, stringl);
+                    format(stringl, sizeof(stringl), "SERVER: Última atualização realizada em 14/07/2023, WT:RP v2.38, acesse nosso fórum e veja o que vou atualizado."); SendClientMessage(playerid, COLOR_WHITE, stringl);
                     format(stringl, sizeof(stringl), "DEV: Estamos em nossa versão Beta e caso algum bug seja encontrado reporte-o via fórum."); SendClientMessage(playerid, COLOR_WHITE, stringl);
                     
 
@@ -27382,28 +27368,8 @@ COMMAND:upgrade(playerid, params[])
 	return 1;
 }
 
-ALTCOMMAND:tp->telapreta;
-COMMAND:telapreta(playerid, params[])
-{
-    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você precisa estar logado.");
-
-    switch(GetPVarInt(playerid, "Telapreta2"))
-    {
-		case 0:
-		{
-			TextDrawShowForPlayer(playerid,Telapreta2);
-			SetPVarInt(playerid, "Telapreta2", 1);
-		}
-		case 1:
-		{
-		    TextDrawHideForPlayer(playerid,Telapreta2);
-			SetPVarInt(playerid, "Telapreta2", 0);
-		}
-	}
-	return 1;
-}
-
 ALTCOMMAND:tc->telacinza;
+ALTCOMMAND:telapreta->telacinza;
 COMMAND:telacinza(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você precisa estar logado.");
@@ -27496,11 +27462,14 @@ CMD:homembomba(playerid, params[])
 		return 1;
 	}
 
+    new Float:x, Float:y, Float:z;
+	GetPlayerPos(playerid, x, y, z);
+
 	foreach(Player, i)
 	{
-		if(IsPlayerConnected(i) && IsPlayerInRangeOfPoint(i, 180.0, X, Y, Z))
+		if(IsPlayerConnected(i) && IsPlayerInRangeOfPoint(i, 50.0, x, y, z))
 		{
-			PlayAudioStreamForPlayer(i, "https://progressive-roleplay.com/midia/homembomba.mp3", X, Y, Z, 50.0, 1);
+			PlayAudioStreamForPlayer(i, "https://progressive-roleplay.com/midia/homembomba.mp3", x, y, z, 50.0, 1);
 		}
 	}
 
@@ -27515,12 +27484,12 @@ public HomemBombaExplodindo(playerid)
     PlayerInfo[playerid][pArrombarDNV_C] = 600;
     new Float:x, Float:y, Float:z;
 	GetPlayerPos(playerid, x, y, z);
-	
+
 	foreach(Player, i)
 	{
-		if(IsPlayerConnected(i) && IsPlayerInRangeOfPoint(i, 180.0, X, Y, Z))
+		if(IsPlayerConnected(i) && IsPlayerInRangeOfPoint(i, 50.0, x, y, z))
 		{
-			PlayAudioStreamForPlayer(i, "https://progressive-roleplay.com/midia/kabum.mp3", X, Y, Z, 50.0, 1);
+			PlayAudioStreamForPlayer(i, "https://progressive-roleplay.com/midia/kabum.mp3", x, y, z, 50.0, 1);
 		}
 	}
 
@@ -35325,16 +35294,17 @@ Dialog:Municoes_House4(playerid, response, listitem, inputtext[])
     		}
       		case 2:
         	{
-         		new Input = strval(inputtext);
-           		if(Input < 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Valor inválido.");
-            	if(Input <= PlayerInfo[playerid][pMun556])
-	            {
-             		PlayerInfo[playerid][pArm556] = PlayerInfo[playerid][pArm556]-Input;
-               		PlayerInfo[playerid][pMun556] += Input;
-	                format(StrMsg, sizeof(StrMsg), "[Armário HOUSE] Você pegou %d balas 5x56mm em seu armário.", Input);
-	                SendClientMessage(playerid, COLOR_LIGHTGREEN, StrMsg);
+        		new Input = strval(inputtext);
+          		if(Input < 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Valor inválido.");
+            	if(Input <= PlayerInfo[playerid][pArm556])
+				{
+    				PlayerInfo[playerid][pArm556] = PlayerInfo[playerid][pArm556]-Input;
+        			PlayerInfo[playerid][pMun556] += Input;
+           			format(StrMsg, sizeof(StrMsg), "[Armário HOUSE] Você pegou %d balas 556 em seu armário.", Input);
+              		SendClientMessage(playerid, COLOR_LIGHTGREEN, StrMsg);
 				}
 				else return SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Seu armário não tem tudo isso.");
+
     		}
       		case 3:
         	{
@@ -65928,7 +65898,7 @@ COMMAND:ligacaodireta(playerid,params[])
 		}
 		else return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} O motor já está ligado.");
     }
-    else return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFF} Você precisa estar em um veículo.");
+    else return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você precisa estar em um veículo.");
 }
 
 forward FzndLigacaoDireta(playerid,veh,success_chance);

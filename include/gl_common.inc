@@ -59,8 +59,8 @@ stock LoadStaticVehiclesFromFile(const filename[])
   		Color2 = strval(var_from_line);
   		
   		//printf("%d,%.2f,%.2f,%.2f,%.4f,%d,%d",vehicletype,SpawnX,SpawnY,SpawnZ,SpawnRot,Color1,Color2);
-
-		AddStaticVehicleEx(vehicletype,SpawnX,SpawnY,SpawnZ,SpawnRot,Color1,Color2,(30*60)); // respawn 30 minutes
+  		
+  		AddStaticVehicleEx(vehicletype,SpawnX,SpawnY,SpawnZ,SpawnRot,Color1,Color2,(30*60)); // respawn 30 minutes
 		
 		/*new numplate_test[32+1];
 		format(numplate_test,32,"GRLC{44AA33}%d",vid);
@@ -76,19 +76,19 @@ stock LoadStaticVehiclesFromFile(const filename[])
 
 //----------------------------------------------------------
 
-stock strtok(const strings[], &index)
+stock strtok(const strings2[], &index)
 {
-	new length = strlen(strings);
-	while ((index < length) && (strings[index] <= ' '))
+	new length = strlen(strings2);
+	while ((index < length) && (strings2[index] <= ' '))
 	{
 		index++;
 	}
 
 	new offset = index;
 	new result[20];
-	while ((index < length) && (strings[index] > ' ') && ((index - offset) < (sizeof(result) - 1)))
+	while ((index < length) && (strings2[index] > ' ') && ((index - offset) < (sizeof(result) - 1)))
 	{
-		result[index - offset] = strings[index];
+		result[index - offset] = strings2[index];
 		index++;
 	}
 	result[index - offset] = EOS;
@@ -97,10 +97,10 @@ stock strtok(const strings[], &index)
 
 //------------------------------------------------
 
-stock strrest(const strings[], &index)
+stock strrest(const strings2[], &index)
 {
-	new length = strlen(strings);
-	while ((index < length) && (strings[index] <= ' '))
+	new length = strlen(strings2);
+	while ((index < length) && (strings2[index] <= ' '))
 	{
 		index++;
 	}
@@ -108,7 +108,7 @@ stock strrest(const strings[], &index)
 	new result[128];
 	while ((index < length) && ((index - offset) < (sizeof(result) - 1)))
 	{
-		result[index - offset] = strings[index];
+		result[index - offset] = strings2[index];
 		index++;
 	}
 	result[index - offset] = EOS;
@@ -117,37 +117,37 @@ stock strrest(const strings[], &index)
 
 //----------------------------------------------------------
 // Tokenise by a delimiter
-// Return strings and index of the end determined by the
+// Return strings2 and index of the end determined by the
 // provided delimiter in delim
 
-stock token_by_delim(const strings[], return_str[], delim, start_index)
+stock token_by_delim(const strings2[], return_str[], delim, start_index)
 {
 	new x=0;
-	while(strings[start_index] != EOS && strings[start_index] != delim) {
-	    return_str[x] = strings[start_index];
+	while(strings2[start_index] != EOS && strings2[start_index] != delim) {
+	    return_str[x] = strings2[start_index];
 	    x++;
 	    start_index++;
 	}
 	return_str[x] = EOS;
-	if(strings[start_index] == EOS) start_index = (-1);
+	if(strings2[start_index] == EOS) start_index = (-1);
 	return start_index;
 }
 
 //----------------------------------------------------------
 
-stock isNumeric(const strings[])
+stock isNumeric(const strings2[])
 {
-  new length=strlen(strings);
+  new length=strlen(strings2);
   if (length==0) return false;
   for (new i = 0; i < length; i++)
     {
       if (
-            (strings[i] > '9' || strings[i] < '0' && strings[i]!='-' && strings[i]!='+') // Not a number,'+' or '-'
-             || (strings[i]=='-' && i!=0)                                             // A '-' but not at first.
-             || (strings[i]=='+' && i!=0)                                             // A '+' but not at first.
+            (strings2[i] > '9' || strings2[i] < '0' && strings2[i]!='-' && strings2[i]!='+') // Not a number,'+' or '-'
+             || (strings2[i]=='-' && i!=0)                                             // A '-' but not at first.
+             || (strings2[i]=='+' && i!=0)                                             // A '+' but not at first.
          ) return false;
     }
-  if (length==1 && (strings[0]=='-' || strings[0]=='+')) return false;
+  if (length==1 && (strings2[0]=='-' || strings2[0]=='+')) return false;
   return true;
 }
 
@@ -200,7 +200,7 @@ stock ReturnUser(text[])
 		pos++;
 	}
 		
-	if(isNumeric(text[pos])) { // Check whole passed strings
+	if(isNumeric(text[pos])) { // Check whole passed strings2
 		userid = strval(text[pos]);
 		if(userid >=0 && userid < MAX_PLAYERS)
 		{

@@ -7263,13 +7263,13 @@ CMD:criarmorteiro(playerid, params[])
 {
 	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pMorteiro] <= 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 1 morteiro.");
-    if(PlayerInfo[playerid][pArrombarDNV_C] != 0)
-    {
-        new stringmorteiro[32];
-        format(stringmorteiro, sizeof(stringmorteiro),"Aguarde %d segundos antes de lançar um morteiro novamente.", PlayerInfo[playerid][pArrombarDNV_C]);
-        SendClientMessage(playerid,COLOR_LIGHTRED, stringmorteiro);
-        return 1;
-    }
+	if(PlayerInfo[playerid][pArrombarDNV_C] != 0)
+	{
+		new stringfogos[128];
+		format(stringfogos, sizeof(stringfogos),"Aguarde %d segundos antes de explodir novamente.", PlayerInfo[playerid][pArrombarDNV_C]);
+		SendClientMessage(playerid,COLOR_LIGHTRED, stringfogos);
+		return 1;
+	}
 
 	new Float:x, Float:y, Float:z;
 	GetPlayerPos(playerid, x, y, z);
@@ -8692,43 +8692,16 @@ public Timer_Segundos()
 	new Horariorelogio = hour+1;
  	new timestring[24];
 
-	new HoraIC, MinsIC = 99;
+	new HoraIC, MinsIC;
 
-	if(hour == 0) HoraIC = 1, MinsIC = 0;
-	else if(hour == 1) HoraIC = 1, MinsIC = 0;
-	else if(hour == 2) HoraIC = 2, MinsIC = 0;
-	else if(hour == 3) HoraIC = 3;
-	else if(hour == 4) HoraIC = 4;
-	else if(hour == 5) HoraIC = 5;
-	else if(hour == 6) HoraIC = 6;
-	else if(hour == 7) HoraIC = 10;
-	else if(hour == 8) HoraIC = 11;
-	else if(hour == 9) HoraIC = 12;
-	else if(hour == 10) HoraIC = 13;
-	else if(hour == 11) HoraIC = 14;
-	else if(hour == 12) HoraIC = 15;
+	new minutos = gettime() % 60;
 
-	else if(hour == 13) HoraIC = 16;
-	else if(hour == 14) HoraIC = 17;
-	else if(hour == 15) HoraIC = 18;
-	else if(hour == 16) HoraIC = 19;
-	else if(hour == 17) HoraIC = 20;
-	else if(hour == 18) HoraIC = 21;
-	else if(hour == 19) HoraIC = 22;
-	else if(hour == 20) HoraIC = 23;
-	else if(hour == 21) HoraIC = 24;
-	else if(hour == 22) HoraIC = 1, MinsIC = 0;
-	else if(hour == 23) HoraIC = 1, MinsIC = 0;
-	else if(hour == 24)
-	{
-        hour = 0;
-        HoraIC = 1;
-    }
+	HoraIC = (gettime() / 60 + 5) % 24; 
+	if (HoraIC == 0)
+		HoraIC = 1;
 
-    if(MinsIC >= 60)
-    {
-        MinsIC = 0;
-    }
+	MinsIC = (minutos + 30) % 60;
+
 
 	new d,m,y;
 	getdate(y,m,d);
@@ -43644,7 +43617,7 @@ public CarregandoGoverno()
 		    GovInfo[gSalarioMin] = strval(tmp);
 
 		    cache_get_field_content(i, "salariosgov", tmp);
-			sscanf(tmp, "p<|>iiiiii", GovInfo[gSalarioGOV][0], GovInfo[gSalarioGOV][1], GovInfo[gSalarioGOV][2], GovInfo[gSalarioGOV][3], GovInfo[gSalarioGOV][4], GovInfo[gSalarioGOV][5], GovInfo[gSalarioGOV][6], GovInfo[gSalarioGOV][7], GovInfo[gSalarioGOV][8], GovInfo[gSalarioGOV][9], GovInfo[gSalarioGOV][10], GovInfo[gSalarioGOV][11]);
+			sscanf(tmp, "p<|>iiiiiiiiiiii", GovInfo[gSalarioGOV][0], GovInfo[gSalarioGOV][1], GovInfo[gSalarioGOV][2], GovInfo[gSalarioGOV][3], GovInfo[gSalarioGOV][4], GovInfo[gSalarioGOV][5], GovInfo[gSalarioGOV][6], GovInfo[gSalarioGOV][7], GovInfo[gSalarioGOV][8], GovInfo[gSalarioGOV][9], GovInfo[gSalarioGOV][10], GovInfo[gSalarioGOV][11]);
 			cache_get_field_content(i, "salariospd", tmp);
 			sscanf(tmp, "p<|>iiiiiiiiiiii", GovInfo[gSalarioPMERJ][0], GovInfo[gSalarioPMERJ][1], GovInfo[gSalarioPMERJ][2], GovInfo[gSalarioPMERJ][3], GovInfo[gSalarioPMERJ][4], GovInfo[gSalarioPMERJ][5], GovInfo[gSalarioPMERJ][6], GovInfo[gSalarioPMERJ][7], GovInfo[gSalarioPMERJ][8], GovInfo[gSalarioPMERJ][9], GovInfo[gSalarioPMERJ][10], GovInfo[gSalarioPMERJ][11]);
       		cache_get_field_content(i, "salariospc", tmp);

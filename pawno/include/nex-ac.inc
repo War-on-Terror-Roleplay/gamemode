@@ -295,7 +295,7 @@ static bool:ac_ACAllow[] =
 
 	true,	//51 Anti-DoS
 
-	true	//52 Anti-NOPs
+	false	//52 Anti-NOPs
 },
 
 bool:ac_NOPAllow[] =

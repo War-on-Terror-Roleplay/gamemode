@@ -1,7 +1,7 @@
 #define SSCANF_NO_NICE_FEATURES
 // --------- [ INCLUDES ] ---------
 #include <a_samp>
-#include <fixes>
+//#include <fixes>
 #include <a_mysql>
 #include <zcmd>
 #include <foreach>
@@ -34,6 +34,7 @@
 #define YSI_NO_VERSION_CHECK
 #define YSI_NO_HEAP_MALLOC
 #include <YSI\y_malloc>
+#include <profiler>
 
 
 //Streamer
@@ -45,12 +46,12 @@ native WP_Hash(_buffer[], len, const str[]);
 
 #if defined MAX_PLAYERS
 #undef MAX_PLAYERS
-#define MAX_PLAYERS 500
+#define MAX_PLAYERS 50
 #endif
 
 #if defined MAX_VEHICLES
 #undef MAX_VEHICLES
-#define MAX_VEHICLES 50000
+#define MAX_VEHICLES 5000
 #endif
 
 new PayDayDuplo = 0;
@@ -62,10 +63,6 @@ new RentCarKey[MAX_PLAYERS];
 //New Blindagem system
 #define VulnMAX 100000
 new Vuln[MAX_VEHICLES];
-
-//Sistema de ROJÃO
-new Foguete[MAX_PLAYERS];
-new Float:FogueteX[MAX_PLAYERS], Float:FogueteY[MAX_PLAYERS], Float:FogueteZ[MAX_PLAYERS];
 
 //Fome e Sede
 new PlayerText:FomeSede[MAX_PLAYERS][5];
@@ -86,57 +83,7 @@ new MorteiroPrincipal[1][MAX_PLAYERS];
 new MissilCaindo[3][MAX_PLAYERS];
 new Float:AlvoX[MAX_PLAYERS], Float:AlvoY[MAX_PLAYERS], Float:AlvoZ[MAX_PLAYERS];
 
-//Jogo do Bicho
-#define DIALOG_JOGODoBichoMenu			900
-#define DIALOG_JOGODoBichoTabela			901
-#define DIALOG_JOGODoBichoTipoAposta		902
-#define DIALOG_JOGODoBichoApostar		903
-#define DIALOG_JOGODoBichoApostarValor	904
- 
-enum eBichos {
-	Bicho[64],
-	Dezenas[4]
-}
- 
-new TabelaBichos[][eBichos] = {
-	{"Vazio", {0, 0, 0, 0}},
-	{"AVESTRUZ", {1, 2, 3, 4}},
-	{"ÁGUIA", {5, 6, 7, 8}},
-	{"BURRO", {09, 10, 11, 12}},
-	{"BORBOLETA", {13, 14, 15, 16}},
-	{"CACHORRO", {17, 18, 19, 20}},
-	{"CABRA", {21, 22, 23, 24}},
-	{"CARNEIRO", {25, 26, 27, 28}},
-	{"CAMELO", {29, 30, 31, 32}},
-	{"COBRA", {33, 34, 35, 36}},
-	{"COELHO", {37, 38, 39, 40}},
-	{"CAVALO", {41, 42, 43, 44}},
-	{"ELEFANTE", {45, 46, 47, 48}},
-	{"GALO", {49, 50, 51, 52}},
-	{"GATO", {53, 54, 55, 56}},
-	{"JACARÉ", {57, 58, 59, 60}},
-	{"LEÃO", {61, 62, 63, 64}},
-	{"MACACO", {65, 66, 67, 68}},
-	{"PORCO", {69, 70, 71, 72}},
-	{"PAVÃO", {73, 74, 75, 76}},
-	{"PERU", {77, 78, 79, 80}},
-	{"TOURO", {81, 82, 83, 84}},
-	{"TIGRE", {85, 86, 87, 88}},
-	{"URSO", {89, 90, 91, 92}},
-	{"VEADO", {93, 94, 95, 96}},
-	{"VACA", {97, 98, 99, 100}}
-};
- 
-enum eApostador {
-	Animal,
-	TipoAposta,
-	Aposta,
-	bool:Apostando
-}
- 
-new Apostadores[MAX_PLAYERS][eApostador];
-//new UltimoResultado;
-new bool:PodeApostarBicho = true;
+
 //=====[SISTEMA DE PET BY YURS]=====
 #define MAX_PET 1000
 
@@ -1012,7 +959,7 @@ stock GetUserName(playerid)
 	return name;
 }
 
-#define MAX_DRUGPLANT 50000
+#define MAX_DRUGPLANT 50
 enum ddDrug
 {
 	ddID,
@@ -2488,7 +2435,6 @@ enum e_Account
 	pAltura,
 	pFome,
 	pSede,
-	pApostouBicho,
 	pFomeTime,
 	pSedeTime,
     pFactionTeam,
@@ -6004,44 +5950,10 @@ public Tempo_Clima()
    		case 5: Clima_SF = 19;
    		default: Clima_SF = 2;
 	}
-	SetTimer("Tempo_Clima", 1000, true);
 	return 1;
 }
 
-forward alterar_clima();
-public alterar_clima()
-{
-	for(new i = 0; i < MAX_PLAYERS; i++)
-	{
-	    if(IsPlayerConnected(i) || PlayerInfo[i][pLogado])
- 		{
-			//Weather Sys by Yur$
-			if(PlayerInfo[i][pDrogaTime] == 0)
-			{
-				if(PlayerInfo[i][pEntrouCasa] == -1 && PlayerInfo[i][pEntrouEmpresa] == -1  && PlayerInfo[i][pEntrouComplexo] == -1 && PlayerInfo[i][pEntrouGaragem] == -1 && EntrouInt[i] == -1)
-				{
-					if(IsPlayerInLS(i))
-					{
-						SetPlayerWeather(i, Clima_LS);
-					}
-					else if(IsPlayerInLV(i))
-					{
-						SetPlayerWeather(i, Clima_LV);
-					}
-					else if(IsPlayerInSF(i))
-					{
-						SetPlayerWeather(i, Clima_SF);
-					}
-				}
-				else
-				{
-					SetPlayerWeather(i, 2);
-				}
-			} 
-		}
-	}
-	return 1;
-}
+
 new SERVER_DOWNLOAD[] = "https://progressive-roleplay.com/modsamp";
 public OnPlayerRequestDownload(playerid, type, crc)
 {
@@ -6293,7 +6205,7 @@ public OnGameModeInit()
     SetTimer("Timer_Segundos", 1000, true);
     SetTimer("Timer_Minutos", 60000, true);
     SetTimer("OnPlayerUpdate_Timer", 600, true);
-    SetTimer("Tempo_Clima", 3600000, true);
+    //SetTimer("Tempo_Clima", 3600000, true);
 	
 	mapacivil();
 	governamentalex();
@@ -7442,7 +7354,7 @@ public QuedaMissil(playerid)
 	MoveObject(MissilCaindo[0][playerid], AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid], 50, 0, 180, 0);
 	MoveObject(MissilCaindo[1][playerid], AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid]+5, 50, 0, 180, 0);
 	MoveObject(MissilCaindo[2][playerid], AlvoX[playerid], AlvoY[playerid], AlvoZ[playerid]+10, 50, 0, 180, 0);
-	SetTimerEx("MissilExplode", 20000, false, "i", playerid);
+	SetTimerEx("MissilExplode", 500, false, "i", playerid);
 	new stringfogos1[128];
 	format(stringfogos1, sizeof(stringfogos1), "* Morteiros são disparados nas próximidades *");
 	ProxDetector(50.0, playerid, stringfogos1, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
@@ -7476,117 +7388,7 @@ public MissilExplode(playerid)
 	AlvoX[playerid] = 0;
 	AlvoY[playerid] = 0;
 	AlvoZ[playerid] = 0;
-	SetTimerEx("TimerZera", 300000, false, "i", playerid);
 	return 1;
-}
-forward TimerZera(playerid);
-public TimerZera(playerid)
-{
-	SendClientMessage(playerid, COLOR_LIGHTRED, "Você já pode disparar outro morteiro novamente.");
-	PlayerInfo[playerid][pArrombarDNV_C] = 0;
-	return 1;
-}
-
-CMD:bichos23232(playerid, params[]) 
-{
-	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-	MostrarMenuTabela(playerid);
-	return 1;
-}
- 
-CMD:jogodobicho323232(playerid, params[]) 
-{
-	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-	MostrarMenuBicho(playerid);
-	return 1;
-}
-
-forward FecharBicho(playerid);
-public FecharBicho(playerid) 
-{
-	PodeApostarBicho = false;
-	new Msg[512];
-	format(Msg, sizeof(Msg), "[Jogo Do Bicho] {ffffff}O resultado irá sair daqui 15 segundos! As apostas estão fechadas.");
-	SendClientMessage(playerid, COLOR_LIGHTRED, Msg);
-	SetTimerEx("ResultadoBicho", 5000, false, "d");
-	return 1;
-}
-
-forward ResultadoBicho(playerid);
-public ResultadoBicho(playerid) 
-{
-	new resultado_mil = randomEx(10,99),
-	resultado_dez = randomEx(10,99),
-	animal = PegarBicho(resultado_dez),
-	ganhadores,
-	stringB[256],
-	Msg[256];
-	format(Msg, sizeof(Msg), "[Jogo Do Bicho] {ffffff}O número sorteado foi: %d%d!", resultado_mil, resultado_dez);
-	SendClientMessage(playerid, COLOR_LIGHTRED, Msg);
-	format(Msg, sizeof(Msg), "[Jogo Do Bicho] {ffffff}Animal: %s (Grupo %d) - Dezena %d!", TabelaBichos[animal][Bicho], animal, resultado_dez);
-	SendClientMessage(playerid, COLOR_LIGHTRED, Msg);
-	for(new i;i < sizeof(Apostadores);i++) 
-	{
-		if(Apostadores[i][Animal] == animal) 
-		{
-			ganhadores++;
-			//GivePlayerMoney(i, (Apostadores[i][Aposta] * 14));
-			PlayerInfo[playerid][pApostouBicho] = 0;
-			PlayerInfo[playerid][pGrana] += (Apostadores[i][Aposta] * 14);
-			format(stringB, sizeof(stringB), "[Jogo Do Bicho] {ffffff}Parabens! Você apostou no animal %s e ganhou 14x sua aposta de US$%d!", TabelaBichos[animal][Bicho], Apostadores[i][Aposta]);
-			SendClientMessage(playerid, COLOR_LIGHTRED, stringB);
-		}
-		Apostadores[i][Animal] = 0;
-		Apostadores[i][TipoAposta] = 0;
-		Apostadores[i][Aposta] = 0;
-		Apostadores[i][Apostando] = false;
-		if(i == sizeof(Apostadores)-1) 
-		{
-			format(Msg, sizeof(Msg), "[Jogo Do Bicho] {ffffff}Tivemos um total de %d vencedores!", ganhadores);
-			SendClientMessage(playerid, COLOR_LIGHTRED, Msg);
-			break;
-		}
-	}
-	//UltimoResultado = gettime();
-	PodeApostarBicho = true;
-	return 1;
-}
- 
-MostrarMenuBicho(playerid) 
-{
-	new lista[1024];
-	format(lista, sizeof(lista), "{a9c4e4}Apostar\r\n{a9c4e4}Lista de bichos");
-	return ShowPlayerDialog(playerid, DIALOG_JOGODoBichoMenu, DIALOG_STYLE_LIST, "{FCB876}#{ffffff}Bicho | Menu", lista, "OK", "");
-}
- 
-MostrarMenuTipoAposta(playerid) {
-	if(!PodeApostarBicho) return SendClientMessage(playerid, -1, "{FCB876}[Jogo Do Bicho] {a9c4e4}Falta pouco para sair o resultado do jogo do bicho, então as apostas estão fechadas.");
-	if(Apostadores[playerid][Apostando]) return SendClientMessage(playerid, -1, "{FCB876}[Jogo Do Bicho] {a9c4e4}Você já fez uma aposta, aguarde o resultado.");
-	new lista[1024];
-	format(lista, sizeof(lista), "{a9c4e4}Aposta de Grupos\r\n");
-	return ShowPlayerDialog(playerid, DIALOG_JOGODoBichoTipoAposta, DIALOG_STYLE_LIST, "{FCB876}#{ffffff}Bicho | Apostar", lista, "OK", "Voltar");
-}
- 
-MostrarMenuTabela(playerid) {
-	new lista[2048];
-	format(lista, sizeof(lista), "Grupo\tAnimal\tDezenas\n");
-	for(new i = 1; i < sizeof(TabelaBichos);i++) {
-		format(lista, sizeof(lista), "%s{FCB876}%d\t{a9c4e4}%s\t%d-%d-%d-%d\n", lista, i, TabelaBichos[i][Bicho], TabelaBichos[i][Dezenas][0], TabelaBichos[i][Dezenas][1], TabelaBichos[i][Dezenas][2], TabelaBichos[i][Dezenas][3]);
-	}
-	return ShowPlayerDialog(playerid, DIALOG_JOGODoBichoTabela, DIALOG_STYLE_TABLIST_HEADERS, "{ffff00}#{ffffff}Bicho | Lista de bichos", lista, "OK", "Voltar");
-}
- 
-PegarBicho(numero) {
-	new animal;
-	for(new i = 1; i < sizeof(TabelaBichos);i++) {
-		for(new b; b < 4;b++) {
-			if(TabelaBichos[i][Dezenas][b] == numero) {
-				animal = i;
-				break;
-			}
-		}
-	}
-	return animal;
 }
 
 CMD:morto(playerid, params[])
@@ -8038,7 +7840,7 @@ public AnimMorreu(i)
 forward Timer_Minutos();
 public Timer_Minutos()
 {
-    for(new i = 0; i < MAX_PLAYERS; i++)
+    foreach (new i : Player)
 	{
  		if(IsPlayerConnected(i) && !IsPlayerNPC(i))
  		{
@@ -8640,11 +8442,6 @@ public PayDay(playerid) {
             format(stringpd, sizeof(stringpd), " Novo balanço: US$%d", PlayerInfo[playerid][pBanco]); 	SendClientMessage(playerid, COLOR_LIGHTWHITE, stringpd);
    			format(stringpd, sizeof(stringpd),"~y~PayDay~n~ ~w~Salario ~n~~g~US$%d",total);
 			GameTextForPlayer(playerid,stringpd,10000,1);
-			if(PlayerInfo[playerid][pApostouBicho] == 1)
-			{
-				SetTimerEx("FecharBicho", 100, false, "d");
-				SetTimerEx("ResultadoBicho", 10000, false, "d");
-			}
 
 
             PlayerInfo[playerid][pLevel]++;
@@ -8924,14 +8721,14 @@ public Timer_Segundos()
 	else if(hour == 23) HoraIC = 1, MinsIC = 0;
 	else if(hour == 24)
 	{
-		hour = 0;
-		HoraIC = 1;
-		MinsIC = 0;
-	}
-	if(MinsIC == 99)
-	{
-	    MinsIC = mins;
-	}
+        hour = 0;
+        HoraIC = 1;
+    }
+
+    if(MinsIC >= 60)
+    {
+        MinsIC = 0;
+    }
 
 	new d,m,y;
 	getdate(y,m,d);
@@ -8949,7 +8746,7 @@ public Timer_Segundos()
 	TextDrawSetString(gTime,timestring);
 
 
-	for(new i = 0; i < MAX_PLAYERS; i++)
+	foreach (new i : Player)
 	{
 	    if(IsPlayerConnected(i) || PlayerInfo[i][pLogado])
  		{
@@ -10051,8 +9848,8 @@ public Timer_Segundos()
 					}
 					//=============================================================
 					//==============================================================
-/*					//Weather Sys by Yur$
-					  if(PlayerInfo[i][pDrogaTime] == 0)
+					//Weather Sys by Yur$
+					if(PlayerInfo[i][pDrogaTime] == 0)
 					{
 						if(PlayerInfo[i][pEntrouCasa] == -1 && PlayerInfo[i][pEntrouEmpresa] == -1  && PlayerInfo[i][pEntrouComplexo] == -1 && PlayerInfo[i][pEntrouGaragem] == -1 && EntrouInt[i] == -1)
 						{
@@ -10066,14 +9863,14 @@ public Timer_Segundos()
 							}
 						    else if(IsPlayerInSF(i))
 							{
-								SetPlayerWeather(i, Clima_L);
+								SetPlayerWeather(i, Clima_SF);
 							}
 						}
 						else
 						{
 		                    SetPlayerWeather(i, 2);
 						}
-					} */
+					} 
 					//==============================================================
 			    }
 	 		}
@@ -10095,8 +9892,8 @@ public Timer_Segundos()
  		    	else if(DrogaPlantada[i][ddEstado] == 2)
 			    {
 			        DrogaPlantada[i][ddEstado] = 1;
-			        DrogaPlantada[i][ddTempo] = 3600;
-			        if(IsValidDynamicObject(DrogaPlantada[i][ddObjeto])) DestroyDynamicObject(DrogaPlantada[i][ddObjeto]);
+			        DrogaPlantada[i][ddTempo] = 10;
+			        DestroyDynamicObject(DrogaPlantada[i][ddObjeto]);
 		 			DrogaPlantada[i][ddObjeto] = CreateDynamicObject(19473, DrogaPlantada[i][ddX], DrogaPlantada[i][ddY], DrogaPlantada[i][ddZ], 0.000000, 0.000000, DrogaPlantada[i][ddR], DrogaPlantada[i][ddWorld]);
                     SaveDroga(i);
 				}
@@ -10104,14 +9901,13 @@ public Timer_Segundos()
 			    {
 			        DrogaPlantada[i][ddEstado] = 2;
 			        DrogaPlantada[i][ddTempo] = 1800;
-			        if(IsValidDynamicObject(DrogaPlantada[i][ddObjeto])) DestroyDynamicObject(DrogaPlantada[i][ddObjeto]);
+			        DestroyDynamicObject(DrogaPlantada[i][ddObjeto]);
 		 			DrogaPlantada[i][ddObjeto] = CreateDynamicObject(861, DrogaPlantada[i][ddX], DrogaPlantada[i][ddY], DrogaPlantada[i][ddZ], 0.000000, 0.000000, DrogaPlantada[i][ddR], DrogaPlantada[i][ddWorld]);
                     SaveDroga(i);
 				}
 			}
 		}
 	}
-
 
     for(new h = 0; h < MAX_HOUSES; h++)
 	{
@@ -10302,16 +10098,6 @@ CMD:ajudaradio(playerid, params[])
 	return 1;
 }
 
-CMD:ajudajogo(playerid, params[])
-{
-    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-	SCM(playerid, COLOR_LIGHTGREEN,"|_____________________Ajuda jogo do Bicho______________________|");
-	SCM(playerid, COLOR_YELLOW,"[!] Comandos para jogar no jogo do bicho");
-	SCM(playerid, COLOR_WHITE,"/jogodobicho {FFFFFF}- Abre o dialog para apostas e ver os bichos e informações.");
-	SCM(playerid, COLOR_WHITE,"/bicho {FFFFFF}- Informações dos bichos, grupos e dezenas.");
-	SCM(playerid, COLOR_LIGHTGREEN,"|_____________________________________________________|");
-	return 1;
-}
 
 CMD:ajudacelular(playerid, params[])
 {
@@ -10686,7 +10472,7 @@ public SumirTraficantes(traficid)
 	TraficInfo[traficid][traTempoSumir] = 0;
 	TraficInfo[traficid][traFaccao] = 0;
 
-	for(new i = 0; i < MAX_PLAYERS; i++)
+	foreach (new i : Player)
 	{
 	    if(TraficInfo[traficid][traPlayerId] == PlayerInfo[i][pID])
 	    {
@@ -10782,7 +10568,7 @@ public OnVehicleDamageStatusUpdate(vehicleid, playerid)
 	}
 	if(GetPlayerSpeed(playerid,true) >= 170)
 	{
-	    for(new i = 0; i < MAX_PLAYERS; i++)
+	    foreach (new i : Player)
 	    {
 	        if(IsPlayerConnected(i) && GetPlayerVehicleID(i) == vehicleid)
 	        {
@@ -11169,7 +10955,6 @@ public ResetVarsPlayerInfo(extraid)
 	PlayerInfo[extraid][pDrogaTime] = 0;
 	PlayerInfo[extraid][pFome] = 0;
 	PlayerInfo[extraid][pSede] = 0;
-	PlayerInfo[extraid][pApostouBicho] = 0;
 	PlayerInfo[extraid][pTremorAtirar] = 0;
 	PlayerInfo[extraid][pUsouDroga] = 0;
 	PlayerInfo[extraid][pSkillTiro] = 0;
@@ -11219,7 +11004,7 @@ public ResetVarsPlayerInfo(extraid)
 	PlayerInfo[extraid][pSede] = 100;
 	PlayerInfo[extraid][pFomeTime] = 0;
 	PlayerInfo[extraid][pSedeTime] = 0;
-	PlayerInfo[extraid][pApostouBicho] = 0;
+
 
 	OutrasInfos[extraid][oDesmancheX] = 0;
 	OutrasInfos[extraid][oDesmancheY] = 0;
@@ -11666,8 +11451,6 @@ public OnPlayerConnect(playerid)
 	PlayerInfo[playerid][pFomeTime] = 0;
 	PlayerInfo[playerid][pSedeTime] = 0;
 
-	PlayerInfo[playerid][pApostouBicho] = 0;
-
 	PlayerDroga[playerid][MaconhaR] = 0;
 	PlayerDroga[playerid][MaconhaB] = 0;
 	PlayerDroga[playerid][MaconhaE] = 0;
@@ -11753,7 +11536,6 @@ public OnPlayerConnect(playerid)
 
     SetPVarInt(playerid, "PermissaoNomeOOC", 0);
 	SetPVarInt(playerid, "TogHa", 0);
-	SetPVarInt(playerid, "TogBicho", 0);
 	SetPVarInt(playerid, "TogChatADM", 0);
 	SetPVarInt(playerid, "TogBairros", 0);
 	SetPVarInt(playerid, "TogAdmin", 0);
@@ -13675,7 +13457,7 @@ public OnPlayerDisconnect(playerid, reason)
 			    SendClientMessage(TransportDriver[playerid], COLOR_YELLOW, string5);
 			}
 		}
-		for(new i = 0; i <= MAX_PLAYERS; ++i)
+		foreach (new i : Player)
 		{
 	    	if(IsPlayerConnected(i))
 			{
@@ -14368,7 +14150,7 @@ public GetConnectedVehicleOwnerID(vehicleid)
 	new vehowner = -1;
 	new slot = GetVehicleSlot(vehicleid);
 	if(slot == -1) { return -1; }
-    for(new i = 0; i < MAX_PLAYERS; i ++)
+    foreach (new i : Player)
     {
         if(IsPlayerConnected(i))
         {
@@ -16062,7 +15844,7 @@ public OnPlayerStateChange(playerid, newstate, oldstate)
 	if(newstate == PLAYER_STATE_PASSENGER) // TAXI & BUSSES
 	{
 	    new vehicleid = GetPlayerVehicleID(playerid);
-        for(new i = 0; i <= MAX_PLAYERS; ++i)
+        foreach (new i : Player)
 	    {
 	        if(IsPlayerConnected(i))
 	        {
@@ -16215,7 +15997,7 @@ stock IsVehicleRented(vehicleid)
 
 stock IsSeatTaken(vehicleid, seatid)
 {
-	for(new i = 0; i < MAX_PLAYERS; i++)
+	foreach (new i : Player)
 	{
 		if(GetPlayerVehicleID(i) == vehicleid && GetPlayerVehicleSeat(i) == seatid) return 1;
 	}
@@ -18936,84 +18718,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 	}
 	switch(dialogid)
 	{
-		case DIALOG_JOGODoBichoMenu: 
-		{
-			if(!response) return 1;
-			switch(listitem) 
-			{
-				case 0: MostrarMenuTipoAposta(playerid);
-				case 1: MostrarMenuTabela(playerid);
-			}
-		}
-		case DIALOG_JOGODoBichoTabela: 
-		{
-			if(!response) return MostrarMenuBicho(playerid);
-		}
-		case DIALOG_JOGODoBichoTipoAposta: 
-		{
-			if(!response) return MostrarMenuBicho(playerid);
-			new lista[2048];
-			format(lista, sizeof(lista), "Grupo\tAnimal\tDezenas\n");
-			for(new i = 1; i < sizeof(TabelaBichos);i++) 
-			{
-				format(lista, sizeof(lista), "%s{FCB876}%d\t{a9c4e4}%s\t%d-%d-%d-%d\n", lista, i, TabelaBichos[i][Bicho], TabelaBichos[i][Dezenas][0], TabelaBichos[i][Dezenas][1], TabelaBichos[i][Dezenas][2], TabelaBichos[i][Dezenas][3]);
-			}
-			return ShowPlayerDialog(playerid, DIALOG_JOGODoBichoApostar, DIALOG_STYLE_TABLIST_HEADERS, "{ffff00}#{ffffff}Bicho | Selecione um animal", lista, "OK", "Voltar");
-		}
-		case DIALOG_JOGODoBichoApostar: 
-		{
-			if(!response) return MostrarMenuTipoAposta(playerid);
-			new animal = (listitem+1), stringBB[1024];
-			SetPVarInt(playerid, "apostando_bicho", animal);
-			format(stringBB, sizeof(stringBB), "Você está apostando em:\n\n\
-				Animal: %s\n\
-				Grupo: %d\n\
-				Dezenas: %d-%d-%d-%d\n\nDigite o valor que deseja apostar:\
-				", TabelaBichos[animal][Bicho], animal, TabelaBichos[animal][Dezenas][0], TabelaBichos[animal][Dezenas][1], TabelaBichos[animal][Dezenas][2], TabelaBichos[animal][Dezenas][3]);
-			ShowPlayerDialog(playerid, DIALOG_JOGODoBichoApostarValor, DIALOG_STYLE_INPUT, "{ffff00}#{ffffff}Bicho | Valor da aposta", stringBB, "OK", "Voltar");
-			return 1;
-		}
-		case DIALOG_JOGODoBichoApostarValor: 
-		{
-			if(!response) {
-				new lista[2048];
-				format(lista, sizeof(lista), "Grupo\tAnimal\tDezenas\n");
-				for(new i = 1; i < sizeof(TabelaBichos);i++) {
-					format(lista, sizeof(lista), "%s{FCB876}%d\t{a9c4e4}%s\t%d-%d-%d-%d\n", lista, i, TabelaBichos[i][Bicho], TabelaBichos[i][Dezenas][0], TabelaBichos[i][Dezenas][1], TabelaBichos[i][Dezenas][2], TabelaBichos[i][Dezenas][3]);
-				}
-				return ShowPlayerDialog(playerid, DIALOG_JOGODoBichoApostar, DIALOG_STYLE_TABLIST_HEADERS, "{ffff00}#{ffffff}Bicho | Selecione um animal", lista, "OK", "Voltar");
-			} 
-			else 
-			{
-				new valor = strval(inputtext), animal = GetPVarInt(playerid, "apostando_bicho"), stringB2[128];
-				if(valor <= 0 || valor < 100) 
-				{
-					if((PlayerInfo[playerid][pGrana] -= valor) > 0) 
-					//if(PlayerInfo[playerid][pGrana] <= 100)
-					{
-						SendClientMessage(playerid, -1, "{FCB876}[Jogo Do Bicho] {a9c4e4}Você precisa apostar no mínimo US$100.");
-					} 
-					else 
-					{
-						SendClientMessage(playerid, -1, "{FCB876}[Jogo Do Bicho] {a9c4e4}Você não tem dinheiro suficiente para essa aposta, coloque um valor menor.");
-					}
-					format(stringB2, sizeof(stringB2), "Você está apostando em:\n\n\
-						Animal: %s\n\
-						Grupo: %d\n\
-						Dezenas: %d-%d-%d-%d\n\nDigite o valor que deseja apostar:\
-						", TabelaBichos[animal][Bicho], animal, TabelaBichos[animal][Dezenas][0], TabelaBichos[animal][Dezenas][1], TabelaBichos[animal][Dezenas][2], TabelaBichos[animal][Dezenas][3]);
-					return ShowPlayerDialog(playerid, DIALOG_JOGODoBichoApostarValor, DIALOG_STYLE_INPUT, "{ffff00}#{ffffff}Bicho | Valor da aposta", stringB2, "OK", "Voltar");
-				}
-				Apostadores[playerid][Animal] = animal;
-				Apostadores[playerid][TipoAposta] = 0;
-				Apostadores[playerid][Aposta] = valor;
-				PlayerInfo[playerid][pGrana] -= valor;
-				PlayerInfo[playerid][pApostouBicho] = 1;
-				Apostadores[playerid][Apostando] = true;
-				format(stringB2, sizeof(stringB2), "{FCB876}[Jogo Do Bicho] {a9c4e4}Você apostou US$%d no animal %s(Grupo %d)", valor, TabelaBichos[animal][Bicho], animal);
-				return SendClientMessage(playerid, -1, stringB2);
-			}
-		}
+
 	    case DIALOG_GRAFITE_1:
 	    {
 	        if(response)
@@ -20681,7 +20386,6 @@ public OnModelSelectionResponse(playerid, extraid, index, modelid, response)
 
 			PlayerInfo[playerid][pFome] = 100;
 			PlayerInfo[playerid][pSede] = 100;
-			PlayerInfo[playerid][pApostouBicho] = 0;
 
             PlayerInfo[playerid][pFactionTeam] = 0;
             PlayerInfo[playerid][pBanTeam] = 0;
@@ -25754,7 +25458,7 @@ COMMAND:derrubar(playerid, params[])
 	    new other;
 		if (sscanf(params, "i(999)", other))
 		{
-		    for(new i = 0; i < MAX_PLAYERS; i++)
+		    foreach (new i : Player)
 		 	{
 				if(i != playerid && !IsPlayerInAnyVehicle(i) && IsPlayerAimings(playerid,i) && GetPVarInt(i, "PlayerSpectate") == 0)
 				{
@@ -27599,745 +27303,7 @@ public HomemBombaExplodindo(playerid)
 	
     return 1;
 }
-//Sistema de misturar drogas - Yur$
-COMMAND:mistur423423ar(playerid,params[])
-{
-    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-	new idx = 0;
-	new tmp[256];
-	tmp = strtok(params,idx);
-	if(!strlen(tmp))
-	{
-        SendClientMessage(playerid, COLOR_VEICULO,"____________________________________________________");
-		SendClientMessage(playerid, COLOR_VEICULO,"USE: /misturar [ação]");
-		SendClientMessage(playerid, COLOR_VEICULO,"USE: cocaina - Aqui você usuará pasta base de cocaína e irá fazer a cocaína excelente.");
-		SendClientMessage(playerid, COLOR_VEICULO,"USE: cocainaE - Aqui você usuará cocaina excelente e passará para a qualidade boa.");
-		SendClientMessage(playerid, COLOR_VEICULO,"USE: cocainaB - Aqui você usuará cocaina boa e passará para a qualidade ruim.");
-		SendClientMessage(playerid, COLOR_VEICULO,"USE: crack - Aqui você usuará pasta base de cocaína para criar o crack excelente.");
-		SendClientMessage(playerid, COLOR_VEICULO,"USE: crackE - Aqui você usuará crack excelente e passará para a qualidade boa.");
-		SendClientMessage(playerid, COLOR_VEICULO,"USE: crackB - Aqui você usuará crack bom e passará para a qualidade ruim.");
-		SendClientMessage(playerid, COLOR_VEICULO,"USE: metaE - Aqui você usuará Metanfetamina excelente e passará para a qualidade boa.");
-		SendClientMessage(playerid, COLOR_VEICULO,"USE: metaB - Aqui você usuará Metanfetamina boa e passará para a qualidade ruim.");
-		SendClientMessage(playerid, COLOR_VEICULO,"____________________________________________________");
-		return 1;
-	}
 
-	if(strcmp(tmp,"cocaina",true) == 0)
-	{
-		if(PlayerInfo[playerid][pCortaRem] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem um cortador de remédio.");
-		if(PlayerDroga[playerid][PBC] < 999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de pelo menos 1000g de pasta base de cocaína.");
-		if(PlayerDroga[playerid][LDC] < 499) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 500g de lidocaína.");
-		if(PlayerDroga[playerid][HDZ] < 199) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 200g de hidroxizina.");
-		if(PlayerDroga[playerid][BZC] < 99) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 100g de benzocaína.");
-		if(PlayerInfo[playerid][pFabricouD] > 6) return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você já fabricou droga o bastante neste PayDay, volte após seu payday.");
-		if(PlayerInfo[playerid][pMorto] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
-		if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
-		if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você nãopode utilizar este comando enquanto estiver amarrado.");
-
-		for(new i = 0; i < MAX_LABO; i++)
-		{
-			if(IsPlayerInRangeOfPoint(playerid,10.5,LaboDrug[i][ldposX], LaboDrug[i][ldposY], LaboDrug[i][ldposZ]))
-			{
-
-				SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você começou o processo de criação da cocaina.");	
-				SetTimerEx("FazendoCoca", 10000, false, "d", playerid);
-
-				new stringvendeu[256];
-				format(stringvendeu,sizeof(stringvendeu),"** %s se aproxima da bancada, pega um triturador grande de comprimidos e coloca os remédios no pote. Começa a tritura-la.", PlayerName(playerid, 1));
-				ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-				new strl[126];
-				format(strl, 126, "%s criou a cocaina. [/misturar cocaina]", PlayerName(playerid, 0));
-				LogCMD_venderdroga(strl);
-			}
-		}
-	}
-	if(strcmp(tmp,"crack",true) == 0)
-	{
-		if(PlayerInfo[playerid][pCortaRem] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem um cortador de remédio.");
-		if(PlayerDroga[playerid][PBC] < 999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de pelo menos 1000g de pasta base de cocaína.");
-		if(PlayerDroga[playerid][BDS] < 499) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 500g de bicarbonato de sódio.");
-		if(PlayerInfo[playerid][pFabricouD] > 6) return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você já fabricou droga o bastante neste PayDay, volte após seu payday.");
-		if(PlayerInfo[playerid][pMorto] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
-		if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
-		if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você nãopode utilizar este comando enquanto estiver amarrado.");
-
-		for(new i = 0; i < MAX_LABO; i++)
-		{
-			if(IsPlayerInRangeOfPoint(playerid,10.5,LaboDrug[i][ldposX], LaboDrug[i][ldposY], LaboDrug[i][ldposZ]))
-			{
-
-				SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você começou o processo de criação do crack.");	
-				SetTimerEx("FazendoCrack", 10000, false, "d", playerid);
-
-				new stringvendeu[256];
-				format(stringvendeu,sizeof(stringvendeu),"** %s se aproxima da bancada, pega um triturador grande de comprimidos e coloca o bicarbonato no pote. Começa a tritura-la.", PlayerName(playerid, 1));
-				ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-				new strl[126];
-				format(strl, 126, "%s criou o crack. [/misturar pasta base]", PlayerName(playerid, 0));
-				LogCMD_venderdroga(strl);
-			}
-		}
-	}
-	if(strcmp(tmp,"cocainaE",true) == 0)
-	{
-		if(PlayerInfo[playerid][pCortaRem] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem um cortador de remédio.");
-		if(PlayerDroga[playerid][CocaE] < 9) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de pelo menos 10g de cocaina Excelente.");
-		if(PlayerInfo[playerid][pFabricouD] > 6) return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você já fabricou droga o bastante neste PayDay, volte após seu payday.");
-		if(PlayerDroga[playerid][LDC] < 9) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 10g de Lidocaína.");
-		if(PlayerInfo[playerid][pMorto] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
-		if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
-		if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você nãopode utilizar este comando enquanto estiver amarrado.");
-
-		for(new i = 0; i < MAX_LABO; i++)
-		{
-			if(IsPlayerInRangeOfPoint(playerid,10.5,LaboDrug[i][ldposX], LaboDrug[i][ldposY], LaboDrug[i][ldposZ]))
-			{
-
-				SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você começou o processo de mistura de cocaina.");	
-				SetTimerEx("MisturandoCocaB", 10000, false, "d", playerid);
-
-				new stringvendeu[256];
-				format(stringvendeu,sizeof(stringvendeu),"** %s se aproxima da bancada, pega um triturador de comprimidos e coloca a Efedrina no pote. Começa a tritura-la.", PlayerName(playerid, 1));
-				ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-				new strl[126];
-				format(strl, 126, "%s Misturou a cocaina. [/misturar cocaina]", PlayerName(playerid, 0));
-				LogCMD_venderdroga(strl);
-			}
-		}
-	}
-	if(strcmp(tmp,"cocainaB",true) == 0)
-	{
-		if(PlayerInfo[playerid][pCortaRem] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem um cortador de remédio.");
-		if(PlayerDroga[playerid][CocaB] < 9) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de pelo menos 10g de cocaina boa.");
-		if(PlayerDroga[playerid][Efedrina] < 9) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 10mg de Efedrina.");
-		if(PlayerDroga[playerid][LDC] < 9) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 10g de Lidocaína.");
-		if(PlayerDroga[playerid][BDS] < 9) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 10g de Bicarbonato de sódio.");
-		if(PlayerInfo[playerid][pFabricouD] > 6) return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você já fabricou droga o bastante neste PayDay, volte após seu payday.");
-		if(PlayerInfo[playerid][pMorto] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
-		if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
-		if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você nãopode utilizar este comando enquanto estiver amarrado.");
-
-		for(new i = 0; i < MAX_LABO; i++)
-		{
-			if(IsPlayerInRangeOfPoint(playerid,10.5,LaboDrug[i][ldposX], LaboDrug[i][ldposY], LaboDrug[i][ldposZ]))
-			{
-
-				SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você começou o processo de mistura de cocaina.");	
-				SetTimerEx("MisturandoCocaR", 10000, false, "d", playerid);
-
-				new stringvendeu[256];
-				format(stringvendeu,sizeof(stringvendeu),"** %s se aproxima da bancada, pega um triturador de comprimidos e coloca a Efedrina no pote. Começa a tritura-la.", PlayerName(playerid, 1));
-				ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-				new strl[126];
-				format(strl, 126, "%s Misturou a cocaina boa com ruim. [/misturar cocaina]", PlayerName(playerid, 0));
-				LogCMD_venderdroga(strl);
-			}
-		}
-	}
-	if(strcmp(tmp,"crackE",true) == 0)
-	{
-		if(PlayerInfo[playerid][pCortaRem] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem um cortador de remédio.");
-		if(PlayerDroga[playerid][CrackE] < 9) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de pelo menos 10g de crack excelente.");
-		if(PlayerDroga[playerid][Efedrina] < 9) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 10g de Efedrina.");
-		if(PlayerDroga[playerid][Acloridrico] < 9) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 10ml de Acído Cloridrico.");
-		if(PlayerDroga[playerid][BDS] < 9) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 10g de Bicarbonato de sódio.");
-		if(PlayerInfo[playerid][pFabricouD] > 6) return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você já fabricou droga o bastante neste PayDay, volte após seu payday.");
-		if(PlayerInfo[playerid][pMorto] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
-		if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
-		if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você nãopode utilizar este comando enquanto estiver amarrado.");
-
-		for(new i = 0; i < MAX_LABO; i++)
-		{
-			if(IsPlayerInRangeOfPoint(playerid,10.5,LaboDrug[i][ldposX], LaboDrug[i][ldposY], LaboDrug[i][ldposZ]))
-			{
-
-				SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você começou o processo de mistura do crack.");	
-				SetTimerEx("MisturandoCrackB", 10000, false, "d", playerid);
-
-				new stringvendeu[256];
-				format(stringvendeu,sizeof(stringvendeu),"** %s se aproxima da bancada, pega um triturador de comprimidos e coloca a Efedrina no pote. Começa a tritura-la.", PlayerName(playerid, 1));
-				ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-				new strl[126];
-				format(strl, 126, "%s Misturou a cocaina bom. [/misturar crack]", PlayerName(playerid, 0));
-				LogCMD_venderdroga(strl);
-			}
-		}
-	}
-	if(strcmp(tmp,"crackB",true) == 0)
-	{
-		if(PlayerInfo[playerid][pCortaRem] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem um cortador de remédio.");
-		if(PlayerDroga[playerid][CrackB] < 9) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de pelo menos 10g de crack bom.");
-		if(PlayerDroga[playerid][Efedrina] < 9) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 10g de Efedrina.");
-		if(PlayerDroga[playerid][Acloridrico] < 9) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 10ml de Acído Cloridrico.");
-		if(PlayerDroga[playerid][BDS] < 9) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 10g de Bicarbonato de sódio.");
-		if(PlayerInfo[playerid][pFabricouD] > 6) return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você já fabricou droga o bastante neste PayDay, volte após seu payday.");
-		if(PlayerInfo[playerid][pMorto] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
-		if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
-		if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você nãopode utilizar este comando enquanto estiver amarrado.");
-
-		for(new i = 0; i < MAX_LABO; i++)
-		{
-			if(IsPlayerInRangeOfPoint(playerid,10.5,LaboDrug[i][ldposX], LaboDrug[i][ldposY], LaboDrug[i][ldposZ]))
-			{
-
-				SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você começou o processo de mistura de crack.");	
-				SetTimerEx("MisturandoCocaR", 10000, false, "d", playerid);
-
-				new stringvendeu[256];
-				format(stringvendeu,sizeof(stringvendeu),"** %s se aproxima da bancada, pega um triturador de comprimidos e coloca a Efedrina no pote. Começa a tritura-la.", PlayerName(playerid, 1));
-				ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-				new strl[126];
-				format(strl, 126, "%s Misturou a cocaina boa com ruim. [/misturar]", PlayerName(playerid, 0));
-				LogCMD_venderdroga(strl);
-			}
-		}
-	}
-	if(strcmp(tmp,"metaE",true) == 0)
-	{
-		if(PlayerInfo[playerid][pCortaRem] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem um cortador de remédio.");
-		if(PlayerDroga[playerid][MetE] < 9) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de pelo menos 10g de metanfetamina excelente.");
-		if(PlayerDroga[playerid][Efedrina] < 9) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 10g de Efedrina.");
-		if(PlayerDroga[playerid][Acloridrico] < 9) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 10ml de Acído Cloridrico.");
-		if(PlayerInfo[playerid][pFabricouD] > 6) return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você já fabricou droga o bastante neste PayDay, volte após seu payday.");
-		if(PlayerInfo[playerid][pMorto] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
-		if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
-		if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você nãopode utilizar este comando enquanto estiver amarrado.");
-
-		for(new i = 0; i < MAX_LABO; i++)
-		{
-			if(IsPlayerInRangeOfPoint(playerid,10.5,LaboDrug[i][ldposX], LaboDrug[i][ldposY], LaboDrug[i][ldposZ]))
-			{
-
-				SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você começou o processo de mistura de Metanfetamina.");	
-				SetTimerEx("MisturandoMetaB", 10000, false, "d", playerid);
-
-				new stringvendeu[256];
-				format(stringvendeu,sizeof(stringvendeu),"** %s se aproxima da bancada, pega um triturador de comprimidos e coloca a Efedrina no pote. Começa a tritura-la.", PlayerName(playerid, 1));
-				ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-				new strl[126];
-				format(strl, 126, "%s Misturou a Metanfetamina excelente. [/misturar]", PlayerName(playerid, 0));
-				LogCMD_venderdroga(strl);
-			}
-		}
-	}
-	if(strcmp(tmp,"metaB",true) == 0)
-	{
-		if(PlayerInfo[playerid][pCortaRem] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem um cortador de remédio.");
-		if(PlayerDroga[playerid][MetB] < 9) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de pelo menos 10g de metanfetamina boa.");
-		if(PlayerDroga[playerid][Efedrina] < 14) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 15g de Efedrina.");
-		if(PlayerDroga[playerid][Acloridrico] < 14) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 15ml de Acído Cloridrico.");
-		if(PlayerInfo[playerid][pFabricouD] > 6) return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você já fabricou droga o bastante neste PayDay, volte após seu payday.");
-		if(PlayerInfo[playerid][pMorto] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
-		if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
-		if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você nãopode utilizar este comando enquanto estiver amarrado.");
-
-		for(new i = 0; i < MAX_LABO; i++)
-		{
-			if(IsPlayerInRangeOfPoint(playerid,10.5,LaboDrug[i][ldposX], LaboDrug[i][ldposY], LaboDrug[i][ldposZ]))
-			{
-
-				SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você começou o processo de mistura de Metanfetamina.");	
-				SetTimerEx("MisturandoMetaR", 10000, false, "d", playerid);
-
-				new stringvendeu[256];
-				format(stringvendeu,sizeof(stringvendeu),"** %s se aproxima da bancada, pega um triturador de comprimidos e coloca a Efedrina no pote. Começa a tritura-la.", PlayerName(playerid, 1));
-				ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-				new strl[126];
-				format(strl, 126, "%s Misturou a metanfetamina ruim excelente. [/misturar]", PlayerName(playerid, 0));
-				LogCMD_venderdroga(strl);
-			}
-		}
-	}
-	return 1;
-}
-forward FazendoCoca(playerid);
-public FazendoCoca(playerid)
-{
-
-	PlayerDroga[playerid][PBC] = PlayerDroga[playerid][PBC]-= 1000;
-	PlayerDroga[playerid][BDS] -= 500;
-	PlayerDroga[playerid][HDZ] -= 200;
-	PlayerDroga[playerid][BZC] -= 100;
-
-	TogglePlayerControllable(playerid, 0);
-	ApplyAnimation(playerid,"POOL","POOL_ChalkCue",4.0, 0, 1, 1, 1, -1, 1);
-
-	SetTimerEx("FinalizandoCoca", 50000, false, "d", playerid);
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"** %s Pega a mistura triturada, mistura os ingredientes no recipiente.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	format(stringvendeu,sizeof(stringvendeu),"** %s mistura todos os ingredientes, passa para a panela.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-
-    return 1;
-}
-forward FinalizandoCoca(playerid);
-public FinalizandoCoca(playerid)
-{
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"** %s deixa a panela alguns segundos no fogo e fica mexendo a mistura. Depois passa tudo para um pano e vai para a prensa, termina de secar a cocaina.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	format(stringvendeu,sizeof(stringvendeu),"** %s prensa o crack com 40kg de força e em seguida, remove-a da prensa.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	TogglePlayerControllable(playerid, 0);
-	SetTimerEx("PegouCoca", 10000, false, "d", playerid);
-
-
-    return 1;
-}
-forward PegouCoca(playerid);
-public PegouCoca(playerid)
-{
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"** %s retira o pano da prensa junto da droga. Começa a esfarelar a droga e embalar em um ziplock grande.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-
-	PlayerDroga[playerid][CocaE]+= 2000;
-	PlayerInfo[playerid][pFabricouD]++;
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu 2kg de cocaína excelente.");
-
-
-    TogglePlayerControllable(playerid, 1);
-    ClearAnimations(playerid, 1);
-    RemovePlayerAttachedObject(playerid, 6);
-
-    return 1;
-}
-forward FazendoCrack(playerid);
-public FazendoCrack(playerid)
-{
-
-	PlayerDroga[playerid][PBC] = PlayerDroga[playerid][PBC]-= 1000;
-	PlayerDroga[playerid][BDS]-= 500;
-
-	TogglePlayerControllable(playerid, 0);
-	ApplyAnimation(playerid,"POOL","POOL_ChalkCue",4.0, 0, 1, 1, 1, -1, 1);
-
-	SetTimerEx("FinalizandoCrack", 50000, false, "d", playerid);
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"** %s Pega a mistura triturada, mistura os ingredientes no recipiente.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	format(stringvendeu,sizeof(stringvendeu),"** %s mistura todos os ingredientes, passa para a panela.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-
-    return 1;
-}
-forward FinalizandoCrack(playerid);
-public FinalizandoCrack(playerid)
-{
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"** %s deixa a panela alguns segundos no fogo e fica mexendo a mistura. Depois passa tudo para um pano e vai para a prensa, termina de secar a cocaina.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	format(stringvendeu,sizeof(stringvendeu),"** %s prensa o crack com 40kg de força e em seguida, remove-a da prensa.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	TogglePlayerControllable(playerid, 0);
-	SetTimerEx("PegouCrack", 10000, false, "d", playerid);
-
-
-    return 1;
-}
-forward PegouCrack(playerid);
-public PegouCrack(playerid)
-{
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"** %s retira o pano da prensa junto da droga. Começa a esfarelar a droga e embalar em um ziplock grande.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-
-	PlayerDroga[playerid][CrackE]+= 1000;
-	PlayerInfo[playerid][pFabricouD]++;
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu 1kg de crack excelente.");
-
-
-    TogglePlayerControllable(playerid, 1);
-    ClearAnimations(playerid, 1);
-    RemovePlayerAttachedObject(playerid, 6);
-
-    return 1;
-}
-forward MisturandoCocaB(playerid);
-public MisturandoCocaB(playerid)
-{
-
-	PlayerDroga[playerid][CocaE] = PlayerDroga[playerid][CocaE]-= 10;
-	PlayerDroga[playerid][Efedrina]-= 10;
-
-	TogglePlayerControllable(playerid, 0);
-	ApplyAnimation(playerid,"POOL","POOL_ChalkCue",4.0, 0, 1, 1, 1, -1, 1);
-
-	SetTimerEx("FinalizandoCocaB", 50000, false, "d", playerid);
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"** %s Pega a Efedrina triturada e a cocaina, mistura os dois no recipiente.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	format(stringvendeu,sizeof(stringvendeu),"** %s mistura todos os ingredientes, passa para a panela.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-
-    return 1;
-}
-forward FinalizandoCocaB(playerid);
-public FinalizandoCocaB(playerid)
-{
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"** %s deixa a panela alguns segundos no fogo e fica mexendo a mistura. Depois passa tudo para um pano e vai para a prensa, termina de secar a cocaina.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	format(stringvendeu,sizeof(stringvendeu),"** %s prensa a cocaina com 25kg de força e em seguida, remove-a da prensa.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	TogglePlayerControllable(playerid, 0);
-	SetTimerEx("PegouCocainaBoa", 10000, false, "d", playerid);
-
-
-    return 1;
-}
-forward PegouCocainaBoa(playerid);
-public PegouCocainaBoa(playerid)
-{
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"** %s retira o pano da prensa junto da droga. Começa a esfarelar a droga e embalar em pinos.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-
-	PlayerDroga[playerid][CocaB]+= 45;
-	PlayerInfo[playerid][pFabricouD]++;
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu 35 gramas de cocaina boa.");
-
-
-    TogglePlayerControllable(playerid, 1);
-    ClearAnimations(playerid, 1);
-    RemovePlayerAttachedObject(playerid, 6);
-
-    return 1;
-}
-forward MisturandoCocaR(playerid);
-public MisturandoCocaR(playerid)
-{
-
-	PlayerDroga[playerid][CocaE] = PlayerDroga[playerid][CocaE]-= 10;
-	PlayerDroga[playerid][Efedrina]-= 10;
-	PlayerDroga[playerid][BDS]-= 10;
-	PlayerDroga[playerid][LDC]-= 10;
-
-	TogglePlayerControllable(playerid, 0);
-	ApplyAnimation(playerid,"POOL","POOL_ChalkCue",4.0, 0, 1, 1, 1, -1, 1);
-
-	SetTimerEx("FinalizandoCocaR", 50000, false, "d", playerid);
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"** %s Pega a Efedrina triturada, cocaina e bicarbonato, mistura os ingredientes no recipiente.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	format(stringvendeu,sizeof(stringvendeu),"** %s mistura todos os ingredientes, passa para a panela.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-
-    return 1;
-}
-forward FinalizandoCocaR(playerid);
-public FinalizandoCocaR(playerid)
-{
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"** %s deixa a panela alguns segundos no fogo e fica mexendo a mistura. Depois passa tudo para um pano e vai para a prensa, termina de secar a cocaina.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	format(stringvendeu,sizeof(stringvendeu),"** %s prensa a cocaina com 25kg de força e em seguida, remove-a da prensa.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	TogglePlayerControllable(playerid, 0);
-	SetTimerEx("PegouCocainaRuim", 10000, false, "d", playerid);
-
-
-    return 1;
-}
-forward PegouCocainaRuim(playerid);
-public PegouCocainaRuim(playerid)
-{
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"** %s retira o pano da prensa junto da droga. Começa a esfarelar a droga e embalar em pinos.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-
-	PlayerDroga[playerid][CocaR]+= 80;
-	PlayerInfo[playerid][pFabricouD]++;
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu 80 gramas de cocaina boa.");
-
-
-    TogglePlayerControllable(playerid, 1);
-    ClearAnimations(playerid, 1);
-    RemovePlayerAttachedObject(playerid, 6);
-
-    return 1;
-}
-forward MisturandoCrackB(playerid);
-public MisturandoCrackB(playerid)
-{
-
-	PlayerDroga[playerid][CrackE] = PlayerDroga[playerid][CrackE]-= 10;
-	PlayerDroga[playerid][Efedrina]-= 10;
-	PlayerDroga[playerid][Acloridrico]-= 10;
-	PlayerDroga[playerid][BDS]-= 10;
-
-	TogglePlayerControllable(playerid, 0);
-	ApplyAnimation(playerid,"POOL","POOL_ChalkCue",4.0, 0, 1, 1, 1, -1, 1);
-
-	SetTimerEx("FinalizandoCrackB", 50000, false, "d", playerid);
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"** %s Pega a Efedrina triturada, crack, bicarbonato e acido, mistura os ingredientes no recipiente.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	format(stringvendeu,sizeof(stringvendeu),"** %s mistura todos os ingredientes, passa para a panela.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-
-    return 1;
-}
-forward FinalizandoCrackB(playerid);
-public FinalizandoCrackB(playerid)
-{
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"** %s deixa a panela alguns segundos no fogo e fica mexendo a mistura. Depois passa tudo para um pano e vai para a prensa, termina de secar a cocaina.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	format(stringvendeu,sizeof(stringvendeu),"** %s prensa o crack com 25kg de força e em seguida, remove-a da prensa.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	TogglePlayerControllable(playerid, 0);
-	SetTimerEx("PegouCrackB", 10000, false, "d", playerid);
-
-
-    return 1;
-}
-forward PegouCrackB(playerid);
-public PegouCrackB(playerid)
-{
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"** %s retira o pano da prensa junto da droga. Começa a esfarelar a droga e embalar em ziplock.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-
-	PlayerDroga[playerid][CrackB]+= 70;
-	PlayerInfo[playerid][pFabricouD]++;
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu 70 gramas de crack bom.");
-
-
-    TogglePlayerControllable(playerid, 1);
-    ClearAnimations(playerid, 1);
-    RemovePlayerAttachedObject(playerid, 6);
-
-    return 1;
-}
-forward MisturandoCrackR(playerid);
-public MisturandoCrackR(playerid)
-{
-
-	PlayerDroga[playerid][CrackE] = PlayerDroga[playerid][CrackE]-= 10;
-	PlayerDroga[playerid][Efedrina]-= 10;
-	PlayerDroga[playerid][Acloridrico]-= 10;
-	PlayerDroga[playerid][BDS]-= 10;
-
-	TogglePlayerControllable(playerid, 0);
-	ApplyAnimation(playerid,"POOL","POOL_ChalkCue",4.0, 0, 1, 1, 1, -1, 1);
-
-	SetTimerEx("FinalizandoCrackR", 50000, false, "d", playerid);
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"** %s Pega a Efedrina triturada, crack, bicarbonato e acido, mistura os ingredientes no recipiente.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	format(stringvendeu,sizeof(stringvendeu),"** %s mistura todos os ingredientes, passa para a panela.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-
-    return 1;
-}
-forward FinalizandoCrackR(playerid);
-public FinalizandoCrackR(playerid)
-{
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"** %s deixa a panela alguns segundos no fogo e fica mexendo a mistura. Depois passa tudo para um pano e vai para a prensa, termina de secar a cocaina.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	format(stringvendeu,sizeof(stringvendeu),"** %s prensa o crack com 25kg de força e em seguida, remove-a da prensa.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	TogglePlayerControllable(playerid, 0);
-	SetTimerEx("PegouCrackR", 10000, false, "d", playerid);
-
-
-    return 1;
-}
-forward PegouCrackR(playerid);
-public PegouCrackR(playerid)
-{
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"** %s retira o pano da prensa junto da droga. Começa a esfarelar a droga e embalar em ziplock.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-
-	PlayerDroga[playerid][CrackB]+= 140;
-	PlayerInfo[playerid][pFabricouD]++;
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu 140 gramas de crack ruim.");
-
-
-    TogglePlayerControllable(playerid, 1);
-    ClearAnimations(playerid, 1);
-    RemovePlayerAttachedObject(playerid, 6);
-
-    return 1;
-}
-forward MisturandoMetaB(playerid);
-public MisturandoMetaB(playerid)
-{
-
-	PlayerDroga[playerid][MetE] = PlayerDroga[playerid][MetE]-= 10;
-	PlayerDroga[playerid][Efedrina]-= 10;
-	PlayerDroga[playerid][Acloridrico]-= 10;
-
-	TogglePlayerControllable(playerid, 0);
-	ApplyAnimation(playerid,"POOL","POOL_ChalkCue",4.0, 0, 1, 1, 1, -1, 1);
-
-	SetTimerEx("FinalizoMetaB", 50000, false, "d", playerid);
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"** %s Pega a Efedrina triturada, acído e a metanfetamina, mistura os ingredientes no recipiente.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	format(stringvendeu,sizeof(stringvendeu),"** %s mistura todos os ingredientes, passa para a panela.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-
-    return 1;
-}
-forward FinalizoMetaB(playerid);
-public FinalizoMetaB(playerid)
-{
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"** %s deixa a panela alguns segundos no fogo e fica mexendo a mistura. Depois passa tudo para um pano e vai para a prensa, termina de secar a cocaina.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	format(stringvendeu,sizeof(stringvendeu),"** %s prensa a metanfetamina com 25kg de força e em seguida, remove-a da prensa.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	TogglePlayerControllable(playerid, 0);
-	SetTimerEx("PegouMetaB", 10000, false, "d", playerid);
-
-
-    return 1;
-}
-forward PegouMetaB(playerid);
-public PegouMetaB(playerid)
-{
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"** %s retira o pano da prensa junto da droga. Começa a esfarelar a droga e embalar em ziplocks.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	PlayerDroga[playerid][MetB]+= 45;
-	PlayerInfo[playerid][pFabricouD]++;
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu 45 gramas de metanfetamina boa.");
-
-    TogglePlayerControllable(playerid, 1);
-    ClearAnimations(playerid, 1);
-    RemovePlayerAttachedObject(playerid, 6);
-
-    return 1;
-}
-forward MisturandoMetaR(playerid);
-public MisturandoMetaR(playerid)
-{
-
-	PlayerDroga[playerid][MetB] = PlayerDroga[playerid][MetB]-= 10;
-	PlayerDroga[playerid][Efedrina]-= 15;
-	PlayerDroga[playerid][Acloridrico]-= 15;
-
-	TogglePlayerControllable(playerid, 0);
-	ApplyAnimation(playerid,"POOL","POOL_ChalkCue",4.0, 0, 1, 1, 1, -1, 1);
-
-	SetTimerEx("FinalizoMetaR", 50000, false, "d", playerid);
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"** %s Pega a Efedrina triturada, acído e a metanfetamina, mistura os ingredientes no recipiente.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	format(stringvendeu,sizeof(stringvendeu),"** %s mistura todos os ingredientes, passa para a panela.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-
-    return 1;
-}
-forward FinalizoMetaR(playerid);
-public FinalizoMetaR(playerid)
-{
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"** %s deixa a panela alguns segundos no fogo e fica mexendo a mistura. Depois passa tudo para um pano e vai para a prensa, termina de secar a cocaina.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	format(stringvendeu,sizeof(stringvendeu),"** %s prensa a metanfetamina com 25kg de força e em seguida, remove-a da prensa.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	TogglePlayerControllable(playerid, 0);
-	SetTimerEx("PegouMetaR", 10000, false, "d", playerid);
-
-
-    return 1;
-}
-forward PegouMetaR(playerid);
-public PegouMetaR(playerid)
-{
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"** %s retira o pano da prensa junto da droga. Começa a esfarelar a droga e embalar em ziplocks.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-
-	PlayerDroga[playerid][MetR]+= 90;
-	PlayerInfo[playerid][pFabricouD]++;
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu 90 gramas de metanfetamina ruim.");
-
-
-    TogglePlayerControllable(playerid, 1);
-    ClearAnimations(playerid, 1);
-    RemovePlayerAttachedObject(playerid, 6);
-
-    return 1;
-}
 
 //Sistema de armadilha e explosivo
 COMMAND:explosivo(playerid, params[])
@@ -28457,1140 +27423,6 @@ COMMAND:explosivo(playerid, params[])
 		}
 	}
 	return 1;
-}
-//Sistema de vender drogas npc - Yur$
-COMMAND:trafica312r(playerid,params[])
-{
-    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-	new idx = 0;
-	new tmp[256];
-	tmp = strtok(params,idx);
-	if(!strlen(tmp))
-	{
-        SendClientMessage(playerid, COLOR_VEICULO,"____________________________________________________");
-		SendClientMessage(playerid, COLOR_VEICULO,"USE: /traficar [ação]");
-		SendClientMessage(playerid, COLOR_VEICULO,"USE: cocainaE - Para vender cocaína excelente para o actor.");
-		SendClientMessage(playerid, COLOR_VEICULO,"USE: cocainaB - Para vender cocaína boa para o actor.");
-		SendClientMessage(playerid, COLOR_VEICULO,"USE: maconhaE - Para vender maconha excelente para o actor.");
-		SendClientMessage(playerid, COLOR_VEICULO,"____________________________________________________");
-		return 1;
-	}
-
-	if(strcmp(tmp,"cocainaE",true) == 0)
-	{
-		if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa estar logado.");
-		if(PlayerInfo[playerid][pLevel] < 2) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de TC 2 ou mais para vender drogas.");
-		if(PlayerDroga[playerid][CocaE] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de pelo menos 1g de cocaina excelente.");
-		if(PlayerInfo[playerid][pTrafico] > 6) return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você já traficou bastante neste PayDay, volte após seu payday.");
-		if(PlayerInfo[playerid][pMorto] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
-		if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
-		if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você nãopode utilizar este comando enquanto estiver amarrado.");
-
-		if(IsPlayerInRangeOfPoint(playerid,10.0,2573.5181,-1124.5466,65.3464) || IsPlayerInRangeOfPoint(playerid,10.0,2577.3850,-1130.1652,65.1935) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,2595.5320,-1111.5963,67.4365) || IsPlayerInRangeOfPoint(playerid,10.0,2589.0232,-1112.6173,66.9152) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,2595.9336,-962.2279,81.1852) || IsPlayerInRangeOfPoint(playerid,10.0,2585.7937,-955.1824,81.3715) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,2557.9902,-956.3238,82.7591) || IsPlayerInRangeOfPoint(playerid,10.0,1850.6703,-2000.5491,14.1094) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,1846.1360,-2004.2552,13.5469) || IsPlayerInRangeOfPoint(playerid,10.0,1841.3813,-2008.3091,13.5469) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,1731.6779,-2123.5327,12.7954) || IsPlayerInRangeOfPoint(playerid,10.0,1727.1029,-2127.2014,12.7933) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,1726.0736,-2122.7458,12.7933) || IsPlayerInRangeOfPoint(playerid,10.0,2226.6240,-1458.6040,24.0754) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,2222.3228,-1457.7727,24.0000) || IsPlayerInRangeOfPoint(playerid,10.0,2669.5825,-1460.8533,30.5523) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,2671.0518,-1468.1061,30.5604) || IsPlayerInRangeOfPoint(playerid,10.0,2683.7068,-1471.5103,30.5612) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,2687.3025,-1459.4653,30.6193) || IsPlayerInRangeOfPoint(playerid,10.0,2709.9211,-1447.3977,30.6297) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,2056.5154,-1821.0952,13.5469) || IsPlayerInRangeOfPoint(playerid,10.0,1891.0433,-1785.9810,13.5544))
-		{
-			SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você está vendendo 2g de cocaina excelente para o noiado.");	
-			SetTimerEx("VendendoCocainaE", 5000, false, "d", playerid);
-
-			new stringvendeu[256];
-			format(stringvendeu,sizeof(stringvendeu),"** %s se aproxima do Noiado e pronuncia algumas palavras.", PlayerName(playerid, 1));
-			ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-			format(stringvendeu,sizeof(stringvendeu),"%s diz: Da o papo, tu quer o que hoje?", PlayerName(playerid, 1));
-			ProxDetector(20.0, playerid, stringvendeu,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE);
-
-			format(stringvendeu,sizeof(stringvendeu),"Noiado diz: Quero aquela que matou o chorão para cheirar.");
-			ProxDetector(20.0, playerid, stringvendeu,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE);
-
-			new location[MAX_ZONE_NAME];
-			GetPlayer2DZone(playerid, location, MAX_ZONE_NAME);
-			new str[126];
-			SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCY NOTIFICATION__________|");
-			SendFacMessage(COLOR_LIGHTBLUE, 1, "Relator: Anonimo, Contato: Orelhão");
-			SendFacMessage(COLOR_LIGHTBLUE, 1, "Situação: Tem uma pessoa vendendo cocaína, possivelmente armada e drogada.");
-			format(str, sizeof(str), "Local: %s",location);
-			SendFacMessage(COLOR_LIGHTBLUE, 1, str);
-		
-			new strl[126];
-			format(strl, 126, "%s vendeu droga pro Actor. [/traficar cocainaE]", PlayerName(playerid, 0));
-			LogCMD_venderdroga(strl);
-		}
-	}
-	if(strcmp(tmp,"cocainaB",true) == 0)
-	{
-		if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa estar logado.");
-		if(PlayerInfo[playerid][pLevel] < 2) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de TC 2 ou mais para vender drogas.");
-		if(PlayerDroga[playerid][CocaB] < 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de pelo menos 1g de cocaina boa.");
-		if(PlayerInfo[playerid][pTrafico] > 6) return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você já traficou bastante neste PayDay, volte após seu payday.");
-		if(PlayerInfo[playerid][pMorto] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
-		if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
-		if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você nãopode utilizar este comando enquanto estiver amarrado.");
-
-		if(IsPlayerInRangeOfPoint(playerid,10.0,2573.5181,-1124.5466,65.3464) || IsPlayerInRangeOfPoint(playerid,10.0,2577.3850,-1130.1652,65.1935) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,2595.5320,-1111.5963,67.4365) || IsPlayerInRangeOfPoint(playerid,10.0,2589.0232,-1112.6173,66.9152) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,2595.9336,-962.2279,81.1852) || IsPlayerInRangeOfPoint(playerid,10.0,2585.7937,-955.1824,81.3715) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,2557.9902,-956.3238,82.7591) || IsPlayerInRangeOfPoint(playerid,10.0,1850.6703,-2000.5491,14.1094) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,1846.1360,-2004.2552,13.5469) || IsPlayerInRangeOfPoint(playerid,10.0,1841.3813,-2008.3091,13.5469) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,1731.6779,-2123.5327,12.7954) || IsPlayerInRangeOfPoint(playerid,10.0,1727.1029,-2127.2014,12.7933) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,1726.0736,-2122.7458,12.7933) || IsPlayerInRangeOfPoint(playerid,10.0,2226.6240,-1458.6040,24.0754) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,2222.3228,-1457.7727,24.0000) || IsPlayerInRangeOfPoint(playerid,10.0,2669.5825,-1460.8533,30.5523) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,2671.0518,-1468.1061,30.5604) || IsPlayerInRangeOfPoint(playerid,10.0,2683.7068,-1471.5103,30.5612) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,2687.3025,-1459.4653,30.6193) || IsPlayerInRangeOfPoint(playerid,10.0,2709.9211,-1447.3977,30.6297) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,2056.5154,-1821.0952,13.5469) || IsPlayerInRangeOfPoint(playerid,10.0,1891.0433,-1785.9810,13.5544))
-		{
-			SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você está vendendo 1g de cocaina boa para o noiado.");	
-			SetTimerEx("VendendoCocainaB", 5000, false, "d", playerid);
-
-			new stringvendeu[256];
-			format(stringvendeu,sizeof(stringvendeu),"** %s se aproxima do Noiado e pronuncia algumas palavras.", PlayerName(playerid, 1));
-			ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-			format(stringvendeu,sizeof(stringvendeu),"%s diz: Da o papo, tu quer o que hoje?", PlayerName(playerid, 1));
-			ProxDetector(20.0, playerid, stringvendeu,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE);
-
-			format(stringvendeu,sizeof(stringvendeu),"Noiado diz: Quero um pino para cheirar.");
-			ProxDetector(20.0, playerid, stringvendeu,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE);
-
-			new location[MAX_ZONE_NAME];
-			GetPlayer2DZone(playerid, location, MAX_ZONE_NAME);
-			new str[126];
-			SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCY NOTIFICATION__________|");
-			SendFacMessage(COLOR_LIGHTBLUE, 1, "Relator: Anonimo, Contato: Orelhão");
-			SendFacMessage(COLOR_LIGHTBLUE, 1, "Situação: Tem uma pessoa vendendo cocaína, possivelmente armada e drogada.");
-			format(str, sizeof(str), "Local: %s",location);
-			SendFacMessage(COLOR_LIGHTBLUE, 1, str);
-		
-			new strl[126];
-			format(strl, 126, "%s vendeu droga pro Actor. [/traficar cocaina]", PlayerName(playerid, 0));
-			LogCMD_venderdroga(strl);
-		}
-	}
-	if(strcmp(tmp,"MaconhaE",true) == 0)
-	{
-		if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa estar logado.");
-		if(PlayerInfo[playerid][pLevel] < 2) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de TC 2 ou mais para vender drogas.");
-		if(PlayerDroga[playerid][MaconhaE] < 24) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de pelo menos 25g de maconha excelente.");
-		if(PlayerInfo[playerid][pTrafico] > 6) return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você já traficou bastante neste PayDay, volte após seu payday.");
-		if(PlayerInfo[playerid][pMorto] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
-		if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
-		if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você nãopode utilizar este comando enquanto estiver amarrado.");
-
-		if(IsPlayerInRangeOfPoint(playerid,10.0,2573.5181,-1124.5466,65.3464) || IsPlayerInRangeOfPoint(playerid,10.0,2577.3850,-1130.1652,65.1935) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,2595.5320,-1111.5963,67.4365) || IsPlayerInRangeOfPoint(playerid,10.0,2589.0232,-1112.6173,66.9152) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,2595.9336,-962.2279,81.1852) || IsPlayerInRangeOfPoint(playerid,10.0,2585.7937,-955.1824,81.3715) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,2557.9902,-956.3238,82.7591) || IsPlayerInRangeOfPoint(playerid,10.0,1850.6703,-2000.5491,14.1094) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,1846.1360,-2004.2552,13.5469) || IsPlayerInRangeOfPoint(playerid,10.0,1841.3813,-2008.3091,13.5469) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,1731.6779,-2123.5327,12.7954) || IsPlayerInRangeOfPoint(playerid,10.0,1727.1029,-2127.2014,12.7933) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,1726.0736,-2122.7458,12.7933) || IsPlayerInRangeOfPoint(playerid,10.0,2226.6240,-1458.6040,24.0754) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,2222.3228,-1457.7727,24.0000) || IsPlayerInRangeOfPoint(playerid,10.0,2669.5825,-1460.8533,30.5523) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,2671.0518,-1468.1061,30.5604) || IsPlayerInRangeOfPoint(playerid,10.0,2683.7068,-1471.5103,30.5612) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,2687.3025,-1459.4653,30.6193) || IsPlayerInRangeOfPoint(playerid,10.0,2709.9211,-1447.3977,30.6297) || 
-		IsPlayerInRangeOfPoint(playerid,10.0,2056.5154,-1821.0952,13.5469) || IsPlayerInRangeOfPoint(playerid,10.0,1891.0433,-1785.9810,13.5544))
-		{
-			SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você está vendendo 25g de maconha excelente para o noiado.");	
-			SetTimerEx("VendendoMaconhaE", 5000, false, "d", playerid);
-
-			new stringvendeu[256];
-			format(stringvendeu,sizeof(stringvendeu),"** %s se aproxima do Noiado e pronuncia algumas palavras.", PlayerName(playerid, 1));
-			ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-			format(stringvendeu,sizeof(stringvendeu),"%s diz: Da o papo, tu quer o que hoje?", PlayerName(playerid, 1));
-			ProxDetector(20.0, playerid, stringvendeu,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE);
-
-			format(stringvendeu,sizeof(stringvendeu),"Noiado diz: Quero o boldin do bom.");
-			ProxDetector(20.0, playerid, stringvendeu,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE);
-
-			new location[MAX_ZONE_NAME];
-			GetPlayer2DZone(playerid, location, MAX_ZONE_NAME);
-			new str[126];
-			SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCY NOTIFICATION__________|");
-			SendFacMessage(COLOR_LIGHTBLUE, 1, "Relator: Anonimo, Contato: Orelhão");
-			SendFacMessage(COLOR_LIGHTBLUE, 1, "Situação: Tem uma pessoa vendendo maconha, possivelmente armada e drogada.");
-			format(str, sizeof(str), "Local: %s",location);
-			SendFacMessage(COLOR_LIGHTBLUE, 1, str);
-		
-			new strl[126];
-			format(strl, 126, "%s vendeu droga pro Actor. [/traficar MaconhaE]", PlayerName(playerid, 0));
-			LogCMD_venderdroga(strl);
-		}
-	}
-	return 1;
-}
-
-forward VendendoCocainaE(playerid);
-public VendendoCocainaE(playerid)
-{
-			
-	PlayerDroga[playerid][CocaE]--;
-
-	TogglePlayerControllable(playerid, 0);
-	ApplyAnimation(playerid,"POOL","POOL_ChalkCue",4.0, 0, 1, 1, 1, -1, 1);
-
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você receberá o dinheiro em alguns segundos.");
-
-	SetTimerEx("PegandoGranaCocaETrf", 10000, false, "d", playerid);
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"> %s retira um pino de cocaina da bag e entrega ao usuário.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-	format(stringvendeu, sizeof(stringvendeu), "* %s retira um pino de cocaina da bag e entrega ao usuário.", PlayerName(playerid, 1));
-    SetPlayerChatBubble(playerid, stringvendeu, COLOR_PURPLE, 20.0, 10000);
-
-	format(stringvendeu,sizeof(stringvendeu),"Noiado diz: Esse tá bem servido, hein? Gostei.");
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE);
-	format(stringvendeu,sizeof(stringvendeu),"** O Noiado sorri ao ver o pino de cocaína cheio.");
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-    return 1;
-}
-
-forward PegandoGranaCocaETrf(playerid);
-public PegandoGranaCocaETrf(playerid)
-{
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"* O Noiado retira algumas notas e oferta a %s.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-	
-	format(stringvendeu,sizeof(stringvendeu),"Noiado diz: Amanhã eu volto pra entupir meu nariz mais uma vez.");
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE);
-
-	TogglePlayerControllable(playerid, 0);
-	SetTimerEx("PegouGranaCocaETrf", 3000, false, "d", playerid);
-
-
-    return 1;
-}
-
-forward PegouGranaCocaETrf(playerid);
-public PegouGranaCocaETrf(playerid)
-{
-
-	PlayerInfo[playerid][pGrana] += 900;
-	//PlayerInfo[playerid][pTrafico]++;
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu 900 doláres pela cocaina excelente.");
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"%s diz: Fé. Tamo junto!", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE);
-
-    TogglePlayerControllable(playerid, 1);
-    ClearAnimations(playerid, 1);
-    RemovePlayerAttachedObject(playerid, 6);
-
-    return 1;
-}
-
-forward VendendoCocainaB(playerid);
-public VendendoCocainaB(playerid)
-{
-			
-	PlayerDroga[playerid][CocaB]-= 2;
-
-	TogglePlayerControllable(playerid, 0);
-	ApplyAnimation(playerid,"POOL","POOL_ChalkCue",4.0, 0, 1, 1, 1, -1, 1);
-
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você receberá o dinheiro em alguns segundos.");
-
-	SetTimerEx("PegandoGranaCocaBTrf", 10000, false, "d", playerid);
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"> %s retira um pino de cocaina da bag e entrega ao usuário.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-	format(stringvendeu, sizeof(stringvendeu), "* %s retira um pino de cocaina da bag e entrega ao usuário.", PlayerName(playerid, 1));
-    SetPlayerChatBubble(playerid, stringvendeu, COLOR_PURPLE, 20.0, 10000);
-
-	format(stringvendeu,sizeof(stringvendeu),"Noiado diz: Esse tá bem servido, hein? Gostei.");
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE);
-	format(stringvendeu,sizeof(stringvendeu),"** O Noiado sorri ao ver o pino de cocaína cheio.");
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-    return 1;
-}
-
-forward PegandoGranaCocaBTrf(playerid);
-public PegandoGranaCocaBTrf(playerid)
-{
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"* O Noiado retira algumas notas e oferta a %s.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-	
-	format(stringvendeu,sizeof(stringvendeu),"Noiado diz: Amanhã eu volto pra entupir meu nariz mais uma vez.");
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE);
-
-	TogglePlayerControllable(playerid, 0);
-	SetTimerEx("PegouGranaCocaBTrf", 3000, false, "d", playerid);
-
-
-    return 1;
-}
-
-forward PegouGranaCocaBTrf(playerid);
-public PegouGranaCocaBTrf(playerid)
-{
-
-	PlayerInfo[playerid][pGrana] += 300;
-	//PlayerInfo[playerid][pTrafico]++;
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu 300 doláres pela cocaina.");
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"%s diz: Fé. Tamo junto!", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE);
-
-    TogglePlayerControllable(playerid, 1);
-    ClearAnimations(playerid, 1);
-    RemovePlayerAttachedObject(playerid, 6);
-
-    return 1;
-}
-
-forward VendendoMaconhaE(playerid);
-public VendendoMaconhaE(playerid)
-{
-			
-	PlayerDroga[playerid][MaconhaE]-= 25;
-
-	TogglePlayerControllable(playerid, 0);
-	ApplyAnimation(playerid,"POOL","POOL_ChalkCue",4.0, 0, 1, 1, 1, -1, 1);
-
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você receberá o dinheiro em alguns segundos.");
-
-	SetTimerEx("PegandoGranaErvaETrf", 10000, false, "d", playerid);
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"> %s retira um ziplock de maconha excelente e entrega ao usuário.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-	format(stringvendeu, sizeof(stringvendeu), "* %s retira um ziplock de maconha excelente e entrega ao usuário.", PlayerName(playerid, 1));
-    SetPlayerChatBubble(playerid, stringvendeu, COLOR_PURPLE, 20.0, 10000);
-
-	format(stringvendeu,sizeof(stringvendeu),"Noiado diz: Esse tá bem servido, hein? Gostei.");
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE);
-	format(stringvendeu,sizeof(stringvendeu),"** O Noiado sorri ao ver o ziplock de 25g de maconha.");
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-    return 1;
-}
-
-forward PegandoGranaErvaETrf(playerid);
-public PegandoGranaErvaETrf(playerid)
-{
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"* O Noiado retira algumas notas e oferta a %s.", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-	
-	format(stringvendeu,sizeof(stringvendeu),"Noiado diz: Amanhã eu volto para pegar mais.");
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE);
-
-	TogglePlayerControllable(playerid, 0);
-	SetTimerEx("PegouGranaErvaETrf", 3000, false, "d", playerid);
-
-
-    return 1;
-}
-
-forward PegouGranaErvaETrf(playerid);
-public PegouGranaErvaETrf(playerid)
-{
-
-	PlayerInfo[playerid][pGrana] += 900;
-	//PlayerInfo[playerid][pTrafico]++;
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu 900 doláres pela cocaina excelente.");
-
-	new stringvendeu[256];
-	format(stringvendeu,sizeof(stringvendeu),"%s diz: Fé. Tamo junto!", PlayerName(playerid, 1));
-	ProxDetector(20.0, playerid, stringvendeu,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE);
-
-    TogglePlayerControllable(playerid, 1);
-    ClearAnimations(playerid, 1);
-    RemovePlayerAttachedObject(playerid, 6);
-
-    return 1;
-}
-//==========[SISTEMA DE LAVAGEM DE DINHEIRO]========================
-COMMAND:lavar(playerid,params[])
-{
-    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-	new idx = 0;
-	new tmp[256];
-	tmp = strtok(params,idx);
-	if(!strlen(tmp))
-	{
-        SendClientMessage(playerid, COLOR_VEICULO,"____________________________________________________");
-		SendClientMessage(playerid, COLOR_VEICULO,"USE: /lavar [ação]");
-		SendClientMessage(playerid, COLOR_VEICULO,"USE: dinheiro - Utilize o comando para lavar o dinheiro sujo.");
-		SendClientMessage(playerid, COLOR_VEICULO,"____________________________________________________");
-		return 1;
-	}
-
-	if(!IsPlayerInRangeOfPoint(playerid,OutrasInfos[playerid][oLavagemR], OutrasInfos[playerid][oLavagemX], OutrasInfos[playerid][oLavagemY], OutrasInfos[playerid][oLavagemZ]))
-		return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está no seu ponto de lavagem.");
-	{
-		if(strcmp(tmp,"dinheiro",true) == 0)
-		{
-			if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você precisa estar logado.");
-			if(PlayerInfo[playerid][pLevel] < 15) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de TC 15 ou mais para lavar o dinheiro..");
-			if(PlayerInfo[playerid][pJob] != JOB_LAVAGEM) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem o emprego de lavar dinheiro");
-			if(PlayerInfo[playerid][pGranaSuja] < 20000) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de pelo menos 20,000 sujo para limpar.");
-			if(PlayerInfo[playerid][pMorto] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
-			if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
-			if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
-
-
-			PlayerInfo[playerid][pGranaSuja] = PlayerInfo[playerid][pGranaSuja] -= 20000;
-			SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você está limpando 20 mil doláres sujo, ganhará 15 mil doláres limpo.");
-
-
-			SetTimerEx("InicioLavagem", 120000, false, "d", playerid);
-		}
-	}
-	return 1;
-}
-
-forward InicioLavagem(playerid);
-public InicioLavagem(playerid)
-{
-	TogglePlayerControllable(playerid, 0);
-	ApplyAnimation(playerid,"POOL","POOL_ChalkCue",4.0, 0, 1, 1, 1, -1, 1);
-
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você receberá o dinheiro em alguns minutos.");
-	SetTimerEx("PegandoGranaSuja", 10000, false, "d", playerid);
-
-    return 1;
-}
-
-forward PegandoGranaSuja(playerid);
-public PegandoGranaSuja(playerid)
-{
-	PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana] += 15000;
-
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Só mais alguns segundos.");
-
-	TogglePlayerControllable(playerid, 0);
-	SetTimerEx("PegouGranaSuja", 3000, false, "d", playerid);
-
-    return 1;
-}
-
-forward PegouGranaSuja(playerid);
-public PegouGranaSuja(playerid)
-{
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você recebeu os 80 mil doláres limpos.");
-
-    TogglePlayerControllable(playerid, 1);
-    ClearAnimations(playerid, 1);
-    RemovePlayerAttachedObject(playerid, 6);
-
-    return 1;
-}
-
-//==========[SISTEMA DE ROUBO]========================
-COMMAND:explodir432423(playerid,params[])
-{
-    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-	new idx = 0;
-	new tmp[256];
-	tmp = strtok(params,idx);
-	if(!strlen(tmp))
-	{
-        SendClientMessage(playerid, COLOR_VEICULO,"____________________________________________________");
-		SendClientMessage(playerid, COLOR_VEICULO,"USE: /explodir [ação]");
-		SendClientMessage(playerid, COLOR_VEICULO,"USE: banco - Para explodir o banco.");
-		SendClientMessage(playerid, COLOR_VEICULO,"USE: loja - Para explodir a loja.");
-		SendClientMessage(playerid, COLOR_VEICULO,"USE: caixa - Para explodir o caixa eletronico.");
-		SendClientMessage(playerid, COLOR_VEICULO,"USE: joalheria - Para explodir a joalheria.");
-		SendClientMessage(playerid, COLOR_VEICULO,"____________________________________________________");
-		return 1;
-	}
-
-	if(strcmp(tmp,"joalheria",true) == 0)
-	{
-		if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você  precisa estar logado.");
-		if(PlayerInfo[playerid][pLevel] < 5) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de TC 5 ou mais para explodir o caixa.");
-		if(PlayerInfo[playerid][pBomba] < 1) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 1 dinamite para explodir o caixa.");
-		if(PlayerInfo[playerid][pMorto] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
-		if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
-		if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
-		if(PlayerInfo[playerid][pArrombarDNV_C] != 0)
-		{
-			new stringcofreroubo[128];
-			format(stringcofreroubo, sizeof(stringcofreroubo),"Aguarde %d segundos antes de explodir um banco novamente.", PlayerInfo[playerid][pArrombarDNV_C]);
-			SendClientMessage(playerid,COLOR_LIGHTRED, stringcofreroubo);
-			return 1;
-		}
-		for(new i = 0; i < MAX_JOIA; i++)
-		{
-			if(IsPlayerInRangeOfPoint(playerid,1.5,joalheria[i][jlposX], joalheria[i][jlposY], joalheria[i][jlposZ])) 
-			{
-
-				new PolicesOnline = 0;
-				for(new cops = 0; cops < MAX_PLAYERS; cops++)
-				{
-					if(IsPlayerConnected(cops))
-					{
-						if(PlayerInfo[cops][pLogado])
-						{
-							if(FacInfo[GetFactionBySqlId(PlayerInfo[cops][pFac])][fTipo] == FAC_TIPO_PMERJ)
-							{
-								if(PlayerInfo[cops][pEmServico] == 1)
-								{
-									PolicesOnline++;
-								}
-							}
-						}
-					}
-					if(PolicesOnline < 6) return 
-					SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} é preciso ter pelo menos 8 policiais em serviço para executar essa ação.");
-					new location[MAX_ZONE_NAME];
-					Get2DZone(location, TOTAL_ZONE_NAME, ATMs[i][aposX], ATMs[i][aposY], ATMs[i][aposZ]);
-
-					TaNoJOALHERIA[playerid] = i;
-					SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você armou uma dinamite.");
-						
-					TogglePlayerControllable(playerid, 0);
-					ApplyAnimation(playerid, "PLAYIDLES", "shldr", 4.0,1,1,1,1,0,1);
-					SetTimerEx("ExplodindoCaixa", 15000, false, "d", playerid);
-
-					new stringCaixaF[256];
-					format(stringCaixaF,sizeof(stringCaixaF),"** %s está armando uma dinamite no caixa eletronico.", PlayerName(playerid, 1));
-					ProxDetector(20.0, playerid, stringCaixaF,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-
-					format(stringCaixaF, sizeof(stringCaixaF), "* Barulho de explosão são escutados nas proximidades *");
-					ProxDetector(500.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-					new str[126];
-					SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCY NOTIFICATION__________|");
-					SendFacMessage(COLOR_LIGHTBLUE, 1, "Relator: Anonimo, Contato: Orelhão");
-					SendFacMessage(COLOR_LIGHTBLUE, 1, "Situação: Socorro, estão roubando a joalheria, venham rápido.");
-					format(str, sizeof(str), "Local: %s",location);
-					SendFacMessage(COLOR_LIGHTBLUE, 1, str);
-					new Float:x, Float:y, Float:z, Float:Distance = 25.0;
-    				GetPlayerPos(playerid, x, y, z);
- 					PlayAudioStreamForPlayer(playerid, "https://progressive-roleplay.com/midia/alarme_casa.mp3", x, y, z, Distance, 1);
-					SendAdminAlert(COLOR_LIGHTRED, "AdmCmd:{FFFFFF} %s acaba de utilizar o comando /explodir banco.", PlayerName(playerid, 0));
-						
-					new strl[126];
-					format(strl, 126, "%s explodiu um caixa eletronico. [/explodir banco]", PlayerName(playerid, 0));
-					LogCMD_explodircaixa(strl);
-				}
-			}
-		}
-	}
-	if(strcmp(tmp,"banco",true) == 0)
-	{
-		if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você  precisa estar logado.");
-		if(PlayerInfo[playerid][pLevel] < 5) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de TC 5 ou mais para explodir o caixa.");
-		if(PlayerInfo[playerid][pBomba] < 1) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 1 dinamite para explodir o caixa.");
-		if(PlayerInfo[playerid][pMorto] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
-		if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
-		if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
-		if(PlayerInfo[playerid][pArrombarDNV_C] != 0)
-		{
-			new stringcofreroubo[128];
-			format(stringcofreroubo, sizeof(stringcofreroubo),"Aguarde %d segundos antes de explodir um banco novamente.", PlayerInfo[playerid][pArrombarDNV_C]);
-			SendClientMessage(playerid,COLOR_LIGHTRED, stringcofreroubo);
-			return 1;
-		}
-
-		for(new i = 0; i < MAX_COFREB; i++)
-		{
-			if(IsPlayerInRangeOfPoint(playerid,1.5,cbanco[i][cbposX], cbanco[i][cbposY], cbanco[i][cbposZ])) 
-			{
-
-				new PolicesOnline = 0;
-				for(new cops = 0; cops < MAX_PLAYERS; cops++)
-				{
-					if(IsPlayerConnected(cops))
-					{
-						if(PlayerInfo[cops][pLogado])
-						{
-							if(FacInfo[GetFactionBySqlId(PlayerInfo[cops][pFac])][fTipo] == FAC_TIPO_PMERJ)
-							{
-								if(PlayerInfo[cops][pEmServico] == 1)
-								{
-									PolicesOnline++;
-								}
-							}
-						}
-					}
-					if(PolicesOnline < 12) return 
-					SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} é preciso ter pelo menos 12 policiais em serviço para executar essa ação.");
-					new location[MAX_ZONE_NAME];
-					Get2DZone(location, TOTAL_ZONE_NAME, ATMs[i][aposX], ATMs[i][aposY], ATMs[i][aposZ]);
-
-					TaNoCOFREB[playerid] = i;
-					SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você armou uma dinamite.");
-						
-					TogglePlayerControllable(playerid, 0);
-					ApplyAnimation(playerid, "PLAYIDLES", "shldr", 4.0,1,1,1,1,0,1);
-					SetTimerEx("ExplodindoCaixa", 15000, false, "d", playerid);
-					new Float:x, Float:y, Float:z, Float:Distance = 25.0;
-    				GetPlayerPos(playerid, x, y, z);
- 					PlayAudioStreamForPlayer(playerid, "https://progressive-roleplay.com/midia/alarme_casa.mp3", x, y, z, Distance, 1);
-					new stringCaixaF[256];
-					format(stringCaixaF,sizeof(stringCaixaF),"** %s está armando uma dinamite no caixa eletronico.", PlayerName(playerid, 1));
-					ProxDetector(20.0, playerid, stringCaixaF,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-
-					format(stringCaixaF, sizeof(stringCaixaF), "* Barulho de explosão são escutados nas proximidades *");
-					ProxDetector(500.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-					new str[126];
-					SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCY NOTIFICATION__________|");
-					SendFacMessage(COLOR_LIGHTBLUE, 1, "Relator: Anonimo, Contato: Orelhão");
-					SendFacMessage(COLOR_LIGHTBLUE, 1, "Situação: Socorro, estão roubando o Banco, venham rápido.");
-					format(str, sizeof(str), "Local: %s",location);
-					SendFacMessage(COLOR_LIGHTBLUE, 1, str);
-
-					SendAdminAlert(COLOR_LIGHTRED, "AdmCmd:{FFFFFF} %s acaba de utilizar o comando /explodir banco.", PlayerName(playerid, 0));
-						
-					new strl[126];
-					format(strl, 126, "%s explodiu um caixa eletronico. [//explodir banco]", PlayerName(playerid, 0));
-					LogCMD_explodircaixa(strl);
-				}
-			}
-		}
-	}
-	if(strcmp(tmp,"loja",true) == 0)
-	{
-		if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa estar logado.");
-		if(PlayerInfo[playerid][pLevel] < 10) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de TC 10 ou mais para explodir o caixa.");
-		if(PlayerInfo[playerid][pC4] < 1) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 1 C4 para explodir o caixa.");
-		if(PlayerInfo[playerid][pMorto] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
-		if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
-		if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
-		if(PlayerInfo[playerid][pArrombarDNV_C] != 0)
-		{
-			new stringcofreroubo[128];
-			format(stringcofreroubo, sizeof(stringcofreroubo),"Aguarde %d segundos antes de explodir um cofre novamente.", PlayerInfo[playerid][pArrombarDNV_C]);
-			SendClientMessage(playerid,COLOR_LIGHTRED, stringcofreroubo);
-			return 1;
-		}
-
-		for(new i = 0; i < MAX_COFRE; i++)
-		{
-			if(IsPlayerInRangeOfPoint(playerid,1.5,cLoja[i][clposX], cLoja[i][clposY], cLoja[i][clposZ]))
-			{
-
-				new PolicesOnline = 0;
-				for(new cops = 0; cops < MAX_PLAYERS; cops++)
-				{
-					if(IsPlayerConnected(cops))
-					{
-						if(PlayerInfo[cops][pLogado])
-						{
-							if(FacInfo[GetFactionBySqlId(PlayerInfo[cops][pFac])][fTipo] == FAC_TIPO_PMERJ)
-							{
-								if(PlayerInfo[cops][pEmServico] == 1)
-								{
-									PolicesOnline++;
-								}
-							}
-						}
-					}
-					if(PolicesOnline < 8) return 
-						SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} É preciso ter pelo menos 8 policiais em serviço para executar essa ação.");
-
-					TaNoCOFREL[playerid] = i;
-					SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você armou uma C4.");
-						
-					TogglePlayerControllable(playerid, 0);
-					ApplyAnimation(playerid, "PLAYIDLES", "shldr", 4.0,1,1,1,1,0,1);
-					SetTimerEx("ExplodindoCofreL", 15000, false, "d", playerid);
-					new Float:x, Float:y, Float:z, Float:Distance = 25.0;
-    				GetPlayerPos(playerid, x, y, z);
- 					PlayAudioStreamForPlayer(playerid, "https://progressive-roleplay.com/midia/alarme_casa.mp3", x, y, z, Distance, 1);
-					new stringCaixaF[256];
-					format(stringCaixaF,sizeof(stringCaixaF),"** %s posiciona-se perto do cofre e cola a C4.", PlayerName(playerid, 1));
-					ProxDetector(20.0, playerid, stringCaixaF,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-
-					format(stringCaixaF, sizeof(stringCaixaF), "* Barulho de explosão são escutados nas próximidades *");
-					ProxDetector(200.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-
-					SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCY NOTIFICATION__________|");
-					SendFacMessage(COLOR_LIGHTBLUE, 1, "Relator: Anonimo, Contato: Orelhão");
-					SendFacMessage(COLOR_LIGHTBLUE, 1, "Situação: Socorro, estão explodindo o cofre da loja, venham rápido.");
-
-					new location[MAX_ZONE_NAME];
-					Get2DZone(location, TOTAL_ZONE_NAME, cLoja[i][clposX], cLoja[i][clposY], cLoja[i][clposZ]);
-
-					format(string, sizeof(string), "Local: %s",location);
-					SendFacMessage(COLOR_LIGHTBLUE, 1, string);
-
-
-
-					new stringvendeu[256];
-					format(stringvendeu,sizeof(stringvendeu),"%s GRITA: VAI FILHA DA PUTA, NO CHÃO, OU ESTOURO SUA CABEÇA!", PlayerName(playerid, 1));
-					ProxDetector(40.0, playerid, stringvendeu,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE,COLOR_WHITE);
-
-					SendAdminAlert(COLOR_LIGHTRED, "AdmCmd:{FFFFFF} %s acaba de utilizar o comando /explodir loja.", PlayerName(playerid, 0));
-					
-					new strl[126];
-					format(strl, 126, "%s explodiu um cofre. [/explodir loja]", PlayerName(playerid, 0));
-					LogCMD_explodircaixa(strl);
-				}
-			}
-		}
-	}
-
-
-	if(strcmp(tmp,"caixa",true) == 0)
-	{
-		if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa estar logado.");
-		if(PlayerInfo[playerid][pLevel] < 5) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de TC 5 ou mais para explodir o caixa.");
-		if(PlayerInfo[playerid][pBomba] < 1) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de 1 dinamite para explodir o caixa.");
-		if(PlayerInfo[playerid][pMorto] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
-		if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
-		if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
-		if(PlayerInfo[playerid][pArrombarDNV_C] != 0)
-		{
-			new stringroubo2[128];
-			format(stringroubo2, sizeof(stringroubo2),"Aguarde %d segundos antes de explodir um caixa novamente.", PlayerInfo[playerid][pArrombarDNV_C]);
-			SendClientMessage(playerid,COLOR_LIGHTRED, stringroubo2);
-			return 1;
-		}
-
-		for(new i = 0; i < MAX_ATM; i++)
-		{
-			if(IsPlayerInRangeOfPoint(playerid,1.5,ATMs[i][aposX], ATMs[i][aposY], ATMs[i][aposZ]))
-			{
-
-				new PolicesOnline = 0;
-				for(new cops = 0; cops < MAX_PLAYERS; cops++)
-				{
-					if(IsPlayerConnected(cops))
-					{
-						if(PlayerInfo[cops][pLogado])
-						{
-							if(FacInfo[GetFactionBySqlId(PlayerInfo[cops][pFac])][fTipo] == FAC_TIPO_PMERJ)
-							{
-								if(PlayerInfo[cops][pEmServico] == 1)
-								{
-									PolicesOnline++;
-								}
-							}
-						}
-					}
-				
-					if(PolicesOnline < 5) return 
-						SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} É preciso ter pelo menos 5 policiais em serviço para executar essa ação.");
-				
-					new location[MAX_ZONE_NAME];
-					Get2DZone(location, TOTAL_ZONE_NAME, ATMs[i][aposX], ATMs[i][aposY], ATMs[i][aposZ]);
-
-					TaNaATM[playerid] = i;
-					SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você armou uma dinamite.");
-						
-					TogglePlayerControllable(playerid, 0);
-					ApplyAnimation(playerid, "PLAYIDLES", "shldr", 4.0,1,1,1,1,0,1);
-					SetTimerEx("ExplodindoCaixa", 15000, false, "d", playerid);
-					new Float:x, Float:y, Float:z, Float:Distance = 25.0;
-    				GetPlayerPos(playerid, x, y, z);
- 					PlayAudioStreamForPlayer(playerid, "https://progressive-roleplay.com/midia/alarme_casa.mp3", x, y, z, Distance, 1);
-					new stringCaixaF[256];
-					format(stringCaixaF,sizeof(stringCaixaF),"** %s está armando uma dinamite no caixa eletronico.", PlayerName(playerid, 1));
-					ProxDetector(20.0, playerid, stringCaixaF,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-
-					format(stringCaixaF, sizeof(stringCaixaF), "* Barulho de explosão são escutados nas próximidades *");
-					ProxDetector(500.0, playerid, string, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-					new str[126];
-					SendFacMessage(COLOR_LIGHTBLUE, 1, "|__________EMERGENCY NOTIFICATION__________|");
-					SendFacMessage(COLOR_LIGHTBLUE, 1, "Relator: Anonimo, Contato: Orelhão");
-					SendFacMessage(COLOR_LIGHTBLUE, 1, "Situação: Socorro, estão explodindo um caixa eletronico, venham rápido.");
-					format(str, sizeof(str), "Local: %s",location);
-					SendFacMessage(COLOR_LIGHTBLUE, 1, str);
-
-					SendAdminAlert(COLOR_LIGHTRED, "AdmCmd:{FFFFFF} %s acaba de utilizar o comando /explodir caixa.", PlayerName(playerid, 0));
-						
-					new strl[126];
-					format(strl, 126, "%s explodiu um caixa eletronico. [/explodir caixa]", PlayerName(playerid, 0));
-					LogCMD_explodircaixa(strl);
-				}
-			}
-		}
-	}
-	return 1;
-}
-
-COMMAND:roub43ar312(playerid,params[])
-{
-    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-	new idx = 0;
-	new tmp[256];
-	tmp = strtok(params,idx);
-	if(!strlen(tmp))
-	{
-        SendClientMessage(playerid, COLOR_VEICULO,"____________________________________________________");
-		SendClientMessage(playerid, COLOR_VEICULO,"USE: /roubar [ação]");
-		SendClientMessage(playerid, COLOR_VEICULO,"USE: banco - Utilize o comando após explodir o cofre do banco");
-		SendClientMessage(playerid, COLOR_VEICULO,"USE: loja - Utilize o comando após explodir o cofre da loja");
-		SendClientMessage(playerid, COLOR_VEICULO,"USE: caixa - Utilize o comando após explodir o caixa eletrônico");
-		SendClientMessage(playerid, COLOR_VEICULO,"USE: joias - Utilize o comando após explodir a joalheria.");
-		SendClientMessage(playerid, COLOR_VEICULO,"____________________________________________________");
-		return 1;
-	}
-	if(strcmp(tmp,"joias",true) == 0)
-	{
-		if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você precisa estar logado.");
-		if(PlayerInfo[playerid][pLevel] < 5) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de TC 25 ou mais para pegar a grana.");
-		if(PlayerInfo[playerid][pMorto] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
-		if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
-		if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
-		if(PlayerInfo[playerid][pArrombarDNV_C] != 0)
-
-		for(new i = 0; i < MAX_JOIA; i++)
-		{
-			if(IsPlayerInRangeOfPoint(playerid,1.5,joalheria[i][jlposX], joalheria[i][jlposY], joalheria[i][jlposZ]) && joalheria[i][jlRrombado] == 1) 
-			{
-
-				new stringBCofre[256];	
-				format(stringBCofre,sizeof(stringBCofre),"** %s se abaixa e começa a recolher os pertences.", PlayerName(playerid, 1));
-				ProxDetector(20.0, playerid, stringBCofre,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-				SetTimerEx("PegandoGranaJoalheria", 120000, false, "d", playerid);
-				return 1;
-			}
-		}
-	}
-	if(strcmp(tmp,"banco",true) == 0)
-	{
-		if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você precisa estar logado.");
-		if(PlayerInfo[playerid][pLevel] < 25) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de TC 25 ou mais para pegar a grana.");
-		if(PlayerInfo[playerid][pMorto] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
-		if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
-		if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
-		if(PlayerInfo[playerid][pArrombarDNV_C] != 0)
-
-		for(new i = 0; i < MAX_COFREB; i++)
-		{
-			if(IsPlayerInRangeOfPoint(playerid,1.5,cbanco[i][cbposX], cbanco[i][cbposY], cbanco[i][cbposZ]) && cbanco[i][cbRrombado] == 1) 
-			{
-				PlayerInfo[playerid][pGrana] += 50000;
-				SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você está colhetando 50 mil doláres.");
-
-				new stringBCofre[256];	
-				format(stringBCofre,sizeof(stringBCofre),"** %s se abaixa e começa a recolher o dinheiro do cofre.", PlayerName(playerid, 1));
-				ProxDetector(20.0, playerid, stringBCofre,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-				SetTimerEx("PegandoGranaBanco", 120000, false, "d", playerid);
-				return 1;
-			}
-		}
-	}
-	if(strcmp(tmp,"loja",true) == 0)
-	{
-		if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você precisa estar logado.");
-		if(PlayerInfo[playerid][pLevel] < 10) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de TC 10 ou mais para pegar a grana.");
-		if(PlayerInfo[playerid][pMorto] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
-		if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
-		if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
-
-		for(new i = 0; i < MAX_COFRE; i++)
-		{
-			if(IsPlayerInRangeOfPoint(playerid,1.5,cLoja[i][clposX], cLoja[i][clposY], cLoja[i][clposZ]) && cLoja[i][clRrombado] == 1) 
-			{
-				PlayerInfo[playerid][pGrana] += 10000;
-				SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você está colhetando 10 mil doláres.");
-
-				new location[MAX_ZONE_NAME];
-				Get2DZone(location, TOTAL_ZONE_NAME, cLoja[i][clposX], cLoja[i][clposY], cLoja[i][clposZ]);
-				format(string, sizeof(string), "** USMC: Um cofre explodiu em %s.**", location);
-				SendFacMessage(0x6666CCFF,1,string);
-				SendFacMessage(0x6666CCFF,2,string);
-
-				new stringCaixaF[256];	
-				format(stringCaixaF,sizeof(stringCaixaF),"** %s se abaixa e começa a recolher o dinheiro do cofre.", PlayerName(playerid, 1));
-				ProxDetector(20.0, playerid, stringCaixaF,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-				SetTimerEx("PegandoGranaCofreL", 10000, false, "d", playerid);
-				return 1;
-			}
-		}
-	}
-
-	if(strcmp(tmp,"caixa",true) == 0)
-	{
-		if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você precisa estar logado.");
-		if(PlayerInfo[playerid][pLevel] < 5) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa de TC 5 ou mais para pegar a grana.");
-		if(PlayerInfo[playerid][pMorto] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
-		if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
-		if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
-		if(PlayerInfo[playerid][pArrombarDNV_C] != 0)
-
-		for(new i = 0; i < MAX_ATM; i++)
-		{
-			if(IsPlayerInRangeOfPoint(playerid,1.5,ATMs[i][aposX], ATMs[i][aposY], ATMs[i][aposZ]) && ATMs[i][aRrombado] == 1) 
-			{
-				PlayerInfo[playerid][pGrana] += 8000;
-				SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você está colhetando 8 mil doláres.");
-
-				new stringCaixaF[256];	
-				format(stringCaixaF,sizeof(stringCaixaF),"** %s se abaixa e começa a recolher o dinheiro do chão.", PlayerName(playerid, 1));
-				ProxDetector(20.0, playerid, stringCaixaF,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-				SetTimerEx("PegandoGrana", 1, false, "d", playerid);
-				return 1;
-			}
-		}
-	}
-	return 1;
-}
-
-forward PegandoGranaJoalheria(playerid);
-public PegandoGranaJoalheria(playerid)
-{
-	for(new i = 0; i < MAX_COFREB; i++)
- 	{
-  		if(IsPlayerInRangeOfPoint(playerid,1.5,joalheria[i][jlposX], joalheria[i][jlposY], joalheria[i][jlposZ]))
-		{
-            PlayerInfo[playerid][pGrana] += 6000;
-            PlayerInfo[playerid][pOuro] += 10;
-            PlayerInfo[playerid][pPrata] += 5;
-            PlayerInfo[playerid][pBronze] += 4;
-			SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Você está colhetando as joias e a grana.");
-			joalheria[i][jlRrombado] = 0;
-
-
-			TogglePlayerControllable(playerid, 0);
-			SetTimerEx("AnimGranaJL", 120000, false, "d", playerid);
-		}
-	}
-
-    return 1;
-}
-
-
-forward AnimGranaJL(playerid);
-public AnimGranaJL(playerid)
-{
-	ApplyAnimation(playerid,"FAT","IDLE_tired", 4.0, 1, 0, 0, 0, 0, 1);
-	SetTimerEx("PegouGranaJL", 8000, false, "d", playerid);
-
-    return 1;
-}
-
-forward PegouGranaJL(playerid);
-public PegouGranaJL(playerid)
-{
-
-    TogglePlayerControllable(playerid, 1);
-    ClearAnimations(playerid, 1);
-
-    return 1;
-}
-
-forward ExplodindoCaixa(playerid);
-public ExplodindoCaixa(playerid)
-{
-	for(new i = 0; i < MAX_ATM; i++)
- 	{
-  		if(IsPlayerInRangeOfPoint(playerid,1.5,ATMs[i][aposX], ATMs[i][aposY], ATMs[i][aposZ]))
-		{
-			PlayerInfo[playerid][pArrombarDNV_C] = 1300;
-			
-			CreateExplosion(ATMs[i][aposX], ATMs[i][aposY], ATMs[i][aposZ], 13, 0);
-			ATMs[i][aRrombado] = 1;
-			PlayerInfo[playerid][pBomba]--;
-
-            new location[MAX_ZONE_NAME];
-            Get2DZone(location, TOTAL_ZONE_NAME, ATMs[i][aposX], ATMs[i][aposY], ATMs[i][aposZ]);
-
-			new stringCaixaF[256];
-			format(stringCaixaF, sizeof(stringCaixaF), "** USMC: Um caixa eletronico explodiu em %s.**", location);
-   			SendFacMessage(0x6666CCFF,1,stringCaixaF);
-   			SendFacMessage(0x6666CCFF,2,stringCaixaF);
-
-			format(stringCaixaF, sizeof(stringCaixaF), "* O caixa eletronico explode e o dinheiro se espalha *");
-			ProxDetector(500.0, playerid, stringCaixaF, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-			SetTimerEx("RoubeAgora", 15000, false, "d", playerid);
-
-		}
-	}
-    return 1;
-}
-
-forward PegandoGrana(playerid);
-public PegandoGrana(playerid)
-{
-	for(new i = 0; i < MAX_ATM; i++)
- 	{
-  		if(IsPlayerInRangeOfPoint(playerid,1.5,ATMs[i][aposX], ATMs[i][aposY], ATMs[i][aposZ]))
-		{
-			ATMs[i][aRrombado] = 0;
-
-			TogglePlayerControllable(playerid, 0);
-			SetTimerEx("AnimGrana", 1, false, "d", playerid);
-		}
-	}
-
-    return 1;
-}
-
-
-forward AnimGrana(playerid);
-public AnimGrana(playerid)
-{
-	ApplyAnimation(playerid,"FAT","IDLE_tired", 4.0, 1, 0, 0, 0, 0, 1);
-	SetTimerEx("PegouGrana", 10000, false, "d", playerid);
-
-    return 1;
-}
-
-forward PegouGrana(playerid);
-public PegouGrana(playerid)
-{
-
-    TogglePlayerControllable(playerid, 1);
-    ClearAnimations(playerid, 1);
-
-    return 1;
-}
-forward ExplodindoCofreL(playerid);
-public ExplodindoCofreL(playerid)
-{
-	for(new i = 0; i < MAX_COFRE; i++)
- 	{
-  		if(IsPlayerInRangeOfPoint(playerid,1.5,cLoja[i][clposX], cLoja[i][clposY], cLoja[i][clposZ]))
-		{
-			PlayerInfo[playerid][pArrombarDNV_C] = 3600;
-			
-			CreateExplosion(cLoja[i][clposX], cLoja[i][clposY], cLoja[i][clposZ], 13, 0);
-			cLoja[i][clRrombado] = 1;
-			PlayerInfo[playerid][pC4]--;
-
-			new stringCaixaF[256];
-			format(stringCaixaF, sizeof(stringCaixaF), "* Um cofre é explodido na região *");
-			ProxDetector(100.0, playerid, stringCaixaF, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-			SetTimerEx("RoubeAgora", 15000, false, "d", playerid);
-
-		}
-	}
-    return 1;
-}
-
-forward PegandoGranaCofreL(playerid);
-public PegandoGranaCofreL(playerid)
-{
-	for(new i = 0; i < MAX_COFRE; i++)
- 	{
-  		if(IsPlayerInRangeOfPoint(playerid,1.5,cLoja[i][clposX], cLoja[i][clposY], cLoja[i][clposZ]))
-		{
-			cLoja[i][clRrombado] = 0;
-
-			TogglePlayerControllable(playerid, 0);
-			SetTimerEx("AnimGranaCofreL", 15000, false, "d", playerid);
-		}
-	}
-
-    return 1;
-}
-
-
-forward AnimGranaCofreL(playerid);
-public AnimGranaCofreL(playerid)
-{
-	ApplyAnimation(playerid,"FAT","IDLE_tired", 4.0, 1, 0, 0, 0, 0, 1);
-	SetTimerEx("PegouGranaCofreL", 8000, false, "d", playerid);
-
-    return 1;
-}
-
-forward PegouGranaCofreL(playerid);
-public PegouGranaCofreL(playerid)
-{
-
-    TogglePlayerControllable(playerid, 1);
-    ClearAnimations(playerid, 1);
-
-    return 1;
-}
-forward ExplodindoBanco(playerid);
-public ExplodindoBanco(playerid)
-{
-	for(new i = 0; i < MAX_COFREB; i++)
- 	{
-  		if(IsPlayerInRangeOfPoint(playerid,1.5,cbanco[i][cbposX], cbanco[i][cbposY], cbanco[i][cbposZ]))
-		{
-			PlayerInfo[playerid][pArrombarDNV_C] = 86400;
-			
-			CreateExplosion(cbanco[i][cbposX], cbanco[i][cbposY], cbanco[i][cbposZ], 13, 0);
-			cbanco[i][cbRrombado] = 1;
-			PlayerInfo[playerid][pTNT]--;
-
-			SendFacMessage(COLOR_LIGHTBLUE, 1, "QG: Uma explosão no Bank of America, todas unidades para o local.");
-
-			new stringBCofre[256];
-			format(stringBCofre, sizeof(stringBCofre), "* Uma grande explosão acontece no banco *");
-			ProxDetector(100.0, playerid, stringBCofre, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-			SetTimerEx("RoubeAgora", 15000, false, "d", playerid);
-
-		}
-	}
-    return 1;
-}
-
-forward RoubeAgora(playerid);
-public RoubeAgora(playerid)
-{
-
-	SendClientMessage(playerid, COLOR_LIGHTRED, "INFO:{FFFFFF} Use /roubar.");
-
-    return 1;
-}
-
-forward PegandoGranaBanco(playerid);
-public PegandoGranaBanco(playerid)
-{
-	for(new i = 0; i < MAX_COFREB; i++)
- 	{
-  		if(IsPlayerInRangeOfPoint(playerid,1.5,cbanco[i][cbposX], cbanco[i][cbposY], cbanco[i][cbposZ]))
-		{
-			cbanco[i][cbRrombado] = 0;
-
-			TogglePlayerControllable(playerid, 0);
-			SetTimerEx("AnimGranaBanco", 120000, false, "d", playerid);
-		}
-	}
-
-    return 1;
-}
-
-
-forward AnimGranaBanco(playerid);
-public AnimGranaBanco(playerid)
-{
-	ApplyAnimation(playerid,"FAT","IDLE_tired", 4.0, 1, 0, 0, 0, 0, 1);
-	SetTimerEx("PegouGranaBanco", 12000, false, "d", playerid);
-
-    return 1;
-}
-
-forward PegouGranaBanco(playerid);
-public PegouGranaBanco(playerid)
-{
-
-    TogglePlayerControllable(playerid, 1);
-    ClearAnimations(playerid, 1);
-
-    return 1;
 }
 
 COMMAND:atm(playerid, params[])
@@ -39045,7 +36877,7 @@ CMD:tester(playerid, params[])
 	new AdmSTR[86];
 	new Totaltesters = 0;
 	SendClientMessage(playerid, 0xb4b5b7FF, "Testers:");
-	for(new i = 0; i < MAX_PLAYERS; i++)
+	foreach (new i : Player)
 	{
 	    if(IsPlayerConnected(i) && PlayerInfo[i][pLogado])
 	    {
@@ -39076,7 +36908,7 @@ CMD:admins(playerid, params[])
 	new AdmSTR[86];
 	new TotalAdmins = 0;
 	SendClientMessage(playerid, 0xb4b5b7FF, "Administradores Online:");
-	for(new i = 0; i < MAX_PLAYERS; i++)
+	foreach (new i : Player)
 	{
 	    if(IsPlayerConnected(i) && PlayerInfo[i][pLogado])
 	    {
@@ -39189,33 +37021,14 @@ COMMAND:tog(playerid, params[])
 	new option[32];
 	if(sscanf(params,"s[32]",option))
 	{
-	    SendClientMessage(playerid, COLOR_LIGHTRED, "USE:{FFFFFF} /tog [ pm / faccao / hud / anuncios / bicho / bairros / qmmatou / radio ]");
+	    SendClientMessage(playerid, COLOR_LIGHTRED, "USE:{FFFFFF} /tog [ pm / faccao / hud / anuncios / bairros / qmmatou / radio ]");
 	    if(PlayerInfo[playerid][pTester] >= 1 || PlayerInfo[playerid][pAdmin] >= 1)
 		{
 			SendClientMessage(playerid, COLOR_LIGHTRED, "Administração: {FFFFFF}sos, achat");
 		}
 		return 1;
 	}
-    if(strcmp(option, "bicho", true) == 0)
-	{
-	    if(PlayerInfo[playerid][pAdmin] >= 0 || PlayerInfo[playerid][pTester] >= 0)
-		{
-			switch(GetPVarInt(playerid, "TogBicho"))
-	  		{
-				case 0:
-				{
-					SetPVarInt(playerid, "TogBicho", 1);
-					SendClientMessage(playerid, COLOR_WHITE, "Você não irá receber mais avisos do jogo do bicho.");
-				}
-				case 1:
-				{
-	   				SetPVarInt(playerid, "TogBicho", 0);
-	   				SendClientMessage(playerid, COLOR_WHITE, "Você irá receber mais avisos do jogo do bicho.");
-				}
-			}
-		}
-		else return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem acesso a este comando.");
-	}
+
     else if(strcmp(option, "sos", true) == 0)
 	{
 	    if(PlayerInfo[playerid][pAdmin] >= 1 || PlayerInfo[playerid][pTester] >= 1)
@@ -39909,7 +37722,7 @@ COMMAND:mascarados(playerid, params[])
 	{
 	    new stringaap[256], mascarados = 0;
 	    SendClientMessage(playerid, COLOR_ESPECIAL1, "|--- Mascarados ---|");
-	    for(new i = 0; i < MAX_PLAYERS; i++)
+	    foreach (new i : Player)
 	    {
 	        if(PlayerInfo[i][pMascID] != 0)
 	        {
@@ -40396,7 +38209,7 @@ COMMAND:afktodos(playerid, params[])
     if(PlayerInfo[playerid][pAdmin] < 1) return 1;
     if(PlayerInfo[playerid][pTester] < 1) return 1;
     SendClientMessage(playerid, COLOR_LIGHTGREEN, "______Players AFK______");
-    for(new i = 0; i < MAX_PLAYERS; i++)
+    foreach (new i : Player)
     {
         if(!IsPlayerNPC(i))
         {
@@ -43810,7 +41623,7 @@ COMMAND:gmx(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     if(PlayerInfo[playerid][pAdmin] < 3000) return 1;
-	for(new i = 0; i < MAX_PLAYERS; i++)
+	foreach (new i : Player)
 	{
 		SalvarPlayer(i);
 	}
@@ -47414,7 +45227,7 @@ CMD:xmradio(playerid, params[])
 		        format(VehicleInfo[slot][vXMR], 128, url);
 		        SCM(playerid, COLOR_LIGHTGREEN, "Rádio alterado");
 
-		        for(new i = 0; i < MAX_PLAYERS; i++)
+		        foreach (new i : Player)
 				{
 		            if(strlen(VehicleInfo[slot][vXMR]))
 				    {
@@ -47473,7 +45286,7 @@ CMD:xmradio(playerid, params[])
 									format(HouseInfo[c][hXMR], 256, url);
 									SCM(playerid, COLOR_LIGHTGREEN, "Rádio alterado");
 
-									for(new i = 0; i < MAX_PLAYERS; i++)
+									foreach (new i : Player)
 									{
 									    if(IsPlayerConnected(i))
 									    {
@@ -47514,7 +45327,7 @@ CMD:xmradio(playerid, params[])
 									format(GaragemInfo[c][hXMR], 256, url);
 									SCM(playerid, COLOR_LIGHTGREEN, "Rádio alterado");
 
-									for(new i = 0; i < MAX_PLAYERS; i++)
+									foreach (new i : Player)
 									{
 									    if(IsPlayerConnected(i))
 									    {
@@ -47555,7 +45368,7 @@ CMD:xmradio(playerid, params[])
 									format(EmpInfo[c][eXMR], 256, url);
 									SCM(playerid, COLOR_LIGHTGREEN, "Rádio alterado");
 
-									for(new i = 0; i < MAX_PLAYERS; i++)
+									foreach (new i : Player)
 									{
 									    if(IsPlayerConnected(i))
 									    {
@@ -47596,7 +45409,7 @@ CMD:xmradio(playerid, params[])
 									format(ComplexoInfo[c][cXMR], 256, url);
 									SCM(playerid, COLOR_LIGHTGREEN, "Rádio alterado");
 
-                                    for(new i = 0; i < MAX_PLAYERS; i++)
+                                    foreach (new i : Player)
 									{
 									    if(IsPlayerConnected(i))
 									    {
@@ -56092,7 +53905,7 @@ public TowFactionVehicles(factionid)
 forward IsAnyPlayerInVehicle(vehicleid);
 public IsAnyPlayerInVehicle(vehicleid)
 {
-	for(new i = 0; i < MAX_PLAYERS; i ++)
+	foreach (new i : Player)
 	{
 	    if(PlayerInfo[i][pLogado])
 	    {
@@ -65159,7 +62972,7 @@ public FuelCheck(vehicleid)
 		{
 		    if(VehicleInfo[slot][vFuel] < 0) { VehicleInfo[slot][vFuel] = 0; }
 		    StopEngine(vehicleid);
-		    for(new i = 0; i < MAX_PLAYERS; i ++)
+		    foreach (new i : Player)
 		    {
 		        if(PlayerInfo[i][pLogado])
 				{
@@ -65610,14 +63423,14 @@ COMMAND:prefixo(playerid,params[])
 
 CMD:nickoff(playerid)
 {
-    for(new i = 0; i < MAX_PLAYERS; i++) ShowPlayerNameTagForPlayer(playerid, i, false);
+    foreach (new i : Player) ShowPlayerNameTagForPlayer(playerid, i, false);
     GameTextForPlayer(playerid, "~W~Nicks Desativos ~R~off", 5000, 5);
     return 1;
 }
 
 CMD:nickon(playerid)
 {
-for(new i = 0; i < MAX_PLAYERS; i++) ShowPlayerNameTagForPlayer(playerid, i, true);
+foreach (new i : Player) ShowPlayerNameTagForPlayer(playerid, i, true);
 GameTextForPlayer(playerid, "~W~Nicks Ativos ~R~", 5000, 5);
 return 1;
 }
@@ -66806,7 +64619,7 @@ public UpdateKeyArrombar(playerid)
 
 stock IsCharacterOnline(character)//Returns user ID
 {
-	for(new i = 0; i < MAX_PLAYERS; i ++)
+	foreach (new i : Player)
 	{
 	    if(PlayerInfo[i][pLogado])
 		{
@@ -72354,7 +70167,7 @@ public OnPlayerWeaponShot( playerid, weaponid, hittype, hitid, Float:fX, Float:f
 
 		if(weaponid > 21 && weaponid < 39)
 		{
-			for(new i = 0; i < MAX_PLAYERS; i++)
+			foreach (new i : Player)
 			{
 				if(i != playerid)
 				{
@@ -73258,7 +71071,7 @@ public ProxDetector(Float:radi, playerid, oioi[],col1,col2,col3,col4,col5)
 	new Float:oldposx, Float:oldposy, Float:oldposz;
 	new Float:tempposx, Float:tempposy, Float:tempposz;
 	GetPlayerPos(playerid, oldposx, oldposy, oldposz);
-	for(new i = 0; i < MAX_PLAYERS; i++)
+	foreach (new i : Player)
 	{
 	    if(IsPlayerConnected(i) && (GetPlayerVirtualWorld(playerid) == GetPlayerVirtualWorld(i)))
 		{
@@ -73330,7 +71143,7 @@ public ProxDetectorJanela(Float:radi, playerid, oioi[],col1,col2,col3,col4,col5)
 		}
 	}
 
-	for(new i = 0; i < MAX_PLAYERS; i++)
+	foreach (new i : Player)
 	{
 	    if(IsPlayerConnected(i) && (GetPlayerVirtualWorld(playerid) == GetPlayerVirtualWorld(i)))
 		{
@@ -73373,7 +71186,7 @@ public ProxDetectorG(Float:radi, playerid, oioi[],col1,col2,col3,col4,col5)
 	new Float:oldposx, Float:oldposy, Float:oldposz;
 	new Float:tempposx, Float:tempposy, Float:tempposz;
 	GetPlayerPos(playerid, oldposx, oldposy, oldposz);
-	for(new i = 0; i < MAX_PLAYERS; i++)
+	foreach (new i : Player)
 	{
 	    if(IsPlayerConnected(i) && (GetPlayerVirtualWorld(playerid) == GetPlayerVirtualWorld(i)))
 		{
@@ -73414,7 +71227,7 @@ public ProxDetectorNP(Float:radi, playerid, oioi[],col1,col2,col3,col4,col5)
 	new Float:oldposx, Float:oldposy, Float:oldposz;
 	new Float:tempposx, Float:tempposy, Float:tempposz;
 	GetPlayerPos(playerid, oldposx, oldposy, oldposz);
-	for(new i = 0; i < MAX_PLAYERS; i++)
+	foreach (new i : Player)
 	{
 	    if(i != playerid)
 	    {
@@ -74815,7 +72628,7 @@ CMD:f(playerid, params[])
 
 stock SendEBMessage(radioid,slot,color,strings[])
 {
-    for(new i = 0; i < MAX_PLAYERS; i++)
+    foreach (new i : Player)
     {
         if(FacInfo[PlayerInfo[i][pFac]][fTipo] == FAC_TIPO_PMERJ)
         {
@@ -74854,7 +72667,7 @@ stock SendEBMessage(radioid,slot,color,strings[])
 }
 stock SendPOLICIAMessage(radioid,slot,color,strings[])
 {
-    for(new i = 0; i < MAX_PLAYERS; i++)
+    foreach (new i : Player)
     {
         if(FacInfo[PlayerInfo[i][pFac]][fTipo] == FAC_TIPO_PCERJ)
         {
@@ -75163,7 +72976,7 @@ CMD:radiobaixo2(playerid, params[])
 
 stock SendRadioMessage(color,radioid,stringa[])
 {
-    for(new i = 0; i < MAX_PLAYERS; i++)
+    foreach (new i : Player)
     {
         if(PlayerInfo[i][pRadio] == 1)
         {
@@ -79155,7 +76968,7 @@ stock GetClosestBoomBox(playerid,Float:maxdistance)
 
 stock RefreshBoomBoxListeners(box)
 {
-	for(new i = 0; i < MAX_PLAYERS; i ++)
+	foreach (new i : Player)
 	{
 	    if(IsPlayerConnected(i))
 	    {
@@ -79204,7 +77017,7 @@ public Float:GetPosInFrontOfPlayer(playerid, &Float:x, &Float:y, Float:distance)
 
 stock RefreshXMRListeners(box)
 {
-	for(new i = 0; i < MAX_PLAYERS; i ++)
+	foreach (new i : Player)
 	{
 	    if(IsPlayerConnected(i))
 	    {
@@ -79922,7 +77735,7 @@ CMD:encomenda(playerid, params[])
 forward SendJobMessage(job, color, strings[]);
 public SendJobMessage(job, color, strings[])
 {
-    for(new i = 0; i <= MAX_PLAYERS; ++i)
+    foreach (new i : Player)
 	{
 		if(IsPlayerConnected(i) && PlayerInfo[i][pLogado])
 		{
@@ -81450,7 +79263,7 @@ COMMAND:multar(playerid, params[])
 					format(string_m1,sizeof(string_m1),"** %s escreve algo em seu bloco de multas, rasgando a folha colocando-a no vidro do %s.", PlayerName(playerid, 1), vname);
 					ProxDetector(8.0, playerid, string_m1, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
 
-					for(new i = 0; i < MAX_PLAYERS; i++)
+					foreach (new i : Player)
 					{
 					    if(IsPlayerConnected(i))
 					    {
@@ -81970,7 +79783,7 @@ COMMAND:cancelartaxi(playerid, params[])
  	{
   		if(TaxiCallTime[playerid] > 0)
     	{
-   			for(new i = 0; i <= MAX_PLAYERS; ++i)
+   			foreach (new i : Player)
 			{
    				if(IsPlayerConnected(i))
 			    {
@@ -82000,7 +79813,7 @@ COMMAND:cancelarmecanico(playerid, params[])
  	{
   		if(MecCallTime[playerid] > 0)
     	{
-   			for(new i = 0; i <= MAX_PLAYERS; ++i)
+   			foreach (new i : Player)
 			{
    				if(IsPlayerConnected(i))
 			    {
@@ -83600,7 +81413,7 @@ public EnviarSMS(playerid, numero)
         return 1;
     }
 	new encontrado = 999;
-	for(new i = 0; i < MAX_PLAYERS; i++)
+	foreach (new i : Player)
 	{
 	    if(IsPlayerConnected(i) && !IsPlayerNPC(i))
  		{
@@ -84378,7 +82191,7 @@ CMD:atender(playerid, params[])
 
 	new id_meligando = 999;
 
-	for(new i = 0; i < MAX_PLAYERS; i++)
+	foreach (new i : Player)
 	{
 		if(IsPlayerConnected(i) && !IsPlayerNPC(i))
 		{
@@ -84854,7 +82667,7 @@ public RastreandoNumero(playerid, numero, fase, encontrado2)
 		new encontrado = 999, foradearea = 0;
 		if(numero > 10000)
 		{
-			for(new i = 0; i < MAX_PLAYERS; i++)
+			foreach (new i : Player)
 			{
 	  			if(IsPlayerConnected(i) && !IsPlayerNPC(i))
 				{
@@ -85000,130 +82813,6 @@ public RastreandoNumero(playerid, numero, fase, encontrado2)
 		CelularData[playerid][RastreandoTime] = 60;
 	}
 	return 1;
-}
-
-ALTCOMMAND:foguete->fogos;
-ALTCOMMAND:fogos->rojao;
-COMMAND:rojao(playerid, params[])
-{
-	if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-	if(PlayerInfo[playerid][pLevel] < 2) return SCM(playerid, COLOR_LIGHTRED, "Você precisa de TC 2 ou mais para utilizar este comando!");
-    if(PlayerInfo[playerid][pMorto] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
-    if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
-    if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
-	if(IsPlayerInWater(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não pode utilizar este comando enquanto estiver na água!");
-	if(TomouTazer[playerid] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não pode utilizar este comando enquanto estiver sob efeito do tazer!");
-	if(PlayerInfo[playerid][pArrombarDNV_C] != 0)
-	{
-		new stringfogos[128];
-		format(stringfogos, sizeof(stringfogos),"Aguarde %d segundos antes de soltar fogos novamente.", PlayerInfo[playerid][pArrombarDNV_C]);
-		SendClientMessage(playerid,COLOR_LIGHTRED, stringfogos);
-		return 1;
-	}
-
-	new Float:X, Float:Y, Float:Z;
-	new worldid = GetPlayerVirtualWorld(playerid);
- 	new intid = GetPlayerInterior(playerid);
-		
-	GetPlayerPos(playerid, X, Y, Z);
-	GetXYInFrontOfPlayer(playerid, X, Y, 30);
-
-    SetPlayerAttachedObject(playerid, 6, -2004, 6, 0.05, 0.05, 0.15, 0.000000, 0.0, 0.0, 1.000000, 1.000000, 1.000000);
-    TogglePlayerControllable(playerid, 0);
-    ApplyAnimation(playerid, "camera", "picstnd_in", 4.1, 0, 1, 1, 1, 0, 1);
-    SetTimerEx("AbaixarMao", 5500, false, "d", playerid);
-
-
-	foreach(Player, i)
-	{
-		if(IsPlayerInRangeOfPoint(i, 20.0, X, Y, Z))
-		{
-			Streamer_UpdateEx(i, X, Y, (Z), worldid, intid);
-		}
-	}
-
-
-	SetTimerEx("LancarFoguete", 2500, 0, "i", playerid);
-
-	foreach(Player, i)
-	{
-		if(IsPlayerConnected(i) && IsPlayerInRangeOfPoint(i, 180.0, X, Y, Z))
-		{
-			PlayAudioStreamForPlayer(i, "https://progressive-roleplay.com/midia/fogo.mp3", X, Y, Z, 500.0, 1);
-		}
-	}
-	new stringfogos1[128];
-	format(stringfogos1, sizeof(stringfogos1), "* Sons de fogos e rojões são escutados nas próximidades *");
-	ProxDetector(500.0, playerid, stringfogos1, COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
-
-	SendAdminAlert(COLOR_LIGHTRED, "AdmCmd:{FFFFFF} %s acaba de utilizar o comando /rojao.", PlayerName(playerid, 0));
-	new strl[126];
-	LogCMD_ROJAO(strl);
-	return 1;
-}
-
-forward LancarFoguete(playerid);
-public LancarFoguete(playerid)
-{
-	new Float:X, Float:Y, Float:Z;
-	GetPlayerPos(playerid, X, Y, Z);
-	GetDynamicObjectPos(Foguete[playerid], FogueteX[playerid], FogueteY[playerid], FogueteZ[playerid]);
-	CreateExplosion(FogueteX[playerid], FogueteY[playerid], FogueteZ[playerid], 12, 0);
-	SetTimerEx("EstourarFoguete1", 100, false, "i", playerid);
-	PlayerInfo[playerid][pArrombarDNV_C] = 45;
-	return 1;
-}
-
-forward EstourarFoguete1(playerid);
-public EstourarFoguete1(playerid)
-{
-	CreateExplosion(FogueteX[playerid]-(0+(random(3))),FogueteY[playerid]-(0+(random(3))),FogueteZ[playerid]-(0+(random(3))), 12, 0);
-	CreateExplosion(FogueteX[playerid]-(0+(random(3))),FogueteY[playerid]+(0+(random(3))),FogueteZ[playerid]-(0+(random(3))), 12, 0);
-	CreateExplosion(FogueteX[playerid]-(0+(random(3))),FogueteY[playerid],FogueteZ[playerid]-(0+(random(3))), 12, 0);
-	CreateExplosion(FogueteX[playerid]+(0+(random(3))),FogueteY[playerid]-(0+(random(3))),FogueteZ[playerid]-(0+(random(3))), 12, 0);
-	CreateExplosion(FogueteX[playerid]+(0+(random(3))),FogueteY[playerid]+(0+(random(3))),FogueteZ[playerid]-(0+(random(3))), 12, 0);
-	CreateExplosion(FogueteX[playerid]+(0+(random(3))),FogueteY[playerid],FogueteZ[playerid]-(0+(random(3))), 12, 0);
-	CreateExplosion(FogueteX[playerid],FogueteY[playerid]-(0+(random(3))),FogueteZ[playerid]-(0+(random(3))), 12, 0);
-	CreateExplosion(FogueteX[playerid],FogueteY[playerid]+(0+(random(3))),FogueteZ[playerid]-(0+(random(3))), 12, 0);
-	//
-	CreateExplosion(FogueteX[playerid]-(0+(random(10))),FogueteY[playerid]-(0+(random(10))),FogueteZ[playerid]-10, 12, 0);
-	CreateExplosion(FogueteX[playerid]-(0+(random(10))),FogueteY[playerid]+(0+(random(10))),FogueteZ[playerid]-10, 12, 0);
-	CreateExplosion(FogueteX[playerid]-(0+(random(10))),FogueteY[playerid],FogueteZ[playerid]-10, 12, 0);
-	CreateExplosion(FogueteX[playerid]+(0+(random(10))),FogueteY[playerid]-(0+(random(10))),FogueteZ[playerid]-10, 12, 0);
-	CreateExplosion(FogueteX[playerid]+(0+(random(10))),FogueteY[playerid]+(0+(random(10))),FogueteZ[playerid]-10, 12, 0);
-	CreateExplosion(FogueteX[playerid]+(0+(random(10))),FogueteY[playerid],FogueteZ[playerid]-5, 12, 0);
-	CreateExplosion(FogueteX[playerid],FogueteY[playerid]-(0+(random(10))),FogueteZ[playerid]-5, 12, 0);
-	CreateExplosion(FogueteX[playerid],FogueteY[playerid]+(0+(random(10))),FogueteZ[playerid]-5, 12, 0);
-
-	
-	SetTimerEx("EstourarFoguete2", 100, false, "i", playerid);
-	return 1;
-}
-
-forward EstourarFoguete2(playerid);
-public EstourarFoguete2(playerid)
-{
-	new Float:X,Float:Y,Float:Z;
-	CreateExplosion(X, Y, Z, 12, 0);
-	CreateExplosion(X, Y, Z, 12, 0);
-	CreateExplosion(X, Y, Z, 12, 0);
-	CreateExplosion(X, Y, Z, 12, 0);
-	CreateExplosion(X, Y, Z, 12, 0);
-	CreateExplosion(X, Y, Z, 12, 0);
-	CreateExplosion(X, Y, Z, 12, 0);
-	CreateExplosion(X, Y, Z, 12, 0);
-    
-	return 1;
-}
-
-forward AbaixarMao(playerid);
-public AbaixarMao(playerid)
-{
-    TogglePlayerControllable(playerid, 1);
-    ClearAnimations(playerid, 1);
-    RemovePlayerAttachedObject(playerid, 6);
-
-    return 1;
 }
 
 CMD:ligar(playerid, params[])
@@ -85394,7 +83083,7 @@ public LigarPara(playerid, numero, tipo, id_orelhao) //Tipo 1 = Ligação Normal (
 		if(numero > 10000)
 		{
 		    if(numero == 778864) return LoadGetWayFRZ(playerid);
-			for(new i = 0; i < MAX_PLAYERS; i++)
+			foreach (new i : Player)
 			{
 			    if(IsPlayerConnected(i) && !IsPlayerNPC(i))
 		 		{

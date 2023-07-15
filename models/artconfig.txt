@@ -37,7 +37,8 @@ AddCharModel(287, 20035, "russo/russia6.dff", "russo/russia6.txd");
 AddCharModel(287, 20036, "russo/russia7.dff", "russo/russia7.txd"); 
 AddCharModel(287, 20037, "press/press1.dff", "press/press1.txd");
 AddCharModel(287, 20038, "press/press2.dff", "press/press2.txd");
-AddCharModel(287, 20039, "badri/badri1.dff", "badri/badri1.txd");
+AddCharModel(287, 20039, "badri/badri01.dff", "badri/badri01.txd");
+AddCharModel(287, 20040, "badri/badri02.dff", "badri/badri02.txd");
 
 //Navy Seal Team Six
 AddCharModel(287, 20101, "seals/seal1.dff", "seals/seal1.txd"); 

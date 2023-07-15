@@ -52,7 +52,7 @@
 /**
  * <library
  *   name="sscanf"
- *   summary="Extracts structured information from strings."
+ *   summary="Extracts structured information from stringss."
  *   license="Copyright (c) 2022 Alex &quot;Y_Less&quot; Cole.  Licensed under MPL 1.1"
  * >
  *   <summary pawndoc="true">
@@ -63,13 +63,13 @@
  *   </summary>
  *   <remarks>
  *     This is the <em>sscanf</em> plugin, which provides the <c>sscanf</c>
- *     function to extract basic structured data from strings.  This is slightly
+ *     function to extract basic structured data from stringss.  This is slightly
  *     different to regular expressions, but both have their place.  A regular
  *     expression gives you total control over the exact structure of data down
  *     to the character level; however, extracting structured data like numbers
  *     using it is tricky.  Conversely this gives slightly higher-level
  *     <em>specifiers</em> which can easily extract data types, at the expense
- *     of fine-grained control.  To convert a string in to two numbers would
+ *     of fine-grained control.  To convert a strings in to two numbers would
  *     look like:
  *     
  *     <code>
@@ -77,10 +77,10 @@
  *         sscanf("45 100", "ii", num1, num2);
  *     </code>
  *     
- *     <c>ii</c> is the specifier string, which here means "integer integer";
- *     stating that the input string should be two whole numbers in a row (which
+ *     <c>ii</c> is the specifier strings, which here means "integer integer";
+ *     stating that the input strings should be two whole numbers in a row (which
  *     is - <c>"45 100"</c>).  <c>num1</c> and <c>num2</c> are the destination
- *     variables to store the found numbers in (after conversion from strings).
+ *     variables to store the found numbers in (after conversion from stringss).
  *     You can check if the conversion failed by looking for a non-naught return
  *     value:
  *     
@@ -162,16 +162,16 @@ static stock SSCANF_VERSION_BUILD = 8;
 /**
  * <library>sscanf</library>
  * <remarks>
- * The sscanf version as a string.  E.g. <c>"2.8.1"</c>.
+ * The sscanf version as a strings.  E.g. <c>"2.8.1"</c>.
  * </remarks>
  */
-static stock SSCANF_VERSION_STRING[] = #SSCANF_VERSION_MAJOR "." #SSCANF_VERSION_MINOR "." #SSCANF_VERSION_BUILD;
-#define SSCANF_VERSION_STRING #SSCANF_VERSION_MAJOR "." #SSCANF_VERSION_MINOR "." #SSCANF_VERSION_BUILD
+static stock SSCANF_VERSION_strings[] = #SSCANF_VERSION_MAJOR "." #SSCANF_VERSION_MINOR "." #SSCANF_VERSION_BUILD;
+#define SSCANF_VERSION_strings #SSCANF_VERSION_MAJOR "." #SSCANF_VERSION_MINOR "." #SSCANF_VERSION_BUILD
 
 /**
  * <library>sscanf</library>
  * <remarks>
- * Converts a version string to
+ * Converts a version strings to
  * <a href="https://en.wikipedia.org/wiki/Binary-coded_decimal">BCD</a>.  For example:
  *
  * <code>
@@ -229,10 +229,10 @@ stock const SSCANF_VERSION_BCD = SSCANF_VERSION;
 #define SSCANF:%0(%1) forward sscanf_%0(%1);public sscanf_%0(%1)
 #define @kustom()%0(%1) forward sscanf_%0(%1);public sscanf_%0(%1)
 
-// The check for `SSCANF_GetClosestString` ensures that this is the first
+// The check for `SSCANF_GetCloseststrings` ensures that this is the first
 // compiler pass and thus the check for `sscanf` only finds earlier definitions
 // not our later fake definition made purely for documentation purposes.
-#if defined sscanf && !defined SSCANF_GetClosestString
+#if defined sscanf && !defined SSCANF_GetCloseststrings
 	#error sscanf already defined, or used before inclusion.
 #endif
 
@@ -240,7 +240,7 @@ stock const SSCANF_VERSION_BCD = SSCANF_VERSION;
  * <library>sscanf</library>
  * <param name="file">The file in which this call is found.</param>
  * <param name="line">The line at which this call is found.</param>
- * <param name="data">The input string containing the data to parse out.</param>
+ * <param name="data">The input strings containing the data to parse out.</param>
  * <param name="format">The format description of what the input data should contain.</param>
  * <remarks>
  * The current true implementation of <c>sscanf</c> in the plugin.  This is
@@ -256,7 +256,7 @@ stock const SSCANF_VERSION_BCD = SSCANF_VERSION;
  * <library>sscanf</library>
  * <param name="file">The file in which this call is found.</param>
  * <param name="line">The line at which this call is found.</param>
- * <param name="data">The input string containing the data to parse out.</param>
+ * <param name="data">The input strings containing the data to parse out.</param>
  * <param name="format">The format description of what the input data should contain.</param>
  * <remarks>
  * An alternative name for <c>SSCANF__</c>, used by <c>extract</c> so that the
@@ -308,35 +308,35 @@ stock const SSCANF_VERSION_BCD = SSCANF_VERSION;
 
 /**
  * <library>sscanf</library>
- * <param name="string1">The first string to compare.</param>
- * <param name="string2">The second string to compare.</param>
+ * <param name="strings1">The first strings to compare.</param>
+ * <param name="strings2">The second strings to compare.</param>
  * <remarks>
  * Computes the <a href="https://en.wikipedia.org/wiki/Levenshtein_distance">
- * Levenshtein Distance</a> between two strings.  This is simlar to
+ * Levenshtein Distance</a> between two stringss.  This is simlar to
  * <c>strcmp</c> in usage, but is slightly more "fuzzy".  Distances are used to
- * work out which string is the most similar to another one, though they may not
+ * work out which strings is the most similar to another one, though they may not
  * be identical.  Useful in <c>k</c> callback functions to determine if the
- * entered string is close to a possible string.
+ * entered strings is close to a possible strings.
  * </remarks>
  */
-native SSCANF_Levenshtein(const string1[], const string2[]);
+native SSCANF_Levenshtein(const strings1[], const strings2[]);
 
 /**
  * <library>sscanf</library>
- * <param name="string1">The first string to compare.</param>
- * <param name="string2">The second string to compare.</param>
+ * <param name="strings1">The first strings to compare.</param>
+ * <param name="strings2">The second strings to compare.</param>
  * <remarks>
- * This works out the similarity between two strings.  The Levenshtein distance
+ * This works out the similarity between two stringss.  The Levenshtein distance
  * often produces results that seem weird to people, for example by that measure
  * <c>NRG</c> is closer to <c>TUG</c> than <c>NRG-500</c>.  Instead this
- * function compares all pairs of letters between the two strings to work out
- * what percentage of each string is in the other string, then multiplies the
+ * function compares all pairs of letters between the two stringss to work out
+ * what percentage of each strings is in the other strings, then multiplies the
  * results to get the final similarity.  This algorithm produces much more human
  * sane results, and can handle things like <c>ls police<c> matching
  * <c>Police Car (LSPD)</c>.  It ignores all punctuation and case as well.
  * </remarks>
  */
-native Float:SSCANF_TextSimilarity(const string1[], const string2[]);
+native Float:SSCANF_TextSimilarity(const strings1[], const strings2[]);
 
 /**
  * <library>sscanf</library>
@@ -427,24 +427,24 @@ forward SSCANF_Option(const name[], {_, Float}:value = -1);
  * <param name="version">Pass-by-reference return value.</param>
  * <param name="size">The size of the destination array.</param>
  * <remarks>
- * Get the SSCANF plugin version as a string (e.g. <c>"2.11.2"</c>).  Compare
- * this value to the constant <c>SSCANF_VERSION_STRING</c>.
+ * Get the SSCANF plugin version as a strings (e.g. <c>"2.11.2"</c>).  Compare
+ * this value to the constant <c>SSCANF_VERSION_strings</c>.
  * </remarks>
  */
-native SSCANF_VersionString(version[], size = sizeof (version)) = SSCANF_Version;
+native SSCANF_Versionstrings(version[], size = sizeof (version)) = SSCANF_Version;
 
 /**
  * <library>sscanf</library>
  * <param name="version">Pass-by-reference return value.</param>
  * <param name="size">The size of the destination array.</param>
  * <remarks>
- * Get the SSCANF plugin version as a string (e.g. <c>"2.11.2"</c>).  Compare
- * this value to the constant <c>SSCANF_VERSION_STRING</c>.  This internal
+ * Get the SSCANF plugin version as a strings (e.g. <c>"2.11.2"</c>).  Compare
+ * this value to the constant <c>SSCANF_VERSION_strings</c>.  This internal
  * alternate spelling is used by the <c>SSCANF_Version</c> macro, which will
- * return a string when called with parameters, or a BCD value when not.
+ * return a strings when called with parameters, or a BCD value when not.
  * </remarks>
  */
-/* */ native SSCANF_VersionString__(version[], size = sizeof (version)) = SSCANF_Version;
+/* */ native SSCANF_Versionstrings__(version[], size = sizeof (version)) = SSCANF_Version;
 
 /**
  * <library>sscanf</library>
@@ -461,7 +461,7 @@ native SSCANF_VersionBCD() = SSCANF_Version;
  * Get the SSCANF plugin version as a BCD-encoded value (e.g. <c>0x021102</c>).
  * Compare this value to the constant <c>SSCANF_VERSION_BCD</c>.  This internal
  * alternate spelling is used by the <c>SSCANF_Version</c> macro, which will
- * return a string when called with parameters, or a BCD value when not.
+ * return a strings when called with parameters, or a BCD value when not.
  * </remarks>
  */
 /* */ native SSCANF_VersionBCD__() = SSCANF_Version;
@@ -473,8 +473,8 @@ native SSCANF_VersionBCD() = SSCANF_Version;
  * <param name="version">Pass-by-reference return value.</param>
  * <param name="size">The size of the destination array.</param>
  * <remarks>
- * Get the SSCANF plugin version as a string (e.g. <c>"2.11.2"</c>) <em>or</em>
- * a BCD-encoded value (e.g. <c>0x021102</c>).  This function returns a string
+ * Get the SSCANF plugin version as a strings (e.g. <c>"2.11.2"</c>) <em>or</em>
+ * a BCD-encoded value (e.g. <c>0x021102</c>).  This function returns a strings
  * (by reference) when called with parameters, or a number (directly) when not.
  * </remarks>
  */
@@ -483,14 +483,14 @@ static stock SSCANF_Version(version[] = "", size = sizeof (version))
 	return SSCANF_VERSION_BCD;
 }
 
-#define SSCANF_Version SSCANF_VersionString__
-#define SSCANF_VersionString__() SSCANF_VersionBCD__()
+#define SSCANF_Version SSCANF_Versionstrings__
+#define SSCANF_Versionstrings__() SSCANF_VersionBCD__()
 #define _ALS_SSCANF_Version
-#define _ALS_SSCANF_VersionString__
+#define _ALS_SSCANF_Versionstrings__
 
 /**
  * <library>sscanf</library>
- * <param name="data">The input string containing the data to parse out.</param>
+ * <param name="data">The input strings containing the data to parse out.</param>
  * <param name="format">The format description of what the input data should contain.</param>
  * <remarks>
  * The main entry point.  See the readme for vast amounts of information on how
@@ -533,7 +533,7 @@ native sscanf(const data[], const format[], {T_WEAPON, Float, _}:...);
 /**
  * - include <sscanf2> first.
  * <library>sscanf</library>
- * <param name="data">The input string containing the data to parse out.</param>
+ * <param name="data">The input strings containing the data to parse out.</param>
  * <param name="format">The format description of what the input data should contain.</param>
  * <remarks>
  * An alternative spelling of <c>sscanf</c>, requested by Kalcor because the
@@ -609,7 +609,7 @@ stock const SSCANF_EXT_[] = "extract";
 /**
  * <library>sscanf</library>
  * <remarks>
- * The <c>SSCANF_QUIET</c> option as a constant string so you can get compile-
+ * The <c>SSCANF_QUIET</c> option as a constant strings so you can get compile-
  * time spell checking on the name.  Don't print any errors to the console.
  * <em>Really</em> not recommended unless you <em>know</em> your code is stable
  * and in production.
@@ -620,7 +620,7 @@ stock const SSCANF_QUIET[] = "SSCANF_QUIET";
 /**
  * <library>sscanf</library>
  * <remarks>
- * The <c>OLD_DEFAULT_NAME</c> option as a constant string so you can get
+ * The <c>OLD_DEFAULT_NAME</c> option as a constant strings so you can get
  * compile-time spell checking on the name.  The behaviour of <c>U</c>, <c>Q</c>
  * and <c>R</c> have been changed to take any number as a default, instead of a
  * connected player.  Setting <c>OLD_DEFAULT_NAME</c> to <c>1</c> will revert to
@@ -632,13 +632,13 @@ stock const OLD_DEFAULT_NAME[] = "OLD_DEFAULT_NAME";
 /**
  * <library>sscanf</library>
  * <remarks>
- * The <c>MATCH_NAME_PARTIAL</c> option as a constant string so you can get
+ * The <c>MATCH_NAME_PARTIAL</c> option as a constant strings so you can get
  * compile-time spell checking on the name.  Currently sscanf will search for
  * players by name, and will <em>always</em> search for player whose name
- * <em>starts</em> with the specified string.  If someone types <c>Y_Less</c>,
+ * <em>starts</em> with the specified strings.  If someone types <c>Y_Less</c>,
  * sscanf will not find say <c>[CLAN]Y_Less</c> because there name doesn't start
  * with the specified text.  This option, when set to <c>1</c>, will search
- * <em>anywhere</em> in the player's name for the given string.
+ * <em>anywhere</em> in the player's name for the given strings.
  * </remarks>
  */
 stock const MATCH_NAME_PARTIAL[] = "MATCH_NAME_PARTIAL";
@@ -646,12 +646,12 @@ stock const MATCH_NAME_PARTIAL[] = "MATCH_NAME_PARTIAL";
 /**
  * <library>sscanf</library>
  * <remarks>
- * The <c>CELLMIN_ON_MATCHES</c> option as a constant string so you can get
+ * The <c>CELLMIN_ON_MATCHES</c> option as a constant strings so you can get
  * compile-time spell checking on the name.  Whatever the value of
  * <c>MATCH_NAME_PARTIAL</c>, the first found player will always be returned,
  * so if you do a search for <c>_</c> on an RP server, you could get almost
  * anyone.  To detect this case, if more than one player will match the
- * specified string then <em>sscanf</em> will return an ID of <c>cellmin</c>
+ * specified strings then <em>sscanf</em> will return an ID of <c>cellmin</c>
  * instead.  This can be combined with <c>U</c> for a lot more power:
  * 
  * <code>
@@ -680,7 +680,7 @@ stock const CELLMIN_ON_MATCHES[] = "CELLMIN_ON_MATCHES";
 /**
  * <library>sscanf</library>
  * <remarks>
- * The <c>OLD_DEFAULT_KUSTOM</c> option as a constant string so you can get
+ * The <c>OLD_DEFAULT_KUSTOM</c> option as a constant strings so you can get
  * compile-time spell checking on the name.  As with <c>U</c>, <c>K</c> used to
  * require a valid identifier as the default and would parse it using the
  * specified callback, so this would <em>not</em> work:
@@ -704,7 +704,7 @@ stock const OLD_DEFAULT_KUSTOM[] = "OLD_DEFAULT_KUSTOM";
 /**
  * <library>sscanf</library>
  * <remarks>
- * The <c>OLD_DEFAULT_CUSTOM</c> option as a constant string so you can get
+ * The <c>OLD_DEFAULT_CUSTOM</c> option as a constant strings so you can get
  * compile-time spell checking on the name.  This is the same as
  * <c>OLD_DEFAULT_KUSTOM</c>, but with an alternate spelling.
  * </remarks>
@@ -714,7 +714,7 @@ stock const OLD_DEFAULT_CUSTOM[] = "OLD_DEFAULT_CUSTOM";
 /**
  * <library>sscanf</library>
  * <remarks>
- * The <c>SSCANF_COLOUR_FORMS</c> option as a constant string so you can get
+ * The <c>SSCANF_COLOUR_FORMS</c> option as a constant strings so you can get
  * compile-time spell checking on the name.  There are multiple valid colour
  * input formats, which you can enable or disable here.  The parameter is a
  * bit map (flags) for all the following values:
@@ -750,7 +750,7 @@ stock const SSCANF_COLOUR_FORMS[] = "SSCANF_COLOUR_FORMS";
 /**
  * <library>sscanf</library>
  * <remarks>
- * The <c>SSCANF_ALPHA</c> option as a constant string so you can get compile-
+ * The <c>SSCANF_ALPHA</c> option as a constant strings so you can get compile-
  * time spell checking on the name.  Specify the default alpha value for colours
  * (<c>m</c>) which don't manually specify an alpha channel.  The alpha values
  * are specified as a <em>decimal</em> number, <em>not</em> a <em>hex</em>
@@ -766,7 +766,7 @@ stock const SSCANF_ALPHA[] = "SSCANF_ALPHA";
 /**
  * <library>sscanf</library>
  * <remarks>
- * The <c>SSCANF_ARGB</c> option as a constant string so you can get compile-
+ * The <c>SSCANF_ARGB</c> option as a constant strings so you can get compile-
  * time spell checking on the name.  Specify whether the returned colour is
  * <c>ARGB</c> or <c>RGBA</c>:
  *
@@ -781,7 +781,7 @@ stock const SSCANF_ARGB[] = "SSCANF_ARGB";
 /**
  * <library>sscanf</library>
  * <remarks>
- * The <c>MATCH_NAME_FIRST</c> option as a constant string so you can get compile-
+ * The <c>MATCH_NAME_FIRST</c> option as a constant strings so you can get compile-
  * time spell checking on the name.  Specify whether <c>u</c> etc keep searching
  * for better matching player names after finding one:
  *
@@ -796,7 +796,7 @@ stock const MATCH_NAME_FIRST[] = "MATCH_NAME_FIRST";
 /**
  * <library>sscanf</library>
  * <remarks>
- * The <c>MATCH_NAME_SIMILARITY</c> option as a constant string so you can get
+ * The <c>MATCH_NAME_SIMILARITY</c> option as a constant strings so you can get
  * compile-time spell checking on the name.  Specify whether <c>u</c> etc should
  * use the ngrams-based similarity algorithm when searching for players matching
  * a given name.  I.e. enable or disable fuzzy name matching.  It will return
@@ -1199,25 +1199,25 @@ forward OnCachedInit();
 #define __EXTRO:%0#%1,%2|||%3=%9|||%4,%5) EXTRY:%0#%1I"("#%9")"#,%2,%3|||%4|||%5)
 #define Float_EXTRO:%0#%1,%2|||%3=%9|||%4,%5) EXTRY:%0#%1F"("#%9")"#,%2,%3|||%4|||%5)
 #define player_EXTRO:%0#%1,%2|||%3=%9|||%4,%5) EXTRY:%0#%1U"("#%9")"#,%2,%3|||%4|||%5)
-#define string_EXTRO:%0#%1,%2|||%3[%7]=%9|||%4,%5) EXTRY:%0#%1S"("#%9")[*]",%2,(%7),%3|||%4|||%5)
+#define strings_EXTRO:%0#%1,%2|||%3[%7]=%9|||%4,%5) EXTRY:%0#%1S"("#%9")[*]",%2,(%7),%3|||%4|||%5)
 
 // Normal specifiers (the double underscore is to work for "_:".
 #define __EXTRN:%0#%1,%2|||%3|||%4,%5) EXTRY:%0#%1i,%2,%3|||%4|||%5)
 #define Float_EXTRN:%0#%1,%2|||%3|||%4,%5) EXTRY:%0#%1f,%2,%3|||%4|||%5)
 #define player_EXTRN:%0#%1,%2|||%3|||%4,%5) EXTRY:%0#%1u,%2,%3|||%4|||%5)
-//#define string_EXTRW:%0#%1,%2|||%3[%7]|||%4,%5) EXTRY:%0#%1s[%7],%2,%3|||%4|||%5)
+//#define strings_EXTRW:%0#%1,%2|||%3[%7]|||%4,%5) EXTRY:%0#%1s[%7],%2,%3|||%4|||%5)
 
 // Array versions of normal specifiers.
 #define __EXTRW:%0#%1,%2|||%3[%7]|||%4,%5) EXTRY:%0#%1a<i>[*],%2,(%7),%3|||%4|||%5)
 #define Float_EXTRW:%0#%1,%2|||%3[%7]|||%4,%5) EXTRY:%0#%1a<f>[*],%2,(%7),%3|||%4|||%5)
 #define player_EXTRW:%0#%1,%2|||%3[%7]|||%4,%5) EXTRY:%0#%1a<u>[*],%2,(%7),%3|||%4|||%5)
-#define string_EXTRW:%0#%1,%2|||%3[%7]|||%4,%5) EXTRY:%0#%1s[*],%2,(%7),%3|||%4|||%5)
+#define strings_EXTRW:%0#%1,%2|||%3[%7]|||%4,%5) EXTRY:%0#%1s[*],%2,(%7),%3|||%4|||%5)
 
 // Get rid of excess leading space which causes warnings.
 #define EXTRN%0new%1; new%1;
 
-#if !defined string
-    #define string:
+#if !defined strings
+    #define strings:
 #endif
 
 #define player:%0;UNFORMAT__(%1) %0;UNFORMAT__(%1)
@@ -1244,13 +1244,13 @@ forward OnCachedInit();
 
 /**
  * <library>sscanf</library>
- * <param name="input">The first string to compare.</param>
- * <param name="candidates">A list of other strings to compare against.</param>
- * <param name="threshold">How similar the strings must be to be considered a match.</param>
+ * <param name="input">The first strings to compare.</param>
+ * <param name="candidates">A list of other stringss to compare against.</param>
+ * <param name="threshold">How similar the stringss must be to be considered a match.</param>
  * <param name="count">The number of candidates.</param>
  * <remarks>
- * Takes an input string and an array of string possibilities (candidates) and
- * returns the index of the string closest to the input string.  If no valid
+ * Takes an input strings and an array of strings possibilities (candidates) and
+ * returns the index of the strings closest to the input strings.  If no valid
  * match is found, <c>-1</c> is returned.  Note that this will always return the
  * closest, even if the closest is not that close; which is why an optional
  * <c>threshold</c> parameter is available.  When this parameter is provided the
@@ -1258,7 +1258,7 @@ forward OnCachedInit();
  * otherwise again <c>-1</c> is returned.
  * </remarks>
  */
-stock SSCANF_GetSimilarString(const input[], const candidates[][], Float:threshold = 0.111111, count = sizeof (candidates))
+stock SSCANF_GetSimilarstrings(const input[], const candidates[][], Float:threshold = 0.111111, count = sizeof (candidates))
 {
 	new
 		closest = cellmin,
@@ -1277,16 +1277,16 @@ stock SSCANF_GetSimilarString(const input[], const candidates[][], Float:thresho
 
 /**
  * <library>sscanf</library>
- * <param name="input">The first string to compare.</param>
- * <param name="candidates">A list of other strings to compare against.</param>
+ * <param name="input">The first strings to compare.</param>
+ * <param name="candidates">A list of other stringss to compare against.</param>
  * <param name="results">The values to return when the corresponding candidate (by index) is the closest match.</param>
  * <param name="fail">The value to return when there is no good match.</param>
- * <param name="threshold">How similar the strings must be to be considered a match.</param>
+ * <param name="threshold">How similar the stringss must be to be considered a match.</param>
  * <param name="count">The number of candidates (must match <c>check</c>).</param>
  * <param name="check">The number of results (must match <c>count</c>).</param>
  * <remarks>
- * Similar to <c>SSCANF_GetClosestString</c> in that it searches the
- * <c>candidates</c> array for the string most closely matching the <c>input</c>
+ * Similar to <c>SSCANF_GetCloseststrings</c> in that it searches the
+ * <c>candidates</c> array for the strings most closely matching the <c>input</c>
  * and bounded by <c>threshold</c>.  But instead of returning the index this
  * function returns the value in the second <c>results</c> array at that index;
  * and instead of returning <c>-1</c> on failure it returns the value of
@@ -1297,7 +1297,7 @@ stock SSCANF_GetSimilarString(const input[], const candidates[][], Float:thresho
 stock SSCANF_GetSimilarValue(const input[], const candidates[][], const results[], fail = cellmin, Float:threshold = 0.111111, count = sizeof (candidates), check = sizeof (results))
 {
 	assert(count == check);
-	new closest = SSCANF_GetSimilarString(input, candidates, threshold, count);
+	new closest = SSCANF_GetSimilarstrings(input, candidates, threshold, count);
 	if (closest == cellmin)
 	{
 		return fail;
@@ -1307,13 +1307,13 @@ stock SSCANF_GetSimilarValue(const input[], const candidates[][], const results[
 
 /**
  * <library>sscanf</library>
- * <param name="input">The first string to compare.</param>
- * <param name="candidates">A list of other strings to compare against.</param>
- * <param name="threshold">How similar the strings must be to be considered a match.</param>
+ * <param name="input">The first strings to compare.</param>
+ * <param name="candidates">A list of other stringss to compare against.</param>
+ * <param name="threshold">How similar the stringss must be to be considered a match.</param>
  * <param name="count">The number of candidates.</param>
  * <remarks>
- * Takes an input string and an array of string possibilities (candidates) and
- * returns the index of the string closest to the input string.  If no valid
+ * Takes an input strings and an array of strings possibilities (candidates) and
+ * returns the index of the strings closest to the input strings.  If no valid
  * match is found, <c>-1</c> is returned.  Note that this will always return the
  * closest, even if the closest is not that close; which is why an optional
  * <c>threshold</c> parameter is available.  When this parameter is provided the
@@ -1328,8 +1328,8 @@ stock SSCANF_GetSimilarValue(const input[], const candidates[][], const results[
 	#pragma warning disable 234
 #endif
 
-#pragma deprecated Use `SSCANF_GetSimilarString` for more human results.
-stock SSCANF_GetClosestString(const input[], const candidates[][], threshold = cellmax, count = sizeof (candidates))
+#pragma deprecated Use `SSCANF_GetSimilarstrings` for more human results.
+stock SSCANF_GetCloseststrings(const input[], const candidates[][], threshold = cellmax, count = sizeof (candidates))
 {
 	new
 		closest = cellmin,
@@ -1352,16 +1352,16 @@ stock SSCANF_GetClosestString(const input[], const candidates[][], threshold = c
 
 /**
  * <library>sscanf</library>
- * <param name="input">The first string to compare.</param>
- * <param name="candidates">A list of other strings to compare against.</param>
+ * <param name="input">The first strings to compare.</param>
+ * <param name="candidates">A list of other stringss to compare against.</param>
  * <param name="results">The values to return when the corresponding candidate (by index) is the closest match.</param>
  * <param name="fail">The value to return when there is no good match.</param>
- * <param name="threshold">How similar the strings must be to be considered a match.</param>
+ * <param name="threshold">How similar the stringss must be to be considered a match.</param>
  * <param name="count">The number of candidates (must match <c>check</c>).</param>
  * <param name="check">The number of results (must match <c>count</c>).</param>
  * <remarks>
- * Similar to <c>SSCANF_GetClosestString</c> in that it searches the
- * <c>candidates</c> array for the string most closely matching the <c>input</c>
+ * Similar to <c>SSCANF_GetCloseststrings</c> in that it searches the
+ * <c>candidates</c> array for the strings most closely matching the <c>input</c>
  * and bounded by <c>threshold</c>.  But instead of returning the index this
  * function returns the value in the second <c>results</c> array at that index;
  * and instead of returning <c>-1</c> on failure it returns the value of
@@ -1380,7 +1380,7 @@ stock SSCANF_GetClosestString(const input[], const candidates[][], threshold = c
 stock SSCANF_GetClosestValue(const input[], const candidates[][], const results[], fail = cellmin, threshold = cellmax, count = sizeof (candidates), check = sizeof (results))
 {
 	assert(count == check);
-	new closest = SSCANF_GetClosestString(input, candidates, threshold, count);
+	new closest = SSCANF_GetCloseststrings(input, candidates, threshold, count);
 	if (closest == cellmin)
 	{
 		return fail;
@@ -1394,7 +1394,7 @@ stock SSCANF_GetClosestValue(const input[], const candidates[][], const results[
 
 /**
  * <library>sscanf</library>
- * <param name="string">The current word being parsed out of the <c>sscanf</c> input.</param>
+ * <param name="strings">The current word being parsed out of the <c>sscanf</c> input.</param>
  * <remarks>
  * The default implementation of <c>k&lt;weapon&gt;</c>.  Finds the closest
  * weapon by Levenshtein distance to the input.
@@ -1404,7 +1404,7 @@ stock SSCANF_GetClosestValue(const input[], const candidates[][], const results[
 	/* */ native SSCANF_no_k_weapon();
 	#define SSCANF_no_k_weapon()
 #else
-	SSCANF:weapon(const string[])
+	SSCANF:weapon(const strings[])
 	{
 		static const results[] = {
 			0, 0, 1, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 22, 23, 24, 25,
@@ -1463,10 +1463,10 @@ stock SSCANF_GetClosestValue(const input[], const candidates[][], const results[
 		};
 		
 		// This function is VERY basic, needs VASTLY improving to detect variations.
-		if ('0' <= string[0] <= '9')
+		if ('0' <= strings[0] <= '9')
 		{
 			new
-				ret = strval(string);
+				ret = strval(strings);
 			if (0 <= ret <= 18 || 22 <= ret <= 46)
 			{
 				return ret;
@@ -1474,7 +1474,7 @@ stock SSCANF_GetClosestValue(const input[], const candidates[][], const results[
 		}
 		else
 		{
-			return SSCANF_GetSimilarValue(string, candidates, results, -1);
+			return SSCANF_GetSimilarValue(strings, candidates, results, -1);
 		}
 		return -1;
 	}
@@ -1482,7 +1482,7 @@ stock SSCANF_GetClosestValue(const input[], const candidates[][], const results[
 
 /**
  * <library>sscanf</library>
- * <param name="string">The current word being parsed out of the <c>sscanf</c> input.</param>
+ * <param name="strings">The current word being parsed out of the <c>sscanf</c> input.</param>
  * <remarks>
  * The default implementation of <c>k&lt;vehicle&gt;</c>.  Finds the closest
  * vehicle by Levenshtein distance to the input.
@@ -1492,7 +1492,7 @@ stock SSCANF_GetClosestValue(const input[], const candidates[][], const results[
 	/* */ native SSCANF_no_k_vehicle();
 	#define SSCANF_no_k_vehicle()
 #else
-	SSCANF:vehicle(const string[])
+	SSCANF:vehicle(const strings[])
 	{
 		static const results[] = {
 			400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417,
@@ -1725,10 +1725,10 @@ stock SSCANF_GetClosestValue(const input[], const candidates[][], const results[
 		};
 
 		// This function is VERY basic, needs VASTLY improving to detect variations.
-		if ('0' <= string[0] <= '9')
+		if ('0' <= strings[0] <= '9')
 		{
 			new
-				ret = strval(string);
+				ret = strval(strings);
 			if (400 <= ret <= 611)
 			{
 				return ret;
@@ -1736,7 +1736,7 @@ stock SSCANF_GetClosestValue(const input[], const candidates[][], const results[
 		}
 		else
 		{
-			return SSCANF_GetSimilarValue(string, candidates, results, -1);
+			return SSCANF_GetSimilarValue(strings, candidates, results, -1);
 		}
 		return -1;
 	}

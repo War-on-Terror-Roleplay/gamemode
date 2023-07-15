@@ -8857,7 +8857,6 @@ public Timer_Segundos()
 	if(Anuncio > 0) Anuncio--;
 	if(Anuncio == 0)
 
-	SetTimer("UpdateNametag", 1000, true); // Então, estamos usando um cronômetro, altere o intervalo para o que você deseja
 	{
 	    Anuncio = 30;
 
@@ -11000,22 +10999,23 @@ public SetNextStream(playerid,url[], duration, Float:posX, Float:posY, Float:pos
     }
     return 1;
 }
-forward UpdateNametag(playerid);
-public UpdateNametag(playerid)
+forward UpdateNametag();
+public UpdateNametag()
 {
     for(new i = 0, j = GetPlayerPoolSize(); i <= j; i++)
     {
         if(IsPlayerConnected(i))
         {
-            new nametag[128], Float:armour;
+            new nametag[128], playername[MAX_PLAYER_NAME], Float:armour;
             GetPlayerArmour(i, armour);
+            GetPlayerName(i, playername, sizeof(playername));
             if(armour > 1.0)
             {
-                format(nametag, sizeof(nametag), "{%06x}%s {FFFFFF}(%i)\n{FFFFFF}%s\n{FF0000}%s", GetPlayerColor(i) >>> 8, PlayerName(playerid, 1), i, GetArmorDots(i), GetHealthDots(i));
+                format(nametag, sizeof(nametag), "{%06x}%s {FFFFFF}(%i)\n{FFFFFF}%s\n{FF0000}%s", GetPlayerColor(i) >>> 8, playername, i, GetArmorDots(i), GetHealthDots(i));
             }
             else
             {
-                format(nametag, sizeof(nametag), "{%06x}%s {FFFFFF}(%i)\n{FF0000}%s", GetPlayerColor(i) >>> 8, PlayerName(playerid, 1), i, GetHealthDots(i));
+                format(nametag, sizeof(nametag), "{%06x}%s {FFFFFF}(%i)\n{FF0000}%s", GetPlayerColor(i) >>> 8, playername, i, GetHealthDots(i));
             }
             UpdateDynamic3DTextLabelText(cNametag[i], 0xFFFFFFFF, nametag);
         }

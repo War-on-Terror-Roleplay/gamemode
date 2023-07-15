@@ -1,6 +1,7 @@
-//checar correção - Sistema de seguro veícular
+#define SSCANF_NO_NICE_FEATURES
 // --------- [ INCLUDES ] ---------
 #include <a_samp>
+#include <fixes>
 #include <a_mysql>
 #include <zcmd>
 #include <foreach>

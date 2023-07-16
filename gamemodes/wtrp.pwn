@@ -54,6 +54,7 @@ native WP_Hash(_buffer[], len, const str[]);
 #define MAX_VEHICLES 5000
 #endif
 
+
 new PayDayDuplo = 0;
 
 // Vehicle Rental
@@ -1257,24 +1258,24 @@ new Text3D:cNametag[MAX_PLAYERS];
 #define MAX_HOUSES  2500
 
 //Armas - Danos
-#define  CORONHADA          3.0
+#define  CORONHADA           4.0
 #define  SOCODANO            2.0
-#define  OBJETOSDANO         3.0
-#define  KNIFEDANO           5.0
-#define  KATANADANO          5.0
-#define  SERRADANO           50.0
-#define  COLTDANO            10.0
-#define  SILENCEDDANO        10.0
-#define  EAGLEDANO           13.0
-#define  SHOTGDANO           25.0
-#define  COMBATDANO          25.0
-#define  UZIDANO             15.0
-#define  MP5DANO             18.0
-#define  AKDANO              20.0
-#define  M4DANO              16.0
-#define  TECDANO             18.0
-#define  RIFLEDANO           50.0
-#define  SNIPERDANO          100.0
+#define  OBJETOSDANO         4.0
+#define  KNIFEDANO           4.0
+#define  KATANADANO          10.0
+#define  SERRADANO           2.0
+#define  COLTDANO            19.0
+#define  SILENCEDDANO        19.0
+#define  EAGLEDANO           25.0
+#define  SHOTGDANO           28.0
+#define  COMBATDANO          10.0
+#define  UZIDANO             20.0
+#define  MP5DANO             30.0
+#define  AKDANO              33.0
+#define  M4DANO              33.0
+#define  TECDANO             20.0
+#define  RIFLEDANO           85.0
+#define  SNIPERDANO          90.0
 
 new GunNames[48][] = {
 	"Nada", "Brass Knuckles", "Golf Club", "Nitestick", "Knife", "Baseball Bat",
@@ -1310,8 +1311,6 @@ new string[1024],
 	TempoDesistir[MAX_PLAYERS],
 	PodeAceitarMorte[MAX_PLAYERS],
 	Text3D:TextMorto[MAX_PLAYERS],
-	StatusPalco = 0,
-	ObjPalco[66],
 	Menu_Armas[MAX_PLAYERS][6],
 	AcabouDeLogar[MAX_PLAYERS],
 	ComAnim[MAX_PLAYERS],
@@ -2897,10 +2896,10 @@ static VITOR_Uniformes[6] = {
 };
 
 //===== [ PMERJ ] =====//
-static PMERJ_Uniformes[11] = {
+static PMERJ_Uniformes[10] = {
 	20201, 20202, 20203, 20204,
 	20205, 20206, 20207, 20208,
-	20509, 20510, 20511
+	20209, 20210
 };
 
 static PMERJ_Barreiras[24] = {
@@ -2941,7 +2940,7 @@ static LOJA_OUTROS_BANK[3] = {
 	19138, 19139, 19140
 	
 };
-//======== [Seals Team]======//
+//======== [DEVGRU]======//
 static PCERJ_Uniformes[18] = {
     20101, 20102, 20103, 20104,
     20105, 20106, 20107, 20108,
@@ -3170,6 +3169,7 @@ static CARROS_AJUDAINI[8] = {
 //                      		Faction System by Yur$
 //==============================================================================
 #define MAX_FACCOES 50
+
 enum fac_Info
 {
 	fID,
@@ -4751,6 +4751,7 @@ stock CheckAdminBan(playerid)
 		
         new stringip[28];
         format(stringip, sizeof(stringip), "IP: %s", PrintPlayerIP(playerid));
+		SendAdminAlert(COLOR_LIGHTRED, "AdmCmd:{FFFFFF} o %s (IP: %s) foi pego tentando dar sql injection", PlayerName(playerid, 0), stringip);
         
 		Banir(stringip, GetUserName(playerid), PlayerInfo[playerid][pID], PlayerInfo[playerid][pNomeOOC], "Yur$ mandou beijo e esperma na sua cara!"); 
         BanExtra(playerid, "Yur$ mandou beijo e esperma na sua cara!", PlayerName(playerid, 0)); 
@@ -5919,40 +5920,73 @@ public Tempo_Clima()
 	new novoclima_LS = random(6);
 	new novoclima_LV = random(6);
 	new novoclima_SF = random(6);
-
 	switch(novoclima_LS)
 	{
-	    case 0: Clima_LS = 20;
-	    case 1: Clima_LS = 19;
-     	case 2: Clima_LS = 20;
-   		case 3: Clima_LS = 19;
-   		case 4: Clima_LS = 15;
-   		case 5: Clima_LS = 19;
+	    case 0: Clima_LS = 2;
+	    case 1: Clima_LS = 2;
+     	case 2: Clima_LS = 7;
+   		case 3: Clima_LS = 8;
+   		case 4: Clima_LS = 2;
+   		case 5: Clima_LS = 2;
    		default: Clima_LS = 2;
 	}
 	switch(novoclima_LV)
 	{
-	    case 0: Clima_LV = 20;
-	    case 1: Clima_LV = 19;
-     	case 2: Clima_LV = 20;
-   		case 3: Clima_LV = 19;
-   		case 4: Clima_LV = 15;
-   		case 5: Clima_LV = 19;
+	    case 0: Clima_LV = 2;
+	    case 1: Clima_LV = 2;
+     	case 2: Clima_LV = 7;
+   		case 3: Clima_LV = 8;
+   		case 4: Clima_LV = 2;
+   		case 5: Clima_LV = 2;
    		default: Clima_LV = 2;
 	}
 	switch(novoclima_SF)
 	{
-	    case 0: Clima_SF = 20;
-	    case 1: Clima_SF = 19;
-     	case 2: Clima_SF = 20;
-   		case 3: Clima_SF = 19;
-   		case 4: Clima_SF = 15;
-   		case 5: Clima_SF = 19;
+	    case 0: Clima_SF = 2;
+	    case 1: Clima_SF = 2;
+     	case 2: Clima_SF = 7;
+   		case 3: Clima_SF = 8;
+   		case 4: Clima_SF = 2;
+   		case 5: Clima_SF = 2;
    		default: Clima_SF = 2;
+	}
+	SetTimerEx("mudarclima", 100, false, "d");
+	return 1;
+}
+forward mudarclima();
+public mudarclima()
+{
+	foreach (new i : Player)
+	{
+	    if(IsPlayerConnected(i) || PlayerInfo[i][pLogado])
+ 		{
+			//Weather Sys by Yur$
+			if(PlayerInfo[i][pDrogaTime] == 0)
+			{
+				if(PlayerInfo[i][pEntrouCasa] == -1 && PlayerInfo[i][pEntrouEmpresa] == -1  && PlayerInfo[i][pEntrouComplexo] == -1 && PlayerInfo[i][pEntrouGaragem] == -1 && EntrouInt[i] == -1)
+				{
+					if(IsPlayerInLS(i))
+					{
+						SetPlayerWeather(i, Clima_LS);
+					}
+					else if(IsPlayerInLV(i))
+					{
+						SetPlayerWeather(i, Clima_LV);
+					}
+					else if(IsPlayerInSF(i))
+					{
+						SetPlayerWeather(i, Clima_SF);
+					}
+				}
+				else
+				{
+					SetPlayerWeather(i, 2);
+				}
+			}
+		}
 	}
 	return 1;
 }
-
 
 new SERVER_DOWNLOAD[] = "https://progressive-roleplay.com/modsamp";
 public OnPlayerRequestDownload(playerid, type, crc)
@@ -6205,7 +6239,7 @@ public OnGameModeInit()
     SetTimer("Timer_Segundos", 1000, true);
     SetTimer("Timer_Minutos", 60000, true);
     SetTimer("OnPlayerUpdate_Timer", 600, true);
-    //SetTimer("Tempo_Clima", 3600000, true);
+    SetTimer("Tempo_Clima", 18000000, true);
 	
 	mapacivil();
 	governamentalex();
@@ -7082,7 +7116,7 @@ public EntregandoArmaSQL(playerid, armaid, extra, equipar, raspada)
 				{
 				    new strl1[24];
 				    if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PMERJ) format(strl1, sizeof(strl1), "USMC");
-                    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PCERJ) format(strl1, sizeof(strl1), "Seals Team");
+                    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PCERJ) format(strl1, sizeof(strl1), "DEVGRU");
                     else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_CBERJ) format(strl1, sizeof(strl1), "MEDIC");
 				    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_GOV) format(strl1, sizeof(strl1), "US GOV");
 				    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_TJRP) format(strl1, sizeof(strl1), "DOJ");
@@ -7164,7 +7198,7 @@ public ArmaEntregueComSucesso(playerid,armaid,ammo,extra,equipar,raspada)
 		{
   			new strl1[24];
 	    	if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PMERJ) format(strl1, sizeof(strl1), "USMC");
-            else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PCERJ) format(strl1, sizeof(strl1), "Seals Team");
+            else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PCERJ) format(strl1, sizeof(strl1), "DEVGRU");
             else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_CBERJ) format(strl1, sizeof(strl1), "MEDIC");
 		    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_GOV) format(strl1, sizeof(strl1), "US GOV");
 		    else if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_TJRP) format(strl1, sizeof(strl1), "TJRP");
@@ -7198,7 +7232,7 @@ COMMAND:settempo(playerid, params[])
             if(PlayerInfo[targetid][pArrombarDNV_C] >= 0)
             {
                 PlayerInfo[targetid][pArrombarDNV_C] = 0;
-                format(string,sizeof(string),"AdmCmd: Você setou o timer 0 para %s.",PlayerName(targetid, 0));
+                format(string,sizeof(string),"AdmCmd:{FFFFFF} Você setou o timer 0 para %s.",PlayerName(targetid, 0));
                 SendClientMessage(playerid, COLOR_LIGHTRED, string);
             }
         }
@@ -7255,7 +7289,7 @@ CMD:blindar(playerid, params[])
 		RepairVehicle(vehicleid); 
 		SendClientMessage(playerid, COLOR_WHITE, "Seu veículo foi blindado."); 
 	}
-	else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não tem dinheiro o suficiente (US$200).");
+	else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem dinheiro o suficiente (US$200).");
 
     return true; 
 }
@@ -7407,7 +7441,7 @@ CMD:limparchat(playerid, params[])
 /* CMD:veraparencia(playerid, params[])
 {
     if (!PlayerInfo[playerid][pLogado])
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: {FFFFFF}Você não está logado!");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} {FFFFFF}Você não está logado!");
 
     new target[MAX_PLAYER_NAME];
     if (sscanf(params, "d", target))
@@ -7458,7 +7492,7 @@ COMMAND:setmorteiro(playerid, params[])
                 PlayerInfo[targetid][pMorteiro] = 100;
                 PlayerInfo[targetid][pMinaTerrestre] = 100;
                 PlayerInfo[targetid][pColeteBomba] = 100;
-                format(string,sizeof(string),"AdmCmd: Você setou para %s 100 morteiros.",PlayerName(targetid, 0));
+                format(string,sizeof(string),"AdmCmd:{FFFFFF} Você setou para %s 100 morteiros.",PlayerName(targetid, 0));
                 SendClientMessage(playerid, COLOR_LIGHTRED, string);
                 format(string,sizeof(string),"-> %s lhe deu 100 morteiros, parabéns por esta conquista.",admnome);
                 SendClientMessage(targetid, COLOR_YELLOW, string);
@@ -7466,9 +7500,9 @@ COMMAND:setmorteiro(playerid, params[])
             else
             {
                 PlayerInfo[targetid][pMorteiro] = 0;
-                format(string,sizeof(string),"AdmCmd: Você removeu os morteiros de %s.",PlayerName(targetid, 0));
+                format(string,sizeof(string),"AdmCmd:{FFFFFF} Você removeu os morteiros de %s.",PlayerName(targetid, 0));
                 SendClientMessage(playerid, COLOR_LIGHTRED, string);
-                format(string,sizeof(string),"AdmCmd: %s removeu seus morteiros.",admnome);
+                format(string,sizeof(string),"AdmCmd:{FFFFFF} %s removeu seus morteiros.",admnome);
                 SendClientMessage(targetid, COLOR_LIGHTRED, string);
             }
         }
@@ -7493,7 +7527,7 @@ COMMAND:medicteam(playerid, params[])
             if(PlayerInfo[targetid][pKitMedico] == 0)
             {
                 PlayerInfo[targetid][pKitMedico] = 2;
-                format(string,sizeof(string),"AdmCmd: Você setou %s na Medic Team.",PlayerName(targetid, 0));
+                format(string,sizeof(string),"AdmCmd:{FFFFFF} Você setou %s na Medic Team.",PlayerName(targetid, 0));
                 SendClientMessage(playerid, COLOR_LIGHTRED, string);
                 format(string,sizeof(string),"-> %s promoveu você para Medic Team, parabéns por esta conquista.",admnome);
                 SendClientMessage(targetid, COLOR_YELLOW, string);
@@ -7501,9 +7535,9 @@ COMMAND:medicteam(playerid, params[])
             else
             {
                 PlayerInfo[targetid][pKitMedico] = 0;
-                format(string,sizeof(string),"AdmCmd: Você removeu %s da Medic Team.",PlayerName(targetid, 0));
+                format(string,sizeof(string),"AdmCmd:{FFFFFF} Você removeu %s da Medic Team.",PlayerName(targetid, 0));
                 SendClientMessage(playerid, COLOR_LIGHTRED, string);
-                format(string,sizeof(string),"AdmCmd: %s removeu você da Medic Team.",admnome);
+                format(string,sizeof(string),"AdmCmd:{FFFFFF} %s removeu você da Medic Team.",admnome);
                 SendClientMessage(targetid, COLOR_LIGHTRED, string);
             }
         }
@@ -8692,16 +8726,11 @@ public Timer_Segundos()
 	new Horariorelogio = hour+1;
  	new timestring[24];
 
-	new HoraIC, MinsIC;
+	new HoraIC;
 
-	new minutos = gettime() % 60;
-
-	HoraIC = (gettime() / 60 + 5) % 24; 
+	HoraIC = (gettime() / 60 + 5) % 24; // Adiciona 5 horas para ajustar o fuso horário IC
 	if (HoraIC == 0)
 		HoraIC = 1;
-
-	MinsIC = (minutos + 30) % 60;
-
 
 	new d,m,y;
 	getdate(y,m,d);
@@ -9820,9 +9849,8 @@ public Timer_Segundos()
 					    TogglePlayerControllable(i, true);
 					}
 					//=============================================================
-					//==============================================================
 					//Weather Sys by Yur$
-					if(PlayerInfo[i][pDrogaTime] == 0)
+					/*if(PlayerInfo[i][pDrogaTime] == 0)
 					{
 						if(PlayerInfo[i][pEntrouCasa] == -1 && PlayerInfo[i][pEntrouEmpresa] == -1  && PlayerInfo[i][pEntrouComplexo] == -1 && PlayerInfo[i][pEntrouGaragem] == -1 && EntrouInt[i] == -1)
 						{
@@ -9843,7 +9871,7 @@ public Timer_Segundos()
 						{
 		                    SetPlayerWeather(i, 2);
 						}
-					} 
+					} */
 					//==============================================================
 			    }
 	 		}
@@ -12576,7 +12604,7 @@ public CheckingAccount(playerid)
 		}
 		else if(JaEstaOn == 2) {
 		    new strdebug[56];
-			format(strdebug,126,"ERRO: O seu personagem %s, já está logado... Caso estranhe isto, contate um administrador.", GetName(playerid));
+			format(strdebug,126,"ERRO:{FFFFFF} O seu personagem %s, já está logado... Caso estranhe isto, contate um administrador.", GetName(playerid));
 			SendClientMessage(playerid, COLOR_LIGHTRED, strdebug);
 			SetTimerEx("TimerKick", 7000, 0, "d", playerid);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][0]);
@@ -12588,7 +12616,7 @@ public CheckingAccount(playerid)
 		else {
 		    new strdebug[56];
 		    new pppid = (JaEstaOn-100);
-			format(strdebug,126,"ERRO: Algum outro personagem de sua UCP já está logado no servidor.. (Personagem: %s)", GetName(pppid));
+			format(strdebug,126,"ERRO:{FFFFFF} Algum outro personagem de sua UCP já está logado no servidor.. (Personagem: %s)", GetName(pppid));
 			SendClientMessage(playerid, COLOR_LIGHTRED, strdebug);
 			SetTimerEx("TimerKick", 7000, 0, "d", playerid);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][0]);
@@ -12676,7 +12704,7 @@ public CheckingAccount(playerid)
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][4]);
 			PlayerTextDrawShow(playerid, TelaLogin[playerid][5]);
 		    new strdebug[56];
-			format(strdebug,126,"ERRO: O seu personagem %s, já está logado... Caso estranhe isto, contate um administrador.", GetName(playerid));
+			format(strdebug,126,"ERRO:{FFFFFF} O seu personagem %s, já está logado... Caso estranhe isto, contate um administrador.", GetName(playerid));
 			SendClientMessage(playerid, COLOR_LIGHTRED, strdebug);
 			SetTimerEx("TimerKick", 7000, 0, "d", playerid);
 		}
@@ -14309,10 +14337,10 @@ COMMAND:darpet(playerid, params[])
     if(PlayerInfo[playerid][pAdmin] <= 5) return SendClientMessage(playerid, COLOR_LIGHTRED, "{FFFFFF}Você não é um administrador.");
 
     if(sscanf(params, "ud", targetid, petmodel))
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: /darpet [playerid] [petmodel]");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /darpet [playerid] [petmodel]");
 
     if(!IsValidPetModel(petmodel))
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Modelo de pet invalido!");   
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Modelo de pet invalido!");   
 
     PetData[targetid][petModelID] = petmodel;
     format(petzin, sizeof(petzin), PetData[targetid][petName], 128, "Jack");
@@ -14325,7 +14353,7 @@ COMMAND:darpet(playerid, params[])
 COMMAND:petmenu(playerid, params[])
 {
     if(!PetData[playerid][petModelID])
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não possui um pet.");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não possui um pet.");
 	if(PlayerInfo[playerid][pDoador] < 1) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não é um premium.");
 
     ShowPetMenu(playerid);
@@ -14363,10 +14391,10 @@ ShowPetMenu(playerid)
 PetSpawn(playerid)
 {
     if(PetData[playerid][petSpawn])
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você já tem um pet spawnado.");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já tem um pet spawnado.");
 
     if(GetPlayerVirtualWorld(playerid) != 0)
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não pode spawnar um pet em outro VW.");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode spawnar um pet em outro VW.");
 
     new petmodelid = PetData[playerid][petModelID], stringpet[256];
 
@@ -14414,7 +14442,7 @@ PetDespawn(playerid)
 PetSit(playerid)
 {
     if(!IsPetSpawned(playerid))
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Seu pet não está spawnado.");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Seu pet não está spawnado.");
 
     if(IsValidActor(PetData[playerid][petModel]))
     {
@@ -14430,7 +14458,7 @@ PetSit(playerid)
 PetLay(playerid)
 {
     if(!IsPetSpawned(playerid))
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Seu pet não está spawnado.");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Seu pet não está spawnado.");
 
     if(IsValidActor(PetData[playerid][petModel]))
     {
@@ -14447,7 +14475,7 @@ PetLay(playerid)
 PetJump(playerid)
 {
     if(!IsPetSpawned(playerid))
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Seu pet não está spawnado.");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Seu pet não está spawnado.");
 
     if(IsValidActor(PetData[playerid][petModel]))
     {
@@ -14463,14 +14491,14 @@ PetJump(playerid)
 PetStay(playerid)
 {
     if(!IsPetSpawned(playerid))
-        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Seu pet não está spawnado.");
+        return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Seu pet não está spawnado.");
 
     if(IsValidActor(PetData[playerid][petModel]))
     {
         PetData[playerid][petStatus] = PET_STAY;
         stop PetData[playerid][petTimer];
         ClearDynamicActorAnimations(PetData[playerid][petModel]);
-        SendClientMessage(playerid, COLOR_WHITE, "ERRO: Seu pet não está executando a animação.");
+        SendClientMessage(playerid, COLOR_WHITE, "ERRO:{FFFFFF} Seu pet não está executando a animação.");
     }
     return 1;
 }
@@ -14553,12 +14581,12 @@ Dialog:PET_MENU_FOLLOW(playerid, response, listitem, inputtext[]) {
             return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Seguir", "{FFFFFF}Insira o ID do jogador que você deseja que seu pet siga:", "Seguir", "Cancelar");
 
         if(sscanf(inputtext, "u", targetid))
-            return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Seguir", "{FF0000}ERRO: O ID inserido é inválido.\n\n{FFFFFF}Insira o ID do jogador que você deseja que seu pet siga:", "Seguir", "Cancelar");
+            return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Seguir", "{FF0000}ERRO:{FFFFFF} O ID inserido é inválido.\n\n{FFFFFF}Insira o ID do jogador que você deseja que seu pet siga:", "Seguir", "Cancelar");
 
         if(targetid == INVALID_PLAYER_ID)
-            return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Seguir", "{FF0000}ERRO: O jogador especificado é inválido.\n\n{FFFFFF}Insira o ID do jogador que você deseja que seu pet siga:", "Seguir", "Cancelar");
+            return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Seguir", "{FF0000}ERRO:{FFFFFF} O jogador especificado é inválido.\n\n{FFFFFF}Insira o ID do jogador que você deseja que seu pet siga:", "Seguir", "Cancelar");
         
-        if(!IsPlayerNearPlayer(playerid, targetid, 10.0)) return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Seguir", "{FF0000}ERRO: O jogador especificado não está perto o suficiente.\n\n{FFFFFF}Insira o ID do jogador que você deseja que seu pet siga:", "Seguir", "Cancelar");
+        if(!IsPlayerNearPlayer(playerid, targetid, 10.0)) return Dialog_Show(playerid, PET_MENU_FOLLOW, DIALOG_STYLE_INPUT, "Ação: Seguir", "{FF0000}ERRO:{FFFFFF} O jogador especificado não está perto o suficiente.\n\n{FFFFFF}Insira o ID do jogador que você deseja que seu pet siga:", "Seguir", "Cancelar");
         
         PetFollow(playerid, targetid);
     }
@@ -18906,7 +18934,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 						new str[126];
 						format(str, sizeof(str), "Olá %s.\nBem-vindo ao War on Terror Roleplay. Por favor, entre com uma senha para registrar-se.\nEntre com uma senha.", GetName(playerid));
 						ShowPlayerDialog(playerid, DIALOG_REGISTER, DIALOG_STYLE_INPUT, "Registrar", str, "Registrar", "Sair");
-						SendClientMessage(playerid, COLOR_LIGHTGREEN, "ERRO: Você não pode usar caracteres especiais em sua senha.");
+						SendClientMessage(playerid, COLOR_LIGHTGREEN, "ERRO:{FFFFFF} Você não pode usar caracteres especiais em sua senha.");
 						return 0; 
 					}
 
@@ -19044,7 +19072,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 		        if(strfind(inputtext, "'") != -1)
 				{
 				    ShowPlayerDialog(playerid, DIALOG_OOCREG, DIALOG_STYLE_INPUT, "Nome OOC", "Qual o seu nome OOC?", "Avançar", "Cancelar");
-    				SendClientMessage(playerid, COLOR_LIGHTGREEN, "ERRO: {FFFFFF}Você não pode colocar caracteres especiais no nome da empresa.");
+    				SendClientMessage(playerid, COLOR_LIGHTGREEN, "ERRO:{FFFFFF} {FFFFFF}Você não pode colocar caracteres especiais no nome da empresa.");
 				    return 1;
 				}
 
@@ -21848,10 +21876,10 @@ CMD:inv(playerid, params[])
 }
 CMD:arma(playerid, params[])
 {
-    if (!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não está logado!");
-    if (TazerPlayer[playerid] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não pode usar este comando com o tazer na mão.");
-    if (gettime() < FloodCMD[playerid]) return SCM(playerid, COLOR_LIGHTRED, "ERRO: Aguarde um segundo antes de usar um comando novamente.");
-    if (IsPlayerEditandoAlgo(playerid)) return SCM(playerid, COLOR_LIGHTRED, "ERRO: Termine de editar o objeto antes.");
+    if (!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
+    if (TazerPlayer[playerid] == 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando com o tazer na mão.");
+    if (gettime() < FloodCMD[playerid]) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Aguarde um segundo antes de usar um comando novamente.");
+    if (IsPlayerEditandoAlgo(playerid)) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Termine de editar o objeto antes.");
 
     FloodCMD[playerid] = gettime() + 2;
 
@@ -21867,11 +21895,11 @@ CMD:arma(playerid, params[])
         {
             if (PlayerInfo[playerid][pColde] == 0)
             {
-                if (IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não pode usar este comando em um veículo.");
+                if (IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando em um veículo.");
 
                 if (PlayerInfo[playerid][pColdreBone] == 0) PlayerInfo[playerid][pColdreBone] = 1;
 
-                if (PlayerInfo[playerid][pArmaMao] == 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO: Você não tem nenhuma arma em mãos.");
+                if (PlayerInfo[playerid][pArmaMao] == 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem nenhuma arma em mãos.");
 
                 format(string, sizeof(string), "[Arma Corpo] Você colocou a sua %s com %d balas em seu corpo. (%d)", GunNames[ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaModelo]], GetPlayerAmmo(playerid), ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaNumeracao]);
                 SendClientMessage(playerid, COLOR_LIGHTGREEN, string);
@@ -21889,9 +21917,9 @@ CMD:arma(playerid, params[])
             }
             else
             {
-                if (IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não pode usar este comando em um veículo.");
+                if (IsPlayerInAnyVehicle(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando em um veículo.");
 
-                if (PlayerInfo[playerid][pArmaMao] != 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO: Você já tem uma arma em mãos.");
+                if (PlayerInfo[playerid][pArmaMao] != 0) return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você já tem uma arma em mãos.");
                 PlayerInfo[playerid][pArmaMao] = PlayerInfo[playerid][pColde];
 
                 format(string, sizeof(string), "[Arma Corpo] Você retirou a sua %s com %d balas em seu corpo. (%d)", GunNames[ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaModelo]], PlayerInfo[playerid][pColdreA], ArmaData[PlayerInfo[playerid][pArmaMao]][ArmaNumeracao]);
@@ -21913,7 +21941,7 @@ CMD:arma(playerid, params[])
             {
                 Dialog_Show(playerid, DIALOG_BONE_ARMAC, DIALOG_STYLE_LIST, "Editar Bone", "Espinha\nCabeça\nBraço Esquerdo\nBraço Direito\nMão Esquerda\nMão Direita\nCoxa Esquerda\nCoxa Direta\nPé Esquerdo\nPé Direito\nPanturrilha Direta\nPanturrilha Esquerda\nAntebraço Direito\nAntebraço Esquerdo\nClavicula Esquerda\nClavicula Direta\nPescoço\nMandibula", "Salvar", "Cancelar");
             }
-            else return SCM(playerid, COLOR_LIGHTRED, "ERRO: Você não tem nenhuma arma no corpo.");
+            else return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem nenhuma arma no corpo.");
         }
         else if (strcmp(option, "pos", true) == 0 || strcmp(option, "posicionar", true) == 0)
         {
@@ -21922,7 +21950,7 @@ CMD:arma(playerid, params[])
                 OutrasInfos[playerid][oEditandoArmaC] = 1;
                 EditAttachedObject(playerid, 2);
             }
-            else return SCM(playerid, COLOR_LIGHTRED, "ERRO: Você não tem nenhuma arma no corpo.");
+            else return SCM(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem nenhuma arma no corpo.");
         }
         else
         {
@@ -25426,7 +25454,7 @@ Dialog:DIALOG_Radio_S(playerid, response, listitem, inputtext[])
 
 COMMAND:derrubar(playerid, params[])
 {
-	    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você deve estar logado para utilizar este comando.");
+	    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar logado para utilizar este comando.");
 		new Float:X, Float:Y, Float:Z;
 	    new other;
 		if (sscanf(params, "i(999)", other))
@@ -25439,7 +25467,7 @@ COMMAND:derrubar(playerid, params[])
 					{
 						if(PlayerInfo[i][pMorto] > 0) return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não pode derrubar pessoas mortas.");
 						if(GetPlayerWeapon(i) >= 25 && GetPlayerWeapon(i) <= 38) return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não pode derrubar alguém com uma arma longa na mão.");
-						if(IsPlayerInWater(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não pode utilizar este comando na água!");
+						if(IsPlayerInWater(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando na água!");
 						GetPlayerPos(i, X, Y, Z);
 					  	new rand = random(4);
 					  	switch(rand)
@@ -25500,7 +25528,7 @@ COMMAND:derrubar(playerid, params[])
 				{
 					if(PlayerInfo[other][pMorto] > 0) return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não pode derrubar pessoas mortas.");
 					if(GetPlayerWeapon(other) >= 25 && GetPlayerWeapon(other) <= 38) return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não pode derrubar alguém com uma arma longa na mão.");
-					if(IsPlayerInWater(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não pode utilizar este comando na água!");
+					if(IsPlayerInWater(playerid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando na água!");
 					GetPlayerPos(other, X, Y, Z);
 		  			new rand = random(4);
 		  			switch(rand)
@@ -25661,7 +25689,7 @@ CMD:anuncio(playerid, params[])
 	   	format(strl, sizeof(strl), "%s anunciou: %s", PlayerName(playerid,0), opt);
 	  	LogCMD_Anuncio(strl);
 
-	  	format(strl, sizeof(strl), "AdmCmd: o anunciante é %s.", PlayerName(playerid,0));
+	  	format(strl, sizeof(strl), "AdmCmd:{FFFFFF} o anunciante é %s.", PlayerName(playerid,0));
 	  	SendAdminMessage(COLOR_LIGHTRED,strl);
 		return 1;
 	}
@@ -25705,7 +25733,7 @@ CMD:anuncioemp(playerid, params[])
 		new strl[326];
 	   	format(strl, sizeof(strl), "%s anunciou: %s", PlayerName(playerid,0), opt);
 	  	LogCMD_AnuncioEmp(strl);
-	  	format(strl, sizeof(strl), "AdmCmd: o anunciante é %s.", PlayerName(playerid,0));
+	  	format(strl, sizeof(strl), "AdmCmd:{FFFFFF} o anunciante é %s.", PlayerName(playerid,0));
 	  	SendAdminMessage(COLOR_LIGHTRED,strl);
 		return 1;
 	}
@@ -27165,7 +27193,27 @@ COMMAND:telacinza(playerid, params[])
 	}
 	return 1;
 }
+ALTCOMMAND:screenshot->screen;
+ALTCOMMAND:ss->screen;
+COMMAND:screen(playerid, params[])
+{
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você precisa estar logado.");
 
+    switch(GetPVarInt(playerid, "ScreenTelinha"))
+    {
+		case 0:
+		{
+			TextDrawShowForPlayer(playerid,ScreenTelinha);
+			SetPVarInt(playerid, "ScreenTelinha", 1);
+		}
+		case 1:
+		{
+		    TextDrawHideForPlayer(playerid,ScreenTelinha);
+			SetPVarInt(playerid, "ScreenTelinha", 0);
+		}
+	}
+	return 1;
+}
 
 COMMAND:estilochat(playerid, params[])
 {
@@ -29943,7 +29991,7 @@ COMMAND:apreender(playerid,params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
     new faccao = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
-    if(FacInfo[faccao][fTipo] == FAC_TIPO_PMERJ || FacInfo[faccao][fTipo] == FAC_TIPO_PCERJ) // Seals Team
+    if(FacInfo[faccao][fTipo] == FAC_TIPO_PMERJ || FacInfo[faccao][fTipo] == FAC_TIPO_PCERJ) // DEVGRU
     {
         new veh;
         if(sscanf(params,"i",veh))
@@ -31576,7 +31624,7 @@ COMMAND:usmc(playerid, params[])
 	return 1;
 }
 
-COMMAND:squad(playerid, params[])
+COMMAND:seals(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
     if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_PCERJ)
@@ -31584,11 +31632,11 @@ COMMAND:squad(playerid, params[])
         if(PlayerInfo[playerid][pFacCargo] < 4) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem acesso a este comando.");
 
         new other[256];
-        if (sscanf(params, "s[256]",other)) SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} /squad [texto]");
+        if (sscanf(params, "s[256]",other)) SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} /seals [texto]");
         else
         {
             new FacId = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
-            format(string, sizeof(string), "**[CH: 1551, S: 1] COP: %s **", other);
+            format(string, sizeof(string), "**[CH: 1551, S: 1] REVOQUE: %s **", other);
             SendFacMessage(0xFFFF79FF,FacId,string);
             return 1;
         }
@@ -34067,7 +34115,7 @@ COMMAND:barricada(playerid, params[])
 	{
         new strl[256];
 		ShowModelSelectionMenu(playerid, "[CRIME] Barreiras", MODEL_PMERJ_BARREIRAS, TRAF_Barreiras, sizeof(TRAF_Barreiras), -16.0, 0.0, -55.0);
-		format(strl, sizeof(strl), "AdmCmd: O jogador %s colocou uma barreira.", PlayerName(playerid,0));
+		format(strl, sizeof(strl), "AdmCmd:{FFFFFF} O jogador %s colocou uma barreira.", PlayerName(playerid,0));
 	  	SendAdminMessage(COLOR_LIGHTRED,strl);
 		format(strl, sizeof(strl), "%s colocou uma barricada.", PlayerName(playerid,0));
 	  	LogCMD_barricada(strl);
@@ -34187,7 +34235,7 @@ CMD:uniforme(playerid, params[])
         {
             if(PlayerInfo[playerid][pEmServico] == 1)
             {
-                ShowModelSelectionMenu(playerid, "[Seals Team] Uniformes", MODEL_PMERJ_SKINS, PCERJ_Uniformes, sizeof(PCERJ_Uniformes), -16.0, 0.0, -55.0);
+                ShowModelSelectionMenu(playerid, "[DEVGRU] Uniformes", MODEL_PMERJ_SKINS, PCERJ_Uniformes, sizeof(PCERJ_Uniformes), -16.0, 0.0, -55.0);
             }
             else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
         }
@@ -34530,7 +34578,7 @@ CMD:trabalho(playerid, params[])
 
                         if(PlayerInfo[playerid][pMun9mm] > 0 || PlayerInfo[playerid][pMunCart] > 0 || PlayerInfo[playerid][pMun556] > 0 || PlayerInfo[playerid][pMun127] > 0) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve guardar suas munições particulares no armário antes de entrar em serviço.");
 
-                        format(StrMsg, sizeof(StrMsg), "** SEALS TEAM: %s %s entrou em serviço!**", GetPlayerCargo(playerid), PlayerName(playerid, 0));
+                        format(StrMsg, sizeof(StrMsg), "** DEVGRU: %s %s entrou em serviço!**", GetPlayerCargo(playerid), PlayerName(playerid, 0));
                         SendFacMessage(0x6666CCFF,FacId,StrMsg);
                         PlayerInfo[playerid][pEmServico] = 1;
                         SetPlayerSkin(playerid, PlayerInfo[playerid][pDutySkin]);
@@ -34541,7 +34589,7 @@ CMD:trabalho(playerid, params[])
                         //if(PlayerInfo[playerid][pArmaMao] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa devolver suas armas ou guarda-las no armário para sair de serviço.");
                         //if(PlayerInfo[playerid][pColde] > 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você precisa devolver a arma do corpo para sair de serviço.");
 
-                        format(StrMsg, sizeof(StrMsg), "** SEALS TEAM: %s %s saiu de serviço!**", GetPlayerCargo(playerid), PlayerName(playerid, 0));
+                        format(StrMsg, sizeof(StrMsg), "** DEVGRU: %s %s saiu de serviço!**", GetPlayerCargo(playerid), PlayerName(playerid, 0));
                         SendFacMessage(0x6666CCFF,FacId,StrMsg);
                         PlayerInfo[playerid][pEmServico] = 0;
                         SetPlayerSkin(playerid, PlayerInfo[playerid][pSkin]);
@@ -34652,7 +34700,7 @@ CMD:trabalho(playerid, params[])
                             RemovePlayerAttachedObject(playerid, 0);
                             ArmasInv++;
                         }
-                        if(ArmasInv > 0) SendClientMessage(playerid,COLOR_LIGHTRED,"[SEALS TEAM] As suas armas do inventário foram retiradas.");
+                        if(ArmasInv > 0) SendClientMessage(playerid,COLOR_LIGHTRED,"[DEVGRU] As suas armas do inventário foram retiradas.");
 
                         if(PlayerInfo[playerid][pMun9mm] > 0 || PlayerInfo[playerid][pMunCart] > 0 || PlayerInfo[playerid][pMun556] > 0 || PlayerInfo[playerid][pMun127] > 0)
                         {
@@ -34660,7 +34708,7 @@ CMD:trabalho(playerid, params[])
                             PlayerInfo[playerid][pMunCart] = 0;
                             PlayerInfo[playerid][pMun556] = 0;
                             PlayerInfo[playerid][pMun127] = 0;
-                            SendClientMessage(playerid,COLOR_LIGHTRED,"[SEALS TEAM] As suas munições do inventário foram retiradas.");
+                            SendClientMessage(playerid,COLOR_LIGHTRED,"[DEVGRU] As suas munições do inventário foram retiradas.");
                         }
                     }
                 }
@@ -35348,7 +35396,7 @@ CMD:equipar(playerid, params[])
     {
         if(PlayerInfo[playerid][pEmServico] != 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está em serviço.");
         if(IsPlayerInRangeOfPoint(playerid, 15, FacInfo[i][fArmarioPosX], FacInfo[i][fArmarioPosY], FacInfo[i][fArmarioPosZ]) && GetPlayerVirtualWorld(playerid) == FacInfo[i][fArmarioVw])
-            Dialog_Show(playerid, Equipar_PCERJ, DIALOG_STYLE_LIST, "[Seals Team] Equipamentos", "Armas\nMunições\nColete\nRetirar Colete\nDevolver Armas\nAcessórios", "Selecionar", "Fechar");
+            Dialog_Show(playerid, Equipar_PCERJ, DIALOG_STYLE_LIST, "[DEVGRU] Equipamentos", "Armas\nMunições\nColete\nRetirar Colete\nDevolver Armas\nAcessórios", "Selecionar", "Fechar");
         else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está na sala de equipamentos.");
     }
     if(FacInfo[GetFactionBySqlId(PlayerInfo[playerid][pFac])][fTipo] == FAC_TIPO_EB)
@@ -35869,9 +35917,9 @@ Dialog:Equipar_PCERJ(playerid, response, listitem, inputtext[])
         {
             case 0:
 			{
-				Dialog_Show(playerid, Equipar_PCERJ1, DIALOG_STYLE_TABLIST_HEADERS, "[Seals Team] Equipamentos", "Arma:\tCargo nescessário:\nCassetete\t1\nGranada de Fumaça\t1\nColt 45\t1\nDesert Eagle\t1\nShotgun\t1\nMP5\t1\nM4\t1\nParaquedas\t1\nSniper\t5\nParaquedas\t1\nGranada\t1\nHS Rocket\t1", "Pegar", "Fechar");
+				Dialog_Show(playerid, Equipar_PCERJ1, DIALOG_STYLE_TABLIST_HEADERS, "[DEVGRU] Equipamentos", "Arma:\tCargo nescessário:\nCassetete\t1\nGranada de Fumaça\t1\nColt 45\t1\nDesert Eagle\t1\nShotgun\t1\nMP5\t1\nM4\t1\nParaquedas\t1\nSniper\t5\nParaquedas\t1\nGranada\t1\nHS Rocket\t1", "Pegar", "Fechar");
 			}
-			case 1: Dialog_Show(playerid, Equipar_PCERJ2, DIALOG_STYLE_TABLIST_HEADERS, "[Seals Team] Equipamentos", "Tipo de Munição:\tQuantidade:\n9mm\t60\nCartuchos\t60\n5.56mm\t120\n12.7x106mm\t60\nMun morteiro\t10\nMun RPG\t10", "Pegar", "Fechar");
+			case 1: Dialog_Show(playerid, Equipar_PCERJ2, DIALOG_STYLE_TABLIST_HEADERS, "[DEVGRU] Equipamentos", "Tipo de Munição:\tQuantidade:\n9mm\t60\nCartuchos\t60\n5.56mm\t120\n12.7x106mm\t60\nMun morteiro\t10\nMun RPG\t10", "Pegar", "Fechar");
             case 2: { P_Armour[playerid] = 100; SetPlayerArmour_CA(playerid, 100); }
             case 3: { P_Armour[playerid] = 0; SetPlayerArmour_CA(playerid, 0); }
             case 4:
@@ -37655,7 +37703,7 @@ CMD:ajudaadmin(playerid, params[])
 			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Geral]{FFFFFF} /acasa /acomplexo /aemp /aveiculo /setartc");
 		}
     	if(PlayerInfo[playerid][pAdmin] >= 3000){
-			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Manager]{FFFFFF} /setarammo /setararma /setarpremium /editarpe /palcopref /casinogames /liberaracesso");
+			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Manager]{FFFFFF} /setarammo /setararma /setarpremium /editarpe /casinogames /liberaracesso");
 			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Manager]{FFFFFF} /jetpack /facname /ircarrosql /a(tivar)ooc /timerindustrias /drogaaa /up /front /down /back");
 			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Manager]{FFFFFF} /complexosint /empint, /empintv, /casasint, /atualizarcasa /casasint1 /casasint2 /empint1 /emptint2");
 			SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Manager]{FFFFFF} /criarfaccao /factipo /setarfaccao /aportao /setarportaofac /setarrange /tempoaberto");
@@ -37781,7 +37829,7 @@ CMD:presos(playerid, params[])
 			}
 			if(PlayerInfo[i][pPrisao] == 2)
 		    {
-		        format(stringaap, sizeof(stringaap), "[Seals Team] %s - ID: %d, Tempo: %d", PlayerName(i,1),i,PlayerInfo[i][pTemPreso]);
+		        format(stringaap, sizeof(stringaap), "[DEVGRU] %s - ID: %d, Tempo: %d", PlayerName(i,1),i,PlayerInfo[i][pTemPreso]);
 				SCM(playerid, COLOR_GREY, stringaap);
 		        count++;
 			}
@@ -37980,7 +38028,7 @@ COMMAND:spec(playerid, params[])
     	    SendClientMessage(playerid,COLOR_WHITE,string);
     	    if(PlayerInfo[targetid][pAdmin] >= 3001)
     	    {
-				format(string, sizeof(string), "AdmCmd: O Admin %s está de spec em você.", PlayerName(playerid,0));
+				format(string, sizeof(string), "AdmCmd:{FFFFFF} O Admin %s está de spec em você.", PlayerName(playerid,0));
     	    	SendClientMessage(targetid,COLOR_LIGHTRED,string);
     	    }
 
@@ -38065,10 +38113,10 @@ CMD:limparbanco(playerid, params[])
 		if(PlayerInfo[playerid][pAdmin] > 3001) format(admnome, sizeof(admnome), "%s", PlayerInfo[playerid][pNomeOOC]);
 		else format(admnome, sizeof(admnome), "%s", PlayerName(playerid, 0));
 
-		format(string, sizeof(string), "AdmCmd: O Admin %s tirou todo o dinheiro de seu banco.", admnome);
+		format(string, sizeof(string), "AdmCmd:{FFFFFF} O Admin %s tirou todo o dinheiro de seu banco.", admnome);
 		SendClientMessage(id,COLOR_LIGHTRED,string);
 
- 		format(string, sizeof(string), "AdmCmd: O Admin %s removeu todo o dinheiro do banco de %s.", admnome, PlayerName(id, 0));
+ 		format(string, sizeof(string), "AdmCmd:{FFFFFF} O Admin %s removeu todo o dinheiro do banco de %s.", admnome, PlayerName(id, 0));
 		SendAdminMessage(COLOR_LIGHTRED,string);
 
         new strl[126];
@@ -38098,10 +38146,10 @@ CMD:limpargrana(playerid, params[])
 		if(PlayerInfo[playerid][pAdmin] > 3001) format(admnome, sizeof(admnome), "%s", PlayerInfo[playerid][pNomeOOC]);
 		else format(admnome, sizeof(admnome), "%s", PlayerName(playerid, 0));
 
- 		format(string, sizeof(string), "AdmCmd: O Administrador %s tirou todo o dinheiro de sua mão.", admnome);
+ 		format(string, sizeof(string), "AdmCmd:{FFFFFF} O Administrador %s tirou todo o dinheiro de sua mão.", admnome);
 		SendClientMessage(playerid,COLOR_LIGHTRED,string);
 
- 		format(string, sizeof(string), "AdmCmd: O Administrador %s removeu todo o dinheiro da mão de %s.", admnome, PlayerName(id, 0));
+ 		format(string, sizeof(string), "AdmCmd:{FFFFFF} O Administrador %s removeu todo o dinheiro da mão de %s.", admnome, PlayerName(id, 0));
 		SendAdminMessage(COLOR_LIGHTRED,string);
 
 		new strl[126];
@@ -38135,10 +38183,10 @@ CMD:desarmar(playerid, params[])
 		if(PlayerInfo[playerid][pAdmin] > 3001) format(admnome, sizeof(admnome), "%s", PlayerInfo[playerid][pNomeOOC]);
 		else format(admnome, sizeof(admnome), "%s", PlayerName(playerid, 0));
 
- 		format(string, sizeof(string), "AdmCmd: O Administrador %s desarmou você.", admnome);
+ 		format(string, sizeof(string), "AdmCmd:{FFFFFF} O Administrador %s desarmou você.", admnome);
 		SendClientMessage(id,COLOR_LIGHTRED,string);
 
- 		format(string, sizeof(string), "AdmCmd: O Administrador %s desarmou o player %s.", admnome, PlayerName(id, 0));
+ 		format(string, sizeof(string), "AdmCmd:{FFFFFF} O Administrador %s desarmou o player %s.", admnome, PlayerName(id, 0));
 		SendAdminMessage(COLOR_LIGHTRED,string);
 	}
 	return 1;
@@ -38239,30 +38287,30 @@ COMMAND:checaravisos(playerid, params[])
 
 COMMAND:daraviso(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
+    if(!PlayerInfo[playerid][pLogado]) return 1;
     if(PlayerInfo[playerid][pAdmin] < 1) return 1;
     new targetid, aviso[126];
-	if(sscanf(params, "us", targetid, aviso)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /daraviso [id] [motivo]");
+	if(sscanf(params, "us", targetid, aviso)) SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}USE:{FFFFFF} /daraviso [id] [motivo]");
 	else
 	{
 		AdicionarAviso(targetid,aviso);
 
-		format(string, sizeof(string), "AdmnCmd: O administrador %s deu um aviso no personagem %s, motivo: %s.", PlayerName(playerid, 0), PlayerName(targetid, 0), aviso);
-		SendClientMessageToAll(COLOR_LIGHTRED, string);
+		format(string, sizeof(string), "AdmnCmd: O admin %s deu um aviso em conta de %s, motivo: %s.", PlayerName(playerid, 0), PlayerName(targetid, 0), aviso);
+		SendAdminMessage(COLOR_LIGHTRED,string);
 	}
 	return 1;
 }
 
 COMMAND:removeraviso(playerid, params[])
 {
-    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
+    if(!PlayerInfo[playerid][pLogado]) return 1;
     if(PlayerInfo[playerid][pAdmin] < 1) return 1;
     new targetid, aviso[126];
-	if(sscanf(params, "us", targetid, aviso)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /removeraviso [id] [motivo]");
+	if(sscanf(params, "us", targetid, aviso)) SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}USE:{FFFFFF} /removeraviso [id] [motivo]");
 	else
 	{
 	    PlayerInfo[targetid][pAvisos]--;
-		format(string, sizeof(string), "AdmCmd: O administrador %s removeu um aviso no personagem %s, motivo: %s.", PlayerName(playerid, 0), PlayerName(targetid, 0), aviso);
+		format(string, sizeof(string), "AdmCmd:{FFFFFF} O admin %s removeu um aviso na de de %s, motivo: %s.", PlayerName(playerid, 0), PlayerName(targetid, 0), aviso);
 		SendAdminMessage(COLOR_LIGHTRED,string);
 	}
 	return 1;
@@ -38290,7 +38338,7 @@ COMMAND:destruirarma(playerid, params[])
         if(IsValidDynamicObject(ArmaData[ArmaId][ArmaObj]))
 				DestroyDynamicObject(ArmaData[ArmaId][ArmaObj]);
         //========================================
-		SendClientMessage(playerid, COLOR_LIGHTRED, "AdmCmd: Arma deletada com sucesso.");
+		SendClientMessage(playerid, COLOR_LIGHTRED, "AdmCmd:{FFFFFF} Arma deletada com sucesso.");
 
 		SalvarArma(ArmaId);
 		return 1;
@@ -38321,7 +38369,7 @@ COMMAND:setarpremium(playerid, params[])
 				PlayerInfo[targetid][pDoador] = nivel;
 				format(tempodoador, sizeof(tempodoador), "%s", ConvertTimestampToDate( PlayerInfo[targetid][pDoadorTempo] ));
 
-                format(string, sizeof(string), "AdmCmd: Você setou o nível de doador de %s até %s. Nível: %d.", PlayerName(targetid, 0), tempodoador, nivel);
+                format(string, sizeof(string), "AdmCmd:{FFFFFF} Você setou o nível de doador de %s até %s. Nível: %d.", PlayerName(targetid, 0), tempodoador, nivel);
 				SendClientMessage(playerid, COLOR_LIGHTRED, string);
 
 				if(PlayerInfo[playerid][pAdmin] > 3001) format(admnome, sizeof(admnome), "%s", PlayerInfo[playerid][pNomeOOC]);
@@ -38345,7 +38393,7 @@ COMMAND:setarpremium(playerid, params[])
 				}
                 SendClientMessage(targetid, COLOR_LIGHTGREEN, string);
 
-				format(string, sizeof(string), "AdmCmd: O administrador %s %s %s até %s.", admnome, doadortxt, PlayerName(targetid, 0), tempodoador);
+				format(string, sizeof(string), "AdmCmd:{FFFFFF} O administrador %s %s %s até %s.", admnome, doadortxt, PlayerName(targetid, 0), tempodoador);
 				SendAdminMessage(COLOR_LIGHTRED,string);
 			}
 			else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /setardoador [id] [nivel(1.Bronze|2.Prata|3.Ouro)] [dias]");
@@ -38379,93 +38427,9 @@ COMMAND:darnamechange(playerid, params[])
 		format(string, sizeof(string), "O Administrador %s lhe deu 1 Namechange.", admnome);
 		SendClientMessage(targetid, COLOR_LIGHTGREEN, string);
 
-		format(string, sizeof(string), "AdmCmd: O Administrador %s deu 1 Namechange para %s.", admnome, PlayerName(targetid, 0));
+		format(string, sizeof(string), "AdmCmd:{FFFFFF} O Administrador %s deu 1 Namechange para %s.", admnome, PlayerName(targetid, 0));
 		SendAdminMessage(COLOR_LIGHTRED,string);
 		return 1;
-	}
-	return 1;
-}
-
-COMMAND:ajail(playerid, params[])
-{
-    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-	new targetid, tempo, motivo[256];
-	if(sscanf(params, "uis", targetid, tempo, motivo)) SendClientMessage(playerid, COLOR_LIGHTRED, "SINTAXE:{FFFFFF} /ajail [id] [tempo(mim)] [motivo]");
-	else
-	{
-	    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
-	    if(!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "{FFFFFF}Este jogador não está conectado.");
-	    if(PlayerInfo[targetid][pAdmin] >= 5 && PlayerInfo[targetid][pAdmin] <= 3002) return SendClientMessage(playerid, COLOR_LIGHTRED, "{FFFFFF}Você não pode dar ajail em um Head Staff.");
-	    if(IsPlayerNPC(targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} NPC's não podem ser presos.");
-		if(PlayerInfo[playerid][pAdmin] >= 1 || PlayerInfo[playerid][pTester] >= 1)
-		
-		{
-
-		    new admnome[24];
-			if(PlayerInfo[playerid][pAdmin] > 3001) format(admnome, sizeof(admnome), "%s", PlayerInfo[playerid][pNomeOOC]);
-			else format(admnome, sizeof(admnome), "%s", PlayerName(playerid, 0));
-
-		    if(tempo >= 1)
-		    {
-				PlayerInfo[targetid][pPrisao] = 10;
-	    		PlayerInfo[targetid][pTemPreso] = tempo;
-	    		format(string, sizeof(string), "Você levou uma prisão administrativa de %d minuto(s) por %s.", tempo, PlayerInfo[playerid][pNomeOOC]);
-				SendClientMessage(targetid, COLOR_LIGHTRED, string);
-				format(string, sizeof(string), "O motivo da prisão foi: %s.", motivo);
-				SendClientMessage(targetid, COLOR_LIGHTRED, string);
-				SetPlayerPos(targetid,2523.9197,-1673.8944,14.8589);
-            	TogglePlayerControllable(targetid, false);
-            	SetPlayerInterior(targetid, 0);
-            	SetPlayerVirtualWorld(targetid, targetid);
-            	PlayerInfo[targetid][pEntrouEmpresa] = -1;
-    			PlayerInfo[targetid][pEntrouCasa] = -1;
-  	    		PlayerInfo[targetid][pEntrouComplexo] = -1;
-  	    		PlayerInfo[targetid][pEntrouGaragem] = -1;
-
-  	    		format(string, sizeof(string), "AdmCmd: O administrador %s prendeu %s por %d minutos, motivo: %s.", PlayerInfo[playerid][pNomeOOC], PlayerName(targetid, 0), tempo, motivo);
-				SendClientMessageToAll(COLOR_LIGHTRED, string);
-			}
-			else
-			{
-			    PlayerInfo[targetid][pPrisao] = 0;
-	    		PlayerInfo[targetid][pTemPreso] = 0;
-				SendClientMessage(targetid, COLOR_GREEN, "Você foi solto da prisão administrativa.");
-				SetPlayerPos(targetid,-153.2006,1192.1924,19.6198);
-            	TogglePlayerControllable(targetid, true);
-            	SetPlayerInterior(targetid, 0);
-            	SetPlayerVirtualWorld(targetid, targetid);
-            	PlayerInfo[targetid][pEntrouEmpresa] = -1;
-    			PlayerInfo[targetid][pEntrouCasa] = -1;
-  	    		PlayerInfo[targetid][pEntrouComplexo] = -1;
-  	    		PlayerInfo[targetid][pEntrouGaragem] = -1;
-
-  	    		format(string, sizeof(string), "AdmCmd: O administrador %s libertou %s da prisão, motivo: %s", PlayerInfo[playerid][pNomeOOC], PlayerName(targetid, 0), motivo);
-				SendClientMessageToAll(COLOR_LIGHTRED,string);
-			}
-
-			new str2[256];
-			new hour, mins, sec;
-			new d,m,y;
-			new DataSalvar[32];
-			getdate(y,m,d);
-			gettime(hour,mins,sec);
-
-	        new strh[24], hourstr[4], minstr[4], secstr[4];
-
-			if(hour < 10) { format(hourstr,sizeof(hourstr),"0%d",hour); } else { format(hourstr,sizeof(hourstr),"%d",hour); }
-			if(mins < 10) { format(minstr,sizeof(minstr),"0%d",mins); } else { format(minstr,sizeof(minstr),"%d",mins); }
-			if(sec < 10) { format(secstr,sizeof(secstr),"0%d",sec); } else { format(secstr,sizeof(secstr),"%d",sec); }
-			format(strh,sizeof(strh),"%s:%s:%s",hourstr,minstr,secstr);
-			format(DataSalvar,sizeof(DataSalvar),"%d-%d-%d - %s",d,m,y,strh);
-
-			new stringip[28];
-			format(stringip, sizeof(stringip), "IP: %s", PrintPlayerIP(targetid));
-
-			new tempofinalll= (tempo*60);
-
-			format(str2,sizeof(str2),"INSERT INTO a_ajailrecord (PlayerNome,PlayerID,Data,Motivo,Luxo,IP,Tempo) VALUES ('%s','%d','%s','%s','%s','%s','%d')",PlayerName(targetid,0),PlayerInfo[targetid][pID],DataSalvar,motivo,PlayerName(playerid,0),stringip,tempofinalll);
-    		mysql_function_query(Pipeline, str2, false, "noReturnQuery", "");
-		}
 	}
 	return 1;
 }
@@ -38483,7 +38447,7 @@ COMMAND:unbanip(playerid, params[])
 		    format(string, sizeof(string),"unbanip %s", type);
 			SendRconCommand(string);
 			SendRconCommand("reloadbans");
-      		format(string, sizeof(string), "AdmCmd: O Admin %s desbaniu o IP %s", PlayerName(playerid, 0), type);
+      		format(string, sizeof(string), "AdmCmd:{FFFFFF} O Admin %s desbaniu o IP %s", PlayerName(playerid, 0), type);
 			SendAdminMessage(COLOR_LIGHTRED,string);
 		}
 	}
@@ -38503,7 +38467,7 @@ COMMAND:banip(playerid, params[])
 		    format(string, sizeof(string),"banip %s", type);
 			SendRconCommand(string);
 			SendRconCommand("reloadbans");
-      		format(string, sizeof(string), "AdmCmd: O Admin %s baniu o IP %s.", PlayerName(playerid, 0), type);
+      		format(string, sizeof(string), "AdmCmd:{FFFFFF} O Admin %s baniu o IP %s.", PlayerName(playerid, 0), type);
 			SendAdminMessage(COLOR_LIGHTRED,string);
 		}
 	}
@@ -38548,7 +38512,7 @@ COMMAND:desbanir(playerid, params[])
 		format(szQuery, sizeof(szQuery), "UPDATE `accounts` SET `pBanido` = '0' WHERE `Username` = '%s'",text);
 		mysql_function_query(Pipeline, szQuery, true, "OnQueryFinish", "ii", THREAD_NO_RESULT, playerid);
 
-		format(string, sizeof(string), "AdmCmd: O administrador %s desbaniu a conta %s.", admnome, text);
+		format(string, sizeof(string), "AdmCmd:{FFFFFF} O administrador %s desbaniu a conta %s.", admnome, text);
 		SendAdminMessage(COLOR_LIGHTRED,string);
 	}
 	return 1;
@@ -38559,8 +38523,8 @@ COMMAND:banoff(playerid, params[])
 {
 	if (PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
 	if (PlayerInfo[playerid][pAdmin] < 1 && PlayerInfo[playerid][pBanTeam] < 1) return 1;
-	new text[128],motivo[126];
-	if(sscanf(params, "s[128]s[126]", text,motivo)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /banoff [Nome_Sobrenome] [motivo]");
+	new text[128],motivob[126];
+	if(sscanf(params, "s[128]s[126]", text,motivob)) SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /banoff [Nome_Sobrenome] [motivo]");
 	else
 	{
 	    new admnome[24];
@@ -38570,12 +38534,122 @@ COMMAND:banoff(playerid, params[])
 		format(szQuery, sizeof(szQuery), "UPDATE `accounts` SET `pBanido` = '1' WHERE `Username` = '%s'",text);
 		mysql_function_query(Pipeline, szQuery, true, "OnQueryFinish", "ii", THREAD_NO_RESULT, playerid);
 
-		format(string, sizeof(string), "AdmCmd: O administrador %s baniu offline a conta %s, motivo %s.", admnome, text, motivo);
+		format(string, sizeof(string), "AdmCmd:{FFFFFF} O administrador %s baniu offline a conta %s, motivo %s.", admnome, text, motivob);
 		SendClientMessageToAll(COLOR_LIGHTRED, string);
 
 
 	}
 	return 1;
+}
+COMMAND:ajail(playerid, params[])
+{
+    if(!PlayerInfo[playerid][pLogado]) return 1;
+	new targetid, tempo, motivo[256];
+	if(sscanf(params, "uis", targetid, tempo, motivo)) SendClientMessage(playerid, COLOR_LIGHTRED, "SINTAXE:{FFFFFF} /ajail [id] [tempo(mim)] [motivo]");
+	else
+	{
+	    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
+	    if(!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "{FFFFFF}Este jogador não está conectado.");
+	    if(PlayerInfo[targetid][pAdmin] >= 5 && PlayerInfo[targetid][pAdmin] <= 3001) return SendClientMessage(playerid, COLOR_LIGHTRED, "{FFFFFF}Você não pode dar ajail em um Management.");
+	    if(IsPlayerNPC(targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "{FFFFFF}NPC's não podem ser presos.");
+		if(PlayerInfo[playerid][pAdmin] >= 1 || PlayerInfo[playerid][pTester] >= 1)
+		{
+		
+		    new admnome[24];
+			if(PlayerInfo[playerid][pAdmin] > 3001) format(admnome, sizeof(admnome), "%s", PlayerInfo[playerid][pNomeOOC]);
+			else format(admnome, sizeof(admnome), "%s", PlayerName(playerid, 0));
+		
+		    if(tempo >= 1)
+		    {
+				PlayerInfo[targetid][pPrisao] = 10;
+	    		PlayerInfo[targetid][pTemPreso] = tempo;
+	    		format(string, sizeof(string), "Você levou uma prisão administrativa de %d minuto(s) por %s.", tempo, PlayerInfo[playerid][pNomeOOC]);
+				SendClientMessage(targetid, COLOR_LIGHTRED, string);
+				format(string, sizeof(string), "O motivo da prisão foi: %s.", motivo);
+				SendClientMessage(targetid, COLOR_LIGHTRED, string);
+				SetPlayerPos(targetid,2523.9197,-1673.8944,14.8589);
+            	TogglePlayerControllable(targetid, false);
+            	SetPlayerInterior(targetid, 0);
+            	SetPlayerVirtualWorld(targetid, targetid);
+            	PlayerInfo[targetid][pEntrouEmpresa] = -1;
+    			PlayerInfo[targetid][pEntrouCasa] = -1;
+  	    		PlayerInfo[targetid][pEntrouComplexo] = -1;
+  	    		PlayerInfo[targetid][pEntrouGaragem] = -1;
+
+  	    		format(string, sizeof(string), "AdmCmd:{FFFFFF} O administrador %s prendeu %s por %d minutos, motivo: %s.", PlayerInfo[playerid][pNomeOOC], PlayerName(targetid, 0), tempo, motivo);
+				SendAdminMessage(COLOR_LIGHTRED,string);
+			}
+			else
+			{
+			    PlayerInfo[targetid][pPrisao] = 0;
+	    		PlayerInfo[targetid][pTemPreso] = 0;
+				SendClientMessage(targetid, COLOR_GREEN, "Você foi solto da prisão administrativa.");
+				SetPlayerPos(targetid,-153.2006,1192.1924,19.6198);
+            	TogglePlayerControllable(targetid, true);
+            	SetPlayerInterior(targetid, 0);
+            	SetPlayerVirtualWorld(targetid, targetid);
+            	PlayerInfo[targetid][pEntrouEmpresa] = -1;
+    			PlayerInfo[targetid][pEntrouCasa] = -1;
+  	    		PlayerInfo[targetid][pEntrouComplexo] = -1;
+  	    		PlayerInfo[targetid][pEntrouGaragem] = -1;
+
+  	    		format(string, sizeof(string), "AdmCmd:{FFFFFF} O administrador %s libertou %s da prisão, motivo: %s", PlayerInfo[playerid][pNomeOOC], PlayerName(targetid, 0), motivo);
+				SendClientMessageToAll(COLOR_LIGHTRED,string);
+			}
+
+			new str2[256];
+			new hour, mins, sec;
+			new d,m,y;
+			new DataSalvar[32];
+			getdate(y,m,d);
+			gettime(hour,mins,sec);
+
+	        new strh[24], hourstr[4], minstr[4], secstr[4];
+
+			if(hour < 10) { format(hourstr,sizeof(hourstr),"0%d",hour); } else { format(hourstr,sizeof(hourstr),"%d",hour); }
+			if(mins < 10) { format(minstr,sizeof(minstr),"0%d",mins); } else { format(minstr,sizeof(minstr),"%d",mins); }
+			if(sec < 10) { format(secstr,sizeof(secstr),"0%d",sec); } else { format(secstr,sizeof(secstr),"%d",sec); }
+			format(strh,sizeof(strh),"%s:%s:%s",hourstr,minstr,secstr);
+			format(DataSalvar,sizeof(DataSalvar),"%d-%d-%d - %s",d,m,y,strh);
+
+			new stringip[28];
+			format(stringip, sizeof(stringip), "IP: %s", PrintPlayerIP(targetid));
+
+			new tempofinalll= (tempo*60);
+
+			format(str2,sizeof(str2),"INSERT INTO a_ajailrecord (PlayerNome,PlayerID,Data,Motivo,Luxo,IP,Tempo) VALUES ('%s','%d','%s','%s','%s','%s','%d')",PlayerName(targetid,0),PlayerInfo[targetid][pID],DataSalvar,motivo,PlayerName(playerid,0),stringip,tempofinalll);
+    		mysql_function_query(Pipeline, str2, false, "noReturnQuery", "");
+		}
+	}
+	return 1;
+}
+COMMAND:ban(playerid, params[])
+{
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}Você deve estar conectado antes de usar algum comando.");
+    new motivob1[128],targetid;
+    if(sscanf(params, "us[128]", targetid, motivob1)) SendClientMessage(playerid, COLOR_LIGHTRED, "SINTAXE: /ban [id] [motivo/razão]");
+    else
+    {
+        if (playerid == targetid) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode banir você mesmo.");
+        if(!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador não está conectado.");
+        if(PlayerInfo[targetid][pAdmin] >= 5 && PlayerInfo[targetid][pAdmin] <= 3002) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode banir um adminsitrador de nível superior.");
+        if(IsPlayerNPC(targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode banir um NPC.");
+        if(strlen(motivob1) >= 50) return SendClientMessage(playerid, COLOR_WHITE, "ERRO:{FFFFFF} O motivo do banimento é muito longo +50 caracteres).");
+        if(PlayerInfo[playerid][pAdmin] >= 1)
+        {
+            new stringip[28];
+            format(string, sizeof(string), "AdmCmd:{FFFFFF} %s foi banido pelo administrador %s, motivo: %s.", PlayerName(targetid, 0), PlayerName(playerid, 0), motivob1);
+            SendClientMessageToAll(COLOR_LIGHTRED, string);
+            format(stringip, sizeof(stringip), "IP: %s", PrintPlayerIP(targetid));
+            SendAdminMessage(COLOR_LIGHTRED,stringip);
+            PlayerInfo[targetid][pBanAll]++;
+            Banir(stringip,GetUserName(targetid),PlayerInfo[targetid][pID], PlayerInfo[playerid][pNomeOOC],motivob1);
+
+            BanExtra(targetid,motivob1,PlayerName(playerid, 0));
+        }
+        else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está autorizado a utilizar este comando.");
+    }
+    return 1;
 }
 
 ALTCOMMAND:informacoes->ulogin;
@@ -38666,7 +38740,7 @@ public AjilzandoPlayer(playerid, tempo)
 		format(str2,sizeof(str2),"INSERT INTO a_ajailrecord (PlayerNome,PlayerID,Data,Motivo,Luxo,IP,Tempo) VALUES ('%s','%d','%s','%s','%s','00','%d')",planame,IDn,DataSalvar,text,PlayerName(playerid,0),tempo);
     	mysql_function_query(Pipeline, str2, false, "noReturnQuery", "");
 
-		format(string, sizeof(string), "AdmCmd: O administrador %s aplicou ajailoff de %d minutos em %s.", PlayerName(playerid, 0), tempo, text);
+		format(string, sizeof(string), "AdmCmd:{FFFFFF} O administrador %s aplicou ajail off de %d minutos em %s.", PlayerName(playerid, 0), tempo, text);
 		SendAdminMessage(COLOR_LIGHTRED,string);
 	}
 	else
@@ -38702,13 +38776,13 @@ COMMAND:aveiculo(playerid, params[])
 			        if(IsInvalidVehicle(variavel)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Modelo inválido.");
 			    	if(variavel == 99) return SendClientMessage(playerid, COLOR_LIGHTRED, "{FFFFFF}USE: /aveiculo modelo [id do modelo]");
 					VehicleInfo[slot][vModel] = variavel;
-					format(string, sizeof(string), "AdmCmd: Você mudou o modelo do veículo para %d.", variavel);
+					format(string, sizeof(string), "AdmCmd:{FFFFFF} Você mudou o modelo do veículo para %d.", variavel);
 					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 					return 1;
 			}
 			if(strcmp(option, "job", true) == 0)
 			{
-			    	if(variavel == 99) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: /aveiculo job [id do emprego]");
+			    	if(variavel == 99) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /aveiculo job [id do emprego]");
 					VehicleInfo[slot][vCompany] = variavel;
 
 					VehicleInfo[slot][vOwner] = 0;
@@ -38723,39 +38797,39 @@ COMMAND:aveiculo(playerid, params[])
 
 					format(VehicleInfo[slot][vOwnerName], 24,"Governo Afegão");
 
-					format(string, sizeof(string), "AdmCmd: Você mudou o veículo para o emprego %d.", variavel);
+					format(string, sizeof(string), "AdmCmd:{FFFFFF} Você mudou o veículo para o emprego %d.", variavel);
 					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 					return 1;
 			}
 			if(strcmp(option, "abastecer", true) == 0)
 			{
-			    if(variavel == 99) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: /aveiculo abastecer [quantidade (max: 100)]");
+			    if(variavel == 99) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /aveiculo abastecer [quantidade (max: 100)]");
 	   			if(variavel > 100) variavel = 100;
 				VehicleInfo[slot][vFuel] = variavel;
-				format(string, sizeof(string), "AdmCmd: Você abasteceu %d L para este veículo.", variavel);
+				format(string, sizeof(string), "AdmCmd:{FFFFFF} Você abasteceu %d L para este veículo.", variavel);
 				SendClientMessage(playerid, COLOR_LIGHTRED, string);
 				return 1;
 			}
 
 		 	if(strcmp(option, "cor1", true) == 0)
 			{
-			    if(variavel == 99) return SendClientMessage(playerid, COLOR_GREY, "ERRO: /aveiculo cor1 [COR ID]");
+			    if(variavel == 99) return SendClientMessage(playerid, COLOR_GREY, "ERRO:{FFFFFF} /aveiculo cor1 [COR ID]");
 				VehicleInfo[slot][vColor1] = variavel;
-				format(string, sizeof(string), "AdmCmd: Você mudou a cor1 do veículo para %d.", variavel);
+				format(string, sizeof(string), "AdmCmd:{FFFFFF} Você mudou a cor1 do veículo para %d.", variavel);
 				SendClientMessage(playerid, COLOR_LIGHTRED, string);
 				return 1;
 			}
 			if(strcmp(option, "cor2", true) == 0)
 			{
-			    if(variavel == 99) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: /aveiculo cor2 [COR ID]");
+			    if(variavel == 99) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /aveiculo cor2 [COR ID]");
 				VehicleInfo[slot][vColor2] = variavel;
-				format(string, sizeof(string), "AdmCmd: Você mudou a cor2 do veículo para %d.", variavel);
+				format(string, sizeof(string), "AdmCmd:{FFFFFF} Você mudou a cor2 do veículo para %d.", variavel);
 				SendClientMessage(playerid, COLOR_LIGHTRED, string);
 				return 1;
 			}
 			if(strcmp(option, "faccao", true) == 0)
 			{
-			    	if(variavel == 99) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: /aveiculo faccao [Facção ID]");
+			    	if(variavel == 99) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /aveiculo faccao [Facção ID]");
 					VehicleInfo[slot][vOwner] = 0;
 					VehicleInfo[slot][vFuel] = 100;
 					VehicleInfo[slot][vMileage] = 0;
@@ -38925,7 +38999,7 @@ COMMAND:tapa(playerid, params[])
 	    if(IsPlayerNPC(targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não pode utilizar este comando em um NPC.");
 		if(PlayerInfo[playerid][pAdmin] >= 1 || PlayerInfo[playerid][pTester] >= 1)
 		{
-      		format(string, sizeof(string), "AdmCmd: Você tapeou o jogador %s.", PlayerName(targetid, 0));
+      		format(string, sizeof(string), "AdmCmd:{FFFFFF} Você tapeou o jogador %s.", PlayerName(targetid, 0));
       		SendClientMessage(playerid, COLOR_LIGHTRED,string);
 			new Float:x,Float:y,Float:z,Float:health;
 			GetPlayerHealth(targetid,health);
@@ -38952,7 +39026,7 @@ COMMAND:descongelar(playerid, params[])
 	    if(!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "Este jogador não está conectado!");
 	    if(PlayerInfo[playerid][pAdmin] >= 1 || PlayerInfo[playerid][pTester] >= 1)
 		{
-		    format(string, sizeof(string), "AdmCmd: Você descongelou o jogador %s.", PlayerName(targetid, 0));
+		    format(string, sizeof(string), "AdmCmd:{FFFFFF} Você descongelou o jogador %s.", PlayerName(targetid, 0));
       		SendClientMessage(playerid, COLOR_LIGHTRED, string);
 	        TogglePlayerControllable(targetid,true);
       		//GameTextForPlayer(targetid, "~w~Congelado", 5000, 3);
@@ -38971,42 +39045,13 @@ COMMAND:congelar(playerid, params[])
 	    if(!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "Este jogador não está conectado!");
 	    if(PlayerInfo[playerid][pAdmin] >= 1 || PlayerInfo[playerid][pTester] >= 1)
 		{
-		    format(string, sizeof(string), "AdmCmd: Você congelou o jogador %s.", PlayerName(targetid, 0));
+		    format(string, sizeof(string), "AdmCmd:{FFFFFF} Você congelou o jogador %s.", PlayerName(targetid, 0));
       		SendClientMessage(playerid, COLOR_LIGHTRED, string);
 	        TogglePlayerControllable(targetid,false);
       		//GameTextForPlayer(targetid, "~w~Congelado", 5000, 3);
 	    }
 	}
 	return 1;
-}
-
-COMMAND:ban(playerid, params[])
-{
-    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}Você deve estar conectado antes de usar algum comando.");
-    new text[128],targetid;
-    if(sscanf(params, "us[128]", targetid, text)) SendClientMessage(playerid, COLOR_LIGHTRED, "SINTAXE: /ban [id] [motivo/razão]");
-    else
-    {
-        if (playerid == targetid) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode banir você mesmo.");
-        if(!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador não está conectado.");
-        if(PlayerInfo[targetid][pAdmin] >= 5 && PlayerInfo[targetid][pAdmin] <= 3002) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode banir um adminsitrador de nível superior.");
-        if(IsPlayerNPC(targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode banir um NPC.");
-        if(strlen(text) >= 100) return SendClientMessage(playerid, COLOR_WHITE, "ERRO:{FFFFFF} O motivo do banimento é muito longo.");
-        if(PlayerInfo[playerid][pAdmin] >= 1)
-        {
-            new stringip[28];
-            format(string, sizeof(string), "AdmCmd: %s foi banido pelo administrador %s, motivo: %s.", PlayerName(targetid, 0), PlayerName(playerid, 0), text);
-            SendClientMessageToAll(COLOR_LIGHTRED, string);
-            format(stringip, sizeof(stringip), "IP: %s", PrintPlayerIP(targetid));
-            SendAdminMessage(COLOR_LIGHTRED,stringip);
-            PlayerInfo[targetid][pBanAll]++;
-            Banir(stringip,GetUserName(targetid),PlayerInfo[targetid][pID], PlayerInfo[playerid][pNomeOOC],text);
-
-            BanExtra(targetid,text,PlayerName(playerid, 0));
-        }
-        else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está autorizado a utilizar este comando.");
-    }
-    return 1;
 }
 
 stock SQL_ReturnEscaped(const str[])
@@ -39095,7 +39140,7 @@ COMMAND:kick(playerid, params[])
 	    if(PlayerInfo[targetid][pAdmin] >= 5 && PlayerInfo[targetid][pAdmin] <= 3000) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não pode kickar um Head Staff.");
 		if(PlayerInfo[playerid][pAdmin] >= 1)
 		{
-      		format(string, sizeof(string), "AdmCmd: %s foi kickado por %s, Motivo: %s.", PlayerName(targetid, 0), PlayerName(playerid, 0), text);
+      		format(string, sizeof(string), "AdmCmd:{FFFFFF} %s foi kickado por %s, Motivo: %s.", PlayerName(targetid, 0), PlayerName(playerid, 0), text);
 			SendClientMessageToAll(COLOR_LIGHTRED, string);
 			format(string, sizeof(string), "[!]Você foi kickado do servidor pelo motivo: %s", text);
 			SendClientMessage(targetid, COLOR_LIGHTRED, string);
@@ -39127,7 +39172,7 @@ COMMAND:kick(playerid, params[])
 		{
 		    if(PlayerInfo[targetid][pAdmin] >= 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "Você não pode kickar um administrador.");
 
-      		format(string, sizeof(string), "AdmCmd: %s foi kickado por %s, Motivo: %s.", PlayerName(targetid, 0), PlayerName(playerid, 0), text);
+      		format(string, sizeof(string), "AdmCmd:{FFFFFF} %s foi kickado por %s, Motivo: %s.", PlayerName(targetid, 0), PlayerName(playerid, 0), text);
 			SendClientMessageToAll(COLOR_LIGHTRED, string);
 			//SendAdminMessage(0xFF0000FF,string);
 			format(string, sizeof(string), "[!]Você foi kickado do servidor pelo motivo: %s", text);
@@ -39197,7 +39242,7 @@ CMD:areparar(playerid,params[])
 		if(PlayerInfo[playerid][pAdmin] > 3001) format(admnome, sizeof(admnome), "%s", PlayerInfo[playerid][pNomeOOC]);
 		else format(admnome, sizeof(admnome), "%s", PlayerName(playerid, 0));
 
-		format(string, sizeof(string), "AdmCmd: O Administrador %s consertou o veículo de %s [%d].", admnome, PlayerName(type, 0), type);
+		format(string, sizeof(string), "AdmCmd:{FFFFFF} O Administrador %s consertou o veículo de %s [%d].", admnome, PlayerName(type, 0), type);
 		SendAdminMessage(COLOR_LIGHTRED,string);
 	}
 	return 1;
@@ -39221,7 +39266,7 @@ CMD:areparartodos(playerid,params[])
 	if(PlayerInfo[playerid][pAdmin] > 3001) format(admnome, sizeof(admnome), "%s", PlayerInfo[playerid][pNomeOOC]);
 	else format(admnome, sizeof(admnome), "%s", PlayerName(playerid, 0));
 
-	format(string, sizeof(string), "AdmCmd: O Administrador %s consertou todos veículos do servidor.", admnome);
+	format(string, sizeof(string), "AdmCmd:{FFFFFF} O Administrador %s consertou todos veículos do servidor.", admnome);
 	//SendAdminMessage(COLOR_LIGHTRED,string);
 	SendClientMessageToAll(COLOR_LIGHTRED, string);
 
@@ -39257,8 +39302,8 @@ CMD:mandarlv(playerid,params[])
 
     		SetPlayerPos(type,1543.5889,-1669.9229,13.5567);
 
-    		if(PlayerInfo[playerid][pAdmin] > 0) format(string, sizeof(string), "{FF6347}AdmCmd: O Administrador %s mandou %s [%d] para a cadeia administrativa.", admnome, PlayerName(type, 0), type);
-		    else format(string, sizeof(string), "AdmCmd: O Tester %s[%d] mandou %s para a cadeia administrativa.", PlayerName(playerid, 0), playerid, PlayerName(type, 0), type);
+    		if(PlayerInfo[playerid][pAdmin] > 0) format(string, sizeof(string), "{FF6347}AdmCmd:{FFFFFF} O Administrador %s mandou %s [%d] para a cadeia administrativa.", admnome, PlayerName(type, 0), type);
+		    else format(string, sizeof(string), "AdmCmd:{FFFFFF} O Tester %s[%d] mandou %s para a cadeia administrativa.", PlayerName(playerid, 0), playerid, PlayerName(type, 0), type);
 			SendAdminMessage(COLOR_LIGHTRED,string);
 
 		    CaindoInt[type] = 0;
@@ -39285,8 +39330,8 @@ CMD:mandarlv(playerid,params[])
     		PlayerInfo[type][pEntrouComplexo] = 52;
     		PlayerInfo[type][pEntrouGaragem] = -1;
 
-    		if(PlayerInfo[playerid][pAdmin] > 0) format(string, sizeof(string), "{FF6347}AdmCmd: O Administrador %s mandou %s [%d] para a cadeia local.", admnome, PlayerName(type, 0), type);
-		    else format(string, sizeof(string), "AdmCmd: O Tester %s[%d] mandou %s[%d] para a cadeia local.", PlayerName(playerid, 0), playerid, PlayerName(type, 0), type);
+    		if(PlayerInfo[playerid][pAdmin] > 0) format(string, sizeof(string), "{FF6347}AdmCmd:{FFFFFF} O Administrador %s mandou %s [%d] para a cadeia local.", admnome, PlayerName(type, 0), type);
+		    else format(string, sizeof(string), "AdmCmd:{FFFFFF} O Tester %s[%d] mandou %s[%d] para a cadeia local.", PlayerName(playerid, 0), playerid, PlayerName(type, 0), type);
 			SendAdminMessage(COLOR_LIGHTRED,string);
 
     		TogglePlayerControllable(type, 1);
@@ -39339,8 +39384,8 @@ CMD:mandarlv(playerid,params[])
 
 		    TogglePlayerControllable(type, 1);
 
-		    if(PlayerInfo[playerid][pAdmin] > 0) format(string, sizeof(string), "{FF6347}AdmCmd: O Administrador %s mandou %s [%d] para Las Venturas.", admnome, PlayerName(type, 0), type);
-		    else format(string, sizeof(string), "AdmCmd: O Tester %s[%d] mandou %s[%d] para Las Venturas.", PlayerName(playerid, 0), playerid, PlayerName(type, 0), type);
+		    if(PlayerInfo[playerid][pAdmin] > 0) format(string, sizeof(string), "{FF6347}AdmCmd:{FFFFFF} O Administrador %s mandou %s [%d] para Las Venturas.", admnome, PlayerName(type, 0), type);
+		    else format(string, sizeof(string), "AdmCmd:{FFFFFF} O Tester %s[%d] mandou %s[%d] para Las Venturas.", PlayerName(playerid, 0), playerid, PlayerName(type, 0), type);
 			SendAdminMessage(COLOR_LIGHTRED,string);
 
 			if(ouvindoxmradio[type] > 0)
@@ -39368,7 +39413,33 @@ COMMAND:jetpack(playerid, params[])
 	}
 	return 1;
 }
+COMMAND:amancar(playerid, params[])
+{
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
+    if(PlayerInfo[playerid][pAdmin] >= 3000)
+    {
+        //if(adebug[playerid] == 0) adebug[playerid] = 1;
+		//if(adebug[playerid] == 1) adebug[playerid] = 0;
 
+		if(PlayerInfo[playerid][pMancando] == 0)
+		{
+			PlayerInfo[playerid][pMancando] = 1;
+			SendClientMessage(playerid, COLOR_LIGHTRED, "[!] Vai mancar, isso mesmo, manque como todos os outros.");
+		}
+		else if(PlayerInfo[playerid][pMancando] == 1)
+		{
+			PlayerInfo[playerid][pMancando] = 0;
+			SendClientMessage(playerid, -1, "[!] Não vai mancar, safado! pare, seja justo com os outros jogadores");
+			SendClientMessage(playerid, COLOR_LIGHTRED, "NPCAdmCmd:{FFFFFF} Você foi banido por abusar do comando de mancar.");
+			SendClientMessage(playerid, 0xadc3e7ff, "Server close the conecction.");
+		}
+
+		new strl[126];
+		format(strl, 126, "%s alterou seu estado de manco. [/amancar]", PlayerName(playerid, 0));
+		LogCMD_A(playerid, strl);
+	}
+	return 1;
+}
 forward SendBankErrorMessage(playerid);
 public SendBankErrorMessage(playerid){
     SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Não foi possível fazer essa transição.");
@@ -40165,11 +40236,11 @@ COMMAND:amotor(playerid,params[])
 				    if(delay == 0)
 				    {
 			    		StartEngine(veh);
-						SendClientMessage(playerid,COLOR_YELLOW, "AdmCmd: Motor ligado!");
+						SendClientMessage(playerid,COLOR_YELLOW, "AdmCmd:{FFFFFF} Motor ligado!");
 					}
 					else
 					{
-					    SendClientMessage(playerid,COLOR_YELLOW, "AdmCmd: Ligando o motor!");
+					    SendClientMessage(playerid,COLOR_YELLOW, "AdmCmd:{FFFFFF} Ligando o motor!");
 					    startup_delay[veh] = delay;
 					    startup_delay_sender[veh] = playerid;
 					}
@@ -40186,7 +40257,7 @@ COMMAND:amotor(playerid,params[])
 			    if(slot > -1)
 			    {
 				    StopEngine(veh);
-				    SendClientMessage(playerid,COLOR_YELLOW, "AdmCmd: Motor desligado!");
+				    SendClientMessage(playerid,COLOR_YELLOW, "AdmCmd:{FFFFFF} Motor desligado!");
 				    return 1;
 				}
 				else
@@ -40430,7 +40501,7 @@ COMMAND:setartc(playerid, params[])
 			else format(admnome, sizeof(admnome), "%s", PlayerName(playerid, 0));
 
   			PlayerInfo[targetid][pLevel] = levelset;
-      		format(string,sizeof(string),"AdmCmd: Você setou %s com o TC %d.",PlayerName(targetid, 0), levelset);
+      		format(string,sizeof(string),"AdmCmd:{FFFFFF} Você setou %s com o TC %d.",PlayerName(targetid, 0), levelset);
     		SendClientMessage(playerid, COLOR_LIGHTRED, string);
     		format(string,sizeof(string),"-> %s lhe deu TC %d, parabéns por esta conquista.",admnome, levelset);
     		SendClientMessage(targetid, COLOR_YELLOW, string);
@@ -40451,11 +40522,11 @@ COMMAND:setaradmin(playerid, params[])
 		if(PlayerInfo[playerid][pAdmin] == 5) {
 		    if(inter >= PlayerInfo[playerid][pAdmin]) return SendClientMessage(playerid, COLOR_WHITE, "{FF6347}Nivel de admin inválido!");
   			PlayerInfo[targetid][pAdmin] = inter;
-      		format(string,sizeof(string),"AdmCmd: Você setou %s como Administrador %d.",PlayerName(targetid, 0), inter);
+      		format(string,sizeof(string),"AdmCmd:{FFFFFF} Você setou %s como Administrador %d.",PlayerName(targetid, 0), inter);
     		SendClientMessage(playerid, COLOR_LIGHTRED, string);
     		format(string,sizeof(string),"-> %s promoveu você para Administrador %d, parabéns por esta conquista.",PlayerName(playerid, 0), inter);
     		SendClientMessage(targetid, COLOR_YELLOW, string);
-			SendAdminAlert(COLOR_LIGHTRED, "AdmCmd: %s setou %s de administrador.", PlayerName(playerid, 0), PlayerName(targetid, 0));
+			SendAdminAlert(COLOR_LIGHTRED, "AdmCmd:{FFFFFF} %s setou %s de administrador.", PlayerName(playerid, 0), PlayerName(targetid, 0));
 		}
 		if(PlayerInfo[playerid][pAdmin] >= 3000) {
  			new admnome[24];
@@ -40463,11 +40534,11 @@ COMMAND:setaradmin(playerid, params[])
 			else format(admnome, sizeof(admnome), "%s", PlayerName(playerid, 0));
 
   			PlayerInfo[targetid][pAdmin] = inter;
-      		format(string,sizeof(string),"AdmCmd: Você setou %s como Administrador %d.",PlayerName(targetid, 0), inter);
+      		format(string,sizeof(string),"AdmCmd:{FFFFFF} Você setou %s como Administrador %d.",PlayerName(targetid, 0), inter);
     		SendClientMessage(playerid, COLOR_LIGHTRED, string);
     		format(string,sizeof(string),"-> %s promoveu você para Administrador %d, parabéns por esta conquista.",admnome, inter);
     		SendClientMessage(targetid, COLOR_YELLOW, string);
-			SendAdminAlert(COLOR_LIGHTRED, "AdmCmd: %s setou %s de administrador.", PlayerName(playerid, 0), PlayerName(targetid, 0));
+			SendAdminAlert(COLOR_LIGHTRED, "AdmCmd:{FFFFFF} %s setou %s de administrador.", PlayerName(playerid, 0), PlayerName(targetid, 0));
 		}
 	}
 	return 1;
@@ -40491,7 +40562,7 @@ COMMAND:setartester(playerid, params[])
 		    if(PlayerInfo[targetid][pTester] == 0)
 		    {
   				PlayerInfo[targetid][pTester] = 1;
-	      		format(string,sizeof(string),"AdmCmd: Você setou %s como Tester.",PlayerName(targetid, 0));
+	      		format(string,sizeof(string),"AdmCmd:{FFFFFF} Você setou %s como Tester.",PlayerName(targetid, 0));
 	    		SendClientMessage(playerid, COLOR_LIGHTRED, string);
 	    		format(string,sizeof(string),"-> %s promoveu você para Tester, parabéns por esta conquista",admnome);
 	    		SendClientMessage(targetid, COLOR_YELLOW, string);
@@ -40499,9 +40570,9 @@ COMMAND:setartester(playerid, params[])
 			else
 			{
 			    PlayerInfo[targetid][pTester] = 0;
-	      		format(string,sizeof(string),"AdmCmd: Você removeu %s de Tester.",PlayerName(targetid, 0));
+	      		format(string,sizeof(string),"AdmCmd:{FFFFFF} Você removeu %s de Tester.",PlayerName(targetid, 0));
 	    		SendClientMessage(playerid, COLOR_LIGHTRED, string);
-	    		format(string,sizeof(string),"AdmCmd: %s removeu você de Tester.",admnome);
+	    		format(string,sizeof(string),"AdmCmd:{FFFFFF} %s removeu você de Tester.",admnome);
 	    		SendClientMessage(targetid, COLOR_LIGHTRED, string);
 			}
 		}
@@ -40587,9 +40658,9 @@ COMMAND:pnomeooc(playerid, params[])
 		else format(admnome, sizeof(admnome), "%s", PlayerName(playerid, 0));
 
 		SetPVarInt(targetid, "PermissaoNomeOOC", 1);
-		format(string, sizeof(string), "AdmCmd: O Administrador %s lhe deu uma permissão de troca de nome OOC. '/nomeooc'", admnome);
+		format(string, sizeof(string), "AdmCmd:{FFFFFF} O Administrador %s lhe deu uma permissão de troca de nome OOC. '/nomeooc'", admnome);
 		SendClientMessage(targetid, COLOR_LIGHTRED, string);
-		format(string, sizeof(string), "AdmCmd: Você deu uma permissão de troca de nome OOC para %s.", PlayerName(targetid, 0));
+		format(string, sizeof(string), "AdmCmd:{FFFFFF} Você deu uma permissão de troca de nome OOC para %s.", PlayerName(targetid, 0));
 		SendClientMessage(playerid, COLOR_LIGHTRED, string);
 	}
 	return 1;
@@ -40630,7 +40701,7 @@ COMMAND:liberaracesso(playerid, params[])
 		else format(admnome, sizeof(admnome), "%s", PlayerName(playerid, 0));
 
 		UnBlockIpAddress(targetid);
-		format(string, sizeof(string), "AdmCmd: O Administrador %s liberou o acesso do IP: [%s]", admnome, targetid);
+		format(string, sizeof(string), "AdmCmd:{FFFFFF} O Administrador %s liberou o acesso do IP: [%s]", admnome, targetid);
 		SendAdminMessage(COLOR_LIGHTRED,string);
 	}
 	return 1;
@@ -40645,8 +40716,8 @@ COMMAND:bandagem(playerid, params[])
 	{
         if(PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar logado para utilizar este comando.");
         if(!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador não está conectado!");
-        if(PlayerInfo[targetid][pMorto] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador não necessita de cuidados médicos.");
-		if(PlayerInfo[targetid][pMorto] != 2) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador está morto e não ferido.");
+        //if(PlayerInfo[targetid][pMorto] >= 2) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador não necessita de cuidados médicos.");
+		//if(PlayerInfo[targetid][pMorto] != 2) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador está morto e não ferido.");
 		if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
         if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
 		if(PlayerInfo[playerid][pKitMedico] <= 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve ser um médico de combate.");
@@ -40672,7 +40743,6 @@ COMMAND:bandagem(playerid, params[])
 						PlayerInfo[targetid][pUsouDroga] = 0;
 						PlayerInfo[targetid][pTomouAlgumTiro] = 0;
 						OutrasInfos[targetid][oPerdVida] = 0;
-						printf("[DEBUG] /cprr funcionou 1");
 					}
 				}
 				else
@@ -40681,7 +40751,6 @@ COMMAND:bandagem(playerid, params[])
 				}
 				PlayerInfo[targetid][pTomouAlgumTiro] = 0;
 				OutrasInfos[targetid][oPerdVida] = 0;
-				printf("[DEBUG] /cprr funcionou 2");
      		}
      		else return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não está próximo suficiente deste jogador!");
 		}
@@ -40699,8 +40768,8 @@ COMMAND:cprr(playerid, params[])
         if(PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar logado para utilizar este comando.");
         if(!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador não está conectado!");
         if(PlayerInfo[playerid][pMorto] > 1) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode usar este comando enquanto estiver morto!");
-        if(PlayerInfo[targetid][pMorto] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador não necessita de cuidados médicos.");
-		if(PlayerInfo[targetid][pMorto] != 2) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador está morto e não ferido.");
+        //if(PlayerInfo[targetid][pMorto] >= 2) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador não necessita de cuidados médicos.");
+		//if(PlayerInfo[targetid][pMorto] != 2) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador está morto e não ferido.");
 		if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
         if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
 		if(PlayerInfo[playerid][pKitMedico] <= 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve ser um médico de combate.");
@@ -40752,40 +40821,36 @@ COMMAND:desfibrilador(playerid, params[])
         if(PlayerInfo[targetid][pMorto] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este jogador não necessita de cuidados médicos.");
         if(OutrasInfos[playerid][oAlgemado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver algemado.");
         if(OutrasInfos[playerid][oAmarrado] != 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não pode utilizar este comando enquanto estiver amarrado.");
-        new faccao = GetFactionBySqlId(PlayerInfo[playerid][pFac]);
-        if(FacInfo[faccao][fTipo] == FAC_TIPO_CBERJ)
+  		if(PlayerInfo[playerid][pKitMedico] <= 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve ser um médico de combate.");
+		if(GetDistanceBetweenPlayers(playerid,targetid) <= 5.0)
 		{
-  			if(GetDistanceBetweenPlayers(playerid,targetid) <= 5.0)
-	    	{
-		    	format(string, sizeof(string), "* %s utiliza seu desfibrilador em %s.", PlayerName(playerid,1), PlayerName(targetid,1));
-       			ProxDetector(20.0, playerid, string,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
+		    format(string, sizeof(string), "* %s utiliza seu desfibrilador em %s.", PlayerName(playerid,1), PlayerName(targetid,1));
+       		ProxDetector(20.0, playerid, string,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE,COLOR_PURPLE);
 
-				if(PlayerInfo[targetid][pTomouAlgumTiro] > 0)
-				{
-       				SendClientMessage(playerid, COLOR_LIGHTRED, "INFO: Este jogador levou algum tiro e precisa ser internado, caso contrário ele morrerá sangrando.");
-       				SendClientMessage(targetid, COLOR_LIGHTRED, "((Um médico lhe reviveu, porém você precisa ser internado para curar seus ferimentos a bala, caso contrário você morrerá sangrando.))");
-				}
-				else
-				{
-				    ZerarDamages(targetid);
-				}
+			if(PlayerInfo[targetid][pTomouAlgumTiro] > 0)
+			{
+       			SendClientMessage(playerid, COLOR_LIGHTRED, "INFO: Este jogador levou algum tiro e precisa ser internado, caso contrário ele morrerá sangrando.");
+       			SendClientMessage(targetid, COLOR_LIGHTRED, "((Um médico lhe reviveu, porém você precisa ser internado para curar seus ferimentos a bala, caso contrário você morrerá sangrando.))");
+			}
+			else
+			{
+				ZerarDamages(targetid);
+			}
 
-    		    PlayerInfo[targetid][pMorto] = 0;
-				TogglePlayerControllable(targetid,true);
-    			SetPlayerHealth(targetid, 25);
-				P_Health[targetid] = 25;
-				God_Aviso2[targetid] = 0;
-				God_VidaAnterior2[targetid] = 50;
- 		    	PlayerPlaySound(targetid,1150, 0.0, 0.0, 0.0);
-  		    	ApplyAnimation(targetid, "CARRY", "crry_prtial", 2.0, 0, 0, 0, 0, 0);
-         		SetPlayerChatBubble(targetid, "", 0xe8827600, 100.0, 1);
+    		PlayerInfo[targetid][pMorto] = 0;
+			TogglePlayerControllable(targetid,true);
+    		SetPlayerHealth(targetid, 25);
+			P_Health[targetid] = 25;
+			God_Aviso2[targetid] = 0;
+			God_VidaAnterior2[targetid] = 50;
+ 		    PlayerPlaySound(targetid,1150, 0.0, 0.0, 0.0);
+  		    ApplyAnimation(targetid, "CARRY", "crry_prtial", 2.0, 0, 0, 0, 0, 0);
+         	SetPlayerChatBubble(targetid, "", 0xe8827600, 100.0, 1);
 
-				TempoDesistir[targetid] = 0;
-   				PodeAceitarMorte[targetid] = 0;
-     		}
-     		else return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não está próximo suficiente deste jogador!");
-		}
-		else return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não tem acesso a este comando!");
+			TempoDesistir[targetid] = 0;
+   			PodeAceitarMorte[targetid] = 0;
+     	}
+     	else return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não está próximo suficiente deste jogador!");
 	}
 	return 1;
 }
@@ -40808,12 +40873,12 @@ COMMAND:curar(playerid, params[])
 			if(PlayerInfo[playerid][pAdmin] > 3001) format(admnome, sizeof(admnome), "%s", PlayerInfo[playerid][pNomeOOC]);
 			else format(admnome, sizeof(admnome), "%s", PlayerName(playerid, 0));
 
-		    format(string,sizeof(string),"AdmCmd: Você curou %s.",PlayerName(targetid, 0));
+		    format(string,sizeof(string),"AdmCmd:{FFFFFF} Você curou %s.",PlayerName(targetid, 0));
 	   		SendClientMessage(playerid, COLOR_LIGHTRED, string);
-	   		format(string,sizeof(string),"AdmCmd: O administrador %s lhe curou.",admnome);
+	   		format(string,sizeof(string),"AdmCmd:{FFFFFF} O administrador %s lhe curou.",admnome);
 	   		SendClientMessage(targetid, COLOR_LIGHTRED, string);
 
-			format(string, sizeof(string), "AdmCmd: O Administrador %s curou o %s.", admnome, PlayerName(targetid, 0));
+			format(string, sizeof(string), "AdmCmd:{FFFFFF} O Administrador %s curou o %s.", admnome, PlayerName(targetid, 0));
 			SendAdminMessage(COLOR_LIGHTRED,string);
 
 	   		if(PlayerInfo[targetid][pTempoMorto] > 0)
@@ -40888,7 +40953,7 @@ COMMAND:setarvida(playerid, params[])
                     God_VidaAnterior2[targetid] = inter;
                     God_Aviso2[targetid] = 0;
 				}
-	      		format(string,sizeof(string),"AdmCmd: %s setou a vida de %s para %.4f.", PlayerName(playerid, 0), PlayerName(targetid, 0), inter);
+	      		format(string,sizeof(string),"AdmCmd:{FFFFFF} %s setou a vida de %s para %.4f.", PlayerName(playerid, 0), PlayerName(targetid, 0), inter);
 	    		SendAdminMessage(COLOR_LIGHTRED, string);
 	    		God_Aviso2[playerid] = 0;
 
@@ -40918,7 +40983,7 @@ COMMAND:setarcolete(playerid, params[])
 		        P_Armour[targetid] = inter;
 
 		        SetPlayerArmour_CA(targetid, inter);
-	      		format(string,sizeof(string),"AdmCmd: Você setou o colete de %s para %.4f.",PlayerName(targetid, 0), inter);
+	      		format(string,sizeof(string),"AdmCmd:{FFFFFF} Você setou o colete de %s para %.4f.",PlayerName(targetid, 0), inter);
 	    		SendClientMessage(playerid, COLOR_LIGHTRED, string);
 
 	    		new strl[126];
@@ -40944,7 +41009,7 @@ COMMAND:setarskin(playerid, params[])
 		    if((!OutrasInfos[playerid][oAdminOnDuty] && !OutrasInfos[playerid][oTesterOnDuty]) && PlayerInfo[playerid][pAdmin] < 3000) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você deve estar em modo de trabalho para utilizar este comando. '/aduty'.");
   			PlayerInfo[targetid][pSkin] = inter;
   			SetPlayerSkin(targetid, inter);
-      		format(string,sizeof(string),"AdmCmd: Você setou a skin de %s para %d.",PlayerName(targetid, 0), inter);
+      		format(string,sizeof(string),"AdmCmd:{FFFFFF} Você setou a skin de %s para %d.",PlayerName(targetid, 0), inter);
     		SendClientMessage(playerid, COLOR_LIGHTRED, string);
 		}
 	}
@@ -41019,10 +41084,10 @@ COMMAND:setarfaccao(playerid, params[])
 
 					setarPlayerFaccao(targetid, faccao, cargo);
 
-		      		format(string,sizeof(string),"AdmCmd: Você setou a facção de %s para %s [%d], Cargo: %d.",PlayerName(targetid, 0), FacInfo[faccao][fNome], faccao, cargo);
+		      		format(string,sizeof(string),"AdmCmd:{FFFFFF} Você setou a facção de %s para %s [%d], Cargo: %d.",PlayerName(targetid, 0), FacInfo[faccao][fNome], faccao, cargo);
 		    		SendClientMessage(playerid, COLOR_LIGHTRED, string);
 
-		    		format(string,sizeof(string),"AdmCmd: o Administrador %s setou a sua facção para %s [%d], Cargo: %d.", admnome, FacInfo[faccao][fNome], faccao, cargo);
+		    		format(string,sizeof(string),"AdmCmd:{FFFFFF} o Administrador %s setou a sua facção para %s [%d], Cargo: %d.", admnome, FacInfo[faccao][fNome], faccao, cargo);
 		    		SendClientMessage(targetid, COLOR_LIGHTRED, string);
 				}
 				else return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Facção inválida.");
@@ -41044,7 +41109,7 @@ COMMAND:setaremprego(playerid, params[])
 	    if (PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
 	    if (!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "Este jogador não está conectado!");
 		PlayerInfo[targetid][pJob] = inter;
-		format(string,sizeof(string),"AdmCmd: Você setou o emprego de %s para %d.",PlayerName(targetid, 0), inter);
+		format(string,sizeof(string),"AdmCmd:{FFFFFF} Você setou o emprego de %s para %d.",PlayerName(targetid, 0), inter);
 		SendClientMessage(playerid, COLOR_LIGHTRED, string);
 	}
 	return 1;
@@ -41077,7 +41142,7 @@ COMMAND:pontodesmanche(playerid, params[])
 		PlayerInfo[targetid][pID]);
 		mysql_function_query(Pipeline, query, true, "OnQueryFinish", "ii", THREAD_NO_RESULT, playerid);
 
-		format(string,sizeof(string),"AdmCmd: Você setou o ponto de desmanche de %s.",PlayerName(targetid, 0));
+		format(string,sizeof(string),"AdmCmd:{FFFFFF} Você setou o ponto de desmanche de %s.",PlayerName(targetid, 0));
 		SendClientMessage(playerid, COLOR_LIGHTRED, string);
 	}
 	return 1;
@@ -41094,7 +41159,7 @@ COMMAND:mudarsexo(playerid, params[])
 	    if (PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
 	    if (!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "Este jogador não está conectado!");
 		PlayerInfo[targetid][pGender] = inter;
-		format(string,sizeof(string),"AdmCmd: Você setou o sexo de %s para %d.",PlayerName(targetid, 0), inter);
+		format(string,sizeof(string),"AdmCmd:{FFFFFF} Você setou o sexo de %s para %d.",PlayerName(targetid, 0), inter);
 		SendClientMessage(playerid, COLOR_LIGHTRED, string);
 	}
 	return 1;
@@ -41111,7 +41176,7 @@ COMMAND:mudaridade(playerid, params[])
 	    if (PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
 	    if (!IsPlayerConnected(targetid)) return SendClientMessage(playerid, COLOR_LIGHTRED, "Este jogador não está conectado!");
 		PlayerInfo[targetid][pAge] = inter;
-		format(string,sizeof(string),"AdmCmd: Você setou a Idade de %s para %s.",PlayerName(targetid, 0), inter);
+		format(string,sizeof(string),"AdmCmd:{FFFFFF} Você setou a Idade de %s para %s.",PlayerName(targetid, 0), inter);
 		SendClientMessage(playerid, COLOR_LIGHTRED, string);
 	}
 	return 1;
@@ -41130,7 +41195,7 @@ COMMAND:setarvw(playerid, params[])
 		{
 		    PlayerInfo[targetid][pWorld] = inter;
   			SetPlayerVirtualWorld(targetid,inter);
-      		format(string,sizeof(string),"AdmCmd: Você setou o virtual world de %s para %d.",PlayerName(targetid, 0), inter);
+      		format(string,sizeof(string),"AdmCmd:{FFFFFF} Você setou o virtual world de %s para %d.",PlayerName(targetid, 0), inter);
     		SendClientMessage(playerid, COLOR_LIGHTRED, string);
 		}
 	}
@@ -41150,7 +41215,7 @@ COMMAND:setarint(playerid, params[])
 		{
 		    PlayerInfo[targetid][pInterior] = inter;
   			SetPlayerInterior(targetid,inter);
-      		format(string,sizeof(string),"AdmCmd: Você setou o interior de %s para %d.",PlayerName(targetid, 0), inter);
+      		format(string,sizeof(string),"AdmCmd:{FFFFFF} Você setou o interior de %s para %d.",PlayerName(targetid, 0), inter);
     		SendClientMessage(playerid, COLOR_LIGHTRED, string);
 		}
 	}
@@ -41220,10 +41285,10 @@ CMD:setardinheiro(playerid, params[])
 	if(PlayerInfo[playerid][pAdmin] > 3001) format(admnome, sizeof(admnome), "%s", PlayerInfo[playerid][pNomeOOC]);
 	else format(admnome, sizeof(admnome), "%s", PlayerName(playerid, 0));
 
-    format(string,sizeof(string),"AdmCmd: O Administrador %s lhe setou US$%d.",admnome,qnt);
+    format(string,sizeof(string),"AdmCmd:{FFFFFF} O Administrador %s lhe setou US$%d.",admnome,qnt);
     SendClientMessage(other, COLOR_LIGHTRED, string);
 
-    format(string, sizeof(string), "AdmCmd: O administrador %s setou US$%d para %s.", admnome, qnt, PlayerName(other, 0));
+    format(string, sizeof(string), "AdmCmd:{FFFFFF} O administrador %s setou US$%d para %s.", admnome, qnt, PlayerName(other, 0));
 	SendAdminMessage(COLOR_LIGHTRED,string);
 
     new strl[126];
@@ -41261,7 +41326,7 @@ CMD:setararma(playerid, params[])
 	    SendClientMessage(other, COLOR_LIGHTRED, string);
 
 		new admavisoarma[256];
-	    format(admavisoarma,sizeof(admavisoarma),"AdmCmd: O administrador %s setou uma %s para %s.", admnome, GunNames[arma], PlayerName(other, 0));
+	    format(admavisoarma,sizeof(admavisoarma),"AdmCmd:{FFFFFF} O administrador %s setou uma %s para %s.", admnome, GunNames[arma], PlayerName(other, 0));
 	    SendAdminMessage(COLOR_LIGHTRED, admavisoarma);
 
 		new strl[126];
@@ -41303,7 +41368,7 @@ CMD:setarammo(playerid, params[])
 	{
 	    case 1:
 		{
-			format(string, sizeof(string), "AdmCmd: O administrador %s [%d] entregou uma %d balas de 9mm para %s.", PlayerName(playerid, 0),playerid, Ammo, PlayerName(other, 0));
+			format(string, sizeof(string), "AdmCmd:{FFFFFF} O administrador %s [%d] entregou uma %d balas de 9mm para %s.", PlayerName(playerid, 0),playerid, Ammo, PlayerName(other, 0));
 			SendAdminMessage(-1,string);
 			format(string,sizeof(string),"* O administrador %s lhe entregou %d balas 9mm.",admnome,Ammo);
     		SendClientMessage(other, COLOR_LIGHTRED, string);
@@ -41312,7 +41377,7 @@ CMD:setarammo(playerid, params[])
 		}
 	    case 2:
 	    {
-	        format(string, sizeof(string), "{FF6347}AdmCmd: O administrador %s [%d] entregou uma %d cartuxos para %s.", PlayerName(playerid, 0),playerid, Ammo, PlayerName(other, 0));
+	        format(string, sizeof(string), "{FF6347}AdmCmd:{FFFFFF} O administrador %s [%d] entregou uma %d cartuxos para %s.", PlayerName(playerid, 0),playerid, Ammo, PlayerName(other, 0));
 			SendAdminMessage(COLOR_LIGHTRED,string);
 			format(string,sizeof(string),"* O administrador %s lhe entregou %d cartuchos.",admnome,Ammo);
     		SendClientMessage(other, COLOR_LIGHTRED, string);
@@ -41321,7 +41386,7 @@ CMD:setarammo(playerid, params[])
 	    }
 	    case 3:
 	    {
-	        format(string, sizeof(string), "{FF6347}AdmCmd: O administrador %s [%d] entregou uma %d balas 5.56mm para %s.", PlayerName(playerid, 0),playerid, Ammo, PlayerName(other, 0));
+	        format(string, sizeof(string), "{FF6347}AdmCmd:{FFFFFF} O administrador %s [%d] entregou uma %d balas 5.56mm para %s.", PlayerName(playerid, 0),playerid, Ammo, PlayerName(other, 0));
 			SendAdminMessage(COLOR_LIGHTRED,string);
 			format(string,sizeof(string),"* O administrador %s lhe entregou uma %d balas 5.56mm.",PlayerName(playerid, 0),Ammo);
     		SendClientMessage(other, COLOR_LIGHTRED, string);
@@ -41330,7 +41395,7 @@ CMD:setarammo(playerid, params[])
 	    }
 	    case 4:
 	    {
-	        format(string, sizeof(string), "{FF6347}AdmCmd: O administrador %s [%d] entregou uma %d balas 12.7x106mm para %s.", PlayerName(playerid, 0),playerid, Ammo, PlayerName(other, 0));
+	        format(string, sizeof(string), "{FF6347}AdmCmd:{FFFFFF} O administrador %s [%d] entregou uma %d balas 12.7x106mm para %s.", PlayerName(playerid, 0),playerid, Ammo, PlayerName(other, 0));
 			SendAdminMessage(COLOR_LIGHTRED,string);
 			format(string,sizeof(string),"* O administrador %s lhe entregou uma %d balas 12.7x106mm.",admnome,Ammo);
     		SendClientMessage(playerid, COLOR_LIGHTRED, string);
@@ -41506,91 +41571,7 @@ CMD:b(playerid, params[])
 	return 1;
 }
 
-CMD:palcopref(playerid, params[])
-{
-    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-	if(PlayerInfo[playerid][pAdmin] >= 5)
-	{
-	    if(StatusPalco == 0)
-	    {
-	        StatusPalco = 1;
-			ObjPalco[0] = CreateDynamicObject(16092, 1472.28015, -1679.83911, 13.04093,   0.00000, 0.00000, 0.00000);
-			ObjPalco[1] = CreateDynamicObject(16092, 1485.82019, -1679.83911, 13.04090,   0.00000, 0.00000, 0.00000);
-			ObjPalco[2] = CreateDynamicObject(16092, 1479.04834, -1686.57324, 13.04090,   0.00000, 0.00000, 90.00000);
-			ObjPalco[3] = CreateDynamicObject(16092, 1479.04834, -1673.09314, 13.04090,   0.00000, 0.00000, 90.00000);
-			ObjPalco[4] = CreateDynamicObject(16092, 1479.04834, -1673.09314, 6.44090,   0.00000, 0.00000, 90.00000);
-			ObjPalco[5] = CreateDynamicObject(16092, 1479.04834, -1686.57324, 6.42090,   0.00000, 0.00000, 90.00000);
-			ObjPalco[6] = CreateDynamicObject(16092, 1472.28015, -1679.83911, 6.42090,   0.00000, 0.00000, 0.00000);
-			ObjPalco[7] = CreateDynamicObject(16092, 1485.82019, -1679.83911, 6.40090,   0.00000, 0.00000, 0.00000);
-			ObjPalco[8] = CreateDynamicObject(16000, 1479.94226, -1680.00854, 21.19600,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[9] = CreateDynamicObject(16000, 1479.98535, -1680.11060, 21.19600,   -90.00000, 0.00000, 180.00000);
-			ObjPalco[10] = CreateDynamicObject(16000, 1478.90735, -1672.32312, 10.51910,   0.00000, 0.00000, -180.00000);
-			ObjPalco[11] = CreateDynamicObject(2395, 1474.57056, -1672.33044, 14.45425,   0.00000, 0.00000, 0.00000);
-			ObjPalco[12] = CreateDynamicObject(2395, 1473.60059, -1674.97925, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[13] = CreateDynamicObject(2395, 1477.32056, -1674.97925, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[14] = CreateDynamicObject(2395, 1481.04065, -1674.97925, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[15] = CreateDynamicObject(2395, 1483.44055, -1674.97925, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[16] = CreateDynamicObject(2395, 1471.96057, -1674.97925, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[17] = CreateDynamicObject(2395, 1483.44055, -1677.71924, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[18] = CreateDynamicObject(2395, 1483.44055, -1680.45923, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[19] = CreateDynamicObject(2395, 1483.44055, -1683.19922, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[20] = CreateDynamicObject(2395, 1483.44055, -1685.93921, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[21] = CreateDynamicObject(2395, 1483.44055, -1687.49915, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[22] = CreateDynamicObject(2395, 1481.04065, -1677.71924, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[23] = CreateDynamicObject(2395, 1481.04065, -1680.45923, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[24] = CreateDynamicObject(2395, 1481.04065, -1683.19922, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[25] = CreateDynamicObject(2395, 1481.04065, -1685.93921, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[26] = CreateDynamicObject(2395, 1481.04065, -1687.49915, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[27] = CreateDynamicObject(2395, 1477.32056, -1677.71924, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[28] = CreateDynamicObject(2395, 1477.32056, -1680.45923, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[29] = CreateDynamicObject(2395, 1477.32056, -1683.19922, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[30] = CreateDynamicObject(2395, 1477.32056, -1685.93921, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[31] = CreateDynamicObject(2395, 1477.32056, -1687.49915, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[32] = CreateDynamicObject(2395, 1473.60059, -1677.71924, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[33] = CreateDynamicObject(2395, 1473.60059, -1680.45923, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[34] = CreateDynamicObject(2395, 1473.60059, -1683.19922, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[35] = CreateDynamicObject(2395, 1473.60059, -1685.93921, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[36] = CreateDynamicObject(2395, 1473.60059, -1687.49915, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[37] = CreateDynamicObject(2395, 1471.96057, -1677.71924, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[38] = CreateDynamicObject(2395, 1471.96057, -1680.45923, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[39] = CreateDynamicObject(2395, 1471.96057, -1683.19922, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[40] = CreateDynamicObject(2395, 1471.96057, -1685.93921, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[41] = CreateDynamicObject(2395, 1471.96057, -1687.49915, 14.78340,   -90.00000, 0.00000, 0.00000);
-			ObjPalco[42] = CreateDynamicObject(2232, 1473.67200, -1686.46338, 15.33050,   0.00000, 0.00000, 33.00000);
-			ObjPalco[43] = CreateDynamicObject(2232, 1484.39783, -1686.68274, 15.33050,   0.00000, 0.00000, -33.00000);
-			ObjPalco[44] = CreateDynamicObject(2491, 1479.76038, -1683.85291, 14.15540,   -11.00000, 0.00000, 0.00000);
-			ObjPalco[45] = CreateDynamicObject(3876, 1472.58289, -1712.82141, -32.92000,   0.00000, 0.00000, 0.00000);
-			ObjPalco[46] = CreateDynamicObject(3398, 1472.49878, -1712.49109, 13.03996,   0.00000, 0.00000, 0.00000);
-			ObjPalco[47] = CreateDynamicObject(2229, 1471.86841, -1712.94348, 21.13860,   0.00000, 90.00000, 0.00000);
-			ObjPalco[48] = CreateDynamicObject(2229, 1471.86841, -1712.94348, 21.49860,   0.00000, 90.00000, 0.00000);
-			ObjPalco[49] = CreateDynamicObject(2229, 1471.86841, -1712.94348, 20.77860,   0.00000, 90.00000, 0.00000);
-			ObjPalco[50] = CreateDynamicObject(2229, 1471.86841, -1712.94348, 20.41860,   0.00000, 90.00000, 0.00000);
-			ObjPalco[51] = CreateDynamicObject(3398, 1485.55505, -1712.47937, 13.03890,   0.00000, 0.00000, 0.00000);
-			ObjPalco[52] = CreateDynamicObject(3876, 1485.53113, -1712.73962, -32.92000,   0.00000, 0.00000, 0.00000);
-			ObjPalco[53] = CreateDynamicObject(2229, 1484.78918, -1712.79004, 21.49860,   0.00000, 90.00000, 0.00000);
-			ObjPalco[54] = CreateDynamicObject(2229, 1484.78918, -1712.79004, 21.13860,   0.00000, 90.00000, 0.00000);
-			ObjPalco[55] = CreateDynamicObject(2229, 1484.78918, -1712.79004, 20.77860,   0.00000, 90.00000, 0.00000);
-			ObjPalco[56] = CreateDynamicObject(2229, 1484.78918, -1712.79004, 20.41860,   0.00000, 90.00000, 0.00000);
-			ObjPalco[57] = CreateDynamicObject(2229, 1486.18787, -1712.31653, 20.77860,   0.00000, 90.00000, -180.00000);
-			ObjPalco[58] = CreateDynamicObject(2229, 1486.18787, -1712.31653, 21.13860,   0.00000, 90.00000, -180.00000);
-			ObjPalco[59] = CreateDynamicObject(2229, 1486.18787, -1712.31653, 21.49860,   0.00000, 90.00000, -180.00000);
-			ObjPalco[60] = CreateDynamicObject(2229, 1486.18787, -1712.31653, 20.41860,   0.00000, 90.00000, -180.00000);
-			ObjPalco[61] = CreateDynamicObject(2229, 1473.25903, -1712.37256, 20.77860,   0.00000, 90.00000, -180.00000);
-			ObjPalco[62] = CreateDynamicObject(2229, 1473.25903, -1712.37256, 21.13860,   0.00000, 90.00000, -180.00000);
-			ObjPalco[63] = CreateDynamicObject(2229, 1473.25903, -1712.37256, 21.49860,   0.00000, 90.00000, -180.00000);
-			ObjPalco[64] = CreateDynamicObject(2229, 1473.25903, -1712.37256, 20.41860,   0.00000, 90.00000, -180.00000);
-			ObjPalco[65] = CreateDynamicObject(11472, 1472.62219, -1678.60693, 11.70480,   0.00000, 0.00000, 0.00000);
-			SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Palco da prefeitura criado.");
-		}
-		else
-		{
-		    StatusPalco = 0;
-		    for(new i = 0; i < 66; i++) if(IsValidDynamicObject(ObjPalco[i])) DestroyDynamicObject(ObjPalco[i]);
-		    SendClientMessage(playerid, COLOR_WHITE, "{33AA33}Você destruiu o palco da prefeitura de LS.");
-		}
-	}
-	return 1;
-}
+
 
 COMMAND:gmx(playerid, params[])
 {
@@ -42613,7 +42594,7 @@ public OnPlayerEditDynamicObject(playerid, objectid, response, Float:x, Float:y,
 			Pump_Refresh(PlayerInfo[playerid][pEditPump]);
 			Pump_Save(PlayerInfo[playerid][pEditPump]);
 
-			SendClientMessage(playerid, COLOR_WHITE, "AdmCmd: Edição da bomba de gasolina completa.");
+			SendClientMessage(playerid, COLOR_WHITE, "AdmCmd:{FFFFFF} Edição da bomba de gasolina completa.");
 			PlayerInfo[playerid][pEditPump] = -1;
 			return 1;
 	    }
@@ -46753,7 +46734,7 @@ Dialog:Dialog_Bomba(playerid, response, listitem, inputtext[])
 					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Bombas] Você comprou uma dinamite por US$200.");
 					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-200;
 				}
-				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não tem dinheiro suficiente.");
+				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem dinheiro suficiente.");
             }
 		    case 1:
 		    {
@@ -46763,7 +46744,7 @@ Dialog:Dialog_Bomba(playerid, response, listitem, inputtext[])
 					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Bombas] Você comprou uma C4 por US$400.");
 					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-400;
 				}
-				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não tem dinheiro o suficiente.");
+				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem dinheiro o suficiente.");
             }
 		    case 2:
 		    {
@@ -46773,7 +46754,7 @@ Dialog:Dialog_Bomba(playerid, response, listitem, inputtext[])
 					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Bombas] Você comprou uma TNT por US$800.");
 					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-800;
 				}
-				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não tem dinheiro o suficiente.");
+				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem dinheiro o suficiente.");
             }
 		    case 3:
 		    {
@@ -46783,7 +46764,7 @@ Dialog:Dialog_Bomba(playerid, response, listitem, inputtext[])
 					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Bombas] Você comprou uma mina terrestre por US$150.");
 					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-150;
 				}
-				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não tem dinheiro o suficiente.");
+				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem dinheiro o suficiente.");
             }
 		    case 4:
 		    {
@@ -46793,7 +46774,7 @@ Dialog:Dialog_Bomba(playerid, response, listitem, inputtext[])
 					SendClientMessage(playerid, COLOR_LIGHTGREEN, "[Bombas] Você comprou um morteiro por US$999999999.");
 					PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]-999999999;
 				}
-				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não tem dinheiro o suficiente.");
+				else SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não tem dinheiro o suficiente.");
             }
         }
 	}
@@ -48331,8 +48312,8 @@ CMD:itens(playerid, params[])
 	        }
 	    }
 	}
-	if(TotalLista == 0) return Dialog_Show(playerid, 999999, DIALOG_STYLE_MSGBOX, "Meus Itens", "[!] Você não tem nenhum item.", "Fechar", "");
-	else return Dialog_Show(playerid, DIALOG_ITENS, DIALOG_STYLE_TABLIST_HEADERS, "Meus Itens", strLista, "Selecionar", "Cancelar");
+	if(TotalLista == 0) return Dialog_Show(playerid, 999999, DIALOG_STYLE_MSGBOX, "[WT:RP] Meus Itens", "[!] Você não tem nenhum item.", "Fechar", "");
+	else return Dialog_Show(playerid, DIALOG_ITENS, DIALOG_STYLE_TABLIST_HEADERS, "[WT:RP] Meus Itens", strLista, "Selecionar", "Cancelar");
 }
 
 Dialog:DIALOG_ITENS(playerid, response, listitem, inputtext[])
@@ -48342,8 +48323,8 @@ Dialog:DIALOG_ITENS(playerid, response, listitem, inputtext[])
 	{
 	    new ItemID = VendoItemList[playerid][listitem];
    		VendoItemList[playerid][0] = ItemID;
-    	if(ItemInfo[ItemID][iUsando] == 0) Dialog_Show(playerid, DIALOG_ITENS2, DIALOG_STYLE_LIST, "Meus Itens", "Colocar\nEditar Posição\nEditar Index\nEditar Bone\nEditar Nome\nDeletar", "Selecionar", "Fechar");
-    	else Dialog_Show(playerid, DIALOG_ITENS2, DIALOG_STYLE_LIST, "Meus Itens", "Retirar\nEditar Posição\nEditar Index\nEditar Bone\nEditar Nome\nDeletar", "Selecionar", "Fechar");
+    	if(ItemInfo[ItemID][iUsando] == 0) Dialog_Show(playerid, DIALOG_ITENS2, DIALOG_STYLE_LIST, "[WT:RP] Meus Itens", "Colocar\nEditar Posição\nEditar Index\nEditar Bone\nEditar Nome\nDeletar", "Selecionar", "Fechar");
+    	else Dialog_Show(playerid, DIALOG_ITENS2, DIALOG_STYLE_LIST, "[WT:RP] Meus Itens", "Retirar\nEditar Posição\nEditar Index\nEditar Bone\nEditar Nome\nDeletar", "Selecionar", "Fechar");
 	}
 	return 1;
 }
@@ -48377,7 +48358,7 @@ Dialog:DIALOG_ITENS2(playerid, response, listitem, inputtext[])
 							}
 						}
 					}
-					if(taUsando == 1) return Dialog_Show(playerid, 999999, DIALOG_STYLE_MSGBOX, "Meus Itens", "ERRO:{FFFFFF} Você já está usando um item deste tipo.", "Fechar", "");
+					if(taUsando == 1) return Dialog_Show(playerid, 999999, DIALOG_STYLE_MSGBOX, "[WT:RP] Meus Itens", "ERRO:{FFFFFF} Você já está usando um item deste tipo.", "Fechar", "");
 
 					new slot;
 					switch(ItemInfo[ItemID][iTipo])
@@ -48411,7 +48392,7 @@ Dialog:DIALOG_ITENS2(playerid, response, listitem, inputtext[])
 	        case 1: // Editar Posição
 	        {
 				new ItemID = VendoItemList[playerid][0];
-				if(ItemInfo[ItemID][iUsando] != 1) return Dialog_Show(playerid, 999999, DIALOG_STYLE_MSGBOX, "Meus Itens", "ERRO:{FFFFFF} Você precisa estar usando o item.", "Fechar", "");
+				if(ItemInfo[ItemID][iUsando] != 1) return Dialog_Show(playerid, 999999, DIALOG_STYLE_MSGBOX, "[WT:RP] Meus Itens", "ERRO:{FFFFFF} Você precisa estar usando o item.", "Fechar", "");
 
 				new slot;
 				switch(ItemInfo[ItemID][iTipo])
@@ -48438,7 +48419,7 @@ Dialog:DIALOG_ITENS2(playerid, response, listitem, inputtext[])
 			}
 			case 4: // Editar Nome
 			{
-				Dialog_Show(playerid, DIALOG_ITENS3, DIALOG_STYLE_INPUT, "Meus Itens", "Digite o nome que você deseja dar ao seu item:", "Salvar", "Cancelar");
+				Dialog_Show(playerid, DIALOG_ITENS3, DIALOG_STYLE_INPUT, "[WT:RP] Meus Itens", "Digite o nome que você deseja dar ao seu item:", "Salvar", "Cancelar");
 			}
 			case 5: // Deletar
 			{
@@ -48475,7 +48456,7 @@ Dialog:DIALOG_ITENS3(playerid, response, listitem, inputtext[])
 		}
 		else
 		{
-		    Dialog_Show(playerid, DIALOG_ITENS3, DIALOG_STYLE_INPUT, "Meus Itens", "Digite o nome que você deseja dar ao seu item:\n (Limite de 12 Characters)", "Salvar", "Cancelar");
+		    Dialog_Show(playerid, DIALOG_ITENS3, DIALOG_STYLE_INPUT, "[WT:RP] Meus Itens", "Digite o nome que você deseja dar ao seu item:\n (Limite de 12 Characters)", "Salvar", "Cancelar");
 		}
 	}
 	return 1;
@@ -48686,7 +48667,7 @@ CMD:ircasa(playerid, params[])
 		    SetPlayerPosFreeze(playerid,HouseInfo[var][hExX],HouseInfo[var][hExY], HouseInfo[var][hExZ],1);
 			SetPlayerVirtualWorld(playerid,HouseInfo[var][hExWorld]);
 			SetPlayerInterior(playerid,HouseInfo[var][hExInt]);
-	   		format(string, sizeof(string), "AdmCmd: Você teleportou-se até a casa: %d.", var);
+	   		format(string, sizeof(string), "AdmCmd:{FFFFFF} Você teleportou-se até a casa: %d.", var);
 			SendClientMessage(playerid, COLOR_LIGHTRED, string);
 			if(HouseInfo[var][hExX2] != 0)
 			    SendClientMessage(playerid, COLOR_LIGHTRED, "Essa casa tem uma saída secundária. Dê /ircasa2 para vê-la.");
@@ -48714,7 +48695,7 @@ CMD:irgaragem(playerid, params[])
             SetPlayerPosFreeze(playerid,GaragemInfo[var][hExX],GaragemInfo[var][hExY], GaragemInfo[var][hExZ],1);
             SetPlayerVirtualWorld(playerid,GaragemInfo[var][hExWorld]);
             SetPlayerInterior(playerid,GaragemInfo[var][hExInt]);
-            format(string, sizeof(string), "AdmCmd: Você teleportou-se até a garagem: %d.", var);
+            format(string, sizeof(string), "AdmCmd:{FFFFFF} Você teleportou-se até a garagem: %d.", var);
             SendClientMessage(playerid, COLOR_LIGHTRED, string);
             return 1;
         }
@@ -48761,7 +48742,7 @@ CMD:acasa(playerid, params[])
 	{
 	    if (!strcmp(opcao, "criar", true))
 		{
-		    if(var == 9999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: /acasa criar [preço]");
+		    if(var == 9999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /acasa criar [preço]");
 		    static Float:x,
 	    			Float:y,
 	    			Float:z,
@@ -48796,7 +48777,7 @@ CMD:acasa(playerid, params[])
 	    				format(HouseInfo[i][hPerm3], 24, "Vazio");
 
 	    				SalvarCasa(i);
-	    				SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Casa criada. (Reutilização)");
+	    				SCM(playerid, COLOR_LIGHTRED, "AdmCmd:{FFFFFF} Casa criada. (Reutilização)");
 	    				return 1;
 				    }
 	    			if (!HouseInfo[i][hCriada])
@@ -48842,7 +48823,7 @@ CMD:acasa(playerid, params[])
 		        {
 			    	if(IsPlayerInRangeOfPoint(playerid, 1, HouseInfo[i][hExX], HouseInfo[i][hExY], HouseInfo[i][hExZ]) && GetPlayerVirtualWorld(playerid) == HouseInfo[i][hExWorld] && GetPlayerInterior(playerid) == HouseInfo[i][hExInt])
 			    	{
-			    	    SendClientMessage(playerid, COLOR_LIGHTGREEN, "__________AdmCmd: Propriedade__________");
+			    	    SendClientMessage(playerid, COLOR_LIGHTGREEN, "__________AdmCmd:{FFFFFF} Propriedade__________");
 						format(string, sizeof(string), "Id da casa: %d!", i);
 	 					SendClientMessage(playerid, COLOR_WHITE, string);
 	 					format(string, sizeof(string), "Dono / SQL ID: %d!", HouseInfo[i][hDono]);
@@ -48865,7 +48846,7 @@ CMD:acasa(playerid, params[])
 		        {
 			    	if(HouseInfo[i][hCriada] && IsPlayerInRangeOfPoint(playerid, 1, HouseInfo[i][hExX], HouseInfo[i][hExY], HouseInfo[i][hExZ]) && GetPlayerVirtualWorld(playerid) == HouseInfo[i][hExWorld] && GetPlayerInterior(playerid) == HouseInfo[i][hExInt])
 			    	{
-						format(string, sizeof(string), "AdmCmd: Id da Casa: %d!", i);
+						format(string, sizeof(string), "AdmCmd:{FFFFFF} Id da Casa: %d!", i);
 	 					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 	 					casas++;
 			        }
@@ -48881,7 +48862,7 @@ CMD:acasa(playerid, params[])
 		        {
 			    	if(HouseInfo[i][hCriada] && IsPlayerInRangeOfPoint(playerid, 20, HouseInfo[i][hExX], HouseInfo[i][hExY], HouseInfo[i][hExZ]) && GetPlayerVirtualWorld(playerid) == HouseInfo[i][hExWorld] && GetPlayerInterior(playerid) == HouseInfo[i][hExInt])
 			    	{
-						format(string, sizeof(string), "AdmCmd: Id da Casa: %d!", i);
+						format(string, sizeof(string), "AdmCmd:{FFFFFF} Id da Casa: %d!", i);
 	 					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 	 					casas++;
 			        }
@@ -48900,7 +48881,7 @@ CMD:acasa(playerid, params[])
 						HouseInfo[i][hTrancada] = var;
 
 						SalvarCasa(var);
-    					format(string, sizeof(string), "AdmCmd: %d trancada/destrancada.", i);
+    					format(string, sizeof(string), "AdmCmd:{FFFFFF} %d trancada/destrancada.", i);
  						SendClientMessage(playerid, COLOR_LIGHTRED, string);
 						//HouseInfo[var][HouseText] = CreateDynamic3DTextLabel("[Propriedade]", 0x00A974FF, HouseInfo[i][hExX], HouseInfo[i][hExY], HouseInfo[i][hExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, HouseInfo[i][hExWorld], HouseInfo[i][hExInt]);
 						return 1;
@@ -48920,7 +48901,7 @@ CMD:acasa(playerid, params[])
 						HouseInfo[i][hTipo] = var;
 
 						SalvarCasa(var);
-    					format(string, sizeof(string), "AdmCmd: Você mudou o tipo da casa %d para %d.", i, var);
+    					format(string, sizeof(string), "AdmCmd:{FFFFFF} Você mudou o tipo da casa %d para %d.", i, var);
  						SendClientMessage(playerid, COLOR_LIGHTRED, string);
 						return 1;
 					}
@@ -48943,7 +48924,7 @@ CMD:acasa(playerid, params[])
 
 						SalvarCasa(i);
     					SendClientMessage(playerid, COLOR_LIGHTRED, "Preço da casa alterado.");
-    					format(string, sizeof(string), "AdmCmd: Você alterou o preço da casa %d para US$%d!", i, var);
+    					format(string, sizeof(string), "AdmCmd:{FFFFFF} Você alterou o preço da casa %d para US$%d!", i, var);
  						SendClientMessage(playerid, COLOR_LIGHTRED, string);
 						//format(string, sizeof(string), "[Propriedade]\nVende-se\nUS$%d!",HouseInfo[i][hPreco]);
 				    	//HouseInfo[i][HouseText] = CreateDynamic3DTextLabel(string, 0x00A974FF, HouseInfo[i][hExX], HouseInfo[i][hExY], HouseInfo[i][hExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, HouseInfo[i][hExWorld], HouseInfo[i][hExInt]);
@@ -48973,7 +48954,7 @@ CMD:acasa(playerid, params[])
 					HouseInfo[var][hExInt] = GetPlayerInterior(playerid);
 
 					SalvarCasa(var);
-                    format(string, sizeof(string), "AdmCmd: Posição de entrada da casa %d alterado.", var);
+                    format(string, sizeof(string), "AdmCmd:{FFFFFF} Posição de entrada da casa %d alterado.", var);
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
  					SCM(playerid, COLOR_YELLOW,"[!] Não se esqueça de remover e colocar a placa de vende-se no novo local!");
 					//HouseInfo[var][HouseText] = CreateDynamic3DTextLabel("[Propriedade]", 0x00A974FF, HouseInfo[var][hExX], HouseInfo[var][hExY], HouseInfo[var][hExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 0, HouseInfo[var][hExWorld], HouseInfo[var][hExInt]);
@@ -48996,7 +48977,7 @@ CMD:acasa(playerid, params[])
         			HouseInfo[var][hExZ2] = z;
 
 					SalvarCasa(var);
-                    format(string, sizeof(string), "AdmCmd: Posição 2 de entrada da casa %d alterado.", var);
+                    format(string, sizeof(string), "AdmCmd:{FFFFFF} Posição 2 de entrada da casa %d alterado.", var);
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
  					return 1;
 		        }
@@ -49028,11 +49009,11 @@ CMD:acasa(playerid, params[])
                     HouseInfo[var][hCriada] = 2;
 
 					SalvarCasa(var);
-                    format(string, sizeof(string), "AdmCmd: Casa %d deletada.", var);
+                    format(string, sizeof(string), "AdmCmd:{FFFFFF} Casa %d deletada.", var);
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 					return 1;
 		        }
-		        else return SCM(playerid, COLOR_LIGHTRED,"AdmCmd: Essa casa não está criada.");
+		        else return SCM(playerid, COLOR_LIGHTRED,"AdmCmd:{FFFFFF} Essa casa não está criada.");
 			}
 		}
 		else if (!strcmp(opcao, "saida", true))
@@ -49049,7 +49030,7 @@ CMD:acasa(playerid, params[])
       				HouseInfo[var][hInY] = y;
         			HouseInfo[var][hInZ] = z;
         			HouseInfo[var][hInt] = GetPlayerInterior(playerid);
-        			format(string, sizeof(string), "AdmCmd: Posição de saida da casa %d alterado.", var);
+        			format(string, sizeof(string), "AdmCmd:{FFFFFF} Posição de saida da casa %d alterado.", var);
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 					SalvarCasa(var);
 					return 1;
@@ -49069,7 +49050,7 @@ CMD:acasa(playerid, params[])
     				HouseInfo[var][hInX2] = x;
       				HouseInfo[var][hInY2] = y;
         			HouseInfo[var][hInZ2] = z;
-        			format(string, sizeof(string), "AdmCmd: Posição 2 de saida da casa %d alterado.", var);
+        			format(string, sizeof(string), "AdmCmd:{FFFFFF} Posição 2 de saida da casa %d alterado.", var);
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 					SalvarCasa(var);
 					return 1;
@@ -49090,7 +49071,7 @@ CMD:acasa(playerid, params[])
 					if(IsValidDynamicObject(HouseInfo[i][ObjPlaca]))
 					    DestroyDynamicObject(HouseInfo[i][ObjPlaca]);
 
-                    format(string, sizeof(string), "AdmCmd: Placa de venda adicionada na casa %d.", i);
+                    format(string, sizeof(string), "AdmCmd:{FFFFFF} Placa de venda adicionada na casa %d.", i);
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 					PlayerInfo[playerid][pEditandoPlaca] = i;
 		    	    HouseInfo[i][ObjPlaca] = CreateDynamicObject(19471, x, y+1, z, 0.0, 0.0, 0.0, GetPlayerVirtualWorld(playerid), GetPlayerInterior(playerid));
@@ -49113,7 +49094,7 @@ CMD:acasa(playerid, params[])
 					if(IsValidDynamicObject(HouseInfo[i][ObjPlaca]))
 					    DestroyDynamicObject(HouseInfo[i][ObjPlaca]);
 
-                    format(string, sizeof(string), "AdmCmd: Placa de venda deletada da casa %d.", i);
+                    format(string, sizeof(string), "AdmCmd:{FFFFFF} Placa de venda deletada da casa %d.", i);
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 					HouseInfo[i][hPlacaX] = 0;
 					HouseInfo[i][hPlacaY] = 0;
@@ -49133,7 +49114,7 @@ CMD:acasa(playerid, params[])
 			    SetPlayerPosFreeze(playerid,HouseInfo[var][hExX],HouseInfo[var][hExY], HouseInfo[var][hExZ],1);
 				SetPlayerVirtualWorld(playerid,HouseInfo[var][hExWorld]);
 				SetPlayerInterior(playerid,HouseInfo[var][hExInt]);
-	      		format(string, sizeof(string), "AdmCmd: Você teleportou-se até a casa: %d.", var);
+	      		format(string, sizeof(string), "AdmCmd:{FFFFFF} Você teleportou-se até a casa: %d.", var);
 				SendClientMessage(playerid, COLOR_LIGHTRED, string);
 				return 1;
    		    }
@@ -49144,7 +49125,7 @@ CMD:acasa(playerid, params[])
 		    if(var == 9999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /acasa vender [ID da casa]");
 		    if(HouseInfo[var][hCriada] == 1)
   			{
-  			    format(string, sizeof(string), "AdmCmd: Você vendeu a casa: %d.", var);
+  			    format(string, sizeof(string), "AdmCmd:{FFFFFF} Você vendeu a casa: %d.", var);
 				SendClientMessage(playerid, COLOR_LIGHTRED, string);
 
 				HouseInfo[var][hDono] = 0;
@@ -49179,7 +49160,7 @@ public CasaCriada(houseid,playerid)
     	HouseInfo[houseid][hID] = cache_insert_id();
     	SalvarCasa(houseid);
 	}
-	format(string, sizeof(string), "AdmCmd: Casa %d criada!", houseid);
+	format(string, sizeof(string), "AdmCmd:{FFFFFF} Casa %d criada!", houseid);
  	SendClientMessage(playerid, COLOR_LIGHTRED, string);
     return 1;
 }
@@ -49199,7 +49180,7 @@ CMD:agaragem(playerid, params[])
 	{
 	    if (!strcmp(opcao, "criar_e", true))
 		{
-		    if(var == 9999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: /agaragem criar_e [preço]");
+		    if(var == 9999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /agaragem criar_e [preço]");
 		    static Float:x,
 	    			Float:y,
 	    			Float:z,
@@ -49244,8 +49225,8 @@ CMD:agaragem(playerid, params[])
 		}
 		else if (!strcmp(opcao, "interior", true))
 		{
-		    if(var == 9999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: /agaragem interior [garagem id] [interior(0-3)]");
-		    if(var2 == 9999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: /agaragem interior [garagem id] [interior(0-3)]");
+		    if(var == 9999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /agaragem interior [garagem id] [interior(0-3)]");
+		    if(var2 == 9999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /agaragem interior [garagem id] [interior(0-3)]");
 
 		    switch(var2)
 		    {
@@ -49296,7 +49277,7 @@ CMD:agaragem(playerid, params[])
 		}
 		else if (!strcmp(opcao, "criar_c", true))
 		{
-		    if(var == 9999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: /agaragem criar_c [casa id]");
+		    if(var == 9999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /agaragem criar_c [casa id]");
 		    static Float:x,
 	    			Float:y,
 	    			Float:z,
@@ -49348,7 +49329,7 @@ CMD:agaragem(playerid, params[])
 		        {
 			    	if(IsPlayerInRangeOfPoint(playerid, 1, GaragemInfo[i][hExX], GaragemInfo[i][hExY], GaragemInfo[i][hExZ]) && GetPlayerVirtualWorld(playerid) == GaragemInfo[i][hExWorld] && GetPlayerInterior(playerid) == GaragemInfo[i][hExInt])
 			    	{
-			    	    SendClientMessage(playerid, COLOR_LIGHTGREEN, "__________AdmCmd: Propriedade__________");
+			    	    SendClientMessage(playerid, COLOR_LIGHTGREEN, "__________AdmCmd:{FFFFFF} Propriedade__________");
 						format(string, sizeof(string), "Id da Garagem: %d!", i);
 	 					SendClientMessage(playerid, COLOR_WHITE, string);
 	 					format(string, sizeof(string), "Dono / SQL ID: %d!", GaragemInfo[i][hDono]);
@@ -49372,7 +49353,7 @@ CMD:agaragem(playerid, params[])
 		        {
 			    	if(IsPlayerInRangeOfPoint(playerid, 1, GaragemInfo[i][hExX], GaragemInfo[i][hExY], GaragemInfo[i][hExZ]) && GetPlayerVirtualWorld(playerid) == GaragemInfo[i][hExWorld] && GetPlayerInterior(playerid) == GaragemInfo[i][hExInt])
 			    	{
-						format(string, sizeof(string), "AdmCmd: Id da Garagem: %d!", i);
+						format(string, sizeof(string), "AdmCmd:{FFFFFF} Id da Garagem: %d!", i);
 	 					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 	 					casas++;
 			        }
@@ -49391,7 +49372,7 @@ CMD:agaragem(playerid, params[])
 						GaragemInfo[i][hTrancada] = var;
 
 						SalvarGaragem(var);
-    					format(string, sizeof(string), "AdmCmd: %d trancada/destrancada.", i);
+    					format(string, sizeof(string), "AdmCmd:{FFFFFF} %d trancada/destrancada.", i);
  						SendClientMessage(playerid, COLOR_LIGHTRED, string);
 						return 1;
 					}
@@ -49409,7 +49390,7 @@ CMD:agaragem(playerid, params[])
 						GaragemInfo[i][hTipo] = var;
 
 						SalvarGaragem(var);
-    					format(string, sizeof(string), "AdmCmd: Você mudou o tipo da garagem %d para %d.", i, var);
+    					format(string, sizeof(string), "AdmCmd:{FFFFFF} Você mudou o tipo da garagem %d para %d.", i, var);
  						SendClientMessage(playerid, COLOR_LIGHTRED, string);
 						return 1;
 					}
@@ -49431,7 +49412,7 @@ CMD:agaragem(playerid, params[])
 						GaragemInfo[i][hPreco] = var;
 
 						SalvarGaragem(i);
-    					format(string, sizeof(string), "AdmCmd: Você alterou o preço da garagem %d para US$%d!", i, var);
+    					format(string, sizeof(string), "AdmCmd:{FFFFFF} Você alterou o preço da garagem %d para US$%d!", i, var);
  						SendClientMessage(playerid, COLOR_LIGHTRED, string);
 						format(string, sizeof(string), "[Garagem]\nVende-se\nUS$%d!",GaragemInfo[i][hPreco]);
 				    	return 1;
@@ -49460,7 +49441,7 @@ CMD:agaragem(playerid, params[])
 					GaragemInfo[var][hExInt] = GetPlayerInterior(playerid);
 
 					SalvarGaragem(var);
-                    format(string, sizeof(string), "AdmCmd: Posição de entrada da garagem %d alterado.", var);
+                    format(string, sizeof(string), "AdmCmd:{FFFFFF} Posição de entrada da garagem %d alterado.", var);
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
  					SCM(playerid, COLOR_YELLOW,"SERVER: [!] Não se esqueça de remover e colocar a placa de vende-se no novo local!");
 					return 1;
@@ -49492,7 +49473,7 @@ CMD:agaragem(playerid, params[])
 					GaragemInfo[var][hExInt] = GetPlayerInterior(playerid);
 
 					SalvarGaragem(var);
-                    format(string, sizeof(string), "AdmCmd: Posição de entrada da garagem %d alterado.", var);
+                    format(string, sizeof(string), "AdmCmd:{FFFFFF} Posição de entrada da garagem %d alterado.", var);
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 					return 1;
 		        }
@@ -49517,7 +49498,7 @@ CMD:agaragem(playerid, params[])
         			GaragemInfo[var][hInR] = pRot;
 
         			GaragemInfo[var][hInt] = GetPlayerInterior(playerid);
-        			format(string, sizeof(string), "AdmCmd: Posição de saida da garagem %d alterado.", var);
+        			format(string, sizeof(string), "AdmCmd:{FFFFFF} Posição de saida da garagem %d alterado.", var);
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 					SalvarGaragem(var);
 					return 1;
@@ -49538,7 +49519,7 @@ CMD:agaragem(playerid, params[])
 					if(IsValidDynamicObject(GaragemInfo[i][ObjPlaca]))
 					    DestroyDynamicObject(GaragemInfo[i][ObjPlaca]);
 
-                    format(string, sizeof(string), "AdmCmd: Placa de venda adicionada na garagem %d.", i);
+                    format(string, sizeof(string), "AdmCmd:{FFFFFF} Placa de venda adicionada na garagem %d.", i);
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 					PlayerInfo[playerid][pEditandoPlacaG] = i;
 		    	    GaragemInfo[i][ObjPlaca] = CreateDynamicObject(19471, x, y+1, z, 0.0, 0.0, 0.0, GetPlayerVirtualWorld(playerid), GetPlayerInterior(playerid));
@@ -49561,7 +49542,7 @@ CMD:agaragem(playerid, params[])
 					if(IsValidDynamicObject(GaragemInfo[i][ObjPlaca]))
 					    DestroyDynamicObject(GaragemInfo[i][ObjPlaca]);
 
-                    format(string, sizeof(string), "AdmCmd: Placa de venda deletada da garagem %d.", i);
+                    format(string, sizeof(string), "AdmCmd:{FFFFFF} Placa de venda deletada da garagem %d.", i);
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 					GaragemInfo[i][hPlacaX] = 0;
 					GaragemInfo[i][hPlacaY] = 0;
@@ -49578,7 +49559,7 @@ CMD:agaragem(playerid, params[])
 		    if(var == 9999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /agaragem vender [ID da Casa]");
 		    if(GaragemInfo[var][hCriada] == 1)
   			{
-  			    format(string, sizeof(string), "AdmCmd: Você vendeu a garagem: %d.", var);
+  			    format(string, sizeof(string), "AdmCmd:{FFFFFF} Você vendeu a garagem: %d.", var);
 				SendClientMessage(playerid, COLOR_LIGHTRED, string);
 
 				GaragemInfo[var][hDono] = 0;
@@ -49611,7 +49592,7 @@ public GaragemCriada(houseid,playerid)
     	GaragemInfo[houseid][hID] = cache_insert_id();
     	SalvarGaragem(houseid);
 	}
-	format(string, sizeof(string), "AdmCmd: Garagem %d criada, agora use /agaragem e/ou /agaragem2 entradacar [ID da Garagem] em um local mais afastado da porta da garagem!", houseid);
+	format(string, sizeof(string), "AdmCmd:{FFFFFF} Garagem %d criada, agora use /agaragem e/ou /agaragem2 entradacar [ID da Garagem] em um local mais afastado da porta da garagem!", houseid);
  	SendClientMessage(playerid, COLOR_LIGHTRED, string);
 	SendClientMessage(playerid, COLOR_LIGHTRED, "Lembre-se, para onde você estiver olhando, vai ser para onde o carro vai estar virado quando usar /sair.");
     return 1;
@@ -50096,7 +50077,7 @@ CMD:acomplexo(playerid, params[])
 		    {
 		    	if(IsPlayerInRangeOfPoint(playerid, 1, ComplexoInfo[i][cExX], ComplexoInfo[i][cExY], ComplexoInfo[i][cExZ]) && GetPlayerVirtualWorld(playerid) == 0 && GetPlayerInterior(playerid) == 0)
 		    	{
-		    	    SendClientMessage(playerid, 0xF5D800FF, "__________AdmCmd: aComplexo__________");
+		    	    SendClientMessage(playerid, 0xF5D800FF, "__________AdmCmd:{FFFFFF} aComplexo__________");
 					format(string, sizeof(string), "Id do Complexo: %d!", i);
  					SendClientMessage(playerid, COLOR_WHITE, string);
  					format(string, sizeof(string), "Dono / SQL ID: %d!", ComplexoInfo[i][cDono]);
@@ -50106,7 +50087,7 @@ CMD:acomplexo(playerid, params[])
 		        }
 		        else if(IsPlayerInRangeOfPoint(playerid, 1, ComplexoInfo[i][cExX2], ComplexoInfo[i][cExY2], ComplexoInfo[i][cExZ2]) && GetPlayerVirtualWorld(playerid) == 0 && GetPlayerInterior(playerid) == 0)
 		    	{
-		    	    SendClientMessage(playerid, 0xF5D800FF, "__________AdmCmd: aComplexo__________");
+		    	    SendClientMessage(playerid, 0xF5D800FF, "__________AdmCmd:{FFFFFF} aComplexo__________");
 					format(string, sizeof(string), "Id do Complexo: %d!", i);
  					SendClientMessage(playerid, COLOR_WHITE, string);
  					format(string, sizeof(string), "Dono / SQL ID: %d!", ComplexoInfo[i][cDono]);
@@ -50116,7 +50097,7 @@ CMD:acomplexo(playerid, params[])
 		        }
 		        else if(IsPlayerInRangeOfPoint(playerid, 1, ComplexoInfo[i][cExX3], ComplexoInfo[i][cExY3], ComplexoInfo[i][cExZ3]) && GetPlayerVirtualWorld(playerid) == 0 && GetPlayerInterior(playerid) == 0)
 		    	{
-		    	    SendClientMessage(playerid, 0xF5D800FF, "__________AdmCmd: aComplexo__________");
+		    	    SendClientMessage(playerid, 0xF5D800FF, "__________AdmCmd:{FFFFFF} aComplexo__________");
 					format(string, sizeof(string), "Id do Complexo: %d!", i);
  					SendClientMessage(playerid, COLOR_WHITE, string);
  					format(string, sizeof(string), "Dono / SQL ID: %d!", ComplexoInfo[i][cDono]);
@@ -50135,19 +50116,19 @@ CMD:acomplexo(playerid, params[])
 		        {
 			    	if(IsPlayerInRangeOfPoint(playerid, 1, ComplexoInfo[i][cExX], ComplexoInfo[i][cExY], ComplexoInfo[i][cExZ]) && GetPlayerVirtualWorld(playerid) == 0 && GetPlayerInterior(playerid) == 0)
 			    	{
-  						format(string, sizeof(string), "AdmCmd: Id do Complexo: %d!", i);
+  						format(string, sizeof(string), "AdmCmd:{FFFFFF} Id do Complexo: %d!", i);
 	 					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 	 					complexos++;
 			        }
 			        if(IsPlayerInRangeOfPoint(playerid, 1, ComplexoInfo[i][cExX2], ComplexoInfo[i][cExY2], ComplexoInfo[i][cExZ2]) && GetPlayerVirtualWorld(playerid) == 0 && GetPlayerInterior(playerid) == 0)
 			    	{
-						format(string, sizeof(string), "AdmCmd: Id do Complexo: %d!", i);
+						format(string, sizeof(string), "AdmCmd:{FFFFFF} Id do Complexo: %d!", i);
 	 					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 	 					complexos++;
 			        }
 			        if(IsPlayerInRangeOfPoint(playerid, 1, ComplexoInfo[i][cExX3], ComplexoInfo[i][cExY3], ComplexoInfo[i][cExZ3]) && GetPlayerVirtualWorld(playerid) == 0 && GetPlayerInterior(playerid) == 0)
 			    	{
-						format(string, sizeof(string), "AdmCmd: Id do Complexo: %d!", i);
+						format(string, sizeof(string), "AdmCmd:{FFFFFF} Id do Complexo: %d!", i);
 	 					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 	 					complexos++;
 			        }
@@ -50165,7 +50146,7 @@ CMD:acomplexo(playerid, params[])
 			    	if(IsPlayerInRangeOfPoint(playerid, 1, ComplexoInfo[i][cExX], ComplexoInfo[i][cExY], ComplexoInfo[i][cExZ]) && GetPlayerVirtualWorld(playerid) == 0 && GetPlayerInterior(playerid) == 0)
 			    	{
 			    	    ComplexoInfo[i][complexTipo] = var;
-						format(string, sizeof(string), "AdmCmd: Id do Complexo: %d | Novo tipo: %d!", i, var);
+						format(string, sizeof(string), "AdmCmd:{FFFFFF} Id do Complexo: %d | Novo tipo: %d!", i, var);
 	 					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 	 					return 1;
 			        }
@@ -50184,7 +50165,7 @@ CMD:acomplexo(playerid, params[])
 						ComplexoInfo[i][cTrancada] = var;
 
 						SalvarComplexo(var);
-    					format(string, sizeof(string), "AdmCmd: Complexo %d trancada/destrancada.", i);
+    					format(string, sizeof(string), "AdmCmd:{FFFFFF} Complexo %d trancada/destrancada.", i);
  						SendClientMessage(playerid, COLOR_LIGHTRED, string);
  						return 1;
 					}
@@ -50193,7 +50174,7 @@ CMD:acomplexo(playerid, params[])
 						ComplexoInfo[i][cTrancada] = var;
 
 						SalvarComplexo(var);
-    					format(string, sizeof(string), "AdmCmd: Complexo %d trancada/destrancada.", i);
+    					format(string, sizeof(string), "AdmCmd:{FFFFFF} Complexo %d trancada/destrancada.", i);
  						SendClientMessage(playerid, COLOR_LIGHTRED, string);
  						return 1;
 					}
@@ -50202,7 +50183,7 @@ CMD:acomplexo(playerid, params[])
 						ComplexoInfo[i][cTrancada] = var;
 
 						SalvarComplexo(var);
-    					format(string, sizeof(string), "AdmCmd: Complexo %d trancada/destrancada.", i);
+    					format(string, sizeof(string), "AdmCmd:{FFFFFF} Complexo %d trancada/destrancada.", i);
  						SendClientMessage(playerid, COLOR_LIGHTRED, string);
  						return 1;
 					}
@@ -50224,7 +50205,7 @@ CMD:acomplexo(playerid, params[])
 						ComplexoInfo[i][cPreco] = var;
 
 						SalvarComplexo(i);
-    					format(string, sizeof(string), "AdmCmd: Você alterou o preço do complexo %d para US$%d!", i, var);
+    					format(string, sizeof(string), "AdmCmd:{FFFFFF} Você alterou o preço do complexo %d para US$%d!", i, var);
  						SendClientMessage(playerid, COLOR_LIGHTRED, string);
 						format(string, sizeof(string), "\n%s\nVende-se\nUS$%d!",ComplexoInfo[i][cNome],ComplexoInfo[i][cPreco]);
 				    	ComplexoInfo[i][cText] = CreateDynamic3DTextLabel(string, 0x00A974FF, ComplexoInfo[i][cExX], ComplexoInfo[i][cExY], ComplexoInfo[i][cExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, -1, -1);
@@ -50238,7 +50219,7 @@ CMD:acomplexo(playerid, params[])
 						ComplexoInfo[i][cPreco] = var;
 
 						SalvarComplexo(i);
-    					format(string, sizeof(string), "AdmCmd: Você alterou o preço do complexo %d para US$%d!", i, var);
+    					format(string, sizeof(string), "AdmCmd:{FFFFFF} Você alterou o preço do complexo %d para US$%d!", i, var);
  						SendClientMessage(playerid, COLOR_LIGHTRED, string);
 						format(string, sizeof(string), "\n%s\nVende-se\nUS$%d!",ComplexoInfo[i][cNome],ComplexoInfo[i][cPreco]);
 				    	ComplexoInfo[i][cText] = CreateDynamic3DTextLabel(string, 0x00A974FF, ComplexoInfo[i][cExX], ComplexoInfo[i][cExY], ComplexoInfo[i][cExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, -1, -1);
@@ -50252,7 +50233,7 @@ CMD:acomplexo(playerid, params[])
 						ComplexoInfo[i][cPreco] = var;
 
 						SalvarComplexo(i);
-    					format(string, sizeof(string), "AdmCmd: Você alterou o preço do complexo %d para US$%d!", i, var);
+    					format(string, sizeof(string), "AdmCmd:{FFFFFF} Você alterou o preço do complexo %d para US$%d!", i, var);
  						SendClientMessage(playerid, COLOR_LIGHTRED, string);
 						format(string, sizeof(string), "\n%s\nVende-se\nUS$%d!",ComplexoInfo[i][cNome],ComplexoInfo[i][cPreco]);
 				    	ComplexoInfo[i][cText] = CreateDynamic3DTextLabel(string, 0x00A974FF, ComplexoInfo[i][cExX], ComplexoInfo[i][cExY], ComplexoInfo[i][cExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, -1, -1);
@@ -50287,7 +50268,7 @@ CMD:acomplexo(playerid, params[])
         			ComplexoInfo[var][cExZ] = z;
 
 					SalvarComplexo(var);
-                    format(string, sizeof(string), "AdmCmd:  Posição de entrada do complexo %d alterado.", var);
+                    format(string, sizeof(string), "AdmCmd:{FFFFFF}  Posição de entrada do complexo %d alterado.", var);
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
  					format(string, sizeof(string), "\n%s", ComplexoInfo[var][cNome]);
 					ComplexoInfo[var][cText] = CreateDynamic3DTextLabel(string, 0x00A974FF, ComplexoInfo[var][cExX], ComplexoInfo[var][cExY], ComplexoInfo[var][cExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, -1, -1);
@@ -50333,7 +50314,7 @@ CMD:acomplexo(playerid, params[])
         			ComplexoInfo[var][cExZ2] = z;
 
 					SalvarComplexo(var);
-                    format(string, sizeof(string), "AdmCmd: Posição de entrada 2 do complexo %d alterado.", var);
+                    format(string, sizeof(string), "AdmCmd:{FFFFFF} Posição de entrada 2 do complexo %d alterado.", var);
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
                     new complexid = var;
                     if(ComplexoInfo[complexid][complexIcone] != 0)
@@ -50377,7 +50358,7 @@ CMD:acomplexo(playerid, params[])
         			ComplexoInfo[var][cExZ3] = z;
 
 					SalvarComplexo(var);
-                    format(string, sizeof(string), "AdmCmd: Posição de entrada 3 do complexo %d alterado.", var);
+                    format(string, sizeof(string), "AdmCmd:{FFFFFF} Posição de entrada 3 do complexo %d alterado.", var);
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
                     new complexid = var;
                     if(ComplexoInfo[complexid][complexIcone] != 0)
@@ -50448,7 +50429,7 @@ CMD:acomplexo(playerid, params[])
       				ComplexoInfo[var][cInY] = y;
         			ComplexoInfo[var][cInZ] = z;
         			ComplexoInfo[var][cInt] = GetPlayerInterior(playerid);
-        			format(string, sizeof(string), "AdmCmd: Posição de saida do complexo %d alterado.", var);
+        			format(string, sizeof(string), "AdmCmd:{FFFFFF} Posição de saida do complexo %d alterado.", var);
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 					SalvarComplexo(var);
 					return 1;
@@ -50468,7 +50449,7 @@ CMD:acomplexo(playerid, params[])
     				ComplexoInfo[var][cInX2] = x;
       				ComplexoInfo[var][cInY2] = y;
         			ComplexoInfo[var][cInZ2] = z;
-        			format(string, sizeof(string), "AdmCmd: Posição de saida do 2 complexo %d alterado.", var);
+        			format(string, sizeof(string), "AdmCmd:{FFFFFF} Posição de saida do 2 complexo %d alterado.", var);
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 					SalvarComplexo(var);
 					return 1;
@@ -50488,7 +50469,7 @@ CMD:acomplexo(playerid, params[])
     				ComplexoInfo[var][cInX3] = x;
       				ComplexoInfo[var][cInY3] = y;
         			ComplexoInfo[var][cInZ3] = z;
-        			format(string, sizeof(string), "AdmCmd: Posição de saida 3 do complexo %d alterado.", var);
+        			format(string, sizeof(string), "AdmCmd:{FFFFFF} Posição de saida 3 do complexo %d alterado.", var);
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 					SalvarComplexo(var);
 					return 1;
@@ -50509,7 +50490,7 @@ CMD:acomplexo(playerid, params[])
 					if(IsValidDynamicObject(ComplexoInfo[i][cObjPlaca]))
 					    DestroyDynamicObject(ComplexoInfo[i][cObjPlaca]);
 
-                    format(string, sizeof(string), "AdmCmd: Placa de venda adicionada no complexo %d.", i);
+                    format(string, sizeof(string), "AdmCmd:{FFFFFF} Placa de venda adicionada no complexo %d.", i);
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 					PlayerInfo[playerid][pEditandoPlacaC] = i;
 		    	    ComplexoInfo[i][cObjPlaca] = CreateDynamicObject(19471, x, y+1, z, 0.0, 0.0, 0.0, 0, 0);
@@ -50518,7 +50499,7 @@ CMD:acomplexo(playerid, params[])
 		    	}
 		    	else if((IsPlayerInRangeOfPoint(playerid, 1, ComplexoInfo[i][cExX2], ComplexoInfo[i][cExY2], ComplexoInfo[i][cExZ2]) || IsPlayerInRangeOfPoint(playerid, 1, ComplexoInfo[i][cExX3], ComplexoInfo[i][cExY3], ComplexoInfo[i][cExZ3]) ) && GetPlayerVirtualWorld(playerid) == 0 && GetPlayerInterior(playerid) == 0)
 		    	{
-                    format(string, sizeof(string), "AdmCmd: A placa de venda só pode ser adicionada na porta principal do Complexo.");
+                    format(string, sizeof(string), "AdmCmd:{FFFFFF} A placa de venda só pode ser adicionada na porta principal do Complexo.");
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 		    	    return 1;
 		    	}
@@ -50538,7 +50519,7 @@ CMD:acomplexo(playerid, params[])
 					if(IsValidDynamicObject(ComplexoInfo[i][cObjPlaca]))
 					    DestroyDynamicObject(ComplexoInfo[i][cObjPlaca]);
 
-                    format(string, sizeof(string), "AdmCmd: Placa de venda deletada do complexo %d.", i);
+                    format(string, sizeof(string), "AdmCmd:{FFFFFF} Placa de venda deletada do complexo %d.", i);
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 					ComplexoInfo[i][cPlacaX] = 0;
 					ComplexoInfo[i][cPlacaY] = 0;
@@ -50550,7 +50531,7 @@ CMD:acomplexo(playerid, params[])
 		    	}
 		    	else if((IsPlayerInRangeOfPoint(playerid, 1, ComplexoInfo[i][cExX2], ComplexoInfo[i][cExY2], ComplexoInfo[i][cExZ2]) || IsPlayerInRangeOfPoint(playerid, 1, ComplexoInfo[i][cExX3], ComplexoInfo[i][cExY3], ComplexoInfo[i][cExZ3])) && GetPlayerVirtualWorld(playerid) == 0 && GetPlayerInterior(playerid) == 0)
 		    	{
-                    format(string, sizeof(string), "AdmCmd: A placa de venda só pode ser deletada na porta principal do Complexo.");
+                    format(string, sizeof(string), "AdmCmd:{FFFFFF} A placa de venda só pode ser deletada na porta principal do Complexo.");
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 		    	    return 1;
 		    	}
@@ -50558,13 +50539,13 @@ CMD:acomplexo(playerid, params[])
 		}
 		else if (!strcmp(opcao, "ir", true))
   		{
-		    if(var == 9999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: /acomplexo ir [ID do complexo]");
+		    if(var == 9999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /acomplexo ir [ID do complexo]");
   			if(ComplexoInfo[var][cCriada] == 1)
   			{
 			    SetPlayerPosFreeze(playerid,ComplexoInfo[var][cExX],ComplexoInfo[var][cExY], ComplexoInfo[var][cExZ],1);
 				SetPlayerVirtualWorld(playerid,0);
 				SetPlayerInterior(playerid,0);
-	      		format(string, sizeof(string), "AdmCmd: Você teleportou-se até o complexo: %d.", var);
+	      		format(string, sizeof(string), "AdmCmd:{FFFFFF} Você teleportou-se até o complexo: %d.", var);
 				SendClientMessage(playerid, COLOR_LIGHTRED, string);
 				return 1;
    		    }
@@ -50572,12 +50553,12 @@ CMD:acomplexo(playerid, params[])
 		}
 		else if (!strcmp(opcao, "vender", true))
   		{
-            if(var == 9999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: /acomplexo ir [ID do complexo]");
+            if(var == 9999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /acomplexo ir [ID do complexo]");
   			if(ComplexoInfo[var][cCriada] == 1)
   			{
     		    if (IsValidDynamic3DTextLabel(ComplexoInfo[var][cText]))
 					DestroyDynamic3DTextLabel(ComplexoInfo[var][cText]);
-   				format(string, sizeof(string), "AdmCmd: Você vendeu o complexo %d.", var);
+   				format(string, sizeof(string), "AdmCmd:{FFFFFF} Você vendeu o complexo %d.", var);
 				SendClientMessage(playerid, COLOR_LIGHTRED, string);
 				ComplexoInfo[var][cDono] = 0;
 				ComplexoInfo[var][cAVenda] = 1;
@@ -50608,7 +50589,7 @@ public ComplexoCriada(houseid,playerid)
     	ComplexoInfo[houseid][cID] = cache_insert_id();
     	SalvarComplexo(houseid);
 	}
-	format(string, sizeof(string), "AdmCmd: Complexo %d criado!", houseid);
+	format(string, sizeof(string), "AdmCmd:{FFFFFF} Complexo %d criado!", houseid);
  	SendClientMessage(playerid, COLOR_LIGHTRED, string);
     return 1;
 }
@@ -51198,9 +51179,9 @@ CMD:aemp(playerid, params[])
 		    {
 		    	if(IsPlayerInRangeOfPoint(playerid, 1, EmpInfo[i][eExX], EmpInfo[i][eExY], EmpInfo[i][eExZ]) && GetPlayerVirtualWorld(playerid) == EmpInfo[i][eExWorld] && GetPlayerInterior(playerid) == EmpInfo[i][eExInt])
 		    	{
-		    	    if(EmpInfo[i][eDono] != 0) return SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Você não pode setar leasing para uma empresa que já tem dono.");
+		    	    if(EmpInfo[i][eDono] != 0) return SCM(playerid, COLOR_LIGHTRED, "AdmCmd:{FFFFFF} Você não pode setar leasing para uma empresa que já tem dono.");
 
-		    	    format(string, sizeof(string), "AdmCmd: Leasing setado para: US$%d por semana.", var);
+		    	    format(string, sizeof(string), "AdmCmd:{FFFFFF} Leasing setado para: US$%d por semana.", var);
 					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 
 					EmpInfo[i][eLeasing] = var;
@@ -51274,11 +51255,11 @@ CMD:aemp(playerid, params[])
 		    {
 		    	if(IsPlayerInRangeOfPoint(playerid, 1, EmpInfo[i][eExX], EmpInfo[i][eExY], EmpInfo[i][eExZ]) && GetPlayerVirtualWorld(playerid) == EmpInfo[i][eExWorld] && GetPlayerInterior(playerid) == EmpInfo[i][eExInt])
 		    	{
-		    	    if(var < 1 || var > 15) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: /aemp FuelPrice [Min: 1 | Max: 15]");
+		    	    if(var < 1 || var > 15) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /aemp FuelPrice [Min: 1 | Max: 15]");
 					EmpInfo[i][eFuelPrice] = var;
 
 					SalvarEmpresa(i);
-					SendAdminAlert(COLOR_LIGHTRED, "AdmCmd: %s setou o preço da gasolina da empresa ID: %d.", PlayerName(playerid, 0), i);
+					SendAdminAlert(COLOR_LIGHTRED, "AdmCmd:{FFFFFF} %s setou o preço da gasolina da empresa ID: %d.", PlayerName(playerid, 0), i);
 				}
 			}
 		}
@@ -51288,11 +51269,11 @@ CMD:aemp(playerid, params[])
 		    {
 		    	if(IsPlayerInRangeOfPoint(playerid, 1, EmpInfo[i][eExX], EmpInfo[i][eExY], EmpInfo[i][eExZ]) && GetPlayerVirtualWorld(playerid) == EmpInfo[i][eExWorld] && GetPlayerInterior(playerid) == EmpInfo[i][eExInt])
 		    	{
-		    	    if(var < 1 || var > 5000) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: /aemp reqprod [Min: 1 | Max: 5000]");
+		    	    if(var < 1 || var > 5000) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /aemp reqprod [Min: 1 | Max: 5000]");
 					EmpInfo[i][eReqProd] = var;
 
 					SalvarEmpresa(i);
-					SendAdminAlert(COLOR_LIGHTRED, "AdmCmd: %s setou os produtos da empresa ID: %d.", PlayerName(playerid, 0), i);
+					SendAdminAlert(COLOR_LIGHTRED, "AdmCmd:{FFFFFF} %s setou os produtos da empresa ID: %d.", PlayerName(playerid, 0), i);
 				}
 			}
 		}
@@ -51302,11 +51283,11 @@ CMD:aemp(playerid, params[])
 		    {
 		    	if(IsPlayerInRangeOfPoint(playerid, 1, EmpInfo[i][eExX], EmpInfo[i][eExY], EmpInfo[i][eExZ]) && GetPlayerVirtualWorld(playerid) == EmpInfo[i][eExWorld] && GetPlayerInterior(playerid) == EmpInfo[i][eExInt])
 		    	{
-		    	    if(var < 0 || var > 9999999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: /aemp banco [Min: 1 | Max: 999999]");
+		    	    if(var < 0 || var > 9999999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /aemp banco [Min: 1 | Max: 999999]");
 					EmpInfo[i][eBank] = var;
 
 					SalvarEmpresa(i);
-					SendAdminAlert(COLOR_LIGHTRED, "AdmCmd: %s alterou o cofre da empresa ID: %d para %d.", PlayerName(playerid, 0), i, var);
+					SendAdminAlert(COLOR_LIGHTRED, "AdmCmd:{FFFFFF} %s alterou o cofre da empresa ID: %d para %d.", PlayerName(playerid, 0), i, var);
 				}
 			}
 		}
@@ -51320,7 +51301,7 @@ CMD:aemp(playerid, params[])
 					EmpInfo[i][ePagaProd] = var;
 
 					SalvarEmpresa(i);
-					SendAdminAlert(COLOR_LIGHTRED, "AdmCmd: %s alterou o quando a empresa ID: %d paga por Carga/Litro %d.", PlayerName(playerid, 0), i, var);
+					SendAdminAlert(COLOR_LIGHTRED, "AdmCmd:{FFFFFF} %s alterou o quando a empresa ID: %d paga por Carga/Litro %d.", PlayerName(playerid, 0), i, var);
 				}
 			}
 		}
@@ -51334,7 +51315,7 @@ CMD:aemp(playerid, params[])
 					EmpInfo[i][eProdutos] = var;
 
 					SalvarEmpresa(i);
-					SendAdminAlert(COLOR_LIGHTRED, "AdmCmd: %s alterou o quando a empresa ID: %d paga por Carga/Litro %d.", PlayerName(playerid, 0), i, var);
+					SendAdminAlert(COLOR_LIGHTRED, "AdmCmd:{FFFFFF} %s alterou o quando a empresa ID: %d paga por Carga/Litro %d.", PlayerName(playerid, 0), i, var);
 				}
 			}
 		}
@@ -51359,7 +51340,7 @@ CMD:aemp(playerid, params[])
 		        {
 			    	if(IsPlayerInRangeOfPoint(playerid, 1, EmpInfo[i][eExX], EmpInfo[i][eExY], EmpInfo[i][eExZ]) && GetPlayerVirtualWorld(playerid) == EmpInfo[i][eExWorld] && GetPlayerInterior(playerid) == EmpInfo[i][eExInt])
 			    	{
-						format(string, sizeof(string), "AdmCmd: Id da Empresa: %d!", i);
+						format(string, sizeof(string), "AdmCmd:{FFFFFF} Id da Empresa: %d!", i);
 	 					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 	 					empresas++;
 			        }
@@ -51375,7 +51356,7 @@ CMD:aemp(playerid, params[])
 		        {
 			    	if(IsPlayerInRangeOfPoint(playerid, 1, EmpInfo[i][eExX], EmpInfo[i][eExY], EmpInfo[i][eExZ]))
 			    	{
-						format(string, sizeof(string), "AdmCmd: Id da Empresa: %d!", i);
+						format(string, sizeof(string), "AdmCmd:{FFFFFF} Id da Empresa: %d!", i);
 	 					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 	 					empresas++;
 			        }
@@ -51397,7 +51378,7 @@ CMD:aemp(playerid, params[])
 						EmpInfo[i][eTrancada] = var;
 
 						SalvarEmpresa(var);
-    					format(string, sizeof(string), "AdmCmd: Empresa %d trancada/destrancada.", i);
+    					format(string, sizeof(string), "AdmCmd:{FFFFFF} Empresa %d trancada/destrancada.", i);
  						SendClientMessage(playerid, COLOR_LIGHTRED, string);
  						format(string, sizeof(string), "%s",EmpInfo[i][eNome]);
 						EmpInfo[i][EmpText] = CreateDynamic3DTextLabel(string, 0xFFFFFFFF, EmpInfo[i][eExX], EmpInfo[i][eExY], EmpInfo[i][eExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, EmpInfo[i][eExWorld], EmpInfo[i][eExInt]);
@@ -51408,7 +51389,7 @@ CMD:aemp(playerid, params[])
 		}
 		else if (!strcmp(opcao, "tipo", true))
 		{
-		    if(var > 100 || var < 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: /aemp tipo [variavel 0-100]");
+		    if(var > 100 || var < 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /aemp tipo [variavel 0-100]");
 			for(new i; i < MAX_EMPRESAS; i++)
 		    {
 		        if (EmpInfo[i][eCriada])
@@ -51425,7 +51406,7 @@ CMD:aemp(playerid, params[])
 						}
 
 						SalvarEmpresa(i);
-    					format(string, sizeof(string), "AdmCmd: Você alterou o tipo da empresa %d para %d.", i, var);
+    					format(string, sizeof(string), "AdmCmd:{FFFFFF} Você alterou o tipo da empresa %d para %d.", i, var);
  						SendClientMessage(playerid, COLOR_LIGHTRED, string);
  						return 1;
 					}
@@ -51434,7 +51415,7 @@ CMD:aemp(playerid, params[])
 		}
 		else if (!strcmp(opcao, "preco", true))
 		{
-		    if(var == 9999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: /aemp preco [Valor]");
+		    if(var == 9999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /aemp preco [Valor]");
 			for(new i; i < MAX_EMPRESAS; i++)
 		    {
 		        if (EmpInfo[i][eCriada])
@@ -51447,7 +51428,7 @@ CMD:aemp(playerid, params[])
 						EmpInfo[i][ePreco] = var;
 
 						SalvarEmpresa(i);
-    					format(string, sizeof(string), "AdmCmd: Você alterou o preço da empresa %d para US$%d!", i, var);
+    					format(string, sizeof(string), "AdmCmd:{FFFFFF} Você alterou o preço da empresa %d para US$%d!", i, var);
  						SendClientMessage(playerid, COLOR_LIGHTRED, string);
 
 						format(string, sizeof(string), "%s\nVende-se\nUS$%d!",EmpInfo[i][eNome],EmpInfo[i][ePreco]);
@@ -51459,7 +51440,7 @@ CMD:aemp(playerid, params[])
 		}
 		else if (!strcmp(opcao, "entrada", true))
 		{
-		    if(var == 9999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: /aemp entrada [ID da Empresa]");
+		    if(var == 9999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /aemp entrada [ID da Empresa]");
 		    static Float:x,
 	    			Float:y,
 	    			Float:z;
@@ -51478,7 +51459,7 @@ CMD:aemp(playerid, params[])
 					EmpInfo[var][eExInt] = GetPlayerInterior(playerid);
 
 					SalvarEmpresa(var);
-                    format(string, sizeof(string), "AdmCmd: Posição de entrada da empresa %d alterado.", var);
+                    format(string, sizeof(string), "AdmCmd:{FFFFFF} Posição de entrada da empresa %d alterado.", var);
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
  					format(string, sizeof(string), "%s",EmpInfo[var][eNome]);
 					EmpInfo[var][EmpText] = CreateDynamic3DTextLabel(string, 0xFFFFFFFF, EmpInfo[var][eExX], EmpInfo[var][eExY], EmpInfo[var][eExZ], 5.0, INVALID_PLAYER_ID, INVALID_VEHICLE_ID, 1, EmpInfo[var][eExWorld], EmpInfo[var][eExInt]);
@@ -51488,7 +51469,7 @@ CMD:aemp(playerid, params[])
 		}
 		else if (!strcmp(opcao, "vspawn", true))
 		{
-		    if(var == 9999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: /aemp vspawn [ID da Empresa]");
+		    if(var == 9999) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} /aemp vspawn [ID da Empresa]");
 		    static Float:x,
 	    			Float:y,
 	    			Float:z,
@@ -51507,7 +51488,7 @@ CMD:aemp(playerid, params[])
 					EmpInfo[var][eVR] = Angle;
 
 					SalvarEmpresa(var);
-                    format(string, sizeof(string), "AdmCmd: Posição de entrega de veículo da empresa %d alterado.", var);
+                    format(string, sizeof(string), "AdmCmd:{FFFFFF} Posição de entrega de veículo da empresa %d alterado.", var);
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
  					return 1;
 		        }
@@ -51527,7 +51508,7 @@ CMD:aemp(playerid, params[])
       				EmpInfo[var][eInY] = y;
         			EmpInfo[var][eInZ] = z;
         			EmpInfo[var][eInt] = GetPlayerInterior(playerid);
-        			format(string, sizeof(string), "AdmCmd: Posição de saida da empresa %d alterado.", var);
+        			format(string, sizeof(string), "AdmCmd:{FFFFFF} Posição de saida da empresa %d alterado.", var);
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 					SalvarEmpresa(var);
 					return 1;
@@ -51548,7 +51529,7 @@ CMD:aemp(playerid, params[])
 					if(IsValidDynamicObject(EmpInfo[i][eObjPlaca]))
 					    DestroyDynamicObject(EmpInfo[i][eObjPlaca]);
 
-                    format(string, sizeof(string), "AdmCmd: Placa de venda adicionada na empresa %d.", i);
+                    format(string, sizeof(string), "AdmCmd:{FFFFFF} Placa de venda adicionada na empresa %d.", i);
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 					PlayerInfo[playerid][pEditandoPlacaE] = i;
 		    	    EmpInfo[i][eObjPlaca] = CreateDynamicObject(19471, x, y+1, z, 0.0, 0.0, 0.0, GetPlayerVirtualWorld(playerid), GetPlayerInterior(playerid));
@@ -51571,7 +51552,7 @@ CMD:aemp(playerid, params[])
 					if(IsValidDynamicObject(EmpInfo[i][eObjPlaca]))
 					    DestroyDynamicObject(EmpInfo[i][eObjPlaca]);
 
-                    format(string, sizeof(string), "AdmCmd: Placa de venda deletada da empresa %d.", i);
+                    format(string, sizeof(string), "AdmCmd:{FFFFFF} Placa de venda deletada da empresa %d.", i);
  					SendClientMessage(playerid, COLOR_LIGHTRED, string);
 					EmpInfo[i][ePlacaX] = 0;
 					EmpInfo[i][ePlacaY] = 0;
@@ -51591,7 +51572,7 @@ CMD:aemp(playerid, params[])
 			    SetPlayerPosFreeze(playerid,EmpInfo[var][eExX],EmpInfo[var][eExY], EmpInfo[var][eExZ],1);
 				SetPlayerVirtualWorld(playerid,EmpInfo[var][eExWorld]);
 				SetPlayerInterior(playerid,EmpInfo[var][eExInt]);
-	      		format(string, sizeof(string), "AdmCmd: Você teleportou-se até a empresa: %d.", var);
+	      		format(string, sizeof(string), "AdmCmd:{FFFFFF} Você teleportou-se até a empresa: %d.", var);
 				SendClientMessage(playerid, COLOR_LIGHTRED, string);
 				return 1;
    		    }
@@ -51602,7 +51583,7 @@ CMD:aemp(playerid, params[])
 		    if(var == 9999) return SendClientMessage(playerid, COLOR_LIGHTRED, "USE: /aemp vender [ID da Empresa]");
 			if(EmpInfo[var][eCriada] == 1)
   			{
-   				format(string, sizeof(string), "AdmCmd: Você vendeu a empresa %d.", var);
+   				format(string, sizeof(string), "AdmCmd:{FFFFFF} Você vendeu a empresa %d.", var);
 				SendClientMessage(playerid, COLOR_LIGHTRED, string);
 				EmpInfo[var][eDono] = 0;
 				EmpInfo[var][eAVenda] = 1;
@@ -51632,7 +51613,7 @@ public EmpresaCriada(empid,playerid)
     	EmpInfo[empid][eID] = cache_insert_id();
     	SalvarEmpresa(empid);
 	}
-	format(string, sizeof(string), "AdmCmd: Empresa %d criada!", empid);
+	format(string, sizeof(string), "AdmCmd:{FFFFFF} Empresa %d criada!", empid);
  	SendClientMessage(playerid, COLOR_LIGHTRED, string);
     return 1;
 }
@@ -51885,7 +51866,7 @@ CMD:entrar(playerid, params[])
 		        {
 		    	    if(HouseInfo[i][hTrancada] == 0)
 		    	    {
-		    	        if(HouseInfo[i][hInX] == 0 || HouseInfo[i][hInY] == 0 || HouseInfo[i][hInZ] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO: Erro: Esta casa está sem interior, contate um administrador!");
+		    	        if(HouseInfo[i][hInX] == 0 || HouseInfo[i][hInY] == 0 || HouseInfo[i][hInZ] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO:{FFFFFF} ERRO:{FFFFFF} Esta casa está sem interior, contate um administrador!");
 			    	    SetPlayerInterior(playerid, HouseInfo[i][hInt]);
 
 			    	    if(HouseInfo[i][hTipo] == 0)
@@ -51938,7 +51919,7 @@ CMD:entrar(playerid, params[])
 		        {
 		    	    if(HouseInfo[i][hTrancada] == 0)
 		    	    {
-		    	        if(HouseInfo[i][hInX2] == 0 || HouseInfo[i][hInY2] == 0 || HouseInfo[i][hInZ2] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO: Erro: Esta casa está sem interior, contate um administrador!");
+		    	        if(HouseInfo[i][hInX2] == 0 || HouseInfo[i][hInY2] == 0 || HouseInfo[i][hInZ2] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO:{FFFFFF} ERRO:{FFFFFF} Esta casa está sem interior, contate um administrador!");
 			    	    SetPlayerInterior(playerid, HouseInfo[i][hInt]);
 
 			    	    if(HouseInfo[i][hTipo] == 0)
@@ -51996,7 +51977,7 @@ CMD:entrar(playerid, params[])
 		            {
 			    	    if(HouseInfo[i][hTrancada] == 0)
 			    	    {
-			    	        if(HouseInfo[i][hInX] == 0 || HouseInfo[i][hInY] == 0 || HouseInfo[i][hInZ] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO: Erro: Esta casa está sem interior, contate um administrador!");
+			    	        if(HouseInfo[i][hInX] == 0 || HouseInfo[i][hInY] == 0 || HouseInfo[i][hInZ] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO:{FFFFFF} ERRO:{FFFFFF} Esta casa está sem interior, contate um administrador!");
 				    	    SetPlayerInterior(playerid, HouseInfo[i][hInt]);
 
 				    	    if(HouseInfo[i][hTipo] == 0)
@@ -52050,7 +52031,7 @@ CMD:entrar(playerid, params[])
 		            {
 			    	    if(HouseInfo[i][hTrancada] == 0)
 			    	    {
-			    	        if(HouseInfo[i][hInX2] == 0 || HouseInfo[i][hInY2] == 0 || HouseInfo[i][hInZ2] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO: Erro: Esta casa está sem interior, contate um administrador!");
+			    	        if(HouseInfo[i][hInX2] == 0 || HouseInfo[i][hInY2] == 0 || HouseInfo[i][hInZ2] == 0) return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO:{FFFFFF} ERRO:{FFFFFF} Esta casa está sem interior, contate um administrador!");
 				    	    SetPlayerInterior(playerid, HouseInfo[i][hInt]);
 
 				    	    if(HouseInfo[i][hTipo] == 0)
@@ -52727,7 +52708,7 @@ CMD:sair(playerid, params[])
 					}
 	    			return 1;
 				}
-				else return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO: A porta está trancada!");
+				else return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO:{FFFFFF} A porta está trancada!");
 			}
 			else if(IsPlayerInRangeOfPoint(playerid, 3, HouseInfo[i][hInX2], HouseInfo[i][hInY2], HouseInfo[i][hInZ2]) && GetPlayerVirtualWorld(playerid) == 100+i)
 	    	{
@@ -52759,7 +52740,7 @@ CMD:sair(playerid, params[])
 					}
 	    			return 1;
 				}
-				else return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO: A porta está trancada!");
+				else return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO:{FFFFFF} A porta está trancada!");
 			}
         }
    	    else
@@ -52791,7 +52772,7 @@ CMD:sair(playerid, params[])
 					}
 	    			return 1;
 				}
-				else return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO: A porta está trancada!");
+				else return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO:{FFFFFF} A porta está trancada!");
 			}
 			else if(IsPlayerInRangeOfPoint(playerid, 3, HouseInfo[i][hInX2], HouseInfo[i][hInY2], HouseInfo[i][hInZ2]) && GetPlayerVirtualWorld(playerid) == 0)
 	    	{
@@ -52820,7 +52801,7 @@ CMD:sair(playerid, params[])
 					}
 	    			return 1;
 				}
-				else return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO: A porta está trancada!");
+				else return SendClientMessage(playerid, COLOR_LIGHTRED, "{FF6347}ERRO:{FFFFFF} A porta está trancada!");
 			}
    	    }
 	}
@@ -60709,31 +60690,31 @@ COMMAND:gov(playerid, params[])
 		{
 		    SendClientMessageToAll(0x005BB7FF, "{6495ed}USMC:");
 			format(string, sizeof(string), "{6495ed}%s", text);
-    		SendClientMessageToAll(0x005BB7FF, string);
+    		SendClientMessageToAll(COLOR_WHITE, string);
 		}
   		else if(FacInfo[facID][fTipo] == FAC_TIPO_GOV)
 		{
 		    SendClientMessageToAll(0x005BB7FF, "{6495ed}US GOV:");
 		    format(string, sizeof(string), "{6495ed}%s", text);
-    		SendClientMessageToAll(0x005BB7FF, string);
+    		SendClientMessageToAll(COLOR_WHITE, string);
 		}
   		else if(FacInfo[facID][fTipo] == FAC_TIPO_TJRP)
 		{
 		    SendClientMessageToAll(0x005BB7FF, "{6495ed}DOJ:");
 		    format(string, sizeof(string), "{6495ed}%s", text);
-    		SendClientMessageToAll(0x005BB7FF, string);
+    		SendClientMessageToAll(COLOR_WHITE, string);
 		}
   		else if(FacInfo[facID][fTipo] == FAC_TIPO_EB)
 		{
 		    SendClientMessageToAll(0x005BB7FF, "{6495ed}EB:");
 		    format(string, sizeof(string), "{6495ed}%s", text);
-    		SendClientMessageToAll(0x005BB7FF, string);
+    		SendClientMessageToAll(COLOR_WHITE, string);
 		}
         else if(FacInfo[facID][fTipo] == FAC_TIPO_PCERJ)
         {
-            SendClientMessageToAll(0x005BB7FF, "{6495ed}SEALS TEAM SIX:");
+            SendClientMessageToAll(0x005BB7FF, "{6495ed}DEVGRU:");
             format(string, sizeof(string), "{6495ed}%s", text);
-            SendClientMessageToAll(0x005BB7FF, string);
+            SendClientMessageToAll(COLOR_WHITE, string);
 		}
         else if(FacInfo[facID][fTipo] == FAC_TIPO_BANK)
         {
@@ -65115,7 +65096,7 @@ CMD:abastecerbomba(playerid, params[])
 CMD:tpda(playerid, params[])
 {
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
-	if(PlayerInfo[playerid][pJob] != JOB_CAMINHONEIRO) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não é um caminhoneiro.");
+	if(PlayerInfo[playerid][pJob] != JOB_CAMINHONEIRO) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não é um caminhoneiro.");
 
 	for(new i; i<50; i++)
 	{
@@ -69122,7 +69103,7 @@ CMD:comprarpet(playerid,params[])
     if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid,COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não está logado!");
 
 	if(PlayerInfo[playerid][pDoador] <= 0)
-		return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Você não possui premium ouro ativo.");
+		return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Você não possui premium ouro ativo.");
 
 	{
 	   	if (IsPlayerInRangeOfPoint(playerid, 5, -153.1079,1070.8595,19.7422))
@@ -72985,7 +72966,7 @@ CMD:departamento(playerid, params[])
 		else
 		{
 		   	if(FacId == 1) format(StrFac, sizeof(StrFac), "USMC");
-            else if(FacId == 2) format(StrFac, sizeof(StrFac), "Seals Team");
+            else if(FacId == 2) format(StrFac, sizeof(StrFac), "DEVGRU");
             else if(FacId == 3) format(StrFac, sizeof(StrFac), "MEDIC");
 		   	else if(FacId == 4) format(StrFac, sizeof(StrFac), "US GOV");
 			else if(FacId == 5) format(StrFac, sizeof(StrFac), "BRINKS");
@@ -73023,7 +73004,7 @@ CMD:departamentobaixo(playerid, params[])
 		else
 		{
 		   	if(FacId == 1) format(StrFac, sizeof(StrFac), "USMC");
-            else if(FacId == 2) format(StrFac, sizeof(StrFac), "Seals Team");
+            else if(FacId == 2) format(StrFac, sizeof(StrFac), "DEVGRU");
             else if(FacId == 3) format(StrFac, sizeof(StrFac), "MEDIC");
 		   	else if(FacId == 4) format(StrFac, sizeof(StrFac), "US GOV");
 			else if(FacId == 5) format(StrFac, sizeof(StrFac), "BRINKS");
@@ -73193,7 +73174,7 @@ CMD:factipo(playerid, params[])
 	    if(FacInfo[id][fCriada] == 1)
 	    {
 	        FacInfo[id][fTipo] = var2;
-	        format(string, sizeof(string), "{FF6347}AdmCmd: Você setou a facção %s [%d] para o tipo: %d.", FacInfo[id][fNome], id, var2);
+	        format(string, sizeof(string), "{FF6347}AdmCmd:{FFFFFF} Você setou a facção %s [%d] para o tipo: %d.", FacInfo[id][fNome], id, var2);
 	        SendClientMessage(playerid, COLOR_WHITE, string);
 
 	    	SalvarFaccao(id);
@@ -73225,7 +73206,7 @@ CMD:criarfaccao(playerid, params[])
     			format(FacInfo[i][fNome], 34, "%s",NomeDoMovel);
 
     			SalvarFaccao(i);
-    			format(string, sizeof(string), "{FF6347}AdmCmd: Faccao %s [SQL ID: %d] criada| ServerID: %d.", NomeDoMovel, FacInfo[i][fID], i);
+    			format(string, sizeof(string), "{FF6347}AdmCmd:{FFFFFF} Faccao %s [SQL ID: %d] criada| ServerID: %d.", NomeDoMovel, FacInfo[i][fID], i);
  				SendClientMessage(playerid, COLOR_LIGHTRED, string);
  				newfacid++;
 
@@ -73266,7 +73247,7 @@ public FaccaoCriada(playerid,StrNome[])
 
 			strmid(FacInfo[i][fNome], StrNome, 0, strlen(StrNome), 255);
 
-			format(string, sizeof(string), "{FF6347}AdmCmd: Faccao %s [SQL ID: %d] criada. | Ordem: %d", StrNome, id, newfacid);
+			format(string, sizeof(string), "{FF6347}AdmCmd:{FFFFFF} Faccao %s [SQL ID: %d] criada. | Ordem: %d", StrNome, id, newfacid);
 			SendClientMessage(playerid, COLOR_LIGHTRED, string);
 			newfacid++;
 
@@ -73402,7 +73383,7 @@ Dialog:FactionsList_Del(playerid, response, listitem, inputtext[]){
 
 		FacInfo[FacID][fCriada] = 2;
 
-		SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Facção deletada.");
+		SCM(playerid, COLOR_LIGHTRED, "AdmCmd:{FFFFFF} Facção deletada.");
 
 		VendoTPDA[playerid][49] = -1;
 	}
@@ -73419,61 +73400,61 @@ Dialog:FactionsList_NewType(playerid, response, listitem, inputtext[]){
         {
             case 0: {
                 FacInfo[FacID][fTipo] = 1;
-                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: USMC.");
+                SCM(playerid, COLOR_LIGHTRED, "AdmCmd:{FFFFFF} Tipo alterado para: USMC.");
             }
             case 1: {
                 FacInfo[FacID][fTipo] = 2;
-                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: Seals.");
+                SCM(playerid, COLOR_LIGHTRED, "AdmCmd:{FFFFFF} Tipo alterado para: Seals.");
             }
             case 2: {
                 FacInfo[FacID][fTipo] = 3;
-                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: MEDIC.");
+                SCM(playerid, COLOR_LIGHTRED, "AdmCmd:{FFFFFF} Tipo alterado para: MEDIC.");
             }
             case 3: {
                 FacInfo[FacID][fTipo] = 5;
-                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: CIA.");
+                SCM(playerid, COLOR_LIGHTRED, "AdmCmd:{FFFFFF} Tipo alterado para: CIA.");
             }
             case 4: {
                 FacInfo[FacID][fTipo] = 4;
-                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: GOV.");
+                SCM(playerid, COLOR_LIGHTRED, "AdmCmd:{FFFFFF} Tipo alterado para: GOV.");
             }
             case 5: {
                 FacInfo[FacID][fTipo] = 6;
-                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: Bank.");
+                SCM(playerid, COLOR_LIGHTRED, "AdmCmd:{FFFFFF} Tipo alterado para: Bank.");
             }
             //Drugs
             case 6: {
                 FacInfo[FacID][fTipo] = 10;
-                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: Drugs - Nível 1.");
+                SCM(playerid, COLOR_LIGHTRED, "AdmCmd:{FFFFFF} Tipo alterado para: Drugs - Nível 1.");
             }
             case 7: {
                 FacInfo[FacID][fTipo] = 11;
-                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: Drugs - Nível 2.");
+                SCM(playerid, COLOR_LIGHTRED, "AdmCmd:{FFFFFF} Tipo alterado para: Drugs - Nível 2.");
             }
             case 8: {
                 FacInfo[FacID][fTipo] = 12;
-                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: Drugs - Nível 3.");
+                SCM(playerid, COLOR_LIGHTRED, "AdmCmd:{FFFFFF} Tipo alterado para: Drugs - Nível 3.");
             }
             case 9: {
                 FacInfo[FacID][fTipo] = 13;
-                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: Drugs - Nível 4.");
+                SCM(playerid, COLOR_LIGHTRED, "AdmCmd:{FFFFFF} Tipo alterado para: Drugs - Nível 4.");
             }
             //Armas
             case 10: {
                 FacInfo[FacID][fTipo] = 14;
-                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: Armas - Nível 1.");
+                SCM(playerid, COLOR_LIGHTRED, "AdmCmd:{FFFFFF} Tipo alterado para: Armas - Nível 1.");
             }
             case 11: {
                 FacInfo[FacID][fTipo] = 15;
-                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: Armas - Nível 2.");
+                SCM(playerid, COLOR_LIGHTRED, "AdmCmd:{FFFFFF} Tipo alterado para: Armas - Nível 2.");
             }
             case 12: {
                 FacInfo[FacID][fTipo] = 16;
-                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: Armas - Nível 3.");
+                SCM(playerid, COLOR_LIGHTRED, "AdmCmd:{FFFFFF} Tipo alterado para: Armas - Nível 3.");
             }
             case 13: {
                 FacInfo[FacID][fTipo] = 17;
-                SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Tipo alterado para: Armas - Nível 4.");
+                SCM(playerid, COLOR_LIGHTRED, "AdmCmd:{FFFFFF} Tipo alterado para: Armas - Nível 4.");
             }
 
         }
@@ -73490,7 +73471,7 @@ Dialog:FactionsList_NewName(playerid, response, listitem, inputtext[]){
         new FacID = SelectedEditFactionId[playerid];
 		format(FacInfo[FacID][fNome], 24, "%s", inputtext);
 		ViewFactions(playerid);
-		SCM(playerid, COLOR_LIGHTRED, "AdmCmd: Nome da facção alterado com sucesso.");
+		SCM(playerid, COLOR_LIGHTRED, "AdmCmd:{FFFFFF} Nome da facção alterado com sucesso.");
 		SalvarFaccao(FacID);
     }
 	return 1;
@@ -73512,8 +73493,8 @@ COMMAND:setarportaofac(playerid, params[])
 		        PortaoInfo[portaoid][ptFac] = FacInfo[faccao][fID];
 		        PortaoInfo[portaoid][ptEmpresa] = 0;
 
-				if(faccao != 911) format(string,sizeof(string),"{FF6347}AdmCmd: Você setou o portão %d para a facção %s [%d].", portaoid, FacInfo[faccao][fNome], faccao);
-				else format(string,sizeof(string),"{FF6347}AdmCmd: Você setou o portão %d para o USMC.", portaoid);
+				if(faccao != 911) format(string,sizeof(string),"{FF6347}AdmCmd:{FFFFFF} Você setou o portão %d para a facção %s [%d].", portaoid, FacInfo[faccao][fNome], faccao);
+				else format(string,sizeof(string),"{FF6347}AdmCmd:{FFFFFF} Você setou o portão %d para o USMC.", portaoid);
 	    		SendClientMessage(playerid, COLOR_LIGHTRED, string);
 
 	    		SalvarPortao(portaoid);
@@ -73539,7 +73520,7 @@ COMMAND:setarportaoemp(playerid, params[])
 		        PortaoInfo[portaoid][ptFac] = 0;
 		        PortaoInfo[portaoid][ptEmpresa] = faccao;
 
-	      		format(string,sizeof(string),"{FF6347}AdmCmd: Você setou o portão %d para a empresa %s [%d].", portaoid, EmpInfo[faccao][eNome], faccao);
+	      		format(string,sizeof(string),"{FF6347}AdmCmd:{FFFFFF} Você setou o portão %d para a empresa %s [%d].", portaoid, EmpInfo[faccao][eNome], faccao);
 	    		SendClientMessage(playerid, COLOR_LIGHTRED, string);
 
 	    		SalvarPortao(portaoid);
@@ -73588,7 +73569,7 @@ COMMAND:setarrange(playerid, params[])
 		    {
 		        PortaoInfo[portaoid][ptRange] = Range;
 
-	      		format(string,sizeof(string),"{FF6347}AdmCmd: Você setou o range do portão %d para %f.", portaoid, PortaoInfo[portaoid][ptRange]);
+	      		format(string,sizeof(string),"{FF6347}AdmCmd:{FFFFFF} Você setou o range do portão %d para %f.", portaoid, PortaoInfo[portaoid][ptRange]);
 	    		SendClientMessage(playerid, COLOR_LIGHTRED, string);
 
 	    		SalvarPortao(portaoid);
@@ -73613,7 +73594,7 @@ COMMAND:tempoaberto(playerid, params[])
 		    {
 		        PortaoInfo[portaoid][ptTempo] = Range;
 
-	      		format(string,sizeof(string),"{FF6347}AdmCmd: Você setou o tempo de abertura do portão %d para %d.", portaoid, PortaoInfo[portaoid][ptTempo]);
+	      		format(string,sizeof(string),"{FF6347}AdmCmd:{FFFFFF} Você setou o tempo de abertura do portão %d para %d.", portaoid, PortaoInfo[portaoid][ptTempo]);
 	    		SendClientMessage(playerid, COLOR_WHITE, string);
 
 	    		SalvarPortao(portaoid);
@@ -73767,7 +73748,7 @@ public OnPlayerCheckIP(playerid, response_code, data[])
         printf("IP %s conectando de %s", pip, data);
         if (strcmp(data, "Brazil", true)) {
 
-            format(stringvpn, sizeof(stringvpn), "AdmCmd: Um jogador (ID: %d) conectou do pais %s, IP: %s", playerid, data, pip);
+            format(stringvpn, sizeof(stringvpn), "AdmCmd:{FFFFFF} Um jogador (ID: %d) conectou do pais %s, IP: %s", playerid, data, pip);
             SendAdminMessage(COLOR_LIGHTRED, stringvpn);
 
 
@@ -78442,7 +78423,7 @@ CMD:criarcarro(playerid, params[])
 	GetVehicleParamsEx(Carro,param[0],param[1],param[2],param[3],param[4],param[5],param[6]);
 	SetVehicleParamsEx(Carro,1,param[1],param[2],param[3],param[4],param[5],param[6]);
 
-    format(string,sizeof(string),"AdmCmd: Você criou um veiculo ID: %d | Carro: %d | Use /destruircarro para destrui-lo.",vehid ,Carro);
+    format(string,sizeof(string),"AdmCmd:{FFFFFF} Você criou um veiculo ID: %d | Carro: %d | Use /destruircarro para destrui-lo.",vehid ,Carro);
     SendClientMessage(playerid,COLOR_LIGHTRED,string);
 
     return 1;
@@ -83775,7 +83756,7 @@ COMMAND:atorre(playerid, params[])
     new str[256];
 	if(sscanf(params, "s[11]I(99)", option, variavel))
 	{
-		SendClientMessage(playerid, COLOR_WHITE, "AdmCmd: /atorre [opção]");
+		SendClientMessage(playerid, COLOR_WHITE, "AdmCmd:{FFFFFF} /atorre [opção]");
   		SendClientMessage(playerid, COLOR_WHITE, "Opções: criar, sinal, pos, torres, versinal");
 		return 1;
 	}
@@ -83803,7 +83784,7 @@ COMMAND:atorre(playerid, params[])
 		}
 		else if(strcmp(option, "versinal", true) == 0)
 		{
-		    format(str, sizeof(str), "AdmCmd: Sinal na área %.4f.", PegarSinalCelular(playerid));
+		    format(str, sizeof(str), "AdmCmd:{FFFFFF} Sinal na área %.4f.", PegarSinalCelular(playerid));
 			SendClientMessage(playerid, COLOR_WHITE, str);
 		}
 		else if(strcmp(option, "torres", true) == 0)
@@ -83853,7 +83834,7 @@ public TorreCriada(playerid)
     TorreData[id][torID] = id;
     TorreData[id][torSinal] = 1000000.0;
 
-    format(str, sizeof(str), "AdmCmd: Você criou a torre %d.", id);
+    format(str, sizeof(str), "AdmCmd:{FFFFFF} Você criou a torre %d.", id);
 	SendClientMessage(playerid, COLOR_WHITE, str);
 
     SetPVarInt(playerid, "EditandoTorre", id);
@@ -83932,7 +83913,7 @@ COMMAND:atelpub(playerid, params[])
     new str[256];
 	if(sscanf(params, "s[11]I(99)", option, variavel))
 	{
-		SendClientMessage(playerid, COLOR_WHITE, "AdmCmd: /atelpub [opção]");
+		SendClientMessage(playerid, COLOR_WHITE, "AdmCmd:{FFFFFF} /atelpub [opção]");
   		SendClientMessage(playerid, COLOR_WHITE, "Opções: criar, deletar, bairro, pos, ids");
 		return 1;
 	}
@@ -83946,7 +83927,7 @@ COMMAND:atelpub(playerid, params[])
 		}
 		else if(strcmp(option, "bairro", true) == 0)
 		{
-  			format(str, sizeof(str),"AdmCmd: Bairro atual: %s", GetPlayerLocation(playerid));
+  			format(str, sizeof(str),"AdmCmd:{FFFFFF} Bairro atual: %s", GetPlayerLocation(playerid));
     		SendClientMessage(playerid, COLOR_WHITE, str);
     		return 1;
 		}
@@ -84104,7 +84085,7 @@ public TelPubCriado(playerid)
 	else if(10 <= num_ore < 100) format(TelPublico[id][orNumero], 5, "0%d", num_ore);
 	else format(TelPublico[id][orNumero], 5, "%d", num_ore);
 
-    format(str, sizeof(str), "AdmCmd: ID:%d | Numero do Telefone Publico: 024-%.3s-%.3s.", id,TelPublico[id][orPrefixo], TelPublico[id][orNumero]);
+    format(str, sizeof(str), "AdmCmd:{FFFFFF} ID:%d | Numero do Telefone Publico: 024-%.3s-%.3s.", id,TelPublico[id][orPrefixo], TelPublico[id][orNumero]);
 	SendClientMessage(playerid, COLOR_LIGHTRED, str);
 
     SetPVarInt(playerid, "EditandoTelPub", id);
@@ -85301,7 +85282,55 @@ CMD:cancelarconvenio(playerid,params[])
 	return 1;
 }
 //==============================================================================
+CMD:rac(playerid, params[])
+{
+    if(!PlayerInfo[playerid][pLogado]) return SendClientMessage(playerid, COLOR_LIGHTRED, "ACESSO NEGADO: {FFFFFF}você deve estar conectado antes de usar algum comando.");
+ 	if(PlayerInfo[playerid][pAdmin] >= 3000)
+	{
+	    new totalcarros = 0;
+	    for(new i = 0; i < MAX_CA_VEHICLES; i ++)
+		{
+		    if(VehicleInfo[i][vVehicle] > -1)
+		    {
+				SetVehiclePos(VehicleInfo[i][vVehicle], VehicleInfo[i][vSpawnX], VehicleInfo[i][vSpawnY], VehicleInfo[i][vSpawnZ]);
+				SetVehicleVirtualWorld(VehicleInfo[i][vVehicle], VehicleInfo[i][vWorld]);
+				LinkVehicleToInterior(VehicleInfo[i][vVehicle], VehicleInfo[i][vInterior]);
 
+				if(strlen(VehicleInfo[i][vPlate])) { SetVehicleNumberPlate(VehicleInfo[i][vVehicle],VehicleInfo[i][vPlate]); }
+				SetVehicleDamage(VehicleInfo[i][vVehicle]);
+
+				new carrovazio = 1;
+				for(new p = 0; p < MAX_PLAYERS; p++)
+				{
+				    if(GetPlayerVehicleID(p) == i)
+				    {
+				        carrovazio = 0;
+				        break;
+				    }
+				}
+
+				if(carrovazio == 1)
+				{
+					VehicleInfo[i][vNeonState] = 0;
+					if(VehicleInfo[i][vSirene][0] != 0)
+					{
+						DestroyDynamicObject(VehicleInfo[i][vSirene][0]);
+						VehicleInfo[i][vSirene][0] = 0;
+					}
+					DestruirObjetosCarro(i,VehicleInfo[i][vVehicle]);
+					VehicleInfo[i][vTuned] = false;
+
+					DestroyVehicle(VehicleInfo[i][vVehicle]);
+					VehicleInfo[i][vVehicle] = -1;
+					totalcarros++;
+				}
+			}
+		}
+		format(string, sizeof(string),"RAC:{FFFFFF} %d veículos foram despawnados por %s.",totalcarros, PlayerInfo[playerid][pNomeOOC]);
+		SendAdminMessage(COLOR_LIGHTRED,string);
+	}
+	return 1;
+}
 CMD:doar(playerid, params[])
 {
 	new qnt;
@@ -85354,7 +85383,7 @@ COMMAND:pontolavagem(playerid, params[])
 		PlayerInfo[targetid][pID]);
 		mysql_function_query(Pipeline, query, true, "OnQueryFinish", "ii", THREAD_NO_RESULT, playerid);
 
-		format(string,sizeof(string),"AdmCmd: Você setou o ponto de lavagem de dinheiro de %s.",PlayerName(targetid, 0));
+		format(string,sizeof(string),"AdmCmd:{FFFFFF} Você setou o ponto de lavagem de dinheiro de %s.",PlayerName(targetid, 0));
 		SendClientMessage(playerid, COLOR_LIGHTRED, string);
 	}
 	return 1;
@@ -86441,7 +86470,7 @@ CMD:pescar(playerid,params[])
 		    }
 		}
 
-		if(MaxPesoBoat < 20000) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO: Este veículo não pode ser utilizado para pesca.");
+		if(MaxPesoBoat < 20000) return SendClientMessage(playerid, COLOR_LIGHTRED, "ERRO:{FFFFFF} Este veículo não pode ser utilizado para pesca.");
 		new slot = GetVehicleSlot(VehicleP);
 		if(slot > -1) {
 	    	if(VehicleInfo[slot][vOwner] == PlayerInfo[playerid][pID]) {
@@ -86542,7 +86571,7 @@ CMD:meuspeixes(playerid,params[])
 CMD:venderpeixes(playerid,params[])
 {
     if (PlayerInfo[playerid][pLogado] == 0) return SendClientMessage(playerid, COLOR_WHITE, "Você deve estar logado para utilizar este comando.");
-    if(PlayerInfo[playerid][pJob] != JOB_PESCADOR) return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO: Você não é um pescador.");
+    if(PlayerInfo[playerid][pJob] != JOB_PESCADOR) return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não é um pescador.");
     
 	if(IsPlayerInAnyVehicle(playerid)) {
 		new VehicleP = GetPlayerVehicleID(playerid);
@@ -86551,7 +86580,7 @@ CMD:venderpeixes(playerid,params[])
 		        if(FishWeighBarcoID[playerid] == VehicleP) {
 		            if(!IsPlayerInRangeOfPoint(playerid,15.0,-754.3839,1529.4766,26.9495)) {
 					    SetPlayerCheckpoint(playerid, -754.3839,1529.4766,26.9495, 10.0);
-						SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO: Você não está na casa de vendas de peixe.");
+						SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não está na casa de vendas de peixe.");
 						cp_target[playerid] = 1;
 						return 1;
 					}
@@ -86574,16 +86603,16 @@ CMD:venderpeixes(playerid,params[])
 				    FishWeighBarco[playerid] = 0;
 				    PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]+pay;
 		        }
-		        else return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO: Você não está no seu barco carregado.");
+		        else return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não está no seu barco carregado.");
 			}
 	    }
-	    else return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO: Você não tem peixes para vender.");
+	    else return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não tem peixes para vender.");
 	}
 	else {
 	    if(FishWeigh[playerid] > 0 || FishWeighBarco[playerid] > 0) {
 			if(!IsPlayerInRangeOfPoint(playerid,5.0, -754.3839,1529.4766,26.9495)) {
 			    SetPlayerCheckpoint(playerid, -754.3839,1529.4766,26.9495, 5.0);
-				SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO: Você não está na casa de vendas de peixe.");
+				SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não está na casa de vendas de peixe.");
 				cp_target[playerid] = 1;
 				return 1;
 			}
@@ -86605,7 +86634,7 @@ CMD:venderpeixes(playerid,params[])
 		    FishWeighBarco[playerid] = 0;
 		    PlayerInfo[playerid][pGrana] = PlayerInfo[playerid][pGrana]+pay;
 		}
-		else return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO: Você não tem peixes para vender.");
+		else return SendClientMessage(playerid,COLOR_LIGHTRED,"ERRO:{FFFFFF} Você não tem peixes para vender.");
 	}
     return true;
 }
@@ -86622,7 +86651,7 @@ public PlayerFishing(playerid,tipo)
     
     if(!IsPlayerInRangeOfPoint(playerid, DistMax, FishingPosX[playerid],FishingPosY[playerid],FishingPosZ[playerid]))
 	{
-	 	SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO: Você saiu do local em que você estava pescando e a pesca foi cancelada.");
+	 	SendClientMessage(playerid, COLOR_LIGHTRED,"ERRO:{FFFFFF} Você saiu do local em que você estava pescando e a pesca foi cancelada.");
 	 	Fishingando[playerid] = 0;
 	}
 	switch(fish)
@@ -86919,7 +86948,7 @@ CMD:refundararma(playerid, params[])
 		new key = randomEx(1000, 99999999);
 
 		CriarRefundoArma(PlayerInfo[playerid][pNomeOOC], level, key, userid);
-		SendAdminAlert(COLOR_LIGHTRED, "AdmCmd: %s criou uma chave de refundo ID %d para %s (Arma: %d).", PlayerInfo[playerid][pNomeOOC], key, userid, level);
+		SendAdminAlert(COLOR_LIGHTRED, "AdmCmd:{FFFFFF} %s criou uma chave de refundo ID %d para %s (Arma: %d).", PlayerInfo[playerid][pNomeOOC], key, userid, level);
 	}
 	return 1;
 }
@@ -86938,7 +86967,7 @@ CMD:refundargrana(playerid, params[])
 		new key = randomEx(1000, 99999999);
 
 		CriarRefundoGrana(PlayerInfo[playerid][pNomeOOC], level, key, userid);
-		SendAdminAlert(COLOR_LIGHTRED, "AdmCmd: %s criou uma chave de refundo ID %d para %s (Dinheiro: US$ %d).", PlayerInfo[playerid][pNomeOOC], key, userid, level);
+		SendAdminAlert(COLOR_LIGHTRED, "AdmCmd:{FFFFFF} %s criou uma chave de refundo ID %d para %s (Dinheiro: US$ %d).", PlayerInfo[playerid][pNomeOOC], key, userid, level);
 	}
 	return 1;
 }
@@ -86996,7 +87025,7 @@ CMD:refundaritem(playerid, params[])
 		new key = randomEx(1000, 99999999);
 
 		CriarRefundoItem(PlayerInfo[playerid][pNomeOOC], level, key, quantidade, userid);
-		SendAdminAlert(COLOR_LIGHTRED, "AdmCmd: %s criou uma chave de refundo ID %d para %s (Item: %s | Quantidade: %d).", PlayerInfo[playerid][pNomeOOC], key, userid, etnia, quantidade);
+		SendAdminAlert(COLOR_LIGHTRED, "AdmCmd:{FFFFFF} %s criou uma chave de refundo ID %d para %s (Item: %s | Quantidade: %d).", PlayerInfo[playerid][pNomeOOC], key, userid, etnia, quantidade);
 	}
 	return 1;
 }

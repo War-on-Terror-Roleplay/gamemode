@@ -13254,3 +13254,848 @@ v0.3.DL-R1, (C)2005-2018 SA-MP Team
 [17:21:20] [debug] Long callback execution detected (hang or performance issue)
 [17:21:20] [debug] AMX backtrace:
 [17:21:20] [debug] #0 00351d64 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:9949
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.DL-R1, (C)2005-2018 SA-MP Team
+
+[09:10:26] password = ""  (string)
+[09:10:26] filterscripts = ""  (string)
+[09:10:26] artpath = "models"  (string)
+[09:10:26] 
+[09:10:26] Server Plugins
+[09:10:26] --------------
+[09:10:26]  Loading plugin: crashdetect
+[09:10:26]   CrashDetect plugin 4.20
+[09:10:26]   Loaded.
+[09:10:26]  Loading plugin: mysql
+[09:10:26]  >> plugin.mysql: R39-5 successfully loaded.
+[09:10:26]   Loaded.
+[09:10:26]  Loading plugin: streamer
+[09:10:26] 
+
+*** Streamer Plugin v2.9.6 by Incognito loaded ***
+
+[09:10:26]   Loaded.
+[09:10:26]  Loading plugin: sscanf
+[09:10:26] 
+[09:10:26]  ===============================
+[09:10:26] 
+[09:10:26]       sscanf plugin loaded.     
+[09:10:26] 
+[09:10:26]          Version: 2.13.8
+[09:10:26] 
+[09:10:26]    (c) 2022 Alex "Y_Less" Cole  
+[09:10:26] 
+[09:10:26]  ===============================
+[09:10:26] 
+[09:10:26]   Loaded.
+[09:10:26]  Loading plugin: Whirlpool
+[09:10:26]  
+[09:10:26]  ==================
+[09:10:26]  
+[09:10:26]   Whirlpool loaded
+[09:10:26]  
+[09:10:26]  ==================
+[09:10:26]  
+[09:10:26]   Loaded.
+[09:10:26]  Loading plugin: mapandreas
+[09:10:26]   Loaded.
+[09:10:26]  Loading plugin: ColAndreas
+[09:10:26] *********************
+[09:10:26] ** Created By:     **
+[09:10:26] ** [uL]Chris42O    **
+[09:10:26] ** [uL]Slice       **
+[09:10:26] ** [uL]Pottus      **
+[09:10:26] *********************
+[09:10:26] No collision data found.
+[09:10:26] *********************
+[09:10:26]   ColAndreas Loaded
+[09:10:26]    v1.4.0
+[09:10:26] *********************
+[09:10:26]   Loaded.
+[09:10:26]  Loading plugin: dns
+[09:10:26] 
+
+*** DNS Plugin v2.4 by Incognito loaded ***
+
+[09:10:26]   Loaded.
+[09:10:26]  Loading plugin: YSF
+[09:10:26] This version of YSF doesn't support SA-MP 0.3.DL
+[09:10:26] Use another version of YSF or build with SAMP_03DL
+[09:10:26] Error: Unknown Windows server version (0x00491FA0)
+[09:10:26] Error: Big part of YSF will be unusable for you
+[09:10:26]   Loaded.
+[09:10:26]  Loaded 9 plugins.
+
+[09:10:26] [artwork:crc] taliba/taliba.dff CRC = 0x59945A80
+[09:10:26] [artwork:crc] taliba/taliba.txd CRC = 0x6355B6A
+[09:10:26] [artwork:crc] taliba/taliba2.dff CRC = 0xBB63B464
+[09:10:26] [artwork:crc] taliba/taliba2.txd CRC = 0x90B27E6E
+[09:10:26] [artwork:crc] taliba/taliba3.dff CRC = 0xE2E733E8
+[09:10:26] [artwork:crc] taliba/taliba3.txd CRC = 0xBC08005E
+[09:10:26] [artwork:crc] taliba/taliba4.dff CRC = 0x6828674B
+[09:10:26] [artwork:crc] taliba/taliba4.txd CRC = 0xB491BD51
+[09:10:26] [artwork:crc] taliba/taliba5.dff CRC = 0xDF6EC86
+[09:10:26] [artwork:crc] taliba/taliba5.txd CRC = 0x68893977
+[09:10:26] [artwork:crc] taliba/taliba6.dff CRC = 0xC47278F3
+[09:10:26] [artwork:crc] taliba/taliba6.txd CRC = 0x8C65BC30
+[09:10:26] [artwork:crc] taliba/taliba7.dff CRC = 0x21ED392D
+[09:10:26] [artwork:crc] taliba/taliba7.txd CRC = 0x3C5B484E
+[09:10:26] [artwork:crc] taliba/taliba8.dff CRC = 0x4C679CBE
+[09:10:26] [artwork:crc] taliba/taliba8.txd CRC = 0x23FF2285
+[09:10:26] [artwork:crc] taliba/taliba9.dff CRC = 0xDD1F6BE8
+[09:10:26] [artwork:crc] taliba/taliba9.txd CRC = 0x3724AA26
+[09:10:26] [artwork:crc] taliba/taliba10.dff CRC = 0x134E2005
+[09:10:26] [artwork:crc] taliba/taliba10.txd CRC = 0xD51A0FF9
+[09:10:26] [artwork:crc] taliba/taliba11.dff CRC = 0x448A080D
+[09:10:26] [artwork:crc] taliba/taliba11.txd CRC = 0x62CFAC9F
+[09:10:26] [artwork:crc] taliba/taliba12.dff CRC = 0xE56251EE
+[09:10:26] [artwork:crc] taliba/taliba12.txd CRC = 0xFDE64604
+[09:10:26] [artwork:crc] taliba/taliba13.dff CRC = 0x8299D6CC
+[09:10:26] [artwork:crc] taliba/taliba13.txd CRC = 0x85A9998
+[09:10:26] [artwork:crc] taliba/taliba14.dff CRC = 0xB115C3F1
+[09:10:26] [artwork:crc] taliba/taliba14.txd CRC = 0x8D57DED8
+[09:10:26] [artwork:crc] taliba/taliba15.dff CRC = 0x1D04FA75
+[09:10:26] [artwork:crc] taliba/taliba15.txd CRC = 0xDECA406A
+[09:10:26] [artwork:crc] pmc/pmc1.dff CRC = 0x2DD4CA47
+[09:10:26] [artwork:crc] pmc/pmc1.txd CRC = 0xE07D9D46
+[09:10:26] [artwork:crc] pmc/pmc2.dff CRC = 0x4B9C0356
+[09:10:26] [artwork:crc] pmc/pmc2.txd CRC = 0xED3AB6A4
+[09:10:26] [artwork:crc] pmc/pmc3.dff CRC = 0xE7046D23
+[09:10:26] [artwork:crc] pmc/pmc3.txd CRC = 0x9E046331
+[09:10:26] [artwork:crc] pmc/pmc4.dff CRC = 0x9546189A
+[09:10:26] [artwork:crc] pmc/pmc4.txd CRC = 0x399F00A3
+[09:10:26] [artwork:crc] pmc/pmc5.dff CRC = 0x493621B6
+[09:10:26] [artwork:crc] pmc/pmc5.txd CRC = 0x86A22FD
+[09:10:26] [artwork:crc] pmc/pmc6.dff CRC = 0x616A75AB
+[09:10:26] [artwork:crc] pmc/pmc6.txd CRC = 0x80654964
+[09:10:26] [artwork:crc] pmc/pmc7.dff CRC = 0x10D6EE16
+[09:10:26] [artwork:crc] pmc/pmc7.txd CRC = 0x3CCB6AA6
+[09:10:26] [artwork:crc] pmc/pmc8.dff CRC = 0xD27637A8
+[09:10:26] [artwork:crc] pmc/pmc8.txd CRC = 0x2EF7BC1
+[09:10:26] [artwork:crc] pmc/pmc9.dff CRC = 0x75507F0D
+[09:10:26] [artwork:crc] pmc/pmc9.txd CRC = 0x3A627F5F
+[09:10:26] [artwork:crc] isis/isis1.dff CRC = 0xA107A44C
+[09:10:26] [artwork:crc] isis/isis1.txd CRC = 0x8547D9E6
+[09:10:26] [artwork:crc] isis/isis2.dff CRC = 0xC029C75B
+[09:10:26] [artwork:crc] isis/isis2.txd CRC = 0x77C900E8
+[09:10:26] [artwork:crc] isis/isis3.dff CRC = 0xD5FF099B
+[09:10:26] [artwork:crc] isis/isis3.txd CRC = 0x586260F2
+[09:10:26] [artwork:crc] isis/isis4.dff CRC = 0xC029C75B
+[09:10:26] [artwork:crc] isis/isis4.txd CRC = 0x52486C98
+[09:10:26] [artwork:crc] isis/isis5.dff CRC = 0x3C88572C
+[09:10:26] [artwork:crc] isis/isis5.txd CRC = 0x686CAA15
+[09:10:26] [artwork:crc] russo/russia1.dff CRC = 0x8855C1F1
+[09:10:26] [artwork:crc] russo/russia1.txd CRC = 0xFC8E21E6
+[09:10:26] [artwork:crc] russo/russia2.dff CRC = 0xCB8A1129
+[09:10:26] [artwork:crc] russo/russia2.txd CRC = 0x83AC881E
+[09:10:26] [artwork:crc] russo/russia3.dff CRC = 0x871A42CA
+[09:10:26] [artwork:crc] russo/russia3.txd CRC = 0xC6E1DF4B
+[09:10:26] [artwork:crc] russo/russia4.dff CRC = 0xB2D466D
+[09:10:26] [artwork:crc] russo/russia4.txd CRC = 0x2F9F7341
+[09:10:26] [artwork:crc] russo/russia5.dff CRC = 0x81309CA2
+[09:10:26] [artwork:crc] russo/russia5.txd CRC = 0x3269522E
+[09:10:26] [artwork:crc] russo/russia6.dff CRC = 0x264C07E8
+[09:10:26] [artwork:crc] russo/russia6.txd CRC = 0x43734C43
+[09:10:26] [artwork:crc] russo/russia7.dff CRC = 0x415C9DE3
+[09:10:26] [artwork:crc] russo/russia7.txd CRC = 0xF1B100BB
+[09:10:26] [artwork:crc] press/press1.dff CRC = 0xC405097A
+[09:10:26] [artwork:crc] press/press1.txd CRC = 0x98012A3C
+[09:10:26] [artwork:crc] press/press2.dff CRC = 0xD993448B
+[09:10:26] [artwork:crc] press/press2.txd CRC = 0xBB3DE3A2
+[09:10:26] [artwork:crc] badri/badri01.dff CRC = 0x7F71D1B9
+[09:10:26] [artwork:crc] badri/badri01.txd CRC = 0x7FF2BDDA
+[09:10:26] [artwork:crc] badri/badri02.dff CRC = 0xF8134737
+[09:10:26] [artwork:crc] badri/badri02.txd CRC = 0x7FF2BDDA
+[09:10:26] [artwork:crc] seals/seal1.dff CRC = 0x35B276D4
+[09:10:26] [artwork:crc] seals/seal1.txd CRC = 0x9339AF93
+[09:10:26] [artwork:crc] seals/seal2.dff CRC = 0x1B7364B6
+[09:10:26] [artwork:crc] seals/seal2.txd CRC = 0xEB6C1EBB
+[09:10:26] [artwork:crc] seals/seal3.dff CRC = 0x403AD120
+[09:10:26] [artwork:crc] seals/seal3.txd CRC = 0x9B1DC1A4
+[09:10:26] [artwork:crc] seals/seal4.dff CRC = 0xF13470B5
+[09:10:26] [artwork:crc] seals/seal4.txd CRC = 0x19C7B0F0
+[09:10:26] [artwork:crc] seals/seal5.dff CRC = 0x51B5E899
+[09:10:26] [artwork:crc] seals/seal5.txd CRC = 0x5E1CD488
+[09:10:26] [artwork:crc] seals/seal6.dff CRC = 0xF9FBD5A7
+[09:10:26] [artwork:crc] seals/seal6.txd CRC = 0xB8DA2980
+[09:10:26] [artwork:crc] seals/seal7.dff CRC = 0xC12D0388
+[09:10:26] [artwork:crc] seals/seal7.txd CRC = 0x4AA35C9E
+[09:10:26] [artwork:crc] seals/seal8.dff CRC = 0xBEAF3085
+[09:10:26] [artwork:crc] seals/seal8.txd CRC = 0xA4C2C97A
+[09:10:26] [artwork:crc] seals/seal9.dff CRC = 0xAE273045
+[09:10:26] [artwork:crc] seals/seal9.txd CRC = 0x7B8EE53
+[09:10:26] [artwork:crc] seals/seal10.dff CRC = 0x43FE5B13
+[09:10:26] [artwork:crc] seals/seal10.txd CRC = 0x6C3715BD
+[09:10:26] [artwork:crc] seals/seal11.dff CRC = 0x8486662B
+[09:10:26] [artwork:crc] seals/seal11.txd CRC = 0x3F9CA9
+[09:10:26] [artwork:crc] seals/seal12.dff CRC = 0x34C39C5C
+[09:10:26] [artwork:crc] seals/seal12.txd CRC = 0xD89C2D5C
+[09:10:26] [artwork:crc] seals/seal13.dff CRC = 0xE913DA0B
+[09:10:26] [artwork:crc] seals/seal13.txd CRC = 0x369CC349
+[09:10:26] [artwork:crc] seals/seal14.dff CRC = 0x8D06D38A
+[09:10:26] [artwork:crc] seals/seal14.txd CRC = 0xF32FAC77
+[09:10:26] [artwork:crc] seals/seal15.dff CRC = 0x93FD3C0C
+[09:10:26] [artwork:crc] seals/seal15.txd CRC = 0x75D1421B
+[09:10:26] [artwork:crc] seals/seal16.dff CRC = 0xAA739E12
+[09:10:26] [artwork:crc] seals/seal16.txd CRC = 0x44283298
+[09:10:26] [artwork:crc] seals/seal17.dff CRC = 0xDED343C6
+[09:10:26] [artwork:crc] seals/seal17.txd CRC = 0xAF16CF6
+[09:10:26] [artwork:crc] seals/piloto.dff CRC = 0x3275C816
+[09:10:26] [artwork:crc] seals/piloto.txd CRC = 0x19FCB65B
+[09:10:26] [artwork:crc] usmc/usmc1.dff CRC = 0x557DD9CF
+[09:10:26] [artwork:crc] usmc/usmc1.txd CRC = 0xFEC2D977
+[09:10:26] [artwork:crc] usmc/usmc2.dff CRC = 0xC784806B
+[09:10:26] [artwork:crc] usmc/usmc2.txd CRC = 0x49359519
+[09:10:26] [artwork:crc] usmc/usmc3.dff CRC = 0x8823B3F1
+[09:10:26] [artwork:crc] usmc/usmc3.txd CRC = 0x7E648A40
+[09:10:26] [artwork:crc] usmc/usmc4.dff CRC = 0xA7E3535
+[09:10:27] [artwork:crc] usmc/usmc4.txd CRC = 0x6F8E1A9
+[09:10:27] [artwork:crc] usmc/usmc5.dff CRC = 0xB527D29B
+[09:10:27] [artwork:crc] usmc/usmc5.txd CRC = 0x69597A5F
+[09:10:27] [artwork:crc] usmc/usmc6.dff CRC = 0x45DDC3F2
+[09:10:27] [artwork:crc] usmc/usmc6.txd CRC = 0xA3075FD3
+[09:10:27] [artwork:crc] usmc/usmc7.dff CRC = 0xB621EE37
+[09:10:27] [artwork:crc] usmc/usmc7.txd CRC = 0x4C50FD91
+[09:10:27] [artwork:crc] usmc/usmc8.dff CRC = 0xC24F55AF
+[09:10:27] [artwork:crc] usmc/usmc8.txd CRC = 0xA98ECF32
+[09:10:27] [artwork:crc] usmc/usmc9.dff CRC = 0x81005AD3
+[09:10:27] [artwork:crc] usmc/usmc9.txd CRC = 0x2A0F713C
+[09:10:27] [artwork:crc] usmc/usmc10.dff CRC = 0x74B99E1F
+[09:10:27] [artwork:crc] usmc/usmc10.txd CRC = 0xF4CEDCF6
+[09:10:27] [artwork:crc] usmc/usmc11.dff CRC = 0x943458C4
+[09:10:27] [artwork:crc] usmc/usmc11.txd CRC = 0x91A8525
+[09:10:27] [artwork:crc] josue/josue1.dff CRC = 0xE85583BE
+[09:10:27] [artwork:crc] josue/josue1.txd CRC = 0x917002DC
+[09:10:27] [artwork:crc] josue/josue2.dff CRC = 0x7BF842C0
+[09:10:27] [artwork:crc] josue/josue2.txd CRC = 0xA2CDC5E6
+[09:10:27] [artwork:crc] josue/josue3.dff CRC = 0x108D564E
+[09:10:27] [artwork:crc] josue/josue3.txd CRC = 0x45CE27AF
+[09:10:27] [artwork:crc] josue/josue4.dff CRC = 0xD4E01D11
+[09:10:27] [artwork:crc] josue/josue4.txd CRC = 0x762D1938
+[09:10:27] [artwork:crc] josue/josue5.dff CRC = 0xF198B654
+[09:10:27] [artwork:crc] josue/josue5.txd CRC = 0xE0E4E519
+[09:10:27] [artwork:crc] josue/josue6.dff CRC = 0xD4E01D11
+[09:10:27] [artwork:crc] josue/josue6.txd CRC = 0x5EF29CF7
+[09:10:27] [artwork:crc] josue/josue7.dff CRC = 0xDD449631
+[09:10:27] [artwork:crc] josue/josue7.txd CRC = 0xAB437320
+[09:10:27] [artwork:crc] josue/josue8.dff CRC = 0x4EBBE44
+[09:10:27] [artwork:crc] josue/josue8.txd CRC = 0x540937EB
+[09:10:27] [artwork:crc] josue/josue9.dff CRC = 0xA0FDF750
+[09:10:27] [artwork:crc] josue/josue9.txd CRC = 0x79763691
+[09:10:27] [artwork:crc] josue/josue10.dff CRC = 0x7BBACD4F
+[09:10:27] [artwork:crc] josue/josue10.txd CRC = 0x87670C0D
+[09:10:27] [artwork:crc] josue/josue11.dff CRC = 0x8D332A01
+[09:10:27] [artwork:crc] josue/josue11.txd CRC = 0x1C258477
+[09:10:27] [artwork:crc] josue/josue12.dff CRC = 0xA75D2E01
+[09:10:27] [artwork:crc] josue/josue12.txd CRC = 0xD70D171D
+[09:10:27] [artwork:crc] josue/josue13.dff CRC = 0x5734BEA4
+[09:10:27] [artwork:crc] josue/josue13.txd CRC = 0xACEF5295
+[09:10:27] [artwork:crc] josue/josue14.dff CRC = 0xE490EED7
+[09:10:27] [artwork:crc] josue/josue14.txd CRC = 0xF4A758AA
+[09:10:27] [artwork:crc] josue/josue15.dff CRC = 0x5734BEA4
+[09:10:27] [artwork:crc] josue/josue15.txd CRC = 0xD1DE1A7B
+[09:10:27] [artwork:crc] josue/josue16.dff CRC = 0xAC8579FF
+[09:10:27] [artwork:crc] josue/josue16.txd CRC = 0x5337F259
+[09:10:27] [artwork:crc] josue/josue17.dff CRC = 0x211DEC25
+[09:10:27] [artwork:crc] josue/josue17.txd CRC = 0x82EE5724
+[09:10:27] [artwork:crc] josue/josue18.dff CRC = 0x237DE224
+[09:10:27] [artwork:crc] josue/josue18.txd CRC = 0xFF3FC89C
+[09:10:27] [artwork:crc] josue/josue19.dff CRC = 0x4F976F6F
+[09:10:27] [artwork:crc] josue/josue19.txd CRC = 0x3E4240D9
+[09:10:27] [artwork:crc] josue/josue20.dff CRC = 0x248C7259
+[09:10:27] [artwork:crc] josue/josue20.txd CRC = 0xC8DF0AA6
+[09:10:27] [artwork:crc] josue/josue21.dff CRC = 0x9470BB13
+[09:10:27] [artwork:crc] josue/josue21.txd CRC = 0x2A9417FC
+[09:10:27] [artwork:crc] josue/josue22.dff CRC = 0x2AEE97DF
+[09:10:27] [artwork:crc] josue/josue22.txd CRC = 0x74AD85E6
+[09:10:27] [artwork:crc] josue/josue23.dff CRC = 0x5BC9B7B8
+[09:10:27] [artwork:crc] josue/josue23.txd CRC = 0xE134BA08
+[09:10:27] [artwork:crc] josue/josue24.dff CRC = 0x1C3D8A7F
+[09:10:27] [artwork:crc] josue/josue24.txd CRC = 0x2FC9AC2E
+[09:10:27] [artwork:crc] josue/josue25.dff CRC = 0xFFBEE806
+[09:10:27] [artwork:crc] josue/josue25.txd CRC = 0x5D0E9C85
+[09:10:27] [artwork:crc] dogs/pet1.dff CRC = 0x14ABDB74
+[09:10:27] [artwork:crc] dogs/pet1.txd CRC = 0xC0D15148
+[09:10:27] [artwork:crc] dogs/pet2.dff CRC = 0x871FCAB4
+[09:10:27] [artwork:crc] dogs/pet2.txd CRC = 0xF35F8D62
+[09:10:27] [artwork:crc] dogs/pet3.dff CRC = 0x223072E5
+[09:10:27] [artwork:crc] dogs/pet3.txd CRC = 0x918C9CD0
+[09:10:27] [artwork:crc] dogs/pet4.dff CRC = 0xEF44912D
+[09:10:27] [artwork:crc] dogs/pet4.txd CRC = 0xD3839FDF
+[09:10:27] [artwork:crc] dogs/pet5.dff CRC = 0x223072E5
+[09:10:27] [artwork:crc] dogs/pet5.txd CRC = 0xAECE83C9
+[09:10:28] [artwork:crc] dogs/pet6.dff CRC = 0x60C6F8E9
+[09:10:28] [artwork:crc] dogs/pet6.txd CRC = 0x8EBEA5D0
+[09:10:28] [artwork:crc] dogs/pet7.dff CRC = 0x723783B7
+[09:10:28] [artwork:crc] dogs/pet7.txd CRC = 0x33F08C5C
+[09:10:28] [artwork:crc] dogs/camel.dff CRC = 0xDA9C5460
+[09:10:28] [artwork:crc] dogs/camel.txd CRC = 0xA76F584B
+[09:10:28] [artwork:crc] hud.dff CRC = 0x4BC6EDFF
+[09:10:28] [artwork:crc] hud.txd CRC = 0xC1ADFB21
+[09:10:28] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[09:10:28] [artwork:crc] tela.txd CRC = 0xED6A6238
+[09:10:28] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[09:10:28] [artwork:crc] logo.txd CRC = 0xABC0A657
+[09:10:28] [artwork:crc] login.dff CRC = 0xDCFCC14C
+[09:10:28] [artwork:crc] logo.txd CRC = 0xABC0A657
+[09:10:28] [artwork:crc] textdraw_object.dff CRC = 0x0
+[09:10:28] [artwork:error] Bad file: textdraw_object.dff
+[09:10:28] [artwork:crc] itens/rojao.dff CRC = 0x6F72D6BB
+[09:10:28] [artwork:crc] itens/rojao.txd CRC = 0x19207CDF
+[09:10:28] [artwork:crc] itens/band.dff CRC = 0xD6FE9FF4
+[09:10:28] [artwork:crc] itens/band.txd CRC = 0x7FE6AB15
+[09:10:28] [artwork:crc] itens/cone.dff CRC = 0xF711EDD9
+[09:10:28] [artwork:crc] itens/cone.txd CRC = 0x66D2389E
+[09:10:28] [artwork:crc] itens/cavalete.dff CRC = 0x3A338AFC
+[09:10:28] [artwork:crc] itens/cavalete.txd CRC = 0x85244494
+[09:10:28] [artwork:crc] itens/faixa.dff CRC = 0x7507B9AC
+[09:10:28] [artwork:crc] itens/faixa.txd CRC = 0x8A8138C3
+[09:10:28] [artwork:crc] itens/RadioMotorola.dff CRC = 0x9AAB6A9
+[09:10:28] [artwork:crc] itens/RadioMotorola.txd CRC = 0x22353790
+[09:10:28] [artwork:crc] itens/chapeubope.dff CRC = 0xFD233655
+[09:10:28] [artwork:crc] itens/chapeubope.txd CRC = 0x68298F01
+[09:10:28] [artwork:crc] itens/boneobjeto1.dff CRC = 0xC82233C
+[09:10:28] [artwork:crc] itens/boneobjeto1.txd CRC = 0xB81E24C1
+[09:10:28] [artwork:crc] itens/boneobjeto2.dff CRC = 0xC82233C
+[09:10:28] [artwork:crc] itens/boneobjeto2.txd CRC = 0xB81E24C1
+[09:10:28] [artwork:crc] itens/boneobjeto3.dff CRC = 0xC82233C
+[09:10:28] [artwork:crc] itens/boneobjeto3.txd CRC = 0x25EC71FD
+[09:10:28] [artwork:crc] itens/boneobjeto4.dff CRC = 0xC82233C
+[09:10:28] [artwork:crc] itens/boneobjeto4.txd CRC = 0x3D3821FC
+[09:10:28] [artwork:crc] itens/coletebandido.dff CRC = 0x35333281
+[09:10:28] [artwork:crc] itens/coletebandido.txd CRC = 0x7FCB75F7
+[09:10:28] [artwork:crc] itens/mochila1.dff CRC = 0x7198BBAD
+[09:10:28] [artwork:crc] itens/mochila1.txd CRC = 0xAA488C0D
+[09:10:28] [artwork:crc] itens/mochila2.dff CRC = 0xBA43DBFB
+[09:10:28] [artwork:crc] itens/mochila2.txd CRC = 0xA55E4D43
+[09:10:28] [artwork:crc] itens/mochila3.dff CRC = 0x36D7E922
+[09:10:28] [artwork:crc] itens/mochila3.txd CRC = 0x31D6F73
+[09:10:28] [artwork:crc] itens/mochila4.dff CRC = 0x49A9723A
+[09:10:28] [artwork:crc] itens/mochila4.txd CRC = 0xB888188E
+[09:10:28] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[09:10:28] [artwork:crc] itens/helmet6.txd CRC = 0x60AE21A9
+[09:10:28] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[09:10:28] [artwork:crc] itens/helmet7.txd CRC = 0xB8E8641F
+[09:10:28] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[09:10:28] [artwork:crc] itens/helmet11.txd CRC = 0xAA929E4F
+[09:10:28] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[09:10:28] [artwork:crc] itens/helmet12.txd CRC = 0x6CA6E0F4
+[09:10:28] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[09:10:28] [artwork:crc] itens/helmet15.txd CRC = 0x7BB77D7E
+[09:10:28] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[09:10:28] [artwork:crc] itens/helmet16.txd CRC = 0x5781CAFC
+[09:10:28] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[09:10:28] [artwork:crc] itens/helmet19.txd CRC = 0x157E14B7
+[09:10:28] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[09:10:28] [artwork:crc] itens/helmet21.txd CRC = 0x53A928B0
+[09:10:28] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[09:10:28] [artwork:crc] itens/helmet24.txd CRC = 0xF1A29DA5
+[09:10:28] [artwork:crc] itens/helmet.dff CRC = 0x9F713AEE
+[09:10:28] [artwork:crc] itens/helmet1.txd CRC = 0xFF5E6BB4
+[09:10:28] [artwork:crc] itens/ifood.dff CRC = 0xAD546C14
+[09:10:28] [artwork:crc] itens/ifood.txd CRC = 0xBED788D3
+[09:10:28] [artwork:crc] itens/ubereats.dff CRC = 0xD7C5543C
+[09:10:28] [artwork:crc] itens/ubereats.txd CRC = 0x1A9E171D
+[09:10:28] [artwork:crc] itens/bsimples.dff CRC = 0x246AB514
+[09:10:28] [artwork:crc] itens/bsimples.txd CRC = 0x9D54BD44
+[09:10:28] [artwork:crc] itens/bolsanikelateral.dff CRC = 0x82FA00BC
+[09:10:28] [artwork:crc] itens/bolsanikelateral.txd CRC = 0x9BE9FEF5
+[09:10:28] [artwork:crc] itens/PacoteMcDonalds.dff CRC = 0x7F3872D5
+[09:10:28] [artwork:crc] itens/PacoteMcDonalds.txd CRC = 0xB1587374
+[09:10:28] [artwork:crc] itens/coletemoto.dff CRC = 0xAEF7F9AB
+[09:10:28] [artwork:crc] itens/coletemoto.txd CRC = 0xCEFD3EA6
+[09:10:28] [artwork:crc] itens/barricada.dff CRC = 0xC7D7CD68
+[09:10:28] [artwork:crc] itens/barricada.txd CRC = 0x95DED922
+[09:10:28] [artwork:crc] itens_seals/bone.dff CRC = 0x98550AB1
+[09:10:28] [artwork:crc] itens_seals/bone.txd CRC = 0x233FCCF
+[09:10:28] [artwork:crc] itens_seals/capacete.dff CRC = 0xC715FAC0
+[09:10:28] [artwork:crc] itens_seals/capacete.txd CRC = 0xB1780A1A
+[09:10:28] [artwork:crc] itens_seals/capacete2.dff CRC = 0x3C0F5E9E
+[09:10:28] [artwork:crc] itens_seals/capacete2.txd CRC = 0x42DBE476
+[09:10:28] [artwork:crc] itens_seals/coleteleve.dff CRC = 0x7BA58D1D
+[09:10:28] [artwork:crc] itens_seals/coleteleve.txd CRC = 0x65C63F9C
+[09:10:28] [artwork:crc] itens_seals/coletepesado.dff CRC = 0xE9F699DF
+[09:10:28] [artwork:crc] itens_seals/coletepesado.txd CRC = 0xD3E48D2F
+[09:10:28] [artwork:crc] itens_seals/gorro.dff CRC = 0x80819053
+[09:10:28] [artwork:crc] itens_seals/gorro.txd CRC = 0xAED9F61A
+[09:10:28] [artwork:crc] itens_usmc/capSF.dff CRC = 0x1792D924
+[09:10:28] [artwork:crc] itens_usmc/capSF.txd CRC = 0xE6FFFD62
+[09:10:28] [artwork:crc] itens_usmc/VestSF.dff CRC = 0x42557B1
+[09:10:29] [artwork:crc] itens_usmc/VestSF.txd CRC = 0xC6CB541C
+[09:10:29] [artwork:crc] itens_usmc/colete.dff CRC = 0x1B01E9AC
+[09:10:29] [artwork:crc] itens_usmc/colete.txd CRC = 0x968E08F7
+[09:10:29] [artwork:crc] itens_usmc/capacete.dff CRC = 0xBE266B13
+[09:10:29] [artwork:crc] itens_usmc/capacete.txd CRC = 0xA9CA8DB7
+[09:10:29] [artwork:crc] itens_usmc/capacete2.dff CRC = 0x24202079
+[09:10:29] [artwork:crc] itens_usmc/capacete2.txd CRC = 0xA9CA8DB7
+[09:10:29] [artwork:crc] itens_usmc/capacete3.dff CRC = 0x1B532C99
+[09:10:29] [artwork:crc] itens_usmc/capacete3.txd CRC = 0x968E08F7
+[09:10:29] [artwork:crc] itens/escudo.dff CRC = 0x434102A8
+[09:10:29] [artwork:crc] itens/escudo.txd CRC = 0xDB8AA769
+[09:10:29] [artwork:crc] itens/morteiro.dff CRC = 0x212ACFDB
+[09:10:29] [artwork:crc] itens/morteiro.txd CRC = 0xE3BEDADE
+[09:10:29] [artwork:crc] itens/munimorteiro.dff CRC = 0xF0EFD884
+[09:10:29] [artwork:crc] itens/munimorteiro.txd CRC = 0xFE95109F
+[09:10:29] [artwork:crc] itens/mina.dff CRC = 0x4A5004C4
+[09:10:29] [artwork:crc] itens/mina.txd CRC = 0xEFEA75E5
+[09:10:29] [artwork:crc] trincheira/1.dff CRC = 0xE0B3C2CF
+[09:10:29] [artwork:crc] trincheira/1.txd CRC = 0xCD6537FD
+[09:10:29] [artwork:crc] trincheira/2.dff CRC = 0xFACF65DD
+[09:10:29] [artwork:crc] trincheira/2.txd CRC = 0xD3770460
+[09:10:29] [artwork:crc] trincheira/3.dff CRC = 0x13D61340
+[09:10:29] [artwork:crc] trincheira/3.txd CRC = 0x88B56E21
+[09:10:29] [artwork:crc] trincheira/4.dff CRC = 0x77CD6BE2
+[09:10:29] [artwork:crc] trincheira/3.txd CRC = 0x88B56E21
+[09:10:29] [artwork:crc] trincheira/5.dff CRC = 0xE9FC0A27
+[09:10:29] [artwork:crc] trincheira/3.txd CRC = 0x88B56E21
+[09:10:29] [artwork:crc] trincheira/6.dff CRC = 0x5B7CA4CB
+[09:10:29] [artwork:crc] trincheira/3.txd CRC = 0x88B56E21
+[09:10:29] [artwork:crc] trincheira/7.dff CRC = 0xB1180AAB
+[09:10:29] [artwork:crc] trincheira/3.txd CRC = 0x88B56E21
+[09:10:29] [artwork:crc] itens/maconhab.dff CRC = 0xBF46F2FF
+[09:10:29] [artwork:crc] itens/maconhab.txd CRC = 0x68419BE
+[09:10:29] [artwork:crc] itens/maconhar.dff CRC = 0xA0906971
+[09:10:29] [artwork:crc] itens/maconhar.txd CRC = 0x13A26228
+[09:10:29] [artwork:crc] itens/cocaina.dff CRC = 0x22B7B621
+[09:10:29] [artwork:crc] itens/cocaina.txd CRC = 0xF84F4DF
+[09:10:29] [artwork:crc] itens/crackr.dff CRC = 0x7260DE97
+[09:10:29] [artwork:crc] itens/crackr.txd CRC = 0xEB7DC1B6
+[09:10:29] [artwork:crc] itens/crackb.dff CRC = 0xAA6EDDA1
+[09:10:29] [artwork:crc] itens/crackb.txd CRC = 0xEB7DC1B6
+[09:10:29] [artwork:crc] itens/lsd.dff CRC = 0x6CB2980D
+[09:10:29] [artwork:crc] itens/lsd.txd CRC = 0xB190FA30
+[09:10:29] [artwork:crc] itens/lancaperfume.dff CRC = 0x8FB92930
+[09:10:29] [artwork:crc] itens/lancaperfume.txd CRC = 0x4205E4C1
+[09:10:29] [artwork:crc] itens/MesaDeDrogas.dff CRC = 0xF6C0A1DF
+[09:10:29] [artwork:crc] itens/MesaDeDrogas.txd CRC = 0x54036B75
+[09:10:29] [artwork:crc] aviao/aviao1.dff CRC = 0xB93EBAE
+[09:10:29] [artwork:crc] aviao/aviao1.txd CRC = 0x99649C5F
+[09:10:29] [artwork:crc] aviao/aviao2.dff CRC = 0xD21E09A2
+[09:10:29] [artwork:crc] aviao/aviao2.txd CRC = 0xDD6ADD77
+[09:10:29] [artwork:crc] AB/ABPart01.dff CRC = 0x662FD82C
+[09:10:29] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[09:10:29] [artwork:crc] AB/ABPart02.dff CRC = 0xC595C830
+[09:10:29] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[09:10:29] [artwork:crc] AB/ABPart03.dff CRC = 0xBE418106
+[09:10:29] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[09:10:29] [artwork:crc] AB/ABPart04.dff CRC = 0x2333EC80
+[09:10:29] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[09:10:29] [artwork:crc] AB/ABPart05.dff CRC = 0x63FAA3EB
+[09:10:29] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[09:10:29] [artwork:crc] AB/ABPart06.dff CRC = 0xC8D54C9B
+[09:10:29] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[09:10:29] [artwork:crc] AB/ABPart07.dff CRC = 0x31CFC7E6
+[09:10:29] [artwork:crc] AB/ABTexture.txd CRC = 0x8676C6DC
+[09:10:30] [artwork:crc] AB/ABHouse01.dff CRC = 0x14234EEA
+[09:10:30] [artwork:crc] AB/ABHouse.txd CRC = 0x1B70AE5E
+[09:10:30] [artwork:crc] AB/ABHouse02.dff CRC = 0x50BF0743
+[09:10:30] [artwork:crc] AB/ABHouse.txd CRC = 0x1B70AE5E
+[09:10:30] [artwork:crc] AB/ABProps.dff CRC = 0x319313A
+[09:10:30] [artwork:crc] AB/ABHouse.txd CRC = 0x1B70AE5E
+[09:10:30] [artwork:crc] AB/ABVeg.dff CRC = 0x6873DFBA
+[09:10:30] [artwork:crc] AB/ABVeg.txd CRC = 0x8435FADA
+[09:10:30] [artwork:crc] AB/ABProp01.dff CRC = 0x51233E10
+[09:10:30] [artwork:crc] AB/ABProp01.txd CRC = 0x98DEDDFB
+[09:10:30] [artwork:crc] AB/ABProp02.dff CRC = 0x418A3779
+[09:10:30] [artwork:crc] AB/ABProp02.txd CRC = 0xC2E53317
+[09:10:30] [artwork:crc] AB/ABProp03.dff CRC = 0xFF96C6A5
+[09:10:30] [artwork:crc] AB/ABProp03.txd CRC = 0x3A3C8286
+[09:10:30] [artwork:crc] AB/ABProp04.dff CRC = 0x32B1EE03
+[09:10:30] [artwork:crc] AB/ABProp04.txd CRC = 0x9FEACA8C
+[09:10:30] [artwork:crc] AB/ABProp05.dff CRC = 0x6C76CBD2
+[09:10:30] [artwork:crc] AB/ABProp05.txd CRC = 0xFB0719C4
+[09:10:30] [artwork:crc] vila/bandeirataliban.dff CRC = 0x1E99423A
+[09:10:30] [artwork:crc] vila/bandeirataliban.txd CRC = 0xFF0D1F2B
+[09:10:30] [artwork:crc] vila/CabanaPrelight.dff CRC = 0x6526C46F
+[09:10:30] [artwork:crc] vila/CabanaPrelight.txd CRC = 0x1828D1FC
+[09:10:30] [artwork:crc] vila/CabanaPrelight2.dff CRC = 0x71827700
+[09:10:30] [artwork:crc] vila/CabanaPrelight2.txd CRC = 0x1828D1FC
+[09:10:30] [artwork:crc] vila/CabanaPrelight3.dff CRC = 0xB7F6DE74
+[09:10:30] [artwork:crc] vila/CabanaPrelight3.txd CRC = 0x1828D1FC
+[09:10:30] [artwork:crc] vila/CabanaPrelight4.dff CRC = 0xE0E5ACE8
+[09:10:30] [artwork:crc] vila/CabanaPrelight4.txd CRC = 0x1828D1FC
+[09:10:30] [artwork:crc] vila/CabanaPrelight5.dff CRC = 0x52A509EA
+[09:10:30] [artwork:crc] vila/CabanaPrelight5.txd CRC = 0x1828D1FC
+[09:10:30] [artwork:crc] vila/CabanaPrelight6.dff CRC = 0x978B10A8
+[09:10:30] [artwork:crc] vila/CabanaPrelight6.txd CRC = 0x1828D1FC
+[09:10:30] [artwork:crc] vila/cabanadestruida55.dff CRC = 0x54E421B1
+[09:10:30] [artwork:crc] vila/cabanadestruida55.txd CRC = 0xF7C17433
+[09:10:30] [artwork:crc] vila/interioraberto3.dff CRC = 0xDC2E1D9D
+[09:10:30] [artwork:crc] vila/interioraberto3.txd CRC = 0x60E84196
+[09:10:30] [artwork:crc] USBase/UsmcBASE01.dff CRC = 0x64F13BDB
+[09:10:30] [artwork:crc] USBase/UsmcTextures.txd CRC = 0x75B65CF0
+[09:10:30] [artwork:crc] USBase/UsmcBASE02.dff CRC = 0x40528D36
+[09:10:30] [artwork:crc] USBase/UsmcTextures.txd CRC = 0x75B65CF0
+[09:10:30] [artwork:crc] USBase/UsmcBASE03.dff CRC = 0x925A0110
+[09:10:30] [artwork:crc] USBase/UsmcTextures.txd CRC = 0x75B65CF0
+[09:10:30] [artwork:crc] USBase/UsmcBASE04.dff CRC = 0x7370B2D0
+[09:10:30] [artwork:crc] USBase/UsmcTextures.txd CRC = 0x75B65CF0
+[09:10:30] [artwork:crc] USBase/UsmcPROP01.dff CRC = 0x649D34A4
+[09:10:30] [artwork:crc] USBase/UsmcTextures.txd CRC = 0x75B65CF0
+[09:10:30] [artwork:crc] USBase/UsmcDORMS01.dff CRC = 0x5CC321A5
+[09:10:30] [artwork:crc] USBase/UsmcDORMS.txd CRC = 0x9AB01C7A
+[09:10:30] [artwork:crc] USBase/UsmcDORMS02.dff CRC = 0x8486537F
+[09:10:30] [artwork:crc] USBase/UsmcDORMS.txd CRC = 0x9AB01C7A
+[09:10:30] [artwork:crc] USBase/UsmcPROP02.dff CRC = 0x7663375A
+[09:10:30] [artwork:crc] USBase/UsmcTextures.txd CRC = 0x75B65CF0
+[09:10:30] [artwork:crc] USBase/UsmcPROP03.dff CRC = 0x248BB15C
+[09:10:30] [artwork:crc] USBase/UsmcProps01.txd CRC = 0x254345F4
+[09:10:30] [artwork:crc] USBase/UsmcPROP04.dff CRC = 0x4466361C
+[09:10:30] [artwork:crc] USBase/UsmcProps02.txd CRC = 0xB3EFADB5
+[09:10:30] [artwork:crc] galinha/paredeinvisivel.dff CRC = 0x769B760E
+[09:10:30] [artwork:crc] galinha/paredeinvisivel.txd CRC = 0x43BE3194
+[09:10:30] [artwork:crc] galinha/vilarejogalinha1.dff CRC = 0x855090B4
+[09:10:30] [artwork:crc] galinha/testevilarejo.txd CRC = 0x1E237CBC
+[09:10:30] [artwork:crc] galinha/vilarejogalinha2.dff CRC = 0x15C45E1E
+[09:10:30] [artwork:crc] galinha/testevilarejo.txd CRC = 0x1E237CBC
+[09:10:30] [artwork:crc] galinha/vilarejogalinha3.dff CRC = 0xAA185F
+[09:10:30] [artwork:crc] galinha/testevilarejo.txd CRC = 0x1E237CBC
+[09:10:30] [artwork:crc] galinha/vilarejogalinha4.dff CRC = 0x5D6D2707
+[09:10:30] [artwork:crc] galinha/testevilarejo.txd CRC = 0x1E237CBC
+[09:10:30] [artwork:crc] galinha/vilarejogalinha5.dff CRC = 0x80806F8B
+[09:10:30] [artwork:crc] galinha/testevilarejo.txd CRC = 0x1E237CBC
+[09:10:30] [artwork:crc] galinha/vilarejogalinha6.dff CRC = 0x5CFE3917
+[09:10:30] [artwork:crc] galinha/testevilarejo.txd CRC = 0x1E237CBC
+[09:10:30] [artwork:crc] galinha/vilarejogalinha7.dff CRC = 0xD6DAE885
+[09:10:30] [artwork:crc] galinha/testevilarejo.txd CRC = 0x1E237CBC
+[09:10:30] [artwork:crc] galinha/vilarejogalinha8.dff CRC = 0xE3C3A000
+[09:10:30] [artwork:crc] galinha/testevilarejo.txd CRC = 0x1E237CBC
+[09:10:30] [artwork:crc] galinha/vilarejogalinha9roupas.dff CRC = 0x98019A2C
+[09:10:30] [artwork:crc] galinha/testevilarejo.txd CRC = 0x1E237CBC
+[09:10:30] [artwork:crc] galinha/correcaovilarejogalinha3.dff CRC = 0xC7B406E7
+[09:10:30] [artwork:crc] galinha/testevilarejo.txd CRC = 0x1E237CBC
+[09:10:30] [artwork:crc] galinha/barrilvilarejo.dff CRC = 0x15BDDBAE
+[09:10:30] [artwork:crc] galinha/testevilarejo.txd CRC = 0x1E237CBC
+[09:10:30] [artwork:crc] galinha/EscadaExterior.dff CRC = 0x58C75D38
+[09:10:30] [artwork:crc] galinha/testevilarejo.txd CRC = 0x1E237CBC
+[09:10:30] [artwork:crc] galinha/EscadaSolo.dff CRC = 0x4E211FF9
+[09:10:30] [artwork:crc] galinha/testevilarejo.txd CRC = 0x1E237CBC
+[09:10:30] [artwork:crc] galinha/PlataformaExterior.dff CRC = 0x975B1374
+[09:10:30] [artwork:crc] galinha/testevilarejo.txd CRC = 0x1E237CBC
+[09:10:30] [artwork:crc] galinha/kadera.dff CRC = 0x6C80CCCC
+[09:10:30] [artwork:crc] galinha/kadera.txd CRC = 0xFCDC076
+[09:10:30] [artwork:crc] galinha/palanque.dff CRC = 0x33A232E2
+[09:10:30] [artwork:crc] galinha/palanque.txd CRC = 0x1D7D0D58
+[09:10:30] [artwork:crc] galinha/bandeiraparede.dff CRC = 0xDABABA6
+[09:10:30] [artwork:crc] galinha/bandeiraparede.txd CRC = 0xDB19DA68
+[09:10:30] [artwork:crc] VFC/VFCPart01.dff CRC = 0x47C9B3C5
+[09:10:30] [artwork:crc] VFC/VFCParts.txd CRC = 0x6C2941DE
+[09:10:30] [artwork:crc] VFC/VFCPart02.dff CRC = 0xC634B1BC
+[09:10:30] [artwork:crc] VFC/VFCParts.txd CRC = 0x6C2941DE
+[09:10:30] [artwork:crc] VFC/VFCPart03.dff CRC = 0x5AA4C4C
+[09:10:30] [artwork:crc] VFC/VFCParts.txd CRC = 0x6C2941DE
+[09:10:30] [artwork:crc] VFC/VFCPart04.dff CRC = 0xF8663A11
+[09:10:30] [artwork:crc] VFC/VFCParts.txd CRC = 0x6C2941DE
+[09:10:30] [artwork:crc] VFC/VFCPart05.dff CRC = 0xB37EF173
+[09:10:30] [artwork:crc] VFC/VFCParts.txd CRC = 0x6C2941DE
+[09:10:30] [artwork:crc] VFC/VFCPart06.dff CRC = 0xA3304FAB
+[09:10:30] [artwork:crc] VFC/VFCParts.txd CRC = 0x6C2941DE
+[09:10:30] [artwork:crc] VFC/VFCPart07.dff CRC = 0xC4FE11A9
+[09:10:30] [artwork:crc] VFC/VFCParts.txd CRC = 0x6C2941DE
+[09:10:30] [artwork:crc] VFC/VFCPart08.dff CRC = 0x43696146
+[09:10:30] [artwork:crc] VFC/VFCParts.txd CRC = 0x6C2941DE
+[09:10:30] [artwork:crc] VFC/VFCPart09.dff CRC = 0x8668B1BF
+[09:10:30] [artwork:crc] VFC/VFCParts.txd CRC = 0x6C2941DE
+[09:10:30] [artwork:crc] VFC/VFCPart10.dff CRC = 0xC435F5F2
+[09:10:30] [artwork:crc] VFC/VFCParts.txd CRC = 0x6C2941DE
+[09:10:30] [artwork:crc] VFC/VFCPart11.dff CRC = 0xC839A82D
+[09:10:30] [artwork:crc] VFC/VFCParts.txd CRC = 0x6C2941DE
+[09:10:30] [artwork:crc] VFC/VFCPart12.dff CRC = 0x0
+[09:10:30] [artwork:error] Bad file: VFC/VFCPart12.dff
+[09:10:30] [artwork:crc] VFC/VFCPart13.dff CRC = 0x0
+[09:10:30] [artwork:error] Bad file: VFC/VFCPart13.dff
+[09:10:30] [artwork:crc] VFC/VFCHouses01.dff CRC = 0xA808CA6E
+[09:10:30] [artwork:crc] VFC/VFCHouses.txd CRC = 0x3BEE6E8D
+[09:10:30] [artwork:crc] VFC/VFCHouses02.dff CRC = 0xA55E3E01
+[09:10:30] [artwork:crc] VFC/VFCHouses.txd CRC = 0x3BEE6E8D
+[09:10:30] [artwork:crc] VFC/VFCHouses03.dff CRC = 0x68845488
+[09:10:30] [artwork:crc] VFC/VFCHouses.txd CRC = 0x3BEE6E8D
+[09:10:30] [artwork:crc] VFC/VFCHouses04.dff CRC = 0xF68A3E10
+[09:10:30] [artwork:crc] VFC/VFCHouses1.txd CRC = 0x3447BEAB
+[09:10:30] [artwork:crc] iran/loja01.dff CRC = 0x79AC3640
+[09:10:30] [artwork:crc] iran/loja01.txd CRC = 0x15CA0F1B
+[09:10:30] [artwork:crc] iran/base01.dff CRC = 0x856B5BB4
+[09:10:30] [artwork:crc] iran/base01.txd CRC = 0xEA96232C
+[09:10:30] [artwork:crc] iran/casa03.dff CRC = 0x8236C5AA
+[09:10:30] [artwork:crc] iran/casa03.txd CRC = 0x2125DD53
+[09:10:30] [artwork:crc] iran/destroco01.dff CRC = 0xFB649E39
+[09:10:30] [artwork:crc] iran/destroco01.txd CRC = 0xEA96232C
+[09:10:30] [artwork:crc] iran/muro01.dff CRC = 0xA46EBF42
+[09:10:30] [artwork:crc] iran/muro01.txd CRC = 0xEA96232C
+[09:10:30] [artwork:crc] iran/10.dff CRC = 0xD1F80669
+[09:10:30] [artwork:crc] iran/10.txd CRC = 0x314A8599
+[09:10:30] [artwork:crc] iran/terreno.dff CRC = 0x53635F84
+[09:10:30] [artwork:crc] iran/terreno.txd CRC = 0xC30B7E9E
+[09:10:30] [artwork:crc] iran/torre1.dff CRC = 0x41673AD8
+[09:10:30] [artwork:crc] iran/torre1.txd CRC = 0x46A83D65
+[09:10:31] 
+[09:10:31] Filterscripts
+[09:10:31] ---------------
+[09:10:31]   Loaded 0 filterscripts.
+
+[09:10:31] *** Streamer Plugin: The include file version (0x292) for this script is older than the plugin version (0x295). The script might need to be recompiled with the latest include file.
+[09:10:31]  
+[09:10:31]  
+[09:10:31]  
+[09:10:31]  ======================================= 
+[09:10:31]  |                                     | 
+[09:10:31]  |        YSI version 3.09.0684        | 
+[09:10:31]  |        By Alex "Y_Less" Cole        | 
+[09:10:31]  |                                     | 
+[09:10:31]  ======================================= 
+[09:10:31]  
+[09:10:31] [debug] Long callback execution detected (hang or performance issue)
+[09:10:31] [debug] AMX backtrace:
+[09:10:31] [debug] #0 000034a8 in SSCANF_RunInit () at C:\Users\Administrator\Documents\GitHub\gamemode\pawno\include\sscanf2.inc:911
+[09:10:31] [debug] #1 000034fc in public Debug_OnScriptInit () at C:\Users\Administrator\Documents\GitHub\gamemode\pawno\include\sscanf2.inc:1004
+[09:10:31] [debug] #2 00001df0 in public YVers_OnScriptInit () at C:\Users\Administrator\Documents\GitHub\gamemode\pawno\include\YSI\y_debug.inc:390
+[09:10:31] [debug] #3 000013f8 in public ScriptInit_OnScriptInit () at C:\Users\Administrator\Documents\GitHub\gamemode\pawno\include\YSI\internal\y_version.inc:249
+[09:10:31] [debug] #4 000010c0 in public zcmd_OnGameModeInit () at C:\Users\Administrator\Documents\GitHub\gamemode\pawno\include\YSI\internal\..\y_scriptinit.inc:171
+[09:10:31] [debug] #5 native CallLocalFunction () in samp-server.exe
+[09:10:31] [debug] #6 00000aa8 in public OnGameModeInit () at C:\Users\Administrator\Documents\GitHub\gamemode\pawno\include\zcmd.inc:62
+[09:10:31]  
+[09:10:31]  
+[09:10:32] [ADM] Info: Load EVF v3.2.1 for SA:MP 0.3.7 by Abyss Morgan
+[09:10:32]  
+[09:10:32] --------------------------------------
+[09:10:32]  Anticheat Nex-AC carregado!
+[09:10:32]  Anticheat versão: 1.9.61
+[09:10:32]  Autor: Nexius (PT-BR by Yur$)
+[09:10:32] --------------------------------------
+
+[09:10:32] [CARREGADO] Custom nametags by Yur$
+[09:10:32] |-- Corrida de Cavalos: Carregado
+[09:10:33] [CARREGADO] Mapa: Vila tierra roubada
+[09:10:33] [CARREGADO] Vila da galinha
+[09:10:33] [CARREGADO] Mapa: Fort Carson
+[09:10:33] [CARREGADO] Mapa: Anderson
+[09:10:33] [CARREGADO] Mapa avião
+[09:10:33] [CARREGADO] Mapa: Aeroporto abandonado Village
+[09:10:33] [CARREGADO] Mapa: Base USMC
+[09:10:33] [CARREGADO] Mapa: WH 2
+[09:10:33] [CARREGADO] Mapa: Factory int
+[09:10:33] [CARREGADO] Mapa: Ghetto droga int
+[09:10:33] [CARREGADO] Mapa: Ghetto ammo int
+[09:10:33] [CARREGADO] Mapa Ilegal gunshop int
+[09:10:33] [CARREGADO] Mapa: int lavagem de grana
+[09:10:33] [CARREGADO] Mapa: Hospital interior
+[09:10:33] [CARREGADO] Mapa: Banco interior
+[09:10:33] [CARREGADO] Mapa: Interior prefeitura.
+[09:10:33] [LOAD] Mapa: Barzinho
+[09:10:33] [LOAD] Mapa: Barzinho 2
+[09:10:33] [LOAD] Mapa: Barzinho 3
+[09:10:33] [CARREGADO] Mapa: Fight room
+[09:10:33] [CARREGADO] Mapa: Empresa 1
+[09:10:33] [CARREGADO] Mapa: Loja de Eletronicos
+[09:10:33] [CARREGADO] Mapa: Agencia de Empregos
+[09:10:33] [CARREGADO] Mapa: Estudio
+[09:10:33] [LOAD] Mapa: Sony
+[09:10:33] [LOAD] Mapa: Caravan
+[09:10:33] [LOAD] Mapa: Interiores de Casas e Empresas vazios
+[09:10:33] [LOAD] Mapa: Apartamento 1
+[09:10:33] [LOAD] Mapa: Apartamento 2
+[09:10:33] [LOAD] Mapa: Apartamento 3
+[09:10:33] [LOAD] Mapa: DrugHouse 1
+[09:10:33] [LOAD] Mapa: WeaponHouse 1
+[09:10:33] [CARREGADO] Mapa: Complexo 1
+[09:10:33] [CARREGADO] Mapa: Complexo 2
+[09:10:33] [CARREGADO] Mapa: Complexo 3
+[09:10:33] [CARREGADO] Mapa: Complexo 4
+[09:10:33] [CARREGADO] Mapa: Complexo 5
+[09:10:33] [CARREGADO] Mapa: Complexo 7
+[09:10:33] [CARREGADO] Mapa: Complexo 8
+[09:10:33] [CARREGADO] Mapa: Complexo 9
+[09:10:33] [CARREGADO] Sistema de Grafite
+[09:10:33] 
+-------------------------------------------
+[09:10:33] War on Terror Roleplay - 2023				
+[09:10:33] Desenvolvido por Yuri Braga					
+[09:10:33] --------------------------------
+ 
+[09:10:33] Number of vehicle models: 2
+[09:10:33] [debug] Long callback execution detected (hang or performance issue)
+[09:10:33] [debug] AMX backtrace:
+[09:10:33] [debug] #0 006152d8 in public CarregandoCarros () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:53436
+[09:10:33] [CARREGADO] Veiculos criados.
+[09:10:33] [CARREGADO] 61 veiculos carregados.
+[09:10:33] [CARREGADO] Casas: 10
+[09:10:33] [CARREGADO] Garagens: 0
+[09:10:33] [CARREGADO] Complexos: 2
+[09:10:33] [CARREGADO] Empresas: 10
+[09:10:34] [CARREGADO] Pontos de entrega.
+[09:10:34] ID: 1 | i: 0
+[09:10:34] ID: 2 | i: 1
+[09:10:34] ID: 3 | i: 2
+[09:10:34] ID: 4 | i: 3
+[09:10:34] ID: 5 | i: 4
+[09:10:34] [debug] Long callback execution detected (hang or performance issue)
+[09:10:34] [debug] AMX backtrace:
+[09:10:34] [debug] #0 006c5974 in public CarregarPontoEntrega () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:64829
+[09:10:34] ID: 6 | i: 5
+[09:10:34] ID: 7 | i: 6
+[09:10:34] ID: 8 | i: 7
+[09:10:34] ID: 9 | i: 8
+[09:10:34] ID: 10 | i: 9
+[09:10:34] ID: 11 | i: 10
+[09:10:34] ID: 12 | i: 11
+[09:10:34] ID: 13 | i: 12
+[09:10:34] ID: 14 | i: 13
+[09:10:34] ID: 15 | i: 14
+[09:10:34] ID: 16 | i: 15
+[09:10:34] ID: 17 | i: 16
+[09:10:34] ID: 18 | i: 17
+[09:10:34] ID: 19 | i: 18
+[09:10:34] ID: 20 | i: 19
+[09:10:34] ID: 21 | i: 20
+[09:10:34] ID: 22 | i: 21
+[09:10:34] ID: 23 | i: 22
+[09:10:34] ID: 24 | i: 23
+[09:10:34] ID: 25 | i: 24
+[09:10:34] ID: 26 | i: 25
+[09:10:34] ID: 27 | i: 26
+[09:10:34] ID: 28 | i: 27
+[09:10:34] ID: 29 | i: 28
+[09:10:34] ID: 30 | i: 29
+[09:10:34] ID: 31 | i: 30
+[09:10:34] ID: 32 | i: 31
+[09:10:34] [debug] Long callback execution detected (hang or performance issue)
+[09:10:34] [debug] AMX backtrace:
+[09:10:34] [debug] #0 0057404c in public CriarFurnitures () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:43510
+[09:10:34] [debug] #1 00573f50 in public CarregandoMoveis () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:43501
+[09:10:34] [CARREGADO] FURNITURE: 130 moveis.
+[09:10:34] [debug] Long callback execution detected (hang or performance issue)
+[09:10:34] [debug] AMX backtrace:
+[09:10:34] [debug] #0 003538ac in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:10026
+[09:10:34] [CARREGADO] Armas no Servidor: 149
+[09:10:34] [CARREGADO] Armas no Chão: 3
+[09:10:34] [CARREGADO] Armas na Pos 0: 0
+[09:10:34] [CARREGADO] Facções: 10
+[09:10:34] [CARREGADO] Total de Portas/Portões: 0
+[09:10:34] [CARREGADO] Itens no Servidor: 111
+[09:10:34] [CARREGADO] Itens no Chão: 0 
+[09:10:34] [CARREGADO] Itens na Pos 0: 0
+[09:10:35] [debug] Long callback execution detected (hang or performance issue)
+[09:10:35] [debug] AMX backtrace:
+[09:10:35] [debug] #0 003518f4 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:9924
+[09:10:35] [CARREGADO] Munições no chão do Servidor: 23 
+[09:10:35] [CARREGADO] Atualmente existem 0 drogas plantadas por SA.
+[09:10:35] [CARREGADO] Drogas no chão do Servidor: 0
+[09:10:35] [CARREGADO] Drogas na Pos 0: 0
+[09:10:35] [CARREGADO] Pixes: 22
+[09:10:36] [CARREGADO] Multas: 0
+[09:10:36] [debug] Long callback execution detected (hang or performance issue)
+[09:10:36] [debug] AMX backtrace:
+[09:10:36] [debug] #0 003539a0 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:10028
+[09:10:36] [CARREGADO] Cofre do governo: US$999938086
+[09:10:36] [SERVER-INFO] Carregado com sucesso!
+[09:10:42] [debug] Long callback execution detected (hang or performance issue)
+[09:10:42] [debug] AMX backtrace:
+[09:10:42] [debug] #0 003538d4 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:10026
+[09:10:42] [debug] Long callback execution detected (hang or performance issue)
+[09:10:42] [debug] AMX backtrace:
+[09:10:42] [debug] #0 003539b4 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:10028
+[09:10:43] [debug] Long callback execution detected (hang or performance issue)
+[09:10:43] [debug] AMX backtrace:
+[09:10:43] [debug] #0 003518d0 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:9922
+[09:10:44] [debug] Long callback execution detected (hang or performance issue)
+[09:10:44] [debug] AMX backtrace:
+[09:10:44] [debug] #0 003518d8 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:9922
+[09:10:45] [debug] Long callback execution detected (hang or performance issue)
+[09:10:45] [debug] AMX backtrace:
+[09:10:45] [debug] #0 00353998 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:10028
+[09:10:46] [debug] Long callback execution detected (hang or performance issue)
+[09:10:46] [debug] AMX backtrace:
+[09:10:46] [debug] #0 003538ac in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:10026
+[09:10:47] [debug] Long callback execution detected (hang or performance issue)
+[09:10:47] [debug] AMX backtrace:
+[09:10:47] [debug] #0 003539bc in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:10028
+[09:10:48] [debug] Long callback execution detected (hang or performance issue)
+[09:10:48] [debug] AMX backtrace:
+[09:10:48] [debug] #0 0035194c in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:9924
+[09:10:49] [debug] Long callback execution detected (hang or performance issue)
+[09:10:49] [debug] AMX backtrace:
+[09:10:49] [debug] #0 00353984 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:10028
+[09:10:50] [debug] Long callback execution detected (hang or performance issue)
+[09:10:50] [debug] AMX backtrace:
+[09:10:50] [debug] #0 003538dc in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:10026
+[09:10:51] [debug] Long callback execution detected (hang or performance issue)
+[09:10:51] [debug] AMX backtrace:
+[09:10:51] [debug] #0 003518f4 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:9924
+[09:10:52] [debug] Long callback execution detected (hang or performance issue)
+[09:10:52] [debug] AMX backtrace:
+[09:10:52] [debug] #0 003541a0 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:10058
+[09:10:53] [debug] Long callback execution detected (hang or performance issue)
+[09:10:53] [debug] AMX backtrace:
+[09:10:53] [debug] #0 003518c8 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:9922
+[09:10:55] [debug] Long callback execution detected (hang or performance issue)
+[09:10:55] [debug] AMX backtrace:
+[09:10:55] [debug] #0 00353994 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:10028
+[09:10:56] [debug] Long callback execution detected (hang or performance issue)
+[09:10:56] [debug] AMX backtrace:
+[09:10:56] [debug] #0 00353a8c in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:10029
+[09:10:57] [debug] Long callback execution detected (hang or performance issue)
+[09:10:57] [debug] AMX backtrace:
+[09:10:57] [debug] #0 003538dc in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:10026
+[09:10:58] [debug] Long callback execution detected (hang or performance issue)
+[09:10:58] [debug] AMX backtrace:
+[09:10:58] [debug] #0 0035398c in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:10028
+[09:10:59] [debug] Long callback execution detected (hang or performance issue)
+[09:10:59] [debug] AMX backtrace:
+[09:10:59] [debug] #0 00353904 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:10026
+[09:11:00] [debug] Long callback execution detected (hang or performance issue)
+[09:11:00] [debug] AMX backtrace:
+[09:11:00] [debug] #0 003539bc in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:10028
+[09:11:01] [debug] Long callback execution detected (hang or performance issue)
+[09:11:01] [debug] AMX backtrace:
+[09:11:01] [debug] #0 003518c4 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:9922
+[09:11:02] [debug] Long callback execution detected (hang or performance issue)
+[09:11:02] [debug] AMX backtrace:
+[09:11:02] [debug] #0 00353a68 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:10029
+[09:11:03] [debug] Long callback execution detected (hang or performance issue)
+[09:11:03] [debug] AMX backtrace:
+[09:11:03] [debug] #0 003538d4 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:10026
+[09:11:04] [debug] Long callback execution detected (hang or performance issue)
+[09:11:04] [debug] AMX backtrace:
+[09:11:04] [debug] #0 003518dc in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:9922
+[09:11:05] [debug] Long callback execution detected (hang or performance issue)
+[09:11:05] [debug] AMX backtrace:
+[09:11:05] [debug] #0 003518dc in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:9922
+[09:11:06] [debug] Long callback execution detected (hang or performance issue)
+[09:11:06] [debug] AMX backtrace:
+[09:11:06] [debug] #0 00353a54 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:10029
+[09:11:07] [debug] Long callback execution detected (hang or performance issue)
+[09:11:07] [debug] AMX backtrace:
+[09:11:07] [debug] #0 00353900 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:10026
+[09:11:08] [debug] Long callback execution detected (hang or performance issue)
+[09:11:08] [debug] AMX backtrace:
+[09:11:08] [debug] #0 0035194c in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:9924
+[09:11:10] [debug] Long callback execution detected (hang or performance issue)
+[09:11:10] [debug] AMX backtrace:
+[09:11:10] [debug] #0 00351920 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:9924
+[09:11:11] [debug] Long callback execution detected (hang or performance issue)
+[09:11:11] [debug] AMX backtrace:
+[09:11:11] [debug] #0 00351938 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:9924
+[09:11:12] [debug] Long callback execution detected (hang or performance issue)
+[09:11:12] [debug] AMX backtrace:
+[09:11:12] [debug] #0 003538f8 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:10026
+[09:11:13] [debug] Long callback execution detected (hang or performance issue)
+[09:11:13] [debug] AMX backtrace:
+[09:11:13] [debug] #0 00353a40 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:10029
+[09:11:14] [debug] Long callback execution detected (hang or performance issue)
+[09:11:14] [debug] AMX backtrace:
+[09:11:14] [debug] #0 00351920 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:9924
+[09:11:15] [debug] Long callback execution detected (hang or performance issue)
+[09:11:15] [debug] AMX backtrace:
+[09:11:15] [debug] #0 003538d0 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:10026
+[09:11:16] [debug] Long callback execution detected (hang or performance issue)
+[09:11:16] [debug] AMX backtrace:
+[09:11:16] [debug] #0 003538ac in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:10026
+[09:11:17] [debug] Long callback execution detected (hang or performance issue)
+[09:11:17] [debug] AMX backtrace:
+[09:11:17] [debug] #0 00351944 in public Timer_Segundos () at C:\Users\Administrator\Documents\GitHub\gamemode\gamemodes\wtrp.pwn:9924

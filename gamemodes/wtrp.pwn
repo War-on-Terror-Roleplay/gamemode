@@ -128,15 +128,15 @@ new AvisoTiroOuvido[MAX_PLAYERS][8000];
 
 new ambiente = 1; // 0  - Localhost 1 - Produção
 
-#define localhost_Connection   "198.50.187.244"
-#define localhost_User         "yurib_8244"
-#define localhost_DB           "yurib_8244"
-#define localhost_Password     "f3igS42c3h"
+#define localhost_Connection   "localhost"
+#define localhost_User         "localhost"
+#define localhost_DB           "localhost"
+#define localhost_Password     "localhost"
 
-#define sz_Connection   "198.50.187.244"
-#define sz_User         "yurib_8244"
-#define sz_DB           "yurib_8244"
-#define sz_Password     "f3igS42c3h"
+#define sz_Connection   "localhost"
+#define sz_User         "localhost"
+#define sz_DB           "localhost"
+#define sz_Password     "localhost"
 
 
 //====== [DEFINIÇÕES DO SERVIDOR] =======================================================
@@ -5988,7 +5988,7 @@ public mudarclima()
 	return 1;
 }
 
-new SERVER_DOWNLOAD[] = "https://progressive-roleplay.com/modsamp";
+new SERVER_DOWNLOAD[] = "https://progressive-roleplay.com";
 public OnPlayerRequestDownload(playerid, type, crc)
 {
     if(!IsPlayerConnected(playerid)) return 0;

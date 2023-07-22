@@ -1,7 +1,9 @@
-## Bem vindo ao Gamemode
-Modifique o SERVER_DOWNLOAD para o link do seu local host;
-Upe os modelos da pasta models em XAMPP > HTDOCS;
-Use o XAMPP 5.6;
+Bem vindo ao Gamemode
+   — Modifique o SERVER_DOWNLOAD para o link do seu local host;
+   — Upe os modelos da pasta models em XAMPP > HTDOCS;
+   — Use o XAMPP 5.6+;
 
-## Upando gamemode
-Sempre utilize a branch DEVELOPMENT;
+Arquivo database
+   — db.sql ou prrpoficial.sql
+
+Obs: Lembra-se de configurar a sua conexão com o banco de dados.
